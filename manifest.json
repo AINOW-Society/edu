@@ -12,20 +12,20 @@
   "dir": "ltr",
   "icons": [
     {
-      "src": "/assets/icon-any.svg",
-      "sizes": "192x192",
+      "src": "/assets/logo.svg",
+      "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "/assets/icon-any.svg",
+      "src": "/assets/logo.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any"
     },
     {
       "src": "/assets/icon-maskable.svg",
-      "sizes": "512x512",
+      "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "maskable"
     }
