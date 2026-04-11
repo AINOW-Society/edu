@@ -3593,6 +3593,80 @@ button {
     border-color: rgba(217, 119, 87, 0.2);
 }
 
+@keyframes skeleton-loading {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+.skeleton {
+    background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-body) 50%, var(--bg-card) 75%);
+    background-size: 1000px 100%;
+    animation: skeleton-loading 2s infinite;
+    border-radius: var(--radius-sm);
+}
+
+.skeleton-text {
+    height: 16px;
+    margin-bottom: 8px;
+}
+
+.skeleton-heading {
+    height: 24px;
+    margin-bottom: 16px;
+}
+
+.skeleton-card {
+    padding: 16px;
+    border-radius: var(--radius-md);
+    margin-bottom: 12px;
+}
+
+.infinite-scroll-trigger {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.infinite-scroll-loader {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.infinite-scroll-loader span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    animation: bounce 1.4s infinite;
+}
+
+.infinite-scroll-loader span:nth-child(1) { animation-delay: 0s; }
+.infinite-scroll-loader span:nth-child(2) { animation-delay: 0.2s; }
+.infinite-scroll-loader span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+    0%, 100% { opacity: 0.3; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-10px); }
+}
+
+button, a, input, textarea, select {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+}
+
+[role="button"]:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+}
+
 [data-theme="dark"] .tool-card:hover {
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
 }

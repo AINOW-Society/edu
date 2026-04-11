@@ -18,6 +18,9 @@ const App = {
     _isRefreshing: false,
     _pullToRefreshActive: false,
     _startY: 0,
+    _requestCache: new Map(),
+    _scrollDebounceTimers: new Map(),
+    _activeRequestsLoading: new Set(),
 
     async init() {
         if (window.I18n) await I18n.init();
@@ -33,6 +36,7 @@ const App = {
         this._initOfflineIndicator();
         this._initInstallPrompt();
         this._initPullToRefresh();
+        this._initInfiniteScroll();
         this._initOutsideClickHandlers();
 
         document.querySelectorAll('.lang-option').forEach(btn => {
@@ -1302,6 +1306,109 @@ const App = {
                 }
             }, { passive: true });
         }
+    },
+
+    _initInfiniteScroll() {
+        const scrollContainers = [
+            'view-guide', 'view-prompts', 'view-resources', 'view-tools', 'view-about', 'view-help'
+        ];
+
+        scrollContainers.forEach(containerId => {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            container.addEventListener('scroll', (e) => {
+                this._debounce(`scroll-${containerId}`, () => {
+                    const scrollElement = e.target;
+                    const scrollPercentage = (scrollElement.scrollTop + scrollElement.clientHeight) / scrollElement.scrollHeight;
+                    
+                    if (scrollPercentage > 0.85) {
+                        this._triggerInfiniteLoad(containerId);
+                    }
+                }, 300);
+            }, { passive: true });
+        });
+    },
+
+    _debounce(key, callback, delay) {
+        if (this._scrollDebounceTimers.has(key)) {
+            clearTimeout(this._scrollDebounceTimers.get(key));
+        }
+        
+        const timer = setTimeout(() => {
+            callback();
+            this._scrollDebounceTimers.delete(key);
+        }, delay);
+        
+        this._scrollDebounceTimers.set(key, timer);
+    },
+
+    _triggerInfiniteLoad(containerId) {
+        if (this._activeRequestsLoading.has(containerId)) return;
+        this._activeRequestsLoading.add(containerId);
+        
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        let itemsToAdd = 0;
+        switch(this.currentView) {
+            case 'guide':
+                itemsToAdd = 3;
+                break;
+            case 'prompts':
+                itemsToAdd = 5;
+                break;
+            case 'resources':
+                itemsToAdd = 4;
+                break;
+            case 'tools':
+                itemsToAdd = 6;
+                break;
+            default:
+                itemsToAdd = 3;
+        }
+
+        this._showSkeletonLoaders(container, itemsToAdd);
+        
+        setTimeout(() => {
+            this._hideSkeletonLoaders(container);
+            this._activeRequestsLoading.delete(containerId);
+        }, 600);
+    },
+
+    _showSkeletonLoaders(container, count) {
+        for (let i = 0; i < count; i++) {
+            const skeleton = document.createElement('div');
+            skeleton.className = 'skeleton-card skeleton';
+            skeleton.innerHTML = `
+                <div class="skeleton skeleton-heading" style="width: 70%;"></div>
+                <div class="skeleton skeleton-text" style="width: 100%;"></div>
+                <div class="skeleton skeleton-text" style="width: 90%;"></div>
+            `;
+            skeleton.setAttribute('data-skeleton', 'true');
+            container.appendChild(skeleton);
+        }
+    },
+
+    _hideSkeletonLoaders(container) {
+        container.querySelectorAll('[data-skeleton="true"]').forEach(skeleton => {
+            skeleton.remove();
+        });
+    },
+
+    _debounceRequest(key, fn, delay = 500) {
+        const now = Date.now();
+        const lastCall = this._requestCache.get(key) || 0;
+        
+        if (now - lastCall < delay) {
+            return Promise.resolve(this._requestCache.get(`${key}-result`));
+        }
+        
+        this._requestCache.set(key, now);
+        const result = fn();
+        this._requestCache.set(`${key}-result`, result);
+        
+        return result;
     }
 };
 
