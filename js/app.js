@@ -1019,32 +1019,69 @@ const App = {
     },
 
     _initInstallPrompt() {
-        // Already running as installed PWA — never show the button
+        // Already running as installed PWA — never show anything
         if (window.matchMedia('(display-mode: standalone)').matches || navigator.standalone) return;
 
         const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+        const isMobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent);
+        let bannerShown = false;
+        try { bannerShown = localStorage.getItem('ainow-install-banner-shown') === '1'; } catch(e) {}
 
         // Pick up prompt captured before app.js loaded
         if (window._pwaPrompt) {
             this._deferredInstallPrompt = window._pwaPrompt;
             this._showInstallBtn();
+            if (isMobile && !bannerShown) setTimeout(() => this._showInstallBanner(), 2500);
         }
 
-        // iOS: beforeinstallprompt never fires — show button so user can get step-by-step guide
-        if (isIOS) this._showInstallBtn();
+        // iOS: show button + one-time banner
+        if (isIOS) {
+            this._showInstallBtn();
+            if (!bannerShown) setTimeout(() => this._showInstallBanner(), 2500);
+        }
 
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             this._deferredInstallPrompt = e;
             window._pwaPrompt = e;
             this._showInstallBtn();
+            if (isMobile && !bannerShown) {
+                bannerShown = true;
+                setTimeout(() => this._showInstallBanner(), 2500);
+            }
         });
 
         window.addEventListener('appinstalled', () => {
             this._deferredInstallPrompt = null;
             window._pwaPrompt = null;
             this._hideInstallBtn();
+            document.getElementById('install-banner')?.remove();
+            try { localStorage.setItem('ainow-install-banner-shown', '1'); } catch(e) {}
         });
+    },
+
+    _showInstallBanner() {
+        if (document.getElementById('install-banner')) return;
+        const t = (k, fb) => (I18n && I18n.t(k) !== k) ? I18n.t(k) : fb;
+        const banner = document.createElement('div');
+        banner.id = 'install-banner';
+        banner.innerHTML = `
+            <img src="assets/logo.svg" class="install-banner-logo" alt="AINOW" aria-hidden="true">
+            <div class="install-banner-text">
+                <strong>AINOW Education</strong>
+                <span>${t('pwa.banner.desc', 'Add to your home screen for quick access')}</span>
+            </div>
+            <button class="install-banner-btn" onclick="document.getElementById('install-banner').remove(); App.triggerInstall();">
+                ${t('pwa.install', 'Install')}
+            </button>
+            <button class="install-banner-close" onclick="document.getElementById('install-banner').remove();" aria-label="Close">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        `;
+        document.body.appendChild(banner);
+        try { localStorage.setItem('ainow-install-banner-shown', '1'); } catch(e) {}
+        // Auto-dismiss after 10 seconds
+        setTimeout(() => banner?.remove(), 10000);
     },
 
     _showInstallBtn() {
