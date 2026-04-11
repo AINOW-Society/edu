@@ -1019,24 +1019,19 @@ const App = {
     },
 
     _initInstallPrompt() {
-        // iOS: show install button with instructions if not already in standalone mode
-        const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+        const btn = document.getElementById('pwa-install-btn');
+        // Hide if already running as installed PWA
         const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-        if (isIOS && !isStandalone) {
-            const navBtn = document.getElementById('nav-install-btn');
-            if (navBtn) navBtn.style.display = '';
-        }
+        if (isStandalone && btn) btn.classList.add('installed');
 
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             this._deferredInstallPrompt = e;
-            const btn = document.getElementById('pwa-install-btn');
-            if (btn) btn.classList.add('visible');
         });
         window.addEventListener('appinstalled', () => {
             this._deferredInstallPrompt = null;
-            const btn = document.getElementById('pwa-install-btn');
-            if (btn) btn.classList.remove('visible');
+            const b = document.getElementById('pwa-install-btn');
+            if (b) b.classList.add('installed');
         });
     },
 

@@ -4125,6 +4125,15 @@ button {
     display: flex;
 }
 
+@media (max-width: 768px) {
+    #pwa-install-btn {
+        display: flex;
+    }
+    #pwa-install-btn.installed {
+        display: none !important;
+    }
+}
+
 
 #sw-update-banner {
     position: fixed;
