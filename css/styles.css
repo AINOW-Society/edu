@@ -4124,6 +4124,12 @@ button {
     display: flex;
 }
 
+@media (max-width: 768px) {
+    #pwa-install-btn {
+        display: none !important;
+    }
+}
+
 
 #install-banner {
     position: fixed;
