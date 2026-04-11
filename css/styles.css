@@ -4116,19 +4116,6 @@ button {
     background: #f87171;
 }
 
-#pwa-install-btn {
-    display: none;
-}
-
-#pwa-install-btn.visible {
-    display: flex;
-}
-
-@media (max-width: 768px) {
-    #pwa-install-btn {
-        display: none !important;
-    }
-}
 
 
 #install-banner {
