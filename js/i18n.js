@@ -40,6 +40,8 @@ const I18n = {
             'offline.label': 'Офлајн',
             'pwa.update.msg': 'Нова верзија е достапна.',
             'pwa.update.btn': 'Освежи',
+            'pwa.install': 'Инсталирај',
+            'pwa.ios.hint': 'Допри го Share копчето, па „Додај на почетен екран"',
             'sidebar.ai.label': 'ВИ АЛАТКИ',
             'sidebar.settings.label': 'ПОСТАВКИ',
             'sidebar.quicklinks': 'БРЗИ ВРСКИ',
@@ -376,6 +378,9 @@ const I18n = {
             'help.faq.q5.a': 'Да, платформата е 100% офлајн достапна со Service Worker технологија.',
             'help.faq.q6.q': 'Како да печатам материјали?',
             'help.faq.q6.a': 'Користете го табот Ресурси за да изберете содржина и да генерирате PDF прирачник.',
+            'ptr.pull': 'Повлечи за освежување',
+            'ptr.release': 'Пушти за освежување',
+            'ptr.refreshing': 'Се освежува…',
         },
 
         en: {
@@ -416,6 +421,8 @@ const I18n = {
             'offline.label': 'Offline',
             'pwa.update.msg': 'A new version is available.',
             'pwa.update.btn': 'Refresh',
+            'pwa.install': 'Install App',
+            'pwa.ios.hint': 'Tap the Share button, then "Add to Home Screen"',
             'sidebar.ai.label': 'AI TOOLS',
             'sidebar.settings.label': 'SETTINGS',
             'sidebar.quicklinks': 'QUICK LINKS',
@@ -745,6 +752,9 @@ const I18n = {
             'help.faq.q5.a': 'Yes, the platform is 100% offline-capable with a Service Worker.',
             'help.faq.q6.q': 'How do I print materials?',
             'help.faq.q6.a': 'Use the Resources tab to select content and generate a PDF handout.',
+            'ptr.pull': 'Pull to refresh',
+            'ptr.release': 'Release to refresh',
+            'ptr.refreshing': 'Refreshing…',
         },
 
         sq: {
@@ -785,6 +795,8 @@ const I18n = {
             'offline.label': 'Jashtë linje',
             'pwa.update.msg': 'Një version i ri është i disponueshëm.',
             'pwa.update.btn': 'Rifresko',
+            'pwa.install': 'Instalo',
+            'pwa.ios.hint': 'Prekni butonin Share, pastaj "Add to Home Screen"',
             'sidebar.ai.label': 'MJETE AI',
             'sidebar.settings.label': 'CILËSIMET',
             'sidebar.quicklinks': 'LIDHJE TË SHPEJTA',
@@ -1109,6 +1121,9 @@ const I18n = {
             'help.faq.q5.a': 'Po, platforma është 100% e disponueshme jashtë linje me Service Worker.',
             'help.faq.q6.q': 'Si të printoj materialet?',
             'help.faq.q6.a': 'Përdorni tabin Burime për të zgjedhur përmbajtjen dhe gjeneruar një manual PDF.',
+            'ptr.pull': 'Tërhiq për rifreskim',
+            'ptr.release': 'Lësho për rifreskim',
+            'ptr.refreshing': 'Duke rifreskuar…',
         }
     },
 

@@ -268,11 +268,14 @@ window.ResourceManager = {
     _renderCheckboxItem(id, title, meta = '') {
         const isSelected = this.selectedItems.has(id);
         return `
-            <label style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--border-light); border-radius: 8px; cursor: pointer; transition: all 0.2s; background: var(--bg-card);">
-                <input type="checkbox" value="${id}" ${isSelected ? 'checked' : ''} onchange="ResourceManager._toggleItem('${id}', this.checked); ResourceManager.updatePreview()" style="width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer;">
-                <div style="flex: 1;">
-                    <span style="font-size: 14px; font-weight: 500; color: var(--text-primary); line-height: 1.4;">${title}</span>
-                    ${meta ? `<div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; font-weight: 700; margin-top: 4px;">${meta}</div>` : ''}
+            <label class="resource-item${isSelected ? ' resource-item--checked' : ''}">
+                <input type="checkbox" class="resource-checkbox-input" value="${escapeHtml(id)}" ${isSelected ? 'checked' : ''}
+                    onchange="ResourceManager._toggleItem('${escapeHtml(id)}', this.checked); ResourceManager.updatePreview(); this.closest('.resource-item').classList.toggle('resource-item--checked', this.checked)"
+                    aria-label="${escapeHtml(title)}">
+                <span class="resource-checkbox" aria-hidden="true"></span>
+                <div class="resource-item-text">
+                    <span class="resource-item-title">${title}</span>
+                    ${meta ? `<div class="resource-item-meta">${meta}</div>` : ''}
                 </div>
             </label>
         `;

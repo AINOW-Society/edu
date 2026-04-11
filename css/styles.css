@@ -3593,80 +3593,6 @@ button {
     border-color: rgba(217, 119, 87, 0.2);
 }
 
-@keyframes skeleton-loading {
-    0% { background-position: -1000px 0; }
-    100% { background-position: 1000px 0; }
-}
-
-.skeleton {
-    background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-body) 50%, var(--bg-card) 75%);
-    background-size: 1000px 100%;
-    animation: skeleton-loading 2s infinite;
-    border-radius: var(--radius-sm);
-}
-
-.skeleton-text {
-    height: 16px;
-    margin-bottom: 8px;
-}
-
-.skeleton-heading {
-    height: 24px;
-    margin-bottom: 16px;
-}
-
-.skeleton-card {
-    padding: 16px;
-    border-radius: var(--radius-md);
-    margin-bottom: 12px;
-}
-
-.infinite-scroll-trigger {
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.infinite-scroll-loader {
-    display: flex;
-    gap: 6px;
-    align-items: center;
-}
-
-.infinite-scroll-loader span {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: var(--primary);
-    animation: bounce 1.4s infinite;
-}
-
-.infinite-scroll-loader span:nth-child(1) { animation-delay: 0s; }
-.infinite-scroll-loader span:nth-child(2) { animation-delay: 0.2s; }
-.infinite-scroll-loader span:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes bounce {
-    0%, 100% { opacity: 0.3; transform: translateY(0); }
-    50% { opacity: 1; transform: translateY(-10px); }
-}
-
-button, a, input, textarea, select {
-    min-height: 44px;
-    min-width: 44px;
-}
-
-button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
-    outline: 3px solid var(--primary);
-    outline-offset: 2px;
-}
-
-[role="button"]:focus-visible {
-    outline: 3px solid var(--primary);
-    outline-offset: 2px;
-}
-
 [data-theme="dark"] .tool-card:hover {
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
 }
@@ -4199,6 +4125,14 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
     display: flex;
 }
 
+.nav-tab-install {
+    color: var(--primary);
+}
+
+.nav-tab-install svg {
+    stroke: var(--primary);
+}
+
 #sw-update-banner {
     position: fixed;
     bottom: 80px;
@@ -4283,5 +4217,325 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
             opacity: 1;
             transform: translateY(0);
         }
+    }
+}
+
+/* ===================================================
+   RESOURCE SELECTION — CUSTOM STYLED CHECKBOXES
+   =================================================== */
+
+.resource-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 1.5px solid var(--border-light);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+    background: var(--bg-card);
+    user-select: none;
+    min-height: 48px;
+    position: relative;
+}
+
+.resource-item:hover {
+    background: var(--primary-light);
+    border-color: rgba(217, 119, 87, 0.35);
+}
+
+.resource-item:has(input:checked),
+.resource-item.resource-item--checked {
+    background: var(--primary-light);
+    border-color: var(--primary);
+    box-shadow: 0 2px 8px rgba(217, 119, 87, 0.12);
+}
+
+.resource-checkbox-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.resource-checkbox {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border: 2px solid var(--border-hover);
+    border-radius: 6px;
+    background: var(--bg-app);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, border-color 0.15s, transform 0.15s;
+    flex-shrink: 0;
+}
+
+.resource-item:has(input:checked) .resource-checkbox,
+.resource-item.resource-item--checked .resource-checkbox {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.resource-item:has(input:checked) .resource-checkbox::after,
+.resource-item.resource-item--checked .resource-checkbox::after {
+    content: '';
+    width: 5px;
+    height: 9px;
+    border: 2px solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg) translateY(-1px);
+    display: block;
+}
+
+[data-theme="dark"] .resource-checkbox {
+    background: var(--bg-input);
+    border-color: var(--border-hover);
+}
+
+.resource-item-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.resource-item-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.4;
+    display: block;
+}
+
+.resource-item:has(input:checked) .resource-item-title,
+.resource-item.resource-item--checked .resource-item-title {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.resource-item-meta {
+    font-size: 10px;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+}
+
+/* ===================================================
+   MOBILE SIDEBAR DRAWER
+   =================================================== */
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: none !important;
+    }
+
+    .app-sidebar {
+        position: fixed !important;
+        top: 52px !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        width: 280px !important;
+        max-width: 85vw !important;
+        z-index: 149 !important;
+        transform: translateX(-100%) !important;
+        transition: transform 0.25s var(--ease-smooth, cubic-bezier(0.4,0,0.2,1)) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow-y: auto !important;
+        border-right: 1px solid var(--border-light) !important;
+        padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+
+    .app-sidebar.open {
+        transform: translateX(0) !important;
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    #sidebar-overlay {
+        z-index: 148 !important;
+        backdrop-filter: none !important;
+    }
+}
+
+/* ===================================================
+   SKELETON LOADING PLACEHOLDERS
+   =================================================== */
+
+@keyframes skeleton-shimmer {
+    0% { background-position: -600px 0; }
+    100% { background-position: 600px 0; }
+}
+
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--border-light) 25%,
+        var(--bg-hover) 50%,
+        var(--border-light) 75%
+    );
+    background-size: 600px 100%;
+    animation: skeleton-shimmer 1.4s ease-in-out infinite;
+    border-radius: var(--radius-sm);
+}
+
+.skeleton-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.skeleton-line {
+    height: 14px;
+    border-radius: 4px;
+}
+
+.skeleton-title {
+    height: 20px;
+    width: 60%;
+    border-radius: 4px;
+}
+
+.skeleton-text {
+    height: 12px;
+    border-radius: 4px;
+}
+
+.skeleton-text:last-child {
+    width: 75%;
+}
+
+/* ===================================================
+   PULL-TO-REFRESH INDICATOR
+   =================================================== */
+
+#pull-to-refresh-indicator {
+    position: fixed;
+    top: 52px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0) scale(0.5);
+    opacity: 0;
+    z-index: 160;
+    transition: opacity 0.2s, transform 0.2s;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+#pull-to-refresh-indicator .ptr-bubble {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(217, 119, 87, 0.4);
+}
+
+#pull-to-refresh-indicator .ptr-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    text-align: center;
+    letter-spacing: 0.03em;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    padding: 3px 10px;
+    border-radius: 999px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+#pull-to-refresh-indicator.ptr-ready .ptr-bubble {
+    background: var(--primary);
+    box-shadow: 0 4px 16px rgba(217, 119, 87, 0.5);
+    transform: scale(1.08);
+}
+
+@media (min-width: 769px) {
+    #pull-to-refresh-indicator {
+        top: 60px;
+    }
+}
+
+/* ===================================================
+   FOOTER IMPROVEMENTS
+   =================================================== */
+
+.app-footer {
+    margin-top: 48px;
+    padding: 56px 24px 48px;
+}
+
+.footer-bottom {
+    font-family: var(--font-code, 'JetBrains Mono', monospace);
+}
+
+@media (max-width: 768px) {
+    .app-footer {
+        padding: 40px 20px;
+        margin-top: 24px;
+    }
+
+    .footer-icon-link {
+        width: 44px;
+        height: 44px;
+        border-radius: var(--radius-md);
+        background: var(--bg-sidebar);
+        border: 1px solid var(--border-light);
+        transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+
+    .footer-icon-link:hover {
+        transform: none;
+        background: var(--primary-light);
+        border-color: var(--primary);
+        color: var(--primary);
+    }
+
+    .footer-title {
+        font-size: 18px;
+    }
+}
+
+/* ===================================================
+   GENERAL MOBILE POLISH
+   =================================================== */
+
+@media (max-width: 768px) {
+    /* Minimum 44px tap targets on mobile */
+    .btn-icon {
+        width: 40px;
+        height: 40px;
+        min-height: 40px;
+    }
+
+    /* Improve select-all/none buttons in resources */
+    .resources-selection button[onclick*="selectAll"] {
+        padding: 6px 12px;
+        min-height: 36px;
+        font-size: 12px;
+        border-radius: var(--radius-sm);
+    }
+
+    /* Resources selection list gap on mobile */
+    #resources-list {
+        gap: 8px;
+    }
+
+    /* Resources action panel spacing */
+    .resources-action {
+        gap: 12px;
     }
 }

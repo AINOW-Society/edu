@@ -1,4 +1,4 @@
-const APP_VERSION = 'v77';
+const APP_VERSION = 'v79';
 
 function escapeHtml(str) {
     return String(str)
@@ -18,9 +18,7 @@ const App = {
     _isRefreshing: false,
     _pullToRefreshActive: false,
     _startY: 0,
-    _requestCache: new Map(),
-    _scrollDebounceTimers: new Map(),
-    _activeRequestsLoading: new Set(),
+    _scrollPositions: {},
 
     async init() {
         if (window.I18n) await I18n.init();
@@ -36,7 +34,6 @@ const App = {
         this._initOfflineIndicator();
         this._initInstallPrompt();
         this._initPullToRefresh();
-        this._initInfiniteScroll();
         this._initOutsideClickHandlers();
 
         document.querySelectorAll('.lang-option').forEach(btn => {
@@ -71,6 +68,13 @@ const App = {
 
     async switchView(viewId) {
         this.closeLangMenu();
+
+        // Save scroll position for the current view before switching
+        const mainContent = document.getElementById('main-content');
+        if (mainContent && this.currentView && this.currentView !== viewId) {
+            this._scrollPositions[this.currentView] = mainContent.scrollTop;
+        }
+
         this.currentView = viewId;
 
         document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
@@ -89,6 +93,12 @@ const App = {
         const overlay = document.getElementById('sidebar-overlay');
         if (sidebar) sidebar.classList.remove('open');
         if (overlay) overlay.classList.remove('open');
+
+        // Restore saved scroll position, or reset to top for new/first visit
+        if (mainContent) {
+            const saved = this._scrollPositions[viewId];
+            mainContent.scrollTop = (saved !== undefined) ? saved : 0;
+        }
 
         if (viewId === 'guide') {
             const activeItem = document.querySelector('.sidebar-item.active');
@@ -1009,26 +1019,47 @@ const App = {
     },
 
     _initInstallPrompt() {
+        // iOS: show install button with instructions if not already in standalone mode
+        const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+        const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+        if (isIOS && !isStandalone) {
+            const navBtn = document.getElementById('nav-install-btn');
+            if (navBtn) navBtn.style.display = '';
+        }
+
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             this._deferredInstallPrompt = e;
             const btn = document.getElementById('pwa-install-btn');
             if (btn) btn.classList.add('visible');
+            const navBtn = document.getElementById('nav-install-btn');
+            if (navBtn) navBtn.style.display = '';
         });
         window.addEventListener('appinstalled', () => {
             this._deferredInstallPrompt = null;
             const btn = document.getElementById('pwa-install-btn');
             if (btn) btn.classList.remove('visible');
+            const navBtn = document.getElementById('nav-install-btn');
+            if (navBtn) navBtn.style.display = 'none';
         });
     },
 
     triggerInstall() {
-        if (!this._deferredInstallPrompt) return;
+        if (!this._deferredInstallPrompt) {
+            // iOS fallback: show instructions
+            const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+            if (isIOS) {
+                alert(I18n ? (I18n.t('pwa.ios.hint') || 'Tap the Share button, then "Add to Home Screen"') : 'Tap the Share button, then "Add to Home Screen"');
+            }
+            return;
+        }
         this._deferredInstallPrompt.prompt();
         this._deferredInstallPrompt.userChoice.then(() => {
             this._deferredInstallPrompt = null;
             const btn = document.getElementById('pwa-install-btn');
             if (btn) btn.classList.remove('visible');
+            const navBtn = document.getElementById('nav-install-btn');
+            if (navBtn) navBtn.style.display = 'none';
         });
     },
 
@@ -1132,49 +1163,43 @@ const App = {
     },
 
     _initPullToRefresh() {
-        const scrollableContainers = [
-            document.getElementById('view-guide'),
-            document.getElementById('view-prompts'),
-            document.getElementById('view-resources'),
-            document.getElementById('view-tools'),
-            document.getElementById('view-about'),
-            document.getElementById('view-help')
-        ].filter(Boolean);
+        const mainContent = document.getElementById('main-content');
+        if (!mainContent) return;
 
-        scrollableContainers.forEach(container => {
-            container.addEventListener('touchstart', (e) => this._handlePullStart(e, container), false);
-            container.addEventListener('touchmove', (e) => this._handlePullMove(e, container), false);
-            container.addEventListener('touchend', (e) => this._handlePullEnd(e, container), false);
-        });
+        mainContent.addEventListener('touchstart', (e) => this._handlePullStart(e, mainContent), { passive: true });
+        mainContent.addEventListener('touchmove', (e) => this._handlePullMove(e, mainContent), { passive: false });
+        mainContent.addEventListener('touchend', (e) => this._handlePullEnd(e, mainContent), { passive: true });
     },
 
     _handlePullStart(e, container) {
         if (this._isRefreshing) return;
         this._startY = e.touches[0].clientY;
-        const scrollPos = container.scrollTop;
-        if (scrollPos <= 5) this._pullToRefreshActive = true;
+        if (container.scrollTop <= 5) this._pullToRefreshActive = true;
     },
 
     _handlePullMove(e, container) {
         if (!this._pullToRefreshActive || this._isRefreshing) return;
-        
+
         const currentY = e.touches[0].clientY;
         const diff = currentY - this._startY;
-        
+
         if (diff > 0 && container.scrollTop <= 5) {
             e.preventDefault();
             const pullIndicator = this._ensurePullIndicator();
             const threshold = 80;
             const progress = Math.min(diff / threshold, 1);
-            pullIndicator.style.opacity = progress;
-            pullIndicator.style.transform = `translateY(${Math.min(diff, threshold)}px) scale(${0.5 + progress * 0.5})`;
-            
+            const translateY = Math.min(diff * 0.55, threshold * 0.55);
+
+            pullIndicator.style.opacity = String(progress);
+            pullIndicator.style.transform = `translateX(-50%) translateY(${translateY}px) scale(${0.5 + progress * 0.5})`;
+
+            const label = pullIndicator.querySelector('.ptr-label');
             if (diff > threshold) {
-                pullIndicator.classList.add('ready');
-                pullIndicator.querySelector('.pull-text').textContent = 'Release to refresh';
+                pullIndicator.classList.add('ptr-ready');
+                if (label) label.textContent = I18n ? I18n.t('ptr.release') || 'Release to refresh' : 'Release to refresh';
             } else {
-                pullIndicator.classList.remove('ready');
-                pullIndicator.querySelector('.pull-text').textContent = 'Pull to refresh';
+                pullIndicator.classList.remove('ptr-ready');
+                if (label) label.textContent = I18n ? I18n.t('ptr.pull') || 'Pull to refresh' : 'Pull to refresh';
             }
         }
     },
@@ -1182,19 +1207,18 @@ const App = {
     _handlePullEnd(e, container) {
         if (!this._pullToRefreshActive) return;
         this._pullToRefreshActive = false;
-        
+
         const pullIndicator = document.getElementById('pull-to-refresh-indicator');
-        if (!pullIndicator) return;
 
         const currentY = e.changedTouches[0].clientY;
         const diff = currentY - this._startY;
-        
+
         if (diff > 80 && !this._isRefreshing) {
             this._refreshCurrentView(container);
+        } else if (pullIndicator) {
+            pullIndicator.style.opacity = '0';
+            pullIndicator.style.transform = 'translateX(-50%) translateY(0) scale(0.5)';
         }
-        
-        pullIndicator.style.opacity = '0';
-        pullIndicator.style.transform = 'translateY(0) scale(0.5)';
     },
 
     _ensurePullIndicator() {
@@ -1203,33 +1227,22 @@ const App = {
             indicator = document.createElement('div');
             indicator.id = 'pull-to-refresh-indicator';
             indicator.innerHTML = `
-                <div style="display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: var(--primary); color: white; border-radius: 50%; width: 50px; height: 50px; justify-content: center;">
-                    <div class="pull-spinner" style="width: 20px; height: 20px; border: 2px solid white; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                <div class="ptr-bubble">
+                    <svg class="ptr-spinner" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <circle cx="12" cy="12" r="10" stroke-dasharray="40" stroke-dashoffset="10" stroke-linecap="round"/>
+                    </svg>
                 </div>
-                <div class="pull-text" style="position: absolute; top: -30px; font-size: 12px; color: var(--text-secondary); white-space: nowrap;">Pull to refresh</div>
+                <div class="ptr-label">Pull to refresh</div>
             `;
-            indicator.style.cssText = `
-                position: fixed;
-                top: 60px;
-                left: 50%;
-                transform: translateX(-50%) translateY(0) scale(0.5);
-                opacity: 0;
-                z-index: 100;
-                transition: opacity 0.3s, transform 0.3s;
-                pointer-events: none;
-            `;
-            
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes spin {
-                    to { transform: rotate(360deg); }
-                }
-            `;
-            if (!document.querySelector('style[data-pull-refresh]')) {
-                style.setAttribute('data-pull-refresh', 'true');
+            if (!document.getElementById('ptr-spin-style')) {
+                const style = document.createElement('style');
+                style.id = 'ptr-spin-style';
+                style.textContent = `
+                    @keyframes ptr-spin { to { transform: rotate(360deg); } }
+                    .ptr-spinner { animation: ptr-spin 0.9s linear infinite; }
+                `;
                 document.head.appendChild(style);
             }
-            
             document.body.appendChild(indicator);
         }
         return indicator;
@@ -1238,17 +1251,19 @@ const App = {
     async _refreshCurrentView(container) {
         if (this._isRefreshing) return;
         this._isRefreshing = true;
-        
+
         const scrollPos = container.scrollTop;
         const pullIndicator = document.getElementById('pull-to-refresh-indicator');
         if (pullIndicator) {
-            pullIndicator.querySelector('.pull-text').textContent = 'Refreshing...';
+            const label = pullIndicator.querySelector('.ptr-label');
+            if (label) label.textContent = I18n ? I18n.t('ptr.refreshing') || 'Refreshing…' : 'Refreshing…';
             pullIndicator.style.opacity = '1';
+            pullIndicator.style.transform = 'translateX(-50%) translateY(44px) scale(1)';
         }
 
         try {
             await new Promise(resolve => setTimeout(resolve, 800));
-            
+
             if (this.currentView === 'guide') {
                 const activeItem = document.querySelector('.sidebar-item.active');
                 if (activeItem && activeItem.id) {
@@ -1265,13 +1280,13 @@ const App = {
             } else if (this.currentView === 'tools') {
                 this.renderTools(this.currentToolCategory || 'all');
             }
-            
+
             container.scrollTop = scrollPos;
         } finally {
             this._isRefreshing = false;
             if (pullIndicator) {
                 pullIndicator.style.opacity = '0';
-                pullIndicator.style.transform = 'translateY(0) scale(0.5)';
+                pullIndicator.style.transform = 'translateX(-50%) translateY(0) scale(0.5)';
             }
         }
     },
@@ -1306,109 +1321,6 @@ const App = {
                 }
             }, { passive: true });
         }
-    },
-
-    _initInfiniteScroll() {
-        const scrollContainers = [
-            'view-guide', 'view-prompts', 'view-resources', 'view-tools', 'view-about', 'view-help'
-        ];
-
-        scrollContainers.forEach(containerId => {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-
-            container.addEventListener('scroll', (e) => {
-                this._debounce(`scroll-${containerId}`, () => {
-                    const scrollElement = e.target;
-                    const scrollPercentage = (scrollElement.scrollTop + scrollElement.clientHeight) / scrollElement.scrollHeight;
-                    
-                    if (scrollPercentage > 0.85) {
-                        this._triggerInfiniteLoad(containerId);
-                    }
-                }, 300);
-            }, { passive: true });
-        });
-    },
-
-    _debounce(key, callback, delay) {
-        if (this._scrollDebounceTimers.has(key)) {
-            clearTimeout(this._scrollDebounceTimers.get(key));
-        }
-        
-        const timer = setTimeout(() => {
-            callback();
-            this._scrollDebounceTimers.delete(key);
-        }, delay);
-        
-        this._scrollDebounceTimers.set(key, timer);
-    },
-
-    _triggerInfiniteLoad(containerId) {
-        if (this._activeRequestsLoading.has(containerId)) return;
-        this._activeRequestsLoading.add(containerId);
-        
-        const container = document.getElementById(containerId);
-        if (!container) return;
-
-        let itemsToAdd = 0;
-        switch(this.currentView) {
-            case 'guide':
-                itemsToAdd = 3;
-                break;
-            case 'prompts':
-                itemsToAdd = 5;
-                break;
-            case 'resources':
-                itemsToAdd = 4;
-                break;
-            case 'tools':
-                itemsToAdd = 6;
-                break;
-            default:
-                itemsToAdd = 3;
-        }
-
-        this._showSkeletonLoaders(container, itemsToAdd);
-        
-        setTimeout(() => {
-            this._hideSkeletonLoaders(container);
-            this._activeRequestsLoading.delete(containerId);
-        }, 600);
-    },
-
-    _showSkeletonLoaders(container, count) {
-        for (let i = 0; i < count; i++) {
-            const skeleton = document.createElement('div');
-            skeleton.className = 'skeleton-card skeleton';
-            skeleton.innerHTML = `
-                <div class="skeleton skeleton-heading" style="width: 70%;"></div>
-                <div class="skeleton skeleton-text" style="width: 100%;"></div>
-                <div class="skeleton skeleton-text" style="width: 90%;"></div>
-            `;
-            skeleton.setAttribute('data-skeleton', 'true');
-            container.appendChild(skeleton);
-        }
-    },
-
-    _hideSkeletonLoaders(container) {
-        container.querySelectorAll('[data-skeleton="true"]').forEach(skeleton => {
-            skeleton.remove();
-        });
-    },
-
-    _debounceRequest(key, fn, delay = 500) {
-        const now = Date.now();
-        const lastCall = this._requestCache.get(key) || 0;
-        
-        if (now - lastCall < delay) {
-            return Promise.resolve(this._requestCache.get(`${key}-result`));
-        }
-        
-        this._requestCache.set(key, now);
-        const result = fn();
-        this._requestCache.set(`${key}-result`, result);
-        
-        return result;
     }
 };
 

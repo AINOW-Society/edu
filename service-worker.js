@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ai-edu-v76';
+const CACHE_NAME = 'ai-edu-v78';
 const urlsToCache = [
     '/',
     '/index.html',

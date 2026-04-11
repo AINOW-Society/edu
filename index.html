@@ -241,6 +241,13 @@
             </svg>
             <span data-i18n="nav.about">За нас</span>
         </button>
+        <button class="nav-tab nav-tab-install" id="nav-install-btn" onclick="triggerPWAInstall()" aria-label="Install app" style="display:none;">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M10 3v9m0 0l-3-3m3 3l3-3"></path>
+                <path d="M3 14v1.5A1.5 1.5 0 0 0 4.5 17h11a1.5 1.5 0 0 0 1.5-1.5V14"></path>
+            </svg>
+            <span data-i18n="pwa.install">Инсталирај</span>
+        </button>
     </nav>
 
     <div id="privacy-modal" class="modal-overlay" onclick="if(event.target === this) App.closePrivacyModal()">
