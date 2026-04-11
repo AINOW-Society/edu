@@ -10,23 +10,14 @@
     <link rel="stylesheet" href="css/styles.css">
 
     <script>
-        let _deferredInstallPrompt = null;
+        // Capture install prompt early — fires before app.js loads
+        window._pwaPrompt = null;
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
-            _deferredInstallPrompt = e;
-            const btn = document.getElementById('pwa-install-btn');
-            if (btn) btn.style.display = 'flex';
-        });
-        window.addEventListener('appinstalled', () => {
-            _deferredInstallPrompt = null;
-            const btn = document.getElementById('pwa-install-btn');
-            if (btn) btn.style.display = 'none';
+            window._pwaPrompt = e;
         });
         window.triggerPWAInstall = function() {
-            if (_deferredInstallPrompt) {
-                _deferredInstallPrompt.prompt();
-                _deferredInstallPrompt.userChoice.then(() => { _deferredInstallPrompt = null; });
-            }
+            if (window.App && App.triggerInstall) App.triggerInstall();
         };
     </script>
 
@@ -81,7 +72,7 @@
         
             <div class="header-actions">
                 <span id="offline-indicator" aria-live="polite" data-i18n="offline.label">Офлајн</span>
-                <button id="pwa-install-btn" class="btn-icon" onclick="triggerPWAInstall()" title="Инсталирај апликација" aria-label="Инсталирај апликација" style="display:none;">
+                <button id="pwa-install-btn" class="btn-icon" onclick="triggerPWAInstall()" title="Инсталирај апликација" aria-label="Инсталирај апликација">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
                     </svg>

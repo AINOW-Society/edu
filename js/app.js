@@ -1,4 +1,4 @@
-const APP_VERSION = 'v80';
+const APP_VERSION = 'v0.81';
 
 function escapeHtml(str) {
     return String(str)
@@ -1019,37 +1019,101 @@ const App = {
     },
 
     _initInstallPrompt() {
-        const btn = document.getElementById('pwa-install-btn');
-        // Hide if already running as installed PWA
-        const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-        if (isStandalone && btn) btn.classList.add('installed');
+        // Already running as installed PWA — never show the button
+        if (window.matchMedia('(display-mode: standalone)').matches || navigator.standalone) return;
+
+        const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+
+        // Pick up prompt captured before app.js loaded
+        if (window._pwaPrompt) {
+            this._deferredInstallPrompt = window._pwaPrompt;
+            this._showInstallBtn();
+        }
+
+        // iOS: beforeinstallprompt never fires — show button so user can get step-by-step guide
+        if (isIOS) this._showInstallBtn();
 
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             this._deferredInstallPrompt = e;
+            window._pwaPrompt = e;
+            this._showInstallBtn();
         });
+
         window.addEventListener('appinstalled', () => {
             this._deferredInstallPrompt = null;
-            const b = document.getElementById('pwa-install-btn');
-            if (b) b.classList.add('installed');
+            window._pwaPrompt = null;
+            this._hideInstallBtn();
         });
     },
 
+    _showInstallBtn() {
+        const btn = document.getElementById('pwa-install-btn');
+        if (btn) btn.classList.add('visible');
+    },
+
+    _hideInstallBtn() {
+        const btn = document.getElementById('pwa-install-btn');
+        if (btn) btn.classList.remove('visible');
+    },
+
     triggerInstall() {
-        if (!this._deferredInstallPrompt) {
-            // iOS fallback: show instructions
-            const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-            if (isIOS) {
-                alert(I18n ? (I18n.t('pwa.ios.hint') || 'Tap the Share button, then "Add to Home Screen"') : 'Tap the Share button, then "Add to Home Screen"');
-            }
-            return;
+        if (this._deferredInstallPrompt) {
+            // Android Chrome / Desktop Chrome / Edge — native install dialog
+            this._deferredInstallPrompt.prompt();
+            this._deferredInstallPrompt.userChoice.then((choice) => {
+                if (choice.outcome === 'accepted') {
+                    this._deferredInstallPrompt = null;
+                    window._pwaPrompt = null;
+                    this._hideInstallBtn();
+                }
+            });
+        } else if (/iphone|ipad|ipod/i.test(navigator.userAgent)) {
+            // iOS Safari — show step-by-step guide sheet
+            this._showIOSInstallGuide();
         }
-        this._deferredInstallPrompt.prompt();
-        this._deferredInstallPrompt.userChoice.then(() => {
-            this._deferredInstallPrompt = null;
-            const btn = document.getElementById('pwa-install-btn');
-            if (btn) btn.classList.remove('visible');
-        });
+    },
+
+    _showIOSInstallGuide() {
+        document.getElementById('ios-install-guide')?.remove();
+        const t = (k, fb) => (I18n && I18n.t(k) !== k) ? I18n.t(k) : fb;
+        const el = document.createElement('div');
+        el.id = 'ios-install-guide';
+        el.innerHTML = `
+            <div class="ios-guide-backdrop" onclick="document.getElementById('ios-install-guide').remove()"></div>
+            <div class="ios-guide-sheet" role="dialog" aria-modal="true" aria-label="${t('pwa.ios.title', 'Install App')}">
+                <div class="ios-guide-handle"></div>
+                <p class="ios-guide-title">${t('pwa.ios.title', 'Install App')}</p>
+                <ol class="ios-guide-steps">
+                    <li class="ios-guide-step">
+                        <span class="ios-guide-step-num">1</span>
+                        <div class="ios-guide-step-body">
+                            <strong>${t('pwa.ios.step1', 'Tap the Share button')}</strong>
+                            <span>${t('pwa.ios.step1desc', 'At the bottom of Safari')}</span>
+                        </div>
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="var(--primary)" stroke-width="2" aria-hidden="true"><path d="M8 12H5a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2h-3"/><polyline points="12 3 12 15"/><polyline points="8 7 12 3 16 7"/></svg>
+                    </li>
+                    <li class="ios-guide-step">
+                        <span class="ios-guide-step-num">2</span>
+                        <div class="ios-guide-step-body">
+                            <strong>${t('pwa.ios.step2', 'Tap "Add to Home Screen"')}</strong>
+                            <span>${t('pwa.ios.step2desc', 'Scroll down in the share sheet')}</span>
+                        </div>
+                    </li>
+                    <li class="ios-guide-step">
+                        <span class="ios-guide-step-num">3</span>
+                        <div class="ios-guide-step-body">
+                            <strong>${t('pwa.ios.step3', 'Tap "Add" to confirm')}</strong>
+                            <span>${t('pwa.ios.step3desc', 'The app will appear on your home screen')}</span>
+                        </div>
+                    </li>
+                </ol>
+                <button class="ios-guide-close" onclick="document.getElementById('ios-install-guide').remove()">
+                    ${t('pwa.ios.close', 'Got it')}
+                </button>
+            </div>
+        `;
+        document.body.appendChild(el);
     },
 
     showUpdateBanner() {
