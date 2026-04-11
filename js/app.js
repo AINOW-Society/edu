@@ -1,4 +1,4 @@
-const APP_VERSION = 'v79';
+const APP_VERSION = 'v80';
 
 function escapeHtml(str) {
     return String(str)
@@ -1032,15 +1032,11 @@ const App = {
             this._deferredInstallPrompt = e;
             const btn = document.getElementById('pwa-install-btn');
             if (btn) btn.classList.add('visible');
-            const navBtn = document.getElementById('nav-install-btn');
-            if (navBtn) navBtn.style.display = '';
         });
         window.addEventListener('appinstalled', () => {
             this._deferredInstallPrompt = null;
             const btn = document.getElementById('pwa-install-btn');
             if (btn) btn.classList.remove('visible');
-            const navBtn = document.getElementById('nav-install-btn');
-            if (navBtn) navBtn.style.display = 'none';
         });
     },
 
@@ -1058,8 +1054,6 @@ const App = {
             this._deferredInstallPrompt = null;
             const btn = document.getElementById('pwa-install-btn');
             if (btn) btn.classList.remove('visible');
-            const navBtn = document.getElementById('nav-install-btn');
-            if (navBtn) navBtn.style.display = 'none';
         });
     },
 

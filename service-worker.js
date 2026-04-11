@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ai-edu-v78';
+const CACHE_NAME = 'ai-edu-v79';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -28,56 +28,58 @@ const urlsToCache = [
 
 self.addEventListener('install', event => {
     event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(cache => {
-                return cache.addAll(urlsToCache);
-            })
+        caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
     );
     self.skipWaiting();
 });
 
 self.addEventListener('activate', event => {
     event.waitUntil(
-        caches.keys().then(cacheNames => {
-            return Promise.all(
-                cacheNames.map(cacheName => {
-                    if (cacheName !== CACHE_NAME) {
-                        return caches.delete(cacheName);
-                    }
-                })
-            );
-        })
+        caches.keys().then(cacheNames =>
+            Promise.all(
+                cacheNames
+                    .filter(name => name !== CACHE_NAME)
+                    .map(name => caches.delete(name))
+            )
+        )
     );
     self.clients.claim();
 });
 
 self.addEventListener('fetch', event => {
+    // Only handle same-origin requests
+    const url = new URL(event.request.url);
+    if (url.origin !== self.location.origin) return;
+
+    // Navigation requests (page loads): network-first, cache fallback
+    if (event.request.mode === 'navigate') {
+        event.respondWith(
+            fetch(event.request)
+                .then(response => {
+                    const clone = response.clone();
+                    caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+                    return response;
+                })
+                .catch(() =>
+                    caches.match(event.request)
+                        .then(cached => cached || caches.match('/index.html'))
+                )
+        );
+        return;
+    }
+
+    // All other requests: cache-first, network fallback
     event.respondWith(
-        caches.match(event.request)
-            .then(response => {
-                if (response) {
-                    return response;
+        caches.match(event.request).then(cached => {
+            if (cached) return cached;
+
+            return fetch(event.request).then(response => {
+                if (response && response.status === 200 && response.type === 'basic') {
+                    const clone = response.clone();
+                    caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
                 }
-
-                const fetchRequest = event.request.clone();
-
-                return fetch(fetchRequest).then(response => {
-                    if (!response || response.status !== 200 || response.type !== 'basic') {
-                        return response;
-                    }
-
-                    const responseToCache = response.clone();
-
-                    caches.open(CACHE_NAME)
-                        .then(cache => {
-                            cache.put(event.request, responseToCache);
-                        });
-
-                    return response;
-                });
-            })
-            .catch(() => {
-                return caches.match('/index.html');
-            })
+                return response;
+            }).catch(() => caches.match('/index.html'));
+        })
     );
 });

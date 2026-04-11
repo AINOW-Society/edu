@@ -4125,13 +4125,6 @@ button {
     display: flex;
 }
 
-.nav-tab-install {
-    color: var(--primary);
-}
-
-.nav-tab-install svg {
-    stroke: var(--primary);
-}
 
 #sw-update-banner {
     position: fixed;
