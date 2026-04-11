@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="mk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>AINOW - Platform for AI Literacy</title>
+    <meta name="theme-color" content="#d97757">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 233.52 233.52'><rect fill='%23d97757' width='233.52' height='233.52' rx='46'/><path fill='white' d='M0 116.95c0 64.15 52.06 116.58 116.58 116.58 64.52 0 116.95-52.43 116.95-116.58 0-64.52-52.42-116.95-116.95-116.95-64.52 0-116.58 52.42-116.58 116.95zm23.46 0c0-51.69 41.79-93.48 93.12-93.48 51.69 0 93.12 41.79 93.12 93.48 0 26.03-10.63 49.49-27.86 66.35l0-66.72c0-35.93-29.33-64.89-65.26-64.89-35.93 0-65.26 28.96-65.26 64.89 0 36.29 29.33 65.25 65.26 65.26l0-25.3c-21.99 0-39.59-17.96-39.59-39.96 0-21.63 17.6-39.59 39.59-39.59 22 0 39.59 17.96 39.59 39.59l0 52.06 0 32.63c-11.73 5.5-25.3 8.8-39.59 8.8-51.32 0-93.12-41.79-93.12-93.12z'/></svg>">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script>
+        let _deferredInstallPrompt = null;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            _deferredInstallPrompt = e;
+            const btn = document.getElementById('pwa-install-btn');
+            if (btn) btn.style.display = 'flex';
+        });
+        window.addEventListener('appinstalled', () => {
+            _deferredInstallPrompt = null;
+            const btn = document.getElementById('pwa-install-btn');
+            if (btn) btn.style.display = 'none';
+        });
+        window.triggerPWAInstall = function() {
+            if (_deferredInstallPrompt) {
+                _deferredInstallPrompt.prompt();
+                _deferredInstallPrompt.userChoice.then(() => { _deferredInstallPrompt = null; });
+            }
+        };
+    </script>
+
+    <meta name="author" content="Suad Seferi">
+    <link rel="canonical" href="https://edu.ainow.mk/">
+
+    <meta name="description" content="An interactive AI literacy platform offering educational guides, ready-to-use prompts, and curated AI tools for teachers and students.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AINOW - Platform for AI Literacy">
+    <meta property="og:description" content="Free, open-source AI literacy guide and prompt library for educators.">
+    <meta property="og:url" content="https://edu.ainow.mk/">
+    <meta property="og:site_name" content="AINOW Society">
+    <meta property="og:image" content="https://edu.ainow.mk/assets/ainow.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AINOW - Platform for AI Literacy">
+    <meta name="twitter:description" content="Free, open-source AI literacy guide and prompt library for educators.">
+    <meta name="twitter:image" content="https://edu.ainow.mk/assets/ainow.png">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="AINOW EDU">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 233.52 233.52'><rect fill='%23d97757' width='233.52' height='233.52' rx='46'/><path fill='white' d='M0 116.95c0 64.15 52.06 116.58 116.58 116.58 64.52 0 116.95-52.43 116.95-116.58 0-64.52-52.42-116.95-116.95-116.95-64.52 0-116.58 52.42-116.58 116.95zm23.46 0c0-51.69 41.79-93.48 93.12-93.48 51.69 0 93.12 41.79 93.12 93.48 0 26.03-10.63 49.49-27.86 66.35l0-66.72c0-35.93-29.33-64.89-65.26-64.89-35.93 0-65.26 28.96-65.26 64.89 0 36.29 29.33 65.25 65.26 65.26l0-25.3c-21.99 0-39.59-17.96-39.59-39.96 0-21.63 17.6-39.59 39.59-39.59 22 0 39.59 17.96 39.59 39.59l0 52.06 0 32.63c-11.73 5.5-25.3 8.8-39.59 8.8-51.32 0-93.12-41.79-93.12-93.12z'/></svg>">
+
+</head>
+
+<body data-theme="light" style="opacity: 0;">
+
+    <div class="app-layout">
+
+        <header class="app-header">
+            <div class="brand-area" onclick="App.switchView('home')" style="cursor: pointer;" role="button" aria-label="Home">
+                <button class="mobile-menu-toggle" onclick="App.toggleMobileMenu()" aria-label="Menu">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                        aria-hidden="true">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <svg viewBox="0 0 233.52 233.52" width="28" height="28" fill="currentColor">
+                    <path fill-rule="nonzero"
+                        d="M0 116.95c0 64.15 52.06 116.58 116.58 116.58 64.52 0 116.95-52.43 116.95-116.58 0-64.52 -52.42 -116.95 -116.95 -116.95 -64.52 0 -116.58 52.42 -116.58 116.95zm23.46 0c0-51.69 41.79-93.48 93.12-93.48 51.69 0 93.12 41.79 93.12 93.48 0 26.03 -10.63 49.49 -27.86 66.35l0 -66.72c0-35.93 -29.33 -64.89 -65.26 -64.89 -35.93 0 -65.26 28.96 -65.26 64.89 0 36.29 29.33 65.25 65.26 65.26l0 -25.3c-21.99 0 -39.59 -17.96 -39.59 -39.96 0-21.63 17.6 -39.59 39.59 -39.59 22 0 39.59 17.96 39.59 39.59l0 52.06 0 32.63c-11.73 5.5 -25.3 8.8 -39.59 8.8 -51.32 0 -93.12 -41.79 -93.12 -93.12z" />
+                </svg>
+                <div style="display:flex; flex-direction:column; line-height:1.2;">
+                    <span class="brand-text">AINOW Society</span>
+                    <span data-i18n="header.platform" style="font-size:10px; font-weight:400; color:var(--text-secondary);">Платформа за ВИ Писменост</span>
+                </div>
+            </div>
+
+
+        
+            <div class="header-actions">
+                <span id="offline-indicator" aria-live="polite" data-i18n="offline.label">Офлајн</span>
+                <button id="pwa-install-btn" class="btn-icon" onclick="triggerPWAInstall()" title="Инсталирај апликација" aria-label="Инсталирај апликација" style="display:none;">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                </button>
+                <div class="lang-switcher" id="lang-switcher">
+                    <button class="btn-icon lang-switcher-btn" onclick="App.toggleLangMenu()"
+                        aria-label="Change language" title="Change language">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                            stroke-width="2" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        </svg>
+                    </button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button class="lang-option active" data-lang="mk"
+                            onclick="I18n.setLang('mk'); App.closeLangMenu()">
+                            <span class="lang-flag">🇲🇰</span>
+                            <span>Македонски</span>
+                        </button>
+                        <button class="lang-option" data-lang="sq" onclick="I18n.setLang('sq'); App.closeLangMenu()">
+                            <span class="lang-flag">🇦🇱</span>
+                            <span>Shqip</span>
+                        </button>
+                        <button class="lang-option" data-lang="en" onclick="I18n.setLang('en'); App.closeLangMenu()">
+                            <span class="lang-flag">🇬🇧</span>
+                            <span>English</span>
+                        </button>
+                    </div>
+                </div>
+                <button class="btn-icon" onclick="App.toggleTheme()" title="Смени Тема" aria-label="Смени Тема">
+                    <svg id="theme-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-width="2" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="btn-icon" onclick="App.switchView('help')" title="Help" aria-label="Help">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                </button>
+
+            </div>
+        </header>
+
+        <aside class="app-sidebar">
+            <div id="sidebar-content"></div>
+        </aside>
+
+        <main class="app-main" id="main-content">
+            <div id="view-home"    class="view-section"></div>
+            <div id="view-help"    class="view-section hidden"></div>
+            <div id="view-guide"   class="view-section hidden"></div>
+            <div id="view-prompts" class="view-section hidden"></div>
+            <div id="view-tools"   class="view-section hidden"></div>
+            <div id="view-resources" class="view-section hidden"></div>
+            <div id="view-about" class="view-section hidden"></div>
+
+            <footer class="app-footer">
+                <div class="footer-social">
+                    <a href="https://github.com/AINOW-Society/edu" target="_blank" rel="noopener noreferrer"
+                        class="footer-icon-link" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                            <path
+                                d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.63-.33 2.47-.33.84 0 1.68.11 2.47.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/ainowmk" target="_blank" rel="noopener noreferrer"
+                        class="footer-icon-link" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                            <path
+                                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5V13.2a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 1 0 0 3.37m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/ainow.mk" target="_blank" rel="noopener noreferrer"
+                        class="footer-icon-link" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                            <path
+                                d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 4.97 3.66 9.11 8.44 9.85v-6.99h-2.54v-2.86h2.54V9.85c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.86h-2.33v6.99c4.78-.74 8.44-4.88 8.44-9.85 0-5.53-4.5-10.02-10-10.02z" />
+                        </svg>
+                    </a>
+                </div>
+
+                <h2 class="footer-title">Platform for AI Literacy</h2>
+                <div class="footer-desc">
+                    <span>Open-Source under MIT License</span>
+                    <span class="footer-sep">•</span>
+                    <span onclick="App.openPrivacyModal()" style="cursor: pointer; color: var(--primary); font-weight: 500;">Privacy First</span>
+                </div>
+
+                <div class="footer-bottom">
+                    <span>&copy; 2026 AINOW Society</span>
+                    <span class="footer-bottom-sep"> · </span>
+                    <a href="https://edu.ainow.mk" style="color: inherit; text-decoration: none;">edu.ainow.mk</a>
+                    <span class="footer-bottom-sep"> · </span>
+                    <a href="mailto:contact@ainow.mk" style="color: inherit; text-decoration: none;">contact@ainow.mk</a>
+                    <span class="footer-bottom-sep"> · </span>
+                    <span id="footer-version" style="color: var(--text-tertiary);"></span>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-tab active" data-view="home">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 10.5v6a1.5 1.5 0 0 0 1.5 1.5h12a1.5 1.5 0 0 0 1.5-1.5v-6M10 3l-7 5.5h14L10 3z"></path>
+                <rect x="7" y="11.5" width="6" height="4"></rect>
+            </svg>
+            <span data-i18n="nav.home">Почетна</span>
+        </button>
+        <button class="nav-tab" data-view="guide">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 3h7a1.5 1.5 0 0 1 1.5 1.5v10a1 1 0 0 0 1-1V4.5A1.5 1.5 0 0 0 12 3H4a1.5 1.5 0 0 0-1.5 1.5v10A1.5 1.5 0 0 0 4 16h7"></path>
+                <line x1="7" y1="7" x2="10" y2="7"></line>
+                <line x1="7" y1="10" x2="10" y2="10"></line>
+                <line x1="7" y1="13" x2="9" y2="13"></line>
+            </svg>
+            <span data-i18n="nav.guide">Водич</span>
+        </button>
+        <button class="nav-tab" data-view="prompts">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 7.5a2.5 2.5 0 0 1 2.5-2.5h10a2.5 2.5 0 0 1 2.5 2.5v6a2.5 2.5 0 0 1-2.5 2.5H6.5l-2 1.5v-1.5A2.5 2.5 0 0 1 2 13.5z"></path>
+                <circle cx="6.5" cy="10" r="0.5" fill="currentColor"></circle>
+                <circle cx="10" cy="10" r="0.5" fill="currentColor"></circle>
+                <circle cx="13.5" cy="10" r="0.5" fill="currentColor"></circle>
+            </svg>
+            <span data-i18n="nav.prompts">Промптови</span>
+        </button>
+        <button class="nav-tab" data-view="tools">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 11l-2.5 2.5a1.5 1.5 0 0 0 0 2.12l1.06 1.06a1.5 1.5 0 0 0 2.12 0L9 14"></path>
+                <circle cx="12" cy="7.5" r="2"></circle>
+                <path d="M14 5.5l2-2a1.5 1.5 0 0 1 2.12 0l1.06 1.06a1.5 1.5 0 0 1 0 2.12l-2 2"></path>
+            </svg>
+            <span data-i18n="nav.tools">Алатки</span>
+        </button>
+        <button class="nav-tab" data-view="resources">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13 3H5.5a1.5 1.5 0 0 0-1.5 1.5v10A1.5 1.5 0 0 0 5.5 16h8a1.5 1.5 0 0 0 1.5-1.5V5"></path>
+                <path d="M13 3v2a1 1 0 0 0 1 1h2"></path>
+                <line x1="7" y1="10" x2="12" y2="10"></line>
+                <line x1="7" y1="12" x2="12" y2="12"></line>
+            </svg>
+            <span data-i18n="nav.resources">Ресурси</span>
+        </button>
+        <button class="nav-tab" data-view="about">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 17v-1.5a3 3 0 0 0-3-3H5.5a3 3 0 0 0-3 3V17"></path>
+                <circle cx="8.25" cy="6.5" r="3"></circle>
+                <path d="M18 17v-1.5a3 3 0 0 0-2.25-2.9"></path>
+                <path d="M13.25 3.6a3 3 0 0 1 0 5.8"></path>
+            </svg>
+            <span data-i18n="nav.about">За нас</span>
+        </button>
+    </nav>
+
+    <div id="privacy-modal" class="modal-overlay" onclick="if(event.target === this) App.closePrivacyModal()">
+        <div class="modal-content" style="max-height: 85vh; width: 500px; display: flex; flex-direction: column;">
+            <div
+                style="padding: 24px 32px; border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0;">
+                <h2 data-i18n="privacy.title"
+                    style="font-size: 20px; font-weight: 700; color: var(--primary); margin: 0;">Приватност на Прво
+                    Место</h2>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span
+                        style="font-size: 11px; color: var(--text-tertiary); background: var(--bg-body); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--border-light); font-family: monospace;">ESC</span>
+                    <button onclick="App.closePrivacyModal()"
+                        style="color: var(--text-tertiary); font-size: 28px; line-height: 1; background: transparent; border: none; cursor: pointer; padding: 0;">&times;</button>
+                </div>
+            </div>
+
+            <div style="overflow-y: auto; padding: 32px; flex: 1;">
+                <div
+                    style="background: var(--bg-body); padding: 20px; border-radius: 12px; margin-bottom: 24px; border: 1px solid var(--border-light);">
+                    <p data-i18n="privacy.intro"
+                        style="font-size: 14px; line-height: 1.6; color: var(--text-main); margin: 0;">
+                        Оваа платформа е дизајнирана со цел да биде целосно безбедна и приватна. Ние веруваме дека
+                        едукацијата треба да биде достапна за секого, без потреба од следење или споделување лични
+                        информации. Податоците кои ги генерирате остануваат само кај вас.
+                    </p>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 28px;">
+                    <div style="display: flex; gap: 16px;">
+                        <div style="font-size: 24px;">🔒</div>
+                        <div>
+                            <h3 data-i18n="privacy.f1.title"
+                                style="font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--text-primary);">
+                                Без кориснички профили</h3>
+                            <p data-i18n="privacy.f1.desc"
+                                style="color: var(--text-secondary); line-height: 1.5; font-size: 14px; margin: 0;">
+                                Платформата е целосно отворена. Не собираме ваши лични податоци како име, е-пошта или
+                                телефон.</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 16px;">
+                        <div style="font-size: 24px;">💾</div>
+                        <div>
+                            <h3 data-i18n="privacy.f2.title"
+                                style="font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--text-primary);">
+                                Локално зачувување</h3>
+                            <p data-i18n="privacy.f2.desc"
+                                style="color: var(--text-secondary); line-height: 1.5; font-size: 14px; margin: 0;">
+                                Вашиот напредок и претпочитани содржини се чуваат исклучиво во вашиот прелистувач
+                                (LocalStorage).</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 16px;">
+                        <div style="font-size: 24px;">🕵️</div>
+                        <div>
+                            <h3 data-i18n="privacy.f3.title"
+                                style="font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--text-primary);">
+                                Без следење</h3>
+                            <p data-i18n="privacy.f3.desc"
+                                style="color: var(--text-secondary); line-height: 1.5; font-size: 14px; margin: 0;">Не
+                                користиме колачиња (cookies) или надворешни алатки кои би можеле да го компромитираат
+                                вашиот идентитет.</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 16px;">
+                        <div style="font-size: 24px;">🔓</div>
+                        <div>
+                            <h3 data-i18n="privacy.f4.title"
+                                style="font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--text-primary);">
+                                Транспарентна сигурност</h3>
+                            <p data-i18n="privacy.f4.desc"
+                                style="color: var(--text-secondary); line-height: 1.5; font-size: 14px; margin: 0;">
+                                Кодот е јавен и достапен за проверка. Транспарентноста е најголема гаранција за вашата
+                                безбедност.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                style="padding: 24px 32px; border-top: 1px solid var(--border-light); flex-shrink: 0; background: var(--bg-card);">
+                <button onclick="App.closePrivacyModal()"
+                    style="width: 100%; background: var(--primary); color: white; padding: 14px; border-radius: 12px; font-weight: 700; transition: all 0.2s; border: none; cursor: pointer; font-size: 16px;"
+                    onmouseover="this.style.opacity='0.9'; this.style.transform='translateY(-1px)';"
+                    onmouseout="this.style.opacity='1'; this.style.transform='none'">
+                    <span data-i18n="privacy.btn">Разбрав</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="sidebar-overlay" class="modal-overlay" onclick="App.toggleMobileMenu()"></div>
+
+    <div id="print-container"></div>
+
+    <script id="lang-docs" src="js/lang/mk/docs.js?v=76"></script>
+    <script id="lang-prompts" src="js/lang/mk/prompts.js?v=77"></script>
+    <script id="lang-quizzes" src="js/lang/mk/quizzes.js?v=77"></script>
+    <script src="views/home.js?v=77"></script>
+    <script src="views/guide.js?v=77"></script>
+    <script src="views/prompts.js?v=77"></script>
+    <script src="views/tools.js?v=77"></script>
+    <script src="views/resources.js?v=77"></script>
+    <script src="views/help.js?v=77"></script>
+    <script src="views/about.js?v=77"></script>
+
+    <script src="js/i18n.js?v=77"></script>
+    <script src="js/engine.js?v=77"></script>
+    <script src="js/router.js?v=77"></script>
+    <script src="js/app.js?v=77"></script>
+
+    <script>
+        if (window.location.protocol !== 'file:') {
+            const manifestLink = document.createElement('link');
+            manifestLink.rel = 'manifest';
+            manifestLink.href = 'manifest.json';
+            document.head.appendChild(manifestLink);
+
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('./service-worker.js').then(reg => {
+                        reg.addEventListener('updatefound', () => {
+                            const newWorker = reg.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    if (window.App) App.showUpdateBanner();
+                                }
+                            });
+                        });
+                    });
+                });
+            }
+        }
+
+    </script>
+</body>
+
+</html>

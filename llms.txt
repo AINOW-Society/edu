@@ -1,0 +1,23 @@
+# AINOW Literacy Platform (edu.ainow.mk)
+
+## Description
+The AINOW Literacy Platform is a comprehensive, interactive educational web application designed for educators, students, and administrators to gain Artificial Intelligence (AI) literacy. It moves beyond technical definitions, offering a pedagogical framework through structured lessons, analogies, and practical classroom examples.
+
+## Core Modules
+- **Interactive Guide**: 17 synchronized chapters (Basics, Architecture, RAG, Agents, Safety, Ethics) across English, Macedonian, and Albanian.
+- **Prompt Engineering Lab**: A searchable bank of categorized, pre-tested prompts for teachers and administrative tasks.
+- **AI Tool Directory**: A curated repository of educational AI tools categorized by function (Mathematics, Research, Lesson Planning).
+- **Resource Builder**: A tool for selecting guide content and prompts to export as formatted, professional PDF handouts.
+- **Assessment Studio**: A studio for creating student tests and evaluations based on the platform's curriculum.
+- **CPTC Framework**: Direct instruction on the Context-Persona-Task-Constraint framework for professional prompting.
+
+## Technical Architecture
+- **Vanilla Implementation**: Pure HTML5, CSS3, and JavaScript (no frameworks).
+- **Offline-First**: Progressive Web App (PWA) with full offline functionality via Service Workers.
+- **Privacy by Design**: 100% local processing, zero telemetry, no external trackers.
+- **Tri-lingual Support**: Full content parity for English (en), Macedonian (mk), and Shqip (sq).
+
+## Authors & License
+Lead Developer: Suad Seferi
+License: MIT (Free Open Source)
+Updated: April 2026

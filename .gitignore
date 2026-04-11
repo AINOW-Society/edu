@@ -1,0 +1,28 @@
+# Folders to ignore
+node_modules/
+.DS_Store
+.vscode/
+.claude/
+.gemini/
+dist/
+build/
+
+# IDE files
+*.sublime-project
+*.sublime-workspace
+.idea/
+
+# OS files
+Thumbs.db
+desktop.ini
+
+# Scraps
+translate_prompts.py
+translate_script.js
+translate_script.py
+sq_prompts.json
+en_prompts.json
+data.json
+
+# Development scripts
+scripts/
