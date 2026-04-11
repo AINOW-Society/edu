@@ -49,6 +49,17 @@ We have prepared a comprehensive **[Contribution Guide](CONTRIBUTING.md)** that 
 
 ## Changelog
 
+### v0.81 (April 11, 2026)
+- **PWA Install — Fixed End-to-End:** Rewrote the entire PWA install flow with a single source of truth. Install button now shows only when the browser is actually ready to install (via `beforeinstallprompt`). iOS Safari shows a step-by-step bottom-sheet guide instead of a plain alert.
+- **One-Time Install Banner:** A prominent install banner slides up from the bottom on first mobile visit, 2.5 seconds after load. Stored in `localStorage` so it only ever shows once per device.
+- **Service Worker Overhaul:** Switched to network-first for navigation requests — fixes the blank page after PWA install. Cache bumped to `ai-edu-v0.81`.
+- **Manifest Fixed:** Replaced broken `data:` URI icons with real SVG/PNG files. Changed `start_url` from absolute URL to `"/"` so the manifest is valid on both localhost and production — this was the root cause of `beforeinstallprompt` never firing.
+- **Real Logo Assets:** Favicon and PWA icons now use `/assets/logo.svg` and `/assets/logo.png` (4000×4000). Maskable icon uses orange background for Android adaptive icons.
+- **Mobile UI:** Hamburger menu hidden (footer nav handles all navigation). Custom styled checkboxes in Resources view. Pull-to-refresh indicator uses brand orange instead of green.
+- **Nav Icons:** Reduced stroke-width from 2 to 1.5 for a lighter, more refined look.
+- **iOS Install Guide:** Beautiful animated bottom-sheet with 3 numbered steps replaces the old `alert()`.
+- **i18n:** Added `ptr.*` and `pwa.*` translation keys across all three languages (MK, EN, SQ).
+
 ### v77 (April 11, 2026)
 - **Mobile UX Improvements:** Added pull-to-refresh gesture support with loading indicators, improved language dropdown interaction on mobile devices
 - **Language Switching:** Fixed language switching behavior, ensuring test topics and content properly reset when changing languages
