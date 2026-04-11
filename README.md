@@ -49,11 +49,15 @@ We have prepared a comprehensive **[Contribution Guide](CONTRIBUTING.md)** that 
 
 ## Changelog
 
-### Latest Updates
+### v77 (April 11, 2026)
 - **Mobile UX Improvements:** Added pull-to-refresh gesture support with loading indicators, improved language dropdown interaction on mobile devices
 - **Language Switching:** Fixed language switching behavior, ensuring test topics and content properly reset when changing languages
 - **Code Cleanup:** Removed all unnecessary comments for a cleaner codebase
 - **Bug Fixes:** Various stability improvements and edge case handling
+
+### v76 (Previous Release)
+- Footer PWA install improvements
+- Initial platform release
 
 ## License
 
