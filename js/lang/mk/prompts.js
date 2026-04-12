@@ -2143,3 +2143,4 @@ var embeddedPromptsData = {
     },
   ]
 };
+(window._pc = window._pc || {}).mk = Object.values(embeddedPromptsData).reduce(function(s,a){return s+a.length;},0);

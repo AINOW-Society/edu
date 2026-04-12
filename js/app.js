@@ -64,6 +64,24 @@ const App = {
 
         const vEl = document.getElementById('footer-version');
         if (vEl) vEl.textContent = APP_VERSION;
+
+        this._prefetchPromptCounts();
+    },
+
+    _prefetchPromptCounts() {
+        const userLang = I18n.lang || 'mk';
+        const others = ['mk', 'en', 'sq'].filter(l => l !== userLang);
+        const loadNext = (langs) => {
+            if (!langs.length) { this._renderHomeStats(); return; }
+            const lang = langs[0];
+            const saved = window.embeddedPromptsData;
+            const s = document.createElement('script');
+            s.src = `js/lang/${lang}/prompts.js`;
+            s.onload = () => { window.embeddedPromptsData = saved; loadNext(langs.slice(1)); };
+            s.onerror = () => { loadNext(langs.slice(1)); };
+            document.body.appendChild(s);
+        };
+        loadNext(others);
     },
 
     async switchView(viewId) {
@@ -627,9 +645,11 @@ const App = {
     _renderHomeStats() {
         const bar = document.getElementById('home-stat-bar');
         if (!bar) return;
-        const promptCount = (typeof embeddedPromptsData !== 'undefined')
-            ? Object.values(embeddedPromptsData).reduce((s, a) => s + a.length, 0)
-            : 0;
+        const promptCount = window._pc
+            ? Object.values(window._pc).reduce((s, c) => s + c, 0)
+            : (typeof embeddedPromptsData !== 'undefined'
+                ? Object.values(embeddedPromptsData).reduce((s, a) => s + a.length, 0)
+                : 0);
         const toolCount   = this._toolsData ? this._toolsData.length : 0;
         const chapterCount = (typeof DOCS_DATA !== 'undefined') ? DOCS_DATA.length : 0;
         const t = (k) => I18n.t(k);

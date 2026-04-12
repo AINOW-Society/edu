@@ -1653,3 +1653,4 @@ var embeddedPromptsData = {
     }
   ]
 };
+(window._pc = window._pc || {}).en = Object.values(embeddedPromptsData).reduce(function(s,a){return s+a.length;},0);
