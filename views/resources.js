@@ -219,6 +219,7 @@ window.ResourceManager = {
         document.querySelectorAll('#resources-list input[type="checkbox"]').forEach(cb => {
             cb.checked = check;
             this._toggleItem(cb.value, check);
+            cb.closest('.resource-item')?.classList.toggle('resource-item--checked', check);
         });
         this.updatePreview();
     },
@@ -415,18 +416,19 @@ window.ResourceManager = {
             callback(`<style>${commonCSS}</style>${headerHtml}${printHtml}`);
         } else {
             callback(`<style>
-                @page { size: A4; margin: 0; }
+                @page { size: A4; margin: 0 0 18mm 0; }
                 ${commonCSS}
                 .print-master-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
                 .print-header-cell { padding: 12px 25mm 0; }
                 .print-page-content { padding: 0 25mm; box-sizing: border-box; }
+                .print-footer-fixed { position: fixed; bottom: 0; left: 0; right: 0; background: white; }
                 @media print { .no-print { display: none !important; } }
             </style>
             <table class="print-master-table">
                 <thead><tr><td class="print-header-cell">${this._getCompactPrintHeader()}</td></tr></thead>
                 <tbody><tr><td><div class="print-page-content">${printHtml}</div></td></tr></tbody>
-                <tfoot><tr><td>${this._getPrintFooter()}</td></tr></tfoot>
-            </table>`);
+            </table>
+            <div class="print-footer-fixed">${this._getPrintFooter()}</div>`);
         }
     },
 
@@ -529,11 +531,12 @@ window.ResourceManager = {
         } else {
             const printHtml = `
                 <style>
-                    @media print { @page { size: A4; margin: 0; } }
+                    @page { size: A4; margin: 0 0 18mm 0; }
                     ${examCSS}
                     .print-master-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
                     .print-header-cell { padding: 12px 25mm 0; }
                     .print-page-content { padding: 0 25mm; box-sizing: border-box; }
+                    .print-footer-fixed { position: fixed; bottom: 0; left: 0; right: 0; background: white; }
                     .print-item { page-break-inside: avoid; break-inside: avoid; }
                     .exam-header { break-after: avoid; page-break-after: avoid; }
                 </style>
@@ -546,8 +549,8 @@ window.ResourceManager = {
                             ${keyHtml}
                         </div>
                     </td></tr></tbody>
-                    <tfoot><tr><td>${this._getPrintFooter()}</td></tr></tfoot>
-                </table>`;
+                </table>
+                <div class="print-footer-fixed">${this._getPrintFooter()}</div>`;
             this._openPrintWindow(printHtml);
         }
     },
