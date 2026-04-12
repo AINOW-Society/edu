@@ -7,7 +7,7 @@ window.VIEWS.home = `
             <span data-i18n="home.hero.pre">Добредојдовте во</span> <span class="accent">AINOW</span>
         </h1>
         <p data-i18n="home.hero.subtitle" style="color: var(--text-secondary); font-size: 18px; font-weight: 400;">Your digital assistant for modern education.</p>
-        <p data-i18n="home.hero.stats" style="color: var(--text-tertiary); font-size: 13px; margin-top: 16px; letter-spacing: 0.05em;">200+ Промптови • 16 Поглавја • 50+ Алатки</p>
+        <p id="home-stat-bar" style="color: var(--text-tertiary); font-size: 13px; margin-top: 16px; letter-spacing: 0.05em;"></p>
     </div>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 48px;">

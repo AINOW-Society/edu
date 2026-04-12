@@ -16,9 +16,10 @@ Currently deployed for schools across the Balkans, the platform is proudly **100
 
 ## Key Features
 
-- **Interactive Learning Guide:** A 16-chapter curriculum breaking down complex AI concepts into easy, classroom-ready analogies (Foundations, Practice, Reference).
-- **Massive Prompt Bank:** Over 200 high-quality, educator-tested prompts. From designing Flipped Classroom lesson plans to handling difficult parent conferences — organized by grade level and administrative role.
-- **AI Tool Directory:** A curated list of the best AI tools for classrooms, categorized by use-case (Planning, Multimedia, Assessment, etc.) with clear pricing badges.
+- **Interactive Learning Guide:** An 18-chapter curriculum breaking down complex AI concepts into easy, classroom-ready analogies (Foundations, Practice, Reference).
+- **Massive Prompt Bank:** Over 300 high-quality, educator-tested prompts. From designing Flipped Classroom lesson plans to handling difficult parent conferences — organized by grade level and administrative role.
+- **AI Tool Directory:** A curated list of 57 AI tools for classrooms, categorized by use-case (Planning, Multimedia, Assessment, etc.) with clear pricing badges.
+- **AI Literacy Glossary:** 60-term glossary covering essential AI and education vocabulary, filterable by category, with live search — in all three languages.
 - **Lightning Fast & Offline-Ready:** Built with vanilla HTML/CSS/JS. The built-in Service Worker ensures the platform works perfectly even when a school loses internet access.
 - **Tri-Lingual:** Seamless, real-time language switching across English, Macedonian, and Albanian with full content parity.
 
@@ -48,6 +49,13 @@ We have prepared a comprehensive **[Contribution Guide](CONTRIBUTING.md)** that 
 4. Localization and Translation requirements
 
 ## Changelog
+
+### v0.86 (April 12, 2026)
+- **Glossary Page:** New full-page AI/Education glossary accessible via the book icon in the header (top-right, next to the language switcher). Styled card grid with category sidebar filtering (AI, Tech, Education, Prompts) and live search. Works across all three languages.
+- **60-Term Glossary:** Covers the core AI literacy vocabulary — AI/AGI/ANI/ASI, LLM, GPT, RAG, Fine-tuning, Foundation Model, Transformer, Attention, Multimodal AI, AI Agent, Chain of Thought, Deepfakes, Guardrails, Training Data, RLHF, Parameters, Temperature, Embedding, Reinforcement Learning, Supervised/Unsupervised Learning, Responsible AI, Digital Literacy, Data Privacy, and more. All 60 terms in MK, EN, and SQ.
+- **Dynamic Home Stats:** The hero stat line on the home page now reads live counts from the actual data (`embeddedPromptsData`, `DOCS_DATA`, `App._toolsData`). Displays correct numbers automatically as content is added — no more hardcoded "200+ Prompts".
+- **Data Alignment:** Audited and fixed Cyrillic/Latin script corruptions in `js/lang/mk/docs.js` (5 instances) and `js/lang/mk/prompts.js` (T-007, T-036, T-113). New quiz datasets added for EN, MK, SQ; new prompts (T-177+) added for MK — all verified aligned across languages.
+- **Service Worker:** Cache bumped to force fresh delivery of updated JS and CSS assets.
 
 ### v0.85 (April 12, 2026)
 - **Code Audit & Cleanup:** Full codebase review — no dead code, no broken references, no TODO/FIXME comments found. Clean bill of health.

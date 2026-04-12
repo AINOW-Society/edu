@@ -1,4 +1,4 @@
-const APP_VERSION = 'v0.85';
+const APP_VERSION = 'v0.86';
 
 function escapeHtml(str) {
     return String(str)
@@ -98,7 +98,10 @@ const App = {
             mainContent.scrollTop = (saved !== undefined) ? saved : 0;
         }
 
-        if (viewId === 'guide') {
+        if (viewId === 'home') {
+            delete this._scrollPositions['home'];
+            this._renderHomeStats();
+        } else if (viewId === 'guide') {
             const activeItem = document.querySelector('.sidebar-item.active');
             let targetSection = DOCS_DATA[0] ? DOCS_DATA[0].id : 'intro';
             if (activeItem && activeItem.id && activeItem.id.startsWith('sidebar-')) {
@@ -111,6 +114,8 @@ const App = {
             Router.renderContent(targetSection);
         } else if (viewId === 'tools') {
             this.renderTools(this.currentToolCategory || 'all');
+        } else if (viewId === 'glossary') {
+            this.renderGlossary();
         } else if (viewId === 'resources') {
             if (window.ResourceManager) window.ResourceManager.init();
         } else if (viewId === 'prompts') {
@@ -308,6 +313,26 @@ const App = {
                     ${this.renderSidebarTip(viewId)}
                 </div>
             `;
+        } else if (viewId === 'glossary') {
+            const t = (k) => I18n.t(k);
+            const cats = [
+                { id: 'all',     label: t('glossary.cat.all'),     icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="8"/><line x1="12" y1="12" x2="12" y2="16"/></svg>' },
+                { id: 'ai',      label: t('glossary.cat.ai'),      icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>' },
+                { id: 'tech',    label: t('glossary.cat.tech'),    icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>' },
+                { id: 'edu',     label: t('glossary.cat.edu'),     icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>' },
+                { id: 'prompts', label: t('glossary.cat.prompts'), icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' },
+            ];
+            const cur = this.currentGlossaryCat || 'all';
+            html = '<div class="sidebar-menu">';
+            cats.forEach(c => {
+                const isActive = cur === c.id;
+                html += `
+                    <div class="sidebar-item ${isActive ? 'active' : ''}" onclick="App.setGlossaryCat('${c.id}')">
+                        <div class="sidebar-item-icon">${c.icon}</div>
+                        <span class="sidebar-item-label">${c.label}</span>
+                    </div>`;
+            });
+            html += `${this.renderSidebarTip('glossary')}</div>`;
         } else {
             html = `
                 <div class="sidebar-ctx-wrap">
@@ -439,6 +464,9 @@ const App = {
         } else if (viewId === 'tools') {
             titleKey = 'sidebar.tip.tools.title';
             descKey = 'sidebar.tip.tools.desc';
+        } else if (viewId === 'glossary') {
+            titleKey = 'sidebar.tip.guide.title';
+            descKey = 'sidebar.tip.guide.desc';
         } else if (viewId === 'resources') {
             titleKey = 'resources.pedagogy.label';
             const rnd = (Math.floor(Math.random() * 3) + 1);
@@ -594,6 +622,113 @@ const App = {
             grid.innerHTML = '<div class="pc-empty">' + I18n.t('prompts.empty') + '</div>';
         }
     },
+
+    // ── Home Stats ───────────────────────────────────────
+    _renderHomeStats() {
+        const bar = document.getElementById('home-stat-bar');
+        if (!bar) return;
+        const promptCount = (typeof embeddedPromptsData !== 'undefined')
+            ? Object.values(embeddedPromptsData).reduce((s, a) => s + a.length, 0)
+            : 0;
+        const toolCount   = this._toolsData ? this._toolsData.length : 0;
+        const chapterCount = (typeof DOCS_DATA !== 'undefined') ? DOCS_DATA.length : 0;
+        const t = (k) => I18n.t(k);
+        bar.textContent = `${promptCount} ${t('stats.prompts')} • ${chapterCount} ${t('stats.chapters')} • ${toolCount} ${t('stats.tools')}`;
+    },
+
+    // ── Glossary ─────────────────────────────────────────
+    currentGlossaryCat: 'all',
+    currentGlossarySearch: '',
+
+    setGlossaryCat(cat) {
+        this.currentGlossaryCat = cat;
+        this.renderSidebarCtx('glossary');
+        this.renderGlossary();
+    },
+
+    filterGlossary() {
+        const input = document.getElementById('glossary-search');
+        this.currentGlossarySearch = input ? input.value.trim().toLowerCase() : '';
+        this._renderGlossaryCards();
+    },
+
+    renderGlossary() {
+        const header = document.getElementById('glossary-header');
+        const grid   = document.getElementById('glossary-grid');
+        if (!header || !grid) return;
+
+        const t    = (k) => I18n.t(k);
+        const lang = I18n.currentLang || I18n.lang || 'mk';
+        const data = (typeof GLOSSARY_DATA !== 'undefined' && GLOSSARY_DATA[lang])
+                   ? GLOSSARY_DATA[lang]
+                   : (typeof GLOSSARY_DATA !== 'undefined' ? GLOSSARY_DATA['mk'] : []);
+        const total = data.length;
+
+        header.innerHTML = `
+            <div class="page-hero-card">
+                <div class="page-hero-card-icon page-hero-card-icon--secondary">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="page-hero-title">${t('glossary.title')}</h1>
+                    <p class="page-hero-sub" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                        <span>${total} ${t('glossary.count')}</span>
+                        <span class="glossary-search-wrap" style="max-width:300px;">
+                            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="color:var(--text-tertiary);flex-shrink:0;">
+                                <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            <input id="glossary-search" type="text" placeholder="${t('glossary.search')}"
+                                autocomplete="off" oninput="App.filterGlossary()"
+                                value="${this.currentGlossarySearch}">
+                        </span>
+                    </p>
+                </div>
+            </div>
+        `;
+        this._renderGlossaryCards();
+    },
+
+    _renderGlossaryCards() {
+        const grid = document.getElementById('glossary-grid');
+        if (!grid) return;
+
+        const lang   = I18n.currentLang || I18n.lang || 'mk';
+        const data   = (typeof GLOSSARY_DATA !== 'undefined' && GLOSSARY_DATA[lang])
+                     ? GLOSSARY_DATA[lang]
+                     : (typeof GLOSSARY_DATA !== 'undefined' ? GLOSSARY_DATA['mk'] : []);
+        const cat    = this.currentGlossaryCat || 'all';
+        const search = this.currentGlossarySearch || '';
+
+        const badgeLabel = { ai: 'AI', tech: 'Tech', edu: 'Edu', prompts: 'Prompts' };
+
+        const filtered = data.filter(item => {
+            const matchCat    = cat === 'all' || item.category === cat;
+            const matchSearch = !search
+                || item.term.toLowerCase().includes(search)
+                || item.full.toLowerCase().includes(search)
+                || item.desc.toLowerCase().includes(search);
+            return matchCat && matchSearch;
+        });
+
+        if (filtered.length === 0) {
+            grid.innerHTML = `<div class="glossary-empty">${I18n.t('glossary.empty')}</div>`;
+            return;
+        }
+
+        grid.innerHTML = filtered.map(item => `
+            <div class="glossary-card">
+                <div class="glossary-card-term">${item.term}</div>
+                ${item.full ? `<div class="glossary-card-full">${item.full}</div>` : ''}
+                <div class="glossary-card-desc">${item.desc}</div>
+                <span class="glossary-badge glossary-badge-${item.category}">${badgeLabel[item.category] || item.category}</span>
+            </div>
+        `).join('');
+    },
+    // ─────────────────────────────────────────────────────
 
     currentPromptCategory: 'teachers',
     currentPromptSubcategory: 'all',
