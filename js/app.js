@@ -1367,7 +1367,7 @@ const App = {
         const mainContent = document.getElementById('main-content');
         if (!mainContent) return;
 
-        mainContent.addEventListener('touchstart', (e) => this._handlePullStart(e, mainContent), { passive: true });
+        mainContent.addEventListener('touchstart', (e) => this._handlePullStart(e, mainContent), { passive: false });
         mainContent.addEventListener('touchmove', (e) => this._handlePullMove(e, mainContent), { passive: false });
         mainContent.addEventListener('touchend', (e) => this._handlePullEnd(e, mainContent), { passive: true });
     },
@@ -1463,24 +1463,14 @@ const App = {
         }
 
         try {
-            await new Promise(resolve => setTimeout(resolve, 800));
+            await I18n.loadLangData(I18n.lang);
 
-            if (this.currentView === 'guide') {
-                const activeItem = document.querySelector('.sidebar-item.active');
-                if (activeItem && activeItem.id) {
-                    const sectionId = activeItem.id.replace('sidebar-', '');
-                    Router.renderContent(sectionId);
-                }
-            } else if (this.currentView === 'prompts') {
-                this.renderPrompts(this.currentPromptCategory, this.currentPromptSubcategory);
-            } else if (this.currentView === 'resources') {
-                if (window.ResourceManager) {
-                    window.ResourceManager.renderList();
-                    window.ResourceManager.renderPedagogyTip();
-                }
-            } else if (this.currentView === 'tools') {
-                this.renderTools(this.currentToolCategory || 'all');
-            }
+            const view = this.currentView;
+            document.querySelectorAll('.view-section').forEach(el => { el.dataset.loaded = ''; });
+
+            await this.switchView(view);
+
+            this._prefetchPromptCounts();
 
             container.scrollTop = scrollPos;
         } finally {

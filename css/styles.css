@@ -350,6 +350,7 @@ button {
     grid-column: 2;
     background: var(--bg-app);
     overflow-y: auto;
+    overscroll-behavior: contain;
     padding: 0;
     position: relative;
 }
