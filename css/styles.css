@@ -4743,6 +4743,10 @@ button {
     margin-bottom: 8px;
 }
 
+.sidebar-ctx-wrap .sidebar-section-title + .sidebar-section-title {
+    margin-top: 12px;
+}
+
 .sidebar-tip-header {
     display: flex;
     align-items: center;

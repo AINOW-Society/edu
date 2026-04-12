@@ -1,4 +1,4 @@
-const APP_VERSION = 'v0.84';
+const APP_VERSION = 'v0.85';
 
 function escapeHtml(str) {
     return String(str)
@@ -217,17 +217,17 @@ const App = {
                 const chapterIds = this._guideCategoryMap[cat] || [];
                 const chapters = chapterIds.map(id => DOCS_DATA.find(s => s.id === id)).filter(Boolean);
                 if (chapters.length) {
-                    html += `<div class="sidebar-section-title" style="margin-top:12px;">${t('guide.toc.chapters') || 'Поглавја'}</div>`;
+                    html += `<div class="sidebar-section-title">${t('guide.toc.chapters') || 'Поглавја'}</div>`;
                     chapters.forEach((section, idx) => {
                         const i18nKey = 'guide.section.' + section.id;
                         const translated = t(i18nKey);
                         const label = (translated !== i18nKey) ? translated : section.title.replace(/^[IVX]+\.\s*/, '');
                         const isChapterActive = section.id === activeSection;
                         html += `
-                            <div class="sidebar-item ${isChapterActive ? 'active' : ''}" id="sidebar-${section.id}"
-                                 onclick="Router.renderContent('${section.id}')" style="padding-left:20px;">
-                                <div class="sidebar-item-icon" style="width:20px;height:20px;font-size:11px;font-weight:700;color:var(--text-tertiary);display:flex;align-items:center;justify-content:center;flex-shrink:0;">${idx + 1}</div>
-                                <span class="sidebar-item-label" style="font-size:13px;">${label}</span>
+                            <div class="sidebar-item sidebar-chapter-item ${isChapterActive ? 'active' : ''}" id="sidebar-${section.id}"
+                                 onclick="Router.renderContent('${section.id}')">
+                                <div class="sidebar-item-icon sidebar-chapter-num">${idx + 1}</div>
+                                <span class="sidebar-item-label sidebar-chapter-label">${label}</span>
                             </div>`;
                     });
                 }
@@ -248,7 +248,7 @@ const App = {
                 { id: 'students', title: I18n.t('tools.cat.students'), icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' }
             ];
 
-            html = '<div class="sidebar-menu" style="margin-top: 10px;">';
+            html = '<div class="sidebar-menu">';
             categories.forEach(cat => {
                 const isActive = (this.currentToolCategory || 'all') === cat.id;
                 html += `
@@ -269,12 +269,12 @@ const App = {
             const countSub = (arr, sub) => arr.filter(p => p.subcategory === sub).length;
 
             html = `
-                <div style="padding: 4px 0;">
+                <div class="sidebar-ctx-wrap">
                     <div class="sidebar-section-title">${t('prompts.cat.teachers')}</div>
                     ${this._sidebarPromptSubLink('primary_lower', countSub(teachers, 'primary_lower'), 'teachers')}
                     ${this._sidebarPromptSubLink('primary_upper', countSub(teachers, 'primary_upper'), 'teachers')}
                     ${this._sidebarPromptSubLink('secondary',     countSub(teachers, 'secondary'), 'teachers')}
-                    <div class="sidebar-section-title" style="margin-top:12px;">${t('prompts.cat.administration')}</div>
+                    <div class="sidebar-section-title">${t('prompts.cat.administration')}</div>
                     ${this._sidebarPromptSubLink('director',     countSub(admin, 'director'), 'administration')}
                     ${this._sidebarPromptSubLink('pedagogue',    countSub(admin, 'pedagogue'), 'administration')}
                     ${this._sidebarPromptSubLink('psychologist', countSub(admin, 'psychologist'), 'administration')}
@@ -286,8 +286,8 @@ const App = {
         } else if (viewId === 'about') {
             const t = (k) => I18n.t(k);
             html = `
-                <div style="padding: 8px 0;">
-                    <div class="sidebar-section-title" style="padding: 0 16px; margin-bottom: 8px;">AINOW Society</div>
+                <div class="sidebar-ctx-wrap">
+                    <div class="sidebar-section-title sidebar-section-header">AINOW Society</div>
                     <div class="sidebar-quick-link" onclick="App.switchAboutWidget('team'); document.getElementById('about-widget-team').scrollIntoView({behavior:'smooth'})">
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                         <span>${t('about.sidebar.team')}</span>
@@ -301,40 +301,18 @@ const App = {
                         <span>${t('about.sidebar.partners')}</span>
                     </div>
 
-                    <div style="margin-top: 16px; border-top: 1px solid var(--border-light); padding-top: 12px;">
-                        <div class="sidebar-section-title" style="padding: 0 16px; margin-bottom: 8px;">AINOW Society</div>
-                        <a href="https://www.ainow.mk" target="_blank" rel="noopener" class="sidebar-quick-link" style="text-decoration:none;">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                            <span>ainow.mk</span>
-                        </a>
-                        <a href="https://github.com/AINOW-Society" target="_blank" rel="noopener" class="sidebar-quick-link" style="text-decoration:none;">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.63-.33 2.47-.33.84 0 1.68.11 2.47.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="https://www.linkedin.com/company/ainowmk" target="_blank" rel="noopener" class="sidebar-quick-link" style="text-decoration:none;">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5V13.2a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 1 0 0 3.37m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-                            <span>LinkedIn</span>
-                        </a>
+                    <div class="sidebar-society-sep">
+                        <div class="sidebar-section-title sidebar-section-header">AINOW Society</div>
+                        ${this._renderSidebarSocials()}
                     </div>
                     ${this.renderSidebarTip(viewId)}
                 </div>
             `;
         } else {
             html = `
-                <div style="padding: 8px 0;">
-                    <div class="sidebar-section-title" style="padding: 0 16px; margin-bottom: 8px;">AINOW Society</div>
-                    <a href="https://www.ainow.mk" target="_blank" rel="noopener" class="sidebar-quick-link" style="text-decoration:none;">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        <span>ainow.mk</span>
-                    </a>
-                    <a href="https://github.com/AINOW-Society" target="_blank" rel="noopener" class="sidebar-quick-link" style="text-decoration:none;">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.63-.33 2.47-.33.84 0 1.68.11 2.47.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://www.linkedin.com/company/ainowmk" target="_blank" rel="noopener" class="sidebar-quick-link" style="text-decoration:none;">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5V13.2a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 1 0 0 3.37m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-                        <span>LinkedIn</span>
-                    </a>
+                <div class="sidebar-ctx-wrap">
+                    <div class="sidebar-section-title sidebar-section-header">AINOW Society</div>
+                    ${this._renderSidebarSocials()}
                 </div>
             `;
         }
@@ -362,19 +340,36 @@ const App = {
         `;
     },
 
+    _renderSidebarSocials() {
+        return `
+            <a href="https://www.ainow.mk" target="_blank" rel="noopener" class="sidebar-quick-link">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <span>ainow.mk</span>
+            </a>
+            <a href="https://github.com/AINOW-Society" target="_blank" rel="noopener" class="sidebar-quick-link">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.63-.33 2.47-.33.84 0 1.68.11 2.47.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                <span>GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/company/ainowmk" target="_blank" rel="noopener" class="sidebar-quick-link">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5V13.2a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 1 0 0 3.37m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                <span>LinkedIn</span>
+            </a>
+        `;
+    },
+
     _renderSidebarAILinks() {
         return `
-            <div class="sidebar-ai-tools" style="padding: 12px 16px 4px; margin-top: 8px; border-top: 1px solid var(--border-light);">
-                <div class="sidebar-section-title" style="margin-bottom: 6px;">${I18n.t('sidebar.ai.label')}</div>
-                <a href="https://chat.openai.com" target="_blank" rel="noopener" class="sidebar-quick-link" style="text-decoration:none;">
+            <div class="sidebar-ai-tools">
+                <div class="sidebar-section-title">${I18n.t('sidebar.ai.label')}</div>
+                <a href="https://chat.openai.com" target="_blank" rel="noopener" class="sidebar-quick-link">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                     <span>ChatGPT</span>
                 </a>
-                <a href="https://gemini.google.com" target="_blank" rel="noopener" class="sidebar-quick-link" style="text-decoration:none;">
+                <a href="https://gemini.google.com" target="_blank" rel="noopener" class="sidebar-quick-link">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                     <span>Gemini</span>
                 </a>
-                <a href="https://claude.ai" target="_blank" rel="noopener" class="sidebar-quick-link" style="text-decoration:none;">
+                <a href="https://claude.ai" target="_blank" rel="noopener" class="sidebar-quick-link">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
                     <span>Claude</span>
                 </a>
@@ -384,13 +379,13 @@ const App = {
 
     _renderSidebarAILinks_guide() {
         return `
-            <div class="sidebar-ai-tools" style="padding: 12px 16px 4px; margin-top: 8px; border-top: 1px solid var(--border-light);">
-                <div class="sidebar-section-title" style="margin-bottom: 6px;">${I18n.t('sidebar.ai.learning')}</div>
-                <a href="https://claude.ai" target="_blank" rel="noopener" class="sidebar-quick-link" style="text-decoration:none;">
+            <div class="sidebar-ai-tools">
+                <div class="sidebar-section-title">${I18n.t('sidebar.ai.learning')}</div>
+                <a href="https://claude.ai" target="_blank" rel="noopener" class="sidebar-quick-link">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
                     <span>Claude</span>
                 </a>
-                <a href="https://chat.openai.com" target="_blank" rel="noopener" class="sidebar-quick-link" style="text-decoration:none;">
+                <a href="https://chat.openai.com" target="_blank" rel="noopener" class="sidebar-quick-link">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                     <span>ChatGPT</span>
                 </a>
@@ -400,13 +395,13 @@ const App = {
 
     _renderSidebarAILinks_prompts() {
         return `
-            <div class="sidebar-ai-tools" style="padding: 12px 16px 4px; margin-top: 8px; border-top: 1px solid var(--border-light);">
-                <div class="sidebar-section-title" style="margin-bottom: 6px;">${I18n.t('sidebar.ai.test')}</div>
-                <a href="https://chat.openai.com" target="_blank" rel="noopener" class="sidebar-quick-link" style="text-decoration:none;">
+            <div class="sidebar-ai-tools">
+                <div class="sidebar-section-title">${I18n.t('sidebar.ai.test')}</div>
+                <a href="https://chat.openai.com" target="_blank" rel="noopener" class="sidebar-quick-link">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                     <span>ChatGPT</span>
                 </a>
-                <a href="https://claude.ai" target="_blank" rel="noopener" class="sidebar-quick-link" style="text-decoration:none;">
+                <a href="https://claude.ai" target="_blank" rel="noopener" class="sidebar-quick-link">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
                     <span>Claude</span>
                 </a>
@@ -416,13 +411,13 @@ const App = {
 
     _renderSidebarAILinks_tools() {
         return `
-            <div class="sidebar-ai-tools" style="padding: 12px 16px 4px; margin-top: 8px; border-top: 1px solid var(--border-light);">
-                <div class="sidebar-section-title" style="margin-bottom: 6px;">${I18n.t('sidebar.ai.popular')}</div>
-                <a href="https://chat.openai.com" target="_blank" rel="noopener" class="sidebar-quick-link" style="text-decoration:none;">
+            <div class="sidebar-ai-tools">
+                <div class="sidebar-section-title">${I18n.t('sidebar.ai.popular')}</div>
+                <a href="https://chat.openai.com" target="_blank" rel="noopener" class="sidebar-quick-link">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                     <span>ChatGPT</span>
                 </a>
-                <a href="https://claude.ai" target="_blank" rel="noopener" class="sidebar-quick-link" style="text-decoration:none;">
+                <a href="https://claude.ai" target="_blank" rel="noopener" class="sidebar-quick-link">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
                     <span>Claude</span>
                 </a>
@@ -451,10 +446,10 @@ const App = {
         }
 
         return `
-            <div class="sidebar-tip-box" style="margin: 20px 12px 0;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--primary);"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                    <div class="sidebar-tip-label" style="margin: 0; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;">${t(titleKey)}</div>
+            <div class="sidebar-tip-box">
+                <div class="sidebar-tip-header">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" class="sidebar-tip-icon"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    <div class="sidebar-tip-label">${t(titleKey)}</div>
                 </div>
                 <p class="sidebar-tip-text">${t(descKey)}</p>
             </div>
@@ -535,8 +530,8 @@ const App = {
 
         if (category === 'all') {
             header.innerHTML = `
-                <div class="page-hero-card" style="margin-bottom:20px;">
-                    <div class="page-hero-card-icon" style="background:rgba(107,91,79,0.1);color:#6b5b4f;">
+                <div class="page-hero-card">
+                    <div class="page-hero-card-icon page-hero-card-icon--secondary">
                         <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
                     </div>
                     <div>
@@ -569,12 +564,12 @@ const App = {
         const countLabel = `${filtered.length} ${I18n.t('stats.tools')}`;
 
         header.innerHTML = `
-            <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--border-light);">
-                <div style="width:32px;height:32px;border-radius:8px;background:rgba(107,91,79,0.1);color:#6b5b4f;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <div class="tools-cat-header">
+                <div class="tools-cat-icon">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
                 </div>
-                <h2 style="font-size:17px;font-weight:700;color:var(--text-primary);margin:0;">${catTitle}</h2>
-                <span style="font-size:12px;color:var(--text-tertiary);background:var(--bg-sidebar);border:1px solid var(--border-light);border-radius:20px;padding:2px 10px;margin-left:auto;">${countLabel}</span>
+                <h2 class="tools-cat-title">${catTitle}</h2>
+                <span class="tools-cat-count">${countLabel}</span>
             </div>
         `;
 
@@ -695,16 +690,16 @@ const App = {
                                 </button>
                                 <div class="pcm-ai-menu">
                                     <button class="pcm-ai-option" onclick="App.openWithAI(this,'https://chat.openai.com')">
-                                        <span class="pcm-ai-dot" style="background:#10a37f"></span>ChatGPT
+                                        <span class="pcm-ai-dot pcm-ai-dot--chatgpt"></span>ChatGPT
                                     </button>
                                     <button class="pcm-ai-option" onclick="App.openWithAI(this,'https://gemini.google.com')">
-                                        <span class="pcm-ai-dot" style="background:#4285f4"></span>Gemini
+                                        <span class="pcm-ai-dot pcm-ai-dot--gemini"></span>Gemini
                                     </button>
                                     <button class="pcm-ai-option" onclick="App.openWithAI(this,'https://claude.ai')">
-                                        <span class="pcm-ai-dot" style="background:#d97757"></span>Claude
+                                        <span class="pcm-ai-dot pcm-ai-dot--claude"></span>Claude
                                     </button>
                                     <button class="pcm-ai-option" onclick="App.openWithAI(this,'https://www.perplexity.ai')">
-                                        <span class="pcm-ai-dot" style="background:#20b2aa"></span>Perplexity
+                                        <span class="pcm-ai-dot pcm-ai-dot--perplexity"></span>Perplexity
                                     </button>
                                 </div>
                             </div>

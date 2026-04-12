@@ -1244,17 +1244,7 @@
         this.currentLang = this.lang;
         document.documentElement.lang = this.lang;
 
-        if (this.lang === 'mk' && typeof DOCS_DATA !== 'undefined' && DOCS_DATA.length > 0) {
-            if (!DOCS_DATA.find(s => s.id === 'about')) {
-                DOCS_DATA.push({
-                    id: 'about',
-                    title: this.t('sidebar.about.title'),
-                    items: [{ id: 'ainow', title: 'AINOW Society', content: '' }]
-                });
-            }
-        } else {
-            await this.loadLangData(this.lang);
-        }
+        await this.loadLangData(this.lang);
 
         document.querySelectorAll('[data-i18n]').forEach(el => {
             el.textContent = this.t(el.getAttribute('data-i18n'));

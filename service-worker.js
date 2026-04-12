@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ai-edu-v0.84';
+const CACHE_NAME = 'ai-edu-v0.85';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -49,11 +49,9 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-    // Only handle same-origin requests
     const url = new URL(event.request.url);
     if (url.origin !== self.location.origin) return;
 
-    // Navigation requests (page loads): network-first, cache fallback
     if (event.request.mode === 'navigate') {
         event.respondWith(
             fetch(event.request)
@@ -70,7 +68,6 @@ self.addEventListener('fetch', event => {
         return;
     }
 
-    // All other requests: cache-first, network fallback
     event.respondWith(
         caches.match(event.request).then(cached => {
             if (cached) return cached;

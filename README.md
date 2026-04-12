@@ -49,6 +49,17 @@ We have prepared a comprehensive **[Contribution Guide](CONTRIBUTING.md)** that 
 
 ## Changelog
 
+### v0.85 (April 12, 2026)
+- **Code Audit & Cleanup:** Full codebase review — no dead code, no broken references, no TODO/FIXME comments found. Clean bill of health.
+- **Version Sync:** Aligned `APP_VERSION` (`app.js`) with `CACHE_NAME` (`service-worker.js`), which were 2 versions out of sync.
+- **Removed Artifact:** Deleted `extglob` file from repo root (UTF-8 BOM artifact, 3 bytes, no content).
+- **Tracked Libraries:** Added `js/lib/html2canvas.min.js` and `js/lib/jspdf.min.js` to git — they were untracked, causing PDF export to break on fresh clones.
+- **Removed All Comments:** Stripped all `//` and `/* */` comments from source JS files (`app.js`, `views/resources.js`, `service-worker.js`).
+- **Inline Styles → CSS:** Moved all inline `style=""` attributes from JS-generated HTML into proper CSS classes in `styles.css`. New classes: `.sidebar-ctx-wrap`, `.sidebar-section-header`, `.sidebar-tip-header`, `.sidebar-tip-icon`, `.sidebar-ai-tools`, `.sidebar-chapter-item`, `.sidebar-chapter-num`, `.sidebar-chapter-label`, `.sidebar-society-sep`, `.tools-cat-header`, `.tools-cat-icon`, `.tools-cat-title`, `.tools-cat-count`, `.page-hero-card-icon--secondary`, `.pcm-ai-dot--chatgpt/gemini/claude/perplexity`.
+- **Sidebar Deduplication:** Extracted repeated AINOW Society social links (ainow.mk / GitHub / LinkedIn) into a single `_renderSidebarSocials()` method. Was duplicated 3× across `renderSidebarCtx`. All four `_renderSidebarAILinks*` methods also cleaned of inline styles.
+- **Lazy Language Loading:** Removed hardcoded MK language scripts (`lang/mk/docs.js`, `prompts.js`, `quizzes.js`) from `index.html`. All language data now loads dynamically via `I18n.loadLangData()` based on the user's saved preference — no wasted bandwidth for EN/SQ users loading MK files.
+- **Service Worker:** Cache bumped to `ai-edu-v0.85` to force eviction of old cached JS.
+
 ### v0.82 (April 11, 2026)
 - **PDF Export — Two Buttons:** Resources view now has a "Save as PDF" button and a separate "Print" button. Both open a hidden iframe with the formatted document and trigger the browser print dialog — works offline, handles all scripts (Macedonian Cyrillic, Albanian, English), and works on mobile and desktop.
 - **Export Fix:** Removed dead `#print-container` guard that silently blocked all exports. Export now works correctly on every click.
