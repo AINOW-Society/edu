@@ -416,12 +416,12 @@ window.ResourceManager = {
             callback(`<style>${commonCSS}</style>${headerHtml}${printHtml}`);
         } else {
             callback(`<style>
-                @page { size: A4; margin: 0 0 18mm 0; }
+                @page { size: A4; margin: 0; }
                 ${commonCSS}
                 .print-master-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-                .print-header-cell { padding: 12px 25mm 0; }
-                .print-page-content { padding: 0 25mm; box-sizing: border-box; }
-                .print-footer-fixed { position: fixed; bottom: 0; left: 0; right: 0; background: white; }
+                .print-header-cell { padding: 12.7mm 25.4mm 0; }
+                .print-page-content { padding: 0 25.4mm 20mm; }
+                .print-footer-fixed { position: fixed; bottom: 12.7mm; left: 25.4mm; right: 25.4mm; background: white; }
                 @media print { .no-print { display: none !important; } }
             </style>
             <table class="print-master-table">
@@ -531,12 +531,12 @@ window.ResourceManager = {
         } else {
             const printHtml = `
                 <style>
-                    @page { size: A4; margin: 0 0 18mm 0; }
+                    @page { size: A4; margin: 0; }
                     ${examCSS}
                     .print-master-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-                    .print-header-cell { padding: 12px 25mm 0; }
-                    .print-page-content { padding: 0 25mm; box-sizing: border-box; }
-                    .print-footer-fixed { position: fixed; bottom: 0; left: 0; right: 0; background: white; }
+                    .print-header-cell { padding: 12.7mm 25.4mm 0; }
+                    .print-page-content { padding: 0 25.4mm 20mm; }
+                    .print-footer-fixed { position: fixed; bottom: 12.7mm; left: 25.4mm; right: 25.4mm; background: white; }
                     .print-item { page-break-inside: avoid; break-inside: avoid; }
                     .exam-header { break-after: avoid; page-break-after: avoid; }
                 </style>
@@ -801,10 +801,19 @@ window.ResourceManager = {
         const title = this.currentWidget === 'tests'
             ? I18n.t('tests.hero.title')
             : (this.currentWidget === 'prompts' ? I18n.t('resources.widget.prompts') : I18n.t('resources.widget.guide'));
+        const desc = this.currentWidget === 'tests'
+            ? I18n.t('tests.header_desc')
+            : I18n.t('header.platform');
         return `
-            <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1.5px solid #d97757;padding-bottom:8px;">
-                <span style="font-size:11px;font-weight:800;color:#111827;letter-spacing:-0.02em;">AINOW Society</span>
-                <span style="font-size:10px;font-weight:600;color:#6b7280;">${title}</span>
+            <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #d97757;padding-bottom:12px;margin-bottom:0;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                    <svg viewBox="0 0 233.52 233.52" width="32" height="32" fill="#d97757"><path d="M0 116.95c0 64.15 52.06 116.58 116.58 116.58 64.52 0 116.95-52.43 116.95-116.58 0-64.52-52.42-116.95-116.95-116.95-64.52 0-116.58 52.42-116.58 116.95zm23.46 0c0-51.69 41.79-93.48 93.12-93.48 51.69 0 93.12 41.79 93.12 93.48 0 26.03-10.63 49.49-27.86 66.35l0-66.72c0-35.93-29.33-64.89-65.26-64.89-35.93 0-65.26 28.96-65.26 64.89 0 36.29 29.33 65.25 65.26 65.26l0-25.3c-21.99 0-39.59-17.96-39.59-39.96 0-21.63 17.6-39.59 39.59-39.59 22 0 39.59 17.96 39.59 39.59l0 52.06 0 32.63c-11.73 5.5-25.3 8.8-39.59 8.8-51.32 0-93.12-41.79-93.12-93.12z"></path></svg>
+                    <span style="font-size:22px;font-weight:800;color:#111827;letter-spacing:-0.04em;">AINOW Society</span>
+                </div>
+                <div style="text-align:right;">
+                    <div style="font-size:13px;font-weight:700;color:#111827;">${title}</div>
+                    <div style="font-size:10px;font-weight:600;color:#6b7280;">${desc}</div>
+                </div>
             </div>`;
     },
 
@@ -812,8 +821,8 @@ window.ResourceManager = {
         const euDate = new Date().toLocaleDateString('en-GB', {day:'2-digit',month:'short',year:'numeric'}).replace(/ /g,'-').toUpperCase();
         const docId = Math.random().toString(36).substr(2, 8).toUpperCase();
         return `
-            <div style="padding: 8px 25mm 0; border-top: 1px solid #e5e7eb; display: flex; justify-content: space-between; font-size: 9px; color: #9ca3af; font-weight: 500; box-sizing: border-box; width: 100%;">
-                <div>edu.ainow.mk | ${I18n.t('footer.platform')}</div>
+            <div style="padding-top: 6px; border-top: 1px solid #e5e7eb; display: flex; justify-content: space-between; font-size: 9px; color: #9ca3af; font-weight: 500; width: 100%;">
+                <div>edu.ainow.mk &nbsp;|&nbsp; ${I18n.t('footer.platform')}</div>
                 <div>${euDate} &nbsp;•&nbsp; ID: ${docId}</div>
             </div>`;
     }
