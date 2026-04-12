@@ -1,4 +1,4 @@
-var embeddedPromptsData = {
+﻿var embeddedPromptsData = {
   teachers: [
     {
       subcategory: "primary_lower",
@@ -1333,7 +1333,7 @@ var embeddedPromptsData = {
       subcategory: "director",
       subject: "Menaxhimi",
       title: "Fjalimi i fillimit të vitit shkollor",
-      prompt: "Shkruaj një fjalim motivues 3-minutësh për Drejtorin e shkollës që do t'u drejtohet mësuesve në mbledhjen e parë të shtatorit. Fjalimi duhet të fokusohet në rëndësinë e bashkëpunimit, shëndetin mendor të nxënësve dhe përdorimin e teknologjisë (si AI) si një mjet mbështetës, jo si rrezik.",
+      prompt: "Shkruaj një fjalim motivues 3-minutësh për Drejtorin e shkollës që do t'u drejtohet mësuesve në mbledhjen e parë të shtatorit. Fjalimi duhet të fokusohet në rëndësinë e bashkëpunimit, shëndetin mendor të nxënësve dhe përdorimin e teknologjisë (si IA) si një mjet mbështetës, jo si rrezik.",
       tags: ["fjalim", "lidership", "drejtori"]
     },
     {
@@ -2039,7 +2039,7 @@ var embeddedPromptsData = {
     {
       subcategory: "pedagogue",
       subject: "Etika Akademike",
-      title: "Protokolli i Kopjimit me AI",
+      title: "Protokolli i Kopjimit me IA",
       prompt: "Korniza CPTC. Persona: Pedagog i shkollës. Konteksti: Një nxënës është kapur duke e gjeneruar tërësisht esenë e tij duke përdorur Inteligjencë Artificiale pa e cituar. Detyra: Shkruaj një protokoll (Listë me Hapa) se si duhet të zhvillohet biseda këshilluese me këtë nxënës. Kufizimet: Qëllimi absolut nuk është dënimi, por edukimi i tij mbi integritetin akademik.",
       tags: ["pedagog", "protokoll", "etika ai"]
     },

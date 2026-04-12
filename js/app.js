@@ -1,4 +1,4 @@
-const APP_VERSION = 'v0.81';
+const APP_VERSION = 'v0.84';
 
 function escapeHtml(str) {
     return String(str)
@@ -21,7 +21,7 @@ const App = {
     _scrollPositions: {},
 
     async init() {
-        if (window.I18n) await I18n.init();
+        if (typeof I18n !== 'undefined') await I18n.init();
         window.onerror = (msg, src, line, col, err) => {
             console.error(`[AINOW Error] ${msg} (${src}:${line}:${col})`, err);
             return false;
@@ -69,7 +69,6 @@ const App = {
     async switchView(viewId) {
         this.closeLangMenu();
 
-        // Save scroll position for the current view before switching
         const mainContent = document.getElementById('main-content');
         if (mainContent && this.currentView && this.currentView !== viewId) {
             this._scrollPositions[this.currentView] = mainContent.scrollTop;
@@ -94,7 +93,6 @@ const App = {
         if (sidebar) sidebar.classList.remove('open');
         if (overlay) overlay.classList.remove('open');
 
-        // Restore saved scroll position, or reset to top for new/first visit
         if (mainContent) {
             const saved = this._scrollPositions[viewId];
             mainContent.scrollTop = (saved !== undefined) ? saved : 0;
@@ -165,24 +163,13 @@ const App = {
 
         if (viewId === 'home' || viewId === 'help' || viewId === 'resources') {
             const t = (k) => I18n.t(k);
-            
+
             html = `
-                <div style="padding: 8px 0;">
-                    <div class="sidebar-section-title" style="padding: 0 16px; margin-bottom: 8px;">${viewId === 'resources' ? 'AINOW Society' : t('sidebar.quicklinks')}</div>
+                <div class="sidebar-ctx-wrap">
+                    <div class="sidebar-section-title sidebar-section-header">${viewId === 'resources' ? 'AINOW Society' : t('sidebar.quicklinks')}</div>
 
                     ${viewId === 'resources' ? `
-                        <a href="https://www.ainow.mk" target="_blank" rel="noopener" class="sidebar-quick-link" style="text-decoration:none;">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                            <span>ainow.mk</span>
-                        </a>
-                        <a href="https://github.com/AINOW-Society" target="_blank" rel="noopener" class="sidebar-quick-link" style="text-decoration:none;">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.63-.33 2.47-.33.84 0 1.68.11 2.47.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="https://www.linkedin.com/company/ainowmk" target="_blank" rel="noopener" class="sidebar-quick-link" style="text-decoration:none;">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5V13.2a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 1 0 0 3.37m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-                            <span>LinkedIn</span>
-                        </a>
+                        ${this._renderSidebarSocials()}
                     ` : `
                         <div class="sidebar-quick-link" onclick="App.switchView('guide')">
                             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
@@ -215,7 +202,7 @@ const App = {
             const activeEl = document.querySelector('.sidebar-item.active');
             let activeSection = activeEl && activeEl.id ? activeEl.id.replace('sidebar-', '') : null;
 
-            html = '<div class="sidebar-menu" style="margin-top: 10px;">';
+            html = '<div class="sidebar-menu">';
 
             ['foundations', 'practice', 'reference'].forEach(cId => {
                 const isActive = cat === cId;
@@ -558,9 +545,7 @@ const App = {
                     </div>
                 </div>
             `;
-            grid.innerHTML = '';
-            this._toolsData.forEach(tool => {
-                grid.innerHTML += `
+            grid.innerHTML = this._toolsData.map(tool => `
                     <div class="tool-card">
                         <div class="tool-card-head">
                             <h3 class="tool-card-title">${tool.title}</h3>
@@ -575,8 +560,7 @@ const App = {
                             ${I18n.t('tools.open')}
                         </a>
                     </div>
-                `;
-            });
+                `).join('');
             return;
         }
 
@@ -594,9 +578,7 @@ const App = {
             </div>
         `;
 
-        grid.innerHTML = '';
-        filtered.forEach(tool => {
-            grid.innerHTML += `
+        grid.innerHTML = filtered.map(tool => `
                 <div class="tool-card">
                     <div class="tool-card-head">
                         <h3 class="tool-card-title">${tool.title}</h3>
@@ -611,8 +593,7 @@ const App = {
                         ${I18n.t('tools.open')}
                     </a>
                 </div>
-            `;
-        });
+            `).join('');
 
         if (filtered.length === 0) {
             grid.innerHTML = '<div class="pc-empty">' + I18n.t('prompts.empty') + '</div>';
@@ -774,7 +755,7 @@ const App = {
     },
 
     copyPrompt(btn) {
-        const text = btn.closest('.pcm-card').querySelector('.pcm-snippet').innerText;
+        const text = btn.closest('.pcm-card')?.querySelector('.pcm-snippet')?.innerText;
         navigator.clipboard.writeText(text).then(() => {
             const original = btn.innerHTML;
             btn.innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
@@ -788,7 +769,8 @@ const App = {
 
     toggleAIMenu(btn) {
         const launcher = btn.closest('.pcm-ai-launcher');
-        const menu = launcher.querySelector('.pcm-ai-menu');
+        const menu = launcher?.querySelector('.pcm-ai-menu');
+        if (!menu) return;
         const isOpen = menu.classList.contains('open');
 
         document.querySelectorAll('.pcm-ai-menu.open').forEach(m => m.classList.remove('open'));
@@ -808,8 +790,8 @@ const App = {
 
     openWithAI(btn, url) {
         const card = btn.closest('.pcm-card');
-        const text = card.querySelector('.pcm-snippet').innerText;
-        card.querySelector('.pcm-ai-menu').classList.remove('open');
+        const text = card?.querySelector('.pcm-snippet')?.innerText;
+        card?.querySelector('.pcm-ai-menu')?.classList.remove('open');
         navigator.clipboard.writeText(text).catch(() => {});
         window.open(url, '_blank', 'noopener');
     },
@@ -1019,7 +1001,6 @@ const App = {
     },
 
     _initInstallPrompt() {
-        // Already running as installed PWA — never show anything
         if (window.matchMedia('(display-mode: standalone)').matches || navigator.standalone) return;
 
         const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
@@ -1027,16 +1008,12 @@ const App = {
         let bannerShown = false;
         try { bannerShown = localStorage.getItem('ainow-install-banner-shown') === '1'; } catch(e) {}
 
-        // Pick up prompt captured before app.js loaded
         if (window._pwaPrompt) {
             this._deferredInstallPrompt = window._pwaPrompt;
-            this._showInstallBtn();
             if (isMobile && !bannerShown) setTimeout(() => this._showInstallBanner(), 2500);
         }
 
-        // iOS: show button + one-time banner
         if (isIOS) {
-            this._showInstallBtn();
             if (!bannerShown) setTimeout(() => this._showInstallBanner(), 2500);
         }
 
@@ -1044,7 +1021,6 @@ const App = {
             e.preventDefault();
             this._deferredInstallPrompt = e;
             window._pwaPrompt = e;
-            this._showInstallBtn();
             if (isMobile && !bannerShown) {
                 bannerShown = true;
                 setTimeout(() => this._showInstallBanner(), 2500);
@@ -1054,7 +1030,6 @@ const App = {
         window.addEventListener('appinstalled', () => {
             this._deferredInstallPrompt = null;
             window._pwaPrompt = null;
-            this._hideInstallBtn();
             document.getElementById('install-banner')?.remove();
             try { localStorage.setItem('ainow-install-banner-shown', '1'); } catch(e) {}
         });
@@ -1080,33 +1055,19 @@ const App = {
         `;
         document.body.appendChild(banner);
         try { localStorage.setItem('ainow-install-banner-shown', '1'); } catch(e) {}
-        // Auto-dismiss after 10 seconds
         setTimeout(() => banner?.remove(), 10000);
-    },
-
-    _showInstallBtn() {
-        const btn = document.getElementById('pwa-install-btn');
-        if (btn) btn.classList.add('visible');
-    },
-
-    _hideInstallBtn() {
-        const btn = document.getElementById('pwa-install-btn');
-        if (btn) btn.classList.remove('visible');
     },
 
     triggerInstall() {
         if (this._deferredInstallPrompt) {
-            // Android Chrome / Desktop Chrome / Edge — native install dialog
             this._deferredInstallPrompt.prompt();
             this._deferredInstallPrompt.userChoice.then((choice) => {
                 if (choice.outcome === 'accepted') {
                     this._deferredInstallPrompt = null;
                     window._pwaPrompt = null;
-                    this._hideInstallBtn();
                 }
             });
         } else if (/iphone|ipad|ipod/i.test(navigator.userAgent)) {
-            // iOS Safari — show step-by-step guide sheet
             this._showIOSInstallGuide();
         }
     },

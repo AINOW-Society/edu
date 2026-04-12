@@ -1,14 +1,14 @@
-var QUIZ_DATA = {
+﻿var QUIZ_DATA = {
     intro: [
         {
             id: 'Q-001',
             type: 'mcq',
-            question: 'Cili është qëllimi kryesor i alfabetizmit AI sipas këtij udhëzuesi?',
+            question: 'Cili është qëllimi kryesor i alfabetizmit IA sipas këtij udhëzuesi?',
             options: [
                 'Gjithësecili të bëhet programues',
-                'Kuptimi i asaj se si funksionon AI dhe mendimi kritik',
-                'Zëvendësimi i plotë i punës njerëzore me AI',
-                'Përdorimi i AI vetëm për argëtim'
+                'Kuptimi i asaj se si funksionon IA dhe mendimi kritik',
+                'Zëvendësimi i plotë i punës njerëzore me IA',
+                'Përdorimi i IA vetëm për argëtim'
             ],
             answer: 1
         },
@@ -20,7 +20,7 @@ var QUIZ_DATA = {
         {
             id: 'Q-015',
             type: 'mcq',
-            question: 'Çfarë do të thotë shkurtesa "AI"?',
+            question: 'Çfarë do të thotë shkurtesa "IA"?',
             options: [
                 'Instruksion i Avancuar',
                 'Inteligjencë Aktuale',
@@ -32,7 +32,7 @@ var QUIZ_DATA = {
         {
             id: 'Q-016',
             type: 'mcq',
-            question: 'Cili lloj i të mësuarit është baza për sistemet moderne të AI?',
+            question: 'Cili lloj i të mësuarit është baza për sistemet moderne të IA?',
             options: [
                 'Të mësuarit mekanik',
                 'Të mësuarit makinë (Machine Learning)',
@@ -44,17 +44,17 @@ var QUIZ_DATA = {
         {
             id: 'Q-017',
             type: 'open',
-            question: 'Jepni një shembull të përdorimit të përditshëm të AI që përdorni personalisht.'
+            question: 'Jepni një shembull të përdorimit të përditshëm të IA që përdorni personalisht.'
         }
     ],
     literacy: [
         {
             id: 'Q-003',
             type: 'mcq',
-            question: 'Cili është një nga rreziqet më të mëdha për të rinjtë gjatë përdorimit të AI pa udhëzim?',
+            question: 'Cili është një nga rreziqet më të mëdha për të rinjtë gjatë përdorimit të IA pa udhëzim?',
             options: [
                 'Mësimi i shpejtë i aftësive të reja',
-                'Pranimi i "halucinacioneve" të AI si fakte të sakta',
+                'Pranimi i "halucinacioneve" të IA si fakte të sakta',
                 'Zvogëlimi i kohës para ekranit',
                 'Socializimi i tepërt me bashkëmoshatarët'
             ],
@@ -63,12 +63,12 @@ var QUIZ_DATA = {
         {
             id: 'Q-004',
             type: 'mcq',
-            question: 'Çfarë do të thotë vlerësimi kritik i përgjigjeve nga AI?',
+            question: 'Çfarë do të thotë vlerësimi kritik i përgjigjeve nga IA?',
             options: [
                 'Besimi i verbër në çdo tekst të gjeneruar',
                 'Kontrollimi i fakteve dhe njohja e paragjykimeve',
                 'Kopjimi i përgjigjeve direkt në një raport',
-                'Injorimi i AI si mjet'
+                'Injorimi i IA si mjet'
             ],
             answer: 1
         },
@@ -90,7 +90,7 @@ var QUIZ_DATA = {
             question: 'Pse është e rrezikshme të jepni të dhëna personale në chatbot-e?',
             options: [
                 'Të dhënat mund të përdoren për trajnim ose të bëhen publike',
-                'AI do të ndalojë së punuari',
+                'IA do të ndalojë së punuari',
                 'Kompjuteri do të riniset (restart)',
                 'Nuk është e rrezikshme, të dhënat janë gjithmonë 100% private'
             ],
@@ -99,14 +99,14 @@ var QUIZ_DATA = {
         {
             id: 'Q-020',
             type: 'open',
-            question: 'Shkruani 3 pyetje që duhet t\'i bëni vetes para se t\'i besoni një përgjigjeje nga AI.'
+            question: 'Shkruani 3 pyetje që duhet t\'i bëni vetes para se t\'i besoni një përgjigjeje nga IA.'
         }
     ],
     definition: [
         {
             id: 'Q-005',
             type: 'mcq',
-            question: 'Si ndryshon AI fundamentalisht nga mendja njerëzore?',
+            question: 'Si ndryshon IA fundamentalisht nga mendja njerëzore?',
             options: [
                 'Ajo ka emocione dhe intuitë',
                 'Përdor llogaritje masive matematike dhe modele',
@@ -130,7 +130,7 @@ var QUIZ_DATA = {
         {
             id: 'Q-021',
             type: 'mcq',
-            question: 'Çfarë është një "Rrjetë neurale" në kontekst të AI?',
+            question: 'Çfarë është një "Rrjetë neurale" në kontekst të IA?',
             options: [
                 'Trur biologjik në një vazo',
                 'Sistem kompjuterik i frymëzuar nga struktura e trurit',
@@ -161,22 +161,22 @@ var QUIZ_DATA = {
         {
             id: 'Q-007',
             type: 'mcq',
-            question: 'Çfarë është "AI e Ngushtë" (Narrow AI)?',
+            question: 'Çfarë është "IA e Ngushtë" (Narrow IA)?',
             options: [
-                'AI që mund të kryejë çdo detyrë njerëzore',
-                'AI e specializuar për një detyrë specifike (p.sh. shah)',
-                'AI që është e vetëdijshme për veten',
-                'AI që nuk përdor internetin'
+                'IA që mund të kryejë çdo detyrë njerëzore',
+                'IA e specializuar për një detyrë specifike (p.sh. shah)',
+                'IA që është e vetëdijshme për veten',
+                'IA që nuk përdor internetin'
             ],
             answer: 1
         },
         {
             id: 'Q-008',
             type: 'mcq',
-            question: 'Çfarë është "AI Gjenerative"?',
+            question: 'Çfarë është "IA Gjenerative"?',
             options: [
-                'AI që mbledh vetëm të dhëna',
-                'AI që mund të krijojë përmbajtje të re (tekst, imazhe, kod)',
+                'IA që mbledh vetëm të dhëna',
+                'IA që mund të krijojë përmbajtje të re (tekst, imazhe, kod)',
                 'Një version i vjetër i makinës llogaritëse',
                 'Një sistem për fikjen automatike të kompjuterëve'
             ],
@@ -188,7 +188,7 @@ var QUIZ_DATA = {
             question: 'Çfarë janë "Large Language Models" (LLM)?',
             options: [
                 'Modele për parashikimin e motit',
-                'Modele AI të trajnuara në sasi masive teksti',
+                'Modele IA të trajnuara në sasi masive teksti',
                 'Altoparlantë të mëdhenj për koncert',
                 'Përkthyes për gjuhë të huaja'
             ],
@@ -200,7 +200,7 @@ var QUIZ_DATA = {
             question: 'Çfarë është "Trajnimi i të dhënave" (Data Training)?',
             options: [
                 'Proces ushtrimi në palestër',
-                'Proces ku AI mëson nga shembujt e dhënë',
+                'Proces ku IA mëson nga shembujt e dhënë',
                 'Renditja e dosjeve në kompjuter',
                 'Fshirja e skedarëve të vjetër'
             ],
@@ -209,7 +209,7 @@ var QUIZ_DATA = {
         {
             id: 'Q-026',
             type: 'open',
-            question: 'Pse modelet e AI ndonjëherë bëjnë gabime me matematikë të thjeshtë?'
+            question: 'Pse modelet e IA ndonjëherë bëjnë gabime me matematikë të thjeshtë?'
         }
     ],
     history: [
@@ -228,11 +228,11 @@ var QUIZ_DATA = {
         {
             id: 'Q-010',
             type: 'mcq',
-            question: 'Çfarë përfaqësojnë "Dimrat e AI"?',
+            question: 'Çfarë përfaqësojnë "Dimrat e IA"?',
             options: [
-                'Periudha kur AI përdorej për klimatologji',
-                'Periudha të reduktimit të financimit dhe interesit për kërkimin e AI',
-                'Sezone kur sistemet AI punonin më ngadalë',
+                'Periudha kur IA përdorej për klimatologji',
+                'Periudha të reduktimit të financimit dhe interesit për kërkimin e IA',
+                'Sezone kur sistemet IA punonin më ngadalë',
                 'Turne speciale në programim'
             ],
             answer: 1
@@ -252,7 +252,7 @@ var QUIZ_DATA = {
         {
             id: 'Q-028',
             type: 'mcq',
-            question: 'Kush konsiderohet babai i AI dhe i informatikës moderne?',
+            question: 'Kush konsiderohet babai i IA dhe i informatikës moderne?',
             options: [
                 'Steve Jobs',
                 'Alan Turing',
@@ -264,7 +264,7 @@ var QUIZ_DATA = {
         {
             id: 'Q-029',
             type: 'open',
-            question: 'Shkruani një ngjarje historike që ndryshoi perceptimin për AI.'
+            question: 'Shkruani një ngjarje historike që ndryshoi perceptimin për IA.'
         }
     ],
     prompts: [
@@ -290,9 +290,9 @@ var QUIZ_DATA = {
             type: 'mcq',
             question: 'Çfarë arrihet duke shtuar "Kontekst" në prompt?',
             options: [
-                'AI bëhet më e shpejtë',
-                'AI merr më shumë informacion për të dhënë një përgjigje më relevante',
-                'AI fiket më shpejt',
+                'IA bëhet më e shpejtë',
+                'IA merr më shumë informacion për të dhënë një përgjigje më relevante',
+                'IA fiket më shpejt',
                 'Kursen trafikun e internetit'
             ],
             answer: 1
@@ -303,7 +303,7 @@ var QUIZ_DATA = {
             question: 'Çfarë do të thotë "Few-Shot Prompting"?',
             options: [
                 'Shkrimi i një prompti me shumë pak fjalë',
-                'Dhënia e disa shembujve AI-së para se të kërkojmë detyrën përfundimtare',
+                'Dhënia e disa shembujve IA-së para se të kërkojmë detyrën përfundimtare',
                 'Shtypja e shpejtë e tastit Enter',
                 'Fshirja e promptit pas shkrimit të tij'
             ],
@@ -319,7 +319,7 @@ var QUIZ_DATA = {
         {
             id: 'Q-013',
             type: 'mcq',
-            question: 'Cili është ndryshimi kryesor midis një Chatbot-i dhe një Agjenti AI?',
+            question: 'Cili është ndryshimi kryesor midis një Chatbot-i dhe një Agjenti IA?',
             options: [
                 'Agjenti vetëm u përgjigjet pyetjeve',
                 'Agjenti mund të përdorë mjete dhe të ekzekutojë detyra në mënyrë autonome',
@@ -331,7 +331,7 @@ var QUIZ_DATA = {
         {
             id: 'Q-014',
             type: 'mcq',
-            question: 'Çfarë do të thotë "Memory" (Memoria) për Agjentët AI?',
+            question: 'Çfarë do të thotë "Memory" (Memoria) për Agjentët IA?',
             options: [
                 'Sa peshon fajlli i aplikacionit',
                 'Aftësia për të mbajtur mend interaksionet e kaluara dhe kontekstin',
@@ -343,7 +343,7 @@ var QUIZ_DATA = {
         {
             id: 'Q-033',
             type: 'mcq',
-            question: 'Çfarë është "Arsyetimi" (Reasoning) për agjentët AI?',
+            question: 'Çfarë është "Arsyetimi" (Reasoning) për agjentët IA?',
             options: [
                 'Aftësia për të përdorur logjikën për të zgjidhur probleme komplekse në hapa',
                 'Aftësia e agjentit për t\'u zemëruar',
@@ -355,7 +355,7 @@ var QUIZ_DATA = {
         {
             id: 'Q-034',
             type: 'mcq',
-            question: 'Çfarë përfaqëson "Planifikimi" (Planning) për Agjentët AI?',
+            question: 'Çfarë përfaqëson "Planifikimi" (Planning) për Agjentët IA?',
             options: [
                 'Dizajnimi i mobiljeve',
                 'Ndarja e një qëllimi të madh në hapa më të vegjël të ekzekutueshëm',
@@ -367,7 +367,7 @@ var QUIZ_DATA = {
         {
             id: 'Q-035',
             type: 'open',
-            question: 'Përshkruani një situatë ku një Agjent AI do të ishte më i dobishëm se një motor kërkimi i zakonshëm.'
+            question: 'Përshkruani një situatë ku një Agjent IA do të ishte më i dobishëm se një motor kërkimi i zakonshëm.'
         }
     ],
     glossary: [
@@ -398,7 +398,7 @@ var QUIZ_DATA = {
         {
             id: 'Q-038',
             type: 'open',
-            question: 'Përcaktoni termin "Bias" (Anshmëria) në të dhënat e AI.'
+            question: 'Përcaktoni termin "Bias" (Anshmëria) në të dhënat e IA.'
         }
     ],
     roadmap: [
@@ -407,7 +407,7 @@ var QUIZ_DATA = {
             type: 'mcq',
             question: 'Çfarë është "AGI" (Artificial General Intelligence)?',
             options: [
-                'AI që barazon ose tejkalon inteligjencën njerëzore në të gjitha fushat',
+                'IA që barazon ose tejkalon inteligjencën njerëzore në të gjitha fushat',
                 'Një kartë grafike speciale',
                 'Një aplikacion për celular',
                 'Lloj i vjetër i tastierës'
@@ -417,7 +417,7 @@ var QUIZ_DATA = {
         {
             id: 'Q-040',
             type: 'open',
-            question: 'Si mendoni se do ta ndryshojë AI arsimin në 10 vitet e ardhshme?'
+            question: 'Si mendoni se do ta ndryshojë IA arsimin në 10 vitet e ardhshme?'
         }
     ]
 };

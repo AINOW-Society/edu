@@ -1,4 +1,4 @@
-var DOCS_DATA = [
+﻿var DOCS_DATA = [
     {
         id: "intro",
         title: "Hyrje",
@@ -19,10 +19,10 @@ var DOCS_DATA = [
                     <h2>Qëllimet Kryesore</h2>
                     <p>Ky udhëzues ka disa qëllime parësore që synojnë përmirësimin e procesit edukativ:</p>
                     <ul>
-                        <li><strong>Alfabetizimi AI:</strong> Të ndihmojë përdoruesit të kuptojnë çfarë është AI, si funksionon dhe cilat janë kufizimet e saj.</li>
-                        <li><strong>Zbatimi Praktik:</strong> Të ofrojë teknika konkrete për inxhinierinë e prompteve dhe shembuj për përdorimin e mjeteve AI në mësimdhënie.</li>
+                        <li><strong>Alfabetizimi IA:</strong> Të ndihmojë përdoruesit të kuptojnë çfarë është IA, si funksionon dhe cilat janë kufizimet e saj.</li>
+                        <li><strong>Zbatimi Praktik:</strong> Të ofrojë teknika konkrete për inxhinierinë e prompteve dhe shembuj për përdorimin e mjeteve IA në mësimdhënie.</li>
                         <li><strong>Siguria dhe Etika:</strong> Të edukojë përdoruesit për mbrojtjen e privatësisë, ndershmërinë akademike dhe përdorimin e përgjegjshëm.</li>
-                        <li><strong>Mendimi Kritik:</strong> Të inkurajojë zhvillimin e aftësive për vlerësimin e informacionit të gjeneruar nga AI.</li>
+                        <li><strong>Mendimi Kritik:</strong> Të inkurajojë zhvillimin e aftësive për vlerësimin e informacionit të gjeneruar nga IA.</li>
                     </ul>
                 `
             },
@@ -33,11 +33,11 @@ var DOCS_DATA = [
                     <h2>Për kë është ky udhëzues</h2>
                     <p>Ky udhëzues është strukturuar me kujdes për të përmbushur nevojat e tre grupeve kryesore:</p>
                     <p><strong>1. Mësimdhënësit (Stafi Mësimor)</strong><br>
-                    Të cilët duan të integrojnë AI në planet e tyre mësimore, të përmirësojnë procesin e vlerësimit dhe të reduktojnë punën administrative.</p>
+                    Të cilët duan të integrojnë IA në planet e tyre mësimore, të përmirësojnë procesin e vlerësimit dhe të reduktojnë punën administrative.</p>
                     <p><strong>2. Bashkëpunëtorët Profesionalë</strong><br>
                     Pedagogët, psikologët dhe defektologët që duhet të ofrojnë mbështetje dhe udhëzime për të gjithë procesin arsimor dhe të përballen me sfidat e sjella nga teknologjia e re.</p>
                     <p><strong>3. Nxënësit</strong><br>
-                    Të cilët duhet të mësojnë se si të përdorin AI si një mjet të fuqishëm për të mësuar dhe hulumtuar, jo si një zëvendësim për punën e tyre intelektuale.</p>
+                    Të cilët duhet të mësojnë se si të përdorin IA si një mjet të fuqishëm për të mësuar dhe hulumtuar, jo si një zëvendësim për punën e tyre intelektuale.</p>
                 `
             },
             {
@@ -46,7 +46,7 @@ var DOCS_DATA = [
                 content: `
                     <h2>Aktualiteti i problematikës</h2>
                     <p>Inteligjenca artificiale nuk është e ardhmja - është e tashmja. Mjete si ChatGPT, Gemini, Claude dhe të tjerë tashmë janë të disponueshme dhe përdoren gjerësisht, shpesh pa mbikëqyrje ose kuptim të duhur.</p>
-                    <p>Edukimi duhet të përshtatet për të mbetur i rëndësishëm. Injorimi i këtyre teknologjive nuk është një opsion, pasi do t'i linte nxënësit të papërgatitur për tregun e punës dhe për një shoqëri ku bashkëpunimi me AI do të jetë një aftësi kyçe.</p>
+                    <p>Edukimi duhet të përshtatet për të mbetur i rëndësishëm. Injorimi i këtyre teknologjive nuk është një opsion, pasi do t'i linte nxënësit të papërgatitur për tregun e punës dhe për një shoqëri ku bashkëpunimi me IA do të jetë një aftësi kyçe.</p>
                 `
             },
             {
@@ -66,28 +66,28 @@ var DOCS_DATA = [
     },
     {
         id: "literacy",
-        title: "Alfabetizimi AI",
+        title: "Alfabetizimi IA",
         items: [
             {
                 id: "what-is-literacy",
-                title: "Çfarë është Alfabetizimi AI?",
+                title: "Çfarë është Alfabetizimi IA?",
                 content: `
-                    <h2>Çfarë është Alfabetizimi AI?</h2>
-                    <p><strong>Alfabetizimi AI</strong> përfaqëson një sërë njohurish, aftësish dhe qëndrimesh teknike që u mundësojnë individëve të funksionojnë me sukses në një botë të formësuar nga inteligjenca artificiale.</p>
-                    <p>Kjo nuk do të thotë që të gjithë duhet të jenë programues ose të dinë të kodojnë. Përkundrazi, alfabetizimi AI nënkupton kuptimin e parimeve bazë të mënyrës se si funksionojnë sistemet AI, aftësinë për t'i përdorur ato në mënyrë efektive dhe një konsideratë kritike të ndikimit të tyre në shoqëri.</p>
+                    <h2>Çfarë është Alfabetizimi IA?</h2>
+                    <p><strong>Alfabetizimi IA</strong> përfaqëson një sërë njohurish, aftësish dhe qëndrimesh teknike që u mundësojnë individëve të funksionojnë me sukses në një botë të formësuar nga inteligjenca artificiale.</p>
+                    <p>Kjo nuk do të thotë që të gjithë duhet të jenë programues ose të dinë të kodojnë. Përkundrazi, alfabetizimi IA nënkupton kuptimin e parimeve bazë të mënyrës se si funksionojnë sistemet IA, aftësinë për t'i përdorur ato në mënyrë efektive dhe një konsideratë kritike të ndikimit të tyre në shoqëri.</p>
                 `
             },
             {
                 id: "youth-needs",
-                title: "Të rinjtë eksperimentojnë me AI",
+                title: "Të rinjtë eksperimentojnë me IA",
                 content: `
-                    <h2>Të rinjtë eksperimentojnë me AI dhe kanë nevojë për udhëzime</h2>
-                    <p>Gjeneratat e reja janë "vendas dixhitalë" dhe natyrisht janë të prirur për të provuar teknologji të reja. Ata tashmë po eksperimentojnë me mjete gjeneruese AI për argëtim, komunikim, madje edhe punë shkollore.</p>
+                    <h2>Të rinjtë eksperimentojnë me IA dhe kanë nevojë për udhëzime</h2>
+                    <p>Gjeneratat e reja janë "vendas dixhitalë" dhe natyrisht janë të prirur për të provuar teknologji të reja. Ata tashmë po eksperimentojnë me mjete gjeneruese IA për argëtim, komunikim, madje edhe punë shkollore.</p>
                     <p>Megjithatë, pa udhëzime të duhura, ata ekspozohen ndaj rreziqeve:</p>
                     <ul>
-                        <li>Pranimi i gabimeve të AI (halucinacionet) si fakte të sakta.</li>
+                        <li>Pranimi i gabimeve të IA (halucinacionet) si fakte të sakta.</li>
                         <li>Shkelje e paqëllimshme e të drejtës së autorit ose e ndershmërisë akademike.</li>
-                        <li>Ndarja e të dhënave personale me sistemet AI pa e ditur se si përdoren ato të dhëna.</li>
+                        <li>Ndarja e të dhënave personale me sistemet IA pa e ditur se si përdoren ato të dhëna.</li>
                     </ul>
                 `
             },
@@ -95,12 +95,12 @@ var DOCS_DATA = [
                 id: "educational-priority",
                 title: "Prioritet Arsimor",
                 content: `
-                    <p>Alfabetizimi AI duhet të bëhet një prioritet arsimor. Kjo përfshin:</p>
+                    <p>Alfabetizimi IA duhet të bëhet një prioritet arsimor. Kjo përfshin:</p>
                     <ol>
-                        <li><strong>Të kuptuarit:</strong> Çfarë është AI dhe si përpunon informacionin?</li>
-                        <li><strong>Përdorimi:</strong> Si të përdorim AI për zgjidhjen e problemeve?</li>
-                        <li><strong>Vlerësimi:</strong> Vlerësim kritik i përgjigjeve nga AI.</li>
-                        <li><strong>Etika:</strong> Ndërgjegjësim mbi paragjykimet dhe përgjegjësitë e AI.</li>
+                        <li><strong>Të kuptuarit:</strong> Çfarë është IA dhe si përpunon informacionin?</li>
+                        <li><strong>Përdorimi:</strong> Si të përdorim IA për zgjidhjen e problemeve?</li>
+                        <li><strong>Vlerësimi:</strong> Vlerësim kritik i përgjigjeve nga IA.</li>
+                        <li><strong>Etika:</strong> Ndërgjegjësim mbi paragjykimet dhe përgjegjësitë e IA.</li>
                     </ol>
                 `
             }
@@ -108,13 +108,13 @@ var DOCS_DATA = [
     },
     {
         id: "definition",
-        title: "Çfarë është AI?",
+        title: "Çfarë është IA?",
         items: [
             {
                 id: "def-ai",
-                title: "Përkufizimi i AI",
+                title: "Përkufizimi i IA",
                 content: `
-                    <p><strong>Inteligjenca Artificiale (AI)</strong> është një degë e shkencave kompjuterike e dedikuar për krijimin e sistemeve dhe makinerive të afta për të kryer detyra që tradicionalisht kërkojnë inteligjencë njerëzore.</p>
+                    <p><strong>Inteligjenca Artificiale (IA)</strong> është një degë e shkencave kompjuterike e dedikuar për krijimin e sistemeve dhe makinerive të afta për të kryer detyra që tradicionalisht kërkojnë inteligjencë njerëzore.</p>
                     <p>Këto detyra përfshijnë, por nuk kufizohen në:</p>
                     <ul>
                         <li>Të mësuarit nga përvoja (Machine Learning).</li>
@@ -126,27 +126,27 @@ var DOCS_DATA = [
             },
             {
                 id: "types-capability",
-                title: "Llojet e AI sipas aftësive",
+                title: "Llojet e IA sipas aftësive",
                 content: `
                     <p>Inteligjenca artificiale zakonisht kategorizohet në tre lloje kryesore sipas nivelit të inteligjencës dhe aftësive që posedon.</p>
                 `
             },
             {
                 id: "narrow-ai",
-                title: "Narrow AI",
-                content: `\n                    <h2>1. AI i Ngushtë (Inteligjencë Specifike e Domenit)</h2>
+                title: "Narrow IA",
+                content: `\n                    <h2>1. IA i Ngushtë (Inteligjencë Specifike e Domenit)</h2>
 <p>Kjo është e vetmja shtresë e Inteligjencës Artificiale aktualisht në funksion. Ajo është e projektuar për të shkëlqyer brenda një grupi rreptësisht të përcaktuar parametrash operativë.</p>
 <ul style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
   <li><strong>Niveli i Inteligjencës: Jo më i zgjuar se njeriu.</strong> Ndërsa përpunon llogaritje më shpejt se ne, ajo posedon zero të kuptuar të pavarur ose intelekt të vërtetë jashtë softuerit të saj të programuar.</li>
   <li><strong>Aftësitë:</strong> Kryen operacione thellësisht komplekse si diagnostikimi mjekësor me imazheri, tregtia algoritmike ose gjenerimi i tekstit (p.sh., ChatGPT).</li>
-  <li><strong>Kufizimet:</strong> I mungon përshtatshmëria kryq-domene. Një AI diagnostikues nuk mund të përdoret për të parashikuar tregjet financiare, dhe një model gjuhësor nuk mund të llogarisë në mënyrë të pavarur ekuacionet e fizikës.</li>
-  <li><strong>Analogjia:</strong> Merrni në konsideratë një skaner mjekësor MRI të teknologjisë fundit. Është një kryevepër për imazheri të brendshme, por është thelbësisht i paaftë për të kryer detyra jashtë skanimit. AI i Ngushtë operon njëlloj: i patëmetë brenda domenit të tij, por i kufizuar strukturisht.</li>
+  <li><strong>Kufizimet:</strong> I mungon përshtatshmëria kryq-domene. Një IA diagnostikues nuk mund të përdoret për të parashikuar tregjet financiare, dhe një model gjuhësor nuk mund të llogarisë në mënyrë të pavarur ekuacionet e fizikës.</li>
+  <li><strong>Analogjia:</strong> Merrni në konsideratë një skaner mjekësor MRI të teknologjisë fundit. Është një kryevepër për imazheri të brendshme, por është thelbësisht i paaftë për të kryer detyra jashtë skanimit. IA i Ngushtë operon njëlloj: i patëmetë brenda domenit të tij, por i kufizuar strukturisht.</li>
 </ul>\n                `
             },
             {
                 id: "general-ai",
-                title: "General AI (AGI)",
-                content: `\n                    <h2>2. AI i Përgjithshëm (Ekuivalenca Njohëse)</h2>
+                title: "General IA (AGI)",
+                content: `\n                    <h2>2. IA i Përgjithshëm (Ekuivalenca Njohëse)</h2>
 <p>Inteligjenca Artificiale e Përgjithshme (AGI) është një paradigmë teorike që përfaqëson një makinë me përshtatshmëri njohëse ekuivalente me intelektin njerëzor.</p>
 <ul style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
   <li><strong>Niveli i Inteligjencës: Njësoj si inteligjenca njerëzore.</strong> Ajo do të zotëronte kapacitetin për të arsyetuar, mësuar dhe zbatuar njohuri në mënyrë të pavarur në çdo disiplinë, ashtu si truri i një njeriu.</li>
@@ -157,8 +157,8 @@ var DOCS_DATA = [
             },
             {
                 id: "super-ai",
-                title: "Super AI",
-                content: `\n                    <h2>3. Super AI (Superinteligjenca)</h2>
+                title: "Super IA",
+                content: `\n                    <h2>3. Super IA (Superinteligjenca)</h2>
 <p>Superinteligjenca Artificiale (ASI) konceptualizon një intelekt që tejkalon në mënyrë drastike mendjet më të mira njerëzore në pothuajse çdo fushë respektive.</p>
 <ul style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
   <li><strong>Niveli i Inteligjencës: Shumë përtej inteligjencës njerëzore.</strong> Ajo përfaqëson një entitet njohës që do të tejkalonte kapacitetin intelektual kolektiv mbarë njerëzimit.</li>
@@ -212,7 +212,7 @@ var DOCS_DATA = [
 </ul>
 <div style="background: rgba(107, 91, 79, 0.1); padding: 20px; border-radius: 12px; border: 1px solid #fed7aa; margin-bottom: 20px;">
   <strong>Analogi: Mësuesi Suprem Empatik</strong>
-  <p style="margin-top: 8px;">Deri tani makinat veç thonin "Përgjigje gabim!". Kur ky hap arrihet, AI do dëgjojë e shikojë nervozizmin e djaloshit tek pyetjet. Dhe si një profesor mendje-lehtë do propozoj: "Shoh që je tepër i lodhur, le ta mbyllim faqen e le të provojmë të qetësohemi, fitoje prap gjakftohtësinë e kthehu!".</p>
+  <p style="margin-top: 8px;">Deri tani makinat veç thonin "Përgjigje gabim!". Kur ky hap arrihet, IA do dëgjojë e shikojë nervozizmin e djaloshit tek pyetjet. Dhe si një profesor mendje-lehtë do propozoj: "Shoh që je tepër i lodhur, le ta mbyllim faqen e le të provojmë të qetësohemi, fitoje prap gjakftohtësinë e kthehu!".</p>
 </div>\n                `
             },
             {
@@ -226,24 +226,24 @@ var DOCS_DATA = [
 </ul>
 <div style="background: #fef2f2; padding: 20px; border-radius: 12px; border: 1px solid #fecaca; margin-bottom: 20px;">
   <strong>Analogi: Zgjimi i Kukullave</strong>
-  <p style="margin-top: 8px;">Cdo AI aktual është gjithmonë kukulla me tela; ti e lëviz, ajo bën punë. Këtu arrijmë tek "Buratino": Kur druri fillon kërkon drejtësi e thekson, "Sot s'jam programuar t'të gjej fakte tek fjalori matematikor.. Unë veç po fle gjumë po shëtis jashtë".</p>
+  <p style="margin-top: 8px;">Cdo IA aktual është gjithmonë kukulla me tela; ti e lëviz, ajo bën punë. Këtu arrijmë tek "Buratino": Kur druri fillon kërkon drejtësi e thekson, "Sot s'jam programuar t'të gjej fakte tek fjalori matematikor.. Unë veç po fle gjumë po shëtis jashtë".</p>
 </div>\n                `
             }
         ]
     },
     {
         id: "history",
-        title: "Historia e AI",
+        title: "Historia e IA",
         items: [
             { id: "early", title: "Fillimet e hershme", content: "<p>Ideja e qenieve artificiale daton që nga mitet e lashta, por baza shkencore u hodh në vitet 1940. Alan Turing, me pyetjen e tij 'A mund të mendojnë makinat?', vendosi kuadrin teorik.</p>" },
-            { id: "birth", title: "Lindja e AI", content: "<p>Termi 'Inteligjencë Artificiale' u miratua zyrtarisht në konferencën e Dartmouth në 1956. Kjo shënoi fillimin e AI si një disiplinë akademike.</p>" },
-            { id: "winter-1", title: "Dimri i parë i AI", content: `<p>Pas entuziazmit fillestar, përparimi ishte më i ngadalshëm se sa pritej. Qeveritë mbyllën buxhetet pas mungesës masive të inovacioneve komerciale.</p>
+            { id: "birth", title: "Lindja e IA", content: "<p>Termi 'Inteligjencë Artificiale' u miratua zyrtarisht në konferencën e Dartmouth në 1956. Kjo shënoi fillimin e IA si një disiplinë akademike.</p>" },
+            { id: "winter-1", title: "Dimri i parë i IA", content: `<p>Pas entuziazmit fillestar, përparimi ishte më i ngadalshëm se sa pritej. Qeveritë mbyllën buxhetet pas mungesës masive të inovacioneve komerciale.</p>
 <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #cbd5e1; margin-top: 20px;">
   <strong>Analogjia: Flluska e Shpresave</strong>
-  <p style="margin-top: 8px;">Imagjinoni një start-up që premton makina fluturuese vitin e ardhshëm. Ata marrin miliona fonde, por kur e kuptojnë se teknologjia është dekada larg, investitorët pushtohen nga paniku dhe marrin paratë e tyre mbrapsht. Kjo është pikërisht ajo që i ndodhi AI në vitet '70 dhe '80.</p>
+  <p style="margin-top: 8px;">Imagjinoni një start-up që premton makina fluturuese vitin e ardhshëm. Ata marrin miliona fonde, por kur e kuptojnë se teknologjia është dekada larg, investitorët pushtohen nga paniku dhe marrin paratë e tyre mbrapsht. Kjo është pikërisht ajo që i ndodhi IA në vitet '70 dhe '80.</p>
 </div>` },
-            { id: "expert-systems", title: "Sistemet e Ekspertëve", content: "<p>AI përjetoi një ringjallje me ardhjen e 'sistemeve të ekspertëve' - programe që imitonin vendimet e ekspertëve njerëzorë në fusha të caktuara (psh. diagnostikimi mjekësor).</p>" },
-            { id: "winter-2", title: "Dimri i dytë i AI", content: "<p>Sistemet e ekspertëve provuan se ishin rëndë të kushtueshme duke shkaktuar sërish ngritje fondesh.</p>" },
+            { id: "expert-systems", title: "Sistemet e Ekspertëve", content: "<p>IA përjetoi një ringjallje me ardhjen e 'sistemeve të ekspertëve' - programe që imitonin vendimet e ekspertëve njerëzorë në fusha të caktuara (psh. diagnostikimi mjekësor).</p>" },
+            { id: "winter-2", title: "Dimri i dytë i IA", content: "<p>Sistemet e ekspertëve provuan se ishin rëndë të kushtueshme duke shkaktuar sërish ngritje fondesh.</p>" },
             { id: "intelligent-agents", title: "Agjentët Inteligjentë", content: "<p>Interneti dhe shpejtësia kompjuterike ringjalli fushën, mundësoi lojëra grafike, kërkime semantike dhe kompjuterë shahistë ekspertë.</p>" },
             { id: "ml-bigdata", title: "ML dhe Big Data", content: "<p>Pasuria masive e të dhënave mundësoi Rrjetet Nervore Artificiale ashtu si modelet gjeneruese e gjuhesore të quajtura Transformers - GPT (Krijuesit e Chatgpt e inovuan fushën në maksimum).</p>" }
         ]
@@ -252,15 +252,15 @@ var DOCS_DATA = [
         id: "applications",
         title: "Aplikime në jetën e përditshme",
         items: [
-            { id: "health", title: "Shëndetësi", content: "<p>AI mjekësor analizon X-rezet zbulon tumore e përcakton ilaçe inovative dhe medikamente me planifikim perfekt për terapinë individuale.</p>" },
+            { id: "health", title: "Shëndetësi", content: "<p>IA mjekësor analizon X-rezet zbulon tumore e përcakton ilaçe inovative dhe medikamente me planifikim perfekt për terapinë individuale.</p>" },
             { id: "transport", title: "Transport", content: "<p>Navigimi i integruar rregullon flukset me makina auto-pilota dhe parandalon përplasjet si tek ajri dhe faza tokësore.</p>" },
             { id: "media", title: "Media", content: `<p>Algoritmet shfaqin saktësisht preferenca tuaja tek muzika film dhe rekomandime tjera argëtuese në Facebook/YouTube apo Spotify / Netflix.</p>
 <div style="background: #fdf4ff; padding: 20px; border-radius: 12px; border: 1px solid #f5d0fe; margin-top: 20px;">
   <strong>Analogjia: Shërbëtori Dixhital</strong>
-  <p style="margin-top: 8px;">Mendoni për AI në mediat sociale si një shërbëtor jashtëzakonisht vëzhgues. Ata shikojnë saktësisht se sa sekonda kaloni duke parë një pikturë dhe në heshtje i ndërrojnë pikturat e tjera në shtëpi për të përshtatur saktësisht atë që ju tërhoqi vëmendjen.</p>
+  <p style="margin-top: 8px;">Mendoni për IA në mediat sociale si një shërbëtor jashtëzakonisht vëzhgues. Ata shikojnë saktësisht se sa sekonda kaloni duke parë një pikturë dhe në heshtje i ndërrojnë pikturat e tjera në shtëpi për të përshtatur saktësisht atë që ju tërhoqi vëmendjen.</p>
 </div>` },
             { id: "finance", title: "Financa", content: "<p>Zulon aktivitete abuzive apo keqpërdorime të parave në sistemet e integruara bankare apo të kartelave elektronike globale.</p>" },
-            { id: "entertainment", title: "Argëtim", content: "<p>Karakteret jo te luajtshëm (NPC) veprojnë si të mençur në video lojëra ndërsa edhe filma dizajnohen e renderizohen me kompjuter nga AI në hollivud.</p>" },
+            { id: "entertainment", title: "Argëtim", content: "<p>Karakteret jo te luajtshëm (NPC) veprojnë si të mençur në video lojëra ndërsa edhe filma dizajnohen e renderizohen me kompjuter nga IA në hollivud.</p>" },
             { id: "agriculture", title: "Bujqësi", content: "<p>Ekuilifikon agrikulture preçize ose përdorimin e dronëve ku dedektojnë saktësisht lagështitë barojat a infektinet e kulturave mbi terren.</p>" }
         ]
     },
@@ -278,7 +278,7 @@ var DOCS_DATA = [
 </ul>
 <div style="background: #f0fdf4; padding: 20px; border-radius: 12px; border: 1px solid #bbf7d0; margin-bottom: 20px;">
   <strong>Analogi: Porosia e Ushqimit</strong>
-  <p style="margin-top: 8px;">Futeni në restorant: Nëse thatë "Du me ngran.. bëm diçka", banakieri po të jep një supë me arrëmyshk, kur në fakt alergjitë e tua ndalojnë erëzat. Me Prompte ideale bën si profesionist "Bëj një fileto të pulës super të lehtë pa lajthi dhe sille me djath kashkaval dhe në fund shoqëroje pa asnjë shpikje pikante!" - Atë që the, fiks këtë do jep AI mbrapa tek ty!</p>
+  <p style="margin-top: 8px;">Futeni në restorant: Nëse thatë "Du me ngran.. bëm diçka", banakieri po të jep një supë me arrëmyshk, kur në fakt alergjitë e tua ndalojnë erëzat. Me Prompte ideale bën si profesionist "Bëj një fileto të pulës super të lehtë pa lajthi dhe sille me djath kashkaval dhe në fund shoqëroje pa asnjë shpikje pikante!" - Atë që the, fiks këtë do jep IA mbrapa tek ty!</p>
 </div>\n                `
             },
             {
@@ -351,7 +351,7 @@ var DOCS_DATA = [
                 content: `\n                    <p>Modelet si ChatGPT nuk i lexojnë rreshtat fjalë për fjalë si njerëzit. Përkundrazi, ato e copëtojnë tekstin në pjesë matematikore të quajtura <strong>tokene</strong>.</p>
 <ul style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px; margin-bottom: 20px;">
   <li><strong>Çfarë është një token?</strong> Zakonisht d.m.th 3-4 shkronja. Një fjalë e shkurtër si "Mollë" mund të jetë 1 token por një fjalë e gjatë mund të ndahet në 3 tokene.</li>
-  <li><strong>Kufiri i Dritares (Context Window):</strong> Çdo AI ka kufij rreth historikut të bisedës aktuale. Nëse ia kaloni atë "memorje afatshkurtër", ajo fillon dhe "harron" thelbin e fillimit të bisedës suaj!</li>
+  <li><strong>Kufiri i Dritares (Context Window):</strong> Çdo IA ka kufij rreth historikut të bisedës aktuale. Nëse ia kaloni atë "memorje afatshkurtër", ajo fillon dhe "harron" thelbin e fillimit të bisedës suaj!</li>
 </ul>
 {{WIDGET:TOOL_TOKENS}}\n                `
             }
@@ -359,11 +359,11 @@ var DOCS_DATA = [
     },
     {
         id: "agents",
-        title: "Agjentët AI",
+        title: "Agjentët IA",
         items: [
             {
                 id: "what-is-agent",
-                title: "Çfarë janë Agjentët AI?",
+                title: "Çfarë janë Agjentët IA?",
                 content: `\n                    <p>Ndërsa modelet bazë (si ChatGPT) sillen si motorë kërkimi gjenialë që gjenerojnë tekste ashtu si një njeri, <strong>Agjentët e Inteligjencës Artificiale</strong> gëzojnë lirinë e veprimit (Autonominë). Ata marrin vendime dhe rreshtojnë <strong>veprime të njëpasnjëshme</strong> për të arritur qëllimet!</p>
 <ul style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px; margin-bottom: 20px;">
   <li><strong>Super Aftësitë:</strong> Një agjent mund të shfletojë në internet të hapur drejtpërdrejt, të bëjë llogari te ndërlikuara me kalkulator e t'ju hapë e lëvizë lirisht skedarë tek kompjuteri.</li>
@@ -371,16 +371,16 @@ var DOCS_DATA = [
 </ul>
 <div style="background: #eef2ff; padding: 20px; border-radius: 12px; border: 1px solid #c7d2fe; margin-bottom: 20px;">
   <strong>Analogi: Enciklopedia Përballë Praktikantit!</strong>
-  <p style="margin-top: 8px;">Imagjino të shohësh të vërtetën: Një AI klasik qoftë e çmendur mbetet thjesht një Enciklopedi shumë bindëse e ftohtë. I thua rreth Turqisë, e ta sjell të zbardhur faktin. AI-Agjent ndërkaq ëshë "Të paguhesh dikë" "Agjenit, Më ço në Stamboll e mi menaxho pushimet!" AI bën të pamundurën që t'ju hapi platforma avionesh automatikisht si praktikant perfekt i juaji e i blen online krejt itinerarin.</p>
+  <p style="margin-top: 8px;">Imagjino të shohësh të vërtetën: Një IA klasik qoftë e çmendur mbetet thjesht një Enciklopedi shumë bindëse e ftohtë. I thua rreth Turqisë, e ta sjell të zbardhur faktin. IA-Agjent ndërkaq ëshë "Të paguhesh dikë" "Agjenit, Më ço në Stamboll e mi menaxho pushimet!" IA bën të pamundurën që t'ju hapi platforma avionesh automatikisht si praktikant perfekt i juaji e i blen online krejt itinerarin.</p>
 </div>\n                `
             },
             {
                 id: "how-agents-work",
                 title: "Si funksionojnë?",
-                content: `\n                    <p>Agjenti AI jeton me një kod operativ "përsëritje loop". S'qëndron në heshtje veç pasi flet. Vazhdon punën fort si llogaritës dëgjues.</p>
+                content: `\n                    <p>Agjenti IA jeton me një kod operativ "përsëritje loop". S'qëndron në heshtje veç pasi flet. Vazhdon punën fort si llogaritës dëgjues.</p>
 <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid var(--border-light); margin-bottom: 20px;">
 <ul style="display: flex; flex-direction: column; gap: 16px; margin: 0;">
-  <li>🧠 <strong style="color: #0369a1;">1. Analizë Synim:</strong> AI zbulon hapat logjik super kompleks të kërkesave tuaja mbi kodin.</li>
+  <li>🧠 <strong style="color: #0369a1;">1. Analizë Synim:</strong> IA zbulon hapat logjik super kompleks të kërkesave tuaja mbi kodin.</li>
   <li>🛠️ <strong style="color: #c2410c;">2. Veprimi/Shtegtim (Tools):</strong> Ai teston mjetet; hyn e blen vizitën, teston ujin etj automatikisht.</li>
   <li>👁️ <strong style="color: #6d28d9;">3. Shikimi mbrapa për Korozion (Vetë-Feedback):</strong> Gjeti dështim apo link t'gabuar faqeje? Agjenti KTHSHET VETE pa t'the asgjë, përdor Google sërish dhe sjell punën të kryer perfekte pa u dorëzuar.</li>
 </ul>
@@ -394,43 +394,43 @@ var DOCS_DATA = [
         items: [
             {
                 id: "glossary-list",
-                title: "Termat kyç të AI",
-                content: `<h2>Fjalori i Termave të AI</h2>
+                title: "Termat kyç të IA",
+                content: `<h2>Fjalori i Termave të IA</h2>
                     <ul>
-                        <li><strong>LLM (Model i Madh i Gjuhës):</strong> Një model masiv i AI i trajnuar në sasi të mëdha teksti për të kuptuar dhe gjeneruar gjuhën njerëzore (p.sh. GPT-4).</li>
-                        <li><strong>Machine Learning (Mësimi i Makinerisë):</strong> Një degë e AI ku kompjuterët mësojnë nga të dhënat pa u programuar në mënyrë eksplicite.</li>
-                        <li><strong>Halucinacioni:</strong> Kur AI gjeneron me besim një përgjigje të pasaktë, të fabrikuar ose pa kuptim.</li>
+                        <li><strong>LLM (Model i Madh i Gjuhës):</strong> Një model masiv i IA i trajnuar në sasi të mëdha teksti për të kuptuar dhe gjeneruar gjuhën njerëzore (p.sh. GPT-4).</li>
+                        <li><strong>Machine Learning (Mësimi i Makinerisë):</strong> Një degë e IA ku kompjuterët mësojnë nga të dhënat pa u programuar në mënyrë eksplicite.</li>
+                        <li><strong>Halucinacioni:</strong> Kur IA gjeneron me besim një përgjigje të pasaktë, të fabrikuar ose pa kuptim.</li>
                         <li><strong>NLP (Përpunimi i Gjuhës Natyrore):</strong> Teknologji që ndihmon kompjuterët të kuptojnë, interpretojnë dhe manipulojnë gjuhën njerëzore.</li>
                         <li><strong>Deep Learning (Mësimi i Thellë):</strong> Një nënbashkësi e mësimit të makinerisë bazuar në rrjete neurale artificiale me shumë shtresa.</li>
-                        <li><strong>RAG (Retrieval-Augmented Generation):</strong> Gjenerimi i Shtuar nga Rimarrja — kombinimi i rimarrjes së dokumentit me gjenerimin e AI.</li>
-                        <li><strong>Token:</strong> Njësia më e vogël e tekstit e përpunuar nga një model AI.</li>
+                        <li><strong>RAG (Retrieval-Augmented Generation):</strong> Gjenerimi i Shtuar nga Rimarrja — kombinimi i rimarrjes së dokumentit me gjenerimin e IA.</li>
+                        <li><strong>Token:</strong> Njësia më e vogël e tekstit e përpunuar nga një model IA.</li>
                         <li><strong>Embedding:</strong> Një përfaqësim vektor i tekstit i përdorur për kërkim semantik.</li>
                     </ul>
                     <div style="background: #fdf2f8; padding: 20px; border-radius: 12px; border: 1px solid #fbcfe8; margin-top: 20px;">
                       <strong>Analogjia: Fjalori i Përkthyesit</strong>
-                      <p style="margin-top: 8px;">Mendoni për fjalorin si fjalorin që ju nevojitet kur vizitoni një vend të huaj. AI ka gjuhën e vet (tokena, embedding, prompte). Kuptimi i këtyre termave kyç është dallimi midis të qenit një turist i hutuar dhe një vendas i rrjedhshëm që mund të lundrojë me besim në terrenin e ri.</p>
+                      <p style="margin-top: 8px;">Mendoni për fjalorin si fjalorin që ju nevojitet kur vizitoni një vend të huaj. IA ka gjuhën e vet (tokena, embedding, prompte). Kuptimi i këtyre termave kyç është dallimi midis të qenit një turist i hutuar dhe një vendas i rrjedhshëm që mund të lundrojë me besim në terrenin e ri.</p>
                     </div>`
             }
         ]
     },
     {
         id: "roadmap",
-        title: "Plani i Punës për AI",
+        title: "Plani i Punës për IA",
         items: [
             {
                 id: "roadmap-steps",
                 title: "Hapat për zbatimin në klasë",
-                content: `<h2>Plani i punës për AI në arsim</h2>
-                    <p>Për një integrim të suksesshëm dhe të sigurt të AI në mësimdhënie, ne rekomandojmë hapat e mëposhtëm:</p>
+                content: `<h2>Plani i punës për IA në arsim</h2>
+                    <p>Për një integrim të suksesshëm dhe të sigurt të IA në mësimdhënie, ne rekomandojmë hapat e mëposhtëm:</p>
                     <ol>
                         <li><strong>Hapi 1: Kërkimi dhe Edukimi.</strong> Mësimdhënësit duhet së pari të njihen me bazat dhe të kuptojnë rreziqet (privatësia, halucinacionet).</li>
-                        <li><strong>Hapi 2: Eksperimentimi Personal.</strong> Përdorni mjetet e AI për të përgatitur planet e mësimeve, e-mailet dhe administrimin përpara se t'ua prezantoni ato nxënësve.</li>
-                        <li><strong>Hapi 3: Integrimi i Mbikëqyrur.</strong> Prezantoni AI në klasë si një "bashkë-pilot", ku nxënësit analizojnë në mënyrë kritike përgjigjet e AI.</li>
+                        <li><strong>Hapi 2: Eksperimentimi Personal.</strong> Përdorni mjetet e IA për të përgatitur planet e mësimeve, e-mailet dhe administrimin përpara se t'ua prezantoni ato nxënësve.</li>
+                        <li><strong>Hapi 3: Integrimi i Mbikëqyrur.</strong> Prezantoni IA në klasë si një "bashkë-pilot", ku nxënësit analizojnë në mënyrë kritike përgjigjet e IA.</li>
                         <li><strong>Hapi 4: Vlerësimi Etik.</strong> Vendosni rregulla të qarta sa i përket integritetit akademik dhe plagjiaturës.</li>
                     </ol>
                     <div style="background: #ecfdf5; padding: 20px; border-radius: 12px; border: 1px solid #a7f3d0; margin-top: 20px;">
                       <strong>Analogjia: Të mësuarit për të notuar</strong>
-                      <p style="margin-top: 8px;">Integrimi i AI është saktësisht si të mësuarit për të notuar. Ju nuk hidheni menjëherë në pjesën e thellë. Ju filloni duke lexuar rregullat e sigurisë (Hapi 1), duke vendosur këmbët në ujin e cekët vetë (Hapi 2), duke u praktikuar me një trajner (Hapi 3), dhe përfundimisht duke kuptuar kufijtë e pishinës (Hapi 4).</p>
+                      <p style="margin-top: 8px;">Integrimi i IA është saktësisht si të mësuarit për të notuar. Ju nuk hidheni menjëherë në pjesën e thellë. Ju filloni duke lexuar rregullat e sigurisë (Hapi 1), duke vendosur këmbët në ujin e cekët vetë (Hapi 2), duke u praktikuar me një trajner (Hapi 3), dhe përfundimisht duke kuptuar kufijtë e pishinës (Hapi 4).</p>
                     </div>`
             }
         ]
@@ -438,16 +438,16 @@ var DOCS_DATA = [
 
     {
         id: "architecture",
-        title: "Arkitektura & Si Funksionon AI",
+        title: "Arkitektura & Si Funksionon IA",
         items: [
             {
                 id: "ai-architecture",
-                title: "Arkitektura e AI (Në Përgjithësi)",
+                title: "Arkitektura e IA (Në Përgjithësi)",
                 content: `\n                    <p>Të kuptuarit e arkitekturës së Inteligjencës Artificiale nuk kërkon një diplomë në shkenca kompjuterike. Në thelb, bëhet fjalë se si sistemi merr informacion, kërkon modele (paterns) dhe jep një parashikim.</p>
 <ul style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px; margin-bottom: 20px;">
-  <li><strong>1. Hyrja (Dëgjimi i pyetjes suaj):</strong> Këtu AI merr <strong>Prompt-in</strong> (Kërkesën) tuaj. Sistemi përkthen fjalët tuaja në të dhëna matematikore.</li>
-  <li><strong>2. Përpunimi (Mendimi & Kërkimi):</strong> AI ndan prompt-in në pjesë (tokensa), i kalon ato nëpër rrjetën e tij neurale dhe llogarit përgjigjen matematikisht më logjike.</li>
-  <li><strong>3. Dalja (Shkrimi i përgjigjes):</strong> AI përkthen matematikën e saj përsëri në tekst njerëzor (ose imazhe/kod) dhe jua paraqet.</li>
+  <li><strong>1. Hyrja (Dëgjimi i pyetjes suaj):</strong> Këtu IA merr <strong>Prompt-in</strong> (Kërkesën) tuaj. Sistemi përkthen fjalët tuaja në të dhëna matematikore.</li>
+  <li><strong>2. Përpunimi (Mendimi & Kërkimi):</strong> IA ndan prompt-in në pjesë (tokensa), i kalon ato nëpër rrjetën e tij neurale dhe llogarit përgjigjen matematikisht më logjike.</li>
+  <li><strong>3. Dalja (Shkrimi i përgjigjes):</strong> IA përkthen matematikën e saj përsëri në tekst njerëzor (ose imazhe/kod) dhe jua paraqet.</li>
 </ul>
 <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #cbd5e1; margin-bottom: 20px;">
   <strong>Analogjia: Bibliotekari i Zgjuar por i Verbër</strong>
@@ -456,21 +456,21 @@ var DOCS_DATA = [
             },
             {
                 id: "how-models-work",
-                title: "Si Funksionojnë Modelet AI",
-                content: `\n                    <p>Koncepti më thelbësor për t'u përvetësuar është ky: <strong>AI nuk 'di' fakte si një bazë të dhënash. Ai parashikon fjalë matematikisht.</strong></p>
+                title: "Si Funksionojnë Modelet IA",
+                content: `\n                    <p>Koncepti më thelbësor për t'u përvetësuar është ky: <strong>IA nuk 'di' fakte si një bazë të dhënash. Ai parashikon fjalë matematikisht.</strong></p>
 <ul style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px; margin-bottom: 20px;">
   <li><strong>Faza e Trajnimit:</strong> Modelet lexojnë miliarda faqe teksti për të mësuar modelet statistikore të gjuhës njerëzore.</li>
   <li><strong>Faza e Veprimit:</strong> Kur pyesni diçka, modeli llogarit: <em>"Në bazë të trajnimit tim, cila është fjala e radhës më e mundshme statistikisht?"</em></li>
 </ul>
 <div style="background: #fffbeb; padding: 20px; border-radius: 12px; border: 1px solid #fde68a; margin-bottom: 20px;">
   <strong>Analogjia: Autokorrigjimi me Super-Fuqi</strong>
-  <p style="margin-top: 8px;">Imagjinoni autokorrigjimin në telefonin tuaj. Kur shkruani "Unë po shkoj në...", telefoni sugjeron "qendër" ose "shtëpi". AI funksionon me të njëjtin parim bazë, por në një shkallë miliona herë më të madhe dhe komplekse.</p>
+  <p style="margin-top: 8px;">Imagjinoni autokorrigjimin në telefonin tuaj. Kur shkruani "Unë po shkoj në...", telefoni sugjeron "qendër" ose "shtëpi". IA funksionon me të njëjtin parim bazë, por në një shkallë miliona herë më të madhe dhe komplekse.</p>
 </div>\n                `
             },
             {
                 id: "model-types-detail",
                 title: "Llojet e Modeleve",
-                content: `\n                    <p>Modele të ndryshme AI janë arkitekturuar për të përpunuar lloje krejtësisht të ndryshme të dhënash.</p>
+                content: `\n                    <p>Modele të ndryshme IA janë arkitekturuar për të përpunuar lloje krejtësisht të ndryshme të dhënash.</p>
 <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
   <div style="background: white; padding: 16px; border-radius: 8px; border: 1px solid var(--border-light);">
     <h3 style="margin-top:0; color:var(--primary); font-size: 16px;">📚 Modele të Mëdha Gjuhësore (LLMs)</h3>
@@ -491,12 +491,12 @@ var DOCS_DATA = [
                 title: "Konceptet Baza",
                 content: `\n                    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
   <div style="background: white; padding: 16px; border-radius: 8px; border: 1px solid var(--border-light);">
-    <h3 style="margin-top:0; color:var(--primary); font-size: 16px;">1. Tokens (Alfabeti i AI)</h3>
-    <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">AI nuk lexon fjalë por 'tokens'. Një token është rreth 3-4 shkronja.</p>
+    <h3 style="margin-top:0; color:var(--primary); font-size: 16px;">1. Tokens (Alfabeti i IA)</h3>
+    <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">IA nuk lexon fjalë por 'tokens'. Një token është rreth 3-4 shkronja.</p>
   </div>
   <div style="background: white; padding: 16px; border-radius: 8px; border: 1px solid var(--border-light);">
     <h3 style="margin-top:0; color:var(--primary); font-size: 16px;">2. Dritarja e Kontekstit</h3>
-    <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Limiti i kujtesës afatshkurtër të AI brenda një bisede të vetme.</p>
+    <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Limiti i kujtesës afatshkurtër të IA brenda një bisede të vetme.</p>
   </div>
   <div style="background: white; padding: 16px; border-radius: 8px; border: 1px solid var(--border-light);">
     <h3 style="margin-top:0; color:var(--primary); font-size: 16px;">3. Temperatura</h3>
@@ -517,12 +517,12 @@ var DOCS_DATA = [
 <div style="display: flex; flex-direction: column; gap: 16px;">
   <div style="background: white; padding: 16px; border-radius: 8px; border: 1px solid var(--border-light);">
     <h3 style="margin-top:0; color:var(--primary);">1. Prompt me Rol (Rolet)</h3>
-    <p>Thuaj AI-së të pretendojë se është një ekspert specifik. Kjo ndryshon totalisht vizionin dhe fjalorin e tij.</p>
+    <p>Thuaj IA-së të pretendojë se është një ekspert specifik. Kjo ndryshon totalisht vizionin dhe fjalorin e tij.</p>
     <p><em>Shembull: "Vepro si një pedagog i lartë..."</em></p>
   </div>
   <div style="background: white; padding: 16px; border-radius: 8px; border: 1px solid var(--border-light);">
     <h3 style="margin-top:0; color:var(--primary);">2. Prompt me Shembull</h3>
-    <p>Thuajini AI-së 2 apo 3 shembuj konkret para se ajo të kryejë punën që t'ia mësoni si duhet fiks.</p>
+    <p>Thuajini IA-së 2 apo 3 shembuj konkret para se ajo të kryejë punën që t'ia mësoni si duhet fiks.</p>
   </div>
 </div>\n                `
             },
@@ -559,13 +559,13 @@ Formati: Listë</pre>`
 <p>Me fjalë të tjera sa e lëndon modelin te mendohet gjëra rreth librave te vitit 2021 ashtu zbrazëti pa dit gje per vitin tend. Kjo i ofron modelit të KTHENET sigurtazi tek Dokumenti APO Pdf e firmes tënde dhe FLET veç MBI atë argument asnje devijim!</p>
 <div style="background: #fdf4ff; padding: 20px; border-radius: 12px; border: 1px solid #f5d0fe; margin-bottom: 20px;">
   <strong>Analogi: Provimi "Libër Hapur" (Open-book)</strong>
-  <p style="margin-top: 8px;">Imagjibni studenti bëhet copë nga stresi provimit se "Mbajti MEND" krejt enciklopedinë jashtë me mendje po te ftohti i bllokoi testin e gabon fakte kot!! Normalitet Ky!! Por imagjino teknologjinë RAG: Ai ështe si Provimi "Libër hapur." Studenti po e morr pyetjen e nxjerr tekstin, e lexon sakt nga literatura bazë e merr pikët MAXIMALE me përgjigje origjinale t'sakt!! Pika fund! Skandalet marrin fund me këtë tek AI.</p>
+  <p style="margin-top: 8px;">Imagjibni studenti bëhet copë nga stresi provimit se "Mbajti MEND" krejt enciklopedinë jashtë me mendje po te ftohti i bllokoi testin e gabon fakte kot!! Normalitet Ky!! Por imagjino teknologjinë RAG: Ai ështe si Provimi "Libër hapur." Studenti po e morr pyetjen e nxjerr tekstin, e lexon sakt nga literatura bazë e merr pikët MAXIMALE me përgjigje origjinale t'sakt!! Pika fund! Skandalet marrin fund me këtë tek IA.</p>
 </div>\n                `
             },
             {
                 id: "tool-usage",
                 title: "Ofrimi i Qasjeve Mekanike (API Tools)",
-                content: `\n                    <p>Rasti kur t'thuash Robot, API domethënë "Brazda e jashtme lidhese" që një Agjent AI gëzon te barti forcën nga jasht mureve!!</p>
+                content: `\n                    <p>Rasti kur t'thuash Robot, API domethënë "Brazda e jashtme lidhese" që një Agjent IA gëzon te barti forcën nga jasht mureve!!</p>
 <ul style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
   <li><strong>Mjete Hulumtuese:</strong> Marrin çmime valutorë, Skedarin Gjyqesor brenda gjysëm sekondi.. etj.</li>
   <li><strong>Mjete Veprueese (Action API):</strong> Ndërrojna emra klientave te kompanisë tënde, fusin në Outlook axhenda kalendarike t'çmendura etj.</li>
@@ -580,7 +580,7 @@ Formati: Listë</pre>`
             {
                 id: "limitations-detail",
                 title: "Kufizimet",
-                content: `<h2>Çfarë NUK Mund të bëjë AI</h2>
+                content: `<h2>Çfarë NUK Mund të bëjë IA</h2>
 <div style="background: #fef2f2; padding: 20px; border-radius: 12px; border: 1px solid #fca5a5; margin-bottom: 20px;">
 <ul style="display: flex; flex-direction: column; gap: 12px; margin: 0;">
   <li><strong>Nuk ka 'Arsye të Shëndoshë':</strong> Mudn të të shkruajë një baladë të lotueshme për një mollë por nuk ndjen se si po bjen në tokë apo si ka erë e mollës.</li>
@@ -590,17 +590,17 @@ Formati: Listë</pre>`
 </div>
 <div style="background: #fffbeb; padding: 20px; border-radius: 12px; border: 1px solid #fde68a; margin-bottom: 20px;">
   <strong>Analogjia: Një Papagall Gjenial</strong>
-  <p style="margin-top: 8px;">Mendoni për AI si një papagall jashtëzakonisht të lexuar. Mund të recitojë Shekspirin pa të meta dhe ta përziejë me fizikën kuantike sepse ka "lexuar" gjithçka në internet. Por papagalli nuk e kupton vërtet se çfarë është dashuria ose atomet. Ai vetëm e di se cilat fjalë ndjekin statistikisht njëra-tjetrën në mënyrë të përsosur.</p>
+  <p style="margin-top: 8px;">Mendoni për IA si një papagall jashtëzakonisht të lexuar. Mund të recitojë Shekspirin pa të meta dhe ta përziejë me fizikën kuantike sepse ka "lexuar" gjithçka në internet. Por papagalli nuk e kupton vërtet se çfarë është dashuria ose atomet. Ai vetëm e di se cilat fjalë ndjekin statistikisht njëra-tjetrën në mënyrë të përsosur.</p>
 </div>`
             },
             {
                 id: "failure-modes",
                 title: "Rreziqet",
-                content: `\n                    <p>Kur përdorni AI në teknologji prisni rreziqet më poshtë:</p>
+                content: `\n                    <p>Kur përdorni IA në teknologji prisni rreziqet më poshtë:</p>
 <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 16px;">
   <div style="background: white; padding: 16px; border-radius: 8px; border: 1px solid var(--border-light); border-left: 4px solid #ef4444;">
-    <h3 style="margin-top:0; color:var(--primary); font-size: 16px;">1. Halucinacionet AI (Gënjeshtari i Sigurt)</h3>
-    <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Ndonjëherë AI e humb fijen por s'do t'ju zhgënjejë prandaj SHPIK! Krijon referate false! <strong>Rregulli: Verifiko gjithmonë!</strong></p>
+    <h3 style="margin-top:0; color:var(--primary); font-size: 16px;">1. Halucinacionet IA (Gënjeshtari i Sigurt)</h3>
+    <p style="font-size: 14px; color: var(--text-secondary); margin: 0;">Ndonjëherë IA e humb fijen por s'do t'ju zhgënjejë prandaj SHPIK! Krijon referate false! <strong>Rregulli: Verifiko gjithmonë!</strong></p>
   </div>
   <div style="background: white; padding: 16px; border-radius: 8px; border: 1px solid var(--border-light); border-left: 4px solid #d97757;">
     <h3 style="margin-top:0; color:var(--primary); font-size: 16px;">2. Paragjykimi i Trashëguar</h3>
@@ -611,10 +611,10 @@ Formati: Listë</pre>`
             {
                 id: "best-practices",
                 title: "Praktikat më të Mira",
-                content: `\n                    <h2>Praktikat më të Mira për AI</h2>
+                content: `\n                    <h2>Praktikat më të Mira për IA</h2>
 <ul style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
   <li><strong>Ndajeni punën me pika:</strong> Pse me u mbyt ma me një letër 3 faqëshe theksi të shkruar në një lëvizje? Jepi tre hapa bazë t'ia gjenerosh një nga një.</li>
-  <li><strong>Kontrolloni vazhdimësisht mjetin:</strong> Skenari katastrofik për të rekrutuesit AI pa kontroll nga drejtori është si dështimi në punë.</li>
+  <li><strong>Kontrolloni vazhdimësisht mjetin:</strong> Skenari katastrofik për të rekrutuesit IA pa kontroll nga drejtori është si dështimi në punë.</li>
 </ul>\n                `
             },
             {
@@ -623,7 +623,7 @@ Formati: Listë</pre>`
                 content: `\n                    <div style="background: #fef2f2; padding: 20px; border-radius: 12px; border: 1px solid #fca5a5; margin-bottom: 20px;">
   <strong>⚠️ Rregullore e Ashpër!</strong>
   <ul style="display: flex; flex-direction: column; gap: 12px; margin-top: 12px;">
-    <li>Kurrë, NË ASNJË MËNYRË s'duhen dhënë passworde tek AI pasi ato ushqehen prej teje.</li>
+    <li>Kurrë, NË ASNJË MËNYRË s'duhen dhënë passworde tek IA pasi ato ushqehen prej teje.</li>
   </ul>
 </div>\n                `
             }
@@ -638,17 +638,17 @@ Formati: Listë</pre>`
                 title: "Optimizimi i Shpejtësisë",
                 content: `\n                    <p>Mendimi për përdorimin industrial e arkitektonik:</p>
 <ul style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
-  <li>Ulini maksimalisht "tokens", d.m.th bëni fjali shkurt se paguani per fjale të kota në rast të AI Biznes.</li>
+  <li>Ulini maksimalisht "tokens", d.m.th bëni fjali shkurt se paguani per fjale të kota në rast të IA Biznes.</li>
 </ul>
 <div style="background: #f0fdf4; padding: 20px; border-radius: 12px; border: 1px solid #bbf7d0; margin-top: 20px;">
   <strong>Analogjia: Punësimi i një Korrieri</strong>
-  <p style="margin-top: 8px;">Çdo fjalë (token) që dërgoni tek një model AI kushton fuqi kompjuterike. Është si të punësosh një korrier që tarifon për çdo gram. Nëse dëshironi të dërgoni një letër, nuk dërgoni të gjithë librin me 1,000 faqe nga ka ardhur — grisni atë faqe të vetme dhe dërgoni atë. Kjo është saktësisht arsyeja pse ne përdorim RAG dhe embeddings!</p>
+  <p style="margin-top: 8px;">Çdo fjalë (token) që dërgoni tek një model IA kushton fuqi kompjuterike. Është si të punësosh një korrier që tarifon për çdo gram. Nëse dëshironi të dërgoni një letër, nuk dërgoni të gjithë librin me 1,000 faqe nga ka ardhur — grisni atë faqe të vetme dhe dërgoni atë. Kjo është saktësisht arsyeja pse ne përdorim RAG dhe embeddings!</p>
 </div>\n                `
             },
             {
                 id: "evaluation",
                 title: "Matja e Inteligjencës",
-                content: `\n                    <h2>Çfarë tregon shkëlqimin në një API (Platformë AI)?</h2>
+                content: `\n                    <h2>Çfarë tregon shkëlqimin në një API (Platformë IA)?</h2>
 <ul style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
   <li><strong>Kosto:</strong> OpenAI apo Anthropic marrin para bazuar në aftësinë komplekse kompjuterike. Modelet "Mini" dalin pothuajse falas!</li>
 </ul>\n                `
@@ -693,7 +693,7 @@ Formati: Listë</pre>`
                 id: "output-formats",
                 title: "Formatet Jetike Të Daljes së të Dhënave (Output)",
                 content: `\n                    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
-  <div style="background: #f9fafb; padding: 12px; border-radius: 8px; border: 1px solid #e5e7eb;"><strong>JSON Tabela:</strong> Tabela e programimit inxhinierik. Çdo makinë ndërvepron me AI 100% permes strukturës thellësisht rradhe të JSON. Tekstet rrëmujë (shkrimet tona) nuk kalojnë direkt mes kodeve por ne Formë JSON!</div>
+  <div style="background: #f9fafb; padding: 12px; border-radius: 8px; border: 1px solid #e5e7eb;"><strong>JSON Tabela:</strong> Tabela e programimit inxhinierik. Çdo makinë ndërvepron me IA 100% permes strukturës thellësisht rradhe të JSON. Tekstet rrëmujë (shkrimet tona) nuk kalojnë direkt mes kodeve por ne Formë JSON!</div>
 </div>\n                `
             }
         ]
@@ -704,14 +704,14 @@ Formati: Listë</pre>`
         items: [
             {
                 id: "future-directions",
-                title: "Të Ardhmet AI",
+                title: "Të Ardhmet IA",
                 content: `\n                    <p>Për ku po shkon zhvillimi pas këtij viti?</p>
 <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
   <div style="background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0;"><strong>Agjentët plotësisht Autonomë (Të Varur):</strong> Do lulëzojnë "Zyrat virtuale agjentë" pa asnjë mbikqryrës! Punëtoret bëhen mbikqyrës direkt te 5 inteligjencave bashke punojnë një projekt masiv!</div>
 </div>
 <div style="background: rgba(107, 91, 79, 0.1); padding: 20px; border-radius: 12px; border: 1px solid #fed7aa; margin-top: 20px;">
   <strong>Analogjia: Evolucioni i Smartfonëve</strong>
-  <p style="margin-top: 8px;">Tani për tani, AI është si ditët e para të telefonave celularë. Janë pajisje (faqe interneti) të veçanta që duhet t'i vizitoni për t'i përdorur. Në të ardhmen, AI do të jetë si një smartphone modern — e integruar në gjithçka. Nuk do të jetë thjesht një aplikacion që e hapni; do të jetë vetë sistemi operativ, duke menaxhuar jetën tuaj dixhitale në mënyrë të padukshme.</p>
+  <p style="margin-top: 8px;">Tani për tani, IA është si ditët e para të telefonave celularë. Janë pajisje (faqe interneti) të veçanta që duhet t'i vizitoni për t'i përdorur. Në të ardhmen, IA do të jetë si një smartphone modern — e integruar në gjithçka. Nuk do të jetë thjesht një aplikacion që e hapni; do të jetë vetë sistemi operativ, duke menaxhuar jetën tuaj dixhitale në mënyrë të padukshme.</p>
 </div>\n                `
             },
             {
@@ -724,8 +724,8 @@ Formati: Listë</pre>`
             },
             {
                 id: "system-template",
-                title: "Bazë Ekzakte Prompt-i nga Agjentë Zbulues AI!",
-                content: `\n                    <p>Sekreti më i fshehtë i sistemit AI prompt zbuluar i gjallë:</p>
+                title: "Bazë Ekzakte Prompt-i nga Agjentë Zbulues IA!",
+                content: `\n                    <p>Sekreti më i fshehtë i sistemit IA prompt zbuluar i gjallë:</p>
 <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid var(--border-light); font-family: monospace; font-size: 13px; color: #334155; margin-bottom: 20px;">
   Ju jeni një agjent i ndërtuar për saktësi absolute mos u lëndoni nga pyetjet, mbani mend thellë!<br>
   - Jep vetë fakte të besueshme.<br>
@@ -735,7 +735,7 @@ Formati: Listë</pre>`
                 id: "summary",
                 title: "Llogjika Fillestare",
                 content: `\n                    <div style="background: #eef2ff; padding: 20px; border-radius: 12px; border: 1px solid #c7d2fe; text-align: center;">
-  <p style="margin: 0; font-size: 18px; color: #3730a3;"><strong>AI NUK ËSHTË ZOT! AI ËSHTË NJË MAKINË E FUQISHME PËR PARASHIKIM FJALËSH BAZUAR NË MATEMATIKË!</strong></p>
+  <p style="margin: 0; font-size: 18px; color: #3730a3;"><strong>IA NUK ËSHTË ZOT! IA ËSHTË NJË MAKINË E FUQISHME PËR PARASHIKIM FJALËSH BAZUAR NË MATEMATIKË!</strong></p>
   <p style="margin-top: 8px; color: #4f46e5;">Cilësia maksimale = Të dhënat origjinale (që ti mban fshehur) + Drejtimi Udhëzimeve Të Tua</p>
 </div>\n                `
             }

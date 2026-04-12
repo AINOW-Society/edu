@@ -49,6 +49,15 @@ We have prepared a comprehensive **[Contribution Guide](CONTRIBUTING.md)** that 
 
 ## Changelog
 
+### v0.82 (April 11, 2026)
+- **PDF Export — Two Buttons:** Resources view now has a "Save as PDF" button and a separate "Print" button. Both open a hidden iframe with the formatted document and trigger the browser print dialog — works offline, handles all scripts (Macedonian Cyrillic, Albanian, English), and works on mobile and desktop.
+- **Export Fix:** Removed dead `#print-container` guard that silently blocked all exports. Export now works correctly on every click.
+- **PWA Cleanup:** Removed dead `#pwa-install-btn` references (`_showInstallBtn`, `_hideInstallBtn`) from `app.js`.
+- **Performance:** Fixed `innerHTML +=` in a loop in tools rendering — now builds the full string first and sets `innerHTML` once, eliminating N DOM reflows per tool card.
+- **Null-Safety:** Added optional chaining on `.closest().querySelector()` chains in `copyPrompt`, `toggleAIMenu`, `openWithAI`. Added null check on widget button label in Resources. Added `|| val` fallback for quiz question preview.
+- **i18n:** Added `resources.print_btn` translation key in MK, EN, SQ.
+- **Service Worker:** Cache bumped to `ai-edu-v0.82`.
+
 ### v0.81 (April 11, 2026)
 - **PWA Install — Fixed End-to-End:** Rewrote the entire PWA install flow with a single source of truth. Install button now shows only when the browser is actually ready to install (via `beforeinstallprompt`). iOS Safari shows a step-by-step bottom-sheet guide instead of a plain alert.
 - **One-Time Install Banner:** A prominent install banner slides up from the bottom on first mobile visit, 2.5 seconds after load. Stored in `localStorage` so it only ever shows once per device.

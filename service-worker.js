@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ai-edu-v0.81';
+const CACHE_NAME = 'ai-edu-v0.84';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -23,7 +23,9 @@ const urlsToCache = [
     '/js/lang/sq/prompts.js',
     '/js/lang/mk/quizzes.js',
     '/js/lang/en/quizzes.js',
-    '/js/lang/sq/quizzes.js'
+    '/js/lang/sq/quizzes.js',
+    '/js/lib/html2canvas.min.js',
+    '/js/lib/jspdf.min.js'
 ];
 
 self.addEventListener('install', event => {
