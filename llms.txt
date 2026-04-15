@@ -19,5 +19,5 @@ The AINOW Literacy Platform is a comprehensive, interactive educational web appl
 
 ## Authors & License
 Lead Developer: Suad Seferi
-License: MIT (Free Open Source)
+License: GPLv3 (Free Open Source)
 Updated: April 2026
