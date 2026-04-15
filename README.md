@@ -100,7 +100,16 @@ We have prepared a comprehensive **[Contribution Guide](CONTRIBUTING.md)** that 
 
 ## License
 
-This project is licensed under the **MIT License**. It is completely free for educational institutions, non-profits, and individual learners. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the **GNU General Public License v3.0 (GPLv3)**.
+
+**© 2026 AINOW Society**
+
+You are free to use, modify, and distribute this software, provided you:
+- Include the license and copyright notice
+- Share any modifications under the same GPLv3 license
+- Document significant changes
+
+See the [LICENSE](LICENSE) file for the complete legal text or visit [GNU.org](https://www.gnu.org/licenses/gpl-3.0.html).
 
 ---
 <div align="center">

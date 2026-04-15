@@ -1,21 +1,42 @@
-MIT License
+# GNU General Public License v3.0 (GPLv3)
 
-Copyright (c) 2026 AINOW Society
+## Copyright Notice
+© 2026 AINOW Society
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## License Summary
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+This project is licensed under the GNU General Public License v3.0. This is a free and open-source license that ensures software freedom.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+**For the full legal text, visit:** https://www.gnu.org/licenses/gpl-3.0.html
+
+## You are free to:
+
+- **Use** — Use the software for any purpose (commercial or non-commercial)
+- **Study** — Study how the program works, and change it
+- **Distribute** — Redistribute copies of the software
+- **Improve** — Improve the program and release your improvements to the public
+
+## Terms and Conditions:
+
+- **Source Code** — When you distribute the software, you must provide the source code
+- **License & Copyright** — You must include a copy of the license and copyright notice
+- **Document Changes** — You must document any significant changes made to the software
+- **Same License** — Any derivatives must also be licensed under GPLv3
+- **No Warranty** — The software is provided without any warranty
+
+## What This Means:
+
+✅ **Educators & Schools** — Free to use, modify, and share
+✅ **Non-Profits** — Unlimited use and deployment
+✅ **Developers** — Can fork, modify, and contribute back
+✅ **Commercial** — Can use, but must share modifications under GPLv3
+
+**Important:** If you modify and distribute this software, you must:
+1. Share the modified source code
+2. Keep the same GPLv3 license
+3. Include the original copyright notice
+
+---
+
+**For more information, visit:** https://www.gnu.org/licenses/gpl-3.0.html
+**View the detailed FAQ:** https://www.gnu.org/licenses/gpl-faq.html

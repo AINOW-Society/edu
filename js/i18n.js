@@ -877,7 +877,7 @@
             'sidebar.prompts.link': 'Banka e Prompteve',
             'sidebar.tools.link': 'Mjete IA',
             'sidebar.ai.learning': 'Mjete Të Mësuarit',
-            'sidebar.ai.test': 'Teste Promptet',
+            'sidebar.ai.test': 'Testo Promptet',
             'sidebar.ai.popular': 'Mjete Popullore',
             'prompts.bank.title': 'Banka e Prompteve',
             'prompts.bank.sub': 'prompte të gatshme',
