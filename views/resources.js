@@ -19,7 +19,7 @@ window.VIEWS['resources'] = `
     </div>
 
     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px;">
-        <button id="widget-btn-guide" onclick="ResourceManager.switchWidget('guide')" 
+        <button id="widget-btn-guide" onclick="ResourceManager.switchWidget('guide')"
                 style="padding: 16px; border: 2px solid var(--primary); background: var(--primary-light); border-radius: 12px; cursor: pointer; display: flex; flex-direction: column; gap: 8px; transition: all 0.2s;">
             <div style="display: flex; align-items: center; gap: 10px;">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--primary);">
@@ -31,7 +31,7 @@ window.VIEWS['resources'] = `
             <span data-i18n="resources.widget.guide.desc" style="font-size: 12px; color: var(--text-tertiary); text-align: left;">AI Literacy Documentation</span>
         </button>
 
-        <button id="widget-btn-prompts" onclick="ResourceManager.switchWidget('prompts')" 
+        <button id="widget-btn-prompts" onclick="ResourceManager.switchWidget('prompts')"
                 style="padding: 16px; border: 1px solid var(--border-light); background: var(--bg-card); border-radius: 12px; cursor: pointer; display: flex; flex-direction: column; gap: 8px; transition: all 0.2s;">
             <div style="display: flex; align-items: center; gap: 10px;">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-primary);">
@@ -42,7 +42,7 @@ window.VIEWS['resources'] = `
             <span data-i18n="resources.widget.prompts.desc" style="font-size: 12px; color: var(--text-tertiary); text-align: left;">Teacher & Admin Prompt Bank</span>
         </button>
 
-        <button id="widget-btn-tests" onclick="ResourceManager.switchWidget('tests')" 
+        <button id="widget-btn-tests" onclick="ResourceManager.switchWidget('tests')"
                 style="padding: 16px; border: 1px solid var(--border-light); background: var(--bg-card); border-radius: 12px; cursor: pointer; display: flex; flex-direction: column; gap: 8px; transition: all 0.2s;">
             <div style="display: flex; align-items: center; gap: 10px;">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-primary);">
@@ -93,14 +93,14 @@ window.VIEWS['resources'] = `
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                     <span id="export-btn-text" data-i18n="resources.export_btn">Save as PDF</span>
                 </button>
-                <button id="print-btn" onclick="ResourceManager.handlePrint()" style="width: 100%; padding: 11px 16px; background: white; color: var(--text-secondary); border: 1px solid var(--border-light); border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 7px;">
+                <button id="print-btn" onclick="ResourceManager.handlePrint()" style="width: 100%; padding: 11px 16px; background: var(--bg-card); color: var(--text-secondary); border: 1px solid var(--border-light); border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 7px;">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
                     <span data-i18n="resources.print_btn">Print</span>
                 </button>
             </div>
 
             <div id="pedagogy-tip-container"></div>
-            
+
             <div style="background: var(--bg-body); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px;">
                 <h4 data-i18n="resources.preview" style="margin: 0 0 12px 0; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary);">Preview</h4>
                 <ul id="resources-preview-list" style="margin: 0; padding-left: 20px; color: var(--text-secondary); font-size: 14px; line-height: 1.6;">
@@ -145,7 +145,7 @@ window.ResourceManager = {
             }
         }
         if (testSettings) testSettings.style.display = (type === 'tests') ? 'flex' : 'none';
-        
+
         if (exportBtnText) {
             exportBtnText.setAttribute('data-i18n', (type === 'tests') ? 'tests.export_btn' : 'resources.export_btn');
             exportBtnText.textContent = I18n.t(exportBtnText.getAttribute('data-i18n'));
@@ -174,10 +174,10 @@ window.ResourceManager = {
             }
             this.renderTestTopics();
         }
-        
+
         this.renderList();
         this.renderPedagogyTip();
-        
+
         if (window.App) window.App.renderSidebarCtx('resources');
     },
 
@@ -196,10 +196,10 @@ window.ResourceManager = {
                 const cleanTitle = title.replace(/^[IVX]+\.\s*/, '');
 
                 html += `
-                    <button onclick="ResourceManager.switchTestTopic('${topic.id}')" 
-                        style="padding: 6px 14px; border-radius: 20px; border: 1px solid ${isActive ? 'var(--primary)' : 'var(--border-light)'}; 
+                    <button onclick="ResourceManager.switchTestTopic('${topic.id}')"
+                        style="padding: 6px 14px; border-radius: 20px; border: 1px solid ${isActive ? 'var(--primary)' : 'var(--border-light)'};
                         cursor: pointer; transition: all 0.2s; font-size: 13px;
-                        background: ${isActive ? 'var(--primary)' : 'var(--bg-card)'}; 
+                        background: ${isActive ? 'var(--primary)' : 'var(--bg-card)'};
                         color: ${isActive ? 'white' : 'var(--text-secondary)'};">
                         ${cleanTitle}
                     </button>
@@ -240,7 +240,7 @@ window.ResourceManager = {
         if (!listEl) return;
 
         let html = '';
-        
+
         if (this.currentWidget === 'guide') {
             DOCS_DATA.forEach(section => {
                 if (section.id === 'about') return;
@@ -269,7 +269,7 @@ window.ResourceManager = {
                 html += this._renderCheckboxItem(q.id, q.question, q.type === 'mcq' ? 'MCQ' : 'Open');
             });
         }
-        
+
         listEl.innerHTML = html;
         this.updatePreview();
     },
@@ -293,7 +293,7 @@ window.ResourceManager = {
     updatePreview() {
         const previewEl = document.getElementById('resources-preview-list');
         if (!previewEl) return;
-        
+
         if (this.selectedItems.size === 0) {
             previewEl.innerHTML = '<li style="list-style-type: none; color: var(--text-tertiary); margin-left: -20px;">-</li>';
             return;
@@ -314,9 +314,9 @@ window.ResourceManager = {
                 const txt = q ? (q.question || val) : val;
                 label = txt.length > 45 ? txt.substring(0, 43) + '…' : txt;
             }
-            html += `<li>${label}</li>`;
+            html += `<li>${escapeHtml(label)}</li>`;
         });
-        
+
         previewEl.innerHTML = html;
     },
 
@@ -380,10 +380,10 @@ window.ResourceManager = {
                 const title = (I18n.t(i18nKey) !== i18nKey) ? I18n.t(i18nKey) : section.title.replace(/^[IVX]+\.\s*/, '');
                 printHtml += `<div class="print-module" style="${printedCount > 0 ? 'page-break-before: always;' : ''}">`;
                 printedCount++;
-                printHtml += `<h1 class="print-module-title">${title}</h1>`;
+                printHtml += `<h1 class="print-module-title">${escapeHtml(title)}</h1>`;
                 section.items.forEach(item => {
                     let cleanContent = item.content.replace(/<h[23][^>]*>.*?<\/h[23]>/gi, '').replace(/^(\s*<br\s*\/?>\s*)+/gi, '').replace(/\{\{WIDGET:[^}]+\}\}/g, '').trim();
-                    printHtml += `<div class="print-item"><h2 class="print-item-title">${item.title}</h2><div class="print-item-content">${cleanContent}</div></div>`;
+                    printHtml += `<div class="print-item"><h2 class="print-item-title">${escapeHtml(item.title)}</h2><div class="print-item-content">${cleanContent}</div></div>`;
                 });
                 printHtml += `</div>`;
             });
@@ -395,9 +395,10 @@ window.ResourceManager = {
                 if (!categoryPrompts.length) return;
                 printHtml += `<div class="print-module" style="${printedCount > 0 ? 'page-break-before: always;' : ''}">`;
                 printedCount++;
-                printHtml += `<h1 class="print-module-title">${I18n.t('prompts.sub.' + categoryId)}</h1>`;
+                printHtml += `<h1 class="print-module-title">${escapeHtml(I18n.t('prompts.sub.' + categoryId))}</h1>`;
                 categoryPrompts.forEach(p => {
-                    printHtml += `<div class="print-item" style="border-bottom:0.5px solid #eee;padding-bottom:20px;"><h3 class="print-item-title" style="margin-bottom:4px;">${p.title}</h3><div style="font-size:11px;color:#666;margin-bottom:10px;">${p.tags.join(' • ')}</div><div class="print-item-content" style="background:#f9fafb;padding:15px;border-radius:4px;border-left:3px solid #d97757;">${p.prompt}</div></div>`;
+                    const tagsSafe = (p.tags || []).map(t => escapeHtml(t)).join(' • ');
+                    printHtml += `<div class="print-item" style="border-bottom:0.5px solid #eee;padding-bottom:20px;"><h3 class="print-item-title" style="margin-bottom:4px;">${escapeHtml(p.title)}</h3><div style="font-size:11px;color:#666;margin-bottom:10px;">${tagsSafe}</div><div class="print-item-content" style="background:#f9fafb;padding:15px;border-radius:4px;border-left:3px solid #d97757;">${escapeHtml(p.prompt)}</div></div>`;
                 });
                 printHtml += `</div>`;
             });
@@ -469,14 +470,14 @@ window.ResourceManager = {
                 <div class="print-item">
                     <div class="q-header">
                         <div class="q-num">${idx + 1}</div>
-                        <div style="padding-top: 2px;">${q.question}</div>
+                        <div style="padding-top: 2px;">${escapeHtml(q.question)}</div>
                     </div>
                     ${q.type === 'mcq' ? `
                         <div class="options-container">
                             ${q.options.map(opt => `
                                 <div class="opt-item">
                                     <div class="opt-box"></div>
-                                    <span>${opt}</span>
+                                    <span>${escapeHtml(opt)}</span>
                                 </div>
                             `).join('')}
                         </div>
@@ -495,13 +496,13 @@ window.ResourceManager = {
         if (includeKey) {
             keyHtml = `
             <div class="key-section">
-                <h2 class="key-title">${I18n.t('tests.answer_key')}</h2>
+                <h2 class="key-title">${escapeHtml(I18n.t('tests.answer_key'))}</h2>
                 <div class="key-grid">
                     ${selectedList.map((q, idx) => `
                         <div class="key-card">
-                            <div style="font-size: 10px; font-weight: 700; color: #d97757; margin-bottom: 4px;">${I18n.t('tests.question')} ${idx + 1}</div>
+                            <div style="font-size: 10px; font-weight: 700; color: #d97757; margin-bottom: 4px;">${escapeHtml(I18n.t('tests.question'))} ${idx + 1}</div>
                             <div style="font-size: 14px; font-weight: 600; color: #111827;">
-                                ${q.type === 'mcq' ? q.options[q.answer] : '---'}
+                                ${q.type === 'mcq' ? escapeHtml(q.options[q.answer]) : '---'}
                             </div>
                         </div>
                     `).join('')}
@@ -582,12 +583,12 @@ window.ResourceManager = {
     },
 
     _renderPDF(bodyHtml, done) {
-        const A4_W   = 794;   // 210mm at 96dpi
-        const A4_H   = 1123;  // 297mm at 96dpi
-        const PAD_T  = 96;    // 1 inch top    (header at 0.5 inch = 48px from edge)
-        const PAD_B  = 96;    // 1 inch bottom (footer at 0.5 inch = 48px from edge)
-        const PAD_X  = 96;    // 1 inch left/right
-        const CONT_H = A4_H - PAD_T - PAD_B;  // 931px usable content per page
+        const A4_W   = 794;
+        const A4_H   = 1123;
+        const PAD_T  = 96;
+        const PAD_B  = 96;
+        const PAD_X  = 96;
+        const CONT_H = A4_H - PAD_T - PAD_B;
         const SCALE  = 2;
 
         const wrap = document.createElement('div');
@@ -765,7 +766,7 @@ window.ResourceManager = {
             } catch(e) {
                 const blob = new Blob([`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>AINOW Export</title></head><body style="margin:0">${bodyHtml}</body></html>`], {type: 'text/html'});
                 const url = URL.createObjectURL(blob);
-                window.open(url, '_blank');
+                window.open(url, '_blank', 'noopener');
                 setTimeout(() => URL.revokeObjectURL(url), 10000);
             }
             setTimeout(() => iframe.remove(), 2000);
@@ -773,12 +774,12 @@ window.ResourceManager = {
     },
 
     _getPrintHeader() {
-        const title = this.currentWidget === 'tests' 
-            ? I18n.t('tests.hero.title') 
+        const title = this.currentWidget === 'tests'
+            ? I18n.t('tests.hero.title')
             : (this.currentWidget === 'prompts' ? I18n.t('resources.widget.prompts') : I18n.t('resources.widget.guide'));
-            
-        const desc = this.currentWidget === 'tests' 
-            ? I18n.t('tests.header_desc') 
+
+        const desc = this.currentWidget === 'tests'
+            ? I18n.t('tests.header_desc')
             : I18n.t('header.platform');
 
         return `

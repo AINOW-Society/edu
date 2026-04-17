@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ai-edu-v0.86';
+const CACHE_NAME = 'ai-edu-v0.90';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -7,6 +7,7 @@ const urlsToCache = [
     '/js/app.js',
     '/js/router.js',
     '/js/engine.js',
+    '/js/glossary-data.js',
     '/manifest.json',
     '/views/home.js',
     '/views/help.js',
@@ -15,6 +16,7 @@ const urlsToCache = [
     '/views/tools.js',
     '/views/about.js',
     '/views/resources.js',
+    '/views/glossary.js',
     '/js/lang/mk/docs.js',
     '/js/lang/mk/prompts.js',
     '/js/lang/en/docs.js',
@@ -25,12 +27,17 @@ const urlsToCache = [
     '/js/lang/en/quizzes.js',
     '/js/lang/sq/quizzes.js',
     '/js/lib/html2canvas.min.js',
-    '/js/lib/jspdf.min.js'
+    '/js/lib/jspdf.min.js',
+    '/assets/logo.svg',
+    '/assets/icon-maskable.svg'
 ];
 
 self.addEventListener('install', event => {
     event.waitUntil(
-        caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
+        caches.open(CACHE_NAME).then(cache =>
+
+            Promise.allSettled(urlsToCache.map(url => cache.add(url)))
+        )
     );
     self.skipWaiting();
 });
@@ -61,7 +68,7 @@ self.addEventListener('fetch', event => {
                     return response;
                 })
                 .catch(() =>
-                    caches.match(event.request)
+                    caches.match(event.request, { ignoreSearch: true })
                         .then(cached => cached || caches.match('/index.html'))
                 )
         );
@@ -69,8 +76,9 @@ self.addEventListener('fetch', event => {
     }
 
     event.respondWith(
-        caches.match(event.request).then(cached => {
-            if (cached) return cached;
+
+        caches.match(event.request).then(exact => {
+            if (exact) return exact;
 
             return fetch(event.request).then(response => {
                 if (response && response.status === 200 && response.type === 'basic') {
@@ -78,7 +86,11 @@ self.addEventListener('fetch', event => {
                     caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
                 }
                 return response;
-            }).catch(() => caches.match('/index.html'));
+            }).catch(() =>
+
+                caches.match(event.request, { ignoreSearch: true })
+                    .then(cached => cached || caches.match('/index.html'))
+            );
         })
     );
 });

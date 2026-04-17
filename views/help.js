@@ -19,7 +19,7 @@ window.VIEWS.help = `
     <p style="font-size: 11px; font-weight: 700; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;" data-i18n="help.features.title">Platform Features</p>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 48px;">
 
-        <div class="home-feature-card" style="--card-accent: #d97757;" onclick="App.switchView('guide')">
+        <div class="home-feature-card" style="--card-accent: #d97757;" role="button" tabindex="0" onclick="App.switchView('guide')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
             <div class="card-icon" style="background: rgba(217, 119, 87, 0.1); color: #d97757; margin-bottom: 16px;">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
             </div>
@@ -28,7 +28,7 @@ window.VIEWS.help = `
             <span class="card-cta"><span data-i18n="card.guide.cta">READ</span> <span aria-hidden="true">→</span></span>
         </div>
 
-        <div class="home-feature-card" style="--card-accent: #4a9b6f;" onclick="App.switchView('prompts')">
+        <div class="home-feature-card" style="--card-accent: #4a9b6f;" role="button" tabindex="0" onclick="App.switchView('prompts')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
             <div class="card-icon" style="background: rgba(74, 155, 111, 0.1); color: #4a9b6f; margin-bottom: 16px;">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
             </div>
@@ -37,7 +37,7 @@ window.VIEWS.help = `
             <span class="card-cta"><span data-i18n="card.prompts.cta">EXPLORE</span> <span aria-hidden="true">→</span></span>
         </div>
 
-        <div class="home-feature-card" style="--card-accent: #6b5b4f;" onclick="App.switchView('tools')">
+        <div class="home-feature-card" style="--card-accent: #6b5b4f;" role="button" tabindex="0" onclick="App.switchView('tools')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
             <div class="card-icon" style="background: rgba(107, 91, 79, 0.1); color: #6b5b4f; margin-bottom: 16px;">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
             </div>
@@ -46,7 +46,7 @@ window.VIEWS.help = `
             <span class="card-cta"><span data-i18n="card.tools.cta">OPEN</span> <span aria-hidden="true">→</span></span>
         </div>
 
-        <div class="home-feature-card" style="--card-accent: #4a9b6f;" onclick="App.switchView('resources'); setTimeout(function(){ if(window.ResourceManager) ResourceManager.switchWidget('tests'); }, 200);">
+        <div class="home-feature-card" style="--card-accent: #4a9b6f;" role="button" tabindex="0" onclick="App.switchView('resources'); setTimeout(function(){ if(window.ResourceManager) ResourceManager.switchWidget('tests'); }, 200);" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
             <div class="card-icon" style="background: rgba(74, 155, 111, 0.1); color: #4a9b6f; margin-bottom: 16px;">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
             </div>
@@ -55,7 +55,7 @@ window.VIEWS.help = `
             <span class="card-cta"><span data-i18n="card.tests.cta">CREATE</span> <span aria-hidden="true">→</span></span>
         </div>
 
-        <div class="home-feature-card" style="--card-accent: #d97757;" onclick="App.switchView('resources'); setTimeout(function(){ if(window.ResourceManager) ResourceManager.switchWidget('guide'); }, 200);">
+        <div class="home-feature-card" style="--card-accent: #d97757;" role="button" tabindex="0" onclick="App.switchView('resources'); setTimeout(function(){ if(window.ResourceManager) ResourceManager.switchWidget('guide'); }, 200);" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
             <div class="card-icon" style="background: rgba(217, 119, 87, 0.1); color: #d97757; margin-bottom: 16px;">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
             </div>
@@ -64,7 +64,7 @@ window.VIEWS.help = `
             <span class="card-cta"><span data-i18n="card.handouts.cta">GENERATE</span> <span aria-hidden="true">→</span></span>
         </div>
 
-        <div class="home-feature-card" style="--card-accent: #4a9b6f;" onclick="App.switchView('resources'); setTimeout(function(){ if(window.ResourceManager) ResourceManager.switchWidget('prompts'); }, 200);">
+        <div class="home-feature-card" style="--card-accent: #4a9b6f;" role="button" tabindex="0" onclick="App.switchView('resources'); setTimeout(function(){ if(window.ResourceManager) ResourceManager.switchWidget('prompts'); }, 200);" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
             <div class="card-icon" style="background: rgba(74, 155, 111, 0.1); color: #4a9b6f; margin-bottom: 16px;">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
             </div>
@@ -171,7 +171,7 @@ window.VIEWS.help = `
     <p style="font-size: 11px; font-weight: 700; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;" data-i18n="help.faq.title">Frequently Asked Questions</p>
     <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 48px;">
 
-        <div style="background:var(--bg-card);border-radius:12px;border:1px solid var(--border-light);padding:16px 20px;cursor:pointer;user-select:none;" onclick="(function(el){var a=el.querySelector('.faq-ans');var c=el.querySelector('.faq-ch');var open=a.style.display==='block';a.style.display=open?'none':'block';c.style.transform=open?'':'rotate(180deg)';})(this)">
+        <div style="background:var(--bg-card);border-radius:12px;border:1px solid var(--border-light);padding:16px 20px;cursor:pointer;user-select:none;" role="button" tabindex="0" aria-expanded="false" onclick="App.toggleFAQ(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();App.toggleFAQ(this);}">
             <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
                 <p style="font-size:14px;font-weight:600;color:var(--text-primary);margin:0;" data-i18n="help.faq.q1.q">Is the platform free?</p>
                 <svg class="faq-ch" style="color:var(--text-tertiary);transition:transform 0.2s;flex-shrink:0;" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -181,7 +181,7 @@ window.VIEWS.help = `
             </div>
         </div>
 
-        <div style="background:var(--bg-card);border-radius:12px;border:1px solid var(--border-light);padding:16px 20px;cursor:pointer;user-select:none;" onclick="(function(el){var a=el.querySelector('.faq-ans');var c=el.querySelector('.faq-ch');var open=a.style.display==='block';a.style.display=open?'none':'block';c.style.transform=open?'':'rotate(180deg)';})(this)">
+        <div style="background:var(--bg-card);border-radius:12px;border:1px solid var(--border-light);padding:16px 20px;cursor:pointer;user-select:none;" role="button" tabindex="0" aria-expanded="false" onclick="App.toggleFAQ(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();App.toggleFAQ(this);}">
             <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
                 <p style="font-size:14px;font-weight:600;color:var(--text-primary);margin:0;" data-i18n="help.faq.q2.q">Do I need to create an account?</p>
                 <svg class="faq-ch" style="color:var(--text-tertiary);transition:transform 0.2s;flex-shrink:0;" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -191,7 +191,7 @@ window.VIEWS.help = `
             </div>
         </div>
 
-        <div style="background:var(--bg-card);border-radius:12px;border:1px solid var(--border-light);padding:16px 20px;cursor:pointer;user-select:none;" onclick="(function(el){var a=el.querySelector('.faq-ans');var c=el.querySelector('.faq-ch');var open=a.style.display==='block';a.style.display=open?'none':'block';c.style.transform=open?'':'rotate(180deg)';})(this)">
+        <div style="background:var(--bg-card);border-radius:12px;border:1px solid var(--border-light);padding:16px 20px;cursor:pointer;user-select:none;" role="button" tabindex="0" aria-expanded="false" onclick="App.toggleFAQ(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();App.toggleFAQ(this);}">
             <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
                 <p style="font-size:14px;font-weight:600;color:var(--text-primary);margin:0;" data-i18n="help.faq.q3.q">Where do copied prompts go?</p>
                 <svg class="faq-ch" style="color:var(--text-tertiary);transition:transform 0.2s;flex-shrink:0;" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -201,7 +201,7 @@ window.VIEWS.help = `
             </div>
         </div>
 
-        <div style="background:var(--bg-card);border-radius:12px;border:1px solid var(--border-light);padding:16px 20px;cursor:pointer;user-select:none;" onclick="(function(el){var a=el.querySelector('.faq-ans');var c=el.querySelector('.faq-ch');var open=a.style.display==='block';a.style.display=open?'none':'block';c.style.transform=open?'':'rotate(180deg)';})(this)">
+        <div style="background:var(--bg-card);border-radius:12px;border:1px solid var(--border-light);padding:16px 20px;cursor:pointer;user-select:none;" role="button" tabindex="0" aria-expanded="false" onclick="App.toggleFAQ(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();App.toggleFAQ(this);}">
             <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
                 <p style="font-size:14px;font-weight:600;color:var(--text-primary);margin:0;" data-i18n="help.faq.q4.q">Which AI tool do you recommend for beginners?</p>
                 <svg class="faq-ch" style="color:var(--text-tertiary);transition:transform 0.2s;flex-shrink:0;" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -211,7 +211,7 @@ window.VIEWS.help = `
             </div>
         </div>
 
-        <div style="background:var(--bg-card);border-radius:12px;border:1px solid var(--border-light);padding:16px 20px;cursor:pointer;user-select:none;" onclick="(function(el){var a=el.querySelector('.faq-ans');var c=el.querySelector('.faq-ch');var open=a.style.display==='block';a.style.display=open?'none':'block';c.style.transform=open?'':'rotate(180deg)';})(this)">
+        <div style="background:var(--bg-card);border-radius:12px;border:1px solid var(--border-light);padding:16px 20px;cursor:pointer;user-select:none;" role="button" tabindex="0" aria-expanded="false" onclick="App.toggleFAQ(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();App.toggleFAQ(this);}">
             <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
                 <p style="font-size:14px;font-weight:600;color:var(--text-primary);margin:0;" data-i18n="help.faq.q5.q">Can I use this offline?</p>
                 <svg class="faq-ch" style="color:var(--text-tertiary);transition:transform 0.2s;flex-shrink:0;" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -221,7 +221,7 @@ window.VIEWS.help = `
             </div>
         </div>
 
-        <div style="background:var(--bg-card);border-radius:12px;border:1px solid var(--border-light);padding:16px 20px;cursor:pointer;user-select:none;" onclick="(function(el){var a=el.querySelector('.faq-ans');var c=el.querySelector('.faq-ch');var open=a.style.display==='block';a.style.display=open?'none':'block';c.style.transform=open?'':'rotate(180deg)';})(this)">
+        <div style="background:var(--bg-card);border-radius:12px;border:1px solid var(--border-light);padding:16px 20px;cursor:pointer;user-select:none;" role="button" tabindex="0" aria-expanded="false" onclick="App.toggleFAQ(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();App.toggleFAQ(this);}">
             <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
                 <p style="font-size:14px;font-weight:600;color:var(--text-primary);margin:0;" data-i18n="help.faq.q6.q">How do I print materials?</p>
                 <svg class="faq-ch" style="color:var(--text-tertiary);transition:transform 0.2s;flex-shrink:0;" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>

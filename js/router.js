@@ -63,7 +63,11 @@ const Router = {
         const container = document.getElementById('doc-reader-content');
         if (!container) return;
 
-        const cleanSectionTitle = section.title.replace(/^[IVX]+\.\s*/, '');
+        const rawTitle = section.title.replace(/^[IVX]+\.\s*/, '');
+        const _esc = (typeof escapeHtml === 'function')
+            ? escapeHtml
+            : (s) => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+        const cleanSectionTitle = _esc(rawTitle);
         const progress = this._guideProgress(section.id);
 
         if (section.id === 'history') {
@@ -117,13 +121,16 @@ const Router = {
                     <div class="guide-tabs">
         `;
 
+
         section.items.forEach((item, index) => {
             const isActive = item.id === activeItem.id;
             html += `
                 <div onclick="Router.renderContent('${section.id}', '${item.id}')"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"
+                     role="button" tabindex="0" aria-current="${isActive ? 'page' : 'false'}"
                      class="guide-tab-item ${isActive ? 'active' : ''}">
                     <div class="guide-tab-num">${index + 1}</div>
-                    <span class="guide-tab-text">${item.title}</span>
+                    <span class="guide-tab-text">${_esc(item.title)}</span>
                 </div>
             `;
         });

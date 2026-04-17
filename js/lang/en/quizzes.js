@@ -808,7 +808,7 @@ var QUIZ_DATA = {
             answer: 1
         },
         {
-            id: 'Q-100', // Adjusted to avoid collisions
+            id: 'Q-100',
             grade: 'secondary',
             type: 'open',
             question: 'Discuss how AI improves medical imaging and surgery.'

@@ -1,4 +1,4 @@
-const APP_VERSION = 'v0.86';
+const APP_VERSION = 'v0.90';
 
 function escapeHtml(str) {
     return String(str)
@@ -637,11 +637,15 @@ const App = {
             `).join('');
 
         if (filtered.length === 0) {
-            grid.innerHTML = '<div class="pc-empty">' + I18n.t('prompts.empty') + '</div>';
+            grid.innerHTML = `
+                <div class="pc-empty-state">
+                    <div class="pc-empty-state-icon" aria-hidden="true">🔎</div>
+                    <div class="pc-empty-state-title">${escapeHtml(I18n.t('prompts.empty'))}</div>
+                    <div class="pc-empty-state-sub">${escapeHtml(I18n.t('prompts.empty.try'))}</div>
+                </div>`;
         }
     },
 
-    // ── Home Stats ───────────────────────────────────────
     _renderHomeStats() {
         const bar = document.getElementById('home-stat-bar');
         if (!bar) return;
@@ -656,7 +660,6 @@ const App = {
         bar.textContent = `${promptCount} ${t('stats.prompts')} • ${chapterCount} ${t('stats.chapters')} • ${toolCount} ${t('stats.tools')}`;
     },
 
-    // ── Glossary ─────────────────────────────────────────
     currentGlossaryCat: 'all',
     currentGlossarySearch: '',
 
@@ -735,20 +738,24 @@ const App = {
         });
 
         if (filtered.length === 0) {
-            grid.innerHTML = `<div class="glossary-empty">${I18n.t('glossary.empty')}</div>`;
+            grid.innerHTML = `
+                <div class="pc-empty-state">
+                    <div class="pc-empty-state-icon" aria-hidden="true">📖</div>
+                    <div class="pc-empty-state-title">${escapeHtml(I18n.t('glossary.empty'))}</div>
+                    <div class="pc-empty-state-sub">${escapeHtml(I18n.t('prompts.empty.try'))}</div>
+                </div>`;
             return;
         }
 
         grid.innerHTML = filtered.map(item => `
             <div class="glossary-card">
-                <div class="glossary-card-term">${item.term}</div>
-                ${item.full ? `<div class="glossary-card-full">${item.full}</div>` : ''}
-                <div class="glossary-card-desc">${item.desc}</div>
-                <span class="glossary-badge glossary-badge-${item.category}">${badgeLabel[item.category] || item.category}</span>
+                <div class="glossary-card-term">${escapeHtml(item.term)}</div>
+                ${item.full ? `<div class="glossary-card-full">${escapeHtml(item.full)}</div>` : ''}
+                <div class="glossary-card-desc">${escapeHtml(item.desc)}</div>
+                <span class="glossary-badge glossary-badge-${escapeHtml(item.category)}">${escapeHtml(badgeLabel[item.category] || item.category)}</span>
             </div>
         `).join('');
     },
-    // ─────────────────────────────────────────────────────
 
     currentPromptCategory: 'teachers',
     currentPromptSubcategory: 'all',
@@ -813,13 +820,13 @@ const App = {
 
         const totalItems = filtered.length;
         const totalPages = Math.ceil(totalItems / this.promptsPerPage);
-        
+
         if (this.currentPromptPage > totalPages && totalPages > 0) {
             this.currentPromptPage = totalPages;
         } else if (totalPages === 0) {
             this.currentPromptPage = 1;
         }
-        
+
         const startIndex = (this.currentPromptPage - 1) * this.promptsPerPage;
         const endIndex = Math.min(startIndex + this.promptsPerPage, totalItems);
         const pageItems = filtered.slice(startIndex, endIndex);
@@ -827,14 +834,14 @@ const App = {
         let html = '';
         pageItems.forEach(p => {
             const badgeText = p.subcategory ? I18n.t('prompts.sub.' + p.subcategory) : I18n.t('prompts.cat.' + category);
-            
-            const subjectSpan = p.subject ? `<span class="pcm-tag">${p.subject}</span>` : '';
-            const gradeSpan = p.grade ? `<span class="pcm-tag">${p.grade}</span>` : '';
+
+            const subjectSpan = p.subject ? `<span class="pcm-tag">${escapeHtml(p.subject)}</span>` : '';
+            const gradeSpan = p.grade ? `<span class="pcm-tag">${escapeHtml(p.grade)}</span>` : '';
 
             html += `
                 <div class="pcm-card">
                     <div class="pcm-header">
-                        <span class="pcm-category-badge">${badgeText}</span>
+                        <span class="pcm-category-badge">${escapeHtml(badgeText)}</span>
                         <div class="pcm-actions">
                             <button class="pcm-action-btn" title="${I18n.t('prompts.copy')}" onclick="App.copyPrompt(this)">
                                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
@@ -860,35 +867,40 @@ const App = {
                             </div>
                         </div>
                     </div>
-                    <h3 class="pcm-title">${p.title}</h3>
-                    <p class="pcm-snippet">${p.prompt}</p>
+                    <h3 class="pcm-title">${escapeHtml(p.title)}</h3>
+                    <p class="pcm-snippet">${escapeHtml(p.prompt)}</p>
                     <div class="pcm-footer">
                         ${subjectSpan}
                         ${gradeSpan}
-                        ${(p.tags || []).map(t => `<span class="pcm-tag">${t}</span>`).join('')}
+                        ${(p.tags || []).map(t => `<span class="pcm-tag">${escapeHtml(t)}</span>`).join('')}
                     </div>
                 </div>
             `;
         });
-        
-        list.innerHTML = html || `<div class="pc-empty">${I18n.t('prompts.empty')}</div>`;
+
+        list.innerHTML = html || `
+            <div class="pc-empty-state">
+                <div class="pc-empty-state-icon" aria-hidden="true">🔎</div>
+                <div class="pc-empty-state-title">${escapeHtml(I18n.t('prompts.empty'))}</div>
+                <div class="pc-empty-state-sub">${escapeHtml(I18n.t('prompts.empty.try'))}</div>
+            </div>`;
         this._applyViewI18n(list);
 
         if (pagContainer) {
             if (totalPages > 1) {
                 let pagHtml = '<div class="pc-pagination">';
-                
+
                 const prevDisabled = this.currentPromptPage === 1 ? 'disabled' : '';
                 pagHtml += `<button class="pag-btn" ${prevDisabled} onclick="App.goToPromptPage(${this.currentPromptPage - 1})"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>`;
-                
+
                 for (let i = 1; i <= totalPages; i++) {
                     const activeClass = i === this.currentPromptPage ? 'active' : '';
                     pagHtml += `<button class="pag-num ${activeClass}" onclick="App.goToPromptPage(${i})">${i}</button>`;
                 }
-                
+
                 const nextDisabled = this.currentPromptPage === totalPages ? 'disabled' : '';
                 pagHtml += `<button class="pag-btn" ${nextDisabled} onclick="App.goToPromptPage(${this.currentPromptPage + 1})"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>`;
-                
+
                 pagHtml += '</div>';
                 pagContainer.innerHTML = pagHtml;
             } else {
@@ -906,15 +918,38 @@ const App = {
 
     copyPrompt(btn) {
         const text = btn.closest('.pcm-card')?.querySelector('.pcm-snippet')?.innerText;
+        if (!text) return;
         navigator.clipboard.writeText(text).then(() => {
             const original = btn.innerHTML;
             btn.innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
             btn.style.color = 'var(--primary)';
+            this.showToast(I18n.t('prompts.copied'));
             setTimeout(() => {
                 btn.innerHTML = original;
                 btn.style.color = '';
             }, 2000);
+        }).catch(() => {
+            this.showToast(I18n.t('prompts.copied'));
         });
+    },
+
+    showToast(msg) {
+        const el = document.getElementById('toast');
+        if (!el) return;
+        el.textContent = msg;
+        el.classList.add('show');
+        clearTimeout(this._toastTimer);
+        this._toastTimer = setTimeout(() => el.classList.remove('show'), 1800);
+    },
+
+    toggleFAQ(el) {
+        const ans = el.querySelector('.faq-ans');
+        const ch  = el.querySelector('.faq-ch');
+        if (!ans) return;
+        const open = ans.style.display === 'block';
+        ans.style.display = open ? 'none' : 'block';
+        if (ch) ch.style.transform = open ? '' : 'rotate(180deg)';
+        el.setAttribute('aria-expanded', String(!open));
     },
 
     toggleAIMenu(btn) {
@@ -1090,33 +1125,6 @@ const App = {
         el.innerHTML = catHtml + pillHtml;
     },
 
-    _renderPromptCard(p) {
-        const t = (k) => I18n.t(k);
-        const badgeText  = p.subcategory ? t('prompts.sub.' + p.subcategory) : '';
-        const subjectTag = p.subject ? `<span class="pcm-tag">${escapeHtml(p.subject)}</span>` : '';
-        const gradeTag   = p.grade   ? `<span class="pcm-tag">${escapeHtml(p.grade)}</span>`   : '';
-        const tagsHtml   = (p.tags || []).slice(0, 3).map(tag => `<span class="pcm-tag">${escapeHtml(tag)}</span>`).join('');
-
-        return `
-            <div class="pcm-card">
-                <div class="pcm-header">
-                    <span class="pcm-category-badge">${escapeHtml(badgeText)}</span>
-                    <div class="pcm-actions">
-                        <button class="pcm-action-btn" title="${t('prompts.copy') || 'Copy'}" onclick="App.copyPrompt(this)">
-                            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <h3 class="pcm-title">${escapeHtml(p.title)}</h3>
-                <p class="pcm-snippet">${escapeHtml(p.prompt)}</p>
-                <div class="pcm-footer">${subjectTag}${gradeTag}${tagsHtml}</div>
-            </div>
-        `;
-    },
-
     _promptSubIcons: {
         primary_lower: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
         primary_upper: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>',
@@ -1191,7 +1199,7 @@ const App = {
         const banner = document.createElement('div');
         banner.id = 'install-banner';
         banner.innerHTML = `
-            <img src="assets/logo.svg" class="install-banner-logo" alt="AINOW" aria-hidden="true">
+            <img src="assets/logo.svg" class="install-banner-logo" alt="AINOW" aria-hidden="true" decoding="async">
             <div class="install-banner-text">
                 <strong>AINOW Education</strong>
                 <span>${t('pwa.banner.desc', 'Add to your home screen for quick access')}</span>
@@ -1297,7 +1305,7 @@ const App = {
 
         const icon = document.getElementById('theme-icon');
         if (icon) {
-            icon.innerHTML = theme === 'light' 
+            icon.innerHTML = theme === 'light'
                 ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>'
                 : '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
         }
@@ -1307,18 +1315,48 @@ const App = {
 
     openPrivacyModal() {
         const modal = document.getElementById('privacy-modal');
-        if (modal) {
-            modal.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
+        if (!modal) return;
+
+        this._modalReturnFocus = document.activeElement;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        const firstBtn = modal.querySelector('button');
+        if (firstBtn) setTimeout(() => firstBtn.focus(), 0);
+
+        this._modalTrapHandler = (e) => {
+            if (e.key !== 'Tab') return;
+            const focusables = modal.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+            if (!focusables.length) return;
+            const first = focusables[0];
+            const last  = focusables[focusables.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                last.focus(); e.preventDefault();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                first.focus(); e.preventDefault();
+            }
+        };
+        modal.addEventListener('keydown', this._modalTrapHandler);
     },
 
     closePrivacyModal() {
         const modal = document.getElementById('privacy-modal');
-        if (modal) {
-            modal.classList.remove('open');
-            document.body.style.overflow = 'auto';
+        if (!modal) return;
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = 'auto';
+        if (this._modalTrapHandler) {
+            modal.removeEventListener('keydown', this._modalTrapHandler);
+            this._modalTrapHandler = null;
         }
+
+        if (this._modalReturnFocus && typeof this._modalReturnFocus.focus === 'function') {
+            this._modalReturnFocus.focus();
+        }
+        this._modalReturnFocus = null;
     },
 
     switchAboutWidget(widget) {
@@ -1487,11 +1525,11 @@ const App = {
             const langSwitcher = document.getElementById('lang-switcher');
             const sidebar = document.querySelector('.app-sidebar');
             const overlay = document.getElementById('sidebar-overlay');
-            
+
             if (langSwitcher && !langSwitcher.contains(e.target)) {
                 this.closeLangMenu();
             }
-            
+
             if (sidebar && overlay && !sidebar.contains(e.target) && !overlay.contains(e.target)) {
                 const menuToggle = document.querySelector('.mobile-menu-toggle');
                 if (!menuToggle || !menuToggle.contains(e.target)) {
