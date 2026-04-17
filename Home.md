@@ -386,7 +386,7 @@ python -m http.server 8000
 
 ## 🗺️ Roadmap
 
-### Current Status (v0.86)
+### Current Status (v0.90)
 - ✅ 18-chapter Learning Guide
 - ✅ 300+ Educator Prompts
 - ✅ 57 AI Tools Directory
@@ -483,7 +483,7 @@ The AINOW Platform exists to:
 
 ---
 
-**Last Updated:** April 2026 | **Platform Version:** v0.86 | **Wiki Status:** Active & Community-Maintained
+**Last Updated:** April 2026 | **Platform Version:** v0.90 | **Wiki Status:** Active & Community-Maintained
 
 ---
 

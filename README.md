@@ -50,6 +50,21 @@ We have prepared a comprehensive **[Contribution Guide](CONTRIBUTING.md)** that 
 
 ## Changelog
 
+### v0.90 (April 7, 2026)
+- **Accessibility — Keyboard & Screen Reader:** Added a "Skip to main content" link (shows on first Tab), translated to MK/EN/SQ. Focus-visible rings on all interactive controls (sub-pills, category tabs, guide tabs, feature cards, modal close button). Added `aria-label` to privacy modal close button.
+- **Privacy Modal:** Full focus trap and auto-focus on open; focus returns to the trigger on close. Footer "Privacy First" trigger is now a real `<button>` instead of a clickable `<span>`.
+- **Copy Feedback:** Copying a prompt now shows a short translated "Copied ✓" toast (bottom of screen), in addition to the existing checkmark on the button — makes the action discoverable on mobile.
+- **Empty States:** Prompts and glossary searches that return nothing now show an icon + friendly title + "Try a different search term" sub-line instead of a bare one-liner.
+- **Mobile UX — Prompts Page:** Main category buttons (Teachers / Administration) now sit side-by-side as a 50/50 grid on phones instead of a horizontal-scroll strip. Guide chapter tabs (Foundations / Practice / Reference) use a 3-column equivalent. Sub-filter pills have a 38px touch target.
+- **Dark Mode Fixes:** Glossary category badges (AI / Tech / Edu / Prompts) now resolve correctly in dark mode (selector was `.dark-theme`, app uses `[data-theme="dark"]`). Print button in Resources uses `--bg-card` instead of hard-coded white. Privacy modal body uses the correct `--text-primary` token.
+- **Motion & Print:** Added `prefers-reduced-motion` support — all animations/transitions collapse for users with motion sensitivity. Added a full `@media print` stylesheet so teachers printing materials don't get UI chrome on the page.
+- **Performance & Loading:** All external `<script>` tags use `defer`. Install banner image has `decoding="async"`. `<noscript>` fallback message in MK/EN/SQ for users without JavaScript.
+- **Service Worker Robustness:** Install now uses `Promise.allSettled` per URL instead of `cache.addAll`, so one 404 won't break the whole install. Fetch handler is a three-tier strategy (exact cache → network → `ignoreSearch` fallback) — fixes offline use when URLs have cache-busting `?v=` query strings.
+- **XSS Hardening:** `escapeHtml()` applied to all dynamic content injected into prompt cards, glossary cards, guide tabs, token counter widget, and PDF/print export (quiz questions, options, answer key, guide titles, prompt tags).
+- **SEO:** Removed duplicate `<meta name="description">`. Added `#glossary`, `#about`, `#help` routes to `sitemap.xml`.
+- **Version Sync Tooling:** Added `scripts/bump-version.ps1` (gitignored) that updates `APP_VERSION`, `CACHE_NAME`, and all `?v=` query strings in one shot to prevent drift.
+- **Service Worker:** Cache bumped to `ai-edu-v0.90`.
+
 ### v0.86 (April 12, 2026)
 - **Glossary Page:** New full-page AI/Education glossary accessible via the book icon in the header (top-right, next to the language switcher). Styled card grid with category sidebar filtering (AI, Tech, Education, Prompts) and live search. Works across all three languages.
 - **60-Term Glossary:** Covers the core AI literacy vocabulary — AI/AGI/ANI/ASI, LLM, GPT, RAG, Fine-tuning, Foundation Model, Transformer, Attention, Multimodal AI, AI Agent, Chain of Thought, Deepfakes, Guardrails, Training Data, RLHF, Parameters, Temperature, Embedding, Reinforcement Learning, Supervised/Unsupervised Learning, Responsible AI, Digital Literacy, Data Privacy, and more. All 60 terms in MK, EN, and SQ.
