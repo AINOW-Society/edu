@@ -51,6 +51,13 @@ We have prepared a comprehensive **[Contribution Guide](CONTRIBUTING.md)** that 
 
 ## Changelog
 
+### v0.93 (April 27, 2026)
+- **Onboarding refresh:** Reworked the welcome tour into a clearer 6-step onboarding flow with improved content coverage for navigation, resources, privacy, and responsible AI use.
+- **Mobile-first modal UX:** Polished onboarding modal layout on phones (tighter spacing, improved typography, cleaner controls, and compact next/back/done navigation behavior).
+- **Discoverability:** Added a dedicated onboarding reopen icon in header actions (next to Help) so users can relaunch the tour anytime.
+- **Localization parity:** Updated onboarding and related help copy in **MK, EN, and SQ**, including title/subtitle and updated step guidance.
+- **Release/cache sync:** Shipped with aligned version identifiers (`APP_VERSION v0.93`, `ai-edu-v0.93`, and `?v=93` assets) to avoid stale PWA cache issues.
+
 ### v0.92 (April 27, 2026)
 - **Homework (Resources):** Ready-made student sheets per guide chapter in **MK, EN, and SQ**—print or PDF from Resource Builder. Optional **Насоки / Guidance / Udhëzime** checkbox adds per-field teacher marking notes (same idea as the test answer key: off by default).
 - **Discoverability:** New **Homework** card on the **home** dashboard and **Help** (?), plus a **Homework** quick link in the sidebar on Home / Help / Resources.
