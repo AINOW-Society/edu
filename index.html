@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="css/styles.css?v=92">
 
     <script>
-        /* Defer install capture to App._initInstallPrompt (single preventDefault — avoids duplicate Chrome console noise). */
         window._pwaPrompt = null;
         window.triggerPWAInstall = function() {
             if (window.App && App.triggerInstall) App.triggerInstall();
