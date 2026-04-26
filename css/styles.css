@@ -3137,6 +3137,304 @@ button {
     box-shadow: 0 24px 64px rgba(0, 0, 0, 0.20), 0 4px 16px rgba(0, 0, 0, 0.10);
 }
 
+#onboarding-modal {
+    --onboarding-progress-pct: 16.666%;
+}
+
+.onboarding-overlay.modal-overlay {
+    padding: 12px;
+}
+
+.onboarding-modal-panel.modal-content {
+    width: min(560px, calc(100vw - 24px));
+    max-height: 86vh;
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+}
+
+.onboarding-accent {
+    display: none;
+}
+
+.onboarding-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 20px 24px 14px;
+    border-bottom: 1px solid var(--border-light);
+    flex-shrink: 0;
+    background: var(--bg-card);
+}
+
+.onboarding-header-text {
+    min-width: 0;
+    flex: 1;
+}
+
+.onboarding-welcome-title {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--primary);
+}
+
+.onboarding-welcome-sub {
+    margin: 4px 0 0;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    line-height: 1.35;
+}
+
+.onboarding-progress-block {
+    margin-top: 10px;
+}
+
+.onboarding-progress-label {
+    margin: 0 0 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-tertiary);
+}
+
+.onboarding-progress-track {
+    height: 5px;
+    border-radius: 999px;
+    background: var(--border-light);
+    overflow: hidden;
+}
+
+.onboarding-progress-fill {
+    height: 100%;
+    width: var(--onboarding-progress-pct, 16.666%);
+    border-radius: 999px;
+    background: var(--primary);
+    transition: width 0.35s var(--ease-smooth, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.onboarding-close {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+
+.onboarding-close:hover {
+    background: var(--bg-body);
+    color: var(--text-primary);
+}
+
+.onboarding-close:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.onboarding-body {
+    overflow-y: auto;
+    padding: 20px 24px 22px;
+    flex: 1;
+    min-height: 240px;
+    background: var(--bg-body);
+}
+
+.onboarding-slide-inner {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.onboarding-slide-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: var(--primary-light);
+    color: var(--primary);
+    border: 1px solid var(--border-light);
+}
+
+.onboarding-slide-panel {
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+}
+
+.onboarding-slide-title {
+    margin: 0 0 10px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text-primary);
+}
+
+.onboarding-slide-body {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+}
+
+.onboarding-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 16px 24px;
+    border-top: 1px solid var(--border-light);
+    background: var(--bg-card);
+    flex-shrink: 0;
+}
+
+.onboarding-footer-actions {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.onboarding-btn {
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.onboarding-btn-icon {
+    display: none;
+}
+
+.onboarding-btn:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.onboarding-btn--ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-light);
+}
+
+.onboarding-btn--ghost:hover {
+    background: var(--bg-body);
+    color: var(--text-primary);
+}
+
+.onboarding-btn--secondary {
+    background: var(--bg-body);
+    color: var(--text-primary);
+    border: 1px solid var(--border-light);
+}
+
+.onboarding-btn--secondary:hover {
+    border-color: var(--text-secondary);
+}
+
+.onboarding-btn--primary {
+    background: var(--primary);
+    color: #fff;
+}
+
+.onboarding-btn--primary:hover {
+    background: var(--primary-hover);
+}
+
+@media (max-width: 520px) {
+    .onboarding-header {
+        padding: 16px 16px 12px;
+    }
+
+    .onboarding-welcome-title {
+        font-size: 1.12rem;
+    }
+
+    .onboarding-welcome-sub {
+        font-size: 0.76rem;
+    }
+
+    .onboarding-progress-label {
+        font-size: 0.69rem;
+    }
+
+    .onboarding-body {
+        padding: 12px 14px 14px;
+        min-height: 200px;
+    }
+
+    .onboarding-slide-inner {
+        display: block;
+    }
+
+    .onboarding-slide-icon {
+        display: none;
+    }
+
+    .onboarding-slide-panel {
+        text-align: left;
+        width: 100%;
+    }
+
+    .onboarding-slide-title {
+        font-size: 0.98rem;
+        margin-bottom: 8px;
+    }
+
+    .onboarding-slide-body {
+        font-size: 0.86rem;
+        line-height: 1.55;
+    }
+
+    .onboarding-footer {
+        padding: 8px 12px 10px;
+    }
+
+    .onboarding-footer-actions {
+        width: auto;
+        max-width: 210px;
+        margin-left: auto;
+        justify-content: flex-end;
+        gap: 6px;
+    }
+
+    .onboarding-footer-actions .onboarding-btn {
+        flex: 0 0 auto;
+        min-width: 44px;
+        min-height: 34px;
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 9px;
+    }
+
+    .onboarding-btn-label {
+        display: none;
+    }
+
+    .onboarding-btn-icon {
+        display: inline-block;
+    }
+}
+
 .btn-scratchpad {
     background: var(--primary-light);
     color: var(--primary);

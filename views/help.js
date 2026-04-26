@@ -16,6 +16,13 @@ window.VIEWS.help = `
         </div>
     </div>
 
+    <div style="display:flex;justify-content:flex-start;margin:-18px 0 28px;">
+        <button type="button" onclick="App.openOnboardingModal(true)" style="display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid var(--border-light);border-radius:10px;background:var(--bg-card);color:var(--text-secondary);font-size:13px;font-weight:600;cursor:pointer;">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M9 9h6"></path><path d="M9 12h6"></path><path d="M9 15h4"></path></svg>
+            <span data-i18n="help.onboarding.reopen">Прикажи го брзиот вовед повторно</span>
+        </button>
+    </div>
+
     <p style="font-size: 11px; font-weight: 700; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;" data-i18n="help.features.title">Platform Features</p>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 48px;">
 

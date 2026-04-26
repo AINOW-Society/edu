@@ -13,7 +13,7 @@
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
     <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="apple-touch-icon" href="assets/logo.png">
-    <link rel="stylesheet" href="css/styles.css?v=92">
+    <link rel="stylesheet" href="css/styles.css?v=93">
 
     <script>
         window._pwaPrompt = null;
@@ -130,6 +130,15 @@
                         <circle cx="12" cy="12" r="10"></circle>
                         <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
                         <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                </button>
+                <button class="btn-icon" onclick="App.openOnboardingModal(true)" data-i18n-title="onboarding.reopen" data-i18n-aria-label="onboarding.reopen" title="Вовед" aria-label="Вовед">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <line x1="9" y1="9" x2="15" y2="9"></line>
+                        <line x1="9" y1="12" x2="15" y2="12"></line>
+                        <line x1="11" y1="15" x2="15" y2="15"></line>
+                        <circle cx="9" cy="15" r="0.7" fill="currentColor" stroke="none"></circle>
                     </svg>
                 </button>
 
@@ -342,26 +351,129 @@
         </div>
     </div>
 
+    <div id="onboarding-modal" class="modal-overlay onboarding-overlay" role="dialog" aria-modal="true" aria-labelledby="onboarding-modal-title" aria-hidden="true" onclick="if(event.target === this) App.closeOnboardingModal()">
+        <div class="modal-content onboarding-modal-panel">
+            <div class="onboarding-accent" aria-hidden="true"></div>
+            <header class="onboarding-header">
+                <div class="onboarding-header-text">
+                    <h2 id="onboarding-modal-title" class="onboarding-welcome-title" data-i18n="onboarding.title">Добредојдовте</h2>
+                    <p class="onboarding-welcome-sub" data-i18n="onboarding.subtitle">Платформа за ВИ-писменост AINOW</p>
+                    <div class="onboarding-progress-block">
+                        <p id="onboarding-progress" class="onboarding-progress-label" aria-live="polite"></p>
+                        <div class="onboarding-progress-track" aria-hidden="true">
+                            <div class="onboarding-progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="onboarding-close" onclick="App.closeOnboardingModal()" data-i18n-aria-label="onboarding.close" aria-label="Затвори вовед">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                        <path d="M18 6L6 18M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </header>
+            <div class="onboarding-body">
+                <div data-onboarding-step="0" class="onboarding-slide">
+                    <div class="onboarding-slide-inner">
+                        <div class="onboarding-slide-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 2v20"/></svg>
+                        </div>
+                        <div class="onboarding-slide-panel">
+                            <p class="onboarding-slide-title" data-i18n="onboarding.slide.1.title">Што е оваа платформа?</p>
+                            <p class="onboarding-slide-body" data-i18n="onboarding.slide.1.body">Платформата за ВИ-писменост AINOW е бесплатна за наставници и училишта: водич, промптови, алатки и материјали за печатење на едно место. Откако ќе се вчита еднаш, многу од содржините работат и без интернет. Нема кориснички профили и нема регистрација — промптовите што ги копирате и поставките што ги зачувува прелистувачот остануваат кај вас, не на сервер.</p>
+                        </div>
+                    </div>
+                </div>
+                <div data-onboarding-step="1" class="onboarding-slide" hidden aria-hidden="true">
+                    <div class="onboarding-slide-inner">
+                        <div class="onboarding-slide-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                        </div>
+                        <div class="onboarding-slide-panel">
+                            <p class="onboarding-slide-title" data-i18n="onboarding.slide.2.title">Како се движите низ апликацијата?</p>
+                            <p class="onboarding-slide-body" data-i18n="onboarding.slide.2.body">Долу на екранот се главните копчиња: Почетна, Водич, Промптови, Алатки, Ресурси и За нас. Клик на логото и името AINOW Society горе лево секогаш ве враќа на почетната страница. На Почетна има картички за брз пристап до домашни, тестови и други делови од платформата.</p>
+                        </div>
+                    </div>
+                </div>
+                <div data-onboarding-step="2" class="onboarding-slide" hidden aria-hidden="true">
+                    <div class="onboarding-slide-inner">
+                        <div class="onboarding-slide-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </div>
+                        <div class="onboarding-slide-panel">
+                            <p class="onboarding-slide-title" data-i18n="onboarding.slide.3.title">Водич, промптови и алатки</p>
+                            <p class="onboarding-slide-body" data-i18n="onboarding.slide.3.body">Водич ги води основите и напредните теми по поглавја (основи, напредно, референци). Промптови се поделени по наставници и администрација; изберете категорија, отворете картичка и копирајте го текстот во ChatGPT, Claude или друг сервис. Алатки е каталог на проверени ВИ алатки со кратки описи и директни линкови — корисно кога брзо ви треба алатка за час, материјали или комуникација.</p>
+                        </div>
+                    </div>
+                </div>
+                <div data-onboarding-step="3" class="onboarding-slide" hidden aria-hidden="true">
+                    <div class="onboarding-slide-inner">
+                        <div class="onboarding-slide-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>
+                        </div>
+                        <div class="onboarding-slide-panel">
+                            <p class="onboarding-slide-title" data-i18n="onboarding.slide.4.title">Ресурси и печатење</p>
+                            <p class="onboarding-slide-body" data-i18n="onboarding.slide.4.body">Ресурси ги собира алатките за материјали: тестови по теми од водичот, домашни по поглавја со печатење или PDF, прирачници и извоз на листи со промпти. Можете да печатите од прелистувач или да зачувате како PDF за ученици. За домашни постои опција „Насоки“ за кратки насоки при оценување — само за наставник, не за ученик.</p>
+                        </div>
+                    </div>
+                </div>
+                <div data-onboarding-step="4" class="onboarding-slide" hidden aria-hidden="true">
+                    <div class="onboarding-slide-inner">
+                        <div class="onboarding-slide-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </div>
+                        <div class="onboarding-slide-panel">
+                            <p class="onboarding-slide-title" data-i18n="onboarding.slide.5.title">Јазик, речник и Помош</p>
+                            <p class="onboarding-slide-body" data-i18n="onboarding.slide.5.body">Горе десно: глобус за јазик (македонски, албански, англиски), месечина за светла или темна тема, икона за речник на поими со пребарување. Копчето Помош (?) отвора цел страница со чекори, совети и ЧПП. На телефон користете го менито за брзи врски; Escape затвора модални прозорци и панели.</p>
+                        </div>
+                    </div>
+                </div>
+                <div data-onboarding-step="5" class="onboarding-slide" hidden aria-hidden="true">
+                    <div class="onboarding-slide-inner">
+                        <div class="onboarding-slide-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div class="onboarding-slide-panel">
+                            <p class="onboarding-slide-title" data-i18n="onboarding.slide.6.title">Приватност и одговорна употреба</p>
+                            <p class="onboarding-slide-body" data-i18n="onboarding.slide.6.body">Во подножјето „Приватност на прво место“ е објаснето како се чуваат податоците. Не се најавувате на сервер; ажурирањата на апликацијата понекогаш бараат освежување на страницата. Препорака: прочитајте ги безбедноста и етиката во Водичот пред да споделувате излез од ВИ со ученици. Потоа истражете ја Почетна или отворете го Водичот од долното мени.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="onboarding-footer">
+                <div class="onboarding-footer-actions">
+                    <button type="button" class="onboarding-btn onboarding-btn--secondary" id="onboarding-btn-back" onclick="App.onboardingGoBack()" hidden data-i18n-aria-label="onboarding.back" aria-label="Назад">
+                        <span class="onboarding-btn-label" data-i18n="onboarding.back">Назад</span>
+                        <svg class="onboarding-btn-icon onboarding-btn-icon-only" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.5 4.5L7 10l5.5 5.5"></path></svg>
+                    </button>
+                    <button type="button" class="onboarding-btn onboarding-btn--primary" id="onboarding-btn-next" onclick="App.onboardingGoNext()" data-i18n-aria-label="onboarding.next" aria-label="Следно">
+                        <span class="onboarding-btn-label" data-i18n="onboarding.next">Следно</span>
+                        <svg class="onboarding-btn-icon onboarding-btn-icon-only" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5L13 10l-5.5 5.5"></path></svg>
+                    </button>
+                    <button type="button" class="onboarding-btn onboarding-btn--primary" id="onboarding-btn-done" onclick="App.closeOnboardingModal()" hidden data-i18n-aria-label="onboarding.done" aria-label="Заврши">
+                        <span class="onboarding-btn-label" data-i18n="onboarding.done">Заврши</span>
+                        <svg class="onboarding-btn-icon onboarding-btn-icon-only" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8"></path></svg>
+                    </button>
+                </div>
+            </footer>
+        </div>
+    </div>
+
     <div id="sidebar-overlay" class="modal-overlay" onclick="App.toggleMobileMenu()"></div>
 
-    <!--
-        Cache-busting version. Bump this ONE value on every release and also
-        update APP_VERSION in js/app.js and CACHE_NAME in service-worker.js to match.
-    -->
-    <script defer src="views/home.js?v=92"></script>
-    <script defer src="views/guide.js?v=92"></script>
-    <script defer src="views/prompts.js?v=92"></script>
-    <script defer src="views/tools.js?v=92"></script>
-    <script defer src="views/resources.js?v=92"></script>
-    <script defer src="views/help.js?v=92"></script>
-    <script defer src="views/about.js?v=92"></script>
-    <script defer src="views/glossary.js?v=92"></script>
+    <script defer src="views/home.js?v=93"></script>
+    <script defer src="views/guide.js?v=93"></script>
+    <script defer src="views/prompts.js?v=93"></script>
+    <script defer src="views/tools.js?v=93"></script>
+    <script defer src="views/resources.js?v=93"></script>
+    <script defer src="views/help.js?v=93"></script>
+    <script defer src="views/about.js?v=93"></script>
+    <script defer src="views/glossary.js?v=93"></script>
 
-    <script defer src="js/glossary-data.js?v=92"></script>
-    <script defer src="js/i18n.js?v=92"></script>
-    <script defer src="js/engine.js?v=92"></script>
-    <script defer src="js/router.js?v=92"></script>
-    <script defer src="js/app.js?v=92"></script>
+    <script defer src="js/glossary-data.js?v=93"></script>
+    <script defer src="js/i18n.js?v=93"></script>
+    <script defer src="js/engine.js?v=93"></script>
+    <script defer src="js/router.js?v=93"></script>
+    <script defer src="js/app.js?v=93"></script>
 
     <script>
         if (window.location.protocol !== 'file:') {

@@ -1,4 +1,4 @@
-const APP_VERSION = 'v0.92';
+const APP_VERSION = 'v0.93';
 
 function escapeHtml(str) {
     return String(str)
@@ -15,6 +15,9 @@ const App = {
     currentTipIndex: Math.floor(Math.random() * 10) + 1,
 
     _deferredInstallPrompt: null,
+    _onboardingSeenKey: 'ainow-onboarding-v3',
+    _onboardingStepIndex: 0,
+    _onboardingStepCount: 6,
     _isRefreshing: false,
     _pullToRefreshActive: false,
     _startY: 0,
@@ -49,6 +52,7 @@ const App = {
 
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
+                this.closeOnboardingModal();
                 this.closePrivacyModal();
                 const sidebar = document.querySelector('.app-sidebar');
                 const overlay = document.getElementById('sidebar-overlay');
@@ -61,6 +65,7 @@ const App = {
 
         this.switchView('home');
         document.body.style.opacity = '1';
+        this._maybeShowOnboarding();
 
         const vEl = document.getElementById('footer-version');
         if (vEl) vEl.textContent = APP_VERSION;
@@ -383,6 +388,9 @@ const App = {
                     </button>
                     <button class="sidebar-icon-btn" onclick="App.switchView('help'); App.toggleMobileMenu()" title="Помош" aria-label="Помош">
                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    </button>
+                    <button class="sidebar-icon-btn" onclick="App.openOnboardingModal(true); App.toggleMobileMenu()" title="Вовед" aria-label="Вовед">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><line x1="8" y1="8" x2="16" y2="8"></line><line x1="8" y1="12" x2="16" y2="12"></line><line x1="8" y1="16" x2="13" y2="16"></line></svg>
                     </button>
                 </div>
             </div>
@@ -1231,6 +1239,131 @@ const App = {
         setTimeout(() => banner?.remove(), 10000);
     },
 
+    _maybeShowOnboarding() {
+        let seen = false;
+        try { seen = localStorage.getItem(this._onboardingSeenKey) === '1'; } catch(e) {}
+        if (seen) return;
+        setTimeout(() => this.openOnboardingModal(), 600);
+    },
+
+    openOnboardingModal(force = false) {
+        if (!force) {
+            let seen = false;
+            try { seen = localStorage.getItem(this._onboardingSeenKey) === '1'; } catch(e) {}
+            if (seen) return;
+        }
+
+        const modal = document.getElementById('onboarding-modal');
+        if (!modal || modal.classList.contains('open')) return;
+
+        this._onboardingStepIndex = 0;
+        this._onboardingReturnFocus = document.activeElement;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        this._updateBodyScrollState();
+        this._syncOnboardingStep();
+
+        this._onboardingTrapHandler = (e) => {
+            if (e.key !== 'Tab') return;
+            const focusables = modal.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+            if (!focusables.length) return;
+            const first = focusables[0];
+            const last = focusables[focusables.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                last.focus(); e.preventDefault();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                first.focus(); e.preventDefault();
+            }
+        };
+        modal.addEventListener('keydown', this._onboardingTrapHandler);
+    },
+
+    _syncOnboardingStep() {
+        const modal = document.getElementById('onboarding-modal');
+        if (!modal) return;
+        const idx = this._onboardingStepIndex;
+        const total = this._onboardingStepCount;
+        modal.style.setProperty('--onboarding-progress-pct', `${((idx + 1) / total) * 100}%`);
+        modal.querySelectorAll('[data-onboarding-step]').forEach((el) => {
+            const n = parseInt(el.getAttribute('data-onboarding-step'), 10);
+            const on = n === idx;
+            el.hidden = !on;
+            el.setAttribute('aria-hidden', on ? 'false' : 'true');
+        });
+        const prog = document.getElementById('onboarding-progress');
+        if (prog && typeof I18n !== 'undefined') {
+            const raw = I18n.t('onboarding.progress');
+            prog.textContent = String(raw)
+                .replace(/\{n\}/g, String(idx + 1))
+                .replace(/\{t\}/g, String(total));
+        }
+        const back = document.getElementById('onboarding-btn-back');
+        const next = document.getElementById('onboarding-btn-next');
+        const done = document.getElementById('onboarding-btn-done');
+        if (back) back.hidden = idx === 0;
+        if (next) next.hidden = idx >= total - 1;
+        if (done) done.hidden = idx < total - 1;
+        if (typeof I18n !== 'undefined') I18n.applyTranslations(modal);
+        const focusEl = (done && !done.hidden) ? done : next;
+        if (focusEl) setTimeout(() => focusEl.focus(), 0);
+    },
+
+    onboardingGoNext() {
+        if (this._onboardingStepIndex < this._onboardingStepCount - 1) {
+            this._onboardingStepIndex++;
+            this._syncOnboardingStep();
+        } else {
+            this.closeOnboardingModal();
+        }
+    },
+
+    onboardingGoBack() {
+        if (this._onboardingStepIndex > 0) {
+            this._onboardingStepIndex--;
+            this._syncOnboardingStep();
+        }
+    },
+
+    _moveFocusOutOfModal(modal, returnEl) {
+        if (!modal || !modal.contains(document.activeElement)) return;
+        if (returnEl && document.body.contains(returnEl) && typeof returnEl.focus === 'function') {
+            try { returnEl.focus({ preventScroll: true }); } catch (e) {}
+            if (!modal.contains(document.activeElement)) return;
+        }
+        const main = document.getElementById('main-content');
+        if (main) {
+            if (!main.hasAttribute('tabindex')) main.setAttribute('tabindex', '-1');
+            try { main.focus({ preventScroll: true }); } catch (e) {}
+        }
+    },
+
+    closeOnboardingModal() {
+        const modal = document.getElementById('onboarding-modal');
+        if (!modal || !modal.classList.contains('open')) return;
+
+        const returnTo = this._onboardingReturnFocus;
+        this._moveFocusOutOfModal(modal, returnTo);
+
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        if (this._onboardingTrapHandler) {
+            modal.removeEventListener('keydown', this._onboardingTrapHandler);
+            this._onboardingTrapHandler = null;
+        }
+        try { localStorage.setItem(this._onboardingSeenKey, '1'); } catch(e) {}
+
+        this._onboardingReturnFocus = null;
+        this._onboardingStepIndex = 0;
+        this._updateBodyScrollState();
+    },
+
+    resetOnboarding() {
+        try { localStorage.removeItem(this._onboardingSeenKey); } catch(e) {}
+        this.openOnboardingModal(true);
+    },
+
     triggerInstall() {
         if (this._deferredInstallPrompt) {
             this._deferredInstallPrompt.prompt();
@@ -1335,7 +1468,7 @@ const App = {
         this._modalReturnFocus = document.activeElement;
         modal.classList.add('open');
         modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
+        this._updateBodyScrollState();
 
         const firstBtn = modal.querySelector('button');
         if (firstBtn) setTimeout(() => firstBtn.focus(), 0);
@@ -1359,17 +1492,15 @@ const App = {
 
     closePrivacyModal() {
         const modal = document.getElementById('privacy-modal');
-        if (!modal) return;
+        if (!modal || !modal.classList.contains('open')) return;
+        const returnTo = this._modalReturnFocus;
+        this._moveFocusOutOfModal(modal, returnTo);
         modal.classList.remove('open');
         modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = 'auto';
+        this._updateBodyScrollState();
         if (this._modalTrapHandler) {
             modal.removeEventListener('keydown', this._modalTrapHandler);
             this._modalTrapHandler = null;
-        }
-
-        if (this._modalReturnFocus && typeof this._modalReturnFocus.focus === 'function') {
-            this._modalReturnFocus.focus();
         }
         this._modalReturnFocus = null;
     },
@@ -1565,6 +1696,11 @@ const App = {
                 }
             }, { passive: true });
         }
+    },
+
+    _updateBodyScrollState() {
+        const hasOpenModal = document.querySelector('.modal-overlay.open');
+        document.body.style.overflow = hasOpenModal ? 'hidden' : 'auto';
     }
 };
 
