@@ -556,7 +556,7 @@ window.ResourceManager = {
             .print-item-title { font-size: 15px; font-weight: 700; margin: 0 0 8px 0; color: #111827; break-after: avoid; page-break-after: avoid; }
             .print-item-content { font-size: 13px; color: #374151; line-height: 1.65; }
             .print-item-content p { margin: 0 0 10px 0; }
-            .homework-teacher-notes { margin-top: 22px; padding: 18px 20px; background: #f0f9ff; border: 1px solid #7dd3fc; border-radius: 10px; break-inside: avoid; page-break-inside: avoid; }
+            .homework-teacher-notes { margin-top: 22px; padding: 20px 24px; background: #f0f9ff; border: none; border-radius: 10px; break-inside: avoid; page-break-inside: avoid; box-sizing: border-box; }
             .homework-teacher-notes-title { margin: 0 0 14px 0; font-size: 15px; font-weight: 800; color: #0369a1; letter-spacing: 0.02em; }
             .homework-teacher-notes-body .tn-block { margin-bottom: 16px; break-inside: avoid; page-break-inside: avoid; }
             .homework-teacher-notes-body .tn-block:last-child { margin-bottom: 0; }
@@ -564,10 +564,11 @@ window.ResourceManager = {
             .homework-teacher-notes-body .tn-p { font-size: 15px; line-height: 1.65; color: #1e293b; margin: 0 0 6px 0; }
             .homework-teacher-notes-body .tn-ul { margin: 6px 0 0 0; padding-left: 22px; font-size: 15px; line-height: 1.65; color: #1e293b; }
             .homework-teacher-notes-body .tn-ul li { margin-bottom: 8px; }
+            .pdf-export-gutter { box-sizing: border-box; padding: 0 36px; max-width: 100%; }
         `;
 
         if (forPDF) {
-            callback(`<style>${commonCSS}</style>${headerHtml}${printHtml}`);
+            callback(`<style>${commonCSS}</style><div class="pdf-export-gutter">${headerHtml}${printHtml}</div>`);
         } else {
             callback(`<style>
                 @page { size: A4; margin: 0; }
@@ -740,7 +741,7 @@ window.ResourceManager = {
         const A4_H   = 1123;
         const PAD_T  = 96;
         const PAD_B  = 96;
-        const PAD_X  = 96;
+        const PAD_X  = 112;
         const CONT_H = A4_H - PAD_T - PAD_B;
         const SCALE  = 2;
 
