@@ -1,4 +1,4 @@
-const APP_VERSION = 'v0.90';
+const APP_VERSION = 'v0.91';
 
 function escapeHtml(str) {
     return String(str)
@@ -170,12 +170,9 @@ const App = {
     },
 
     _applyViewI18n(el) {
-        el.querySelectorAll('[data-i18n]').forEach(node => {
-            node.textContent = I18n.t(node.getAttribute('data-i18n'));
-        });
-        el.querySelectorAll('[data-i18n-placeholder]').forEach(node => {
-            node.placeholder = I18n.t(node.getAttribute('data-i18n-placeholder'));
-        });
+        if (typeof I18n !== 'undefined' && typeof I18n.applyTranslations === 'function') {
+            I18n.applyTranslations(el);
+        }
     },
 
     renderSidebarCtx(viewId) {
@@ -302,6 +299,7 @@ const App = {
                     ${this._sidebarPromptSubLink('pedagogue',    countSub(admin, 'pedagogue'), 'administration')}
                     ${this._sidebarPromptSubLink('psychologist', countSub(admin, 'psychologist'), 'administration')}
                     ${this._sidebarPromptSubLink('secretary',    countSub(admin, 'secretary'), 'administration')}
+                    ${this._sidebarPromptSubLink('department_head', countSub(admin, 'department_head'), 'administration')}
                     ${this._renderSidebarAILinks_prompts()}
                     ${this.renderSidebarTip('prompts')}
                 </div>
@@ -981,6 +979,13 @@ const App = {
         window.open(url, '_blank', 'noopener');
     },
 
+    async openResourcesWidget(widget) {
+        await this.switchView('resources');
+        if (window.ResourceManager) {
+            window.ResourceManager.switchWidget(widget);
+        }
+    },
+
     renderPromptCatTabs() {
         const catEl = document.getElementById('prompts-cat-tabs');
         const subEl = document.getElementById('prompts-sub-tabs');
@@ -1022,7 +1027,7 @@ const App = {
 
         const subMap = {
             teachers:      ['all','primary_lower','primary_upper','secondary'],
-            administration:['all','director','pedagogue','psychologist','secretary'],
+            administration:['all','director','pedagogue','psychologist','secretary','department_head'],
         };
         const subs = subMap[cat] || subMap.teachers;
 

@@ -53,7 +53,7 @@ window.VIEWS.home = `
             <span class="card-cta"><span data-i18n="card.tools.cta">ОТВОРИ</span> <span aria-hidden="true">→</span></span>
         </div>
 
-        <div class="home-feature-card" style="--card-accent: #4a9b6f;" role="button" tabindex="0" onclick="App.switchView('resources'); setTimeout(() => ResourceManager.switchWidget('tests'), 10)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+        <div class="home-feature-card" style="--card-accent: #4a9b6f;" role="button" tabindex="0" onclick="App.openResourcesWidget('tests')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
             <div class="card-icon" style="background: rgba(74, 155, 111, 0.1); color: #4a9b6f;">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <path d="M9 11l3 3L22 4"></path>
@@ -65,7 +65,7 @@ window.VIEWS.home = `
             <span class="card-cta"><span data-i18n="card.tests.cta">КРЕИРАЈ</span> <span aria-hidden="true">→</span></span>
         </div>
 
-        <div class="home-feature-card" style="--card-accent: #d97757;" role="button" tabindex="0" onclick="App.switchView('resources'); setTimeout(() => ResourceManager.switchWidget('guide'), 10)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+        <div class="home-feature-card" style="--card-accent: #d97757;" role="button" tabindex="0" onclick="App.openResourcesWidget('guide')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
             <div class="card-icon" style="background: rgba(217, 119, 87, 0.1); color: #d97757;">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -80,7 +80,7 @@ window.VIEWS.home = `
             <span class="card-cta"><span data-i18n="card.handouts.cta">ГЕНЕРИРАЈ</span> <span aria-hidden="true">→</span></span>
         </div>
 
-        <div class="home-feature-card" style="--card-accent: #4a9b6f;" role="button" tabindex="0" onclick="App.switchView('resources'); setTimeout(() => ResourceManager.switchWidget('prompts'), 10)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+        <div class="home-feature-card" style="--card-accent: #4a9b6f;" role="button" tabindex="0" onclick="App.openResourcesWidget('prompts')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
             <div class="card-icon" style="background: rgba(74, 155, 111, 0.1); color: #4a9b6f;">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <line x1="8" y1="6" x2="21" y2="6"></line>

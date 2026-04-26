@@ -13,7 +13,7 @@
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
     <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="apple-touch-icon" href="assets/logo.png">
-    <link rel="stylesheet" href="css/styles.css?v=90">
+    <link rel="stylesheet" href="css/styles.css?v=91">
 
     <script>
         window._pwaPrompt = null;
@@ -65,8 +65,8 @@
     <div class="app-layout">
 
         <header class="app-header">
-            <div class="brand-area" onclick="App.switchView('home')" style="cursor: pointer;" role="button" aria-label="Home">
-                <button class="mobile-menu-toggle" onclick="App.toggleMobileMenu()" aria-label="Menu">
+            <div class="brand-area" onclick="App.switchView('home')" style="cursor: pointer;" role="button" data-i18n-aria-label="nav.home" aria-label="Home">
+                <button class="mobile-menu-toggle" onclick="event.stopPropagation(); App.toggleMobileMenu()" data-i18n-aria-label="menu.open" aria-label="Menu">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
                         aria-hidden="true">
                         <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -90,7 +90,7 @@
                 <span id="offline-indicator" aria-live="polite" data-i18n="offline.label">Офлајн</span>
                 <div class="lang-switcher" id="lang-switcher">
                     <button class="btn-icon lang-switcher-btn" onclick="App.toggleLangMenu()"
-                        aria-label="Change language" title="Change language">
+                        data-i18n-aria-label="lang.change" data-i18n-title="lang.change" aria-label="Change language" title="Change language">
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
                             stroke-width="2" aria-hidden="true">
                             <circle cx="12" cy="12" r="10" />
@@ -115,20 +115,20 @@
                         </button>
                     </div>
                 </div>
-                <button class="btn-icon" onclick="App.switchView('glossary')" id="glossary-btn" data-i18n-title="glossary.btn.title" title="Речник на поими" aria-label="Речник на поими">
+                <button class="btn-icon" onclick="App.switchView('glossary')" id="glossary-btn" data-i18n-title="glossary.btn.title" data-i18n-aria-label="glossary.btn.title" title="Речник на поими" aria-label="Речник на поими">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
                         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                     </svg>
                 </button>
-                <button class="btn-icon" onclick="App.toggleTheme()" title="Смени Тема" aria-label="Смени Тема">
+                <button class="btn-icon" onclick="App.toggleTheme()" data-i18n-title="theme.toggle" data-i18n-aria-label="theme.toggle" title="Смени Тема" aria-label="Смени Тема">
                     <svg id="theme-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
                         stroke-width="2" aria-hidden="true">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
                 </button>
-                <button class="btn-icon" onclick="App.switchView('help')" title="Help" aria-label="Help">
+                <button class="btn-icon" onclick="App.switchView('help')" data-i18n-title="help.button" data-i18n-aria-label="help.button" title="Help" aria-label="Help">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <circle cx="12" cy="12" r="10"></circle>
@@ -183,7 +183,7 @@
                 <div class="footer-desc">
                     <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" style="color: inherit; text-decoration: none;">Open-Source under GPLv3</a>
                     <span class="footer-sep">•</span>
-                    <button type="button" onclick="App.openPrivacyModal()" style="cursor: pointer; color: var(--primary); font-weight: 500; background: transparent; border: none; padding: 0; font-size: inherit; font-family: inherit;">Privacy First</button>
+                    <button type="button" onclick="App.openPrivacyModal()" data-i18n="footer.privacy" style="cursor: pointer; color: var(--primary); font-weight: 500; background: transparent; border: none; padding: 0; font-size: inherit; font-family: inherit;">Privacy First</button>
                 </div>
 
                 <div class="footer-bottom">
@@ -352,20 +352,20 @@
         Cache-busting version. Bump this ONE value on every release and also
         update APP_VERSION in js/app.js and CACHE_NAME in service-worker.js to match.
     -->
-    <script defer src="views/home.js?v=90"></script>
-    <script defer src="views/guide.js?v=90"></script>
-    <script defer src="views/prompts.js?v=90"></script>
-    <script defer src="views/tools.js?v=90"></script>
-    <script defer src="views/resources.js?v=90"></script>
-    <script defer src="views/help.js?v=90"></script>
-    <script defer src="views/about.js?v=90"></script>
-    <script defer src="views/glossary.js?v=90"></script>
+    <script defer src="views/home.js?v=91"></script>
+    <script defer src="views/guide.js?v=91"></script>
+    <script defer src="views/prompts.js?v=91"></script>
+    <script defer src="views/tools.js?v=91"></script>
+    <script defer src="views/resources.js?v=91"></script>
+    <script defer src="views/help.js?v=91"></script>
+    <script defer src="views/about.js?v=91"></script>
+    <script defer src="views/glossary.js?v=91"></script>
 
-    <script defer src="js/glossary-data.js?v=90"></script>
-    <script defer src="js/i18n.js?v=90"></script>
-    <script defer src="js/engine.js?v=90"></script>
-    <script defer src="js/router.js?v=90"></script>
-    <script defer src="js/app.js?v=90"></script>
+    <script defer src="js/glossary-data.js?v=91"></script>
+    <script defer src="js/i18n.js?v=91"></script>
+    <script defer src="js/engine.js?v=91"></script>
+    <script defer src="js/router.js?v=91"></script>
+    <script defer src="js/app.js?v=91"></script>
 
     <script>
         if (window.location.protocol !== 'file:') {

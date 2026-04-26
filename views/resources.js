@@ -211,6 +211,7 @@ window.ResourceManager = {
 
     switchTestTopic(id) {
         this.currentTestTopic = id;
+        this.selectedItems.clear();
         this.renderTestTopics();
         this.renderList();
     },

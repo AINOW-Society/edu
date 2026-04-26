@@ -40,6 +40,10 @@
             'card.prompt_lists.cta': 'ПОДГОТВИ',
             'offline.label': 'Офлајн',
             'a11y.skip': 'Прескокни на главната содржина',
+            'menu.open': 'Отвори мени',
+            'lang.change': 'Смени јазик',
+            'theme.toggle': 'Смени тема',
+            'help.button': 'Помош',
             'pwa.update.msg': 'Нова верзија е достапна.',
             'pwa.update.btn': 'Освежи',
             'pwa.install': 'Инсталирај',
@@ -444,6 +448,10 @@
             'card.prompt_lists.cta': 'PREPARE',
             'offline.label': 'Offline',
             'a11y.skip': 'Skip to main content',
+            'menu.open': 'Open menu',
+            'lang.change': 'Change language',
+            'theme.toggle': 'Toggle theme',
+            'help.button': 'Help',
             'pwa.update.msg': 'A new version is available.',
             'pwa.update.btn': 'Refresh',
             'pwa.install': 'Install App',
@@ -841,6 +849,10 @@
             'card.prompt_lists.cta': 'PËRGATIT',
             'offline.label': 'Jashtë linje',
             'a11y.skip': 'Kalo te përmbajtja kryesore',
+            'menu.open': 'Hap menynë',
+            'lang.change': 'Ndrysho gjuhën',
+            'theme.toggle': 'Ndrysho temën',
+            'help.button': 'Ndihmë',
             'pwa.update.msg': 'Një version i ri është i disponueshëm.',
             'pwa.update.btn': 'Rifresko',
             'pwa.install': 'Instalo',
@@ -1202,6 +1214,21 @@
             || key;
     },
 
+    applyTranslations(root = document) {
+        root.querySelectorAll('[data-i18n]').forEach(el => {
+            el.textContent = this.t(el.getAttribute('data-i18n'));
+        });
+        root.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            el.placeholder = this.t(el.getAttribute('data-i18n-placeholder'));
+        });
+        root.querySelectorAll('[data-i18n-title]').forEach(el => {
+            el.title = this.t(el.getAttribute('data-i18n-title'));
+        });
+        root.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
+            el.setAttribute('aria-label', this.t(el.getAttribute('data-i18n-aria-label')));
+        });
+    },
+
     async setLang(lang) {
         if (!this.translations[lang] || this.lang === lang) return;
 
@@ -1215,12 +1242,7 @@
 
         await this.loadLangData(lang);
 
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            el.textContent = this.t(el.getAttribute('data-i18n'));
-        });
-        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-            el.placeholder = this.t(el.getAttribute('data-i18n-placeholder'));
-        });
+        this.applyTranslations();
         document.querySelectorAll('.lang-option').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.lang === lang);
         });
@@ -1244,6 +1266,11 @@
     loadLangData(lang) {
         return new Promise((resolve) => {
             let loaded = 0;
+            const state = {
+                docs: false,
+                prompts: false,
+                quizzes: false
+            };
             const maybeResolve = () => {
                 loaded++;
                 if (loaded === 3) {
@@ -1254,24 +1281,37 @@
                             items: [{ id: 'ainow', title: 'AINOW Society', content: '' }]
                         });
                     }
+                    if (!state.docs || !state.prompts || !state.quizzes) {
+                        console.error('[AINOW i18n] Incomplete language data load', { lang, ...state });
+                    }
                     resolve();
                 }
             };
 
-            const loadScript = (id, src) => {
+            window.DOCS_DATA = [];
+            window.embeddedPromptsData = { teachers: [], administration: [] };
+            window.QUIZ_DATA = {};
+
+            const loadScript = (id, src, key) => {
                 let el = document.getElementById(id);
                 if (el) el.remove();
                 el = document.createElement('script');
                 el.id = id;
                 el.src = src;
-                el.onload = maybeResolve;
-                el.onerror = maybeResolve;
+                el.onload = () => {
+                    state[key] = true;
+                    maybeResolve();
+                };
+                el.onerror = () => {
+                    console.error(`[AINOW i18n] Failed to load ${key} for ${lang}: ${src}`);
+                    maybeResolve();
+                };
                 document.body.appendChild(el);
             };
 
-            loadScript('lang-docs', `js/lang/${lang}/docs.js`);
-            loadScript('lang-prompts', `js/lang/${lang}/prompts.js`);
-            loadScript('lang-quizzes', `js/lang/${lang}/quizzes.js`);
+            loadScript('lang-docs', `js/lang/${lang}/docs.js`, 'docs');
+            loadScript('lang-prompts', `js/lang/${lang}/prompts.js`, 'prompts');
+            loadScript('lang-quizzes', `js/lang/${lang}/quizzes.js`, 'quizzes');
         });
     },
 
@@ -1282,12 +1322,7 @@
 
         await this.loadLangData(this.lang);
 
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            el.textContent = this.t(el.getAttribute('data-i18n'));
-        });
-        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-            el.placeholder = this.t(el.getAttribute('data-i18n-placeholder'));
-        });
+        this.applyTranslations();
         document.querySelectorAll('.lang-option').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.lang === this.lang);
         });

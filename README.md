@@ -50,6 +50,15 @@ We have prepared a comprehensive **[Contribution Guide](CONTRIBUTING.md)** that 
 
 ## Changelog
 
+### v0.91 (April 26, 2026)
+- **Prompt Bank — Administration Coverage:** Exposed the `department_head` subcategory in the Prompts UI and sidebar, restoring access to prompt sets that were already shipped in MK, EN, and SQ datasets.
+- **Resources Shortcuts:** Replaced the home page `setTimeout(..., 10)` handoff to Resources with an async `App.openResourcesWidget(...)` flow, eliminating cold-load races when opening Tests, Guide handouts, and Prompt lists.
+- **Service Worker Safety:** Tightened non-navigation fetch fallback behavior so failed JS/CSS/image/data requests no longer resolve to `index.html`. Cached assets still work offline, but broken asset requests now fail correctly instead of poisoning app boot with HTML.
+- **Language Loading Robustness:** `I18n.loadLangData()` now clears `DOCS_DATA`, `embeddedPromptsData`, and `QUIZ_DATA` before loading the next language pack, preventing stale mixed-language state if a language file fails to load.
+- **Header UX & Accessibility:** Fixed mobile menu click bubbling so opening the hamburger menu no longer triggers unintended navigation to Home. Added runtime translation support for `title` and `aria-label` attributes across header controls, keeping MK / EN / SQ labels synchronized after language switching.
+- **Resources — Test Topic Integrity:** Switching quiz topics in Resources now clears hidden previous selections, preventing cross-topic export mistakes.
+- **Version Sync:** Bumped release identifiers to `v0.91` / `ai-edu-v0.91` and updated all `?v=91` cache-busting query strings in `index.html`.
+
 ### v0.90 (April 7, 2026)
 - **Accessibility — Keyboard & Screen Reader:** Added a "Skip to main content" link (shows on first Tab), translated to MK/EN/SQ. Focus-visible rings on all interactive controls (sub-pills, category tabs, guide tabs, feature cards, modal close button). Added `aria-label` to privacy modal close button.
 - **Privacy Modal:** Full focus trap and auto-focus on open; focus returns to the trigger on close. Footer "Privacy First" trigger is now a real `<button>` instead of a clickable `<span>`.

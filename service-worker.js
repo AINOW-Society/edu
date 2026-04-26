@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ai-edu-v0.90';
+const CACHE_NAME = 'ai-edu-v0.91';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -89,7 +89,7 @@ self.addEventListener('fetch', event => {
             }).catch(() =>
 
                 caches.match(event.request, { ignoreSearch: true })
-                    .then(cached => cached || caches.match('/index.html'))
+                    .then(cached => cached || Response.error())
             );
         })
     );
