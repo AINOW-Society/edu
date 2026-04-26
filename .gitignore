@@ -19,6 +19,9 @@ build/
 Thumbs.db
 desktop.ini
 
+# Release archives (keep off Git; attach ZIPs to GitHub Releases instead)
+*.zip
+
 # Scraps
 translate_prompts.py
 translate_script.js
