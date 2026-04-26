@@ -59,7 +59,7 @@ We have prepared a comprehensive **[Contribution Guide](CONTRIBUTING.md)** that 
 - **Resources — Test Topic Integrity:** Switching quiz topics in Resources now clears hidden previous selections, preventing cross-topic export mistakes.
 - **Version Sync:** Bumped release identifiers to `v0.91` / `ai-edu-v0.91` and updated all `?v=91` cache-busting query strings in `index.html`.
 
-### v0.90 (April 7, 2026)
+### v0.90 (April 17, 2026)
 - **Accessibility — Keyboard & Screen Reader:** Added a "Skip to main content" link (shows on first Tab), translated to MK/EN/SQ. Focus-visible rings on all interactive controls (sub-pills, category tabs, guide tabs, feature cards, modal close button). Added `aria-label` to privacy modal close button.
 - **Privacy Modal:** Full focus trap and auto-focus on open; focus returns to the trigger on close. Footer "Privacy First" trigger is now a real `<button>` instead of a clickable `<span>`.
 - **Copy Feedback:** Copying a prompt now shows a short translated "Copied ✓" toast (bottom of screen), in addition to the existing checkmark on the button — makes the action discoverable on mobile.
