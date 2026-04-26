@@ -4,7 +4,7 @@
 The AINOW Literacy Platform is a comprehensive, interactive educational web application designed for educators, students, and administrators to gain Artificial Intelligence (AI) literacy. It moves beyond technical definitions, offering a pedagogical framework through structured lessons, analogies, and practical classroom examples.
 
 ## Core Modules
-- **Interactive Guide**: 17 synchronized chapters (Basics, Architecture, RAG, Agents, Safety, Ethics) across English, Macedonian, and Albanian.
+- **Interactive Guide**: 17 synchronized guide modules (Foundations, Practice, Reference — prompts, agents, RAG, performance, safety, etc.) across English, Macedonian, and Albanian.
 - **Prompt Engineering Lab**: A searchable bank of categorized, pre-tested prompts for teachers and administrative tasks.
 - **AI Tool Directory**: A curated repository of educational AI tools categorized by function (Mathematics, Research, Lesson Planning).
 - **Resource Builder**: A tool for selecting guide content and prompts to export as formatted, professional PDF handouts.

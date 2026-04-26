@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ai-edu-v0.91';
+const CACHE_NAME = 'ai-edu-v0.92';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -26,6 +26,9 @@ const urlsToCache = [
     '/js/lang/mk/quizzes.js',
     '/js/lang/en/quizzes.js',
     '/js/lang/sq/quizzes.js',
+    '/js/lang/mk/homework.js',
+    '/js/lang/en/homework.js',
+    '/js/lang/sq/homework.js',
     '/js/lib/html2canvas.min.js',
     '/js/lib/jspdf.min.js',
     '/assets/logo.svg',

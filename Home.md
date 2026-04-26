@@ -137,20 +137,19 @@ AINOW-Platform/
 │   │   ├── mk/                # Macedonian translations
 │   │   └── sq/                # Albanian translations
 │   │
-│   ├── lib/                   # External libraries
-│   │   ├── html2canvas.min.js # PDF generation
-│   │   └── jspdf.min.js       # PDF formatting
-│   │
-│   └── views/
-│       ├── home.js            # Home page view
-│       ├── guide.js           # Learning guide view
-│       ├── prompts.js         # Prompt search view
-│       ├── glossary.js        # Glossary view
-│       ├── tools.js           # AI tools directory
-│       ├── resources.js       # Resources & exports
-│       ├── about.js           # About page
-│       ├── help.js            # Help/FAQ page
-│       └── guides.js          # Additional guides
+│   └── lib/                   # External libraries
+│       ├── html2canvas.min.js # PDF generation
+│       └── jspdf.min.js       # PDF formatting
+│
+├── views/                     # View templates (loaded as `views/*.js`)
+│   ├── home.js
+│   ├── guide.js
+│   ├── prompts.js
+│   ├── tools.js
+│   ├── resources.js
+│   ├── glossary.js
+│   ├── help.js
+│   └── about.js
 │
 ├── assets/                    # Images, logos, icons
 ├── README.md                  # Main documentation
@@ -386,11 +385,12 @@ python -m http.server 8000
 
 ## 🗺️ Roadmap
 
-### Current Status (v0.90)
-- ✅ 18-chapter Learning Guide
+### Current Status (v0.92)
+- ✅ 17-chapter Learning Guide (Foundations, Practice, Reference — full MK / EN / SQ parity)
 - ✅ 300+ Educator Prompts
 - ✅ 57 AI Tools Directory
 - ✅ 60-Term Glossary
+- ✅ Homework sheets (Resources) — print/PDF + optional teacher guidance (MK / EN / SQ)
 - ✅ Tri-lingual (EN, MK, SQ)
 - ✅ Offline-first PWA
 - ✅ PDF Export
@@ -483,7 +483,7 @@ The AINOW Platform exists to:
 
 ---
 
-**Last Updated:** April 2026 | **Platform Version:** v0.90 | **Wiki Status:** Active & Community-Maintained
+**Last Updated:** April 27, 2026 | **Platform Version:** v0.92 | **Wiki Status:** Active & Community-Maintained
 
 ---
 

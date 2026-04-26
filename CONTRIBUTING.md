@@ -50,7 +50,7 @@ Our prompt bank holds hundreds of templates for teachers and school administrato
 
 **Important Guidelines:**
 - The Macedonian file MUST use the abbreviation **ВИ** (Вештачка Интелигенција) instead of the English "AI".
-- Administrator subcategories include: `director`, `pedagogue`, `psychologist`, `secretary`.
+- Administrator subcategories include: `director`, `pedagogue`, `psychologist`, `secretary`, `department_head`.
 
 ---
 
@@ -76,7 +76,7 @@ The platform curates a visual directory of educational AI tools.
 }
 ```
 
-3. **Important Translations:** You must add the translated description for the tool to show up on the UI wrapper. Open `js/lang/en/ui.js`, `js/lang/mk/ui.js`, and `js/lang/sq/ui.js`. Find the `tool.unique_id.desc` key (replace unique_id with yours), and add your description string!
+3. **Important Translations:** Add the tool description under `tool.<unique_id>.desc` in **`js/i18n.js`** for all three languages (`mk`, `en`, and `sq` blocks). Replace `unique_id` with your tool's `id` from `_toolsData`.
 
 ---
 
@@ -114,8 +114,8 @@ The guide is stored in the `DOCS_DATA` array. Each JavaScript object represents 
 
 Since this app operates completely offline as a PWA, the browser **must be told to fetch the new files** whenever data is added or code is modified. If you merge a Pull Request, do the following:
 
-1. Open `service-worker.js` and increment the cache version: `const CACHE_NAME = 'ai-edu-v23';`
-2. Open `index.html` and increment the query cache-busting parameter on all scripts: `<script src="js/app.js?v=23"></script>`
+1. Prefer **`scripts/bump-version.ps1`** from the repo root: `powershell -ExecutionPolicy Bypass -File scripts/bump-version.ps1 -NewVersion 0.92` (updates `js/app.js`, `service-worker.js`, and all `?v=` in `index.html`).
+2. Or manually: `const CACHE_NAME = 'ai-edu-v0.92';` in `service-worker.js` and `?v=92` on scripts/styles in `index.html`, and `const APP_VERSION = 'v0.92';` in `js/app.js`.
 
 ---
 

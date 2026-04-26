@@ -14,7 +14,6 @@
             'meta.title': 'AINOW Society - Платформа за ВИ Писменост',
             'home.hero.pre': 'Добредојдовте во',
             'home.hero.subtitle': 'Вашиот дигитален асистент за модерно образование',
-            'home.hero.stats': '200+ Промптови • 16 Поглавја • 50+ Алатки',
             'stats.lessons': 'Лекции',
             'stats.prompts': 'Промптови',
             'stats.tools': 'Алатки',
@@ -32,6 +31,9 @@
             'card.tests.title': 'Студио за Тестови',
             'card.tests.desc': 'Креирајте професионални тестови за вашите ученици.',
             'card.tests.cta': 'КРЕИРАЈ',
+            'card.homework.title': 'Домашни задачи',
+            'card.homework.desc': 'Готови листови за ученици — печатете или зачувајте PDF; опционални насоки за наставник по полиња.',
+            'card.homework.cta': 'ОТВОРИ',
             'card.handouts.title': 'Креатор на Прирачници',
             'card.handouts.desc': 'Генерирајте професионални прирачници од лекциите за ВИ.',
             'card.handouts.cta': 'ГЕНЕРИРАЈ',
@@ -82,6 +84,7 @@
             'sidebar.guide.link': 'Водич за ВИ',
             'sidebar.prompts.link': 'Банка на Промптови',
             'sidebar.tools.link': 'ВИ Алатки',
+            'sidebar.homework.link': 'Домашни задачи',
             'sidebar.ai.learning': 'Алатки за Учење',
             'sidebar.ai.test': 'Тестирај Промптови',
             'sidebar.ai.popular': 'Популарни Алатки',
@@ -104,7 +107,7 @@
             'prompts.sub.pedagogue': 'Педагог',
             'prompts.sub.psychologist': 'Психолог',
             'prompts.sub.secretary': 'Секретар',
-            'prompts.sub.department_head': 'Рак. активност',
+            'prompts.sub.department_head': 'Активности',
             'prompts.search.placeholder': 'Пребарај промпт, предмет или клучен збор...',
             'prompts.count.suffix': 'промптови',
             'prompts.empty': 'Нема резултати',
@@ -206,6 +209,8 @@
             'resources.widget.prompts.desc': 'Банка на промптови за наставници',
             'resources.widget.tests': 'Тестови',
             'resources.widget.tests.desc': 'Креирајте тестови за ученици',
+            'resources.widget.homework': 'Домашна',
+            'resources.widget.homework.desc': 'Готови задачи за ученици — печатете за одделението',
             'resources.select_desc': 'Изберете содржини за експорт:',
             'resources.select_all': 'Сите',
             'resources.select_none': 'Ништо',
@@ -217,6 +222,9 @@
             'tests.hero.title': 'Студио за Тестови',
             'tests.hero.subtitle': 'Креирајте професионални тестови за вашите ученици базирани на содржината од водичот.',
             'tests.select_topic': 'Изберете област:',
+            'homework.select_topic': 'Изберете поглавје (од водичот):',
+            'homework.include_teacher_notes': 'Насоки',
+            'homework.teacher_notes_heading': 'Насоки',
             'tests.select_questions': 'Изберете прашања за тестот:',
             'tests.export_btn': 'Генерирај Тест (PDF)',
             'tests.preview': 'Преглед на тестот:',
@@ -255,6 +263,8 @@
             'guide.section.agents': 'ВИ Агенти',
             'guide.section.glossary': 'Речник на поими',
             'guide.section.roadmap': 'Патоказ за ВИ',
+            'guide.section.school-context': 'Училишта и локален контекст',
+            'guide.section.integrity-feedback': 'Интегритет, испити и чесна употреба на ВИ',
             'guide.section.about': 'За нас',
             'guide.hero.subtitle': 'Водич за ВИ писменост за наставници и образовни установи.',
             'guide.cat.foundations': 'Основи',
@@ -388,6 +398,7 @@
             'help.f4.desc': 'Генерирајте PDF прирачници, извезете листи со промптови и креирајте тестови за ученици.',
             'help.f5.title': 'Студио за Тестови',
             'help.f5.desc': 'Креирајте професионални тестови за вашите ученици базирани на содржината од водичот.',
+            'help.f6.desc': 'Домашни листови по поглавја од водичот: печатење и PDF за ученици, со избор „Насоки“ за насоки при оценување.',
             'help.tips.lang.label': 'Јазик',
             'help.tips.theme.label': 'Тема',
             'help.tips.esc.label': 'Тастатура',
@@ -422,7 +433,6 @@
             'meta.title': 'AINOW - Platform for AI Literacy',
             'home.hero.pre': 'Welcome to',
             'home.hero.subtitle': 'Your digital assistant for modern education',
-            'home.hero.stats': '200+ Prompts • 16 Chapters • 50+ Tools',
             'stats.lessons': 'Lessons',
             'stats.prompts': 'Prompts',
             'stats.tools': 'Tools',
@@ -440,6 +450,9 @@
             'card.tests.title': 'Assessment Studio',
             'card.tests.desc': 'Create professional tests for your students.',
             'card.tests.cta': 'CREATE',
+            'card.homework.title': 'Homework',
+            'card.homework.desc': 'Ready-made student sheets—print or save PDF; optional per-field teacher guidance when you tick Guidance.',
+            'card.homework.cta': 'OPEN',
             'card.handouts.title': 'Handout Builder',
             'card.handouts.desc': 'Generate professional handouts from AI lessons.',
             'card.handouts.cta': 'GENERATE',
@@ -490,6 +503,7 @@
             'sidebar.guide.link': 'AI Guide',
             'sidebar.prompts.link': 'Prompt Bank',
             'sidebar.tools.link': 'AI Tools',
+            'sidebar.homework.link': 'Homework',
             'sidebar.ai.learning': 'Learning Tools',
             'sidebar.ai.test': 'Test Prompts',
             'sidebar.ai.popular': 'Popular Tools',
@@ -607,6 +621,8 @@
             'resources.widget.prompts.desc': 'Teacher & Admin Prompt Bank',
             'resources.widget.tests': 'Tests',
             'resources.widget.tests.desc': 'Create student assessments',
+            'resources.widget.homework': 'Homework',
+            'resources.widget.homework.desc': 'Ready-made student tasks to print or save as PDF',
             'resources.select_desc': 'Select content to export:',
             'resources.select_all': 'All',
             'resources.select_none': 'None',
@@ -618,6 +634,9 @@
             'tests.hero.title': 'Assessment Studio',
             'tests.hero.subtitle': 'Create professional tests for your students based on the guide content.',
             'tests.select_topic': 'Select topic:',
+            'homework.select_topic': 'Select guide chapter:',
+            'homework.include_teacher_notes': 'Guidance',
+            'homework.teacher_notes_heading': 'Guidance',
             'tests.select_questions': 'Select questions for the test:',
             'tests.export_btn': 'Generate Test (PDF)',
             'tests.preview': 'Test preview:',
@@ -656,6 +675,8 @@
             'guide.section.agents': 'AI Agents',
             'guide.section.glossary': 'Glossary',
             'guide.section.roadmap': 'AI Roadmap',
+            'guide.section.school-context': 'Schools & local context',
+            'guide.section.integrity-feedback': 'Integrity, exams & honest AI use',
             'guide.section.about': 'About Us',
             'guide.hero.subtitle': 'AI literacy guide for teachers and educational institutions.',
             'guide.cat.foundations': 'Foundations',
@@ -789,6 +810,7 @@
             'help.f4.desc': 'Generate PDF handouts, export prompt lists, and create student assessments.',
             'help.f5.title': 'Assessment Studio',
             'help.f5.desc': 'Create professional tests for your students based on guide content.',
+            'help.f6.desc': 'Homework sheets aligned to guide chapters: print and PDF for students, with an optional Guidance section for marking cues.',
             'help.tips.lang.label': 'Language',
             'help.tips.theme.label': 'Theme',
             'help.tips.esc.label': 'Keyboard',
@@ -823,7 +845,6 @@
             'meta.title': 'AINOW - Platforma për Alfabetizëm të IA',
             'home.hero.pre': 'Mirë se vini në',
             'home.hero.subtitle': 'Asistenti juaj digjital për arsim modern',
-            'home.hero.stats': '200+ Prompte • 16 Kapituj • 50+ Mjete',
             'stats.lessons': 'Mësime',
             'stats.prompts': 'Prompte',
             'stats.tools': 'Mjete',
@@ -841,6 +862,9 @@
             'card.tests.title': 'Studio e Testeve',
             'card.tests.desc': 'Krijoni teste profesionale për nxënësit tuaj.',
             'card.tests.cta': 'KRIJO',
+            'card.homework.title': 'Detyra shtëpie',
+            'card.homework.desc': 'Fleta të gatshme për nxënës — printim ose PDF; opsionale „Udhëzime“ për çdo fushë përgjigjeje.',
+            'card.homework.cta': 'HAP',
             'card.handouts.title': 'Krijuesi i Doracakëve',
             'card.handouts.desc': 'Gjeneroni doracakë profesionalë nga mësimet e IA.',
             'card.handouts.cta': 'GJENERO',
@@ -891,6 +915,7 @@
             'sidebar.guide.link': 'Udhëzues IA',
             'sidebar.prompts.link': 'Banka e Prompteve',
             'sidebar.tools.link': 'Mjete IA',
+            'sidebar.homework.link': 'Detyra shtëpie',
             'sidebar.ai.learning': 'Mjete Të Mësuarit',
             'sidebar.ai.test': 'Testo Promptet',
             'sidebar.ai.popular': 'Mjete Popullore',
@@ -1003,6 +1028,8 @@
             'resources.widget.prompts.desc': 'Banka e prompteve',
             'resources.widget.tests': 'Teste',
             'resources.widget.tests.desc': 'Krijoni teste për nxënësit',
+            'resources.widget.homework': 'Detyra shtëpie',
+            'resources.widget.homework.desc': 'Detyra të gatshme për nxënës — printim ose PDF',
             'resources.select_desc': 'Zgjidhni përmbajtjen për eksport:',
             'resources.select_all': 'Të gjitha',
             'resources.select_none': 'Asgjë',
@@ -1014,6 +1041,9 @@
             'tests.hero.title': 'Studio e Testeve',
             'tests.hero.subtitle': 'Krijoni teste profesionale për nxënësit tuaj bazuar në përmbajtjen e udhëzuesit.',
             'tests.select_topic': 'Zgjidhni temën:',
+            'homework.select_topic': 'Zgjidhni kapitullin e udhëzuesit:',
+            'homework.include_teacher_notes': 'Udhëzime',
+            'homework.teacher_notes_heading': 'Udhëzime',
             'tests.select_questions': 'Zgjidhni pyetjet për testin:',
             'tests.export_btn': 'Gjenero Test (PDF)',
             'tests.preview': 'Parapamja e testit:',
@@ -1052,6 +1082,8 @@
             'guide.section.agents': 'Agjentët e IA',
             'guide.section.glossary': 'Fjalori',
             'guide.section.roadmap': 'Udhërrëfyes për IA',
+            'guide.section.school-context': 'Shkollat dhe konteksti lokal',
+            'guide.section.integrity-feedback': 'Integriteti, provimet dhe përdorimi i ndershëm i IA',
             'guide.section.about': 'Rreth nesh',
             'guide.hero.subtitle': 'Udhëzues i kompetencave IA për mësues dhe institucione arsimore.',
             'guide.cat.foundations': 'Bazat',
@@ -1185,6 +1217,7 @@
             'help.f4.desc': 'Gjeneroni doracakë PDF, eksportoni lista prompte dhe krijoni teste për nxënësit.',
             'help.f5.title': 'Studio e Testeve',
             'help.f5.desc': 'Krijoni teste profesionale për nxënësit tuaj bazuar në përmbajtjen e udhëzuesit.',
+            'help.f6.desc': 'Fleta detyrash sipas kapitujve të udhëzuesit: printim dhe PDF për nxënësit, me opsionin „Udhëzime“ për vlerësim.',
             'help.tips.lang.label': 'Gjuha',
             'help.tips.theme.label': 'Tema',
             'help.tips.esc.label': 'Tastiera',
@@ -1250,13 +1283,16 @@
         if (typeof App !== 'undefined' && App.currentView) {
             if (App.currentView === 'resources' && window.ResourceManager) {
                 window.ResourceManager.currentTestTopic = null;
+                window.ResourceManager.currentHomeworkTopic = null;
                 window.ResourceManager.selectedItems.clear();
             }
             App.switchView(App.currentView);
         }
 
-        if (typeof App !== 'undefined' && App.currentView === 'resources' && window.ResourceManager && window.ResourceManager.renderTestTopics) {
-            window.ResourceManager.renderTestTopics();
+        if (typeof App !== 'undefined' && App.currentView === 'resources' && window.ResourceManager) {
+            if (window.ResourceManager.renderTestTopics) window.ResourceManager.renderTestTopics();
+            if (window.ResourceManager.renderHomeworkTopics) window.ResourceManager.renderHomeworkTopics();
+            if (window.ResourceManager.renderList) window.ResourceManager.renderList();
         }
 
         document.body.style.opacity = '1';
@@ -1269,11 +1305,12 @@
             const state = {
                 docs: false,
                 prompts: false,
-                quizzes: false
+                quizzes: false,
+                homework: false
             };
             const maybeResolve = () => {
                 loaded++;
-                if (loaded === 3) {
+                if (loaded === 4) {
                     if (typeof DOCS_DATA !== 'undefined' && !DOCS_DATA.find(s => s.id === 'about')) {
                         DOCS_DATA.push({
                             id: 'about',
@@ -1281,9 +1318,11 @@
                             items: [{ id: 'ainow', title: 'AINOW Society', content: '' }]
                         });
                     }
-                    if (!state.docs || !state.prompts || !state.quizzes) {
+                    if (!state.docs || !state.prompts || !state.quizzes || !state.homework) {
                         console.error('[AINOW i18n] Incomplete language data load', { lang, ...state });
                     }
+                    const pdata = window.__embeddedPromptsByLang && window.__embeddedPromptsByLang[lang];
+                    window.embeddedPromptsData = pdata || { teachers: [], administration: [] };
                     resolve();
                 }
             };
@@ -1291,6 +1330,7 @@
             window.DOCS_DATA = [];
             window.embeddedPromptsData = { teachers: [], administration: [] };
             window.QUIZ_DATA = {};
+            window.HOMEWORK_DATA = [];
 
             const loadScript = (id, src, key) => {
                 let el = document.getElementById(id);
@@ -1312,6 +1352,7 @@
             loadScript('lang-docs', `js/lang/${lang}/docs.js`, 'docs');
             loadScript('lang-prompts', `js/lang/${lang}/prompts.js`, 'prompts');
             loadScript('lang-quizzes', `js/lang/${lang}/quizzes.js`, 'quizzes');
+            loadScript('lang-homework', `js/lang/${lang}/homework.js`, 'homework');
         });
     },
 

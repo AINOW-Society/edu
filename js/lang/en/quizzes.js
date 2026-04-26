@@ -49,7 +49,7 @@ var QUIZ_DATA = {
             id: 'Q-017',
             grade: 'primary_lower',
             type: 'open',
-            question: 'Give an example of an everyday AI use case that you personlly use.'
+            question: 'Give an example of an everyday AI use case that you personally use.'
         },
         {
             id: 'Q-053',
@@ -880,6 +880,270 @@ var QUIZ_DATA = {
             question: 'Compare low temperature (0.1) vs high temperature (0.9) settings.'
         }
     ],
+    'prompt-advanced': [
+        {
+            id: 'Q-092',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'Chain-of-thought prompting is most useful when you need the model to:',
+            options: [
+                'Skip showing intermediate reasoning',
+                'Break a problem into explicit reasoning steps before the final answer',
+                'Always answer in one word',
+                'Ignore the task instructions'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-093',
+            grade: 'primary_upper',
+            type: 'mcq',
+            question: 'Few-shot prompting means:',
+            options: [
+                'You never give examples',
+                'You include a small number of example input–output pairs in the prompt',
+                'You use only images',
+                'You turn off the model'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-094',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Give one classroom example where asking for structured output (for example JSON or bullet headings) would help you reuse AI answers.'
+        },
+        {
+            id: 'Q-095',
+            grade: 'primary_upper',
+            type: 'mcq',
+            question: 'A system message (or system instruction) primarily:',
+            options: [
+                'Replaces the need for any user message',
+                'Sets stable rules, role, and safety expectations for the whole chat',
+                'Deletes previous messages automatically',
+                'Only changes the font size'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-096',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'Higher "temperature" in generation usually makes output:',
+            options: [
+                'More random and varied',
+                'Always shorter',
+                'Always factual without errors',
+                'Impossible to read'
+            ],
+            answer: 0
+        },
+        {
+            id: 'Q-097',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Explain in your own words the difference between zero-shot and few-shot prompting.'
+        }
+    ],
+    'memory-rag': [
+        {
+            id: 'Q-098',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'RAG (Retrieval-Augmented Generation) typically combines a language model with:',
+            options: [
+                'Only a spreadsheet',
+                'A retrieval step that fetches relevant documents or passages',
+                'A printer',
+                'A physical robot only'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-099',
+            grade: 'primary_upper',
+            type: 'mcq',
+            question: 'Why do we attach retrieved text to the prompt before asking the model?',
+            options: [
+                'To make the prompt longer with no purpose',
+                'To ground answers in specific sources the model can quote or summarize',
+                'To disable the model',
+                'To remove the need for the internet forever'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-100',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Why can very long chats cause the model to lose track of details from the beginning of the conversation?'
+        },
+        {
+            id: 'Q-101',
+            grade: 'primary_lower',
+            type: 'mcq',
+            question: 'An "embedding" is best described as:',
+            options: [
+                'A picture of a cat',
+                'A numeric representation that captures meaning for similarity search',
+                'A type of computer virus',
+                'A printed worksheet'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-102',
+            grade: 'primary_upper',
+            type: 'mcq',
+            question: 'A vector database is often used to:',
+            options: [
+                'Store only passwords in plain text',
+                'Find the most similar chunks of text to a query',
+                'Replace all teachers',
+                'Turn off Wi-Fi'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-103',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Name one limitation of RAG when sources are outdated, biased, or incomplete.'
+        }
+    ],
+    'performance-design': [
+        {
+            id: 'Q-104',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'A benchmark for an AI tool measures:',
+            options: [
+                'Only the price of laptops',
+                'Standardized tasks or metrics to compare quality, speed, or accuracy',
+                'How loud the server room is',
+                'Student shoe size'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-105',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'Overfitting during fine-tuning means the model:',
+            options: [
+                'Generalizes perfectly to unseen examples',
+                'Memorizes training details and may perform poorly on new data',
+                'Never trains at all',
+                'Only works offline'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-106',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Why should teachers still review AI-assisted grading or feedback before it reaches students?'
+        },
+        {
+            id: 'Q-107',
+            grade: 'primary_upper',
+            type: 'mcq',
+            question: 'Latency (response time) matters in class because:',
+            options: [
+                'Slow tools waste lesson time and break student attention',
+                'Faster tools are always less accurate',
+                'Latency is never measurable',
+                'Students never use devices'
+            ],
+            answer: 0
+        },
+        {
+            id: 'Q-108',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'Comparing two prompts on the same task helps you:',
+            options: [
+                'Avoid any evaluation',
+                'See which instructions produce clearer, safer, or more accurate outputs',
+                'Delete student work',
+                'Remove the need for learning goals'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-109',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Name one metric you would track when piloting an AI tool in a North Macedonia school (for example accuracy, time saved, or student engagement).'
+        }
+    ],
+    'safety-limits': [
+        {
+            id: 'Q-110',
+            grade: 'primary_upper',
+            type: 'mcq',
+            question: 'A "guardrail" in an AI product is meant to:',
+            options: [
+                'Remove all learning',
+                'Reduce harmful, biased, or policy-breaking outputs',
+                'Guarantee 100% correct medical diagnoses',
+                'Store passwords publicly'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-111',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'Students should treat AI-generated medical or legal advice as:',
+            options: [
+                'A substitute for a licensed professional',
+                'Information that must be verified with qualified experts',
+                'Always correct',
+                'Secret homework answers only'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-112',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Why is it risky to paste personal student data into a public or untrusted chatbot?'
+        },
+        {
+            id: 'Q-113',
+            grade: 'primary_upper',
+            type: 'mcq',
+            question: 'Content filters and moderation layers aim to:',
+            options: [
+                'Block all education',
+                'Block or flag unsafe content according to policy',
+                'Replace teachers entirely',
+                'Publish private chats automatically'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-114',
+            grade: 'secondary',
+            type: 'mcq',
+            question: '"Red teaming" an AI system usually means:',
+            options: [
+                'Painting the server red',
+                'Proactively testing for failures, misuse, and harmful outputs',
+                'Deleting training data randomly',
+                'Disabling safety features always'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-115',
+            grade: 'secondary',
+            type: 'open',
+            question: 'What should a teacher do if the model produces biased or offensive content during a lesson?'
+        }
+    ],
     'agent-advanced': [
         {
             id: 'Q-047',
@@ -1010,6 +1274,138 @@ var QUIZ_DATA = {
             grade: 'secondary',
             type: 'open',
             question: 'What is "AGI-Native" design and why is it important?'
+        }
+    ],
+    'school-context': [
+        {
+            id: 'Q-116',
+            grade: 'primary_upper',
+            type: 'mcq',
+            question: 'When using AI in a multilingual school, the teacher should primarily:',
+            options: [
+                'Let the model choose any language it prefers',
+                'Specify the output language and reading level in the prompt',
+                'Always write prompts only in English',
+                'Avoid all translation support for families'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-117',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'Before sending AI-drafted parent communication, you should:',
+            options: [
+                'Send it immediately without review',
+                'Have a qualified colleague review it for accuracy and tone',
+                'Remove all school branding',
+                'Post it on social media first'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-118',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Name one type of student information you should avoid pasting into a public consumer AI chat, and why.'
+        },
+        {
+            id: 'Q-119',
+            grade: 'primary_lower',
+            type: 'mcq',
+            question: 'The AINOW Resources section helps teachers mainly by:',
+            options: [
+                'Replacing all lesson planning',
+                'Bundling guide excerpts, prompts, and tests for print or PDF',
+                'Deleting student work automatically',
+                'Blocking internet access'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-120',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'If an AI output cites a ministry circular you are unsure about, you should:',
+            options: [
+                'Treat it as legally binding',
+                'Verify against official sources or qualified staff',
+                'Ignore it completely',
+                'Share it anonymously online'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-121',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Give one example of how “offline-first” use of materials can help schools with weak connectivity.'
+        }
+    ],
+    'integrity-feedback': [
+        {
+            id: 'Q-122',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'The guide recommends declaring AI use mainly so that:',
+            options: [
+                'Students feel embarrassed',
+                'Expectations are transparent and work can be judged fairly',
+                'Teachers never read the final draft',
+                'AI companies get student data'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-123',
+            grade: 'primary_upper',
+            type: 'mcq',
+            question: 'Which assignment design usually makes “copy-paste from AI” harder?',
+            options: [
+                'Generic five-paragraph essay on a famous topic with no local context',
+                'Task requiring process notes, sources, or in-class explanation of reasoning',
+                'Single textbook page number as the only instruction',
+                'Homework with no deadline'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-124',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Name one way you could give feedback on a draft that may have used AI, focusing on the student’s understanding rather than polish.'
+        },
+        {
+            id: 'Q-125',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'Whole-school alignment on AI integrity means:',
+            options: [
+                'Each teacher makes unrelated rules',
+                'Leaders, pedagogues, and teams share clear basics and fair procedures',
+                'Only the IT teacher decides policy',
+                'Families are never informed'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-126',
+            grade: 'primary_lower',
+            type: 'mcq',
+            question: 'Honest AI use in class is best paired with:',
+            options: [
+                'Secret use only',
+                'Clear rules before the task and examples of allowed help',
+                'No discussion with students',
+                'Banning all writing tools'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-127',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Why might banning AI without alternatives push students toward hidden misuse?'
         }
     ]
 };

@@ -1,4 +1,6 @@
-﻿var embeddedPromptsData = {
+﻿(function(L) {
+  window.__embeddedPromptsByLang = window.__embeddedPromptsByLang || {};
+  window.__embeddedPromptsByLang[L] = {
   teachers: [
     {
       subcategory: "primary_lower",
@@ -1326,6 +1328,111 @@
       title: "Motivimi i Nxënësve Kronikisht të Angazhuar Jo",
       prompt: "Roli: Specialist i Angazhimit Nxënësi. Konteksti: Kam 3-5 nxënës të vërtetë të shkëputur — nuk bëjnë detyra, nuk marrin pjesë, rezistojnë. Detyra: Më jep qasje të bazuar në hulumtim. Kufizimet: Përfshi: (1) 3 shkaqe rrënjë dhe diagnostikën, (2) qasjen e ndërtimit marrëdhëniesh 1-me-1, (3) 5 rregullime instruksionale, (4) si përfshi familjen pa fajësim, dhe (5) kur referoni për mbështetje shtesë. Shmang turpërimin, disiplinën shtrënguese.",
       tags: ["angazhimi", "nxënësit_e_shkëputur", "motivim", "marrëdhëniet"]
+    },
+    {
+      subcategory: "primary_upper",
+      subject: "Gjuhë Maqedonase",
+      title: "Listë kontrolli cirilike — para dorëzimit të detyrës",
+      prompt: "Roli: Mësues i gjuhës maqedonase. Konteksti: Nxënësit e klasës së 7-të dorëzojnë paragrafë të shkurtër; shumica përziejnë latinisht dhe cirilikë. Detyra: Krijo një udhëzues njëfaqësor për nxënës me 10 pika vetë-kontrolli para dorëzimit, plus 5 fjali shembull me gabime të qëllimshme për korrigjim nga bashkëmoshatarët. Kufizimet: Dalja të jetë plotësisht në cirilikën maqedonase; mos shpik rregulla gramatikore.",
+      tags: ["maqedonisht", "cirilikë", "shkrim", "fillore_e_lartë"]
+    },
+    {
+      subcategory: "secondary",
+      subject: "Edukim Qytetar",
+      title: "Debati — demokracia dhe pjesëmarrja e të rinjve",
+      prompt: "Roli: Mësues i edukimit qytetar. Konteksti: Orë në shkollë të mesme për pjesëmarrje demokratike dhe zërin e të rinjve në RMV. Detyra: Dizajno një debat 45-minutësh të strukturuar me role, kohëmatës dhe dy teza të zgjedhshme (p.sh. mosha e votimit vs pjesëmarrje digjitale). Kufizimet: Qëndrim neutral; pyetje reflektuese për verifikimin e informacionit dhe argumenteve të gjeneruara nga IA.",
+      tags: ["qytetari", "debati", "demokracia", "i_mesëm"]
+    },
+    {
+      subcategory: "primary_lower",
+      subject: "Matematikë",
+      title: "Detyra me tekst në maqedonisht — klasa III–IV",
+      prompt: "Roli: Mësues matematike. Konteksti: Nxënësit vështirësohen me detyra me tekst dy-hapa. Detyra: Shkruaj 6 detyra të përshtatshme për moshë me drekën shkollore, autobusin dhe ditën sportive, secila me zgjidhje shembull dhe hapësirë për punën e nxënësit. Kufizimet: Maqedonisht i thjeshtë për III–IV; numra nën 100.",
+      tags: ["matematikë", "teksti", "maqedonisht", "fillore"]
+    },
+    {
+      subcategory: "secondary",
+      subject: "Gjuhë Angleze",
+      title: "Lexim kuptimplotë — stil maturë",
+      prompt: "Roli: Mësues anglishteje për maturantë. Konteksti: Nevojitet praktikë për inferencë dhe fjalor në kontekst. Detyra: Krijo një tekst me gjatësi të ngjashme me provimin dhe 8 pyetje me alternativa; përfshi çelës dhe arsyetim të shkurtër për çdo pyetje. Kufizimet: Niveli B1–B2 KERF; mos kopjo tekste të mbrojtura nga të drejtat e autorit.",
+      tags: ["anglisht", "leximi", "matura", "i_mesëm"]
+    },
+    {
+      subcategory: "primary_upper",
+      subject: "Histori",
+      title: "Periudha osmane — kronologji dhe hartë",
+      prompt: "Roli: Mësues historie. Konteksti: Njësi për periudhën osmane në Ballkan për klasën e 8-të. Detyra: Shabllon kronologjie me 8 ngjarje (data bosh për nxënës), 4 detyra etiketimi në hartë dhe 5 pyetje të shkurtra për krahasimin e dy burimeve. Kufizimet: Shmang stereotipet nacionaliste; nxito përdorim kritik të tekstit shkollor dhe IA vetëm si mbështetje.",
+      tags: ["histori", "osmane", "hartë", "fillore_e_lartë"]
+    },
+    {
+      subcategory: "all",
+      subject: "Arsim gjithëpërfshirës",
+      title: "Biletë daljeje — klasë shumëgjuhëshe",
+      prompt: "Roli: Mentor për përfshirje. Konteksti: I njëjti objektiv mësimor, por nxënësit punojnë në skica maqedonisht, shqip ose anglisht. Detyra: Propozo një pyetje për biletë daljeje që mund të përgjigjet në çdo nga tre gjuhët dhe një rubrikë analitike me 3 kritere që mësuesi ta zbatojë drejtë. Kufizimet: Thekso kuptimin e konceptit, jo drejtshkrimin e përsosur në gjuhën e dytë.",
+      tags: ["përfshirja", "shumëgjuhësia", "vlerësimi", "të_gjitha"]
+    },
+    {
+      subcategory: "secondary",
+      subject: "Informatikë",
+      title: "Poster — rregulla etike për IA në klasë",
+      prompt: "Roli: Mësues informatike. Konteksti: Klasa bashkë-krijon norma për përdorim etik të mjeteve IA. Detyra: Tekst për poster A3: 5 rregulla, 5 pika 'mos bëj kështu' dhe 3 pyetje reflektuese që nxënësit mund t'i përshtatin. Kufizimet: Integritet akademik dhe privatësi; kujto verifikimin e fakteve dhe citimin e ndihmës nga IA kur lejohet.",
+      tags: ["informatikë", "etika", "IA", "i_mesëm"]
+    },
+    {
+      subcategory: "department_head",
+      subject: "STEM",
+      title: "Javë projekti — IA si asistent kërkimi",
+      prompt: "Roli: Krye i STEM. Konteksti: Një javë projekti që lidh fizikën dhe gjeografinë për sensorë mjedisorë. Detyra: Objektiva ditore, role në ekip, shënime sigurie dhe ku nxënësit mund të përdorin IA (skanim literature, formulim) kundrejt ku nuk mund (fabrikim të dhënash). Kufizimet: Listë kontrolli për moderim para posterave përfundimtarë.",
+      tags: ["STEM", "projekti", "politika_IA", "kreu_departamenti"]
+    },
+    {
+      subcategory: "pedagogue",
+      subject: "Orientim karriere",
+      title: "Bisedë orientimi për arsimin profesional — 45 min",
+      prompt: "Roli: Pedagog. Konteksti: Sesion me klasën e 9-të për rrugët e përgjithshme vs profesionale në RMV. Detyra: Plan sesioni me objektiva, segment 'zbërthimi i miteve' (4 mite), bankë pyetjesh dhe shabllon SMS të shkurtër për prindër. Kufizimet: Ton jo-gjyqësues; pa premtime për tregun e punës.",
+      tags: ["karriera", "profesionale", "orientimi", "pedagog"]
+    },
+    {
+      subcategory: "secondary",
+      subject: "Normat e klasës",
+      title: "Poster — përdorim i ndershëm i IA në klasën tonë",
+      prompt: "Roli: Mësues / kujdestar. Konteksti: Me nxënësit e shkollës së mesme krijoni norma të dukshme për kur lejohet ndihma e IA-së dhe si ta deklaroni. Detyra: Tekst për poster A3: 5 përdorime të lejuara, 5 të papërshkruara, 3 pyetje reflektuese dhe një fjali që nxënësit e kopjojnë në detyra. Kufizimet: Ton pozitiv; përputhu me politikën e shkollës nëse ekziston.",
+      tags: ["integriteti", "normat", "i_mesëm"]
+    },
+    {
+      subcategory: "primary_upper",
+      subject: "Të përgjithshme",
+      title: "Pyetje gojore pas detyrave me mundësi IA",
+      prompt: "Roli: Mësues klasash 6–9. Konteksti: Nxënësit mund të kenë përdorur IA në një detyrë të shkruar; ju duhet një kontroll gojor 5-minutësh i drejtë pa turpërim. Detyra: 8 pyetje të shkurtra (përzierje shpjego-pse dhe apliko-në-shembull të ri) që zbulojnë kuptimin. Kufizimet: Funksionojnë në disa lëndë; pa formulime akuzuese.",
+      tags: ["vlerësimi", "gojore", "integriteti", "6-9"]
+    },
+    {
+      subcategory: "secondary",
+      subject: "Gjuhë / letërsi",
+      title: "Rubrikë — prova e arsyetimit",
+      prompt: "Roli: Mësues gjuhe. Konteksti: Përditësim i rubrikës së shkrimit që prose i lëmuar nga IA të mos marrë notë të lartë pa mendim. Detyra: Një rresht analitik rubrike (4 nivele) me titull 'Arsyetim dhe prova' me përshkrime për zinxhir logjik, citime dhe kufizime të pretendimit. Kufizimet: Mos përmend IA në tekstin e niveleve; përshkruaj punën e dukshme të nxënësit.",
+      tags: ["rubrika", "shkrimi", "i_mesëm"]
+    },
+    {
+      subcategory: "all",
+      subject: "Angazhimi i familjeve",
+      title: "Mbrëmje prindërish — IA dhe detyrat (skicë slide)",
+      prompt: "Roli: Udhëheqës mësuesish. Konteksti: 20 minuta në mbrëmjen e prindërve për përdorim të ndershëm të IA-së dhe detyrave. Detyra: 6 slide (titull + 3 pika secila): çfarë është IA, çfarë nuk është, pritjet e shkollës, shembuj ndihme të lejuara, mbikëqyrje në shtëpi, kontakt. Kufizimet: Gjuhë e thjeshtë; familje shumëgjuhëshe parasysh.",
+      tags: ["prindërit", "integriteti", "të_gjitha"]
+    },
+    {
+      subcategory: "department_head",
+      subject: "Siguria e cilësisë",
+      title: "Mikro-takim stafi — përputhje mbi integritetin",
+      prompt: "Roli: Krye i departamentit ose nivelit. Konteksti: 25 minuta pas një kapitulli të ri të udhëzuesit mbi integritetin. Detyra: Rend dite me qëllim, 3 pyetje diskutimi, një vendim për të shënuar (p.sh. frazë e përbashkët deklarimi) dhe detyrë për ekipet. Kufizimet: Fokus në drejtësi dhe mbështetje, jo në teknologji survejimi.",
+      tags: ["departamenti", "integriteti", "ZHP"]
+    },
+    {
+      subcategory: "primary_lower",
+      subject: "Klima e klasës",
+      title: "\"Fjalët e mia\" — rreth për fëmijë të vegjël",
+      prompt: "Roli: Mësues i ulët fillor. Konteksti: Shpjegim pse kopjimi nga robotët pa menduar dëmton të nxënit. Detyra: Skriptë 10 minuta në rreth: analogji e thjeshtë, 4 rregulla fëmijërore dhe thirrje-përgjigje. Kufizimet: Pa frikëzime; fjalor për moshën.",
+      tags: ["integriteti", "fillore", "socio-emocional"]
     }
   ],
   administration: [
@@ -2238,7 +2345,72 @@
       title: "Rregullorja e Turneut (Fair Play)",
       prompt: "Roli: Përgjegjës për Sportet. Konteksti: Organizimi i një turneu të brendshëm shkollor në futsall. Detyra: Shkruaj rregulloren bazë të turneut (5 pika kyçe), duke përfshirë kodin e mirësjelljes dhe ndëshkimet për gjuhën e pahijshme. Kufizimet: Rregullorja duhet të theksojë 'Fair Play'-in dhe respektin për kundërshtarin si elementin më të rëndësishëm.",
       tags: ["departamenti", "sport", "rregullore"]
+    },
+    {
+      subcategory: "director",
+      subject: "Qeverisja",
+      title: "Shënim për bordin — vit pilot IA",
+      prompt: "Roli: Drejtor shkolle. Konteksti: Prezantim i kujdesshëm i një viti pilot për alfabetizmin IA dhe mjetet në klasë për këshillin/bordin shkollor. Detyra: Një faqe: qëllime, rreziqe (privatësi, barazi), orë trajnimi për mësues, metrika vlerësimi dhe pika vendimesh. Kufizimet: Pa gjuhë të lidhjes me një furnizues; thekso sigurinë e nxënësve dhe minimizimin e të dhënave.",
+      tags: ["drejtori", "qeverisja", "pilot_IA"]
+    },
+    {
+      subcategory: "pedagogue",
+      subject: "Zhvillim profesional",
+      title: "Protokoll vëzhgimi kolegësh — orë me IA",
+      prompt: "Roli: Pedagog udhëheqës. Konteksti: Kolegët provojnë aktivitete me mbështetje IA dhe duhen komente të strukturuara. Detyra: Formular për një orë vëzhgimi (çfarë të shihet, dëshmi, pyetje bisede) që ndan pedagogjinë nga hype-i i mjetit. Kufizimet: Fokus në mendimin e nxënësve, jo në kohën para ekranit.",
+      tags: ["pedagog", "vëzhgimi", "ZHP"]
+    },
+    {
+      subcategory: "psychologist",
+      subject: "Komunikim krize",
+      title: "Shabllon letre pas incidenti në internet",
+      prompt: "Roli: Psikolog shkolle. Konteksti: Përgjigje e koordinuar pas raste të ngacmimit në internet ndaj një nxënësi (pa detaje grafike në draft). Detyra: Letër e qetë për prindër me hapa mbështetjeje, kanale raportimi dhe lista pikash për tubim me nxënës. Kufizimet: Trauma-informuar; pa fajësuar viktimën; kujtesë se pamjet e gjeneruara nga IA mund të jenë të falsifikuara.",
+      tags: ["psikologji", "siguria", "prindërit"]
+    },
+    {
+      subcategory: "secretary",
+      subject: "Mbrojtja e të dhënave",
+      title: "Listë kontrolli para një mjeti të ri në renë",
+      prompt: "Roli: Sekretar / kontakt DPO. Konteksti: Një mësues kërkon miratim për një aplikacion falas të ri. Detyra: Listë kontrolli 12 po/jo (vendndodhja e të dhënave, llogaritë e nxënësve, eksport, fshirje, pëlqimi) dhe një paragraf email për të refuzuar ose miratuar me kusht deri në shqyrtim ligjor. Kufizimet: Gjuhë e qartë; jo këshillë ligjore.",
+      tags: ["sekretari", "privatësia", "pajtueshmëria"]
+    },
+    {
+      subcategory: "department_head",
+      subject: "Gjuhët",
+      title: "Agjenda takimi — kritere të përbashkëta për shkrim argumentues",
+      prompt: "Roli: Krye i departamentit të gjuhëve. Konteksti: Ekipet maqedonisht, shqip dhe anglisht përputhen për një tipar të përbashkët të rubrikës së shkrimit mbi argumentimin. Detyra: Agjendë takimi 60 min me lexim paraprak, listë vendimesh dhe përgjegjës për hapat pasues. Kufizimet: Respekto kurrikula të ndryshme; rezultati është një tipar i përbashkët, jo bashkim i plotë i rubrikave.",
+      tags: ["departamenti", "gjuhët", "rubrika"]
+    },
+    {
+      subcategory: "director",
+      subject: "Marrëdhëniet me komunitetin",
+      title: "FAQ për prindër — një faqe mbi IA dhe detyrat",
+      prompt: "Roli: Drejtor. Konteksti: Prindërit pyesin përsëritur për mjetet IA dhe integritetin e detyrave. Detyra: Një faqe FAQ (8 pyetje-përgjigje): mjete të lejuara, deklarim, provime, privatësi, ku të kërkojnë ndihmë. Kufizimet: Fjalor jo-teknik; rregullat mund të ndryshojnë sipas lëndës.",
+      tags: ["drejtori", "prindërit", "integriteti"]
+    },
+    {
+      subcategory: "pedagogue",
+      subject: "Trajnim mësuesish",
+      title: "Workshop 45 min — vlerësim i drejtë me IA",
+      prompt: "Roli: Pedagog udhëheqës. Konteksti: Trajnim për staf të përzier fillor/mesëm. Detyra: Plan me qëllim mësimi, 15 min hyrje (koncepte), 20 min aktivitet stacionesh (rishikim i një detyre), 10 min plenum me angazhime. Kufizimet: Thekso vlerësimin formativ dhe zërin e nxënësit.",
+      tags: ["pedagog", "workshop", "vlerësimi"]
+    },
+    {
+      subcategory: "secretary",
+      subject: "Regjistrat",
+      title: "Shabllon regjistri — dyshim për keqpërdorim të IA",
+      prompt: "Roli: Sekretar / zyrtar administrativ. Konteksti: Gjurmë e neutralizuar kur një mësues raporton shkelje të mundshme të politikës me IA. Detyra: Formular një faqe: kush, kur, përshkrim detyre, lloje dëshmish, intervistë me nxënësin (po/jo), vendim, nënshkrime. Kufizimet: Fusha të ndërgjegjshme për të dhëna personale; jo instrument ligjor.",
+      tags: ["sekretari", "regjistrat", "integriteti"]
+    },
+    {
+      subcategory: "psychologist",
+      subject: "Praktikë rikuperuese",
+      title: "Udhëzues bisede — pas shqetësimeve për avantazh",
+      prompt: "Roli: Psikolog shkolle. Konteksti: Nxënësi pranon ose dyshohet për keqpërdorim të IA në detyrë të notuar; qëllimi është të nxënit dhe rikuperimi. Detyra: Përmbledhje për 20 minuta: raport, fakte pa panik moral, ndikimi te besimi, hap i radhës i dakordësuar, ndjekje. Kufizimet: Trauma-informuar; mosha 12–18.",
+      tags: ["psikologji", "rikuperuese", "integriteti"]
     }
   ]
 };
-(window._pc = window._pc || {}).sq = Object.values(embeddedPromptsData).reduce(function(s,a){return s+a.length;},0);
+  window._pc = window._pc || {};
+  window._pc[L] = Object.values(window.__embeddedPromptsByLang[L]).reduce(function(s,a){return s+a.length;},0);
+})('sq');

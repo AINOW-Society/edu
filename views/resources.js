@@ -18,7 +18,7 @@ window.VIEWS['resources'] = `
         </div>
     </div>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
         <button id="widget-btn-guide" onclick="ResourceManager.switchWidget('guide')"
                 style="padding: 16px; border: 2px solid var(--primary); background: var(--primary-light); border-radius: 12px; cursor: pointer; display: flex; flex-direction: column; gap: 8px; transition: all 0.2s;">
             <div style="display: flex; align-items: center; gap: 10px;">
@@ -53,13 +53,27 @@ window.VIEWS['resources'] = `
             </div>
             <span data-i18n="resources.widget.tests.desc" style="font-size: 12px; color: var(--text-tertiary); text-align: left;">Create student assessments</span>
         </button>
+
+        <button id="widget-btn-homework" onclick="ResourceManager.switchWidget('homework')"
+                style="padding: 16px; border: 1px solid var(--border-light); background: var(--bg-card); border-radius: 12px; cursor: pointer; display: flex; flex-direction: column; gap: 8px; transition: all 0.2s;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-primary);">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    <line x1="8" y1="7" x2="16" y2="7"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+                <span data-i18n="resources.widget.homework" style="font-weight: 700; color: var(--text-primary); font-size: 16px;">Homework</span>
+            </div>
+            <span data-i18n="resources.widget.homework.desc" style="font-size: 12px; color: var(--text-tertiary); text-align: left;">Ready-made student tasks to print or save as PDF</span>
+        </button>
     </div>
 
     <div style="display: grid; grid-template-columns: 1fr 350px; gap: 32px;" class="resources-grid">
         <div class="resources-selection" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 24px;">
-            <div id="tests-topic-selector" style="display: none; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border-light);">
-                <h4 data-i18n="tests.select_topic" style="font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary); margin-bottom: 12px;">Select Topic:</h4>
-                <div id="tests-topics-list" style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <div id="resources-topic-selector" style="display: none; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border-light);">
+                <h4 id="resources-topic-heading" data-i18n="tests.select_topic" style="font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary); margin-bottom: 12px;">Select Topic:</h4>
+                <div id="resources-topics-list" style="display: flex; flex-wrap: wrap; gap: 8px;">
                 </div>
             </div>
 
@@ -78,6 +92,10 @@ window.VIEWS['resources'] = `
                 <div id="tests-settings" style="display: none; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; padding: 10px; background: rgba(255,255,255,0.5); border-radius: 8px;">
                     <input type="checkbox" id="include-answer-key" style="width: 18px; height: 18px; cursor: pointer; accent-color: var(--primary);">
                     <label for="include-answer-key" data-i18n="tests.answer_key" style="font-size: 14px; font-weight: 500; color: var(--text-primary); cursor: pointer;">Answers Only</label>
+                </div>
+                <div id="homework-settings" style="display: none; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; padding: 10px; background: rgba(255,255,255,0.5); border-radius: 8px;">
+                    <input type="checkbox" id="include-homework-teacher-notes" style="width: 18px; height: 18px; cursor: pointer; accent-color: var(--primary);">
+                    <label for="include-homework-teacher-notes" data-i18n="homework.include_teacher_notes" style="font-size: 14px; font-weight: 500; color: var(--text-primary); cursor: pointer;">Guidance</label>
                 </div>
 
                 <div style="color: var(--primary); margin-bottom: 12px;">
@@ -114,11 +132,27 @@ window.VIEWS['resources'] = `
 window.ResourceManager = {
     currentWidget: 'guide',
     currentTestTopic: null,
+    currentHomeworkTopic: null,
     selectedItems: new Set(),
 
     init() {
+        if (this.currentWidget === 'tests') this.renderTestTopics();
+        if (this.currentWidget === 'homework') this.renderHomeworkTopics();
         this.renderList();
         this.renderPedagogyTip();
+    },
+
+    _getPrintDocTitle() {
+        switch (this.currentWidget) {
+            case 'tests': return I18n.t('tests.hero.title');
+            case 'prompts': return I18n.t('resources.widget.prompts');
+            case 'homework': return I18n.t('resources.widget.homework');
+            default: return I18n.t('resources.widget.guide');
+        }
+    },
+
+    _getPrintDocDesc() {
+        return this.currentWidget === 'tests' ? I18n.t('tests.header_desc') : I18n.t('header.platform');
     },
 
     switchWidget(type) {
@@ -127,24 +161,41 @@ window.ResourceManager = {
             return;
         }
 
+        const prevWidget = this.currentWidget;
         this.currentWidget = type;
         this.selectedItems.clear();
 
-        const topicSelector = document.getElementById('tests-topic-selector');
+        if (prevWidget === 'homework' && type !== 'homework') {
+            const hwNotes = document.getElementById('include-homework-teacher-notes');
+            if (hwNotes) hwNotes.checked = false;
+        }
+        if (prevWidget === 'tests' && type !== 'tests') {
+            const ansKey = document.getElementById('include-answer-key');
+            if (ansKey) ansKey.checked = false;
+        }
+
+        const topicSelector = document.getElementById('resources-topic-selector');
+        const topicHeading = document.getElementById('resources-topic-heading');
         const testSettings = document.getElementById('tests-settings');
+        const homeworkSettings = document.getElementById('homework-settings');
         const exportBtnText = document.getElementById('export-btn-text');
         const selectionTitle = document.getElementById('selection-title');
 
         if (topicSelector) {
-            topicSelector.style.display = (type === 'tests') ? 'block' : 'none';
-            if (type === 'tests') {
-                const topicHeading = topicSelector.querySelector('[data-i18n="tests.select_topic"]');
-                if (topicHeading) {
-                    topicHeading.textContent = I18n.t('tests.select_topic');
-                }
+            const showTopics = (type === 'tests' || type === 'homework');
+            topicSelector.style.display = showTopics ? 'block' : 'none';
+        }
+        if (topicHeading) {
+            if (type === 'homework') {
+                topicHeading.setAttribute('data-i18n', 'homework.select_topic');
+                topicHeading.textContent = I18n.t('homework.select_topic');
+            } else {
+                topicHeading.setAttribute('data-i18n', 'tests.select_topic');
+                topicHeading.textContent = I18n.t('tests.select_topic');
             }
         }
         if (testSettings) testSettings.style.display = (type === 'tests') ? 'flex' : 'none';
+        if (homeworkSettings) homeworkSettings.style.display = (type === 'homework') ? 'flex' : 'none';
 
         if (exportBtnText) {
             exportBtnText.setAttribute('data-i18n', (type === 'tests') ? 'tests.export_btn' : 'resources.export_btn');
@@ -156,7 +207,7 @@ window.ResourceManager = {
             selectionTitle.textContent = I18n.t(selectionTitle.getAttribute('data-i18n'));
         }
 
-        ['guide', 'prompts', 'tests'].forEach(w => {
+        ['guide', 'prompts', 'tests', 'homework'].forEach(w => {
             const btn = document.getElementById(`widget-btn-${w}`);
             if (!btn) return;
             const isActive = w === type;
@@ -174,6 +225,15 @@ window.ResourceManager = {
             }
             this.renderTestTopics();
         }
+        if (type === 'homework') {
+            const hwTopics = this._homeworkTopicIds();
+            if (!hwTopics.length) {
+                this.currentHomeworkTopic = null;
+            } else if (!this.currentHomeworkTopic || !hwTopics.includes(this.currentHomeworkTopic)) {
+                this.currentHomeworkTopic = hwTopics[0];
+            }
+            this.renderHomeworkTopics();
+        }
 
         this.renderList();
         this.renderPedagogyTip();
@@ -181,10 +241,27 @@ window.ResourceManager = {
         if (window.App) window.App.renderSidebarCtx('resources');
     },
 
+    _homeworkTopicIds() {
+        const sheets = window.HOMEWORK_DATA || [];
+        const ids = new Set();
+        sheets.forEach(h => {
+            if (h && h.topic) ids.add(h.topic);
+        });
+        if (typeof DOCS_DATA === 'undefined') return Array.from(ids);
+        const order = [];
+        DOCS_DATA.forEach(sec => {
+            if (sec.id !== 'about' && ids.has(sec.id)) order.push(sec.id);
+        });
+        ids.forEach(id => {
+            if (!order.includes(id)) order.push(id);
+        });
+        return order;
+    },
+
     renderTestTopics() {
         if (typeof DOCS_DATA === 'undefined') return;
 
-        const listEl = document.getElementById('tests-topics-list');
+        const listEl = document.getElementById('resources-topics-list');
         if (!listEl) return;
 
         let html = '';
@@ -196,15 +273,43 @@ window.ResourceManager = {
                 const cleanTitle = title.replace(/^[IVX]+\.\s*/, '');
 
                 html += `
-                    <button onclick="ResourceManager.switchTestTopic('${topic.id}')"
+                    <button type="button" onclick="ResourceManager.switchTestTopic('${escapeHtml(topic.id)}')"
                         style="padding: 6px 14px; border-radius: 20px; border: 1px solid ${isActive ? 'var(--primary)' : 'var(--border-light)'};
                         cursor: pointer; transition: all 0.2s; font-size: 13px;
                         background: ${isActive ? 'var(--primary)' : 'var(--bg-card)'};
                         color: ${isActive ? 'white' : 'var(--text-secondary)'};">
-                        ${cleanTitle}
+                        ${escapeHtml(cleanTitle)}
                     </button>
                 `;
             }
+        });
+        listEl.innerHTML = html;
+    },
+
+    renderHomeworkTopics() {
+        if (typeof DOCS_DATA === 'undefined') return;
+        const listEl = document.getElementById('resources-topics-list');
+        if (!listEl) return;
+
+        const topicIds = this._homeworkTopicIds();
+        let html = '';
+        topicIds.forEach(tid => {
+            const sec = DOCS_DATA.find(s => s.id === tid);
+            const isActive = tid === this.currentHomeworkTopic;
+            const i18nKey = 'guide.section.' + tid;
+            const rawTitle = sec ? sec.title : tid;
+            const title = I18n.t(i18nKey) === i18nKey ? rawTitle : I18n.t(i18nKey);
+            const cleanTitle = title.replace(/^[IVX]+\.\s*/, '');
+
+            html += `
+                <button type="button" onclick="ResourceManager.switchHomeworkTopic('${escapeHtml(tid)}')"
+                    style="padding: 6px 14px; border-radius: 20px; border: 1px solid ${isActive ? 'var(--primary)' : 'var(--border-light)'};
+                    cursor: pointer; transition: all 0.2s; font-size: 13px;
+                    background: ${isActive ? 'var(--primary)' : 'var(--bg-card)'};
+                    color: ${isActive ? 'white' : 'var(--text-secondary)'};">
+                    ${escapeHtml(cleanTitle)}
+                </button>
+            `;
         });
         listEl.innerHTML = html;
     },
@@ -213,6 +318,13 @@ window.ResourceManager = {
         this.currentTestTopic = id;
         this.selectedItems.clear();
         this.renderTestTopics();
+        this.renderList();
+    },
+
+    switchHomeworkTopic(id) {
+        this.currentHomeworkTopic = id;
+        this.selectedItems.clear();
+        this.renderHomeworkTopics();
         this.renderList();
     },
 
@@ -264,6 +376,15 @@ window.ResourceManager = {
             categories.forEach(cat => {
                 html += this._renderCheckboxItem(cat.id, cat.label);
             });
+        } else if (this.currentWidget === 'homework') {
+            const sheets = (window.HOMEWORK_DATA || []).filter(h => h.topic === this.currentHomeworkTopic);
+            if (!sheets.length) {
+                html = '<div style="padding: 12px; color: var(--text-tertiary); font-size: 14px;">—</div>';
+            } else {
+                sheets.forEach(h => {
+                    html += this._renderCheckboxItem(h.id, h.title, h.meta || '');
+                });
+            }
         } else {
             const questions = (QUIZ_DATA && QUIZ_DATA[this.currentTestTopic]) || [];
             questions.forEach(q => {
@@ -309,6 +430,9 @@ window.ResourceManager = {
                 label = (I18n.t(i18nKey) !== i18nKey) ? I18n.t(i18nKey) : (section ? section.title : val);
             } else if (this.currentWidget === 'prompts') {
                 label = I18n.t('prompts.sub.' + val);
+            } else if (this.currentWidget === 'homework') {
+                const h = (window.HOMEWORK_DATA || []).find(x => x.id === val);
+                label = h ? h.title : val;
             } else {
                 const qBank = Object.values(QUIZ_DATA || {}).flat();
                 const q = qBank.find(item => item.id === val);
@@ -388,6 +512,26 @@ window.ResourceManager = {
                 });
                 printHtml += `</div>`;
             });
+        } else if (this.currentWidget === 'homework') {
+            const sheets = window.HOMEWORK_DATA || [];
+            const includeTeacherNotes = document.getElementById('include-homework-teacher-notes')?.checked === true;
+            let printedCount = 0;
+            selectedList.forEach((hid) => {
+                const h = sheets.find(x => x.id === hid);
+                if (!h || !h.content) return;
+                printHtml += `<div class="print-module" style="${printedCount > 0 ? 'page-break-before: always;' : ''}">`;
+                printedCount++;
+                printHtml += `<h1 class="print-module-title">${escapeHtml(h.title)}</h1>`;
+                printHtml += `<div class="print-item"><div class="print-item-content homework-sheet-body">${h.content}</div>`;
+                if (includeTeacherNotes && h.teacherNotes) {
+                    const notesHead = escapeHtml(I18n.t('homework.teacher_notes_heading'));
+                    printHtml += `<div class="homework-teacher-notes">
+                        <p class="homework-teacher-notes-title">${notesHead}</p>
+                        <div class="homework-teacher-notes-body">${h.teacherNotes}</div>
+                    </div>`;
+                }
+                printHtml += `</div></div>`;
+            });
         } else {
             const allPrompts = [...(embeddedPromptsData.teachers || []), ...(embeddedPromptsData.administration || [])];
             let printedCount = 0;
@@ -412,6 +556,14 @@ window.ResourceManager = {
             .print-item-title { font-size: 15px; font-weight: 700; margin: 0 0 8px 0; color: #111827; break-after: avoid; page-break-after: avoid; }
             .print-item-content { font-size: 13px; color: #374151; line-height: 1.65; }
             .print-item-content p { margin: 0 0 10px 0; }
+            .homework-teacher-notes { margin-top: 22px; padding: 18px 20px; background: #f0f9ff; border: 1px solid #7dd3fc; border-radius: 10px; break-inside: avoid; page-break-inside: avoid; }
+            .homework-teacher-notes-title { margin: 0 0 14px 0; font-size: 15px; font-weight: 800; color: #0369a1; letter-spacing: 0.02em; }
+            .homework-teacher-notes-body .tn-block { margin-bottom: 16px; break-inside: avoid; page-break-inside: avoid; }
+            .homework-teacher-notes-body .tn-block:last-child { margin-bottom: 0; }
+            .homework-teacher-notes-body .tn-h { font-size: 15px; font-weight: 700; color: #0c4a6e; margin: 0 0 8px 0; line-height: 1.35; }
+            .homework-teacher-notes-body .tn-p { font-size: 15px; line-height: 1.65; color: #1e293b; margin: 0 0 6px 0; }
+            .homework-teacher-notes-body .tn-ul { margin: 6px 0 0 0; padding-left: 22px; font-size: 15px; line-height: 1.65; color: #1e293b; }
+            .homework-teacher-notes-body .tn-ul li { margin-bottom: 8px; }
         `;
 
         if (forPDF) {
@@ -440,7 +592,7 @@ window.ResourceManager = {
             return;
         }
 
-        const includeKey = document.getElementById('include-answer-key')?.checked;
+        const includeKey = document.getElementById('include-answer-key')?.checked === true;
         const qBank = Object.values(QUIZ_DATA || {}).flat();
         const selectedList = Array.from(this.selectedItems).map(id => qBank.find(q => q.id === id)).filter(q => !!q);
 
@@ -615,9 +767,7 @@ window.ResourceManager = {
                 const doc  = new jsPDF({ unit: 'mm', format: 'a4' });
                 const docW = doc.internal.pageSize.getWidth();
                 const docH = doc.internal.pageSize.getHeight();
-                const widgetTitle = ResourceManager.currentWidget === 'tests'
-                    ? I18n.t('tests.hero.title')
-                    : (ResourceManager.currentWidget === 'prompts' ? I18n.t('resources.widget.prompts') : I18n.t('resources.widget.guide'));
+                const widgetTitle = ResourceManager._getPrintDocTitle();
 
                 const full = await html2canvas(wrap, {
                     scale: SCALE,
@@ -775,13 +925,8 @@ window.ResourceManager = {
     },
 
     _getPrintHeader() {
-        const title = this.currentWidget === 'tests'
-            ? I18n.t('tests.hero.title')
-            : (this.currentWidget === 'prompts' ? I18n.t('resources.widget.prompts') : I18n.t('resources.widget.guide'));
-
-        const desc = this.currentWidget === 'tests'
-            ? I18n.t('tests.header_desc')
-            : I18n.t('header.platform');
+        const title = this._getPrintDocTitle();
+        const desc = this._getPrintDocDesc();
 
         return `
             <div class="exam-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #d97757; padding-bottom: 15px; margin-bottom: 20px;">
@@ -800,12 +945,8 @@ window.ResourceManager = {
     },
 
     _getCompactPrintHeader() {
-        const title = this.currentWidget === 'tests'
-            ? I18n.t('tests.hero.title')
-            : (this.currentWidget === 'prompts' ? I18n.t('resources.widget.prompts') : I18n.t('resources.widget.guide'));
-        const desc = this.currentWidget === 'tests'
-            ? I18n.t('tests.header_desc')
-            : I18n.t('header.platform');
+        const title = this._getPrintDocTitle();
+        const desc = this._getPrintDocDesc();
         return `
             <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #d97757;padding-bottom:12px;margin-bottom:0;">
                 <div style="display:flex;align-items:center;gap:8px;">

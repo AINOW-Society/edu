@@ -1,4 +1,4 @@
-const APP_VERSION = 'v0.91';
+const APP_VERSION = 'v0.92';
 
 function escapeHtml(str) {
     return String(str)
@@ -74,10 +74,14 @@ const App = {
         const loadNext = (langs) => {
             if (!langs.length) { this._renderHomeStats(); return; }
             const lang = langs[0];
-            const saved = window.embeddedPromptsData;
+            if (window._pc && Object.prototype.hasOwnProperty.call(window._pc, lang)) {
+                loadNext(langs.slice(1));
+                return;
+            }
             const s = document.createElement('script');
+            s.id = `prefetch-prompts-${lang}`;
             s.src = `js/lang/${lang}/prompts.js`;
-            s.onload = () => { window.embeddedPromptsData = saved; loadNext(langs.slice(1)); };
+            s.onload = () => { loadNext(langs.slice(1)); };
             s.onerror = () => { loadNext(langs.slice(1)); };
             document.body.appendChild(s);
         };
@@ -202,6 +206,10 @@ const App = {
                         <div class="sidebar-quick-link" onclick="App.switchView('tools')">
                             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
                             <span>${t('sidebar.tools.link')}</span>
+                        </div>
+                        <div class="sidebar-quick-link" onclick="App.openResourcesWidget('homework')">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            <span>${t('sidebar.homework.link')}</span>
                         </div>
                     `}
 
@@ -1047,8 +1055,8 @@ const App = {
 
     _guideCategoryMap: {
         foundations: ['intro', 'literacy', 'definition', 'functionality', 'history', 'applications'],
-        practice:    ['agents', 'architecture', 'prompt-advanced', 'memory-rag', 'performance-design', 'agent-advanced'],
-        reference:   ['safety-limits', 'future-principles', 'glossary', 'roadmap'],
+        practice:    ['prompts', 'agents', 'architecture', 'prompt-advanced', 'memory-rag', 'performance-design', 'agent-advanced'],
+        reference:   ['safety-limits', 'future-principles', 'school-context', 'integrity-feedback', 'glossary', 'roadmap'],
     },
 
     switchGuideCategory(cat) {
@@ -1131,6 +1139,7 @@ const App = {
     },
 
     _promptSubIcons: {
+        all: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>',
         primary_lower: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
         primary_upper: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>',
         secondary: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/></svg>',
@@ -1138,6 +1147,7 @@ const App = {
         pedagogue: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
         psychologist: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>',
         secretary: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>',
+        department_head: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>',
     },
 
     _sidebarPromptSubLink(subId, count, category) {

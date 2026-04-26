@@ -16,7 +16,8 @@ Currently deployed for schools across the Balkans, the platform is proudly **100
 
 ## Key Features
 
-- **Interactive Learning Guide:** An 18-chapter curriculum breaking down complex AI concepts into easy, classroom-ready analogies (Foundations, Practice, Reference).
+- **Interactive Learning Guide:** A 17-chapter curriculum (Foundations, Practice, Reference — including prompt engineering, RAG, performance, and safety) in MK, EN, and SQ.
+- **Homework Sheets:** Chapter-aligned student tasks in Resources—print or PDF, with an optional teacher-only guidance block (per response field) in all three languages.
 - **Massive Prompt Bank:** Over 300 high-quality, educator-tested prompts. From designing Flipped Classroom lesson plans to handling difficult parent conferences — organized by grade level and administrative role.
 - **AI Tool Directory:** A curated list of 57 AI tools for classrooms, categorized by use-case (Planning, Multimedia, Assessment, etc.) with clear pricing badges.
 - **AI Literacy Glossary:** 60-term glossary covering essential AI and education vocabulary, filterable by category, with live search — in all three languages.
@@ -50,6 +51,14 @@ We have prepared a comprehensive **[Contribution Guide](CONTRIBUTING.md)** that 
 
 ## Changelog
 
+### v0.92 (April 27, 2026)
+- **Homework (Resources):** Ready-made student sheets per guide chapter in **MK, EN, and SQ**—print or PDF from Resource Builder. Optional **Насоки / Guidance / Udhëzime** checkbox adds per-field teacher marking notes (same idea as the test answer key: off by default).
+- **Discoverability:** New **Homework** card on the **home** dashboard and **Help** (?), plus a **Homework** quick link in the sidebar on Home / Help / Resources.
+- **Guide — Chapter parity:** The `prompts` guide module is in the Practice tab (`App._guideCategoryMap`), so all 17 `DOCS_DATA` sections are reachable from the UI.
+- **Quizzes — Full topic coverage:** Assessment items for `prompt-advanced`, `memory-rag`, `performance-design`, and `safety-limits` in all three languages where Tests exposes those topics.
+- **Prompt loading:** Language packs use `window.__embeddedPromptsByLang`; `I18n.loadLangData` assigns `embeddedPromptsData` after load for stable cross-language behaviour.
+- **Housekeeping:** EN quiz/prompt cleanups as in prior notes; **version sync:** `v0.92` footer, `ai-edu-v0.92` service worker cache, `?v=92` on assets (`scripts/bump-version.ps1 -NewVersion 0.92`).
+
 ### v0.91 (April 26, 2026)
 - **Prompt Bank — Administration Coverage:** Exposed the `department_head` subcategory in the Prompts UI and sidebar, restoring access to prompt sets that were already shipped in MK, EN, and SQ datasets.
 - **Resources Shortcuts:** Replaced the home page `setTimeout(..., 10)` handoff to Resources with an async `App.openResourcesWidget(...)` flow, eliminating cold-load races when opening Tests, Guide handouts, and Prompt lists.
@@ -71,7 +80,7 @@ We have prepared a comprehensive **[Contribution Guide](CONTRIBUTING.md)** that 
 - **Service Worker Robustness:** Install now uses `Promise.allSettled` per URL instead of `cache.addAll`, so one 404 won't break the whole install. Fetch handler is a three-tier strategy (exact cache → network → `ignoreSearch` fallback) — fixes offline use when URLs have cache-busting `?v=` query strings.
 - **XSS Hardening:** `escapeHtml()` applied to all dynamic content injected into prompt cards, glossary cards, guide tabs, token counter widget, and PDF/print export (quiz questions, options, answer key, guide titles, prompt tags).
 - **SEO:** Removed duplicate `<meta name="description">`. Added `#glossary`, `#about`, `#help` routes to `sitemap.xml`.
-- **Version Sync Tooling:** Added `scripts/bump-version.ps1` (gitignored) that updates `APP_VERSION`, `CACHE_NAME`, and all `?v=` query strings in one shot to prevent drift.
+- **Version Sync Tooling:** Added `scripts/bump-version.ps1` that updates `APP_VERSION`, `CACHE_NAME`, and all `?v=` query strings in one shot to prevent drift.
 - **Service Worker:** Cache bumped to `ai-edu-v0.90`.
 
 ### v0.86 (April 12, 2026)

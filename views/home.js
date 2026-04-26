@@ -65,6 +65,20 @@ window.VIEWS.home = `
             <span class="card-cta"><span data-i18n="card.tests.cta">КРЕИРАЈ</span> <span aria-hidden="true">→</span></span>
         </div>
 
+        <div class="home-feature-card" style="--card-accent: #5c6bc0;" role="button" tabindex="0" onclick="App.openResourcesWidget('homework')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+            <div class="card-icon" style="background: rgba(92, 107, 192, 0.12); color: #5c6bc0;">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    <line x1="8" y1="7" x2="16" y2="7"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+            </div>
+            <h3 data-i18n="card.homework.title">Домашни задачи</h3>
+            <p data-i18n="card.homework.desc">Готови листови за ученици — печатете или зачувајте PDF.</p>
+            <span class="card-cta"><span data-i18n="card.homework.cta">ОТВОРИ</span> <span aria-hidden="true">→</span></span>
+        </div>
+
         <div class="home-feature-card" style="--card-accent: #d97757;" role="button" tabindex="0" onclick="App.openResourcesWidget('guide')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
             <div class="card-icon" style="background: rgba(217, 119, 87, 0.1); color: #d97757;">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">

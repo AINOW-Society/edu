@@ -805,6 +805,91 @@ Format: JSON</pre>`
 </div>\n                `
             }
         ]
+    },
+    {
+        id: "school-context",
+        title: "Schools in North Macedonia & the region",
+        items: [
+            {
+                id: "local-landscape",
+                title: "Languages, equity, and access",
+                content: `\n                    <h2>Teaching where several languages meet</h2>
+                    <p>In North Macedonia and across the Western Balkans, schools often serve multilingual communities. AI can support planning and materials, but it cannot replace your professional judgment about <strong>fair access</strong>, <strong>inclusive language</strong>, and each learner’s right to understand the task.</p>
+                    <ul>
+                        <li>Use AI to draft, then <strong>adapt wording</strong> to the language of instruction and to your students’ level.</li>
+                        <li>When families use a different language at home, AI may help with <strong>parent-facing summaries</strong> — always have a human review before sending official communication.</li>
+                        <li>Rural schools, split shifts, and uneven device access mean “one-size” AI homework can widen gaps; prefer <strong>low-bandwidth</strong>, <strong>offline-first</strong> options where possible.</li>
+                    </ul>
+                    <div class="tip-box"><strong>Educator tip:</strong> State in the prompt which language the output must use (e.g. “Answer in Albanian suitable for grade 6”). Repeat the same constraint in the system or first message when the tool allows it.</div>\n                `
+            },
+            {
+                id: "prompting-cyrillic-latin",
+                title: "Prompting in Cyrillic, Latin, and English",
+                content: `\n                    <h2>Reliable outputs in Macedonian, Albanian, and English</h2>
+                    <p>Large language models can mix scripts or slip into English if the task is ambiguous. Reduce errors with a short <strong>CPTC-style</strong> block: Role (who the model is), Context (grade, subject, school type), Task (exact deliverable), Constraints (language, length, tone, no personal data).</p>
+                    <p><strong>Examples of constraints:</strong> “Use Cyrillic throughout.” “Use standard Albanian orthography.” “Do not invent Ministry or Bureau circulars — if unsure, say you do not know.”</p>
+                    <p>For literature or history, ask for <strong>paragraph references to the textbook or author</strong> students actually use, so the model stays anchored to your curriculum choices.</p>\n                `
+            },
+            {
+                id: "data-institutional-care",
+                title: "Student data and institutional caution",
+                content: `\n                    <h2>What not to paste into a public chatbot</h2>
+                    <p>Avoid entering <strong>full names together with grades, diagnoses, addresses, or sensitive incidents</strong> into consumer AI services. Prefer anonymised scenarios (“Student A, grade 8”) or synthetic examples.</p>
+                    <p>Align use with your school’s rules, national data-protection expectations, and ethics codes. AI output is <strong>not legal advice</strong> — verify anything touching regulations, exams, or individual rights with qualified colleagues or official texts.</p>
+                    <div class="tip-box"><strong>Privacy:</strong> This AINOW platform runs locally in the browser; when you open external tools (ChatGPT, etc.), a different policy applies — treat them as third-party services.</div>\n                `
+            },
+            {
+                id: "using-ainow-offline",
+                title: "Handouts, tests, and offline use",
+                content: `\n                    <h2>Turning this guide into classroom artefacts</h2>
+                    <p>Use the <strong>Resources</strong> section to bundle guide excerpts, prompt lists, and topic-based tests for printing or PDF. That supports schools with intermittent connectivity and keeps materials under your review before they reach students.</p>
+                    <p>The <strong>Prompt bank</strong> is organised by school level and administrative role so principals, pedagogues, and teachers can find templates quickly. Treat every template as a <strong>starting draft</strong>: localise names, laws cited, and tone to your municipality and community.</p>
+                    <p>For updates and community contributions, see <strong>AINOW Society</strong> (ainow.mk) and the open repository — the curriculum grows when educators share vetted examples.</p>\n                `
+            }
+        ]
+    },
+    {
+        id: "integrity-feedback",
+        title: "Integrity, exams & honest AI use",
+        items: [
+            {
+                id: "student-disclosure",
+                title: "When students should say they used AI",
+                content: `\n                    <h2>Transparency without shame</h2>
+                    <p>Schools benefit when expectations are <strong>clear before</strong> the assignment: which tools are allowed, for which steps (brainstorm, outline, grammar), and how students should <strong>declare</strong> use. A short line on the cover sheet or digital hand-in (“I used AI to ___; I verified ___”) is often enough.</p>
+                    <ul>
+                        <li>Separate <strong>ideas and accuracy</strong> (the student’s responsibility) from <strong>wording help</strong> (may be allowed with citation).</li>
+                        <li>For high-stakes work, prefer <strong>in-class checkpoints</strong> (plan, sources, first draft) so the final product reflects real understanding.</li>
+                        <li>Apply rules <strong>consistently</strong> across subjects; involve students in co-creating classroom norms.</li>
+                    </ul>
+                    <div class="tip-box"><strong>Educator tip:</strong> Banning AI without an alternative often drives use underground. Pair rules with examples of <strong>honest</strong> use and consequences that focus on misrepresentation, not on asking for help.</div>\n                `
+            },
+            {
+                id: "assessment-design",
+                title: "Designing tasks that show real thinking",
+                content: `\n                    <h2>Beyond copy-paste answers</h2>
+                    <p>Generative AI is strong at generic essays and standard problems. Tasks that usually work better include: <strong>local or recent</strong> context only your class knows, <strong>process artefacts</strong> (rough notes, source logs, revision history), <strong>oral defence</strong> or short viva, and <strong>misconception-targeted</strong> prompts that require explaining <em>why</em> a wrong answer is wrong.</p>
+                    <p>AI can still assist preparation; the goal is to measure <strong>what the learner understands</strong>, not the tool’s fluency.</p>
+                    <ul>
+                        <li>Weight rubrics toward <strong>reasoning, sources, and reflection</strong>, not only polished prose.</li>
+                        <li>Use <strong>timed</strong> in-class segments for key skills you must trust.</li>
+                    </ul>\n                `
+            },
+            {
+                id: "feedback-human-loop",
+                title: "Feedback when AI was in the loop",
+                content: `\n                    <h2>Teaching revision, not just “fixing text”</h2>
+                    <p>If students bring AI-drafted work, your feedback can target: <strong>fact-checking</strong>, <strong>argument structure</strong>, <strong>voice</strong> (does it sound like them?), and <strong>missing evidence</strong>. Ask them to highlight one paragraph they wrote entirely without AI and compare.</p>
+                    <p>Model how you use AI yourself: draft → critique → verify → rewrite. That loop is the literacy skill employers and universities increasingly expect.</p>\n                `
+            },
+            {
+                id: "whole-school-alignment",
+                title: "Aligning teachers, leaders, and families",
+                content: `\n                    <h2>One message, many audiences</h2>
+                    <p>Integrity policies work when <strong>directors, pedagogues, and subject teams</strong> agree on basics: what “cheating with AI” means, how incidents are investigated fairly, and how support (not only punishment) is offered. Parents need <strong>plain-language</strong> summaries and examples of allowed homework help at home.</p>
+                    <p>Review the policy yearly as tools change. Celebrate classrooms that show <strong>creative, cited</strong> use of AI alongside strong student voice.</p>\n                `
+            }
+        ]
     }
 ];
 

@@ -740,6 +740,91 @@ Formati: Listë</pre>`
 </div>\n                `
             }
         ]
+    },
+    {
+        id: "school-context",
+        title: "Shkollat në Maqedoninë e Veriut dhe rajonin",
+        items: [
+            {
+                id: "local-landscape",
+                title: "Gjuhët, barazia dhe aksesi",
+                content: `\n                    <h2>Mësimdhënie ku takohen disa gjuhë</h2>
+                    <p>Në Maqedoninë e Veriut dhe në Ballkanin Perëndimor, shkollat shërbejnë shpesh komunitete shumëgjuhëshe. IA mund të ndihmojë me plane dhe materiale, por <strong>nuk zëvendëson</strong> gjykimin tuaj profesional për akses të drejtë, gjuhë përfshirëse dhe të drejtën e çdo nxënësi të kuptojë detyrën.</p>
+                    <ul>
+                        <li>Përdorni IA për skicë, pastaj <strong>përshtatni</strong> formulimin me gjuhën e mësimit dhe nivelin e nxënësve.</li>
+                        <li>Kur familjet flasin një gjuhë tjetër në shtëpi, IA mund të ndihmojë me <strong>përmbledhje për prindërit</strong> — gjithmonë me rishikim njerëzor para komunikimit zyrtar.</li>
+                        <li>Shkollat rurale, ndërrimet dhe aksesi i pabarabartë në pajisje do të thotë se “e njëjta” detyrë me IA mund të thellojë hendeqet; parapëlqeni zgjidhje <strong>offline</strong> dhe me <strong>brez të ngushtë</strong> kur është e mundur.</li>
+                    </ul>
+                    <div class="tip-box"><strong>Këshillë:</strong> Specifikoni në prompt cilën gjuhë doni (p.sh. “Përgjigju në maqedonisht të përshtatshëm për klasën e VI”). Përsëriteni kufizimin edhe në mesazhin e sistemit nëse mjeti e lejon.</div>\n                `
+            },
+            {
+                id: "prompting-cyrillic-latin",
+                title: "Promptimi në cirilik, latinisht dhe anglisht",
+                content: `\n                    <h2>Dalje të qëndrueshme në shqip, maqedonisht dhe anglisht</h2>
+                    <p>Modelet e mëdha të gjuhës ndonjëherë përziejnë shkronja ose kalojnë në anglisht nëse detyra është e paqartë. Ulni gabimet me një bllok të shkurtër <strong>CPTC</strong>: Roli, Konteksti (klasa, lënda, lloji i shkollës), Detyra (produkti i saktë), Kufizimet (gjuhë, gjatësi, ton, pa të dhëna personale).</p>
+                    <p><strong>Shembuj kufizimesh:</strong> “Përdor vetëm cirilikë.” “Përdor drejtshkrimin standard shqip.” “Mos shpik qarkullime të Ministrisë ose BNR-së — nëse nuk je i sigurt, thuaj se nuk e di.”</p>
+                    <p>Për letërsi ose histori, kërkoni <strong>referenca te libri ose autori</strong> që përdorni në klasë, që modeli të mbetet i lidhur me zgjedhjet tuaja kurrikulare.</p>\n                `
+            },
+            {
+                id: "data-institutional-care",
+                title: "Të dhëna personale dhe kujdes institucional",
+                content: `\n                    <h2>Çfarë të mos ngjitet në një chatbot publik</h2>
+                    <p>Shmangni futjen e <strong>emrave të plotë me nota, diagnoza, adresa ose incidente të ndjeshme</strong> në shërbime IA konsumatori. Më mirë skenarë të anonimizuar (“Nxënësi A, klasa VIII”) ose shembuj sintetikë.</p>
+                    <p>Përputhni përdorimin me rregullat e shkollës, pritshmëritë për mbrojtjen e të dhënave dhe kodeve etike. Dalja e IA-së <strong>nuk është këshillë ligjore</strong> — verifikoni çdo gjë që prek rregulla, provime ose të drejta individuale me kolegë të kualifikuar ose tekste zyrtare.</p>
+                    <div class="tip-box"><strong>Privatësia:</strong> Platforma AINOW funksionon lokalisht në shfletues; kur hapni mjete të jashtme (ChatGPT etj.), zbatohen politikat e tyre — trajtojini si palë të treta.</div>\n                `
+            },
+            {
+                id: "using-ainow-offline",
+                title: "Fletëpunime, teste dhe përdorim offline",
+                content: `\n                    <h2>Nga udhëzuesi në material klasor</h2>
+                    <p>Përdorni seksionin <strong>Burime</strong> për të paketuar pjesë të udhëzuesit, lista promptësh dhe teste sipas temës për shtyp ose PDF. Kjo i përshtatet shkollave me lidhje të çaktivizueshme dhe mban materialet nën rishikimin tuaj para se të arrijnë te nxënësit.</p>
+                    <p><strong>Banka e prompteve</strong> është e organizuar sipas nivelit dhe rolit administrativ për gjetje të shpejtë shabllonesh. Çdo shabllon është <strong>skicë fillestare</strong>: lokalizoni emra, ligje të cituara dhe ton sipas komunës dhe komunitetit.</p>
+                    <p>Për përditësime dhe kontribute, shihni <strong>AINOW Society</strong> (ainow.mk) dhe deposin e hapur — kurrikula rritet kur edukatorët ndajnë shembuj të verifikuar.</p>\n                `
+            }
+        ]
+    },
+    {
+        id: "integrity-feedback",
+        title: "Integriteti, provimet dhe përdorimi i ndershëm i IA",
+        items: [
+            {
+                id: "student-disclosure",
+                title: "Kur nxënësit duhet të thonë se kanë përdorur IA",
+                content: `\n                    <h2>Transparencë pa turp</h2>
+                    <p>Shkollat përfitojnë kur pritjet janë <strong>të qarta para</strong> detyrës: cilat mjete lejohen, për cilat hapa (ide, plan, gramatikë) dhe si nxënësit <strong>deklarojnë</strong> përdorimin. Një rresht i shkurtër në fletëparaqitje ose dorëzim dixhital („Përdora IA për ___; verifikova ___“) shpesh mjafton.</p>
+                    <ul>
+                        <li>Ndani <strong>idetë dhe saktësinë</strong> ( përgjegjësia e nxënësit) nga <strong>ndihma me formulim</strong> (mund të lejohet me citim).</li>
+                        <li>Për punë me rrezik të lartë, parapëlqeni <strong>pika kontrolli në klasë</strong> (plan, burime, skica e parë) që produkti final të pasqyrojë kuptimin real.</li>
+                        <li>Zbatoni rregullat <strong>njëtrajtshëm</strong> nëpër lëndë; përfshini nxënësit në krijimin e normave të klasës.</li>
+                    </ul>
+                    <div class="tip-box"><strong>Këshillë:</strong> Ndaloja e IA pa alternativë shpesh e shtyn përdorimin në fshehtësi. Bashkoni rregulla me shembuj të përdorimit <strong>të ndershëm</strong> dhe pasoja që synojnë fshehjen e informacionit, jo kërkimin e ndihmës.</div>\n                `
+            },
+            {
+                id: "assessment-design",
+                title: "Detyra që tregojnë mendim të vërtetë",
+                content: `\n                    <h2>Përtej kopjo-ngjitjes</h2>
+                    <p>IA gjeneruese është e fortë me ese të përgjithshme dhe probleme standarde. Detyra që zakonisht funksionojnë më mirë përfshijnë: <strong>kontekst lokal ose të freskët</strong> që vetëm klasa juaj e njeh, <strong>artefakte procesi</strong> (shënime, regjistër burimesh, histori ndryshimesh), <strong>mbrojtje gojore</strong> ose viva e shkurtër dhe pyetje që kërkojnë të shpjegohet <em>pse</em> një përgjigje e gabuar është e gabuar.</p>
+                    <p>IA ende mund të ndihmojë në përgatitje; qëllimi është të matet <strong>çfarë kupton nxënësi</strong>, jo rrjedhshmëria e mjetit.</p>
+                    <ul>
+                        <li>Në rubrika theksoni <strong>arsyetimin, burimet dhe reflektimin</strong>, jo vetëm stilin.</li>
+                        <li>Përdorni <strong>kohë të kufizuar</strong> në klasë për aftësitë kyçe që duhen besuar.</li>
+                    </ul>\n                `
+            },
+            {
+                id: "feedback-human-loop",
+                title: "Feedback kur IA ka qenë në zinxhir",
+                content: `\n                    <h2>Të mësosh rishikimin, jo vetëm „ndreqjen e tekstit“</h2>
+                    <p>Nëse nxënësit sjellin tekst me IA, feedback-u mund të synojë: <strong>verifikimin e fakteve</strong>, <strong>strukturën e argumentit</strong>, <strong>zërin</strong> (a duket si ata?) dhe <strong>mbështetjen që mungon</strong>. Kërkoni të theksojnë një paragraf të shkruar plotësisht pa IA dhe ta krahasojnë.</p>
+                    <p>Modeloni si e përdorni ju IA: skicë → kritikë → verifikim → rishkrim. Ai cikël është aftësia e alfabetizimit që punëdhënësit dhe universitetet gjithnjë e më shumë presin.</p>\n                `
+            },
+            {
+                id: "whole-school-alignment",
+                title: "Përputhja e mësuesve, drejtimit dhe familjeve",
+                content: `\n                    <h2>Një mesazh, shumë audience</h2>
+                    <p>Politikat e integritetit funksionojnë kur <strong>drejtuesit, pedagogët dhe ekipet e lëndës</strong> bien dakord për bazat: çfarë do të thotë „mashtrim me IA“, si hetohen drejt incidentet dhe si ofrohet <strong>mbështetje</strong>, jo vetëm ndëshkim. Prindëve u duhen <strong>përmbledhje</strong> të thjeshta dhe shembuj të ndihmës së lejuar në shtëpi.</p>
+                    <p>Rishikoni politikën çdo vit sepse mjetet ndryshojnë. Festoni klasa që tregojnë përdorim <strong>kreativ dhe të cituar</strong> të IA bashkë me zë të fortë nxënësi.</p>\n                `
+            }
+        ]
     }
 ];
 

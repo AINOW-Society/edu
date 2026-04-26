@@ -1,4 +1,6 @@
-var embeddedPromptsData = {
+(function(L) {
+  window.__embeddedPromptsByLang = window.__embeddedPromptsByLang || {};
+  window.__embeddedPromptsByLang[L] = {
   teachers: [
     {
       subcategory: "primary_lower",
@@ -649,7 +651,7 @@ var embeddedPromptsData = {
       subject: "Macedonian language and literature",
       title: "Analysis of poetry — Blaže Koneski",
       prompt: "He prepared a guide for interpreting Blaže Koneski's poetry for the first or second year of high school. Choose 2 distinctive songs (eg \"Vezilka\" and \"Prayer\"). For each: biographical context of the creation, formal analysis (stanza, rhyme, rhythm), thematic analysis (motifs, symbols, message), linguistic features and significance for Macedonian literature. Prepare a rubric for evaluating written interpretation (5 categories, 20 points).",
-      tags: ["Macedonian language", "Equestrian", "Poetry", "Medium"]
+      tags: ["Macedonian language", "poetry", "literature", "secondary"]
     },
     {
       subcategory: "secondary",
@@ -1431,6 +1433,111 @@ var embeddedPromptsData = {
       title: "Motivating Chronically Disengaged Students",
       prompt: "Role: Student Engagement Specialist. Context: I have 3-5 students who seem genuinely switched off from learning — they do not complete work, do not participate, and resist all typical motivation strategies. Task: Give me a research-informed approach to re-engaging chronically disengaged students. Include: (1) the 3 root causes of disengagement and how to diagnose which applies, (2) a 1-on-1 relationship-building approach for reluctant students, (3) 5 instructional adjustments that improve engagement, (4) how to involve family in a non-blaming way, and (5) when to refer for additional support. Constraints: Avoid shaming, coercive discipline, or simplistic messaging.",
       tags: ["engagement", "disengaged students", "motivation", "relationships"]
+    },
+    {
+      subcategory: "primary_upper",
+      subject: "Macedonian language",
+      title: "Cyrillic writing checklist — homework feedback",
+      prompt: "Role: Macedonian language teacher. Context: Grade 7 students submit short paragraphs; many mix Latin and Cyrillic or miss spelling. Task: Create a one-page student-facing checklist (10 bullets) for self-review before submission, plus 5 example sentences with intentional errors for peer proofreading. Constraints: Output entirely in Macedonian Cyrillic; no invented grammar rules.",
+      tags: ["Macedonian", "Cyrillic", "writing", "primary_upper"]
+    },
+    {
+      subcategory: "secondary",
+      subject: "Civic education",
+      title: "Democracy and youth participation — debate plan",
+      prompt: "Role: Civic education teacher. Context: North Macedonia secondary class on democratic participation and youth voice. Task: Design a 45-minute structured debate with roles, timing, and two motions to choose from (e.g. lowering voting age vs digital participation). Constraints: Stay neutral; include reflection questions on reliable information and AI-generated arguments.",
+      tags: ["civic education", "debate", "democracy", "secondary"]
+    },
+    {
+      subcategory: "primary_lower",
+      subject: "Mathematics",
+      title: "Word problems in Macedonian — grades 3–4",
+      prompt: "Role: Primary mathematics teacher. Context: Students struggle with two-step word problems in Macedonian. Task: Write 6 age-appropriate word problems about school lunch, bus rides, and sports day, each with a worked example and a blank line for student work. Constraints: Use simple Macedonian suitable for grades 3–4; numbers under 100.",
+      tags: ["math", "word problems", "Macedonian", "primary_lower"]
+    },
+    {
+      subcategory: "secondary",
+      subject: "English language",
+      title: "Matura-style reading — practice set",
+      prompt: "Role: English teacher preparing state exam candidates. Context: Students need practice on inference and vocabulary in context. Task: Create one authentic-length reading passage (neutral topic) and 8 multiple-choice items with one best answer each; include an answer key and brief rationale per item. Constraints: CEFR B1–B2; do not copy copyrighted texts.",
+      tags: ["English", "reading", "matura", "secondary"]
+    },
+    {
+      subcategory: "primary_upper",
+      subject: "History",
+      title: "Ottoman era — timeline and map skills",
+      prompt: "Role: History teacher. Context: Grade 8 unit on Ottoman period in the Balkans. Task: Provide a printable timeline template (8 events, empty dates for students), 4 map-label tasks, and 5 short questions that require comparing two sources. Constraints: Avoid nationalist stereotypes; encourage critical use of textbooks and AI as support only.",
+      tags: ["history", "timeline", "Balkans", "primary_upper"]
+    },
+    {
+      subcategory: "all",
+      subject: "Inclusive education",
+      title: "Differentiated exit ticket — multilingual class",
+      prompt: "Role: Inclusive classroom coach. Context: Same lesson objective but students work in Macedonian, Albanian, or English drafts. Task: Propose one exit ticket prompt that can be answered in any of the three languages, plus a single analytic rubric (3 criteria) the teacher can apply fairly. Constraints: Emphasise understanding of the concept, not perfect spelling in the second language.",
+      tags: ["inclusion", "multilingual", "assessment", "all"]
+    },
+    {
+      subcategory: "secondary",
+      subject: "Informatics / ICT",
+      title: "School AI use policy — student poster",
+      prompt: "Role: ICT teacher. Context: Class is co-creating classroom norms for using AI tools ethically. Task: Draft text for an A3 poster (5 rules, 5 \"do not\" items, 3 reflection questions) students can adapt. Constraints: Align with academic integrity and privacy; mention verifying facts and citing help from AI when allowed.",
+      tags: ["ICT", "policy", "ethics", "secondary"]
+    },
+    {
+      subcategory: "department_head",
+      subject: "STEM coordination",
+      title: "Interdisciplinary project week — AI as research assistant",
+      prompt: "Role: Head of STEM. Context: One-week project bridging physics and geography on environmental sensors. Task: Outline daily goals, team roles, safety notes, and where students may use AI (literature scan, phrasing) vs where they may not (raw data fabrication). Constraints: Include a teacher moderation checklist before final posters are displayed.",
+      tags: ["STEM", "project week", "AI policy", "department_head"]
+    },
+    {
+      subcategory: "pedagogue",
+      subject: "Career guidance",
+      title: "VET orientation talk — outline for 45 minutes",
+      prompt: "Role: Pedagogue. Context: Talk to grade 9 students about vocational vs general secondary paths in North Macedonia. Task: Produce a session plan with objectives, a myth-busting segment (4 myths), a Q&A bank, and a short parent SMS template. Constraints: Non-judgmental tone; no promises about labour market outcomes.",
+      tags: ["VET", "careers", "orientation", "pedagogue"]
+    },
+    {
+      subcategory: "secondary",
+      subject: "Classroom norms",
+      title: "Poster — honest AI use in our class",
+      prompt: "Role: Homeroom / subject teacher. Context: Co-create visible norms for secondary students on when AI help is allowed and how to declare it. Task: Draft A3 poster text: 5 allowed uses, 5 discouraged uses, 3 reflection questions, and one line students copy onto assignments. Constraints: Positive tone; align with your school’s wider policy if one exists.",
+      tags: ["integrity", "norms", "secondary"]
+    },
+    {
+      subcategory: "primary_upper",
+      subject: "General",
+      title: "Oral checkpoints after take-home drafts",
+      prompt: "Role: Teacher grades 6–9. Context: Students may have used AI on a written task; you need a fair 5-minute oral check without shaming. Task: Provide 8 short follow-up questions (mix of explain-why and apply-in-new-example) that reveal understanding. Constraints: Questions must work across subjects; no accusatory wording.",
+      tags: ["assessment", "oral", "integrity", "primary_upper"]
+    },
+    {
+      subcategory: "secondary",
+      subject: "Language & literature",
+      title: "Rubric row — evidence of reasoning",
+      prompt: "Role: Language teacher. Context: Updating a writing rubric so AI-polished prose cannot score high without thinking. Task: Add one analytic rubric row (4 levels) titled “Reasoning & evidence” with descriptors focused on chains of logic, citations, and limitation statements. Constraints: Do not mention AI in level text; describe observable student work.",
+      tags: ["rubric", "writing", "secondary"]
+    },
+    {
+      subcategory: "all",
+      subject: "Family engagement",
+      title: "Parent evening — AI and homework (slide outline)",
+      prompt: "Role: Teacher leader. Context: 20-minute segment at parent night on honest AI use and homework. Task: Outline 6 slides (title + 3 bullets each): what AI is, what it is not, school expectations, examples of allowed help, how to supervise at home, who to contact. Constraints: Plain language; multilingual families in mind.",
+      tags: ["parents", "integrity", "all"]
+    },
+    {
+      subcategory: "department_head",
+      subject: "Quality assurance",
+      title: "Staff micro-meeting — aligning on integrity",
+      prompt: "Role: Department or grade-level lead. Context: 25-minute stand-up after a new guide chapter on integrity. Task: Agenda with objective, 3 discussion prompts, one decision to record (e.g. common disclosure phrase), and homework for teams. Constraints: Focus on fairness and support, not surveillance tech.",
+      tags: ["department_head", "integrity", "PD"]
+    },
+    {
+      subcategory: "primary_lower",
+      subject: "Classroom culture",
+      title: "\"My own words\" — primary-friendly script",
+      prompt: "Role: Lower-primary teacher. Context: Introduce why copying from robots without thinking hurts learning. Task: A 10-minute circle-time script with a simple analogy, 4 child-friendly rules, and a call-and-response line. Constraints: No scary warnings; age-appropriate vocabulary.",
+      tags: ["integrity", "primary_lower", "SEL"]
     }
   ],
   administration: [
@@ -1650,7 +1757,72 @@ var embeddedPromptsData = {
       title: "High Absenteeism Letter",
       prompt: "Role: School Principal. Context: Data shows a worrying spike in unexcused absences among 9th-grade students. Task: Write a formal, mass-distributed letter to parents to address this growing problem. Constraints: The tone must be serious but deeply collaborative. Avoid accusatory language; instead, frame the issue around the shared concern for the students' academic future.",
       tags: ["director", "absences", "parents"]
+    },
+    {
+      subcategory: "director",
+      subject: "Institutional planning",
+      title: "Draft note for school board — AI pilot year",
+      prompt: "Role: School principal. Context: Presenting a cautious one-year pilot of AI literacy and classroom tools to the school board / council. Task: Write a 1-page briefing: goals, risks (privacy, equity), teacher training hours, evaluation metrics, and decision points. Constraints: No vendor lock-in language; emphasise student safety and data minimisation.",
+      tags: ["director", "governance", "AI pilot"]
+    },
+    {
+      subcategory: "pedagogue",
+      subject: "Professional development",
+      title: "Peer observation protocol — AI in lesson",
+      prompt: "Role: Lead pedagogue. Context: Colleagues trial AI-supported activities and need structured feedback. Task: Create a one-lesson observation form (look-fors, evidence, conversation prompts) that separates pedagogy from tool hype. Constraints: Focus on student thinking, not screen time.",
+      tags: ["pedagogue", "observation", "PD"]
+    },
+    {
+      subcategory: "psychologist",
+      subject: "Crisis communication",
+      title: "Template letter after online incident",
+      prompt: "Role: School psychologist. Context: Coordinated response after a student-targeted online harassment case (no graphic detail in draft). Task: Draft a calm letter to parents outlining support steps, reporting channels, and a student assembly talking point list. Constraints: Trauma-informed; avoid blaming victims; remind that AI-generated screenshots can be faked.",
+      tags: ["psychologist", "safety", "parents"]
+    },
+    {
+      subcategory: "secretary",
+      subject: "Data protection",
+      title: "Checklist before using a new cloud tool",
+      prompt: "Role: School secretary / DPO contact. Context: A teacher requests approval for a new free app. Task: Produce a 12-item yes/no checklist (data location, student accounts, export, deletion, consent) and a one-paragraph email template to decline or approve pending legal review. Constraints: Plain language; not legal advice.",
+      tags: ["secretary", "privacy", "compliance"]
+    },
+    {
+      subcategory: "department_head",
+      subject: "Languages",
+      title: "Cross-department meeting agenda — shared rubric",
+      prompt: "Role: Head of languages. Context: Macedonian, Albanian, and English teams align on a shared writing rubric trait related to argumentation. Task: Draft a 60-minute meeting agenda with pre-read, decision list, and follow-up owners. Constraints: Respect different curricula; outcome is one shared trait, not full rubric merge.",
+      tags: ["department_head", "languages", "rubric"]
+    },
+    {
+      subcategory: "director",
+      subject: "Community relations",
+      title: "Parent FAQ — one page on AI and schoolwork",
+      prompt: "Role: Principal. Context: Families ask repetitive questions about AI tools and homework integrity. Task: Write a one-page FAQ (8 Q&As) covering allowed tools, disclosure, exams, privacy, and where to get help. Constraints: Non-technical vocabulary; note that rules may vary by subject.",
+      tags: ["director", "parents", "integrity"]
+    },
+    {
+      subcategory: "pedagogue",
+      subject: "Teacher training",
+      title: "Workshop — 45 minutes on fair assessment with AI",
+      prompt: "Role: Lead pedagogue. Context: In-service session for mixed primary/secondary staff. Task: Session plan with learning objective, 15-min input (concepts), 20-min station activity (redesign one task), 10-min plenary commitments. Constraints: Emphasise formative assessment and student voice.",
+      tags: ["pedagogue", "workshop", "assessment"]
+    },
+    {
+      subcategory: "secretary",
+      subject: "Records",
+      title: "Log template — suspected unfair AI use",
+      prompt: "Role: Secretary / admin officer. Context: School needs a neutral paper trail when a teacher reports suspected policy breach involving AI. Task: One-page form: who, when, assignment brief, evidence types, student interview held (Y/N), decision placeholder, signatures. Constraints: GDPR-aware fields; not a legal instrument.",
+      tags: ["secretary", "records", "integrity"]
+    },
+    {
+      subcategory: "psychologist",
+      subject: "Restorative practice",
+      title: "Conversation guide — after advantage concerns",
+      prompt: "Role: School psychologist. Context: Student admits or is suspected of misusing AI in a graded task; goal is learning and repair. Task: Outline for a 20-minute conversation: rapport, facts without moral panic, impact on trust, agreed next step, follow-up. Constraints: Trauma-informed; suitable for ages 12–18.",
+      tags: ["psychologist", "restorative", "integrity"]
     }
   ]
 };
-(window._pc = window._pc || {}).en = Object.values(embeddedPromptsData).reduce(function(s,a){return s+a.length;},0);
+  window._pc = window._pc || {};
+  window._pc[L] = Object.values(window.__embeddedPromptsByLang[L]).reduce(function(s,a){return s+a.length;},0);
+})('en');

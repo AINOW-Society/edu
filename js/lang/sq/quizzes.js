@@ -880,6 +880,270 @@ var QUIZ_DATA = {
             question: 'Krahasoni temperaturën e ulët (0.1) kundrejt cilësimeve të temperaturës së lartë (0.9).'
         }
     ],
+    'prompt-advanced': [
+        {
+            id: 'Q-092',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'Promptimi „zinxhir mendimesh“ (chain-of-thought) është më i dobishëm kur doni që modeli të:',
+            options: [
+                'Anashkalojë shpjegimin',
+                'Ndajë problemin në hapa të qartë para përgjigjes përfundimtare',
+                'Përgjigjet gjithmonë me një fjalë',
+                'Injorojë udhëzimet'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-093',
+            grade: 'primary_upper',
+            type: 'mcq',
+            question: 'Few-shot prompting do të thotë:',
+            options: [
+                'Kurrë nuk jepni shembuj',
+                'Përfshini në prompt pak shembuj hyrje–dalje',
+                'Përdorni vetëm figura',
+                'Fikni modelin'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-094',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Jepni një shembull nga mësimi ku dalja e strukturuar (p.sh. JSON ose tituj me pika) do t\'ju lehtësonte ripërdorimin e përgjigjes së IA-së.'
+        },
+        {
+            id: 'Q-095',
+            grade: 'primary_upper',
+            type: 'mcq',
+            question: 'Mesazhi i sistemit (system message) kryesisht:',
+            options: [
+                'Zëvendëson çdo mesazh përdoruesi',
+                'Vendos rregulla të qëndrueshme, rol dhe pritshmëri sigurie për të gjithë bisedën',
+                'Fshin automatikisht mesazhet e mëparshme',
+                'Ndryshon vetëm madhësinë e shkrimit'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-096',
+            grade: 'secondary',
+            type: 'mcq',
+            question: '„Temperatura“ më e lartë në gjenerim zakonisht e bën daljen:',
+            options: [
+                'Më të rastësishme dhe më të larmishme',
+                'Gjithmonë më të shkurtër',
+                'Gjithmonë faktike pa gabime',
+                'Të palexueshme'
+            ],
+            answer: 0
+        },
+        {
+            id: 'Q-097',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Shpjegoni me fjalët tuaja dallimin midis promptimit zero-shot dhe few-shot.'
+        }
+    ],
+    'memory-rag': [
+        {
+            id: 'Q-098',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'RAG (Retrieval-Augmented Generation) zakonisht e kombinon modelin gjuhësor me:',
+            options: [
+                'Vetëm një fletëllogaritje',
+                'Një hap të marrjes së dokumenteve ose pjesëve përkatëse',
+                'Një printer',
+                'Vetëm një robot fizik'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-099',
+            grade: 'primary_upper',
+            type: 'mcq',
+            question: 'Pse i bashkëngjitet teksti i marrë në prompt para pyetjes?',
+            options: [
+                'Vetëm për ta zgjatur pa qëllim',
+                'Për të bazuar përgjigjet në burime specifike',
+                'Për ta fikur modelin',
+                'Për të mos përdorur kurrë internetin'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-100',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Pse bisedat shumë të gjata mund ta bëjnë modelin të „harrojë“ detajet nga fillimi?'
+        },
+        {
+            id: 'Q-101',
+            grade: 'primary_lower',
+            type: 'mcq',
+            question: 'Një „embedding“ përshkruhet më së miri si:',
+            options: [
+                'Një foto maceje',
+                'Një përfaqësim numerik që kap kuptimin për kërkim ngjashmërie',
+                'Një lloj virusi kompjuterik',
+                'Një fletë pune e shtypur'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-102',
+            grade: 'primary_upper',
+            type: 'mcq',
+            question: 'Një bazë të dhënash vektoriale përdoret shpesh për të:',
+            options: [
+                'Ruajtur fjalëkalimet në tekst të thjeshtë',
+                'Gjetur pjesët më të ngjashme të tekstit me një pyetje',
+                'Zëvendësuar të gjithë mësuesit',
+                'Fikur Wi-Fi'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-103',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Emërtoni një kufizim të RAG kur burimet janë të vjetruara, të njëanshme ose të paplota.'
+        }
+    ],
+    'performance-design': [
+        {
+            id: 'Q-104',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'Një benchmark për një mjet IA mat:',
+            options: [
+                'Vetëm çmimin e laptopëve',
+                'Detyra ose metrika të standardizuara për të krahasuar cilësinë, shpejtësinë ose saktësinë',
+                'Sa zhurmë ka dhoma e serverëve',
+                'Madhësinë e këpucëve të nxënësve'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-105',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'Overfitting gjatë fine-tuning do të thotë që modeli:',
+            options: [
+                'Përgjithësohet përsosmërisht në shembuj të rinj',
+                'Memorizon detaje trajnimi dhe mund të punojë keq në të dhëna të reja',
+                'Kurrë nuk trajnohet',
+                'Funksionon vetëm jashtë linje'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-106',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Pse mësuesit duhet të rishikojnë vlerësimin ose feedback-un me ndihmën e IA-së para se të arrijë te nxënësit?'
+        },
+        {
+            id: 'Q-107',
+            grade: 'primary_upper',
+            type: 'mcq',
+            question: 'Vonesa (latenca) e përgjigjes është e rëndësishme në klasë sepse:',
+            options: [
+                'Mjetet e ngadalta humbasin kohë mësimi dhe prishin vëmendjen',
+                'Mjetet më të shpejta janë gjithmonë më pak të sakta',
+                'Vonesa nuk matet kurrë',
+                'Nxënësit kurrë nuk përdorin pajisje'
+            ],
+            answer: 0
+        },
+        {
+            id: 'Q-108',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'Krahasimi i dy prompt-eve në të njëjtin detyrë ju ndihmon të:',
+            options: [
+                'Shmangni çdo vlerësim',
+                'Shihni cilët udhëzime japin dalje më të qarta, më të sigurta ose më të sakta',
+                'Fshini punën e nxënësve',
+                'Hiqni qëllimet e të nxënit'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-109',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Emërtoni një metrikë që do të ndiqnit gjatë pilotimit të një mjeti IA në një shkollë (p.sh. saktësia, koha e kursyer, angazhimi).'
+        }
+    ],
+    'safety-limits': [
+        {
+            id: 'Q-110',
+            grade: 'primary_upper',
+            type: 'mcq',
+            question: 'Një „guardrail“ në një produkt IA synon të:',
+            options: [
+                'Heqë të gjithë mësimin',
+                'Ulë daljet e dëmshme, të njëanshme ose kundër politikave',
+                'Garantojë 100% diagnoza mjekësore të sakta',
+                'Ruajë fjalëkalimet publikisht'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-111',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'Nxënësit duhet të trajtojnë këshillat mjekësore ose ligjore nga IA si:',
+            options: [
+                'Zëvendësim për një profesionist të licencuar',
+                'Informacion që duhet verifikuar te ekspertë të kualifikuar',
+                'Gjithmonë të saktë',
+                'Vetëm përgjigje sekrete për shtëpi'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-112',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Pse është e rrezikshme të ngjitni të dhëna personale të nxënësve në një chatbot publik ose të padëshmuar?'
+        },
+        {
+            id: 'Q-113',
+            grade: 'primary_upper',
+            type: 'mcq',
+            question: 'Filtrimi i përmbajtjes dhe moderimi synojnë të:',
+            options: [
+                'Bllokojnë gjithë arsimin',
+                'Bllokojnë ose shënojnë përmbajtje të pasigurt sipas politikës',
+                'Zëvendësojnë plotësisht mësuesit',
+                'Publikojnë automatikisht biseda private'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-114',
+            grade: 'secondary',
+            type: 'mcq',
+            question: '„Red teaming“ i një sistemi IA zakonisht do të thotë:',
+            options: [
+                'Të lyhet serveri i kuq',
+                'Të testohet proaktivisht për dështime, keqpërdorim dhe dalje të dëmshme',
+                'Të fshihen rastësisht të dhënat e trajnimit',
+                'Të çaktivizohen gjithmonë veçoritë e sigurisë'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-115',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Çfarë duhet të bëjë mësuesi nëse modeli prodhon përmbajtje të njëanshme ose fyese gjatë mësimdhënies?'
+        }
+    ],
     'agent-advanced': [
         {
             id: 'Q-047',
@@ -1010,6 +1274,138 @@ var QUIZ_DATA = {
             grade: 'secondary',
             type: 'open',
             question: 'Çfarë është dizajni "AGI-Native" dhe pse është i rëndësishëm?'
+        }
+    ],
+    'school-context': [
+        {
+            id: 'Q-116',
+            grade: 'primary_upper',
+            type: 'mcq',
+            question: 'Kur përdoret IA në një shkollë shumëgjuhëshe, mësuesi kryesisht duhet të:',
+            options: [
+                'Lërë modelin të zgjedhë çdo gjuhë',
+                'Specifikojë gjuhën e daljes dhe nivelin e leximit në prompt',
+                'Shkruajë gjithmonë vetëm në anglisht',
+                'Mos ofrojë asnjë mbështetje përkthimi për prindërit'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-117',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'Para se të dërgoni komunikim me prindër të hartuar nga IA, duhet të:',
+            options: [
+                'E dërgoni menjëherë pa rishikim',
+                'Një koleg i kualifikuar e rishikojë për saktësi dhe ton',
+                'Hiqni të gjitha emërtimet e shkollës',
+                'E postoni fillimisht në rrjete sociale'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-118',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Emërtoni një lloj informacioni nxënësi që nuk duhet ngjitur në një chat IA konsumatori publik, dhe pse.'
+        },
+        {
+            id: 'Q-119',
+            grade: 'primary_lower',
+            type: 'mcq',
+            question: 'Seksioni Burime në AINOW kryesisht i ndihmon mësuesit duke:',
+            options: [
+                'Zëvendësuar të gjithë planifikimin e mësimit',
+                'Paketuar pjesë udhëzuesi, prompte dhe teste për shtyp ose PDF',
+                'Fshirë automatikisht punën e nxënësve',
+                'Bllokuar aksesin në internet'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-120',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'Nëse dalja e IA-së citon një qarkullim ministror për të cilin nuk jeni të sigurt, duhet të:',
+            options: [
+                'Trajtohet si ligjërisht detyruese',
+                'Verifikohet te burime zyrtare ose staf i kualifikuar',
+                'Injorohet plotësisht',
+                'Ndajet anonimisht në internet'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-121',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Jepni një shembull se si materialet “offline-first” (shtyp/PDF) ndihmojnë shkollat me lidhje të dobët.'
+        }
+    ],
+    'integrity-feedback': [
+        {
+            id: 'Q-122',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'Udhëzuesi rekomandon deklarimin e përdorimit të IA kryesisht që:',
+            options: [
+                'Nxënësit të ndihen të turpëruar',
+                'Pritjet të jenë transparente dhe puna të vlerësohet drejt',
+                'Mësuesi të mos lexojë kurrë draftin final',
+                'Kompani të IA-së të marrin të dhëna nxënësish'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-123',
+            grade: 'primary_upper',
+            type: 'mcq',
+            question: 'Cila detyrë zakonisht e vështirëson “kopjo-ngjit nga IA”?',
+            options: [
+                'Një ese e përgjithshme pesë-paragrafësh pa kontekst lokal',
+                'Detyrë që kërkon shënime procesi, burime ose shpjegim gojor të arsyetimit',
+                'Detyrë vetëm me numër faqeje në tekst',
+                'Detyrë pa afat'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-124',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Emërtoni një mënyrë feedback-u për një draft që mund të ketë përdorur IA, me fokus te kuptimi i nxënësit, jo te stili.'
+        },
+        {
+            id: 'Q-125',
+            grade: 'secondary',
+            type: 'mcq',
+            question: 'Përputhja e shkollës për integritetin me IA do të thotë:',
+            options: [
+                'Çdo mësues bën rregulla të pavarura',
+                'Drejtuesit, pedagogët dhe ekipet ndajnë baza të qarta dhe procedura të drejta',
+                'Vetëm mësuesi i informatikës vendos politikën',
+                'Familjet kurrë nuk informohen'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-126',
+            grade: 'primary_lower',
+            type: 'mcq',
+            question: 'Përdorimi i ndershëm i IA në klasë lidhet më mirë me:',
+            options: [
+                'Përdorim vetëm të fshehtë',
+                'Rregulla të qarta para detyrës dhe shembuj ndihme të lejuar',
+                'Pa diskutim me nxënësit',
+                'Ndalimin e të gjitha mjeteve të shkrimit'
+            ],
+            answer: 1
+        },
+        {
+            id: 'Q-127',
+            grade: 'secondary',
+            type: 'open',
+            question: 'Pse ndalimi i IA pa alternativa shpesh shtyn nxënësit drejt keqpërdorimit të fshehtë?'
         }
     ]
 };

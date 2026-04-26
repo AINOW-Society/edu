@@ -11,12 +11,12 @@ Optional maintenance helpers for the AINOW platform.
 The version number lives in three places. This script updates all three
 at once so they never drift apart:
 
-- `js/app.js` — `const APP_VERSION = 'v0.91';`
-- `service-worker.js` — `const CACHE_NAME = 'ai-edu-v0.91';`
+- `js/app.js` — `const APP_VERSION = 'v0.92';`
+- `service-worker.js` — `const CACHE_NAME = 'ai-edu-v0.92';`
 - `index.html` — every `?v=NN` cache-buster
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/bump-version.ps1 -NewVersion 0.91
+powershell -ExecutionPolicy Bypass -File scripts/bump-version.ps1 -NewVersion 0.92
 ```
 
 Commit all three files together after running.
