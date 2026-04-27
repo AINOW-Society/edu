@@ -172,7 +172,7 @@ var HOMEWORK_DATA = [
     {
         id: 'hw-fact-check-ai',
         topic: 'safety-limits',
-        title: 'Fact-check challenge: don’t trust the chatbot blindly',
+        title: 'Fact-check challenge: don’t blindly trust a chatbot',
         meta: '30–40 min · Grades 8–12',
         content: `
 <p style="font-size:12px;color:#6b7280;margin:0 0 14px 0;"><strong>For students.</strong> If you use a chatbot: treat its answer as a <em>draft</em>. You must verify with at least <strong>two independent sources</strong> (e.g. textbook, encyclopedia, official site — not random blogs).</p>

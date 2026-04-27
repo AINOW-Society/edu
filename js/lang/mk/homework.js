@@ -171,19 +171,19 @@ var HOMEWORK_DATA = [
     {
         id: 'hw-fact-check-ai',
         topic: 'safety-limits',
-        title: 'Проверка на факти: не верувај слепо на чат-бот',
+        title: 'Проверка на факти: не му верувај слепо на чат-ботот',
         meta: '30–40 мин · 8–12 одделение',
         content: `
 <p style="font-size:12px;color:#6b7280;margin:0 0 14px 0;"><strong>За ученици.</strong> Чат-бот = <em>нацрт</em>. Потврди со <strong>два независни извора</strong>.</p>
 <p style="font-size:13px;font-weight:700;color:#111827;margin:0 0 8px 0;">Задача</p>
 <ol style="font-size:13px;line-height:1.7;color:#374151;padding-left:18px;margin:0;">
 <li>Конкретно фактичко прашање.</li>
-<li>Тврдна од бот или прв извор (една реченица).</li>
+<li>Тврдење од ботот или од првиот извор (една реченица).</li>
 <li>Дали изворите се согласуваат? Заклучок.</li>
 </ol>
 <p style="font-size:13px;font-weight:700;color:#111827;margin:16px 0 8px 0;">1. Прашање</p>
 <div style="border-bottom:1px solid #d1d5db;height:36px;"></div>
-<p style="font-size:13px;font-weight:700;color:#111827;margin:16px 0 8px 0;">2. Тврдна</p>
+<p style="font-size:13px;font-weight:700;color:#111827;margin:16px 0 8px 0;">2. Тврдење</p>
 <div style="border-bottom:1px solid #d1d5db;height:36px;"></div>
 <p style="font-size:13px;font-weight:700;color:#111827;margin:16px 0 8px 0;">3. Извори</p>
 <div style="border:1px solid #e5e7eb;min-height:72px;padding:10px;border-radius:6px;"></div>

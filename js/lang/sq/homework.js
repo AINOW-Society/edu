@@ -171,7 +171,7 @@ var HOMEWORK_DATA = [
     {
         id: 'hw-fact-check-ai',
         topic: 'safety-limits',
-        title: 'Sfida e verifikimit: mos u beso verbërisht chatbot-it',
+        title: 'Sfida e verifikimit: mos i beso verbërisht chatbot-it',
         meta: '30–40 min · Klasat 8–12',
         content: `
 <p style="font-size:12px;color:#6b7280;margin:0 0 14px 0;"><strong>Për nxënësit.</strong> Chatbot = <em>skicë</em>. Verifiko me <strong>dy burime</strong>.</p>
