@@ -5,8 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AINOW - Платформа за AI Писменост</title>
     <script>
-        sessionStorage.setItem('spa-redirect', window.location.href);
-        window.location.replace('/');
+        // GitHub Pages serves this for every unmatched path and allows only
+        // one 404 handler, at the site root. Route the visitor into whichever
+        // app they were aiming at rather than always dumping them on the
+        // chooser.
+        (function () {
+            var path = window.location.pathname;
+            sessionStorage.setItem('spa-redirect', window.location.href);
+            if (path.indexOf('/edu/') === 0) {
+                window.location.replace('/edu/');
+            } else if (path.indexOf('/biz/') === 0) {
+                window.location.replace('/biz/');
+            } else {
+                window.location.replace('/');
+            }
+        })();
 </script>
 </head>
 <body></body>
