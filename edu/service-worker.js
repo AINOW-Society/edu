@@ -1,38 +1,38 @@
-const CACHE_NAME = 'ai-edu-v0.93';
+const CACHE_NAME = 'ai-edu-v0.94';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/css/styles.css',
-    '/js/i18n.js',
-    '/js/app.js',
-    '/js/router.js',
-    '/js/engine.js',
-    '/js/glossary-data.js',
-    '/manifest.json',
-    '/views/home.js',
-    '/views/help.js',
-    '/views/guide.js',
-    '/views/prompts.js',
-    '/views/tools.js',
-    '/views/about.js',
-    '/views/resources.js',
-    '/views/glossary.js',
-    '/js/lang/mk/docs.js',
-    '/js/lang/mk/prompts.js',
-    '/js/lang/en/docs.js',
-    '/js/lang/en/prompts.js',
-    '/js/lang/sq/docs.js',
-    '/js/lang/sq/prompts.js',
-    '/js/lang/mk/quizzes.js',
-    '/js/lang/en/quizzes.js',
-    '/js/lang/sq/quizzes.js',
-    '/js/lang/mk/homework.js',
-    '/js/lang/en/homework.js',
-    '/js/lang/sq/homework.js',
-    '/js/lib/html2canvas.min.js',
-    '/js/lib/jspdf.min.js',
-    '/assets/logo.svg',
-    '/assets/icon-maskable.svg'
+    './',
+    './index.html',
+    './css/styles.css',
+    './js/i18n.js',
+    './js/app.js',
+    './js/router.js',
+    './js/engine.js',
+    './js/glossary-data.js',
+    './manifest.json',
+    './views/home.js',
+    './views/help.js',
+    './views/guide.js',
+    './views/prompts.js',
+    './views/tools.js',
+    './views/about.js',
+    './views/resources.js',
+    './views/glossary.js',
+    './js/lang/mk/docs.js',
+    './js/lang/mk/prompts.js',
+    './js/lang/en/docs.js',
+    './js/lang/en/prompts.js',
+    './js/lang/sq/docs.js',
+    './js/lang/sq/prompts.js',
+    './js/lang/mk/quizzes.js',
+    './js/lang/en/quizzes.js',
+    './js/lang/sq/quizzes.js',
+    './js/lang/mk/homework.js',
+    './js/lang/en/homework.js',
+    './js/lang/sq/homework.js',
+    './js/lib/html2canvas.min.js',
+    './js/lib/jspdf.min.js',
+    './assets/logo.svg',
+    './assets/icon-maskable.svg'
 ];
 
 self.addEventListener('install', event => {
@@ -72,7 +72,7 @@ self.addEventListener('fetch', event => {
                 })
                 .catch(() =>
                     caches.match(event.request, { ignoreSearch: true })
-                        .then(cached => cached || caches.match('/index.html'))
+                        .then(cached => cached || caches.match('./index.html'))
                 )
         );
         return;
