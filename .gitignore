@@ -22,6 +22,9 @@ desktop.ini
 # Release archives (keep off Git; attach ZIPs to GitHub Releases instead)
 *.zip
 
+# Local working copies of tagged releases (always recoverable via git tag)
+AINOW-Literacy-v0.9*/
+
 # Scraps
 translate_prompts.py
 translate_script.js
