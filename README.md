@@ -51,6 +51,14 @@ We have prepared a comprehensive **[Contribution Guide](CONTRIBUTING.md)** that 
 
 ## Changelog
 
+### v0.94 (August 16, 2026)
+- **Two products, one platform:** The site root is now a chooser between **Education** and **Business**. The education app moves to `/edu/` and keeps every feature, its offline behavior, and its free licence unchanged. Business ships in a later release.
+- **PWA migration:** `start_url` and `scope` retargeted to `/edu/`; the service worker precache list rewritten from root-absolute to relative paths. A root-scope cleanup worker evicts stale `ai-edu-v0.93` caches from already-installed devices, then unregisters itself. The landing page redirects to `/edu/` when launched in standalone mode, so existing home-screen icons still open the app.
+- **Path-aware 404:** Unmatched URLs under `/edu/` now return to the education app instead of the chooser.
+- **Social preview fix:** `og:image` and `twitter:image` pointed at `/assets/ainow.png`, which the relocation invalidated; both now resolve.
+- **Version tooling:** Restored `scripts/bump-version.ps1` (maintainer-local, gitignored by project convention), which the README documented but which was missing. `APP_VERSION`, `CACHE_NAME`, and all `?v=` query strings now move in one command.
+- **Service Worker:** Cache bumped to `ai-edu-v0.94`.
+
 ### v0.93 (April 27, 2026)
 - **Onboarding refresh:** Reworked the welcome tour into a clearer 6-step onboarding flow with improved content coverage for navigation, resources, privacy, and responsible AI use.
 - **Mobile-first modal UX:** Polished onboarding modal layout on phones (tighter spacing, improved typography, cleaner controls, and compact next/back/done navigation behavior).
