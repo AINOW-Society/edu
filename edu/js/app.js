@@ -1,4 +1,4 @@
-const APP_VERSION = 'v0.93';
+const APP_VERSION = 'v0.94';
 
 function escapeHtml(str) {
     return String(str)
