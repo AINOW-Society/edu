@@ -1,0 +1,11 @@
+{
+  "name": "AINOW Platform",
+  "short_name": "AINOW",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "description": "The Open Intelligence Library - Prompts, Agents, and Workflows.",
+  "icons": [],
+  "requestFramePermissions": []
+}

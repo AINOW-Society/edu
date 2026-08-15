@@ -524,6 +524,24 @@ cd "D:/AINOW Literacy - dev/biz" && grep -n "tailwind" *.html | grep -v "libs/ta
 
 Expected: only the `tailwind.config` blocks and the warning suppressor — no `cdn.tailwindcss.com` script tag.
 
+- [ ] **Step 3b: Regenerate `biz/sw.js`'s precache list**
+
+The copied `sw.js` precaches files that no longer exist (`lab.html`,
+`settings.html`, `src/lab.js`, `src/settings.js`, `data-bosnian.js`,
+`data-serbian.js`) and is missing everything the conversion added
+(`src/runtime.js`, `config.js`, `libs/*`). Deliberately deferred to this point,
+because the final file set is only known after Tasks 3–5.
+
+Generate the list from disk rather than maintaining it by hand:
+
+```bash
+cd "D:/AINOW Literacy - dev/biz" && find . -type f \( -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.json" \) -not -name "sw.js" | sed "s|^\./|  './|; s|$|',|" | sort
+```
+
+Paste the result as the `ASSETS` array. Also switch the install handler to
+`Promise.allSettled` per URL, so one missing file cannot fail the whole
+install — the same hardening the education app applies.
+
 - [ ] **Step 4: Verify no module scripts remain**
 
 ```bash

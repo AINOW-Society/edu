@@ -1,0 +1,641 @@
+
+import React, { useEffect } from 'react';
+import htm from 'htm';
+import {
+    Settings2, Search, Play, Copy,
+    Terminal, Code, CheckCircle,
+    Heart, Share2, ExternalLink, Shield, Users, Lock, Eye, Scale,
+    BrainCircuit, AlertTriangle, Book, Github, Hand, User, Sparkles, Ban, GitMerge, Globe, Activity, Keyboard, Cpu, Palette, Box
+} from 'lucide-react';
+import { useLanguage } from './components.js';
+
+const html = htm.bind(React.createElement);
+
+const PageWrapper = ({ title, children }) => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    return html`
+        <div className="max-w-4xl mx-auto px-6 py-12 animate-fade-in text-left">
+            <h1 className="text-3xl sm:text-4xl font-[600] tracking-tight text-charcoal dark:text-white text-left tabular-nums mb-6 uppercase">${title}</h1>
+            <div className="prose prose-slate dark:prose-invert max-w-none">
+                ${children}
+            </div>
+        </div>
+    `;
+};
+
+const ContentCard = ({ title, desc, labels = [], icon: Icon }) => html`
+    <div className="p-6 rounded-2xl bg-opal-surface dark:bg-slate-800 border border-mist dark:border-slate-700 hover:border-coral transition-all group flex flex-col h-full shadow-sm hover:shadow-md">
+        ${Icon && html`<div className="mb-4 text-stone group-hover:text-coral transition-colors"><${Icon} className="w-5 h-5" /></div>`}
+        <h3 className="font-black text-charcoal dark:text-slate-100 mb-2 uppercase tracking-tight text-sm">${title}</h3>
+        <p className="text-stone dark:text-slate-400 text-[11px] leading-relaxed mb-4 flex-1">${desc}</p>
+        <div className="flex flex-wrap gap-1.5">
+            ${labels.map(label => html`
+                <span key=${label} className="px-2 py-0.5 rounded-md bg-opal-bg dark:bg-slate-700 text-stone-dark dark:text-slate-300 text-[9px] font-black uppercase tracking-widest border border-mist dark:border-slate-600">
+                    ${label}
+                </span>
+            `)}
+        </div>
+    </div>
+`;
+
+const AboutPage = () => {
+    const { t } = useLanguage();
+    return html`
+    <${PageWrapper} title=${t('pages.about.title')}>
+        
+        <div className="mb-12">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">${t('pages.about.story_title')}</h2>
+            <p className="lead text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                ${t('pages.about.story_text')}
+            </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 not-prose">
+            <div className="bg-opal-sidebar dark:bg-indigo-900/20 p-8 rounded-3xl border border-mist dark:border-indigo-800">
+                <h2 className="text-xl font-bold text-charcoal dark:text-indigo-300 mb-4 flex items-center gap-2">
+                    ${t('pages.about.mission_title')}
+                </h2>
+                <p className="text-stone dark:text-indigo-200 leading-relaxed text-sm">
+                    ${t('pages.about.mission_text')}
+                </p>
+            </div>
+            
+            <div className="bg-opal-bg dark:bg-slate-800/50 p-8 rounded-3xl border border-mist dark:border-slate-800">
+                <h2 className="text-xl font-bold text-charcoal dark:text-white mb-4">
+                    ${t('pages.about.values_title')}
+                </h2>
+                <p className="text-stone dark:text-slate-300 leading-relaxed text-sm">
+                    ${t('pages.about.values_text')}
+                </p>
+            </div>
+        </div>
+
+        <div className="mb-16 not-prose">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">${t('pages.about.creator_title')}</h2>
+            <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-8 shadow-sm transition-all hover:shadow-md">
+                <div className="flex flex-col gap-6">
+                    <div>
+                        <div className="flex flex-wrap items-center gap-3 mb-4">
+                            <h3 className="text-2xl font-black text-slate-900 dark:text-white">Suad Seferi</h3>
+                            <span className="px-3 py-1 rounded-full bg-coral/10 dark:bg-coral/20 text-coral dark:text-coral-light text-xs font-bold uppercase tracking-wider">Founder & President</span>
+                        </div>
+                        
+                        <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-base mb-6">
+                            ${t('pages.about.creator_bio')}
+                        </p>
+
+                        <div className="bg-opal-sidebar dark:bg-coral/10 p-6 rounded-2xl border border-mist dark:border-coral-dark/50 mb-6 text-center relative overflow-hidden">
+                            <div className="absolute top-0 left-0 w-full h-1 bg-coral opacity-50"></div>
+                            <p className="text-charcoal dark:text-coral-light text-xl font-black leading-tight italic relative z-10">
+                                ${t('pages.about.creator_quote')}
+                            </p>
+                        </div>
+
+                        <div className="mb-6">
+                            <p className="text-slate-600 dark:text-slate-400 text-sm italic border-l-4 border-slate-200 dark:border-slate-700 pl-4 py-1">
+                                ${t('pages.about.creator_quote_2')}
+                            </p>
+                        </div>
+
+                        <a href="https://suad.ainow.mk" target="_blank" className="inline-flex items-center gap-2 text-coral dark:text-coral-light font-bold hover:underline transition-all hover:text-stone-light dark:hover:text-coral-light">
+                            ${t('pages.about.bio_link')} <${ExternalLink} className="w-4 h-4" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div className="flex justify-center mb-16 not-prose">
+            <a href="https://www.ainow.mk" target="_blank" className="group inline-flex items-center gap-3 px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-bold transition-all hover:scale-105 shadow-xl hover:shadow-2xl">
+                Visit Official Website <${ExternalLink} className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+        </div>
+
+        <hr className="my-12 border-slate-200 dark:border-slate-800" />
+
+        <section>
+            <h2>${t('pages.about.project_title')}</h2>
+            <p>${t('pages.about.project_text')}</p>
+            <p>${t('pages.about.project_text_2')}</p>
+        </section>
+
+        <h2 className="mt-12 text-2xl font-bold tracking-tight">${t('pages.about.contact_title')}</h2>
+        <p>${t('pages.about.contact_text')} <a href="mailto:contact@ainow.mk" className="text-coral font-bold hover:underline">contact@ainow.mk</a>.</p>
+    <//>
+    `;
+};
+
+const DocumentationPage = () => {
+    const { t } = useLanguage();
+
+    return html`
+    <${PageWrapper} title=${t('pages.documentation.title')}>
+        <div className="bg-coral/10 dark:bg-coral/10 rounded-3xl p-8 border border-mist dark:border-coral-dark mb-12 not-prose">
+            <h2 className="text-2xl font-bold tracking-tight text-charcoal dark:text-coral-light mb-4 mt-0">${t('pages.documentation.intro.title')}</h2>
+            <p className="text-stone-light dark:text-coral-light leading-relaxed mb-0 text-base">
+                ${t('pages.documentation.intro.text')}
+            </p>
+        </div>
+        
+        <div className="space-y-16">
+            <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <${Code} className="w-6 h-6 text-coral" />
+                    ${t('pages.documentation.architecture.title')}
+                </h2>
+                <p>${t('pages.documentation.architecture.text_1')} <strong>${t('pages.documentation.architecture.text_strong')}</strong> ${t('pages.documentation.architecture.text_2')}</p>
+                
+                <div className="mt-6 space-y-4">
+                    <div className="bg-slate-900 text-slate-300 p-4 rounded-xl font-mono text-xs overflow-x-auto border border-slate-700">
+                        <div className="mb-2 text-slate-500">// Example Prompt Entry (src/data/data-prompts.js)</div>
+                        <div>{</div>
+                        <div className="pl-4">id: <span className="text-emerald-400">"dev-01"</span>,</div>
+                        <div className="pl-4">title: <span className="text-emerald-400">"React Component Generator"</span>,</div>
+                        <div className="pl-4">desc: <span className="text-emerald-400">"Creates a functional component with PropType validation."</span>,</div>
+                        <div className="pl-4">prompt: <span className="text-emerald-400">"Create a React component named [Component Name]..."</span>,</div>
+                        <div className="pl-4">category: <span className="text-emerald-400">"Coding"</span>,</div>
+                        <div className="pl-4">tags: [<span className="text-emerald-400">"React"</span>, <span className="text-emerald-400">"Frontend"</span>]</div>
+                        <div>}</div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <${Terminal} className="w-6 h-6 text-coral" />
+                    ${t('pages.documentation.variables.title')}
+                </h2>
+                <p>${t('pages.documentation.variables.text_1')} <strong>${t('pages.documentation.variables.text_strong')}</strong> ${t('pages.documentation.variables.text_2')}</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 not-prose">
+                    <div className="p-4 bg-white dark:bg-slate-800 border rounded-xl">
+                        <h4 className="font-bold text-sm mb-2">${t('pages.documentation.variables.prompt.title')}</h4>
+                        <code className="bg-slate-100 dark:bg-slate-900 px-2 py-1 rounded text-xs">Hello [Name], welcome to [City].</code>
+                        <p className="text-xs text-slate-500 mt-2">${t('pages.documentation.variables.prompt.desc')}</p>
+                    </div>
+                    <div className="p-4 bg-white dark:bg-slate-800 border rounded-xl">
+                        <h4 className="font-bold text-sm mb-2">${t('pages.documentation.variables.playbook.title')}</h4>
+                        <code className="bg-slate-100 dark:bg-slate-900 px-2 py-1 rounded text-xs">{{User Code}}</code>
+                        <p className="text-xs text-slate-500 mt-2">${t('pages.documentation.variables.playbook.desc')}</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 className="text-2xl font-bold mb-6">${t('pages.documentation.running.title')}</h2>
+                <p dangerouslySetInnerHTML=${{ __html: t('pages.documentation.running.text') }}></p>
+                <div className="bg-slate-900 text-slate-300 p-4 rounded-xl font-mono text-sm border border-slate-700 mt-4">
+                    <div>npm install</div>
+                    <div>npm run dev</div>
+                </div>
+                <p className="mt-4 text-sm text-slate-500" dangerouslySetInnerHTML=${{ __html: t('pages.documentation.running.desc') }}></p>
+            </section>
+        </div>
+    <//>
+    `;
+};
+
+const TransparencyPage = () => {
+    const { t } = useLanguage();
+    return html`
+    <${PageWrapper} title=${t('pages.transparency.title')}>
+        <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-3xl p-8 border border-emerald-100 dark:border-emerald-800 mb-12 not-prose">
+            <div className="flex items-center gap-3 mb-4 text-emerald-600 dark:text-emerald-400">
+                <${Activity} className="w-6 h-6" />
+                <h2 className="text-2xl font-bold m-0 dark:text-white">${t('pages.transparency.active.title')}</h2>
+            </div>
+            <p className="text-emerald-800 dark:text-emerald-200 leading-relaxed text-base">
+                ${t('pages.transparency.active.text')}
+            </p>
+        </div>
+
+        <section>
+            <h3 className="text-xl font-bold flex items-center gap-2"><${Globe} className="w-5 h-5 text-coral" /> ${t('pages.transparency.dependencies.title')}</h3>
+            <p className="text-sm text-slate-500 mb-4">${t('pages.transparency.dependencies.intro')}</p>
+            <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 not-prose">
+                <table className="w-full text-xs">
+                    <thead>
+                        <tr className="border-b dark:border-slate-700 text-slate-400 uppercase tracking-widest font-black">
+                            <td className="pb-2">${t('pages.transparency.dependencies.table.domain')}</td>
+                            <td className="pb-2">${t('pages.transparency.dependencies.table.purpose')}</td>
+                            <td className="pb-2">${t('pages.transparency.dependencies.table.frequency')}</td>
+                        </tr>
+                    </thead>
+                    <tbody className="text-slate-600 dark:text-slate-400 divide-y dark:divide-slate-700">
+                        <tr>
+                            <td className="py-3 font-mono font-bold text-coral">esm.sh</td>
+                            <td>${t('pages.transparency.dependencies.esm.desc')}</td>
+                            <td>${t('pages.transparency.dependencies.esm.freq')}</td>
+                        </tr>
+                        <tr>
+                            <td className="py-3 font-mono font-bold text-coral">cdn.tailwindcss.com</td>
+                            <td>${t('pages.transparency.dependencies.tailwind.desc')}</td>
+                            <td>${t('pages.transparency.dependencies.tailwind.freq')}</td>
+                        </tr>
+                        <tr>
+                            <td className="py-3 font-mono font-bold text-coral">fonts.googleapis.com</td>
+                            <td>${t('pages.transparency.dependencies.fonts.desc')}</td>
+                            <td>${t('pages.transparency.dependencies.fonts.freq')}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section className="mt-12">
+            <h3 className="text-xl font-bold flex items-center gap-2"><${Shield} className="w-5 h-5 text-emerald-500" /> ${t('pages.transparency.security.title')}</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="p-5 bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-xl shadow-sm">
+                    <h4 className="font-bold text-sm mb-2">${t('pages.transparency.security.db.title')}</h4>
+                    <p className="text-xs text-slate-500 leading-relaxed" dangerouslySetInnerHTML=${{ __html: t('pages.transparency.security.db.text') }}></p>
+                </div>
+                <div className="p-5 bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-xl shadow-sm">
+                    <h4 className="font-bold text-sm mb-2">${t('pages.transparency.security.track.title')}</h4>
+                    <p className="text-xs text-slate-500 leading-relaxed" dangerouslySetInnerHTML=${{ __html: t('pages.transparency.security.track.text') }}></p>
+                </div>
+            </div>
+        </section>
+
+        <section className="mt-16 border-t dark:border-slate-800 pt-8 text-center">
+            <p className="text-xs text-slate-400 italic">"${t('pages.transparency.quote')}" - Suad Seferi</p>
+        </section>
+    <//>
+    `;
+};
+
+const PoliciesPage = () => {
+    const { t } = useLanguage();
+    return html`
+    <${PageWrapper} title=${t('pages.legal.title')}>
+        
+        <div className="space-y-12">
+            <div className="bg-coral/10 dark:bg-coral/10 p-6 rounded-2xl border border-mist dark:border-coral-dark">
+                <h2 className="text-lg font-bold text-stone-light dark:text-coral-light mb-2 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-coral/100 inline-block"></span> ${t('pages.legal.open_source_title')}
+                </h2>
+                <p className="text-sm text-slate-600 dark:text-slate-400 mb-0">
+                    ${t('pages.legal.open_source_text')}
+                </p>
+            </div>
+
+            <section>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">${t('pages.legal.notice_title')}</h2>
+                <div className="space-y-6 text-sm text-slate-600 dark:text-slate-400">
+                    <div>
+                        <h3 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-2">${t('pages.legal.notice_1_title')}</h3>
+                        <p>${t('pages.legal.notice_1_text')}</p>
+                    </div>
+                    <div>
+                        <h3 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-2">${t('pages.legal.notice_2_title')}</h3>
+                        <p>${t('pages.legal.notice_2_text')}</p>
+                    </div>
+                    <div>
+                        <h3 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-2">${t('pages.legal.notice_3_title')}</h3>
+                        <ul className="list-none pl-0 space-y-1">
+                            <li><strong>Organization:</strong> Здружение за вештачка интелигенција АИ Сега Скопје (NGO AI NOW Skopje)</li>
+                            <li><strong>Email:</strong> <a href="mailto:contact@ainow.mk" className="text-coral hover:underline">contact@ainow.mk</a></li>
+                            <li><strong>Status:</strong> Non-profit organization registered under the Law on Associations and Foundations (Official Gazette of RNM).</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <hr className="border-slate-200 dark:border-slate-800" />
+
+            <section>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">${t('pages.legal.privacy_title')}</h2>
+                
+                <div className="space-y-6 text-sm text-slate-600 dark:text-slate-400">
+                    <div>
+                        <h3 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-2">${t('pages.legal.no_tracking_title')}</h3>
+                        <p>${t('pages.legal.no_tracking_text')}</p>
+                    </div>
+
+                    <div>
+                        <h3 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-2">${t('pages.legal.local_storage_title')}</h3>
+                        <p>${t('pages.legal.local_storage_text')}</p>
+                    </div>
+
+                    <div>
+                        <h3 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-2">${t('pages.legal.third_party_title')}</h3>
+                        <p>${t('pages.legal.third_party_text')}</p>
+                    </div>
+                </div>
+            </section>
+
+            <hr className="border-slate-200 dark:border-slate-800" />
+
+            <section>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">${t('pages.legal.terms_title')}</h2>
+                
+                <div className="space-y-6 text-sm text-slate-600 dark:text-slate-400">
+                    <div>
+                        <h3 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-2">${t('pages.legal.license_software')}</h3>
+                        <p>The underlying source code of this web application is licensed under the MIT License.</p>
+                    </div>
+
+                    <div>
+                        <h3 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-2">${t('pages.legal.license_content')}</h3>
+                        <p>The prompt library content and agent configurations are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license.</p>
+                    </div>
+
+                    <div>
+                        <h3 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-2">${t('pages.legal.user_resp_title')}</h3>
+                        <p>${t('pages.legal.user_resp_text')}</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    <//>
+    `;
+};
+
+const DocumentsPage = () => {
+    const { t } = useLanguage();
+    const standards = t('pages.ethical.community.items');
+    const resps = t('pages.ethical.user_resp.items');
+
+    return html`
+    <${PageWrapper} title=${t('pages.ethical.title')}>
+        <p className="lead text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-12">
+            ${t('pages.ethical.intro')}
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 not-prose">
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                <div className="flex items-center gap-3 mb-3 text-coral dark:text-indigo-400">
+                    <${Users} className="w-6 h-6" />
+                    <h3 className="text-lg font-bold m-0 dark:text-white">${t('pages.ethical.pillars.human.title')}</h3>
+                </div>
+                <p className="text-sm text-slate-600 dark:text-slate-400 mb-0">${t('pages.ethical.pillars.human.text')}</p>
+            </div>
+
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                <div className="flex items-center gap-3 mb-3 text-emerald-600 dark:text-emerald-400">
+                    <${Lock} className="w-6 h-6" />
+                    <h3 className="text-lg font-bold m-0 dark:text-white">${t('pages.ethical.pillars.privacy.title')}</h3>
+                </div>
+                <p className="text-sm text-slate-600 dark:text-slate-400 mb-0">${t('pages.ethical.pillars.privacy.text')}</p>
+            </div>
+
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                <div className="flex items-center gap-3 mb-3 text-amber-600 dark:text-amber-400">
+                    <${Scale} className="w-6 h-6" />
+                    <h3 className="text-lg font-bold m-0 dark:text-white">${t('pages.ethical.pillars.fairness.title')}</h3>
+                </div>
+                <p className="text-sm text-slate-600 dark:text-slate-400 mb-0">${t('pages.ethical.pillars.fairness.text')}</p>
+            </div>
+
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                <div className="flex items-center gap-3 mb-3 text-sky-600 dark:text-sky-400">
+                    <${Eye} className="w-6 h-6" />
+                    <h3 className="text-lg font-bold m-0 dark:text-white">${t('pages.ethical.pillars.transparency.title')}</h3>
+                </div>
+                <p className="text-sm text-slate-600 dark:text-slate-400 mb-0">${t('pages.ethical.pillars.transparency.text')}</p>
+            </div>
+        </div>
+
+        <hr className="border-slate-200 dark:border-slate-800 my-12" />
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <section>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                    <${Code} className="w-6 h-6 text-slate-400" />
+                    ${t('pages.ethical.philosophy.title')}
+                </h2>
+                <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed space-y-4">
+                    <p>${t('pages.ethical.philosophy.text')}</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                    <${Book} className="w-6 h-6 text-slate-400" />
+                    ${t('pages.ethical.literacy.title')}
+                </h2>
+                <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed space-y-4">
+                    <p>${t('pages.ethical.literacy.text')}</p>
+                </div>
+            </section>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <section>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                    <${Github} className="w-6 h-6 text-slate-400" />
+                    ${t('pages.ethical.community.title')}
+                </h2>
+                <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <p className="mb-4">${t('pages.ethical.community.intro')}</p>
+                    <ul className="space-y-2 list-none pl-0">
+                        ${Array.isArray(standards) && standards.map((s, i) => html`<li key=${i} className="flex gap-2"><${CheckCircle} className="w-4 h-4 text-coral flex-shrink-0" /> <span>${s}</span></li>`)}
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                    <${Hand} className="w-6 h-6 text-slate-400" />
+                    ${t('pages.ethical.accessibility.title')}
+                </h2>
+                <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed space-y-4">
+                    <p>${t('pages.ethical.accessibility.text')}</p>
+                </div>
+            </section>
+        </div>
+
+        <hr className="border-slate-200 dark:border-slate-800 my-12" />
+
+        <section>
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+                <${BrainCircuit} className="w-6 h-6 text-slate-400" />
+                ${t('pages.ethical.user_resp.title')}
+            </h2>
+            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-8 border border-slate-100 dark:border-slate-800">
+                <ul className="space-y-4 list-none pl-0 my-0">
+                    ${Array.isArray(resps) && resps.map((r, i) => html`
+                        <li key=${i} className="flex gap-3 items-start">
+                            <${CheckCircle} className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                            <span className="text-sm text-slate-700 dark:text-slate-300">${r}</span>
+                        </li>
+                    `)}
+                </ul>
+            </div>
+        </section>
+
+        <section className="mt-12 mb-16">
+            <div className="bg-amber-50 dark:bg-amber-900/20 rounded-2xl p-6 border border-amber-100 dark:border-amber-800/50 flex flex-col sm:flex-row gap-4">
+                <div className="p-3 bg-amber-100 dark:bg-amber-900/40 rounded-full h-fit w-fit text-amber-600 dark:text-amber-400 flex-shrink-0">
+                    <${AlertTriangle} className="w-6 h-6" />
+                </div>
+                <div>
+                    <h3 className="text-lg font-bold text-amber-900 dark:text-amber-200 mt-0 mb-2">${t('pages.ethical.risk.title')}</h3>
+                    <p className="text-sm text-amber-800 dark:text-amber-300 mb-0 leading-relaxed">
+                        ${t('pages.ethical.risk.text')} <a href="mailto:contact@ainow.mk" className="underline decoration-amber-500 font-bold hover:decoration-2">contact@ainow.mk</a>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section className="mt-16 border-t border-slate-200 dark:border-slate-800 pt-12">
+            <div className="flex flex-col md:flex-row items-center gap-6 bg-slate-50 dark:bg-slate-900/50 p-8 rounded-2xl border border-slate-100 dark:border-slate-800">
+                <div className="p-3 bg-white dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 shadow-sm text-coral dark:text-indigo-400">
+                    <${Hand} className="w-6 h-6" />
+                </div>
+                <div className="text-center md:text-left">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">${t('pages.ethical.stand.title')}</h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 m-0">
+                        ${t('pages.ethical.stand.text')}
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section className="mt-16 text-center">
+            <p className="text-sm text-slate-500 italic">"${t('pages.about.creator_quote')}"</p>
+        </section>
+
+    <//>
+    `;
+};
+
+const PartnersPage = () => {
+    const { t } = useLanguage();
+    return html`
+    <${PageWrapper} title=${t('pages.partners.title')}>
+        <p className="lead text-lg text-slate-600 dark:text-slate-300 mb-12">
+            ${t('pages.partners.intro')}
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 not-prose">
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+                <h3 className="text-xl font-bold mb-2 text-charcoal dark:text-indigo-400">${t('pages.partners.academic')}</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-400">${t('pages.partners.academic_text')}</p>
+            </div>
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+                <h3 className="text-xl font-bold mb-2 text-emerald-900 dark:text-emerald-400">${t('pages.partners.ngo')}</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-400">${t('pages.partners.ngo_text')}</p>
+            </div>
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+                <h3 className="text-xl font-bold mb-2 text-amber-900 dark:text-amber-400">${t('pages.partners.tech')}</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-400">${t('pages.partners.tech_text')}</p>
+            </div>
+            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+                <h3 className="text-xl font-bold mb-2 text-sky-900 dark:text-sky-400">${t('pages.partners.industry')}</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-400">${t('pages.partners.industry_text')}</p>
+            </div>
+        </div>
+
+        <div className="mt-16 p-8 bg-coral/10 dark:bg-indigo-900/20 rounded-3xl border border-mist dark:border-indigo-800 text-center not-prose">
+            <h2 className="text-2xl font-bold text-charcoal dark:text-white mb-4">${t('pages.partners.become')}</h2>
+            <p className="text-stone-light dark:text-indigo-200 mb-6">
+                ${t('pages.partners.become_text')} <a href="mailto:contact@ainow.mk" className="font-bold underline">contact@ainow.mk</a>
+            </p>
+        </div>
+    <//>
+    `;
+};
+
+const ModelsPage = () => {
+    const { t } = useLanguage();
+
+    const models = [
+        { id: 'claude',      icon: Sparkles,    color: 'orange', url: 'https://claude.ai' },
+        { id: 'gpt4o',       icon: BrainCircuit, color: 'emerald', url: 'https://chat.openai.com' },
+        { id: 'gemini',      icon: Cpu,         color: 'blue',   url: 'https://gemini.google.com' },
+        { id: 'deepseek',    icon: Globe,       color: 'sky',    url: 'https://chat.deepseek.com' },
+        { id: 'perplexity',  icon: Search,      color: 'violet', url: 'https://www.perplexity.ai' },
+        { id: 'midjourney',  icon: Palette,     color: 'purple', url: 'https://www.midjourney.com' },
+        { id: 'ollama',      icon: Terminal,    color: 'slate',  url: 'https://ollama.com' },
+        { id: 'lmstudio',    icon: Box,         color: 'indigo', url: 'https://lmstudio.ai' },
+    ];
+
+    return html`
+    <${PageWrapper} title=${t('pages.models.title')}>
+        <p className="lead text-lg text-slate-600 dark:text-slate-300 mb-12">
+            ${t('pages.models.intro')}
+        </p>
+        
+        <div className="space-y-8 not-prose">
+            ${models.map(model => html`
+            <div key=${model.id} className="p-8 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col md:flex-row gap-6 items-start hover:shadow-md transition-shadow">
+                <div className=${`p-4 rounded-xl shrink-0 bg-${model.color}-100 dark:bg-${model.color}-900/30 text-${model.color}-600 dark:text-${model.color}-400`}>
+                    <${model.icon} className="w-8 h-8" />
+                </div>
+                <div className="flex-1">
+                    <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">${t(`pages.models.${model.id}.name`)}</h3>
+                    <div className="flex gap-2 mb-3 flex-wrap">
+                        ${t(`pages.models.${model.id}.tags`, { returnObjects: true }).map(tag => html`
+                            <span key=${tag} className=${`px-2 py-1 text-[10px] font-bold uppercase rounded bg-${model.color}-50 text-${model.color}-700 dark:bg-${model.color}-900/50 dark:text-${model.color}-300`}>
+                                ${tag}
+                            </span>
+                        `)}
+                    </div>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
+                        ${t(`pages.models.${model.id}.desc`)}
+                    </p>
+                    <a href=${model.url} target="_blank" rel="noopener noreferrer" className=${`font-bold text-sm text-${model.color}-600 hover:text-${model.color}-500 flex items-center gap-2`}>
+                        ${t(`pages.models.${model.id}.link`)} <${ExternalLink} className="w-3 h-3" />
+                    </a>
+                </div>
+            </div>
+            `)}
+        </div>
+    <//>
+    `;
+};
+
+const AccessibilityPage = () => {
+    const { t } = useLanguage();
+    const commitments = t('pages.accessibility.commitment.items');
+
+    return html`
+    <${PageWrapper} title=${t('pages.accessibility.title')}>
+        <p className="lead text-lg text-slate-600 dark:text-slate-300 mb-8">
+            ${t('pages.accessibility.intro')}
+        </p>
+
+        <section className="mb-12">
+            <h2 className="text-2xl font-bold tracking-tight mb-6 dark:text-white">${t('pages.accessibility.keyboard_title')}</h2>
+            <div className="bg-coral/10 dark:bg-indigo-900/20 p-8 rounded-2xl border border-mist dark:border-indigo-800 text-center">
+                <p className="text-lg text-charcoal dark:text-indigo-200 mb-6 font-medium">
+                    We provide extensive keyboard support for power users.
+                </p>
+                <a href="help.html#shortcuts" className="inline-flex items-center gap-2 px-6 py-3 bg-coral text-white rounded-xl font-bold hover:bg-indigo-700 transition-colors shadow-lg shadow-coral-glow dark:shadow-none">
+                    <${Keyboard} className="w-5 h-5" />
+                    View Full Keyboard Shortcuts Guide
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2 className="text-2xl font-bold tracking-tight mb-4 dark:text-white">${t('pages.accessibility.commitment.title')}</h2>
+            <p className="mb-4 text-slate-600 dark:text-slate-300">
+                ${t('pages.accessibility.commitment.text')}
+            </p>
+            <ul className="list-disc pl-5 space-y-2 mb-6 text-slate-600 dark:text-slate-300">
+                ${Array.isArray(commitments) && commitments.map((c, i) => html`<li key=${i}>${c}</li>`)}
+            </ul>
+        </section>
+    <//>
+    `;
+};
+
+const pages = {
+    about: AboutPage,
+    documentation: DocumentationPage,
+    policies: PoliciesPage,
+    documents: DocumentsPage,
+    partners: PartnersPage,
+    models: ModelsPage,
+    accessibility: AccessibilityPage,
+    transparency: TransparencyPage
+};
+
+export const StaticPage = ({ page }) => {
+    const PageComponent = pages[page] || pages['documentation'];
+    return html`<${PageComponent} />`;
+};

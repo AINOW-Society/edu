@@ -4,17 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AINOW OS | Prompt Different.</title>
+  <title>AI Workflow Playbooks | AINOW OS</title>
   <link rel="icon" href="assets/logo-placeholder.png" type="image/png">
 
-  <link rel="canonical" href="https://your-domain.example/index.html">
+  <link rel="canonical" href="https://your-domain.example/playbooks.html">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "AINOW OS",
+      "name": "AI Workflow Playbooks",
       "operatingSystem": "Any",
       "applicationCategory": "ProductivityApplication",
+      "url": "https://your-domain.example/playbooks.html",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -29,42 +30,23 @@
         "@type": "Person",
         "name": "Suad Seferi"
       },
-      "description": "A comprehensive library of high-quality AI prompts for writing, coding, business, and more. Open-source, privacy-first, and offline-ready."
+      "description": "Master complex tasks with multi-step AI prompt chains. Automate workflows by connecting AI responses across specialized playbooks."
     }
   </script>
   <meta name="description"
-    content="A comprehensive library of high-quality AI prompts for writing, coding, business, and more. Open-source, privacy-first, and offline-ready.">
+    content="Master complex tasks with multi-step AI prompt chains. Automate workflows by connecting AI responses across specialized playbooks.">
   <meta name="keywords"
-    content="ai prompts, prompt engineering, chatgpt prompts, gemini prompts, writing prompts, coding help, business automation, AINOW, Suad Seferi">
+    content="prompt chaining, ai workflows, playbooks, step by step prompts, ai automation, workflow optimization, AINOW">
   <meta name="author" content="Suad Seferi - AINOW Society">
 
   <!-- Social Previews -->
-  <meta property="og:title" content="AINOW OS | Prompt Different.">
+  <meta property="og:title" content="AI Workflow Playbooks | AINOW OS">
   <meta property="og:description"
-    content="Explore thousands of professional-grade AI prompts. Privacy-first and 100% open source.">
+    content="Advanced prompt chaining engine for executing complex, multi-step professional tasks.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://your-domain.example/">
   <meta property="og:image" content="assets/logo-placeholder.png">
 
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#4f46e5">
-
-  <!-- Module Preload for faster initialization -->
-  <link rel="modulepreload" href="src/index.js">
-  <link rel="modulepreload" href="src/components.js">
-  <link rel="modulepreload" href="src/config.js">
-  <link rel="modulepreload" href="src/utils.js">
-
-  <script>
-    // Suppress Tailwind CDN warning
-    (function () {
-      const originalWarn = console.warn;
-      console.warn = function (...args) {
-        if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) return;
-        originalWarn.apply(console, args);
-      };
-    })();
-  </script>
+  <script>(function(){var w=console.warn;console.warn=function(){if(arguments[0]&&String(arguments[0]).includes("cdn.tailwindcss"))return;w.apply(console,arguments)};})();</script>
   <script src="libs/tailwindcss.js"></script>
   <script>
     tailwind.config = {
@@ -119,7 +101,7 @@
   <link rel="stylesheet" href="assets/style.css">
 </head>
 
-<body>
+<body class="">
   <div id="root"></div>
   <script>
       (function () {
@@ -137,7 +119,7 @@
         }
       })();
   </script>
-  <script type="module" src="src/index.js"></script>
+  <script type="module" src="src/playbooks.js"></script>
 </body>
 
 </html>
