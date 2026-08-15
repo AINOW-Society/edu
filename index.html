@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>AINOW — Платформа за ВИ писменост</title>
+<meta name="description" content="AINOW: AI literacy for educators and AI prompt tools for business. Offline-first, privacy-first, open source.">
+<meta name="author" content="Suad Seferi">
+<meta name="theme-color" content="#d97757">
+<link rel="canonical" href="https://edu.ainow.mk/">
+<link rel="icon" type="image/svg+xml" href="edu/assets/logo.svg">
+<link rel="icon" type="image/png" href="edu/assets/logo.png">
+<link rel="stylesheet" href="landing.css">
+<link rel="manifest" href="manifest.json">
+
+<meta property="og:title" content="AINOW — AI literacy and prompt tools">
+<meta property="og:description" content="Free AI literacy platform for educators, plus prompt tools for business. Offline-first and open source.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://edu.ainow.mk/">
+<meta property="og:image" content="https://edu.ainow.mk/edu/assets/ainow.png">
+
+<script>
+(function () {
+    // An installed home-screen icon must open the app the user installed,
+    // not a chooser they never asked for. Runs before render so the chooser
+    // never flashes.
+    var standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches)
+                     || window.navigator.standalone === true;
+    if (standalone) { window.location.replace('./edu/'); }
+
+    try {
+        if (localStorage.getItem('ainow-theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    } catch (e) {}
+})();
+</script>
+</head>
+<body>
+
+<div class="lang-row" role="group" aria-label="Language">
+    <button class="lang-btn" data-lang="mk" type="button">MK</button>
+    <button class="lang-btn" data-lang="sq" type="button">SQ</button>
+    <button class="lang-btn" data-lang="en" type="button">EN</button>
+</div>
+
+<div class="brand">
+    <svg viewBox="0 0 233.52 233.52" width="56" height="56" fill="currentColor" aria-hidden="true">
+        <path fill-rule="nonzero" d="M0 116.95c0 64.15 52.06 116.58 116.58 116.58 64.52 0 116.95-52.43 116.95-116.58 0-64.52 -52.42 -116.95 -116.95 -116.95 -64.52 0 -116.58 52.42 -116.58 116.95zm23.46 0c0-51.69 41.79-93.48 93.12-93.48 51.69 0 93.12 41.79 93.12 93.48 0 26.03 -10.63 49.49 -27.86 66.35l0 -66.72c0-35.93 -29.33 -64.89 -65.26 -64.89 -35.93 0 -65.26 28.96 -65.26 64.89 0 36.29 29.33 65.25 65.26 65.26l0 -25.3c-21.99 0 -39.59 -17.96 -39.59 -39.96 0-21.63 17.6 -39.59 39.59 -39.59 22 0 39.59 17.96 39.59 39.59l0 52.06 0 32.63c-11.73 5.5 -25.3 8.8 -39.59 8.8 -51.32 0 -93.12 -41.79 -93.12 -93.12z" />
+    </svg>
+    <h1>AINOW</h1>
+    <p data-t="tagline">Изберете платформа</p>
+</div>
+
+<div class="cards">
+    <a class="card card--edu" href="./edu/">
+        <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <h2 data-t="edu.title">Образование</h2>
+        <p data-t="edu.desc">Водич за ВИ писменост, промптови, алатки и материјали за наставници.</p>
+        <span class="badge" data-t="edu.badge">Бесплатно</span>
+    </a>
+
+    <span class="card card--biz" aria-disabled="true">
+        <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+        </div>
+        <h2 data-t="biz.title">Бизнис</h2>
+        <p data-t="biz.desc">Промптови, агенти и сценарија за професионална употреба.</p>
+        <span class="badge" data-t="biz.badge">Наскоро</span>
+    </span>
+</div>
+
+<footer>
+    <span data-t="footer">© 2026 AINOW Society · GPLv3</span> ·
+    <a href="https://www.ainow.mk" target="_blank" rel="noopener">ainow.mk</a>
+</footer>
+
+<script>
+(function () {
+    var T = {
+        mk: {
+            tagline: 'Изберете платформа',
+            'edu.title': 'Образование',
+            'edu.desc': 'Водич за ВИ писменост, промптови, алатки и материјали за наставници.',
+            'edu.badge': 'Бесплатно',
+            'biz.title': 'Бизнис',
+            'biz.desc': 'Промптови, агенти и сценарија за професионална употреба.',
+            'biz.badge': 'Наскоро',
+            footer: '© 2026 AINOW Society · GPLv3'
+        },
+        sq: {
+            tagline: 'Zgjidhni platformën',
+            'edu.title': 'Arsimi',
+            'edu.desc': 'Udhëzues për shkrim-leximin e IA, prompte, mjete dhe materiale për mësimdhënësit.',
+            'edu.badge': 'Falas',
+            'biz.title': 'Biznesi',
+            'biz.desc': 'Prompte, agjentë dhe skenarë për përdorim profesional.',
+            'biz.badge': 'Së shpejti',
+            footer: '© 2026 AINOW Society · GPLv3'
+        },
+        en: {
+            tagline: 'Choose a platform',
+            'edu.title': 'Education',
+            'edu.desc': 'AI literacy guide, prompts, tools and classroom materials for teachers.',
+            'edu.badge': 'Free',
+            'biz.title': 'Business',
+            'biz.desc': 'Prompts, agents and situations for professional use.',
+            'biz.badge': 'Coming soon',
+            footer: '© 2026 AINOW Society · GPLv3'
+        }
+    };
+
+    function apply(lang) {
+        var dict = T[lang] || T.mk;
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-t]').forEach(function (el) {
+            var k = el.getAttribute('data-t');
+            if (dict[k]) el.textContent = dict[k];
+        });
+        document.querySelectorAll('.lang-btn').forEach(function (b) {
+            b.classList.toggle('active', b.dataset.lang === lang);
+        });
+        try { localStorage.setItem('ainow-lang', lang); } catch (e) {}
+    }
+
+    var saved = 'mk';
+    try { saved = localStorage.getItem('ainow-lang') || 'mk'; } catch (e) {}
+    if (!T[saved]) { saved = 'mk'; }
+
+    document.querySelectorAll('.lang-btn').forEach(function (b) {
+        b.addEventListener('click', function () { apply(b.dataset.lang); });
+    });
+
+    apply(saved);
+})();
+</script>
+
+<script>
+(function () {
+    if (window.location.protocol === 'file:' || !('serviceWorker' in navigator)) { return; }
+    // One-shot migration worker for devices that installed v0.93 from '/'.
+    // Registering it on every visit would loop: reload -> register ->
+    // activate -> reload. Guarded here and again inside the worker.
+    try {
+        if (localStorage.getItem('ainow-sw-cleaned') === '1') { return; }
+        localStorage.setItem('ainow-sw-cleaned', '1');
+    } catch (e) {}
+    navigator.serviceWorker.register('./service-worker.js');
+})();
+</script>
+
+</body>
+</html>

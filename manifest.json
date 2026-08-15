@@ -1,0 +1,30 @@
+{
+  "name": "AINOW",
+  "short_name": "AINOW",
+  "description": "AI literacy for educators and AI prompt tools for business",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#fdfcfa",
+  "theme_color": "#d97757",
+  "lang": "mk",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "edu/assets/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "edu/assets/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": [
+    "education",
+    "productivity"
+  ]
+}
