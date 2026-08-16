@@ -2,9 +2,6 @@
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['src/about'] = AINOW['src/about'] || {};
 
-// About is its own destination now, not a section buried inside Help.
-// Help is the guide; About is who we are and what we do for organisations.
-
 const { useState, useEffect } = React;
 const { createRoot } = ReactDOMClient;
 
@@ -15,8 +12,6 @@ const { StaticPage } = AINOW['src/StaticPages'];
 
 const html = htm.bind(React.createElement);
 
-// Everything that is "about the organisation" rather than "how to use the
-// app" lives here. Help keeps only the guide.
 const ABOUT_NAV = [
     { id: 'about',         labelKey: 'resources.nav.about',         icon: Info },
     { id: 'services',      labelKey: 'resources.nav.services',      icon: Briefcase },
@@ -90,15 +85,10 @@ const App = () => {
                 onSettingsClick=${() => setIsSettings(true)} />
 
             <div className="max-w-[1600px] mx-auto flex">
-                <!-- Mobile drawer. showOnDesktop=false, or it renders
-                     alongside the desktop rail and you get two sidebars. -->
                 <${SidebarWrapper} isOpen=${isSidebarOpen} onClose=${() => setIsSidebarOpen(false)} showOnDesktop=${false}>
                     <${AboutNav} current=${page} t=${t} onPick=${() => setIsSidebarOpen(false)} />
                 <//>
 
-                <!-- No ctrlab.net button down here: the Partners and Services
-                     pages already link out to it in context. A third copy in
-                     the rail was the same URL three times on one screen. -->
                 <div className="hidden lg:flex flex-col w-60 shrink-0 pt-8 px-2 border-r border-mist dark:border-slate-800 no-scrollbar overflow-y-auto">
                     <${AboutNav} current=${page} t=${t} onPick=${() => {}} />
                 </div>

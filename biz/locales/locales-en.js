@@ -364,121 +364,121 @@ const data = {
         },
         items_label: 'prompts & scenarios',
         ql: {
-            // pb-cr: Code Refactor
+
             cr_code_l: 'Paste the code you want to work with:',
             cr_code_ph: 'Paste your code here...',
             cr_goal_l: 'What is the primary improvement goal?',
             cr_context_l: 'Any framework or team conventions to consider?',
             cr_context_ph: 'e.g. React 18, TypeScript strict mode, company style guide',
-            // pb-ux: UX Audit
+
             ux_screen_l: 'Describe the UI or screens you want audited:',
             ux_screen_ph: 'Describe the interface, flows, and key interactions...',
             ux_user_type_l: 'Who is the primary user?',
             ux_user_type_ph: 'e.g. First-time buyers, enterprise admins, students 18-25',
             ux_top_issue_l: 'What is the biggest UX complaint or known drop-off point?',
-            // pb-ce: Content Engine
+
             ce_topic_l: 'What is the topic or subject of this content?',
             ce_topic_ph: 'e.g. AI tools for small businesses, leadership in remote teams',
             ce_audience_l: 'Who is the target audience?',
             ce_audience_ph: 'e.g. Startup founders 25-40, tech-savvy but not developers',
             ce_goal_l: 'What is the content goal?',
-            // pb-ir: Incident Response
+
             ir_alerts_l: 'Describe the incident or paste log / alert details:',
             ir_alerts_ph: 'Paste error logs, alert details, or describe the incident...',
             ir_system_l: 'What system or environment is affected?',
             ir_system_ph: 'e.g. AWS production cluster, Windows domain, internal API gateway',
             ir_severity_l: 'What is the estimated severity and current status?',
-            // pb-ds: Data Science
+
             ds_data_l: 'Describe your dataset (tables, columns, size, source):',
             ds_data_ph: 'e.g. Customer transactions: user_id, date, amount — 2M rows, PostgreSQL',
             ds_objective_l: 'What is the analytical or predictive goal?',
             ds_tools_l: 'What tools or stack are you using?',
             ds_tools_ph: 'e.g. Python / Pandas / Scikit-learn / Jupyter',
-            // pb-hr: HR Recruiting
+
             hr_role_l: 'What role or position are you hiring for?',
             hr_role_ph: 'e.g. Senior Product Manager, DevOps Engineer, Sales Director',
             hr_company_l: 'Describe your company and culture briefly:',
             hr_company_ph: 'e.g. Series B SaaS startup, 80 people, remote-first, fast-paced',
             hr_priority_l: 'What is the #1 quality you need in this hire?',
-            // pb-gp: Government / Policy
+
             gp_issue_l: 'What public or policy issue are you addressing?',
             gp_issue_ph: 'e.g. Urban traffic congestion, youth unemployment, digital privacy',
             gp_jurisdiction_l: 'What is the jurisdiction or scope?',
             gp_constraint_l: 'What are the key constraints or political considerations?',
             gp_constraint_ph: 'e.g. Limited budget, election year, strong industry opposition',
-            // pb-ld: Legal Draft
+
             ld_contract_l: 'What type of legal document do you need?',
             ld_parties_l: 'Who are the parties involved?',
             ld_parties_ph: 'e.g. Software company (provider) and enterprise client (customer)',
             ld_key_terms_l: 'What are the key terms, conditions, or concerns?',
             ld_key_terms_ph: 'e.g. $5k/month, 12-month term, IP stays with provider, data privacy critical',
-            // pb-ss: Sales Strategy
+
             ss_account_l: 'Who is the target company or account?',
             ss_account_ph: 'e.g. Fortune 500 retailer, mid-market SaaS company, local government',
             ss_product_l: 'What are you selling?',
             ss_product_ph: 'e.g. Enterprise cybersecurity platform, $80k/year ARR',
             ss_stage_l: 'What stage of the sales cycle are you at?',
-            // pb-cp: Climate Plan
+
             cp_org_l: 'Describe your organization or operation:',
             cp_org_ph: 'e.g. Mid-size manufacturing facility, 500 employees, produces packaging',
             cp_baseline_l: 'What is your current sustainability baseline or target?',
             cp_baseline_ph: 'e.g. No ESG policy yet, or: targeting net zero by 2030',
             cp_constraint_l: 'What are the key constraints?',
-            // pb-pm: Project Management
+
             pm_goal_l: 'What is the project goal or key deliverable?',
             pm_goal_ph: 'e.g. Launch new e-commerce website, migrate to cloud infrastructure',
             pm_scope_l: 'Describe the project scope, team, and resources:',
             pm_scope_ph: 'e.g. 6-person team, 3-month timeline, $50k budget, stakeholders: marketing + engineering',
             pm_risk_l: 'What is the biggest risk or challenge?',
-            // pb-hc: HR Culture
+
             hc_size_l: 'What is the team or organization size and structure?',
             hc_size_ph: 'e.g. 45-person startup, fully remote, 3 engineering teams + sales + ops',
             hc_problem_l: 'What is the current cultural challenge or goal?',
             hc_values_l: 'What values or principles should define this culture?',
             hc_values_ph: 'e.g. Ownership, transparency, customer obsession, continuous learning',
-            // pb-fn: Finance Plan
+
             fn_revenue_l: 'What is the current revenue or financial situation?',
             fn_revenue_ph: 'e.g. $2.5M ARR growing 30% YoY, or pre-revenue startup with $500k seed',
             fn_goal_l: 'What is the financial goal or challenge?',
             fn_context_l: 'Describe the business model and cost structure:',
             fn_context_ph: 'e.g. SaaS, $120 CAC, 18-month LTV, 70% gross margin, team of 15',
-            // pb-cc: Course Creation
+
             cc_topic_l: 'What subject or skill will this course teach?',
             cc_topic_ph: 'e.g. Data analysis with Python, Business communication, Graphic design',
             cc_learner_l: 'Who is the target learner?',
             cc_format_l: 'What is the course format and duration?',
             cc_format_ph: 'e.g. 6-week online course, 10 video modules, self-paced with weekly live Q&A',
-            // pb-rs: Research
+
             rs_domain_l: 'What is your research field or topic?',
             rs_domain_ph: 'e.g. Machine learning fairness, Public health policy, Behavioral economics',
             rs_question_l: 'What is your research question or hypothesis?',
             rs_question_ph: 'Describe what you want to find out or test...',
             rs_stage_l: 'What stage is your research at?',
-            // pb-sw: Story Writer
+
             sw_hook_l: 'Describe your story concept or opening idea:',
             sw_hook_ph: 'e.g. A disgraced astronaut gets one last chance to redeem herself on a solo Mars mission',
             sw_genre_l: 'What is the genre and tone?',
             sw_audience_l: 'Who is the target reader?',
             sw_audience_ph: 'e.g. Adults 30-50 who enjoy literary sci-fi, YA readers aged 14-18',
-            // pb-bm: Business Model
+
             bm_idea_l: 'Describe your business idea or concept:',
             bm_idea_ph: 'e.g. AI meal planning app that learns family preferences and generates grocery lists',
             bm_market_l: 'Who is your target customer and market?',
             bm_market_ph: 'e.g. Busy working parents in the US, $50B meal kit market',
             bm_stage_l: 'What stage is this business at?',
-            // pb-so: IT SOP
+
             so_system_l: 'What technology system or infrastructure are you working with?',
             so_system_ph: 'e.g. Kubernetes cluster on AWS, Windows Active Directory, PostgreSQL',
             so_process_l: 'What process or operation needs an SOP?',
             so_process_ph: 'e.g. New service deployment, disaster recovery, user onboarding / offboarding',
             so_audience_l: 'Who will follow this SOP?',
-            // pb-la: Supply Chain / Logistics
+
             la_route_l: 'Describe your supply chain or trade route:',
             la_route_ph: 'e.g. Manufacturing in Vietnam → warehouse in Netherlands → retail in UK',
             la_product_l: 'What product or goods are you moving?',
             la_product_ph: 'e.g. Consumer electronics, perishable food, industrial components',
             la_challenge_l: 'What is the main challenge or optimization goal?',
-            // pb-pc: Psychology Coach
+
             pc_pattern_l: 'What behavior or mental pattern do you want to change?',
             pc_pattern_ph: 'e.g. Chronic procrastination, people-pleasing, imposter syndrome, performance anxiety',
             pc_context_l: 'In what context does this pattern appear most?',
@@ -624,10 +624,7 @@ const data = {
             user_resp_title: '3. User Responsibilities',
             user_resp_text: 'By using this website, you agree to use the content lawfully. You understand that prompts are tools for generating content, and you remain responsible for hov you use the output generated by AI models.'
         },
-        
-        
-        
-        
+
         ethical: {
             title: 'Ethical AI Guidelines',
             intro: 'We believe AI should empower humanity, not replace it. Our prompts and agents are designed with a focus on fairness, accuracy, and safety. We advocate for the transparent and ethical use of generative AI in all sectors.',
@@ -956,7 +953,6 @@ const data = {
     },
 };
 
-// v0.94: AI services offering, named partners, and cross-platform labels.
 Object.assign(data.resources.nav, { services: 'AI Services' });
 Object.assign(data.pages, {
     services: {
@@ -1013,8 +1009,6 @@ Object.assign(data.pages.partners, {
     ctrlab_text: 'Technology partner. CTRLab builds the engineering behind AINOW products and collaborates on applied AI work across the region.',
 });
 
-// v0.94: where the free library ends and paid delivery begins. Stated once,
-// plainly, rather than as a banner on every page.
 Object.assign(data.pages.about, {
     visit: 'Visit the AINOW Society site',
     beyond_title: 'Where the library ends',

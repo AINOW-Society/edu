@@ -1,7 +1,7 @@
 (function () {
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['data/data-agriculture'] = AINOW['data/data-agriculture'] || {};
-// AINOW Agriculture & AgriTech Library - 100 Unique Prompts
+
 const agriculturePrompts = [
   {"id":"agr-1","title":"Corn Hybrid Selection for High-Yield DeKalb County","prompt":"You are an agronomist advising a 450-acre family corn-soybean operation in central Illinois (DeKalb County, USDA Zone 5b) with predominantly Drummer silty clay loam soils (CEC 22-28 meq/100g, OM 4.2%). The farm averages 210 bu/acre corn under conventional management. Evaluate five Pioneer and DEKALB hybrids rated 108–112 days relative maturity for this geography, comparing disease packages (gray leaf spot, northern corn leaf blight), standability scores, and documented yield trial data from the Illinois Crop Sciences university trials. Produce a side-by-side comparison table, a recommended planting population by hybrid (seeds/acre), and a seeding date window based on GDD accumulation targets for a May 1–10 planting. Conclude with your top two hybrid selections and the agronomic rationale for each.","tags":["crop-production","agronomy","corn","hybrid-selection","yield"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":true},
 

@@ -3,12 +3,6 @@ window.AINOW = window.AINOW || {};
 var __exports = AINOW['src/utils'] = AINOW['src/utils'] || {};
 const { useState, useEffect } = React;
 
-/**
- * Hook to debounce a value
- * @param {any} value 
- * @param {number} delay 
- * @returns {any}
- */
 const useDebounce = (value, delay) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
   useEffect(() => {
@@ -18,11 +12,6 @@ const useDebounce = (value, delay) => {
   return debouncedValue;
 };
 
-/**
- * Copies text to clipboard with fallback
- * @param {string} text 
- * @returns {Promise<boolean>}
- */
 const copyTextToClipboard = async (text) => {
   if (navigator.clipboard && window.isSecureContext) {
     try { await navigator.clipboard.writeText(text); return true; } catch (err) {}
@@ -32,19 +21,16 @@ const copyTextToClipboard = async (text) => {
   textArea.style.position = 'fixed';
   textArea.style.left = '-9999px';
   document.body.appendChild(textArea);
-  try { 
-      textArea.select(); 
-      return document.execCommand('copy'); 
+  try {
+      textArea.select();
+      return document.execCommand('copy');
   } catch (err) {
       return false;
-  } finally { 
-      document.body.removeChild(textArea); 
+  } finally {
+      document.body.removeChild(textArea);
   }
 };
 
-/**
- * Compresses a JSON object into a Base64 string for URL sharing
- */
 const compressState = (state) => {
     try {
         const json = JSON.stringify(state);
@@ -55,9 +41,6 @@ const compressState = (state) => {
     }
 };
 
-/**
- * Decompresses a Base64 string back into a JSON object
- */
 const decompressState = (encoded) => {
     try {
         const json = decodeURIComponent(atob(encoded));

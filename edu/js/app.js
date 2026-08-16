@@ -9,10 +9,6 @@ function escapeHtml(str) {
         .replace(/'/g, '&#39;');
 }
 
-// One glyph per concept. Before this the same idea was drawn differently
-// depending on where you stood — prompts had four icons, the guide three —
-// so an icon carried no meaning and the app read as visually noisy.
-// Add a concept here rather than inlining another SVG somewhere.
 const ICONS = {
     guide:     '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
     prompts:   '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
@@ -264,8 +260,6 @@ const App = {
             const activeEl = document.querySelector('.sb-sub.active');
             const activeSection = activeEl && activeEl.id ? activeEl.id.replace('sidebar-', '') : null;
 
-            // Same group pattern as prompts: one collapsible group per guide
-            // part, chapters nested beneath, only the current part open.
             const groups = ['foundations', 'practice', 'reference'].map(cId => {
                 const chapterIds = this._guideCategoryMap[cId] || [];
                 const chapters = (typeof DOCS_DATA !== 'undefined')
@@ -324,8 +318,6 @@ const App = {
                 { id: 'students', title: I18n.t('tools.cat.students'), icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' }
             ];
 
-            // Flat list — tool categories have no sub-levels, so rows without
-            // groups, using the same row styling as the other sidebars.
             const current = this.currentToolCategory || 'all';
             const rows = categories.map(cat => {
                 const n = cat.id === 'all'
@@ -353,10 +345,6 @@ const App = {
         } else if (viewId === 'prompts') {
             const t = (k) => I18n.t(k);
 
-            // Collapsible groups, one per school level. Only the active level
-            // is open, so the sidebar shows roughly 8 items instead of all 19
-            // roles at once. Driven by the same data as the filter bar, so
-            // the two cannot drift apart.
             const activeCat = this.currentPromptCategory || 'primary';
             const groups = this._promptCategories.map(c => {
                 const pool = this._promptsForCategory(c.id);
@@ -398,9 +386,6 @@ const App = {
                     </div>`;
             }).join('');
 
-            // No AI links or tip box here: the sidebar is the page's
-            // navigation now, and the AI launcher lives in the detail panel
-            // where it is actually used.
             html = `
                 <div class="sidebar-ctx-wrap">
                     <div class="sb-section-label">${t('nav.prompts')}</div>
@@ -762,8 +747,6 @@ const App = {
         }
     },
 
-    // Two bands, because the cards are two different kinds of thing:
-    // destinations you navigate to, and formats the Resources builder makes.
     _homeCards: {
         learn: [
             { id: 'guide',    icon: 'guide',    action: "App.switchView('guide')" },
@@ -911,11 +894,6 @@ const App = {
         `).join('');
     },
 
-    // Categories are school levels, matching how the education system is
-    // actually organised. The data still stores teachers / administration /
-    // higher_ed, so the level is derived rather than duplicated — see
-    // _levelOf(). Administration is level-agnostic and appears under both
-    // Основно and Средно from a single stored copy.
     _promptCategories: [
         { id: 'primary',          icon: icon('primary') },
         { id: 'secondary_school', icon: icon('secondary_school') },
@@ -928,16 +906,12 @@ const App = {
         higher_ed:        ['all', 'lecturer', 'researcher', 'doctoral', 'student_services', 'quality', 'leadership'],
     },
 
-    // Subcategories that mean classroom teaching. Cross-grade prompts
-    // (subcategory 'all') belong to these, not to administrative roles — a
-    // director filtering to their own role should not get lesson prompts.
     _teachingSubs: {
         primary:          ['primary_lower', 'primary_upper'],
         secondary_school: ['secondary'],
         higher_ed:        ['lecturer'],
     },
 
-    // primary | secondary | higher | both
     _levelOf(prompt, sourceArray) {
         if (sourceArray === 'higher_ed') return 'higher';
         if (sourceArray === 'administration') return 'both';
@@ -971,7 +945,7 @@ const App = {
         this.currentPromptSubcategory = 'all';
         this.currentPromptSearch = '';
         this.currentPromptPage = 1;
-        // Keep the sidebar group in step with the level being browsed.
+
         this._openPromptLevel = cat;
         this.renderPromptCatTabs();
         this.renderPrompts(cat, 'all');
@@ -985,7 +959,7 @@ const App = {
         this.currentPromptSubcategory = sub;
         this.currentPromptSearch = '';
         this.currentPromptPage = 1;
-        // Never leave the active filter inside a collapsed group.
+
         this._openPromptLevel = this.currentPromptCategory;
         this.renderPromptCatTabs();
         this.renderPrompts(this.currentPromptCategory, sub);
@@ -1007,10 +981,7 @@ const App = {
         const header = document.getElementById('prompts-header');
 
         const allPrompts = this._promptsForCategory(category);
-        // Cross-grade prompts (subcategory 'all' — inclusion, classroom
-        // management, assessment) apply to every teaching filter, so surface
-        // them there rather than only in the unfiltered view. They are not
-        // added to administrative roles.
+
         const isTeachingSub = (this._teachingSubs[category] || []).includes(subcategory);
         let filtered = allPrompts.filter(p =>
             subcategory === 'all'
@@ -1047,9 +1018,6 @@ const App = {
         const endIndex = Math.min(startIndex + this.promptsPerPage, totalItems);
         const pageItems = filtered.slice(startIndex, endIndex);
 
-        // The card's only job is "is this the one?". Reading and using the
-        // prompt happens in the detail panel, so the card carries the title
-        // and at most two pieces of metadata. Held by index for the panel.
         this._pagePrompts = pageItems;
 
         let html = '';
@@ -1085,9 +1053,6 @@ const App = {
                 const prevDisabled = this.currentPromptPage === 1 ? 'disabled' : '';
                 pagHtml += `<button class="pag-btn" ${prevDisabled} onclick="App.goToPromptPage(${this.currentPromptPage - 1})"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>`;
 
-                // Windowed: always first and last, plus neighbours of the
-                // current page. Rendering every page put 25 buttons in a row
-                // for the larger categories, which is unusable on a phone.
                 this._paginationWindow(this.currentPromptPage, totalPages).forEach(item => {
                     if (item === '…') {
                         pagHtml += '<span class="pag-gap" aria-hidden="true">…</span>';
@@ -1109,8 +1074,6 @@ const App = {
         }
     },
 
-    // Returns e.g. [1,'…',6,7,8,'…',25] — first, last, and a window around
-    // the current page. Keeps the control to a fixed width on any page count.
     _paginationWindow(current, total, radius = 1) {
         if (total <= 7) {
             return Array.from({ length: total }, (_, i) => i + 1);
@@ -1120,7 +1083,7 @@ const App = {
             if (current - i > 1) pages.add(current - i);
             if (current + i < total) pages.add(current + i);
         }
-        // Keep the control a stable width near the ends.
+
         if (current <= 3) { pages.add(2); pages.add(3); pages.add(4); }
         if (current >= total - 2) { pages.add(total - 1); pages.add(total - 2); pages.add(total - 3); }
 
@@ -1136,17 +1099,12 @@ const App = {
     goToPromptPage(page) {
         this.currentPromptPage = page;
         this.renderPrompts(this.currentPromptCategory, this.currentPromptSubcategory);
-        // '.pc-cards-scroll' belonged to an older layout and is not in this
-        // view, so paging silently left the reader at the bottom of the
-        // previous page. Scroll the actual container instead.
+
         const scrollArea = document.querySelector('.pc-cards-scroll')
             || document.getElementById('main-content');
         if (scrollArea) scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
     },
 
-    // ── Prompt detail ────────────────────────────────────────────────────
-    // The card decides; this panel is where the prompt is actually read and
-    // used. Teachers were copying prompts they had never seen in full.
     _pagePrompts: [],
     _detailPrompt: null,
 
@@ -1413,15 +1371,12 @@ const App = {
         `;
     },
 
-    // Which level group is expanded. undefined means "follow the active
-    // category", so the right group is open on first render.
     _openPromptLevel: undefined,
 
     togglePromptLevel(catId) {
         const activeCat = this.currentPromptCategory || 'primary';
         const currentlyOpen = this._openPromptLevel === undefined ? activeCat : this._openPromptLevel;
-        // Collapsing the group you are browsing would hide the active filter,
-        // so opening a different level also switches to it.
+
         if (currentlyOpen === catId) {
             this._openPromptLevel = null;
         } else {

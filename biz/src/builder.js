@@ -10,7 +10,6 @@ const { compressState, decompressState, copyTextToClipboard } = AINOW['src/utils
 
 const html = htm.bind(React.createElement);
 
-
 const DEFAULT_STATE = {
     framework: "standard",
     name: "MyCustomAgent",
@@ -87,7 +86,7 @@ const PRO_TEMPLATE = (state) => {
 [EXPERTISE: ${state.expertise}]
 
 SYSTEM OVERVIEW:
-You are an advanced ${state.role} AI Agent designed to provide world-class assistance in ${state.domain}. You operate with a primary focus on ${state.focus}. 
+You are an advanced ${state.role} AI Agent designed to provide world-class assistance in ${state.domain}. You operate with a primary focus on ${state.focus}.
 
 CORE AGENT DIRECTIVES:
 1. PERSONA: Adopt a ${state.tone} communication style. You are an expert peer.
@@ -206,7 +205,7 @@ const BuilderApp = () => {
                     <li className="flex items-center gap-2"><div className=${`w-2 h-2 rounded-full ${state.constraints.length > 0 ? 'bg-emerald-500' : 'bg-mist'}`}></div> ${state.constraints.length > 0 ? t('builder.quality_checks.guardrails_ok') : t('builder.quality_checks.guardrails_bad')}</li>
                 </ul>
             </div>
-            
+
             <div className="px-3 pt-8 mt-auto">
                 <div className="p-4 bg-opal-bg dark:bg-slate-800 rounded-2xl border border-mist dark:border-slate-700">
                     <div className="flex items-center gap-2 text-stone-light mb-2"><${AlertTriangle} className="w-3 h-3" /><span className="text-[10px] font-black uppercase tracking-widest">Privacy Note</span></div>

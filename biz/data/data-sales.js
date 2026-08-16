@@ -3,7 +3,6 @@ window.AINOW = window.AINOW || {};
 var __exports = AINOW['data/data-sales'] = AINOW['data/data-sales'] || {};
 const salesPrompts = [
 
-    // --- PROSPECTING (1-10) ---
     {
         "id": "sal-1",
         "title": "Cold Outreach Sequence: Supply Chain SaaS",
@@ -95,7 +94,6 @@ const salesPrompts = [
         "featured": false
     },
 
-    // --- DISCOVERY (11-20) ---
     {
         "id": "sal-11",
         "title": "SPIN Discovery Question Set: Marketing Automation",
@@ -187,7 +185,6 @@ const salesPrompts = [
         "featured": false
     },
 
-    // --- QUALIFICATION (21-28) ---
     {
         "id": "sal-21",
         "title": "MEDDPICC Deal Scorecard",
@@ -261,7 +258,6 @@ const salesPrompts = [
         "featured": false
     },
 
-    // --- DEMOS (29-38) ---
     {
         "id": "sal-29",
         "title": "Discovery-Led Demo Script: HR Platform",
@@ -353,7 +349,6 @@ const salesPrompts = [
         "featured": false
     },
 
-    // --- PROPOSALS (39-46) ---
     {
         "id": "sal-39",
         "title": "Executive Proposal: SaaS Platform $200K ACV",
@@ -427,7 +422,6 @@ const salesPrompts = [
         "featured": false
     },
 
-    // --- NEGOTIATION (47-54) ---
     {
         "id": "sal-47",
         "title": "Discount Request Response Playbook",
@@ -501,7 +495,6 @@ const salesPrompts = [
         "featured": false
     },
 
-    // --- CLOSING (55-62) ---
     {
         "id": "sal-55",
         "title": "Closing Call Script: $120K SaaS Deal",
@@ -575,7 +568,6 @@ const salesPrompts = [
         "featured": false
     },
 
-    // --- ACCOUNT MANAGEMENT (63-70) ---
     {
         "id": "sal-63",
         "title": "Quarterly Business Review (QBR) Script",
@@ -649,7 +641,6 @@ const salesPrompts = [
         "featured": false
     },
 
-    // --- SALES COACHING & ENABLEMENT (71-80) ---
     {
         "id": "sal-71",
         "title": "New AE Onboarding Plan: First 90 Days",
@@ -741,7 +732,6 @@ const salesPrompts = [
         "featured": false
     },
 
-    // --- FORECASTING, REVOPS & TERRITORY (81-90) ---
     {
         "id": "sal-81",
         "title": "Sales Forecast Review: Weekly Pipeline Meeting",
@@ -833,7 +823,6 @@ const salesPrompts = [
         "featured": true
     },
 
-    // --- PARTNER, CHANNEL & ADVANCED STRATEGY (91-100) ---
     {
         "id": "sal-91",
         "title": "Strategic Partnership Outreach: Technology Ecosystem",

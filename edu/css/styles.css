@@ -60,7 +60,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    
+
 }
 
 body {
@@ -98,7 +98,7 @@ button {
     grid-template-rows: 60px 1fr;
     height: 100vh;
     overflow: hidden;
-    
+
 }
 
 .app-header {
@@ -124,7 +124,7 @@ button {
 .main-nav {
     display: flex;
     gap: 8px;
-    
+
     position: fixed;
     top: 0;
     left: 50%;
@@ -205,11 +205,11 @@ button {
     background: var(--bg-sidebar);
     border-right: 1px solid var(--border-light);
     padding: 24px 16px;
-    
+
     height: calc(100vh - 60px);
-    
+
     overflow-y: auto;
-    
+
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -926,7 +926,6 @@ button {
     overflow: hidden;
 }
 
-
 .glossary-page {
     max-width: 1100px;
     margin: 0 auto;
@@ -1033,7 +1032,6 @@ button {
     .glossary-grid { grid-template-columns: 1fr; }
     .glossary-search-wrap { max-width: 100%; }
 }
-
 
 .app-footer {
     padding: 64px 24px;
@@ -1345,7 +1343,7 @@ button,
 .app-header {
     border-bottom: 1px solid var(--border-light);
     background: var(--bg-card);
-    
+
     box-shadow: none;
 }
 
@@ -1539,7 +1537,7 @@ button,
 
 .home-feature-card::before {
     display: none;
-    
+
 }
 
 .home-feature-card:hover {
@@ -1740,7 +1738,7 @@ button,
 
 button {
     min-height: unset;
-    
+
     transition: opacity 0.15s, background 0.15s, color 0.15s, transform 0.15s, box-shadow 0.15s;
 }
 
@@ -2605,7 +2603,6 @@ button {
     gap: 12px;
     margin-top: 12px;
 }
-
 
 .about-creator-name {
     font-size: 24px;
@@ -3755,7 +3752,7 @@ button {
     @page {
         size: A4;
         margin: 0;
-        
+
     }
 
     body {
@@ -3774,7 +3771,7 @@ button {
         width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
-        
+
         background: white !important;
         color: #111827 !important;
     }
@@ -3789,14 +3786,14 @@ button {
         height: 20mm;
         display: block;
         content: " ";
-        
+
     }
 
     .print-footer-space {
         height: 20mm;
         display: block;
         content: " ";
-        
+
     }
 
     .print-page-content {
@@ -4531,8 +4528,6 @@ button {
     background: #f87171;
 }
 
-
-
 #install-banner {
     position: fixed;
     bottom: calc(72px + env(safe-area-inset-bottom, 0px));
@@ -4704,8 +4699,6 @@ button {
     }
 }
 
-
-
 .resource-item {
     display: flex;
     align-items: center;
@@ -4806,8 +4799,6 @@ button {
     letter-spacing: 0.05em;
 }
 
-
-
 @media (max-width: 768px) {
     .mobile-menu-toggle {
         display: none !important;
@@ -4840,8 +4831,6 @@ button {
         backdrop-filter: none !important;
     }
 }
-
-
 
 @keyframes skeleton-shimmer {
     0% { background-position: -600px 0; }
@@ -4889,8 +4878,6 @@ button {
 .skeleton-text:last-child {
     width: 75%;
 }
-
-
 
 #pull-to-refresh-indicator {
     position: fixed;
@@ -4945,8 +4932,6 @@ button {
     }
 }
 
-
-
 .app-footer {
     margin-top: 48px;
     padding: 56px 24px 48px;
@@ -4983,17 +4968,14 @@ button {
     }
 }
 
-
-
 @media (max-width: 768px) {
-    
+
     .btn-icon {
         width: 40px;
         height: 40px;
         min-height: 40px;
     }
 
-    
     .resources-selection button[onclick*="selectAll"] {
         padding: 6px 12px;
         min-height: 36px;
@@ -5001,18 +4983,14 @@ button {
         border-radius: var(--radius-sm);
     }
 
-    
     #resources-list {
         gap: 8px;
     }
 
-    
     .resources-action {
         gap: 12px;
     }
 }
-
-
 
 #ios-install-guide {
     position: fixed;
@@ -5229,7 +5207,6 @@ button {
 .pcm-ai-dot--claude     { background: #d97757; }
 .pcm-ai-dot--perplexity { background: #20b2aa; }
 
-
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -5240,7 +5217,6 @@ button {
         scroll-behavior: auto !important;
     }
 }
-
 
 :focus-visible {
     outline: 2px solid var(--primary);
@@ -5256,7 +5232,6 @@ select:focus-visible {
     outline: 2px solid var(--primary);
     outline-offset: 2px;
 }
-
 
 @media print {
     .app-header,
@@ -5295,7 +5270,6 @@ select:focus-visible {
         text-decoration: underline;
     }
 
-    
     h1, h2, h3 { page-break-after: avoid; }
     .pcm-card, .home-feature-card, .glossary-card { page-break-inside: avoid; }
 }
@@ -5398,13 +5372,6 @@ select:focus-visible {
     color: var(--text-tertiary);
 }
 
-/* ── Prompts page filter bar (v0.94) ──────────────────────────────────────
-   The page had four stacked blocks of chrome — hero, categories, sub-pills,
-   search — before a single prompt appeared. On a phone that was most of the
-   screen. These rules group the filters into one bar, keep the sub-filters
-   to a single scrollable line, and fix a 3-column category grid that was
-   still written for two categories. */
-
 .pf-bar {
     background: var(--bg-card);
     border: 1px solid var(--border-light);
@@ -5461,9 +5428,6 @@ select:focus-visible {
     color: var(--text-tertiary);
 }
 
-/* Sub-filters: on desktop there is room, so they simply wrap. No scroll
-   container, and therefore no scrollbar. Phones get a single scrollable
-   line instead — see the media query below. */
 .pf-bar .prompts-sub-row {
     margin-bottom: 0;
     padding-bottom: 0;
@@ -5476,7 +5440,6 @@ select:focus-visible {
     flex: 0 0 auto;
 }
 
-/* Pagination gap marker for the windowed control. */
 .pag-gap {
     padding: 0 4px;
     color: var(--text-tertiary);
@@ -5491,8 +5454,6 @@ select:focus-visible {
         margin-bottom: 14px;
     }
 
-    /* Three categories now, not two: let them size themselves rather than
-       leaving a lone orphaned button on a second row. */
     .pf-bar .prompts-cat-grid,
     #prompts-cat-tabs .prompts-cat-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -5505,7 +5466,6 @@ select:focus-visible {
         min-height: 52px;
     }
 
-    /* Stack the label under the icon so three fit without truncating. */
     .pf-bar .prompts-cat-btn-head {
         flex-direction: column;
         gap: 4px;
@@ -5521,7 +5481,6 @@ select:focus-visible {
         font-size: 10px;
     }
 
-    /* Search and count on separate lines; count is secondary. */
     .pf-row {
         flex-direction: column;
         align-items: stretch;
@@ -5534,18 +5493,17 @@ select:focus-visible {
         font-size: 12px;
     }
 
-    /* One line that swipes, with no visible scrollbar in any engine. */
     .pf-bar .prompts-sub-row {
         flex-wrap: nowrap;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x proximity;
-        scrollbar-width: none;      /* Firefox */
-        -ms-overflow-style: none;   /* legacy Edge */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
 
     .pf-bar .prompts-sub-row::-webkit-scrollbar {
-        display: none;              /* Chrome, Safari */
+        display: none;
     }
 
     .pf-bar .prompts-sub-pill {
@@ -5559,14 +5517,6 @@ select:focus-visible {
         padding: 0 2px;
     }
 }
-
-
-/* ── Prompt card + detail panel (v0.94) ───────────────────────────────────
-   The card previously tried to be preview, launcher and metadata display at
-   once. Every prompt opens "Act as a…", so the 3-line clamp rendered nearly
-   identical grey text on all twelve cards — the largest element carrying the
-   least information, while the full prompt could only be copied unread.
-   Card now decides; the panel is where the prompt is read and used. */
 
 .pcm-card--clickable {
     cursor: pointer;
@@ -5598,7 +5548,6 @@ select:focus-visible {
     gap: 6px;
 }
 
-/* Detail panel */
 .pd-modal {
     width: min(720px, 94vw);
     max-height: 88vh;
@@ -5663,8 +5612,7 @@ select:focus-visible {
     color: var(--text-secondary);
     white-space: pre-wrap;
     word-wrap: break-word;
-    /* The prompt is there to be read and selected, so say so — otherwise it
-       reads as one more clickable surface. */
+
     cursor: text;
     user-select: text;
     -webkit-user-select: text;
@@ -5732,9 +5680,6 @@ select:focus-visible {
 .pd-ai-btn:hover { border-color: var(--border-hover); color: var(--text-primary); }
 .pd-ai-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 
-/* On desktop the sidebar already lists every subcategory with counts, so
-   repeating the same taxonomy as buttons and pills was the same navigation
-   drawn twice in two visual languages. Search stays; the duplicate goes. */
 @media (min-width: 769px) {
     .pf-bar #prompts-cat-tabs,
     .pf-bar #prompts-sub-tabs {
@@ -5777,13 +5722,6 @@ select:focus-visible {
     .pcm-card--clickable { padding: 16px; }
 }
 
-
-
-/* ── Sidebar: level groups (v0.94) ────────────────────────────────────────
-   Structure was right but everything sat on one plane, the expand snapped
-   with no motion, and counts were bare digits. This adds depth, rhythm and
-   movement without touching the palette. */
-
 .sb-section-label {
     font-size: 10px;
     font-weight: 700;
@@ -5801,8 +5739,6 @@ select:focus-visible {
 
 .sb-group + .sb-group { margin-top: 4px; }
 
-/* The open group gets its own faint plane, so the sidebar has two levels
-   of depth instead of one flat list. */
 .sb-group.open {
     background: var(--bg-body);
     padding-bottom: 4px;
@@ -5832,7 +5768,6 @@ select:focus-visible {
 .sb-group.open .sb-group-head { color: var(--text-primary); }
 .sb-group-head.current { color: var(--primary); }
 
-/* Icon sits in a soft chip rather than floating as a bare stroke. */
 .sb-group-icon {
     display: flex;
     align-items: center;
@@ -5864,7 +5799,6 @@ select:focus-visible {
     white-space: nowrap;
 }
 
-/* Counts read as quiet pills, not loose digits. */
 .sb-group-count {
     flex-shrink: 0;
     min-width: 22px;
@@ -5894,7 +5828,6 @@ select:focus-visible {
 
 .sb-group.open .sb-chevron { transform: rotate(180deg); }
 
-/* Height-agnostic expand: 0fr -> 1fr animates without measuring. */
 .sb-group-body {
     display: grid;
     grid-template-rows: 0fr;
@@ -5913,7 +5846,6 @@ select:focus-visible {
     position: relative;
 }
 
-/* Guide rail behind the nested rows. */
 .sb-group.open .sb-group-inner::before {
     content: '';
     position: absolute;
@@ -5959,7 +5891,6 @@ select:focus-visible {
     box-shadow: var(--shadow-sm);
 }
 
-/* Accent marker on the guide rail marks the selected row. */
 .sb-sub.active::before {
     content: '';
     position: absolute;
@@ -6010,7 +5941,6 @@ select:focus-visible {
     .sb-sub:hover { transform: none; }
 }
 
-/* Flat sidebars (tools, glossary) reuse the row styling without groups. */
 .sb-flat {
     display: flex;
     flex-direction: column;
@@ -6021,7 +5951,6 @@ select:focus-visible {
 .sb-flat .sb-sub-icon svg { width: 15px; height: 15px; }
 .sb-flat .sb-sub.active::before { display: none; }
 
-/* Guide chapters are numbered rather than icon-led. */
 .sb-sub-num {
     display: flex;
     align-items: center;
@@ -6046,13 +5975,6 @@ select:focus-visible {
     border-color: transparent;
     color: #fff;
 }
-
-
-/* ── Home page (v0.94) ────────────────────────────────────────────────────
-   Was seven equal cards of two different kinds. Now two labelled bands:
-   destinations you navigate to, then formats the Resources builder makes.
-   The second band is deliberately lighter — those four are one tool, not
-   four features, so they should not compete with the first band. */
 
 .home-page {
     max-width: 1060px;
@@ -6170,7 +6092,6 @@ select:focus-visible {
 
 .home-feature-card:hover .card-arrow { color: var(--primary); transform: translateX(3px); }
 
-/* Second band: one tool in four formats, so lighter weight. */
 .home-feature-card--compact {
     align-items: center;
     padding: 14px 16px;
@@ -6202,12 +6123,6 @@ select:focus-visible {
     .home-feature-card:hover { transform: none; }
     .home-feature-card:hover .card-arrow { transform: none; }
 }
-
-/* ── Shared typography (v0.94) ────────────────────────────────────────────
-   Onest carries everything; display moments differ by weight and tracking
-   rather than family — the same face the landing page and /biz/ use.
-   Faces are declared in
-   assets/fonts/fonts.css, linked from index.html. */
 
 .pd-title,
 .sb-group-count {

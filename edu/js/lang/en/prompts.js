@@ -1483,8 +1483,7 @@
       prompt: "Role: ICT teacher. Context: Class is co-creating classroom norms for using AI tools ethically. Task: Draft text for an A3 poster (5 rules, 5 \"do not\" items, 3 reflection questions) students can adapt. Constraints: Align with academic integrity and privacy; mention verifying facts and citing help from AI when allowed.",
       tags: ["ICT", "policy", "ethics", "secondary"]
     },
-    
-    
+
     {
       subcategory: "secondary",
       subject: "Classroom norms",
@@ -1513,7 +1512,7 @@
       prompt: "Role: Teacher leader. Context: 20-minute segment at parent night on honest AI use and homework. Task: Outline 6 slides (title + 3 bullets each): what AI is, what it is not, school expectations, examples of allowed help, how to supervise at home, who to contact. Constraints: Plain language; multilingual families in mind.",
       tags: ["parents", "integrity", "all"]
     },
-    
+
     {
       subcategory: "primary_lower",
       subject: "Classroom culture",

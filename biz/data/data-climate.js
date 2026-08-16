@@ -1,7 +1,7 @@
 (function () {
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['data/data-climate'] = AINOW['data/data-climate'] || {};
-// AINOW Climate Prompt Library - 100 Professional Prompts
+
 const climatePrompts = [
     {"id":"cli-1","title":"Corporate Carbon Footprint Reduction Roadmap","prompt":"You are a senior sustainability consultant specializing in corporate decarbonization with experience advising Fortune 500 companies. Build a 5-year carbon footprint reduction roadmap for a mid-size logistics company with 2,800 employees, a fleet of 340 diesel trucks, 12 regional warehouses, and a current annual Scope 1 emissions baseline of 48,000 tCO2e and Scope 2 of 12,000 tCO2e. The company has committed to a Science Based Target of 50% absolute reduction by 2030 (from a 2022 base year). The roadmap should cover: Year 1 — data infrastructure (emissions measurement system, fuel tracking, third-party verification), Year 2 — fleet electrification pilot (50 EVs, charging infrastructure investment, route optimization software), Year 3 — renewable energy procurement (PPAs for all 12 warehouses, LED retrofit completion), Year 4 — fleet scale-up and modal shift (200 EVs, rail/intermodal shift for 30% of long-haul routes), Year 5 — residual emissions strategy (offset procurement criteria, internal carbon price of $45/tonne). Include estimated capex for each year, projected emissions reduction per initiative, and a Scope 3 category 11 (use of sold products) assessment framework.","tags":["decarbonization","carbon-footprint","strategy"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":true},
 

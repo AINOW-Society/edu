@@ -180,7 +180,6 @@ const GUIDE_NAV = [
     { id: 'faq',             labelKey: 'help.toc.faq',             icon: HelpCircle },
 ];
 
-
 const DocSection = ({ title, icon: Icon, children }) => html`
     <section className="mb-16 animate-fade-in group text-left">
         <div className="flex items-center gap-4 mb-8 pb-4 border-b border-mist dark:border-slate-800">
@@ -439,7 +438,7 @@ const GuideFaq = ({ t }) => html`
     <div className="animate-fade-in">
         <${DocSection} title="FAQ" icon=${HelpCircle}>
             <div className="space-y-4">
-                ${/* q13 covered the Lab tools, removed in v0.94 */ [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(i => html`
+                ${ [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(i => html`
                     <${FaqItem} key=${'faq-' + i} i=${i} t=${t} />
                 `)}
             </div>
@@ -456,7 +455,6 @@ const GUIDE_PAGES = {
     'faq':             GuideFaq,
 };
 
-// Pages that moved to about.html. Kept in sync with ABOUT_NAV in src/about.js.
 const ABOUT_OWNED_PAGES = ['about', 'services', 'partners', 'documents', 'policies', 'accessibility'];
 
 const PageNav = ({ currentHash, t, onClose }) => {
@@ -521,9 +519,6 @@ const HelpApp = () => {
         localStorage.setItem('theme', currentTheme);
     }, [currentTheme]);
 
-    // About took these pages when it became its own destination. Old links
-    // and bookmarks still point at help.html#/page/<id>, which used to render
-    // them inside a sidebar that no longer lists them. Forward instead.
     useEffect(() => {
         const forward = () => {
             const h = window.location.hash || '';
@@ -574,12 +569,10 @@ const HelpApp = () => {
 
             <div className="flex-1 max-w-[1600px] mx-auto w-full flex">
 
-                <!-- Mobile sidebar overlay -->
                 <${SidebarWrapper} isOpen=${isSidebarOpen} onClose=${() => setIsSidebarOpen(false)} showOnDesktop=${false} isZenMode=${isZenMode}>
                     <${PageNav} currentHash=${hash} t=${t} onClose=${() => setIsSidebarOpen(false)} />
                 <//>
 
-                <!-- Desktop sidebar: always visible -->
                 ${!isZenMode && html`
                     <div className="hidden lg:flex flex-col w-60 shrink-0 pt-12 px-4 border-r border-mist dark:border-slate-800 no-scrollbar overflow-y-auto">
                         <${PageNav} currentHash=${hash} t=${t} onClose=${() => {}} />
@@ -592,7 +585,6 @@ const HelpApp = () => {
                     </div>
                 `}
 
-                <!-- Main content -->
                 <main className="flex-1 min-w-0 px-6 lg:px-16 py-12 overflow-y-auto no-scrollbar">
                     ${Content}
                 </main>

@@ -1378,8 +1378,7 @@
       prompt: "Roli: Mësues informatike. Konteksti: Klasa bashkë-krijon norma për përdorim etik të mjeteve IA. Detyra: Tekst për poster A3: 5 rregulla, 5 pika 'mos bëj kështu' dhe 3 pyetje reflektuese që nxënësit mund t'i përshtatin. Kufizimet: Integritet akademik dhe privatësi; kujto verifikimin e fakteve dhe citimin e ndihmës nga IA kur lejohet.",
       tags: ["informatikë", "etika", "IA", "i_mesëm"]
     },
-    
-    
+
     {
       subcategory: "secondary",
       subject: "Normat e klasës",
@@ -1408,7 +1407,7 @@
       prompt: "Roli: Udhëheqës mësuesish. Konteksti: 20 minuta në mbrëmjen e prindërve për përdorim të ndershëm të IA-së dhe detyrave. Detyra: 6 slide (titull + 3 pika secila): çfarë është IA, çfarë nuk është, pritjet e shkollës, shembuj ndihme të lejuara, mbikëqyrje në shtëpi, kontakt. Kufizimet: Gjuhë e thjeshtë; familje shumëgjuhëshe parasysh.",
       tags: ["prindërit", "integriteti", "të_gjitha"]
     },
-    
+
     {
       subcategory: "primary_lower",
       subject: "Klima e klasës",
@@ -2119,96 +2118,7 @@
       prompt: "Si Drejtues i Departamentit të Shkencave (Kimi, Biologji, Fizikë), harto një agjendë profesionale për takimin e radhës mujor. Agjenda duhet të mbulojë: rishikimin e planit mësimor, nevojat për materiale laboratorike dhe organizimin e panairit të shkencës.",
       tags: ["departamenti", "agjenda", "shkencat"]
     },
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     {
       subcategory: "director",
       subject: "Menaxhimi i Krizave",

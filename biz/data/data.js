@@ -43,7 +43,7 @@ const generatePrompts = (seeds, categoryPrefix, count) => {
     for (let i = 0; i < count; i++) {
         const seedIndex = i % seeds.length;
         const seed = seeds[seedIndex];
-        
+
         generated.push({
             ...seed,
             id: `${categoryPrefix}-${i + 1}`,

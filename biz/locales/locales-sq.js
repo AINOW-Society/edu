@@ -643,10 +643,7 @@ const data = {
             "user_resp_title": "3. Përgjegjësitë e Përdoruesit",
             "user_resp_text": "Duke përdorur këtë sajt, ju pranoni të përdorni përmbajtjen në mënyrë të ligjshme. Ju mbeteni përgjegjës për mënyrën se si përdorni rezultatet e gjeneruara nga modelet e IA."
         },
-        
-        
-        
-        
+
         "ethical": {
             "title": "Udhëzimet Etike të IA",
             "intro": "Ne besojmë se IA duhet të fuqizojë njerëzimin, jo ta zëvendësojë atë. Promptet tona janë dizajnuar me fokus te drejtësia dhe siguria.",
@@ -1019,7 +1016,6 @@ const data = {
     },
 };
 
-// v0.94
 Object.assign(data.resources.nav, { services: 'Shërbime IA' });
 Object.assign(data.pages, {
     services: {
@@ -1076,8 +1072,6 @@ Object.assign(data.pages.partners, {
     ctrlab_text: 'Partner teknologjik. CTRLab ndërton inxhinierinë pas produkteve të AINOW dhe bashkëpunon në punë të aplikuar me IA në rajon.',
 });
 
-// v0.94: Albanian Builder labels. Previously absent, so the page fell back
-// to English via t()'s en fallback.
 data.builder = {
     title: "Ndërtuesi i agjentëve",
     subtitle: "Projektoni asete inteligjence të personalizuara",
@@ -1126,7 +1120,6 @@ data.builder = {
     }
 };
 
-// v0.94
 Object.assign(data.pages.about, {
     visit: 'Vizitoni faqen e AINOW Society',
     beyond_title: 'Ku mbaron biblioteka',

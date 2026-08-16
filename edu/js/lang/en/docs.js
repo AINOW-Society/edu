@@ -208,44 +208,44 @@ var DOCS_DATA = [
         id: "history",
         title: "History of AI",
         items: [
-            { 
-                id: "early", 
-                title: "1940s: Early Beginnings", 
-                content: `\n                    <p>The concept of artificial beings dates back to ancient mythology, but the true scientific foundation was laid during WWII. In 1950, computing pioneer <strong>Alan Turing</strong> published a paper introducing the "Turing Test," asking the legendary question: <em>"Can machines think?"</em> This established the theoretical framework for the next century of computing.</p>\n                ` 
+            {
+                id: "early",
+                title: "1940s: Early Beginnings",
+                content: `\n                    <p>The concept of artificial beings dates back to ancient mythology, but the true scientific foundation was laid during WWII. In 1950, computing pioneer <strong>Alan Turing</strong> published a paper introducing the "Turing Test," asking the legendary question: <em>"Can machines think?"</em> This established the theoretical framework for the next century of computing.</p>\n                `
             },
-            { 
-                id: "birth", 
-                title: "1956: The Official Birth", 
-                content: `\n                    <p>The term <strong>"Artificial Intelligence"</strong> was officially coined by John McCarthy at the historic Dartmouth Conference in 1956. This small summer workshop gathered the brightest minds in computing and officially established AI as an academic discipline. Optimism was sky-high, with scientists predicting human-like machines within a decade.</p>\n                ` 
+            {
+                id: "birth",
+                title: "1956: The Official Birth",
+                content: `\n                    <p>The term <strong>"Artificial Intelligence"</strong> was officially coined by John McCarthy at the historic Dartmouth Conference in 1956. This small summer workshop gathered the brightest minds in computing and officially established AI as an academic discipline. Optimism was sky-high, with scientists predicting human-like machines within a decade.</p>\n                `
             },
-            { 
-                id: "winter-1", 
-                title: "1970s: The First AI Winter", 
+            {
+                id: "winter-1",
+                title: "1970s: The First AI Winter",
                 content: `\n                    <p>After the initial extreme enthusiasm, the harsh reality of computing limitations set in. The computers of the 70s were simply too weak and lacked the memory to process complex language or logic. Frustrated by the lack of commercial applications, the US and British governments drastically cut funding. The field went into hibernation—a period known as the <strong>AI Winter</strong>.</p>
 <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #cbd5e1; margin-top: 20px;">
   <strong>Analogy: The Hype Bubble</strong>
   <p style="margin-top: 8px;">Imagine a start-up that promises flying cars next year. They get millions in funding, but when they realize the technology is decades away, the investors panic and take their money back. That's exactly what happened to AI in the 70s and 80s.</p>
-</div>\n                ` 
+</div>\n                `
             },
-            { 
-                id: "expert-systems", 
-                title: "1980s: Expert Systems Revival", 
-                content: `\n                    <p>AI experienced a sudden revival through <strong>"Expert Systems"</strong>. Instead of trying to build a general human brain, scientists built focused software that strictly imitated the decision-making of human experts. These systems were highly successful in specific corporate fields, like assisting doctors with medical diagnoses or helping banks approve loans.</p>\n                ` 
+            {
+                id: "expert-systems",
+                title: "1980s: Expert Systems Revival",
+                content: `\n                    <p>AI experienced a sudden revival through <strong>"Expert Systems"</strong>. Instead of trying to build a general human brain, scientists built focused software that strictly imitated the decision-making of human experts. These systems were highly successful in specific corporate fields, like assisting doctors with medical diagnoses or helping banks approve loans.</p>\n                `
             },
-            { 
-                id: "winter-2", 
-                title: "Late 1980s: The Second AI Winter", 
-                content: `\n                    <p>History repeated itself. Expert systems proved incredibly expensive to build, difficult to update, and too rigid for the dynamic real world. As corporations realized the maintenance costs outweighed the benefits, the funding collapsed once again, plunging the industry into the second AI Winter.</p>\n                ` 
+            {
+                id: "winter-2",
+                title: "Late 1980s: The Second AI Winter",
+                content: `\n                    <p>History repeated itself. Expert systems proved incredibly expensive to build, difficult to update, and too rigid for the dynamic real world. As corporations realized the maintenance costs outweighed the benefits, the funding collapsed once again, plunging the industry into the second AI Winter.</p>\n                `
             },
-            { 
-                id: "intelligent-agents", 
-                title: "1990s: Intelligent Agents & Data", 
-                content: `\n                    <p>The explosion of the Internet and Moore's Law (rapidly increasing computer speed) silently revived the field. Machine learning shifted from theoretical rules to statistical data. In 1997, IBM's Deep Blue defeated world chess champion Garry Kasparov, proving that machines could finally out-calculate the greatest human minds in complex strategy.</p>\n                ` 
+            {
+                id: "intelligent-agents",
+                title: "1990s: Intelligent Agents & Data",
+                content: `\n                    <p>The explosion of the Internet and Moore's Law (rapidly increasing computer speed) silently revived the field. Machine learning shifted from theoretical rules to statistical data. In 1997, IBM's Deep Blue defeated world chess champion Garry Kasparov, proving that machines could finally out-calculate the greatest human minds in complex strategy.</p>\n                `
             },
-            { 
-                id: "ml-bigdata", 
-                title: "2010s-Present: Big Data & Transformers", 
-                content: `\n                    <p>The modern era. The massive availability of internet data (<strong>Big Data</strong>) and the invention of powerful GPUs allowed scientists to build massive <em>Artificial Neural Networks</em>. In 2017, Google researchers introduced the <strong>Transformer architecture</strong> (the "T" in ChatGPT), revolutionizing Natural Language Processing. The era of generative Artificial Intelligence had officially arrived.</p>\n                ` 
+            {
+                id: "ml-bigdata",
+                title: "2010s-Present: Big Data & Transformers",
+                content: `\n                    <p>The modern era. The massive availability of internet data (<strong>Big Data</strong>) and the invention of powerful GPUs allowed scientists to build massive <em>Artificial Neural Networks</em>. In 2017, Google researchers introduced the <strong>Transformer architecture</strong> (the "T" in ChatGPT), revolutionizing Natural Language Processing. The era of generative Artificial Intelligence had officially arrived.</p>\n                `
             }
         ]
     },
@@ -253,27 +253,27 @@ var DOCS_DATA = [
         id: "applications",
         title: "Everyday Applications",
         items: [
-            { 
-                id: "health", 
-                title: "Healthcare & Medicine", 
+            {
+                id: "health",
+                title: "Healthcare & Medicine",
                 content: `\n                    <p>AI is revolutionizing how we diagnose and treat diseases, acting as an untiring analytical partner for doctors.</p>
 <ul style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
   <li><strong>Medical Imaging:</strong> AI models can instantly analyze X-rays and MRIs to detect micro-tumors years before the human eye could spot them.</li>
   <li><strong>Drug Discovery:</strong> It simulates millions of chemical combinations in hours, reducing the time required to develop new pharmaceutical medications from decades to mere months.</li>
-</ul>\n                ` 
+</ul>\n                `
             },
-            { 
-                id: "transport", 
-                title: "Transportation", 
+            {
+                id: "transport",
+                title: "Transportation",
                 content: `\n                    <p>Artificial Intelligence is the invisible engine driving modern logistics and transit safety.</p>
 <ul style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
   <li><strong>Autonomous Navigation:</strong> Self-driving cars process millions of data points per second (pedestrians, stoplights, speeds) to safely navigate city streets.</li>
   <li><strong>Global Logistics:</strong> AI optimizes flight paths for airlines, coordinates global shipping routes to avoid storms, and powers rideshare apps (like Uber) to match drivers dynamically perfectly.</li>
-</ul>\n                ` 
+</ul>\n                `
             },
-            { 
-                id: "media", 
-                title: "Social Media & Algorithms", 
+            {
+                id: "media",
+                title: "Social Media & Algorithms",
                 content: `\n                    <p>If you've ever felt like an app "knows what you're thinking," that is AI pattern recognition at work.</p>
 <ul style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
   <li><strong>Content Curation:</strong> The endless scrolling feeds on TikTok, Facebook, and Instagram are carefully curated by AI algorithms analyzing every millisecond of holding your attention.</li>
@@ -282,30 +282,30 @@ var DOCS_DATA = [
 <div style="background: #fdf4ff; padding: 20px; border-radius: 12px; border: 1px solid #f5d0fe; margin-top: 20px;">
   <strong>Analogy: The Digital Butler</strong>
   <p style="margin-top: 8px;">Think of AI in social media as an incredibly observant butler. They watch exactly how many seconds you spend looking at a painting, and silently swap the other paintings in the house to match exactly what kept your attention.</p>
-</div>\n                ` 
+</div>\n                `
             },
-            { 
-                id: "finance", 
-                title: "Finance & Security", 
+            {
+                id: "finance",
+                title: "Finance & Security",
                 content: `\n                    <p>The global economic system relies on AI to function securely at lightspeed.</p>
 <ul style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
   <li><strong>Fraud Prevention:</strong> When your credit card gets blocked for a "suspicious transaction" in another country, an AI system flagged the geographical anomaly in milliseconds.</li>
   <li><strong>Algorithmic Trading:</strong> Wall Street relies on AI to execute millions of micro-trades a second, analyzing news trends and global data faster than any human broker.</li>
-</ul>\n                ` 
+</ul>\n                `
             },
-            { 
-                id: "agriculture", 
-                title: "Agriculture & Food", 
+            {
+                id: "agriculture",
+                title: "Agriculture & Food",
                 content: `\n                    <p>Technology and farming intersect in "Precision Agriculture," ensuring global food security.</p>
 <ul style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
   <li><strong>Smart Drones:</strong> Drones guided by AI scan massive fields, using computer vision to detect exactly where weeds are growing or which crops need more water.</li>
   <li><strong>Harvest Optimization:</strong> AI predicts weather patterns to tell farmers the exact optimal day to harvest, maximizing crop yields and minimizing waste.</li>
-</ul>\n                ` 
+</ul>\n                `
             },
-            { 
-                id: "entertainment", 
-                title: "Entertainment & Arts", 
-                content: `<p>Non-playable characters (NPCs) act intelligently in video games, while movies are designed and rendered with AI assistance in Hollywood.</p>` 
+            {
+                id: "entertainment",
+                title: "Entertainment & Arts",
+                content: `<p>Non-playable characters (NPCs) act intelligently in video games, while movies are designed and rendered with AI assistance in Hollywood.</p>`
             }
         ]
     },

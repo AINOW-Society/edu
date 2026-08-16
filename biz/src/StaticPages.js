@@ -43,7 +43,7 @@ const AboutPage = () => {
     const teamMembers = ['sead', 'bojan', 'biljana', 'aleksandra', 'maja'];
     return html`
     <${PageWrapper} title=${t('pages.about.title')}>
-        
+
         <div className="mb-12">
             <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">${t('pages.about.story_title')}</h2>
             <p className="lead text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -60,7 +60,7 @@ const AboutPage = () => {
                     ${t('pages.about.mission_text')}
                 </p>
             </div>
-            
+
             <div className="bg-opal-bg dark:bg-slate-800/50 p-8 rounded-3xl border border-mist dark:border-slate-800">
                 <h2 className="text-xl font-bold text-charcoal dark:text-white mb-4">
                     ${t('pages.about.values_title')}
@@ -80,7 +80,7 @@ const AboutPage = () => {
                             <h3 className="text-2xl font-bold text-slate-900 dark:text-white">${t('pages.about.creator_name')}</h3>
                             <span className="px-3 py-1 rounded-full bg-coral/10 dark:bg-coral/20 text-coral dark:text-coral-light text-xs font-bold uppercase tracking-wider">${t('pages.about.creator_role')}</span>
                         </div>
-                        
+
                         <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-base mb-6">
                             ${t('pages.about.creator_bio')}
                         </p>
@@ -107,7 +107,6 @@ const AboutPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                 ${teamMembers.map((member, i) => html`
                     <div key=${member} className=${'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-8 shadow-sm transition-all hover:shadow-md' +
-                        // An odd member count leaves the last card orphaned at half width.
                         (i === teamMembers.length - 1 && teamMembers.length % 2 ? ' md:col-span-2' : '')}>
                         <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">${t(`pages.about.team.${member}.name`)}</h3>
                         <p className="text-coral dark:text-coral-light text-xs font-bold uppercase tracking-wider mb-4">${t(`pages.about.team.${member}.role`)}</p>
@@ -123,8 +122,6 @@ const AboutPage = () => {
             </a>
         </div>
 
-        <!-- The library is free and stays free; this says plainly where the
-             paid work begins, without turning the page into a pitch. -->
         <section className="not-prose border-t border-slate-200 dark:border-slate-800 pt-12">
             <h2 className="text-2xl font-bold tracking-tight text-charcoal dark:text-white mb-4">${t('pages.about.beyond_title')}</h2>
             <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">${t('pages.about.beyond_free')}</p>
@@ -148,7 +145,7 @@ const PoliciesPage = () => {
     const { t } = useLanguage();
     return html`
     <${PageWrapper} title=${t('pages.legal.title')}>
-        
+
         <div className="space-y-12">
             <div className="bg-coral/10 dark:bg-coral/10 p-6 rounded-2xl border border-mist dark:border-coral-dark">
                 <h2 className="text-lg font-bold text-stone-light dark:text-coral-light mb-2 flex items-center gap-2">
@@ -185,7 +182,7 @@ const PoliciesPage = () => {
 
             <section>
                 <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">${t('pages.legal.privacy_title')}</h2>
-                
+
                 <div className="space-y-6 text-sm text-slate-600 dark:text-slate-400">
                     <div>
                         <h3 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-2">${t('pages.legal.no_tracking_title')}</h3>
@@ -208,7 +205,7 @@ const PoliciesPage = () => {
 
             <section>
                 <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">${t('pages.legal.terms_title')}</h2>
-                
+
                 <div className="space-y-6 text-sm text-slate-600 dark:text-slate-400">
                     <div>
                         <h3 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-2">${t('pages.legal.license_software')}</h3>
@@ -434,10 +431,6 @@ const AccessibilityPage = () => {
             ${t('pages.accessibility.intro')}
         </p>
 
-        <!-- The keyboard-shortcuts panel lived here and has been removed:
-             shortcuts are documented in the guide (help.html#/guide/shortcuts),
-             and this page is about our accessibility commitment. The old panel
-             was also hardcoded English and its anchor no longer resolved. -->
         <section>
             <h2 className="text-2xl font-bold tracking-tight mb-4 dark:text-white">${t('pages.accessibility.commitment.title')}</h2>
             <p className="mb-4 text-slate-600 dark:text-slate-300">
@@ -453,7 +446,7 @@ const AccessibilityPage = () => {
 
 const ServicesPage = () => {
     const { t } = useLanguage();
-    // Delivered by CTRLab, the technology partner behind AINOW products.
+
     const services = [
         'consultancy', 'training', 'copilot', 'readiness',
         'agents', 'custom', 'seo'
@@ -488,9 +481,6 @@ const ServicesPage = () => {
             </div>
         </div>
 
-        <!-- Services are delivered by CTRLab, so the CTA has to land there.
-             A bare mailto to the NGO inbox routed business enquiries to the
-             wrong desk and gave the reader nothing to click. -->
         <div className="mt-12 p-8 bg-coral/10 dark:bg-teal-900/20 rounded-3xl border border-mist dark:border-teal-800 text-center not-prose">
             <h2 className="text-2xl font-bold text-charcoal dark:text-white mb-3">${t('pages.services.cta')}</h2>
             <p className="text-stone-light dark:text-teal-200 mb-6 max-w-xl mx-auto">${t('pages.services.cta_text')}</p>

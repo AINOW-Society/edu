@@ -1401,7 +1401,7 @@
         if (typeof App !== 'undefined' && ob && ob.classList.contains('open') && typeof App._syncOnboardingStep === 'function') {
             App._syncOnboardingStep();
         }
-        
+
         if (typeof App !== 'undefined' && App.currentView) {
             if (App.currentView === 'resources' && window.ResourceManager) {
                 window.ResourceManager.currentTestTopic = null;

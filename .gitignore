@@ -9,6 +9,8 @@ node_modules/
 scripts/
 dist/
 build/
+# Internal build plans and specs: contain local absolute paths
+docs/superpowers/
 
 # IDE files
 *.sublime-project

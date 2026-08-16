@@ -1,9 +1,6 @@
 (function () {
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['data/data-situations'] = AINOW['data/data-situations'] || {};
-// AINOW Situations — Real-Life Scenario Intelligence Engine
-// 8 guided prompt generators for professional real-world situations.
-// Each situation walks the user through consultant-style questions and generates expert prompt packages.
 
 const SITUATION_CATEGORIES = [
     { id: 'all',            labelKey: 'situations.cats.all',            color: 'slate' },

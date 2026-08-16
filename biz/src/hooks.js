@@ -4,7 +4,6 @@ var __exports = AINOW['src/hooks'] = AINOW['src/hooks'] || {};
 const { useState, useEffect, useCallback, useRef } = React;
 const { loadLocale, getCachedLocale } = AINOW['locales/locales'];
 
-
 const useLanguage = () => {
     const getStoredLangCode = () => {
         const stored = localStorage.getItem('language');
@@ -13,7 +12,7 @@ const useLanguage = () => {
 
     const [lang, setLangState] = useState(getStoredLangCode);
     const [dict, setDict] = useState(() => getCachedLocale(lang));
-    const [isReady, setIsReady] = useState(lang === 'en'); // EN is usually pre-cached
+    const [isReady, setIsReady] = useState(lang === 'en');
 
     useEffect(() => {
         let mounted = true;

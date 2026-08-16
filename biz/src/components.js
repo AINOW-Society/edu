@@ -9,16 +9,13 @@ const { loadLocale, getCachedLocale } = AINOW['locales/locales'];
 const { LANGUAGES, NAV_CONFIG, NAV_LINKS, CHATBOTS, APP_VERSION } = AINOW['src/config'];
 const { copyTextToClipboard } = AINOW['src/utils'];
 
-
 const { useLanguage, useToast, useGlobalShortcuts } = AINOW['src/hooks'];
 
 const { Header } = AINOW['src/components/layout/Header'];
 const { SidebarWrapper } = AINOW['src/components/layout/Sidebar'];
 const { Footer } = AINOW['src/components/layout/Footer'];
 
-
 const html = htm.bind(React.createElement);
-
 
 const addToHistory = (item) => {
     try {
@@ -30,7 +27,6 @@ const addToHistory = (item) => {
         window.dispatchEvent(new Event('historyUpdated'));
     } catch (e) { console.error(e); }
 };
-
 
 const Pagination = ({ currentPage, totalPages, onPageChange, totalItems, itemsPerPage, t, itemType = 'items', simple = false }) => {
     const pageNumbers = useMemo(() => {
@@ -235,7 +231,7 @@ const Scratchpad = ({ isOpen, onClose }) => {
                         <button onClick=${onClose} className="p-1.5 hover:bg-opal-surface dark:hover:bg-slate-800 rounded text-stone hover:text-coral transition-colors"><${X} className="w-4 h-4" /></button>
                     </div>
                 </div>
-                <textarea 
+                <textarea
                     className="flex-1 p-4 resize-none outline-none bg-opal-surface dark:bg-slate-900 dark:text-slate-200 font-mono text-sm leading-relaxed text-charcoal placeholder:text-stone-light"
                     placeholder=${t('scratchpad.placeholder')}
                     value=${content}
@@ -328,7 +324,7 @@ const ActionButtons = ({
                     <${Heart} className=${`w-${size} h-${size}`} fill=${isFavorite ? 'currentColor' : 'none'} />
                 </button>
             `}
-            
+
             <button onClick=${handleScratchpadAdd} className=${buttonClass + "text-stone-light hover:text-coral"} title="Add to Scratchpad">
                 <${NotebookPen} className=${`w-${size} h-${size}`} />
             </button>
@@ -361,9 +357,7 @@ const ActionButtons = ({
     `;
 };
 
-
 const { Logo } = AINOW['src/components/ui/Logo'];
-
 
 const ShortcutsModal = ({ isOpen, onClose, extraShortcuts }) => {
     useEffect(() => {
@@ -461,17 +455,17 @@ const PageShell = ({ activePage, children, sidebarItems, isSidebarOpen: external
 
     return html`
         <div className="min-h-screen bg-opal-bg dark:bg-slate-900 flex flex-col font-sans selection:bg-coral/30">
-            <${Header} 
-                currentTheme=${currentTheme} 
-                onThemeToggle=${() => setCurrentTheme(t => t === 'dark' ? 'light' : 'dark')} 
-                onMenuClick=${() => setIsOpen(true)} 
+            <${Header}
+                currentTheme=${currentTheme}
+                onThemeToggle=${() => setCurrentTheme(t => t === 'dark' ? 'light' : 'dark')}
+                onMenuClick=${() => setIsOpen(true)}
                 onScratchpad=${() => setIsScratchpadOpen(true)}
                 onSettingsClick=${() => setIsSettingsOpen(true)}
-                activePage=${activePage} 
+                activePage=${activePage}
                 isZenMode=${isZenMode}
                 onToggleZen=${() => setIsZenMode(!isZenMode)}
             />
-            
+
             <div className="flex-1 max-w-[1600px] mx-auto w-full flex">
                 <${SidebarWrapper} isOpen=${isOpen} onClose=${() => setIsOpen(false)} isZenMode=${isZenMode}>
                     ${sidebarItems}
@@ -481,7 +475,7 @@ const PageShell = ({ activePage, children, sidebarItems, isSidebarOpen: external
                     ${children}
                 </main>
             </div>
-            
+
             <${Scratchpad} isOpen=${isScratchpadOpen} onClose=${() => setIsScratchpadOpen(false)} />
             <${SettingsModal} isOpen=${isSettingsOpen} onClose=${() => setIsSettingsOpen(false)} />
             <${Footer} isZenMode=${isZenMode} />

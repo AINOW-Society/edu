@@ -18,8 +18,6 @@ const Router = {
             return;
         }
 
-        // Active state is a class now rather than inline styles — the sidebar
-        // owns its own appearance in CSS.
         document.querySelectorAll('.sb-sub').forEach(el => el.classList.remove('active'));
         const activeSidebarItem = document.getElementById(`sidebar-${sectionId}`);
         if (activeSidebarItem) activeSidebarItem.classList.add('active');
@@ -112,7 +110,6 @@ const Router = {
                 <div class="guide-layout">
                     <div class="guide-tabs">
         `;
-
 
         section.items.forEach((item, index) => {
             const isActive = item.id === activeItem.id;

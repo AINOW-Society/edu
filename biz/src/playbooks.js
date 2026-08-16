@@ -5,7 +5,6 @@ const { MessageSquare, FileText, TrendingUp, AlertCircle, Briefcase, Users, Hand
 const { useState, useEffect, useRef, useMemo, useCallback } = React;
 const { createRoot } = ReactDOMClient;
 
-
 const { Header, Footer, ShortcutsModal, SidebarWrapper, EmptyState, addToHistory, useLanguage, useToast, Toast, useGlobalShortcuts, Scratchpad, SettingsModal, Pagination } = AINOW['src/components'];
 const { playbooksData } = AINOW['data/data-playbooks'];
 const { SITUATIONS, SITUATION_CATEGORIES } = AINOW['data/data-situations'];
@@ -45,8 +44,6 @@ const sitInterpolate = (tpl, answers) =>
         return v !== undefined && v !== '' ? v : `[${k.trim()}]`;
     });
 
-// Converts short playbook input labels into proper consultant-style questions
-// and detects whether the question needs a textarea (long input) or text field.
 const LABEL_MAP = {
     'raw code':         { q: 'Paste the code you want to work with:',              type: 'textarea' },
     'code':             { q: 'Paste the code you want to work with:',              type: 'textarea' },
@@ -110,13 +107,8 @@ const enhanceInput = (inp) => {
     return { q, type: isLong ? 'textarea' : 'text' };
 };
 
-// Each entry maps a base template ID (first 5 chars of pb.id) to:
-//   questions[]  — smart consultant-style questions (text / textarea)
-//   template_quick / template_full / chain_1-3  — standalone prompts using {{VAR}}
-// {{VARIANT}} is auto-injected as the clean variant name (e.g. "Python", "LinkedIn", "SaaS App")
 const PB_SITUATION_TEMPLATES = {
 
-    // ── Code Refactor (pb-cr) ──────────────────────────────────────────────────
     'pb-cr': {
         questions: [
             { id: 'CODE',    type: 'textarea', _label: 'Paste the code you want to work with:',                       _placeholder: 'Paste your code here...' },
@@ -218,7 +210,6 @@ Include:
 Use the standard testing framework for {{VARIANT}}.`,
     },
 
-    // ── UX Audit (pb-ux) ───────────────────────────────────────────────────────
     'pb-ux': {
         questions: [
             { id: 'SCREEN',    type: 'textarea', _label: 'Describe the UI or screens you want audited:',              _placeholder: 'Describe the interface, flows, and key interactions...' },
@@ -311,7 +302,6 @@ Provide:
 - A discussion guide for the post-task debrief interview`,
     },
 
-    // ── Content Engine (pb-ce) ─────────────────────────────────────────────────
     'pb-ce': {
         questions: [
             { id: 'TOPIC',    type: 'text', _label: 'What is the topic or subject of this content?',  _placeholder: 'e.g. AI tools for small businesses, leadership in remote teams' },
@@ -389,7 +379,6 @@ Provide:
 5. A 30-day content series built around this topic`,
     },
 
-    // ── Cyber Response (pb-ir) ─────────────────────────────────────────────────
     'pb-ir': {
         questions: [
             { id: 'ALERTS',   type: 'textarea', _label: 'Describe the incident or paste log/alert details:',  _placeholder: 'Paste error logs, alert details, or describe the incident...' },
@@ -481,7 +470,6 @@ Draft three communications:
 3. Post-incident lessons-learned document — timeline, root cause, and preventive controls`,
     },
 
-    // ── Data Science (pb-ds) ───────────────────────────────────────────────────
     'pb-ds': {
         questions: [
             { id: 'DATA',      type: 'textarea', _label: 'Describe your dataset (tables, columns, size, source):',  _placeholder: 'e.g. Customer transactions: user_id, date, amount, product — 2M rows, PostgreSQL' },
@@ -566,7 +554,6 @@ Include:
 5. A weekly performance report template for non-technical stakeholders`,
     },
 
-    // ── HR Recruit (pb-hr) ─────────────────────────────────────────────────────
     'pb-hr': {
         questions: [
             { id: 'ROLE',     type: 'text', _label: 'What role or position are you hiring for?',          _placeholder: 'e.g. Senior Product Manager, DevOps Engineer, Sales Director' },
@@ -650,7 +637,6 @@ Structure in three phases:
 Include: daily check-in questions, success metrics, and common onboarding mistakes to avoid.`,
     },
 
-    // ── Gov Policy (pb-gp) ─────────────────────────────────────────────────────
     'pb-gp': {
         questions: [
             { id: 'ISSUE',        type: 'text', _label: 'What public or policy issue are you addressing?',            _placeholder: 'e.g. Urban traffic congestion, youth unemployment, digital privacy' },
@@ -728,7 +714,6 @@ Produce:
 4. Social media messaging strategy with sample posts`,
     },
 
-    // ── Legal Draft (pb-ld) ────────────────────────────────────────────────────
     'pb-ld': {
         questions: [
             { id: 'CONTRACT',  type: 'select', _label: 'What type of legal document do you need?', options: ['SaaS / Software license', 'Employment contract', 'NDA / Confidentiality', 'Partnership agreement', 'Service / Consulting agreement', 'Freelance contract', 'Terms of service'] },
@@ -806,7 +791,6 @@ Identify:
 5. Plain-English obligation summary for a non-lawyer executive`,
     },
 
-    // ── Sales Strategy (pb-ss) ─────────────────────────────────────────────────
     'pb-ss': {
         questions: [
             { id: 'ACCOUNT', type: 'text', _label: 'Who is the target company or account?',      _placeholder: 'e.g. Fortune 500 retailer, mid-market SaaS company, local government' },
@@ -890,7 +874,6 @@ Provide:
 5. Win/loss criteria and how to get a firm decision date commitment`,
     },
 
-    // ── Climate Plan (pb-cp) ───────────────────────────────────────────────────
     'pb-cp': {
         questions: [
             { id: 'ORG',        type: 'text', _label: 'Describe your organization or operation:',           _placeholder: 'e.g. Mid-size manufacturing facility, 500 employees, produces packaging' },
@@ -973,7 +956,6 @@ Provide:
 5. Internal employee engagement campaign plan`,
     },
 
-    // ── Project Manager (pb-pm) ────────────────────────────────────────────────
     'pb-pm': {
         questions: [
             { id: 'GOAL',  type: 'text',     _label: 'What is the project goal or key deliverable?',          _placeholder: 'e.g. Launch new e-commerce website, migrate to cloud infrastructure' },
@@ -1053,7 +1035,6 @@ Provide:
 5. End-of-project retrospective agenda`,
     },
 
-    // ── Course Creator (pb-cc) ─────────────────────────────────────────────────
     'pb-cc': {
         questions: [
             { id: 'TOPIC',   type: 'text', _label: 'What subject or skill will this course teach?',     _placeholder: 'e.g. Data analysis with Python, Business communication, Graphic design' },
@@ -1131,7 +1112,6 @@ Provide:
 5. Post-course follow-up plan to reinforce learning transfer`,
     },
 
-    // ── Researcher (pb-rs) ─────────────────────────────────────────────────────
     'pb-rs': {
         questions: [
             { id: 'DOMAIN',   type: 'text',     _label: 'What is your research field or topic?',           _placeholder: 'e.g. Machine learning fairness, Public health policy, Behavioral economics' },
@@ -1211,7 +1191,6 @@ Provide:
 5. Journal selection criteria and target publication list`,
     },
 
-    // ── Story Writer (pb-sw) ───────────────────────────────────────────────────
     'pb-sw': {
         questions: [
             { id: 'HOOK',     type: 'textarea', _label: 'Describe your story concept or opening idea:',  _placeholder: 'e.g. A disgraced astronaut gets one last chance to redeem herself on a solo Mars mission' },
@@ -1302,7 +1281,6 @@ Write the complete opening scene (600-800 words) that:
 Then provide editorial notes explaining the key craft choices made.`,
     },
 
-    // ── Biz Modeler (pb-bm) ────────────────────────────────────────────────────
     'pb-bm': {
         questions: [
             { id: 'IDEA',   type: 'textarea', _label: 'Describe your business idea or concept:',        _placeholder: 'e.g. AI meal planning app that learns family preferences and generates grocery lists' },
@@ -1389,7 +1367,6 @@ Provide:
 5. Ideal investor type and 10 relevant funds to target`,
     },
 
-    // ── IT SOP (pb-so) ─────────────────────────────────────────────────────────
     'pb-so': {
         questions: [
             { id: 'SYSTEM',   type: 'text', _label: 'What technology system or infrastructure are you working with?', _placeholder: 'e.g. Kubernetes cluster on AWS, Windows Active Directory, PostgreSQL' },
@@ -1475,7 +1452,6 @@ Provide:
 5. Compliance checklist for relevant standards (SOC2, ISO27001, CIS Benchmarks)`,
     },
 
-    // ── Supply Chain Audit (pb-la) ─────────────────────────────────────────────
     'pb-la': {
         questions: [
             { id: 'ROUTE',     type: 'text', _label: 'Describe your supply chain or trade route:',        _placeholder: 'e.g. Manufacturing in Vietnam → warehouse in Netherlands → retail in UK' },
@@ -1557,7 +1533,6 @@ Provide:
 5. Recommended customs broker selection criteria`,
     },
 
-    // ── HR Culture (pb-hc) ─────────────────────────────────────────────────────
     'pb-hc': {
         questions: [
             { id: 'SIZE',    type: 'text', _label: 'What is the team or organization size and structure?',     _placeholder: 'e.g. 45-person startup, fully remote, 3 engineering teams + sales + ops' },
@@ -1640,7 +1615,6 @@ Provide:
 5. Leading indicators that culture is genuinely improving`,
     },
 
-    // ── Finance Plan (pb-fn) ───────────────────────────────────────────────────
     'pb-fn': {
         questions: [
             { id: 'REVENUE', type: 'text', _label: 'What is the current revenue or financial situation?',   _placeholder: 'e.g. $2.5M ARR growing 30% YoY, or pre-revenue startup with $500k seed' },
@@ -1723,7 +1697,6 @@ Provide:
 5. 5 potential investors or funds aligned to this stage and sector`,
     },
 
-    // ── Psych Coach (pb-pc) ────────────────────────────────────────────────────
     'pb-pc': {
         questions: [
             { id: 'PATTERN', type: 'text', _label: 'What behavior or mental pattern do you want to change?',    _placeholder: 'e.g. Chronic procrastination, people-pleasing, imposter syndrome, performance anxiety' },
@@ -1809,14 +1782,8 @@ Provide:
 
 };
 
-// For each variant ID (pb.id) we can override one or more question option arrays.
-// This makes suggestions immediately relevant — a LinkedIn card gets LinkedIn goals,
-// a Checkout UX card gets checkout-specific issues, etc.
-// Covers the 4 explicit variant groups (CONTENT_ENGINE, UX_AUDIT, CODE_REFACTOR, NGO_PROPOSAL)
-// which are reused across all 20 base templates via cycling.
 const PB_VARIANT_CHIPS = (() => {
-    // ── CONTENT ENGINE variant goal chips (slug: li/tw/tk/bl/ne/yt/th/me/wh/pr/ig/rd/cs/eb/po/ad/qu/sa/cp/b2b/vh/bi)
-    // Used directly by pb-ce-*, and reused by pb-hr-*, pb-cp-*, pb-pm-*, pb-hc-*, pb-fn-* via cycling
+
     const CE = {
         li:  ['Build thought leadership', 'Generate leads', 'Grow professional network', 'Drive newsletter signups', 'Announce product or news', 'Attract job opportunities', 'Increase profile visibility'],
         tw:  ['Grow following', 'Drive real-time engagement', 'Share hot takes', 'Start a discussion', 'Promote content', 'Build brand voice', 'Go viral'],
@@ -1842,8 +1809,6 @@ const PB_VARIANT_CHIPS = (() => {
         bi:  ['Attract job opportunities', 'Build personal brand', 'Generate inbound leads', 'Establish niche expertise', 'Increase professional visibility', 'Attract speaking invites', 'Build authentic network'],
     };
 
-    // ── UX AUDIT variant top-issue chips (sa/mg/gp/lm/ec/fi/cr/db/on/ch/fo/na/se/pr/dm/ap/bl/la/hs/mn/ay/mo)
-    // Used by pb-ux-*, and reused by pb-ir-*, pb-ld-*, pb-so-*, pb-pc-* via cycling
     const UX = {
         sa:  ['High churn / low activation', 'Feature discoverability', 'Complex onboarding flow', 'Empty state confusion', 'Poor upgrade or upsell flow', 'Confusing settings page', 'Support ticket overflow'],
         mg:  ['Player drop-off at level 1', 'Confusing controls', 'Cluttered game UI', 'Poor reward / feedback loop', 'Hard to understand rules', 'Performance / loading issues', 'Unclear progression system'],
@@ -1866,9 +1831,6 @@ const PB_VARIANT_CHIPS = (() => {
         mo:  ['Modals hard to dismiss', 'Confusing modal vs page', 'Too much content in modal', 'Keyboard trap', 'No overlay click to close', 'Poor mobile modal sizing', 'Stacked modals confusion'],
     };
 
-    // ── CODE REFACTOR / NGO_PROPOSAL context chips
-    // These are reused by templates that cycle through these variant sets.
-    // We map by slug since the same slug can appear across many template bases.
     const CODE_GOAL = {
         py:  ['Fix bugs & logic errors', 'Improve performance (async, caching)', 'Add type hints (mypy)', 'Write unit tests (pytest)', 'Refactor to OOP / clean code', 'Migrate to newer Python version', 'Improve error handling'],
         js:  ['Fix bugs & async issues', 'Improve performance', 'Add TypeScript types', 'Write Jest tests', 'Modernize to ES2024+', 'Improve error handling', 'Reduce bundle size'],
@@ -1920,24 +1882,21 @@ const PB_VARIANT_CHIPS = (() => {
         em:  ['Deploy emergency response', 'Coordinate with local authorities', 'Secure emergency funding', 'Protect vulnerable populations', 'Provide essential supplies', 'Build staff capacity', 'Measure emergency outcomes'],
     };
 
-    // Build the full chip map keyed by full pb.id (e.g. 'pb-ce-li', 'pb-ux-ec', etc.)
-    // Templates that use CE variants (pb-ce, pb-hr, pb-cp, pb-pm, pb-hc, pb-fn):
-    //   question ID to override per template base
     const CE_QUESTION_MAP = {
         'pb-ce': 'GOAL', 'pb-hr': 'PRIORITY', 'pb-cp': 'CONSTRAINT',
         'pb-pm': 'RISK',  'pb-hc': 'PROBLEM',  'pb-fn': 'GOAL',
     };
-    // Templates that use UX variants (pb-ux, pb-ir, pb-ld, pb-so, pb-pc):
+
     const UX_QUESTION_MAP = {
         'pb-ux': 'TOP_ISSUE', 'pb-ir': 'SEVERITY',  'pb-ld': 'CONTRACT',
         'pb-so': 'AUDIENCE',  'pb-pc': 'CONTEXT',
     };
-    // Templates that use CODE_REFACTOR variants (pb-cr, pb-ds, pb-ss, pb-rs, pb-la):
+
     const CODE_QUESTION_MAP = {
         'pb-cr': 'GOAL', 'pb-ds': 'OBJECTIVE', 'pb-ss': 'STAGE',
         'pb-rs': 'STAGE', 'pb-la': 'CHALLENGE',
     };
-    // Templates that use NGO variants (pb-gp, pb-cc, pb-bm, pb-it, pb-sw, pb-pc):
+
     const NGO_QUESTION_MAP = {
         'pb-gp': 'ISSUE', 'pb-cc': 'LEARNER', 'pb-bm': 'STAGE',
         'pb-sw': 'GENRE', 'pb-ir': 'SEVERITY',
@@ -1945,19 +1904,18 @@ const PB_VARIANT_CHIPS = (() => {
 
     const chips = {};
 
-    // Wire CE variants
     Object.entries(CE_QUESTION_MAP).forEach(([baseId, qId]) => {
         Object.entries(CE).forEach(([slug, opts]) => {
             chips[`${baseId}-${slug}`] = { [qId]: opts };
         });
     });
-    // Wire UX variants
+
     Object.entries(UX_QUESTION_MAP).forEach(([baseId, qId]) => {
         Object.entries(UX).forEach(([slug, opts]) => {
             chips[`${baseId}-${slug}`] = { ...(chips[`${baseId}-${slug}`] || {}), [qId]: opts };
         });
     });
-    // Wire CODE variants — for pb-cr use the specific CODE_GOAL map
+
     Object.entries(CODE_QUESTION_MAP).forEach(([baseId, qId]) => {
         const sourceMap = baseId === 'pb-cr' ? CODE_GOAL : {};
         Object.entries(CODE_GOAL).forEach(([slug, opts]) => {
@@ -1965,7 +1923,7 @@ const PB_VARIANT_CHIPS = (() => {
             chips[`${baseId}-${slug}`] = { ...(chips[`${baseId}-${slug}`] || {}), [qId]: override };
         });
     });
-    // Wire NGO variants
+
     Object.entries(NGO_QUESTION_MAP).forEach(([baseId, qId]) => {
         Object.entries(NGO_GOAL).forEach(([slug, opts]) => {
             chips[`${baseId}-${slug}`] = { ...(chips[`${baseId}-${slug}`] || {}), [qId]: opts };
@@ -1975,10 +1933,6 @@ const PB_VARIANT_CHIPS = (() => {
     return chips;
 })();
 
-// Strips the category suffix from the full pb.title to get the clean variant name.
-// e.g. "Python Refactor Pro" → "Python"   |   "LinkedIn Content Engine" → "LinkedIn"
-// This lets templates say "Act as a senior Python engineer" instead of
-// "Act as a senior Python Refactor Pro engineer".
 const PB_TITLE_SUFFIXES = {
     'pb-cr': ' Refactor Pro',       'pb-ux': ' UX Audit',
     'pb-ce': ' Content Engine',     'pb-ir': ' Incident Response',
@@ -1995,17 +1949,17 @@ const PB_TITLE_SUFFIXES = {
 const extractVariant = (title, baseId) => {
     const suffix = PB_TITLE_SUFFIXES[baseId];
     if (suffix && title.endsWith(suffix)) return title.slice(0, -suffix.length).trim();
-    // Fallback: first word(s) before last two words (generic suffix)
+
     const parts = title.split(' ');
     return parts.length > 2 ? parts.slice(0, -2).join(' ') : title;
 };
 
 const normalizePb = (pb) => {
-    const baseId  = pb.id.substring(0, 5); // e.g. 'pb-cr' from 'pb-cr-py'
+    const baseId  = pb.id.substring(0, 5);
     const tpl     = PB_SITUATION_TEMPLATES[baseId];
-    const variant = extractVariant(pb.title, baseId); // e.g. "Python", "LinkedIn", "SaaS App"
+    const variant = extractVariant(pb.title, baseId);
     if (tpl) {
-        // Merge any variant-specific chip overrides into the question definitions
+
         const variantChips = PB_VARIANT_CHIPS[pb.id] || {};
         const questions = tpl.questions.map(q =>
             variantChips[q.id] ? { ...q, options: variantChips[q.id] } : q
@@ -2035,12 +1989,6 @@ const normalizePb = (pb) => {
     };
 };
 
-// Situations → locale template keys
-// Playbooks  → PB_SITUATION_TEMPLATES pre-written prompts
-// Available interpolation variables:
-//   {{TITLE}}   = full variant title  e.g. "Python Refactor Pro"
-//   {{VARIANT}} = clean variant name  e.g. "Python"
-//   + all user answer keys            e.g. {{CODE}}, {{GOAL}}, {{CONTEXT}}
 const buildOutput = (item, answers, t) => {
     if (item._type === 'situation') {
         const sid = item.id;
@@ -2068,7 +2016,6 @@ const buildOutput = (item, answers, t) => {
         };
     }
 
-    // Legacy fallback: step-based output (only hits if _tpl is null)
     const compiled = (item.steps || []).map(s => ({
         title: s.title, prompt: interpolate(s.prompt, answers),
     }));
@@ -2145,7 +2092,6 @@ const QuestionFlow = ({ item, t, onComplete, onBack }) => {
     const Icon       = getIcon(item.icon);
     const title      = isPlaybook ? item.title : t(item.titleKey);
 
-    // For situation select questions
     const selectedOpt = (!isPlaybook && question.type === 'select')
         ? question.options.find(opt => t(`situations.${item.id}.${question.id}_${opt}`) === current)
         : null;
@@ -2172,8 +2118,6 @@ const QuestionFlow = ({ item, t, onComplete, onBack }) => {
         }
     };
 
-    // Resolve label / placeholder depending on type
-    // For playbooks, auto-generate locale key: playbooks.ql.{base}_{id_lower}_l / _ph
     const _pbBase      = item._type === 'playbook' ? item.id?.substring(3, 5) : null;
     const _autoLblKey  = _pbBase ? `playbooks.ql.${_pbBase}_${question.id.toLowerCase()}_l`  : null;
     const _autoPHKey   = _pbBase ? `playbooks.ql.${_pbBase}_${question.id.toLowerCase()}_ph` : null;
@@ -2394,10 +2338,10 @@ const App = () => {
     const { t, isReady }                    = useLanguage();
     const { toast, showToast }              = useToast();
     const [currentTheme, setCurrentTheme]   = useState(() => localStorage.getItem('theme') || 'light');
-    const [view, setView]                   = useState('gallery');      // gallery | questions | output
+    const [view, setView]                   = useState('gallery');
     const [activeItem, setActiveItem]       = useState(null);
     const [answers, setAnswers]             = useState({});
-    const [selectedFilter, setSelectedFilter] = useState('all');         // 'all' | 'sit:cat' | 'pb:cat'
+    const [selectedFilter, setSelectedFilter] = useState('all');
     const [searchQuery, setSearchQuery]     = useState('');
     const [page, setPage]                   = useState(1);
     const [favorites, setFavorites]         = useState(() => { try { return JSON.parse(localStorage.getItem('favPlaybooks') || '[]'); } catch { return []; } });
@@ -2411,10 +2355,9 @@ const App = () => {
     useEffect(() => { document.documentElement.classList.toggle('dark', currentTheme === 'dark'); localStorage.setItem('theme', currentTheme); }, [currentTheme]);
     useEffect(() => { localStorage.setItem('favPlaybooks', JSON.stringify(favorites)); }, [favorites]);
 
-    // Normalize playbooks into unified item format once
     const ALL_ITEMS = useMemo(() => [
         ...SITUATIONS.map(s => ({ _type: 'situation', ...s,
-            title: null, desc: null,  // resolved via t() at render time
+            title: null, desc: null,
             questionCount: s.questions.length,
         })),
         ...playbooksData.map(normalizePb),
@@ -2425,7 +2368,6 @@ const App = () => {
         { keys: ['title', 'desc', 'category'], threshold: 0.3 }
     ), [ALL_ITEMS]);
 
-    // Unified categories — single flat list across both situations and playbooks
     const unifiedCategories = useMemo(() => {
         const counts = {};
         ALL_ITEMS.forEach(i => { counts[i.category] = (counts[i.category] || 0) + 1; });
@@ -2497,7 +2439,6 @@ const App = () => {
         </div>
     `;
 
-    // ── Sidebar ───────────────────────────────────────────────────────────────
     const SidebarBtn = ({ filterKey, icon: Icon, label, count }) => {
         const isActive = selectedFilter === filterKey;
         return html`
@@ -2535,7 +2476,6 @@ const App = () => {
         <//>
     `;
 
-    // ── Header label ──────────────────────────────────────────────────────────
     const galleryTitle = (() => {
         if (selectedFilter === 'all')       return t('situations.page_title');
         if (selectedFilter === 'favorites') return t('common.favorites') || 'Favorites';

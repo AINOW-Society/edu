@@ -3,8 +3,6 @@ window.AINOW = window.AINOW || {};
 var __exports = AINOW['data/data-writing'] = AINOW['data/data-writing'] || {};
 const writingPrompts = [
 
-  // --- BLOGGING & CONTENT MARKETING (w-1 to w-15) ---
-
   {
     "id": "w-1",
     "title": "B2B SaaS SEO Blog Post",
@@ -140,8 +138,6 @@ const writingPrompts = [
     "created": "2024-01-15T11:10:00Z",
     "featured": false
   },
-
-  // --- FICTION & STORYTELLING (w-16 to w-30) ---
 
   {
     "id": "w-16",
@@ -279,8 +275,6 @@ const writingPrompts = [
     "featured": false
   },
 
-  // --- COPYWRITING & SALES (w-31 to w-45) ---
-
   {
     "id": "w-31",
     "title": "SaaS Landing Page Hero Copy: Three Versions",
@@ -417,8 +411,6 @@ const writingPrompts = [
     "featured": false
   },
 
-  // --- TECHNICAL & PROFESSIONAL WRITING (w-46 to w-55) ---
-
   {
     "id": "w-46",
     "title": "Difficult Stakeholder Email: Project Delay Notification",
@@ -509,8 +501,6 @@ const writingPrompts = [
     "created": "2024-01-15T14:30:00Z",
     "featured": false
   },
-
-  // --- JOURNALISM & NON-FICTION (w-56 to w-65) ---
 
   {
     "id": "w-56",
@@ -603,8 +593,6 @@ const writingPrompts = [
     "featured": false
   },
 
-  // --- SCREENWRITING & PLAYWRITING (w-66 to w-75) ---
-
   {
     "id": "w-66",
     "title": "Short Film Script: The Last Interview",
@@ -695,8 +683,6 @@ const writingPrompts = [
     "created": "2024-01-15T16:10:00Z",
     "featured": false
   },
-
-  // --- POETRY & LYRICISM (w-76 to w-85) ---
 
   {
     "id": "w-76",
@@ -789,8 +775,6 @@ const writingPrompts = [
     "featured": false
   },
 
-  // --- EDITING & REFINEMENT (w-86 to w-95) ---
-
   {
     "id": "w-86",
     "title": "Comprehensive Line Edit: Business Writing Sample",
@@ -881,8 +865,6 @@ const writingPrompts = [
     "created": "2024-01-15T17:50:00Z",
     "featured": false
   },
-
-  // --- SOCIAL MEDIA & MICROCOPY (w-96 to w-100) ---
 
   {
     "id": "w-96",

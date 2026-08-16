@@ -1,12 +1,5 @@
 window.VIEWS = window.VIEWS || {};
 
-// The page used to be seven equal cards that were really two different kinds
-// of thing: three destinations that duplicated the top nav, and four modes of
-// a single tool (Resources) that all opened the same place. Glossary, a real
-// feature with 60 terms, had no card at all. It is now two labelled bands —
-// where to learn, and what to make — so the page reads as a sequence rather
-// than a pile. Icons come from the shared registry so a concept looks the
-// same here as it does in the nav and sidebar.
 window.VIEWS.home = `
 <div class="home-page">
 

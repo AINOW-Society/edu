@@ -10,7 +10,6 @@ const { Logo } = AINOW['src/components/ui/Logo'];
 
 const html = htm.bind(React.createElement);
 
-
 const LanguageSwitcher = ({ currentLang, setLang }) => {
     const [isOpen, setIsOpen] = useState(false);
     const activeLang = LANGUAGES.find(l => l.code === currentLang) || LANGUAGES[0];
@@ -30,8 +29,8 @@ const LanguageSwitcher = ({ currentLang, setLang }) => {
             ${isOpen && html`
                 <div className="absolute right-0 mt-2 w-24 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 py-1 z-50 animate-fade-in" onClick=${e => e.stopPropagation()}>
                     ${LANGUAGES.map(lang => html`
-                        <button 
-                            key=${lang.code} 
+                        <button
+                            key=${lang.code}
                             onClick=${() => { setLang(lang.code); setIsOpen(false); }}
                             className=${`w-full text-left px-4 py-2 text-sm flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-700 ${currentLang === lang.code ? 'text-teal-600 dark:text-teal-400 font-bold' : 'text-slate-600 dark:text-slate-300'}`}
                         >
@@ -78,29 +77,25 @@ const Header = ({ currentTheme, onThemeToggle, onMenuClick, activePage, onScratc
                     <button onClick=${onScratchpad} className="flex items-center gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 text-xs font-bold border border-amber-200 dark:border-amber-800 hover:bg-amber-100 transition-colors mr-1" title="Open Scratchpad (Cmd+K)">
                         <${NotebookPen} className="w-3.5 h-3.5" /> <span className="hidden sm:inline">${t('scratchpad.title')}</span>
                     </button>
-                    
+
                     <${LanguageSwitcher} currentLang=${lang} setLang=${setLang} />
-                    
+
                     <button onClick=${onThemeToggle} className="p-2 text-slate-500 hover:text-slate-700 transition-colors min-w-[40px] min-h-[40px] flex items-center justify-center" title="Toggle Theme (Cmd+J)">
                         ${themeIcon}
                     </button>
 
-                    <!-- Field Guide (Help) Icon -->
                     <a href="help.html" className="p-2 text-slate-500 hover:text-coral transition-colors min-w-[40px] min-h-[40px] flex items-center justify-center" title=${t('help.badge')}>
                         <${CircleHelp} className="w-5 h-5" />
                     </a>
 
-                    <!-- Back to the platform chooser -->
                     <a href="../index.html" className="p-2 text-slate-500 hover:text-coral transition-colors min-w-[40px] min-h-[40px] flex items-center justify-center" title=${t('platform.home')}>
                         <${Home} className="w-5 h-5" />
                     </a>
 
-                    <!-- Cross-link to the Education half of the platform -->
                     <a href="../edu/index.html" className="p-2 text-slate-500 hover:text-coral transition-colors min-w-[40px] min-h-[40px] flex items-center justify-center" title=${t('platform.education')}>
                         <${GraduationCap} className="w-5 h-5" />
                     </a>
 
-                    <!-- Hamburger Menu - Strictly Mobile/Tablet Only -->
                     <button onClick=${onMenuClick} className=${`md:hidden p-2 text-slate-600 dark:text-slate-300 min-w-[40px] min-h-[40px] flex items-center justify-center ${isZenMode ? 'hidden' : ''}`} aria-label="Open menu">
                         <${Menu} className="w-6 h-6" />
                     </button>

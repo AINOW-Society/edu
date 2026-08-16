@@ -4,7 +4,6 @@ var __exports = AINOW['src/index'] = AINOW['src/index'] || {};
 const { useState, useMemo, useEffect, useRef, useCallback } = React;
 const { createRoot } = ReactDOMClient;
 
-
 const { Search, LayoutGrid, List, TableProperties, Loader2, Wand2, Settings2, Edit, X, Hash, ArrowUpDown, ArrowUp, ArrowDown, Heart, Copy, Share2, ExternalLink, Calendar } = lucide;
 const { embeddedPromptsData } = AINOW['data/data'];
 const { promptCounts } = AINOW['data/data-counts'];
@@ -47,15 +46,15 @@ const PromptItem = React.memo(({ prompt, viewMode, onSelect, showToast, favorite
 
     if (viewMode === 'table') {
         return html`
-      <div 
-        onClick=${() => onSelect(prompt)} 
+      <div
+        onClick=${() => onSelect(prompt)}
         className=${`group flex items-center gap-3 sm:gap-4 border-b border-mist dark:border-slate-800/50 px-3 sm:px-4 py-2 cursor-pointer hover:bg-opal-bg dark:hover:bg-teal-900/20 transition-all ${index % 2 === 0 ? 'bg-opal-surface dark:bg-slate-800' : 'bg-opal-bg/30 dark:bg-slate-800/40'}`}
       >
         <div className="w-6 sm:w-8 shrink-0 text-[10px] font-bold text-stone-light dark:text-slate-600 tabular-nums text-left">
             ${globalIndex}
         </div>
         <div className="w-6 shrink-0 flex justify-center" onClick=${e => e.stopPropagation()}>
-           <button 
+           <button
              onClick=${() => toggleFavorite(prompt.id)}
              title=${isFavorite ? "Remove from Favorites" : "Add to Favorites"}
              className=${`transition-all hover:scale-110 min-w-[32px] min-h-[32px] flex items-center justify-center ${isFavorite ? 'text-coral' : 'text-stone-light dark:text-slate-700 hover:text-coral'}`}

@@ -4,7 +4,6 @@ var __exports = AINOW['src/agents'] = AINOW['src/agents'] || {};
 const { useState, useMemo, useEffect, useRef, useCallback } = React;
 const { createRoot } = ReactDOMClient;
 
-
 const { Search, LayoutGrid, List, TableProperties, Settings2, Cpu, X, Wand2, Loader2, Heart, Copy, Share2, ExternalLink, ArrowUpDown, ArrowUp, ArrowDown, Info } = lucide;
 const { agentsData } = AINOW['data/data-agents'];
 const { Header, Footer, ShortcutsModal, EmptyState, SidebarWrapper, addToHistory, useLanguage, ActionButtons, useToast, Toast, useGlobalShortcuts, Scratchpad, SettingsModal, Pagination } = AINOW['src/components'];
@@ -34,15 +33,15 @@ const AgentItem = React.memo(({ agent, onSelect, viewMode, showToast, favorites,
 
     if (viewMode === 'table') {
         return html`
-          <div 
-            onClick=${() => onSelect(agent)} 
+          <div
+            onClick=${() => onSelect(agent)}
             className=${`group flex items-center gap-3 sm:gap-4 border-b border-mist dark:border-slate-800/50 px-3 sm:px-4 py-2 cursor-pointer hover:bg-opal-bg dark:hover:bg-teal-900/20 transition-all ${index % 2 === 0 ? 'bg-opal-surface dark:bg-slate-800' : 'bg-opal-bg/30 dark:bg-slate-800/40'}`}
           >
             <div className="w-6 sm:w-8 shrink-0 text-[10px] font-bold text-slate-300 dark:text-slate-600 tabular-nums text-left">
                 ${globalIndex}
             </div>
             <div className="w-6 shrink-0 flex justify-center" onClick=${e => e.stopPropagation()}>
-               <button 
+               <button
                  onClick=${() => toggleFavorite(agent.id)}
                  title=${isFavorite ? "Remove from Favorites" : "Add to Favorites"}
                  className=${`transition-all hover:scale-110 min-w-[32px] min-h-[32px] flex items-center justify-center ${isFavorite ? 'text-red-500' : 'text-slate-300 dark:text-slate-600 hover:text-red-400'}`}
@@ -97,18 +96,18 @@ const AgentItem = React.memo(({ agent, onSelect, viewMode, showToast, favorites,
                  <div className="flex flex-col gap-1">
                     <span className="px-2 py-1.5 bg-coral-light/30 text-coral dark:text-coral text-[11px] font-bold rounded-md w-fit uppercase tracking-wider">${agent.category}</span>
                 </div>
-                <${ActionButtons} 
-                    text=${agent.instructions} 
-                    title=${agent.name} 
-                    itemId=${agent.id} 
-                    isFavorite=${isFavorite} 
-                    onToggleFavorite=${() => toggleFavorite(agent.id)} 
-                    onShare=${handleShare} 
-                    showToast=${showToast} 
+                <${ActionButtons}
+                    text=${agent.instructions}
+                    title=${agent.name}
+                    itemId=${agent.id}
+                    isFavorite=${isFavorite}
+                    onToggleFavorite=${() => toggleFavorite(agent.id)}
+                    onShare=${handleShare}
+                    showToast=${showToast}
                     size=${3.5}
                 />
             </div>
-            
+
             <h3 className="text-lg font-bold mb-3 text-charcoal group-hover:text-coral transition-colors dark:text-white leading-tight">${agent.name}</h3>
             <p className="text-sm text-stone dark:text-slate-400 mb-6 italic line-clamp-2 leading-relaxed">"${agent.description}"</p>
             <div className="mt-auto pt-4 border-t border-mist dark:border-slate-700">

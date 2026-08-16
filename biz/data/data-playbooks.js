@@ -1,8 +1,6 @@
 (function () {
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['data/data-playbooks'] = AINOW['data/data-playbooks'] || {};
-// AINOW Playbooks - Advanced Workflow Engine
-// Generating 440+ unique specialized prompt chains.
 
 const createVariant = (base, variant) => {
     const clone = JSON.parse(JSON.stringify(base));
@@ -127,7 +125,7 @@ const TEMPLATES = {
             { id: 4, title: "ESG Pitch", prompt: "Write an ESG report summary focusing on the wins from {{FIXES}}.", outputLabel: "Paste Report", outputVar: "REPORT" }
         ]
     },
-    // Adding 10 more templates for variety
+
     PROJECT_MANAGER: {
         id: "pb-pm", title: "{{VAR}} Project Launch", category: "Business", icon: "Settings",
         description: "Planning and risk management for {{VAR}} launches.",
@@ -240,7 +238,6 @@ const TEMPLATES = {
     }
 };
 
-// --- VARIANT SETS (TOTAL 22+ PER TEMPLATE) ---
 const VARIANTS = {
     CODE_REFACTOR: [
         { name: "Python", slug: "py" }, { name: "JS", slug: "js" }, { name: "React", slug: "re" },
@@ -284,14 +281,13 @@ const VARIANTS = {
     ]
 };
 
-// Simplified logic to replicate variants across the remaining 16 templates for 400+ total
 const fillRemaining = (library) => {
     const keys = Object.keys(TEMPLATES);
     const variantKeys = Object.keys(VARIANTS);
-    
+
     keys.forEach((tKey, idx) => {
         const template = TEMPLATES[tKey];
-        // Use the defined variants or cycle through others to ensure variety
+
         const dataset = VARIANTS[tKey] || VARIANTS[variantKeys[idx % variantKeys.length]];
         dataset.forEach(v => library.push(createVariant(template, v)));
     });

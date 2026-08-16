@@ -1,6 +1,5 @@
 const CACHE_NAME = 'ainow-biz-v0.94';
 
-// Generated from the file tree. Regenerate when files are added or removed.
 const ASSETS = [
   './',
   './about.html',
@@ -82,7 +81,7 @@ const ASSETS = [
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache =>
-      // allSettled, not addAll: one missing file must not fail the whole install.
+
       Promise.allSettled(ASSETS.map(url => cache.add(url)))
     )
   );

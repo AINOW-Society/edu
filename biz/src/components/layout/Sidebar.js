@@ -75,7 +75,7 @@ const SidebarWrapper = ({ isOpen, onClose, children, showOnDesktop = true, isZen
                     <h2 className="font-bold dark:text-white text-lg">AINOW Platform</h2>
                     <button onClick=${onClose} className="p-2"><${X} className="w-6 h-6 dark:text-white" /></button>
                 </div>
-                
+
                 <div className="md:hidden flex flex-col gap-1 mb-4 pb-4 border-b border-mist dark:border-slate-800">
                     <p className="text-[10px] font-black text-stone-light uppercase tracking-widest px-3 mb-2">Main Navigation</p>
                     ${NAV_CONFIG.map(link => {
@@ -87,9 +87,9 @@ const SidebarWrapper = ({ isOpen, onClose, children, showOnDesktop = true, isZen
                         `;
     })}
                 </div>
-                
+
                 ${children}
-                
+
                 <${RecentlyViewed} />
             </div>
         </aside>

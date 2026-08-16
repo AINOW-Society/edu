@@ -14,9 +14,6 @@ window.VIEWS.prompts = `
         </div>
     </div>
 
-    <!-- Filters live in one bar so the page reads as a single control
-         ("who are you" -> "search" -> "narrow it down") instead of three
-         separate blocks of chrome stacked before any content. -->
     <div class="pf-bar">
 
         <div id="prompts-cat-tabs"></div>

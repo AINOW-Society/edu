@@ -1,7 +1,7 @@
 (function () {
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['data/data-hospitality'] = AINOW['data/data-hospitality'] || {};
-// AINOW Hospitality & Tourism Library - 100 Unique Prompts
+
 const hospitalityPrompts = [
     {"id":"hsp-1","title":"Hotel Revenue Management Strategy","prompt":"You are a revenue management consultant specializing in independent boutique hotels. Develop a 90-day revenue recovery strategy for a 78-room boutique hotel in Lisbon's Alfama district that is currently running at 61% occupancy with an ADR of €185 (RevPAR €112.85) versus the comp set running at 74% occupancy with ADR €210 (RevPAR €155.40). The hotel's primary booking channels are: direct website (22%), Booking.com (45%), Expedia (18%), and walk-in/phone (15%). The property has no loyalty program, no minimum stay restrictions on weekends, and has not updated its rate structure in 14 months. The strategy should cover: rate structure redesign (BAR ladder with 6 rate levels, weekend minimum stay policy, last-minute vs. advance purchase pricing), channel mix optimization (steps to shift 10% from OTAs to direct in 90 days — metasearch investment, rate parity audit, direct booking incentive), demand calendar analysis (identify the next 3 high-demand periods and recommended pricing actions), and one quick win implementable in Week 1 with projected RevPAR impact.","tags":["revenue-management","hotels","strategy"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":true},
 

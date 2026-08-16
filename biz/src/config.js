@@ -3,8 +3,6 @@ window.AINOW = window.AINOW || {};
 var __exports = AINOW['src/config'] = AINOW['src/config'] || {};
 const { BookOpen, Globe, Briefcase, PenTool, Megaphone, Code, GraduationCap, HeartPulse, Sparkles, Heart, Cpu, Search, List, Wand2, Building2, Settings, GitMerge, Hammer, HeartHandshake, Stethoscope, Scale, Landmark, Shield, TrendingUp, Home, FlaskConical, Brain, Leaf, Layers, Users, Truck, BarChart3, Binary, UserCog, Library, Zap, Newspaper, Palette, Utensils, Wheat, Info } = lucide;
 
-
-
 const CATEGORY_CONFIG = [
   { id: 'all', nameKey: 'categories.all', icon: BookOpen },
   { id: 'favorites', nameKey: 'categories.favorites', icon: Heart },

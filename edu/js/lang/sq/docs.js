@@ -835,4 +835,3 @@ var getAllChapters = () => {
         sectionTitle: section.title
     })));
 };
-
