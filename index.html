@@ -26,7 +26,7 @@
     // never flashes.
     var standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches)
                      || window.navigator.standalone === true;
-    if (standalone) { window.location.replace('./edu/'); }
+    if (standalone) { window.location.replace('./edu/index.html'); }
 
     try {
         if (localStorage.getItem('ainow-theme') === 'dark') {
@@ -38,41 +38,77 @@
 </head>
 <body>
 
-<div class="lang-row" role="group" aria-label="Language">
-    <button class="lang-btn" data-lang="mk" type="button">MK</button>
-    <button class="lang-btn" data-lang="sq" type="button">SQ</button>
-    <button class="lang-btn" data-lang="en" type="button">EN</button>
-</div>
+<header class="topbar">
+    <div class="lang-row" role="group" aria-label="Language">
+        <button class="lang-btn" data-lang="mk" type="button">MK</button>
+        <button class="lang-btn" data-lang="sq" type="button">SQ</button>
+        <button class="lang-btn" data-lang="en" type="button">EN</button>
+    </div>
+    <button id="theme-btn" class="icon-btn" type="button" data-t-aria="theme" aria-label="Theme">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+</header>
 
-<div class="brand">
-    <svg viewBox="0 0 233.52 233.52" width="56" height="56" fill="currentColor" aria-hidden="true">
-        <path fill-rule="nonzero" d="M0 116.95c0 64.15 52.06 116.58 116.58 116.58 64.52 0 116.95-52.43 116.95-116.58 0-64.52 -52.42 -116.95 -116.95 -116.95 -64.52 0 -116.58 52.42 -116.58 116.95zm23.46 0c0-51.69 41.79-93.48 93.12-93.48 51.69 0 93.12 41.79 93.12 93.48 0 26.03 -10.63 49.49 -27.86 66.35l0 -66.72c0-35.93 -29.33 -64.89 -65.26 -64.89 -35.93 0 -65.26 28.96 -65.26 64.89 0 36.29 29.33 65.25 65.26 65.26l0 -25.3c-21.99 0 -39.59 -17.96 -39.59 -39.96 0-21.63 17.6 -39.59 39.59 -39.59 22 0 39.59 17.96 39.59 39.59l0 52.06 0 32.63c-11.73 5.5 -25.3 8.8 -39.59 8.8 -51.32 0 -93.12 -41.79 -93.12 -93.12z" />
-    </svg>
-    <h1>AINOW</h1>
-    <p data-t="tagline">Изберете платформа</p>
-</div>
+<main class="wrap">
 
-<div class="cards">
-    <!-- Explicit index.html, not './edu/': a bare directory URL does not
-         resolve to index.html over file://, which would break double-click
-         use from a USB stick. -->
-    <a class="card card--edu" href="./edu/index.html">
-        <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+    <div class="intro">
+        <div class="intro-mark">
+            <svg viewBox="0 0 233.52 233.52" width="44" height="44" fill="currentColor" aria-hidden="true">
+                <path fill-rule="nonzero" d="M0 116.95c0 64.15 52.06 116.58 116.58 116.58 64.52 0 116.95-52.43 116.95-116.58 0-64.52 -52.42 -116.95 -116.95 -116.95 -64.52 0 -116.58 52.42 -116.58 116.95zm23.46 0c0-51.69 41.79-93.48 93.12-93.48 51.69 0 93.12 41.79 93.12 93.48 0 26.03 -10.63 49.49 -27.86 66.35l0 -66.72c0-35.93 -29.33 -64.89 -65.26 -64.89 -35.93 0 -65.26 28.96 -65.26 64.89 0 36.29 29.33 65.25 65.26 65.26l0 -25.3c-21.99 0 -39.59 -17.96 -39.59 -39.96 0-21.63 17.6 -39.59 39.59 -39.59 22 0 39.59 17.96 39.59 39.59l0 52.06 0 32.63c-11.73 5.5 -25.3 8.8 -39.59 8.8 -51.32 0 -93.12 -41.79 -93.12 -93.12z" />
+            </svg>
         </div>
-        <h2 data-t="edu.title">Образование</h2>
-        <p data-t="edu.desc">Водич за ВИ писменост, промптови, алатки и материјали за наставници.</p>
-        <span class="badge" data-t="edu.badge">Бесплатно</span>
-    </a>
+        <h1>AINOW</h1>
+        <p data-t="tagline">Изберете платформа</p>
+        <p class="note" data-t="note">Двете работат офлајн, без сметка и без следење. Отворен код.</p>
+    </div>
 
-    <a class="card card--biz" href="./biz/index.html">
-        <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-        </div>
-        <h2 data-t="biz.title">Бизнис</h2>
-        <p data-t="biz.desc">Промптови, агенти и сценарија за професионална употреба.</p>
-    </a>
-</div>
+    <div class="cards">
+
+        <a class="card card--edu" href="./edu/index.html">
+            <div class="card-core">
+                <div class="card-head">
+                    <span class="card-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    </span>
+                    <h2 data-t="edu.title">Образование</h2>
+                    <span class="badge" data-t="edu.badge">Бесплатно</span>
+                </div>
+                <p class="card-desc" data-t="edu.desc">Водич за ВИ писменост, промптови, алатки и материјали за наставници.</p>
+                <ul class="card-stats">
+                    <li><b>1.106</b> <span data-t="edu.f1">промптови</span></li>
+                    <li><b>19</b> <span data-t="edu.f2">поглавја</span></li>
+                    <li><b>60</b> <span data-t="edu.f3">поими</span></li>
+                    <li><b>57</b> <span data-t="edu.f4">алатки</span></li>
+                </ul>
+                <span class="card-go"><span data-t="edu.cta">Отвори</span> <i aria-hidden="true">&rarr;</i></span>
+            </div>
+        </a>
+
+        <a class="card card--biz" href="./biz/index.html">
+            <div class="card-core">
+                <div class="card-head">
+                    <span class="card-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+                    </span>
+                    <h2 data-t="biz.title">Бизнис</h2>
+                </div>
+                <p class="card-desc" data-t="biz.desc">Промптови, агенти и сценарија за професионална употреба.</p>
+                <ul class="card-stats">
+                    <li><b>3.370</b> <span data-t="biz.f1">промптови</span></li>
+                    <li><b>2.190</b> <span data-t="biz.f2">агенти</span></li>
+                    <li><b>8</b> <span data-t="biz.f3">сценарија</span></li>
+                    <li><b>34</b> <span data-t="biz.f4">области</span></li>
+                </ul>
+                <span class="card-go"><span data-t="biz.cta">Отвори</span> <i aria-hidden="true">&rarr;</i></span>
+            </div>
+        </a>
+
+    </div>
+
+</main>
 
 <footer>
     <span data-t="footer">© 2026 AINOW Society · GPLv3</span> ·
@@ -84,29 +120,56 @@
     var T = {
         mk: {
             tagline: 'Изберете платформа',
-            'edu.title': 'Образование',
+            'edu.title': 'Образование', 'edu.badge': 'Бесплатно', 'edu.cta': 'Отвори',
             'edu.desc': 'Водич за ВИ писменост, промптови, алатки и материјали за наставници.',
-            'edu.badge': 'Бесплатно',
-            'biz.title': 'Бизнис',
+            'edu.f1': 'промптови',
+            'edu.f2': 'поглавја',
+            'edu.f3': 'поими',
+            'edu.f4': 'алатки',
+            'biz.title': 'Бизнис', 'biz.cta': 'Отвори',
             'biz.desc': 'Промптови, агенти и сценарија за професионална употреба.',
+            'biz.f1': 'промптови',
+            'biz.f2': 'агенти',
+            'biz.f3': 'сценарија',
+            'biz.f4': 'области',
+            note: 'Двете работат офлајн, без сметка и без следење. Отворен код.',
+            theme: 'Смени тема',
             footer: '© 2026 AINOW Society · GPLv3'
         },
         sq: {
             tagline: 'Zgjidhni platformën',
-            'edu.title': 'Arsimi',
+            'edu.title': 'Arsimi', 'edu.badge': 'Falas', 'edu.cta': 'Hap',
             'edu.desc': 'Udhëzues për shkrim-leximin e IA, prompte, mjete dhe materiale për mësimdhënësit.',
-            'edu.badge': 'Falas',
-            'biz.title': 'Biznesi',
+            'edu.f1': 'prompte',
+            'edu.f2': 'kapituj',
+            'edu.f3': 'terma',
+            'edu.f4': 'mjete',
+            'biz.title': 'Biznesi', 'biz.cta': 'Hap',
             'biz.desc': 'Prompte, agjentë dhe skenarë për përdorim profesional.',
+            'biz.f1': 'prompte',
+            'biz.f2': 'agjentë',
+            'biz.f3': 'skenarë',
+            'biz.f4': 'fusha',
+            note: 'Të dyja punojnë offline, pa llogari dhe pa gjurmim. Kod i hapur.',
+            theme: 'Ndrysho temën',
             footer: '© 2026 AINOW Society · GPLv3'
         },
         en: {
             tagline: 'Choose a platform',
-            'edu.title': 'Education',
+            'edu.title': 'Education', 'edu.badge': 'Free', 'edu.cta': 'Open',
             'edu.desc': 'AI literacy guide, prompts, tools and classroom materials for teachers.',
-            'edu.badge': 'Free',
-            'biz.title': 'Business',
+            'edu.f1': 'prompts',
+            'edu.f2': 'chapters',
+            'edu.f3': 'terms',
+            'edu.f4': 'tools',
+            'biz.title': 'Business', 'biz.cta': 'Open',
             'biz.desc': 'Prompts, agents and situations for professional use.',
+            'biz.f1': 'prompts',
+            'biz.f2': 'agents',
+            'biz.f3': 'situations',
+            'biz.f4': 'fields',
+            note: 'Both work offline, with no account and no tracking. Open source.',
+            theme: 'Toggle theme',
             footer: '© 2026 AINOW Society · GPLv3'
         }
     };
@@ -117,6 +180,10 @@
         document.querySelectorAll('[data-t]').forEach(function (el) {
             var k = el.getAttribute('data-t');
             if (dict[k]) el.textContent = dict[k];
+        });
+        document.querySelectorAll('[data-t-aria]').forEach(function (el) {
+            var k = el.getAttribute('data-t-aria');
+            if (dict[k]) el.setAttribute('aria-label', dict[k]);
         });
         document.querySelectorAll('.lang-btn').forEach(function (b) {
             b.classList.toggle('active', b.dataset.lang === lang);
@@ -130,6 +197,15 @@
 
     document.querySelectorAll('.lang-btn').forEach(function (b) {
         b.addEventListener('click', function () { apply(b.dataset.lang); });
+    });
+
+    // Shares the 'ainow-theme' key with both apps, so a choice made here
+    // carries into whichever one you open.
+    document.getElementById('theme-btn').addEventListener('click', function () {
+        var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (dark) { document.documentElement.removeAttribute('data-theme'); }
+        else { document.documentElement.setAttribute('data-theme', 'dark'); }
+        try { localStorage.setItem('ainow-theme', dark ? 'light' : 'dark'); } catch (e) {}
     });
 
     apply(saved);
