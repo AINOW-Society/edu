@@ -54,6 +54,7 @@ const App = {
             if (e.key === 'Escape') {
                 this.closeOnboardingModal();
                 this.closePrivacyModal();
+                this.closePromptDetail();
                 const sidebar = document.querySelector('.app-sidebar');
                 const overlay = document.getElementById('sidebar-overlay');
                 if (sidebar) sidebar.classList.remove('open');
@@ -881,48 +882,24 @@ const App = {
         const endIndex = Math.min(startIndex + this.promptsPerPage, totalItems);
         const pageItems = filtered.slice(startIndex, endIndex);
 
-        let html = '';
-        pageItems.forEach(p => {
-            const badgeText = p.subcategory ? I18n.t('prompts.sub.' + p.subcategory) : I18n.t('prompts.cat.' + category);
+        // The card's only job is "is this the one?". Reading and using the
+        // prompt happens in the detail panel, so the card carries the title
+        // and at most two pieces of metadata. Held by index for the panel.
+        this._pagePrompts = pageItems;
 
+        let html = '';
+        pageItems.forEach((p, i) => {
             const subjectSpan = p.subject ? `<span class="pcm-tag">${escapeHtml(p.subject)}</span>` : '';
             const gradeSpan = p.grade ? `<span class="pcm-tag">${escapeHtml(p.grade)}</span>` : '';
 
             html += `
-                <div class="pcm-card">
-                    <div class="pcm-header">
-                        <span class="pcm-category-badge">${escapeHtml(badgeText)}</span>
-                        <div class="pcm-actions">
-                            <button class="pcm-action-btn" title="${I18n.t('prompts.copy')}" onclick="App.copyPrompt(this)">
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                            </button>
-                            <div class="pcm-ai-launcher">
-                                <button class="pcm-action-btn pcm-open-btn" title="${I18n.t('prompts.open_ai')}" onclick="App.toggleAIMenu(this)">
-                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                                </button>
-                                <div class="pcm-ai-menu">
-                                    <button class="pcm-ai-option" onclick="App.openWithAI(this,'https://chat.openai.com')">
-                                        <span class="pcm-ai-dot pcm-ai-dot--chatgpt"></span>ChatGPT
-                                    </button>
-                                    <button class="pcm-ai-option" onclick="App.openWithAI(this,'https://gemini.google.com')">
-                                        <span class="pcm-ai-dot pcm-ai-dot--gemini"></span>Gemini
-                                    </button>
-                                    <button class="pcm-ai-option" onclick="App.openWithAI(this,'https://claude.ai')">
-                                        <span class="pcm-ai-dot pcm-ai-dot--claude"></span>Claude
-                                    </button>
-                                    <button class="pcm-ai-option" onclick="App.openWithAI(this,'https://www.perplexity.ai')">
-                                        <span class="pcm-ai-dot pcm-ai-dot--perplexity"></span>Perplexity
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="pcm-card pcm-card--clickable" role="button" tabindex="0"
+                     onclick="App.openPromptDetail(${i})"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
                     <h3 class="pcm-title">${escapeHtml(p.title)}</h3>
-                    <p class="pcm-snippet">${escapeHtml(p.prompt)}</p>
                     <div class="pcm-footer">
                         ${subjectSpan}
                         ${gradeSpan}
-                        ${(p.tags || []).map(t => `<span class="pcm-tag">${escapeHtml(t)}</span>`).join('')}
                     </div>
                 </div>
             `;
@@ -1002,21 +979,87 @@ const App = {
         if (scrollArea) scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
     },
 
-    copyPrompt(btn) {
-        const text = btn.closest('.pcm-card')?.querySelector('.pcm-snippet')?.innerText;
-        if (!text) return;
-        navigator.clipboard.writeText(text).then(() => {
+    // ── Prompt detail ────────────────────────────────────────────────────
+    // The card decides; this panel is where the prompt is actually read and
+    // used. Teachers were copying prompts they had never seen in full.
+    _pagePrompts: [],
+    _detailPrompt: null,
+
+    openPromptDetail(index) {
+        const p = this._pagePrompts[index];
+        if (!p) return;
+        this._detailPrompt = p;
+
+        const modal = document.getElementById('prompt-detail-modal');
+        const body = document.getElementById('prompt-detail-body');
+        const title = document.getElementById('prompt-detail-title');
+        const meta = document.getElementById('prompt-detail-meta');
+        if (!modal || !body || !title) return;
+
+        title.textContent = p.title;
+
+        if (meta) {
+            const bits = [];
+            if (p.subcategory) bits.push(I18n.t('prompts.sub.' + p.subcategory));
+            if (p.subject) bits.push(p.subject);
+            if (p.grade) bits.push(p.grade);
+            meta.innerHTML = bits.map(b => `<span class="pcm-tag">${escapeHtml(b)}</span>`).join('')
+                + (p.tags || []).map(t => `<span class="pcm-tag pcm-tag--soft">${escapeHtml(t)}</span>`).join('');
+        }
+
+        body.textContent = p.prompt;
+
+        this._detailReturnFocus = document.activeElement;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        this._updateBodyScrollState();
+
+        const first = modal.querySelector('.pd-copy-btn');
+        if (first) setTimeout(() => first.focus(), 0);
+
+        this._detailTrapHandler = (e) => {
+            if (e.key !== 'Tab') return;
+            const f = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            if (!f.length) return;
+            const a = f[0], z = f[f.length - 1];
+            if (e.shiftKey && document.activeElement === a) { z.focus(); e.preventDefault(); }
+            else if (!e.shiftKey && document.activeElement === z) { a.focus(); e.preventDefault(); }
+        };
+        modal.addEventListener('keydown', this._detailTrapHandler);
+    },
+
+    closePromptDetail() {
+        const modal = document.getElementById('prompt-detail-modal');
+        if (!modal || !modal.classList.contains('open')) return;
+        this._moveFocusOutOfModal(modal, this._detailReturnFocus);
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        if (this._detailTrapHandler) {
+            modal.removeEventListener('keydown', this._detailTrapHandler);
+            this._detailTrapHandler = null;
+        }
+        this._detailReturnFocus = null;
+        this._detailPrompt = null;
+        this._updateBodyScrollState();
+    },
+
+    copyDetailPrompt(btn) {
+        const p = this._detailPrompt;
+        if (!p) return;
+        const done = () => {
+            this.showToast(I18n.t('prompts.copied'));
+            if (!btn) return;
             const original = btn.innerHTML;
-            btn.innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
-            btn.style.color = 'var(--primary)';
-            this.showToast(I18n.t('prompts.copied'));
-            setTimeout(() => {
-                btn.innerHTML = original;
-                btn.style.color = '';
-            }, 2000);
-        }).catch(() => {
-            this.showToast(I18n.t('prompts.copied'));
-        });
+            btn.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg><span>${escapeHtml(I18n.t('prompts.copied'))}</span>`;
+            setTimeout(() => { btn.innerHTML = original; }, 2000);
+        };
+        navigator.clipboard.writeText(p.prompt).then(done).catch(done);
+    },
+
+    openDetailWithAI(url) {
+        const p = this._detailPrompt;
+        if (p) navigator.clipboard.writeText(p.prompt).catch(() => {});
+        window.open(url, '_blank', 'noopener');
     },
 
     showToast(msg) {
@@ -1036,35 +1079,6 @@ const App = {
         ans.style.display = open ? 'none' : 'block';
         if (ch) ch.style.transform = open ? '' : 'rotate(180deg)';
         el.setAttribute('aria-expanded', String(!open));
-    },
-
-    toggleAIMenu(btn) {
-        const launcher = btn.closest('.pcm-ai-launcher');
-        const menu = launcher?.querySelector('.pcm-ai-menu');
-        if (!menu) return;
-        const isOpen = menu.classList.contains('open');
-
-        document.querySelectorAll('.pcm-ai-menu.open').forEach(m => m.classList.remove('open'));
-
-        if (!isOpen) {
-            menu.classList.add('open');
-            setTimeout(() => {
-                document.addEventListener('click', function handler(e) {
-                    if (!launcher.contains(e.target)) {
-                        menu.classList.remove('open');
-                        document.removeEventListener('click', handler);
-                    }
-                });
-            }, 0);
-        }
-    },
-
-    openWithAI(btn, url) {
-        const card = btn.closest('.pcm-card');
-        const text = card?.querySelector('.pcm-snippet')?.innerText;
-        card?.querySelector('.pcm-ai-menu')?.classList.remove('open');
-        navigator.clipboard.writeText(text).catch(() => {});
-        window.open(url, '_blank', 'noopener');
     },
 
     async openResourcesWidget(widget) {

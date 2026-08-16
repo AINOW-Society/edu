@@ -5559,3 +5559,215 @@ select:focus-visible {
         padding: 0 2px;
     }
 }
+
+
+/* ── Prompt card + detail panel (v0.94) ───────────────────────────────────
+   The card previously tried to be preview, launcher and metadata display at
+   once. Every prompt opens "Act as a…", so the 3-line clamp rendered nearly
+   identical grey text on all twelve cards — the largest element carrying the
+   least information, while the full prompt could only be copied unread.
+   Card now decides; the panel is where the prompt is read and used. */
+
+.pcm-card--clickable {
+    cursor: pointer;
+    padding: 18px 20px;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.pcm-card--clickable:hover {
+    border-color: var(--primary);
+}
+
+.pcm-card--clickable:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.pcm-card--clickable .pcm-title {
+    font-size: 16px;
+    margin: 0;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+}
+
+.pcm-card--clickable .pcm-footer {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* Detail panel */
+.pd-modal {
+    width: min(720px, 94vw);
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.pd-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 22px 24px 16px;
+    border-bottom: 1px solid var(--border-light);
+    flex-shrink: 0;
+}
+
+.pd-head-text { flex: 1; min-width: 0; }
+
+.pd-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 8px;
+    line-height: 1.3;
+}
+
+.pd-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.pcm-tag--soft {
+    opacity: 0.72;
+}
+
+.pd-close {
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: var(--radius-sm);
+    line-height: 0;
+}
+
+.pd-close:hover { color: var(--text-primary); background: var(--bg-hover); }
+.pd-close:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+.pd-body-wrap {
+    overflow-y: auto;
+    padding: 20px 24px;
+    flex: 1;
+}
+
+.pd-body {
+    margin: 0;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.pd-foot {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding: 16px 24px;
+    border-top: 1px solid var(--border-light);
+    background: var(--bg-body);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    flex-shrink: 0;
+}
+
+.pd-copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: var(--radius-md);
+    border: none;
+    background: var(--primary);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    min-height: 42px;
+}
+
+.pd-copy-btn:hover { filter: brightness(0.94); }
+.pd-copy-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+.pd-ai-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.pd-ai-label {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    margin-right: 2px;
+}
+
+.pd-ai-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border-light);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    font-size: 12.5px;
+    font-family: inherit;
+    cursor: pointer;
+    min-height: 34px;
+}
+
+.pd-ai-btn:hover { border-color: var(--border-hover); color: var(--text-primary); }
+.pd-ai-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+/* On desktop the sidebar already lists every subcategory with counts, so
+   repeating the same taxonomy as buttons and pills was the same navigation
+   drawn twice in two visual languages. Search stays; the duplicate goes. */
+@media (min-width: 769px) {
+    .pf-bar #prompts-cat-tabs,
+    .pf-bar #prompts-sub-tabs {
+        display: none;
+    }
+
+    .pf-bar {
+        padding: 12px 16px;
+    }
+
+    .pf-row {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .pd-modal {
+        width: 100vw;
+        max-width: 100vw;
+        max-height: 92vh;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        align-self: flex-end;
+    }
+
+    .pd-head { padding: 18px 18px 14px; }
+    .pd-title { font-size: 17px; }
+    .pd-body-wrap { padding: 16px 18px; }
+    .pd-body { font-size: 14.5px; }
+
+    .pd-foot {
+        padding: 14px 18px;
+        gap: 10px;
+    }
+
+    .pd-copy-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .pcm-card--clickable { padding: 16px; }
+}

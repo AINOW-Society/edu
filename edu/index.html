@@ -264,6 +264,47 @@
         </button>
     </nav>
 
+    <!-- Prompt detail: the card decides, this is where the prompt is read
+         and used. Full text, copy, and the AI launcher live here. -->
+    <div id="prompt-detail-modal" class="modal-overlay" role="dialog" aria-modal="true"
+         aria-labelledby="prompt-detail-title" aria-hidden="true"
+         onclick="if(event.target === this) App.closePromptDetail()">
+        <div class="modal-content pd-modal">
+            <div class="pd-head">
+                <div class="pd-head-text">
+                    <h2 id="prompt-detail-title" class="pd-title"></h2>
+                    <div id="prompt-detail-meta" class="pd-meta"></div>
+                </div>
+                <button class="pd-close" onclick="App.closePromptDetail()" data-i18n-aria-label="prompts.close" aria-label="Close">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="pd-body-wrap">
+                <pre id="prompt-detail-body" class="pd-body"></pre>
+            </div>
+
+            <div class="pd-foot">
+                <button class="pd-copy-btn" onclick="App.copyDetailPrompt(this)">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span data-i18n="prompts.copy">Копирај</span>
+                </button>
+                <div class="pd-ai-row">
+                    <span class="pd-ai-label" data-i18n="prompts.open_ai">Отвори со ВИ</span>
+                    <button class="pd-ai-btn" onclick="App.openDetailWithAI('https://chat.openai.com')"><span class="pcm-ai-dot pcm-ai-dot--chatgpt"></span>ChatGPT</button>
+                    <button class="pd-ai-btn" onclick="App.openDetailWithAI('https://gemini.google.com')"><span class="pcm-ai-dot pcm-ai-dot--gemini"></span>Gemini</button>
+                    <button class="pd-ai-btn" onclick="App.openDetailWithAI('https://claude.ai')"><span class="pcm-ai-dot pcm-ai-dot--claude"></span>Claude</button>
+                    <button class="pd-ai-btn" onclick="App.openDetailWithAI('https://www.perplexity.ai')"><span class="pcm-ai-dot pcm-ai-dot--perplexity"></span>Perplexity</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title" aria-hidden="true" onclick="if(event.target === this) App.closePrivacyModal()">
         <div class="modal-content" style="max-height: 85vh; width: 500px; display: flex; flex-direction: column;">
             <div
