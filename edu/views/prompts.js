@@ -14,24 +14,34 @@ window.VIEWS.prompts = `
         </div>
     </div>
 
-    <div id="prompts-cat-tabs"></div>
+    <!-- Filters live in one bar so the page reads as a single control
+         ("who are you" -> "search" -> "narrow it down") instead of three
+         separate blocks of chrome stacked before any content. -->
+    <div class="pf-bar">
 
-    <div id="prompts-sub-tabs"></div>
+        <div id="prompts-cat-tabs"></div>
 
-    <div class="prompts-search-wrap" style="position: relative; max-width: 540px; margin-bottom: 16px;">
-        <svg style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-tertiary); pointer-events: none;"
-             viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <input id="prompts-search-input"
-               type="text"
-               class="pc-search-input"
-               data-i18n-placeholder="prompts.search.placeholder"
-               placeholder="Пребарувај промптови..."
-               oninput="App.searchPrompts(this.value)"
-               autocomplete="off"
-               aria-label="Search prompts">
+        <div class="pf-row">
+            <div class="prompts-search-wrap">
+                <svg class="pf-search-icon" viewBox="0 0 24 24" width="16" height="16" fill="none"
+                     stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input id="prompts-search-input"
+                       type="search"
+                       class="pc-search-input"
+                       data-i18n-placeholder="prompts.search.placeholder"
+                       placeholder="Пребарувај промптови..."
+                       oninput="App.searchPrompts(this.value)"
+                       autocomplete="off"
+                       aria-label="Search prompts">
+            </div>
+            <div id="prompts-header" class="pf-count" aria-live="polite"></div>
+        </div>
+
+        <div id="prompts-sub-tabs"></div>
+
     </div>
 
     <div id="prompts-list" class="pa-grid"></div>

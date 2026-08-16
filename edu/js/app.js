@@ -943,10 +943,18 @@ const App = {
                 const prevDisabled = this.currentPromptPage === 1 ? 'disabled' : '';
                 pagHtml += `<button class="pag-btn" ${prevDisabled} onclick="App.goToPromptPage(${this.currentPromptPage - 1})"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>`;
 
-                for (let i = 1; i <= totalPages; i++) {
-                    const activeClass = i === this.currentPromptPage ? 'active' : '';
-                    pagHtml += `<button class="pag-num ${activeClass}" onclick="App.goToPromptPage(${i})">${i}</button>`;
-                }
+                // Windowed: always first and last, plus neighbours of the
+                // current page. Rendering every page put 25 buttons in a row
+                // for the larger categories, which is unusable on a phone.
+                this._paginationWindow(this.currentPromptPage, totalPages).forEach(item => {
+                    if (item === '…') {
+                        pagHtml += '<span class="pag-gap" aria-hidden="true">…</span>';
+                        return;
+                    }
+                    const activeClass = item === this.currentPromptPage ? 'active' : '';
+                    const current = item === this.currentPromptPage ? ' aria-current="page"' : '';
+                    pagHtml += `<button class="pag-num ${activeClass}"${current} onclick="App.goToPromptPage(${item})">${item}</button>`;
+                });
 
                 const nextDisabled = this.currentPromptPage === totalPages ? 'disabled' : '';
                 pagHtml += `<button class="pag-btn" ${nextDisabled} onclick="App.goToPromptPage(${this.currentPromptPage + 1})"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>`;
@@ -957,6 +965,30 @@ const App = {
                 pagContainer.innerHTML = '';
             }
         }
+    },
+
+    // Returns e.g. [1,'…',6,7,8,'…',25] — first, last, and a window around
+    // the current page. Keeps the control to a fixed width on any page count.
+    _paginationWindow(current, total, radius = 1) {
+        if (total <= 7) {
+            return Array.from({ length: total }, (_, i) => i + 1);
+        }
+        const pages = new Set([1, total, current]);
+        for (let i = 1; i <= radius; i++) {
+            if (current - i > 1) pages.add(current - i);
+            if (current + i < total) pages.add(current + i);
+        }
+        // Keep the control a stable width near the ends.
+        if (current <= 3) { pages.add(2); pages.add(3); pages.add(4); }
+        if (current >= total - 2) { pages.add(total - 1); pages.add(total - 2); pages.add(total - 3); }
+
+        const sorted = [...pages].filter(p => p >= 1 && p <= total).sort((a, b) => a - b);
+        const out = [];
+        sorted.forEach((p, i) => {
+            if (i > 0 && p - sorted[i - 1] > 1) out.push('…');
+            out.push(p);
+        });
+        return out;
     },
 
     goToPromptPage(page) {

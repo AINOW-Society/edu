@@ -5397,3 +5397,165 @@ select:focus-visible {
     font-size: 13px;
     color: var(--text-tertiary);
 }
+
+/* ── Prompts page filter bar (v0.94) ──────────────────────────────────────
+   The page had four stacked blocks of chrome — hero, categories, sub-pills,
+   search — before a single prompt appeared. On a phone that was most of the
+   screen. These rules group the filters into one bar, keep the sub-filters
+   to a single scrollable line, and fix a 3-column category grid that was
+   still written for two categories. */
+
+.pf-bar {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.pf-bar .prompts-cat-grid {
+    margin-bottom: 14px;
+}
+
+.pf-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.pf-bar .prompts-search-wrap {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.pf-search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-tertiary);
+    pointer-events: none;
+}
+
+.pf-count {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-tertiary);
+    white-space: nowrap;
+}
+
+.pf-count .pc-topbar-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.pf-count .pc-topbar-meta {
+    font-size: 13px;
+    color: var(--text-tertiary);
+}
+
+/* Sub-filters: one line that scrolls, never a wrapped block. */
+.pf-bar .prompts-sub-row {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    padding: 2px 0 6px;
+    /* fade the right edge so it reads as scrollable */
+    mask-image: linear-gradient(to right, #000 calc(100% - 24px), transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 24px), transparent 100%);
+}
+
+.pf-bar .prompts-sub-row::-webkit-scrollbar {
+    height: 4px;
+}
+
+.pf-bar .prompts-sub-row::-webkit-scrollbar-thumb {
+    background: var(--border-hover);
+    border-radius: 999px;
+}
+
+.pf-bar .prompts-sub-pill {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+}
+
+/* Pagination gap marker for the windowed control. */
+.pag-gap {
+    padding: 0 4px;
+    color: var(--text-tertiary);
+    font-size: 13px;
+    user-select: none;
+}
+
+@media (max-width: 768px) {
+    .pf-bar {
+        padding: 12px;
+        border-radius: var(--radius-md);
+        margin-bottom: 14px;
+    }
+
+    /* Three categories now, not two: let them size themselves rather than
+       leaving a lone orphaned button on a second row. */
+    .pf-bar .prompts-cat-grid,
+    #prompts-cat-tabs .prompts-cat-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        margin-bottom: 10px;
+    }
+
+    .pf-bar .prompts-cat-btn {
+        padding: 8px 6px;
+        min-height: 52px;
+    }
+
+    /* Stack the label under the icon so three fit without truncating. */
+    .pf-bar .prompts-cat-btn-head {
+        flex-direction: column;
+        gap: 4px;
+        text-align: center;
+    }
+
+    .pf-bar .prompts-cat-btn-label {
+        font-size: 11px;
+        line-height: 1.2;
+    }
+
+    .pf-bar .prompts-cat-btn-count {
+        font-size: 10px;
+    }
+
+    /* Search and count on separate lines; count is secondary. */
+    .pf-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+
+    .pf-count {
+        justify-content: flex-start;
+        font-size: 12px;
+    }
+
+    .pf-bar .prompts-sub-pill {
+        min-height: 38px;
+        font-size: 12px;
+        padding: 6px 14px;
+    }
+
+    .pag-gap {
+        padding: 0 2px;
+    }
+}
