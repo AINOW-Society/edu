@@ -13,7 +13,6 @@ const { copyTextToClipboard } = AINOW['src/utils'];
 
 const html = htm.bind(React.createElement);
 
-// ─── Icon maps ────────────────────────────────────────────────────────────────
 const ICON_MAP = {
     MessageSquare, FileText, TrendingUp, AlertCircle, Briefcase, Users,
     Handshake, CalendarCheck, Sparkles, Brain, Target, UserCog,
@@ -37,7 +36,6 @@ const SIT_CAT_ICONS = {
     communication: MessageSquare, career: UserCog, productivity: Zap,
 };
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
 const interpolate = (tpl, vars) =>
     (tpl || '').replace(/\{\{([^{}]+)\}\}/g, (_, k) => vars[k.trim()] || `[${k.trim()}]`);
 
@@ -47,7 +45,6 @@ const sitInterpolate = (tpl, answers) =>
         return v !== undefined && v !== '' ? v : `[${k.trim()}]`;
     });
 
-// ─── Smart question enhancer ─────────────────────────────────────────────────
 // Converts short playbook input labels into proper consultant-style questions
 // and detects whether the question needs a textarea (long input) or text field.
 const LABEL_MAP = {
@@ -105,7 +102,6 @@ const TEXTAREA_SIGNALS = /code|desc|detail|context|background|brief|content|text
 const enhanceInput = (inp) => {
     const key = (inp.label || '').toLowerCase().trim();
     if (LABEL_MAP[key]) return LABEL_MAP[key];
-    // Partial match
     for (const [pattern, mapped] of Object.entries(LABEL_MAP)) {
         if (key.includes(pattern) || pattern.includes(key)) return mapped;
     }
@@ -114,7 +110,6 @@ const enhanceInput = (inp) => {
     return { q, type: isLong ? 'textarea' : 'text' };
 };
 
-// ─── Pre-written situation-style templates for all 20 playbook base types ────
 // Each entry maps a base template ID (first 5 chars of pb.id) to:
 //   questions[]  — smart consultant-style questions (text / textarea)
 //   template_quick / template_full / chain_1-3  — standalone prompts using {{VAR}}
@@ -1814,7 +1809,6 @@ Provide:
 
 };
 
-// ─── Variant-specific chip overrides ─────────────────────────────────────────
 // For each variant ID (pb.id) we can override one or more question option arrays.
 // This makes suggestions immediately relevant — a LinkedIn card gets LinkedIn goals,
 // a Checkout UX card gets checkout-specific issues, etc.
@@ -1981,7 +1975,6 @@ const PB_VARIANT_CHIPS = (() => {
     return chips;
 })();
 
-// ─── Variant name extraction ──────────────────────────────────────────────────
 // Strips the category suffix from the full pb.title to get the clean variant name.
 // e.g. "Python Refactor Pro" → "Python"   |   "LinkedIn Content Engine" → "LinkedIn"
 // This lets templates say "Act as a senior Python engineer" instead of
@@ -2007,7 +2000,6 @@ const extractVariant = (title, baseId) => {
     return parts.length > 2 ? parts.slice(0, -2).join(' ') : title;
 };
 
-// ─── Normalize a playbook into the unified situation-style item format ─────────
 const normalizePb = (pb) => {
     const baseId  = pb.id.substring(0, 5); // e.g. 'pb-cr' from 'pb-cr-py'
     const tpl     = PB_SITUATION_TEMPLATES[baseId];
@@ -2043,7 +2035,6 @@ const normalizePb = (pb) => {
     };
 };
 
-// ─── Output generation ────────────────────────────────────────────────────────
 // Situations → locale template keys
 // Playbooks  → PB_SITUATION_TEMPLATES pre-written prompts
 // Available interpolation variables:
@@ -2090,7 +2081,6 @@ const buildOutput = (item, answers, t) => {
     return { quick, full, chains };
 };
 
-// ─── Unified item card ────────────────────────────────────────────────────────
 const ItemCard = ({ item, t, onSelect, isFav, onToggleFav }) => {
     const Icon = getIcon(item.icon);
     const isPlaybook = item._type === 'playbook';
@@ -2143,7 +2133,6 @@ const ItemCard = ({ item, t, onSelect, isFav, onToggleFav }) => {
     `;
 };
 
-// ─── Question flow (works for both situations and playbooks) ──────────────────
 const QuestionFlow = ({ item, t, onComplete, onBack }) => {
     const [step, setStep] = useState(0);
     const [answers, setAnswers] = useState({});
@@ -2314,7 +2303,6 @@ const QuestionFlow = ({ item, t, onComplete, onBack }) => {
     `;
 };
 
-// ─── Prompt block ─────────────────────────────────────────────────────────────
 const PromptBlock = ({ text, copyLabel, onCopy }) => html`
     <div className="relative">
         <pre className="whitespace-pre-wrap text-sm text-stone dark:text-slate-300 bg-opal-surface dark:bg-slate-800 rounded-2xl p-5 border-2 border-mist dark:border-slate-700 font-mono leading-relaxed overflow-auto max-h-96 shadow-inner">
@@ -2327,7 +2315,6 @@ ${text}
     </div>
 `;
 
-// ─── Output panel (works for both types) ──────────────────────────────────────
 const OutputPanel = ({ item, answers, t, onRestart, showToast }) => {
     const [activeTab, setActiveTab] = useState('quick');
     const Icon   = getIcon(item.icon);
@@ -2403,7 +2390,6 @@ const OutputPanel = ({ item, answers, t, onRestart, showToast }) => {
     `;
 };
 
-// ─── Main App ─────────────────────────────────────────────────────────────────
 const App = () => {
     const { t, isReady }                    = useLanguage();
     const { toast, showToast }              = useToast();

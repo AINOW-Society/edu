@@ -2,7 +2,6 @@
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['src/components'] = AINOW['src/components'] || {};
 Object.assign(__exports, AINOW['src/hooks']);
-// AINOW Core Components
 const { useState, useEffect, useRef, useMemo } = React;
 
 const { Globe, Sun, Moon, Menu, X, Github, Linkedin, Keyboard, Ghost, History, Check, Play, Copy, Share2, Heart, CheckCircle, Wand2, NotebookPen, Plus, Folder, Trash2, Save, Maximize2, Minimize2, Settings, Download, Upload, Square, CircleHelp, ChevronLeft, ChevronRight, GitMerge, Cpu, BookOpen, Info, Loader2, Sparkles, SearchX } = lucide;
@@ -10,23 +9,16 @@ const { loadLocale, getCachedLocale } = AINOW['locales/locales'];
 const { LANGUAGES, NAV_CONFIG, NAV_LINKS, CHATBOTS, APP_VERSION } = AINOW['src/config'];
 const { copyTextToClipboard } = AINOW['src/utils'];
 
-// Re-export Hooks
 
 const { useLanguage, useToast, useGlobalShortcuts } = AINOW['src/hooks'];
 
-// Import Layout Components
 const { Header } = AINOW['src/components/layout/Header'];
 const { SidebarWrapper } = AINOW['src/components/layout/Sidebar'];
 const { Footer } = AINOW['src/components/layout/Footer'];
 
-// Re-export Layout Components
-
 
 const html = htm.bind(React.createElement);
 
-
-
-// --- ACTIONS ---
 
 const addToHistory = (item) => {
     try {
@@ -39,7 +31,6 @@ const addToHistory = (item) => {
     } catch (e) { console.error(e); }
 };
 
-// --- VISUAL COMPONENTS ---
 
 const Pagination = ({ currentPage, totalPages, onPageChange, totalItems, itemsPerPage, t, itemType = 'items', simple = false }) => {
     const pageNumbers = useMemo(() => {
@@ -213,7 +204,6 @@ const SettingsModal = ({ isOpen, onClose }) => {
     `;
 };
 
-// --- SCRATCHPAD ---
 const Scratchpad = ({ isOpen, onClose }) => {
     const { t } = useLanguage();
     const [content, setContent] = useState(() => localStorage.getItem('ainow_scratchpad') || '');
@@ -372,11 +362,7 @@ const ActionButtons = ({
 };
 
 
-// Import UI Components
 const { Logo } = AINOW['src/components/ui/Logo'];
-
-
-
 
 
 const ShortcutsModal = ({ isOpen, onClose, extraShortcuts }) => {
@@ -438,7 +424,6 @@ const ShortcutsModal = ({ isOpen, onClose, extraShortcuts }) => {
     `;
 };
 
-// New PageShell component for consistent layouts across all pages
 const PageShell = ({ activePage, children, sidebarItems, isSidebarOpen: externalOpen, onSidebarToggle: setExternalOpen }) => {
     const { lang, setLang, t, isReady } = useLanguage();
     const [currentTheme, setCurrentTheme] = useState(() => localStorage.getItem('theme') || 'light');
@@ -447,7 +432,6 @@ const PageShell = ({ activePage, children, sidebarItems, isSidebarOpen: external
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
     const [isZenMode, setIsZenMode] = useState(false);
 
-    // Support controlled or uncontrolled sidebar state
     const isOpen = externalOpen !== undefined ? externalOpen : internalOpen;
     const setIsOpen = setExternalOpen !== undefined ? setExternalOpen : setInternalOpen;
 

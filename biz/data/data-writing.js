@@ -1,7 +1,6 @@
 (function () {
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['data/data-writing'] = AINOW['data/data-writing'] || {};
-// Contains all prompts for the 'Writing' category.
 const writingPrompts = [
 
   // --- BLOGGING & CONTENT MARKETING (w-1 to w-15) ---

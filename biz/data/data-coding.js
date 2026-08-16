@@ -1,7 +1,6 @@
 (function () {
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['data/data-coding'] = AINOW['data/data-coding'] || {};
-// Contains all prompts for the 'Coding' category.
 const codingPrompts = [
 
   // --- 1. CODE REVIEW & REFACTORING (c-1 to c-10) ---

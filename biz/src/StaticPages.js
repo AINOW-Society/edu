@@ -40,6 +40,7 @@ const ContentCard = ({ title, desc, labels = [], icon: Icon }) => html`
 
 const AboutPage = () => {
     const { t } = useLanguage();
+    const teamMembers = ['sead', 'bojan', 'biljana', 'aleksandra', 'maja'];
     return html`
     <${PageWrapper} title=${t('pages.about.title')}>
         
@@ -71,13 +72,13 @@ const AboutPage = () => {
         </div>
 
         <div className="mb-16 not-prose">
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">${t('pages.about.creator_title')}</h2>
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">${t('pages.about.team.title')}</h2>
             <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-8 shadow-sm transition-all hover:shadow-md">
                 <div className="flex flex-col gap-6">
                     <div>
                         <div className="flex flex-wrap items-center gap-3 mb-4">
-                            <h3 className="text-2xl font-black text-slate-900 dark:text-white">Suad Seferi</h3>
-                            <span className="px-3 py-1 rounded-full bg-coral/10 dark:bg-coral/20 text-coral dark:text-coral-light text-xs font-bold uppercase tracking-wider">Founder & President</span>
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white">${t('pages.about.creator_name')}</h3>
+                            <span className="px-3 py-1 rounded-full bg-coral/10 dark:bg-coral/20 text-coral dark:text-coral-light text-xs font-bold uppercase tracking-wider">${t('pages.about.creator_role')}</span>
                         </div>
                         
                         <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-base mb-6">
@@ -103,6 +104,17 @@ const AboutPage = () => {
                     </div>
                 </div>
             </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                ${teamMembers.map((member, i) => html`
+                    <div key=${member} className=${'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-8 shadow-sm transition-all hover:shadow-md' +
+                        // An odd member count leaves the last card orphaned at half width.
+                        (i === teamMembers.length - 1 && teamMembers.length % 2 ? ' md:col-span-2' : '')}>
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">${t(`pages.about.team.${member}.name`)}</h3>
+                        <p className="text-coral dark:text-coral-light text-xs font-bold uppercase tracking-wider mb-4">${t(`pages.about.team.${member}.role`)}</p>
+                        <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm mb-0">${t(`pages.about.team.${member}.bio`)}</p>
+                    </div>
+                `)}
+            </div>
         </div>
 
         <div className="flex justify-center mb-16 not-prose">
@@ -119,7 +131,7 @@ const AboutPage = () => {
             <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">${t('pages.about.beyond_work')}</p>
             <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">${t('pages.about.beyond_close')}</p>
             <div className="flex flex-wrap items-center gap-3">
-                <a href="/biz/help.html#/page/services" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-coral/10 text-coral font-bold text-sm hover:bg-coral/15 transition-colors">
+                <a href="#/page/services" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-coral/10 text-coral font-bold text-sm hover:bg-coral/15 transition-colors">
                     ${t('pages.about.beyond_services')}
                 </a>
                 <a href="https://ctrlab.net" target="_blank" rel="noopener" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold text-sm hover:border-coral hover:text-coral transition-colors">

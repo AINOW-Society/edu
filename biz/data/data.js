@@ -1,7 +1,6 @@
 (function () {
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['data/data'] = AINOW['data/data'] || {};
-// AINOW Prompt Library - Core Data Orchestrator
 const embeddedPromptsData = {
     agriculture: () => AINOW.loadScript('data/data-agriculture.js'),
     writing: () => AINOW.loadScript('data/data-writing.js'),

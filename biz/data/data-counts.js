@@ -1,7 +1,6 @@
 (function () {
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['data/data-counts'] = AINOW['data/data-counts'] || {};
-// This file contains static counts of prompts per category.
 const promptCounts = {
     agriculture: 100,
     aiengineering: 100,

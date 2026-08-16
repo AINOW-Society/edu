@@ -1,7 +1,6 @@
 (function () {
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['data/data-marketing'] = AINOW['data/data-marketing'] || {};
-// Contains all prompts for the 'Marketing' category.
 const marketingPrompts = [
 
   // --- 1. STRATEGY & PLANNING (m-1 to m-10) ---

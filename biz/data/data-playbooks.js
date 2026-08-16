@@ -4,7 +4,6 @@ var __exports = AINOW['data/data-playbooks'] = AINOW['data/data-playbooks'] || {
 // AINOW Playbooks - Advanced Workflow Engine
 // Generating 440+ unique specialized prompt chains.
 
-// --- GENERATOR UTILS ---
 const createVariant = (base, variant) => {
     const clone = JSON.parse(JSON.stringify(base));
     clone.title = clone.title.replace('{{VAR}}', variant.name);
@@ -17,7 +16,6 @@ const createVariant = (base, variant) => {
     return clone;
 };
 
-// --- MASTER TEMPLATES ---
 const TEMPLATES = {
     CODE_REFACTOR: {
         id: "pb-cr", title: "{{VAR}} Refactor Pro", category: "Coding", icon: "Code",

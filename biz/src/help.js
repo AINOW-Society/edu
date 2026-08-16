@@ -10,7 +10,6 @@ const { StaticPage } = AINOW['src/StaticPages'];
 
 const html = htm.bind(React.createElement);
 
-// ─── AI Tools Data ────────────────────────────────────────────────────────────
 const TOOLS_DATA = [
     {
         category: "help.sections.tools.categories.general",
@@ -172,7 +171,6 @@ const TOOLS_DATA = [
     }
 ];
 
-// ─── Nav Config ───────────────────────────────────────────────────────────────
 const GUIDE_NAV = [
     { id: 'intro',           labelKey: 'help.toc.intro',           icon: BookOpen },
     { id: 'getting-started', labelKey: 'help.toc.getting_started', icon: Zap },
@@ -183,7 +181,6 @@ const GUIDE_NAV = [
 ];
 
 
-// ─── Shared Doc Components ────────────────────────────────────────────────────
 const DocSection = ({ title, icon: Icon, children }) => html`
     <section className="mb-16 animate-fade-in group text-left">
         <div className="flex items-center gap-4 mb-8 pb-4 border-b border-mist dark:border-slate-800">
@@ -233,7 +230,6 @@ const FaqItem = ({ i, t }) => html`
     </details>
 `;
 
-// ─── Guide Page Components ────────────────────────────────────────────────────
 const GuideIntro = ({ t }) => html`
     <div className="animate-fade-in text-left">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-opal-surface dark:bg-slate-800 text-stone-light dark:text-slate-400 text-[10px] font-black uppercase tracking-widest mb-6 border border-mist dark:border-slate-700">
@@ -463,7 +459,6 @@ const GUIDE_PAGES = {
 // Pages that moved to about.html. Kept in sync with ABOUT_NAV in src/about.js.
 const ABOUT_OWNED_PAGES = ['about', 'services', 'partners', 'documents', 'policies', 'accessibility'];
 
-// ─── Sidebar Nav Component ────────────────────────────────────────────────────
 const PageNav = ({ currentHash, t, onClose }) => {
     const isGuideActive = (id) => currentHash === `#/guide/${id}`;
     const isPageActive  = (id) => currentHash === `#/page/${id}`;
@@ -497,7 +492,6 @@ const PageNav = ({ currentHash, t, onClose }) => {
     `;
 };
 
-// ─── Main App ─────────────────────────────────────────────────────────────────
 const HelpApp = () => {
     const { t, isReady } = useLanguage();
     const { toast } = useToast();

@@ -173,7 +173,7 @@ const data = {
             version: "v3.2.0",
             title_prefix: "User Manual &",
             title_suffix: "Platform Guide",
-            subtitle: "Everything you need to master AINOW — 1,000+ prompts, AI agents, playbooks, situation advisor, custom builder, and lab tools. Fully offline, completely free."
+            subtitle: "Everything you need to master AINOW — 3,000+ prompts, AI agents, playbooks, situation advisor, and the agent builder. Fully offline, completely free."
         },
         toc: {
             intro: "Introduction",
@@ -198,7 +198,7 @@ const data = {
                 title: "Core Features",
                 library: {
                     title: "Prompt Library",
-                    text: "Over 1,000 curated prompts across 30+ professional categories — coding, writing, marketing, legal, medicine, education, HR, finance, and more. Use the search bar (<code>/</code>) or browse by category. Mark favourites with ♥ for quick access."
+                    text: "Over 3,000 curated prompts across 33 professional categories — coding, writing, marketing, legal, medicine, HR, finance, and more. Use the search bar (<code>/</code>) or browse by category. Mark favourites with ♥ for quick access."
                 },
                 agents: {
                     title: "AI Agents",
@@ -289,7 +289,7 @@ const data = {
         aiengineering: 'AI Engineering', business: 'Business', career: 'Career',
         climate: 'Climate', coding: 'Coding', creative: 'Creative',
         creativevisual: 'Visual Arts', cybersecurity: 'Cybersecurity',
-        dataanalysis: 'Data & Analytics', education: 'Education',
+        dataanalysis: 'Data & Analytics',
         finance: 'Finance', gov: 'Government', hospitality: 'Hospitality',
         health: 'Health & Wellness', hr: 'HR', humanities: 'Humanities',
         journalism: 'Journalism', legal: 'Legal', logistics: 'Logistics',
@@ -547,11 +547,40 @@ const data = {
             mission_text: 'Our mission is to drive research, development, and education in artificial intelligence (AI) in Macedonia. We aim to foster ethical AI applications and support young talents and startups in this field.',
             values_title: 'Our Values',
             values_text: 'Our values are built on collaboration, innovation, ethics, and social responsibility. We believe in empowering people, fostering a culture of learning, and advancing AI for the greater good of society.',
-            creator_title: 'Meet the Creator',
+            creator_name: 'Suad Seferi',
+            creator_role: 'Founder & President',
             creator_bio: 'With over 20 years of experience in IT, cybersecurity, and AI, Suad Seferi brings deep expertise to the rapidly evolving tech landscape. He is the author of The AI Journey and The Spell of AI - A World Without a Pause, books dedicated to simplifying complex concepts and ensuring technology remains accessible to everyone.',
             creator_quote: '"The Real Magic of AI is making it work for people."',
             creator_quote_2: '"I created this project as a dedicated initiative for digital well-being and to raise awareness about AI ethics. It is designed to be completely free, open-source, and accessible to everyone—whether running locally on your own machine or online."',
             bio_link: 'Read full bio and work',
+            team: {
+                title: 'Our Team',
+                sead: {
+                    name: 'Sead Dzigal',
+                    role: 'Founder & Board Member',
+                    bio: 'Sead Dzigal is a PhD in Political Sciences and a university professor. He received his doctorate at the Iustinian I Faculty of Law in Skopje, on a dissertation in the field of political communications entitled "The political public sphere in the era of online media".'
+                },
+                bojan: {
+                    name: 'Bojan Stojkovski',
+                    role: 'Founder & Board Member',
+                    bio: 'With over a decade of experience as an award-winning journalist, Bojan brings deep expertise in technology, innovation, and business, particularly across the Balkans. His reporting has spanned areas such as AI, defense tech, and fintech, and his work has been featured in leading publications like Foreign Policy, WSJ, Haaretz, ZDNet, and Balkan Insight. As Editor-in-Chief at IT Logs, Bojan continues to drive conversations around emerging technologies.'
+                },
+                biljana: {
+                    name: 'Biljana Dimovska',
+                    role: 'Founder & Board Member',
+                    bio: 'With 17 years of experience in SEO and digital marketing, Biljana is passionate about helping businesses thrive through customized strategies. As a certified Google Ads expert, she specializes in creating effective SEO plans and driving successful online promotions. Her work is enhanced by the integration of AI, optimizing decision-making and automation to elevate marketing campaigns.'
+                },
+                aleksandra: {
+                    name: 'Aleksandra Todorovikj',
+                    role: 'Founder & Board Member',
+                    bio: 'With over 20 years of experience in sales, communication, journalism, and event organization, Aleksandra excels in working with people and fostering meaningful connections. Outside of her professional work, Aleksandra is passionate about writing children\'s books, believing that both books and children are the two greatest things that ever happened to her.'
+                },
+                maja: {
+                    name: 'Maja Mirkovic',
+                    role: 'Regional Expert & Partner',
+                    bio: 'Maja Mirkovic is a highly organized and multilingual legal professional, with extensive experience in the judicial sector of Bosnia and Herzegovina. She is a holder of three LL.M. Degrees from the Faculty of Law of University of Sarajevo. Currently pursuing a Master\'s degree in Digital Law, AI and Blockchain at EBIS Business TechSchool.'
+                }
+            },
             contact_title: 'Contact Us',
             contact_text: 'For questions, suggestions, or collaboration inquiries, please reach out to us at',
             project_title: 'The Prompt Library Project',
@@ -925,371 +954,6 @@ const data = {
             chain_3: `It is now 3pm. My goal was {{top_goal}} and I have blockers: {{blockers}}. The day has not gone as planned. Give me a realistic damage control and recovery plan for the rest of the day. What can I still realistically accomplish? How do I close the day without feeling like a failure, and what is the single most important thing to do in the next 2 hours?`
         }
     },
-    assessments: {
-        general: {
-            name: 'General AI Readiness',
-            description: 'For any organization starting or scaling their AI journey across all sectors'
-        },
-        healthcare: {
-            name: 'Healthcare & Clinical Services',
-            description: 'For hospitals, clinics, and care providers scaling AI safely in patient-facing and operational workflows'
-        },
-        education: {
-            name: 'Education & Learning Institutions',
-            description: 'For schools, universities, and academies adopting AI in teaching, operations, and learner support'
-        },
-        finance: {
-            name: 'Financial Services & Fintech',
-            description: 'For banks, insurers, and fintech teams deploying AI in risk, operations, and customer workflows'
-        },
-        recruitment: {
-            name: 'Recruitment & Talent Acquisition',
-            description: 'For HR and hiring teams adopting AI in sourcing, screening, and candidate operations'
-        },
-        municipality: {
-            name: 'Municipality & Public Sector',
-            description: 'Tailored for local government, public agencies and municipal service providers',
-            citizen_data: {
-                label: 'Citizen Data & Digital Services',
-                what_is: 'How your municipality manages citizen data and delivers digital services determines what AI can realistically do for you. AI for public services is built on the quality of your registers, records, and e-service infrastructure.',
-                context: 'Public sector AI depends on trustworthy citizen data and functional digital infrastructure. This section checks whether your data and service foundation is AI-ready — before you consider tools.',
-                cd1: {
-                    text: 'How is citizen and service data currently stored and managed?',
-                    hint: 'Why it matters: AI needs structured, accessible records. Paper-based or siloed citizen data makes AI impossible to deploy reliably.',
-                    opt_0: 'Primarily paper-based or in disconnected local spreadsheets — no central system',
-                    opt_25: 'Some digital records exist but are department-by-department with no shared access',
-                    opt_50: 'Core registries (citizens, permits, payments) are digital but not well integrated',
-                    opt_75: 'Integrated municipal information system with most services tracked digitally',
-                    opt_100: 'Unified digital platform with structured data, APIs, and clear data ownership across all services'
-                },
-                cd2: {
-                    text: 'What digital services does your municipality currently offer to citizens?',
-                    hint: 'Why it matters: AI augments existing digital processes. Municipalities with no e-services have no foundation for AI-assisted service delivery.',
-                    opt_0: 'All services require in-person visits — no digital channel exists',
-                    opt_25: 'A basic website with information but forms still require physical presence',
-                    opt_50: 'Some services available online (forms, payments) but processes still largely manual',
-                    opt_75: 'Most common services accessible online with digital workflows and tracking',
-                    opt_100: 'Fully integrated e-government portal — citizens can complete end-to-end services digitally'
-                },
-                cd3: {
-                    text: 'How would you describe the IT infrastructure supporting your municipal operations?',
-                    hint: 'Why it matters: Modern AI tools require cloud-compatible, maintained infrastructure. Legacy municipal IT is the single biggest blocker for AI adoption in the public sector.',
-                    opt_0: 'Aging on-premise servers, unsupported software, no IT maintenance plan',
-                    opt_25: 'Old infrastructure being maintained but no migration or modernization plan in place',
-                    opt_50: 'Core systems modernized, some cloud tools adopted for email and file storage',
-                    opt_75: 'Primarily cloud-based with modern software and a maintained IT roadmap',
-                    opt_100: 'Cloud-first infrastructure with integrated systems, security controls, and IT governance'
-                },
-                cd4: {
-                    text: 'How reliable and complete is your citizen and operational data?',
-                    hint: 'Why it matters: Incomplete citizen registers or inconsistent service records produce AI outputs that are wrong — and in public services, wrong AI outputs erode citizen trust fast.',
-                    opt_0: 'Significant gaps and inconsistencies — data is frequently missing or out of date',
-                    opt_25: 'Partial data quality — some registers reliable, others frequently incomplete',
-                    opt_50: 'Core registers reasonably up-to-date but quality varies across departments',
-                    opt_75: 'Most data is reliable with regular update processes and basic quality checks',
-                    opt_100: 'High data quality with validation processes, clear update responsibilities, and audit trails'
-                },
-                not_ready: {
-                    situation: 'Your digital foundation is not yet ready to support AI in citizen services. Paper-based records and disconnected systems mean any AI deployed now will produce unreliable results — damaging citizen trust rather than building it.',
-                    strengths: [
-                        'Building digital infrastructure now means you can design it AI-ready from the start',
-                        'EU digital government funds and grants are available for municipalities at exactly this stage'
-                    ],
-                    gaps: [
-                        'Paper-based or siloed records cannot be ingested by AI systems reliably',
-                        'Without digital service channels, AI has no interface to improve or automate',
-                        'Legacy infrastructure creates security risks and integration barriers for any modern tool'
-                    ],
-                    actions: [
-                        { action: 'Map every citizen-facing service and its current data trail', why: 'You cannot digitize or improve what you have not mapped. A service inventory reveals which processes have usable data and which need digitization first.', start: 'Assign one person to list all municipal services, their current channel (in-person/phone/online), and where the resulting data is stored' },
-                        { action: 'Prioritize one high-volume service for digitization', why: 'One fully digital service creates a replicable model, demonstrates value to leadership, and produces the structured data AI needs to operate.', start: 'Pick your most requested service (permits, payments, certificates) and digitize the intake form and tracking this quarter' },
-                        { action: 'Audit your citizen register for completeness and accuracy', why: 'AI systems for public services are only as good as the underlying citizen data. A clean register is the prerequisite for every AI use case in local government.', start: 'Run a completeness check on your citizen register — identify the top 5 missing or inconsistent fields and assign owners to fix them' }
-                    ]
-                },
-                foundation: {
-                    situation: 'You have the beginning of a digital foundation but it is fragmented. Some AI use cases are possible in isolated areas, but the lack of integration between systems limits scope and scale significantly.',
-                    strengths: [
-                        'Digital records exist in some departments — a starting point for AI projects',
-                        'Some e-services are in place, creating data trails AI can learn from'
-                    ],
-                    gaps: [
-                        'System silos mean AI cannot see across service areas — limiting what cross-departmental insights are possible',
-                        'Inconsistent data quality across departments produces uneven AI performance',
-                        'Paper fallbacks in some areas create data gaps that undermine AI reliability'
-                    ],
-                    actions: [
-                        { action: 'Create a municipal data integration plan', why: 'Connecting your existing digital systems multiplies the value of AI. Even basic integration between citizen registry and permits system opens new automation possibilities.', start: 'List your top 3 digital systems and identify one shared data point between them — start with a simple data export/import sync' },
-                        { action: 'Standardize data formats across your key registers', why: 'AI cannot learn from data it cannot interpret. Consistent formats for names, addresses, and IDs are prerequisite for reliable AI performance across departments.', start: 'Define a municipal data standard for the 10 most-used fields (name, address, ID number, service type) and apply it to your 2 most-used registers' },
-                        { action: 'Deploy one AI-assisted service pilot', why: 'A working pilot proves the value of AI to leadership and citizens, and surfaces practical barriers before a larger rollout.', start: 'Identify one service with consistent digital data — e.g. document status inquiries — and trial an AI chatbot or automated response system for 60 days' }
-                    ]
-                },
-                emerging: {
-                    situation: 'Your digital infrastructure is solid and AI is starting to deliver real value in targeted areas. The challenge now is expanding AI systematically across services while managing citizen data responsibly.',
-                    strengths: [
-                        'Integrated digital systems give AI reliable, cross-departmental data to work with',
-                        'Existing e-services provide AI deployment channels that citizens are already using',
-                        'Cloud infrastructure reduces technical barriers for deploying modern AI tools'
-                    ],
-                    gaps: [
-                        'Data governance for citizen data — who can use it, for what, with what safeguards — likely needs formalizing',
-                        'Some legacy departments or services may still operate with data quality too low for AI',
-                        'Cross-system AI workflows require API connectivity that may not yet exist between all key systems'
-                    ],
-                    actions: [
-                        { action: 'Establish a citizen data governance policy', why: 'As AI uses more citizen data, you need clear rules on what data can be used for what AI purpose — GDPR requires it and citizens expect it from public institutions.', start: 'Draft a one-page citizen data use policy: what data AI can access, for which services, with which safeguards, and how citizens are informed' },
-                        { action: 'Build an AI service roadmap for the next 12 months', why: 'Systematic AI adoption requires planning — which services get AI when, who is responsible, what data each needs, and how success is measured.', start: 'Map your 5 highest-volume citizen services and assess each for AI readiness: data quality, digital channel, staff capacity, and citizen impact' },
-                        { action: 'Measure and publish AI service outcomes', why: 'Citizen trust in AI-assisted public services depends on demonstrated outcomes. Publishing results creates accountability and builds the case for continued investment.', start: 'Define one metric per AI-assisted service (response time, resolution rate, citizen satisfaction) and start tracking it in your next reporting cycle' }
-                    ]
-                },
-                advanced: {
-                    situation: 'Your digital infrastructure and data quality are strong enough to support sophisticated AI applications across multiple service areas. The focus is now on governance depth, citizen trust, and staying ahead of AI regulation in the public sector.',
-                    strengths: [
-                        'Integrated, high-quality citizen data enables reliable AI across service domains',
-                        'Digital service channels provide deployment infrastructure for AI-assisted citizen interactions at scale',
-                        'Cloud-native infrastructure enables rapid piloting and scaling of new AI capabilities'
-                    ],
-                    gaps: [
-                        'EU AI Act public sector requirements — particularly for high-risk AI — require assessment and documentation your governance may not yet cover',
-                        'AI explainability for citizen-facing decisions (benefits, permits, fines) is a legal and reputational necessity not yet addressed by most municipal AI deployments',
-                        'Real-time data integration may be needed for advanced use cases like predictive maintenance or dynamic service routing'
-                    ],
-                    actions: [
-                        { action: 'Assess your AI systems against EU AI Act public sector obligations', why: 'Municipal AI systems touching benefits, permits, or enforcement may be classified as high-risk under the EU AI Act — triggering mandatory documentation, human oversight, and transparency requirements.', start: 'List every AI tool in use, categorize each by risk level using the EU AI Act guidance, and identify which require conformity documentation' },
-                        { action: 'Implement citizen-facing AI transparency notices', why: 'Citizens have the right to know when AI influences decisions about their services. Transparency is both a legal requirement and a trust-building measure for public institutions.', start: 'For each AI-assisted service, draft a plain-language notice explaining what AI does, what data it uses, and how citizens can request human review' },
-                        { action: 'Develop a predictive analytics capability for service demand', why: 'Advanced municipalities use AI to anticipate demand — predicting permit volumes, maintenance needs, or seasonal service spikes — enabling proactive rather than reactive service delivery.', start: 'Identify your most cyclical service (e.g. building permits, park maintenance) and pull 3 years of historical data to build a baseline demand model' }
-                    ]
-                }
-            },
-            staff_leadership: {
-                label: 'Staff Capacity & Leadership',
-                what_is: "Whether a municipality succeeds with AI depends almost entirely on whether its leadership understands it and its staff can use it. Technical tools without human capacity don't transform services — they just create expensive problems.",
-                context: "Municipal AI adoption is blocked by people more often than technology. This section checks whether your leadership and staff have the awareness, skills, and organizational commitment needed to make AI work in a public sector context.",
-                sl1: {
-                    text: 'How aware is your senior leadership (mayor, council, directors) of AI opportunities and risks for the municipality?',
-                    hint: 'Why it matters: Without leadership understanding AI, budgets never get approved, risks never get managed, and projects die mid-implementation.',
-                    opt_0: 'AI has not been discussed at leadership level — seen as irrelevant or a private sector topic',
-                    opt_25: 'Leadership has heard of AI but has no position on it and no budget allocated',
-                    opt_50: 'Some leaders are interested but there is no formal strategy or coordination',
-                    opt_75: 'Leadership has approved AI exploration with some budget and assigned ownership',
-                    opt_100: 'AI is a formal municipal strategy priority with dedicated budget, a named lead, and council endorsement'
-                },
-                sl2: {
-                    text: 'What is the general digital and AI literacy level of your municipal staff?',
-                    hint: 'Why it matters: Staff who distrust or misunderstand AI will avoid using it correctly — or worse, over-rely on it without the judgment to catch its errors.',
-                    opt_0: 'Most staff are not comfortable with digital tools and have no awareness of AI',
-                    opt_25: 'Basic digital literacy exists but AI tools are unknown or seen as threatening',
-                    opt_50: 'Some staff use AI tools informally — awareness varies widely by department',
-                    opt_75: 'Growing AI literacy across departments — staff are curious and some are experimenting',
-                    opt_100: 'Strong digital and AI literacy — staff use AI tools as part of their regular workflow'
-                },
-                sl3: {
-                    text: 'Does your municipality have technical staff or dedicated capacity for digital and AI projects?',
-                    hint: 'Why it matters: Without someone accountable for AI implementation and maintenance, projects stall, tools break, and no one notices until a citizen complaint.',
-                    opt_0: 'No dedicated IT staff — technology is handled reactively by non-specialists',
-                    opt_25: 'One or two IT generalists maintain systems but have no capacity for new projects',
-                    opt_50: 'An IT team exists but has no specific digital transformation or AI mandate',
-                    opt_75: 'IT team with some capacity for new projects and a digital transformation plan',
-                    opt_100: 'Dedicated digital transformation team or a named AI/digital officer with project capacity'
-                },
-                sl4: {
-                    text: 'How does your municipality approach training and upskilling staff on digital tools?',
-                    hint: 'Why it matters: Municipalities that invest in staff digital literacy see faster AI adoption and fewer costly misuse incidents.',
-                    opt_0: 'No formal training — staff learn tools on their own or not at all',
-                    opt_25: 'Occasional training when a specific system is introduced, then nothing',
-                    opt_50: 'Some training is available but participation is optional and unstructured',
-                    opt_75: 'Training program covers digital tools for relevant roles with regular updates',
-                    opt_100: 'Structured digital and AI literacy program for all staff, integrated into onboarding and annual development'
-                },
-                not_ready: {
-                    situation: 'Your organization lacks the leadership commitment and staff capacity to adopt AI responsibly. Without a mandate from leadership and baseline digital literacy across staff, AI tools will either sit unused or be misused in ways that damage citizen trust.',
-                    strengths: [
-                        'Starting without bad AI habits means you can establish good practices from the beginning',
-                        'EU and national digital government programs offer training and capacity-building support for municipalities at this stage'
-                    ],
-                    gaps: [
-                        'No leadership mandate means no budget, no ownership, and no accountability for outcomes',
-                        'Staff digital literacy gaps will cause resistance to and misuse of any AI tool introduced',
-                        'No technical capacity means AI projects will depend entirely on vendors — a costly and risky position'
-                    ],
-                    actions: [
-                        { action: 'Run an AI awareness session for the mayor and council', why: 'Leadership cannot support what they do not understand. A 90-minute session on AI basics, public sector use cases, and key risks is the single highest-return investment at this stage.', start: 'Book a 90-minute session with an external AI facilitator or use free government digital literacy resources — brief council before the next budget cycle' },
-                        { action: 'Identify one digital champion in each department', why: 'Peer-to-peer digital adoption is faster and more durable than top-down mandates. Champions translate digital tools into the language of their colleagues.', start: 'Ask each department head to nominate one curious, tech-comfortable staff member as their digital champion this month' },
-                        { action: 'Run a 30-day AI tool pilot with one willing team', why: 'Real experience with a safe, low-stakes AI tool builds literacy and confidence far faster than training alone — and produces advocates inside the organization.', start: 'Pick one team with a repetitive writing or data task (reports, correspondence, data entry) and trial a free AI tool for 30 days with a simple before/after comparison' }
-                    ]
-                },
-                foundation: {
-                    situation: 'There is growing awareness of AI at leadership level and some staff enthusiasm, but it has not translated into organized capability. Without structure, enthusiasm fades and early adopters burn out.',
-                    strengths: [
-                        'Leadership awareness is sufficient to start the strategy conversation',
-                        'Pockets of staff enthusiasm provide ready champions for structured programs'
-                    ],
-                    gaps: [
-                        'Without a formal AI strategy, enthusiasm is not channeled into results',
-                        'Inconsistent literacy creates two-speed adoption — digital champions leave colleagues behind',
-                        'No dedicated technical capacity means AI projects depend on individuals, not systems'
-                    ],
-                    actions: [
-                        { action: 'Develop a 12-month municipal AI action plan', why: 'An action plan converts leadership awareness into accountable commitments — specific projects, owners, budgets, and success measures for the next year.', start: 'Draft a one-page action plan: 3 AI pilots to test, who leads each, what data each needs, and how success is measured — present to council this quarter' },
-                        { action: 'Create a basic AI literacy training program for all staff', why: 'A consistent baseline ensures all staff understand what AI is, what it cannot do, and how to use it responsibly — regardless of department or seniority.', start: 'Select a free 2-hour AI literacy course (Microsoft AI Skills, Google AI Essentials) and require completion for all staff within 3 months' },
-                        { action: 'Hire or designate a municipal digital transformation lead', why: 'AI projects without a named owner do not get completed. A digital lead coordinates across departments, manages vendors, and keeps projects on track.', start: 'Assess whether an existing IT or project management role can be adapted, or prepare a job description for a digital officer role' }
-                    ]
-                },
-                emerging: {
-                    situation: 'Real AI capability is developing — leadership is committed, staff literacy is growing, and some projects are delivering results. The challenge is scaling this from individuals and teams to a municipal-wide capability.',
-                    strengths: [
-                        'Leadership commitment enables budget allocation and removes organizational blockers',
-                        'Growing staff literacy means AI adoption accelerates as teams share learnings and best practices',
-                        'Digital champions network provides a scalable peer-learning infrastructure'
-                    ],
-                    gaps: [
-                        'Middle management often lags behind both leadership vision and ground-level enthusiasm — buy-in at this level is critical for scaling',
-                        'Technical capacity may need expansion as AI project scope grows beyond initial pilots',
-                        'Staff need structured learning pathways to grow beyond basic AI literacy into role-specific AI capability'
-                    ],
-                    actions: [
-                        { action: 'Develop role-specific AI training tracks for key municipal roles', why: 'Generic AI literacy is necessary but not sufficient. Finance officers, urban planners, and social workers need AI training relevant to their specific responsibilities and risks.', start: 'Map the 5 most common municipal roles, identify the AI tools and tasks relevant to each, and create a 2-hour role-specific training module for each' },
-                        { action: 'Establish a municipal AI steering committee', why: 'Cross-departmental AI needs cross-departmental coordination. A steering committee ensures projects align with municipal strategy, share resources, and avoid duplication.', start: 'Convene a monthly steering meeting with the digital lead, one representative from each department, and council sign-off on decisions' },
-                        { action: 'Measure and report AI adoption outcomes to council', why: 'Regular reporting creates accountability, sustains council support, and demonstrates value to citizens — building the political will for continued investment.', start: 'Create a simple quarterly AI progress dashboard: projects underway, staff trained, services improved, costs saved — present at every council session' }
-                    ]
-                },
-                advanced: {
-                    situation: 'Your leadership and staff capacity is strong. AI is embedded in how the municipality operates, not just piloted in isolated projects. The focus now is sustaining this culture, managing the frontier risks, and developing the specialized expertise needed for advanced public sector AI.',
-                    strengths: [
-                        'Council and executive-level AI understanding enables strategic, risk-aware investment decisions',
-                        'Organization-wide digital literacy enables rapid adoption of new AI tools as they emerge',
-                        'Dedicated technical capacity provides the foundation for sophisticated AI projects and responsible vendor management'
-                    ],
-                    gaps: [
-                        'Specialized public sector AI expertise — for predictive analytics, algorithmic decision-making, and AI governance — is genuinely scarce and hard to hire',
-                        'Sustaining an innovation culture in a public sector context requires institutional structures beyond individual champions',
-                        'Ethical AI leadership — ensuring AI decisions are fair, transparent, and contestable — requires dedicated roles and processes that most municipalities have not yet built'
-                    ],
-                    actions: [
-                        { action: 'Establish a municipal Responsible AI function', why: 'At advanced AI maturity, governance, fairness, and explainability are not optional — they are legal requirements under the EU AI Act and ethical obligations to citizens.', start: "Appoint a Responsible AI officer (or expand an existing role) and draft the municipality's AI principles: what AI can and cannot decide, how citizens are informed, and how decisions can be contested" },
-                        { action: 'Build partnerships with universities and regional AI programs', why: 'Access to specialized AI expertise and research supports advanced use cases — predictive maintenance, demand forecasting, natural language services — that internal capacity alone cannot deliver.', start: 'Identify 2 universities or regional AI programs with public sector expertise and explore a collaborative research or internship program' },
-                        { action: 'Create a structured municipal AI innovation process', why: "Sustaining AI innovation in the public sector requires a repeatable way to source ideas from staff, evaluate them for impact and risk, fund pilots, and scale what works — without depending on individual champions.", start: 'Launch an annual internal AI innovation call: staff submit ideas, a review panel selects 3 pilots, each gets a small budget and a 6-month window to prove value' }
-                    ]
-                }
-            },
-            legal_governance: {
-                label: 'Legal, Procurement & Governance',
-                what_is: 'Public sector AI is held to a higher standard than private sector AI — because its outputs affect citizens who have no alternative provider. Legal compliance, procurement integrity, and governance maturity determine whether your municipality can deploy AI safely and defend that deployment to citizens, councils, and regulators.',
-                context: 'The public sector operates under strict legal obligations that shape what AI can do, how it must be governed, and what procurement process it must go through. This section checks whether your governance is ready for AI — not just in theory, but in practice.',
-                lg1: {
-                    text: 'How well-documented and standardized are your core municipal service processes?',
-                    hint: 'Why it matters: AI improves documented processes. Undocumented processes produce unpredictable AI behaviour — and in public services, unpredictability means citizen complaints and legal risk.',
-                    opt_0: "Most processes exist only in experienced staff's knowledge — no written documentation",
-                    opt_25: 'Some processes documented but inconsistently — quality varies by department and staff member',
-                    opt_50: 'Core service processes documented and used for onboarding, though often outdated',
-                    opt_75: 'Most processes documented, reviewed annually, and accessible to all relevant staff',
-                    opt_100: 'Processes fully documented, regularly updated, version-controlled, and used for continuous improvement'
-                },
-                lg2: {
-                    text: "How mature is your municipality's data protection and GDPR compliance?",
-                    hint: 'Why it matters: Municipal AI systems almost always process personal citizen data. GDPR non-compliance combined with AI is not just a legal risk — it is a citizen trust crisis waiting to happen.',
-                    opt_0: 'No formal data protection policies — GDPR compliance is not actively managed',
-                    opt_25: 'Basic GDPR awareness exists but policies are not documented or enforced consistently',
-                    opt_50: 'Standard GDPR policies in place, a DPO appointed, but AI-specific data rules not yet addressed',
-                    opt_75: 'GDPR compliant with documented policies, regular staff training, and a functioning DPO',
-                    opt_100: 'Mature GDPR framework including DPIAs for new AI systems, clear citizen rights processes, and AI-specific data governance rules'
-                },
-                lg3: {
-                    text: 'How does your municipality procure and evaluate new technology solutions?',
-                    hint: 'Why it matters: Public procurement rules exist for a reason — but they can slow AI adoption significantly. A structured process protects public money and ensures AI tools are evaluated for fit, not just price.',
-                    opt_0: 'Ad hoc — tools adopted based on individual recommendations without formal evaluation',
-                    opt_25: 'Basic procurement rules followed for large purchases but AI tools often bypass them',
-                    opt_50: 'Procurement process exists and is generally followed, but lacks AI-specific evaluation criteria',
-                    opt_75: 'Structured procurement with technical, legal, and cost evaluation — AI tools included in the process',
-                    opt_100: 'Comprehensive procurement governance including AI-specific criteria: data use, GDPR compliance, explainability, vendor lock-in risk, and exit terms'
-                },
-                lg4: {
-                    text: 'Does your municipality have policies specifically governing AI use by staff and in citizen services?',
-                    hint: "Why it matters: Without AI-specific policies, staff don't know what they can use AI for, citizens don't know when AI is involved in decisions about them, and the municipality has no defense if something goes wrong.",
-                    opt_0: 'No AI-specific policies — general IT rules are assumed to cover AI tools',
-                    opt_25: 'AI use is informally restricted but there are no written policies or guidance',
-                    opt_50: 'Basic AI acceptable use policy drafted but not communicated to staff or enforced',
-                    opt_75: 'AI use policy in place, communicated to staff, covering acceptable tools and data rules',
-                    opt_100: 'Comprehensive AI governance: staff use policy, citizen transparency notices, AI impact assessments for new systems, and a designated AI accountability owner'
-                },
-                not_ready: {
-                    situation: 'Your governance and compliance foundation is not yet ready for AI. Deploying AI without documented processes, GDPR compliance, and basic AI policies creates significant legal risk and, more importantly, risks breaking citizen trust in your municipality.',
-                    strengths: [
-                        'Building governance from scratch for the AI era means you can design it right — without inheriting legacy frameworks not built for AI',
-                        'Free GDPR templates, EU AI Act guidance, and public sector AI policy frameworks are widely available — you do not need to start from a blank page'
-                    ],
-                    gaps: [
-                        'Undocumented service processes make AI behaviour unpredictable and ungovernable',
-                        'GDPR non-compliance is a legal liability the moment any AI tool processes citizen data — even for internal use',
-                        'Without AI-specific policies, staff are already using unapproved AI tools with citizen data — creating incidents you are not aware of'
-                    ],
-                    actions: [
-                        { action: 'Document your 5 most important citizen-facing service processes', why: 'AI cannot improve a process it cannot understand. Documentation also reveals the real steps in service delivery — often different from how leadership thinks they work.', start: 'Pick your highest-volume service (permits, certificates, complaints) and write a step-by-step process description in 2 hours — bullet points are fine for a first draft' },
-                        { action: 'Appoint or confirm a Data Protection Officer and document your GDPR baseline', why: 'A DPO is legally required for most municipalities under GDPR. Without one, your AI projects are illegal before they start.', start: 'Confirm your DPO appointment, run a data mapping exercise for your 3 most-used citizen data systems, and register all processing activities in a Record of Processing Activities' },
-                        { action: 'Write a basic AI acceptable use policy for staff', why: "Without a policy, staff are using AI tools you have not approved, with data you have not assessed, for purposes you don't know about — and the municipality is liable.", start: 'Download a public sector AI policy template (available from EU, national government, or law firm sources) and adapt it for your municipality in a half-day workshop with IT and legal' }
-                    ]
-                },
-                foundation: {
-                    situation: 'Basic governance exists but it was not designed with AI in mind. As AI adoption accelerates, the gaps between your current policies and what AI requires will widen into significant risks.',
-                    strengths: [
-                        'GDPR baseline provides the data protection foundation AI governance builds on',
-                        'Some process documentation exists — a starting point for systematic AI process review'
-                    ],
-                    gaps: [
-                        'Existing policies do not address AI-specific risks: hallucination, automated decisions, data used for AI training, and vendor AI use of municipal data',
-                        'Procurement processes lack AI-specific evaluation criteria — making it easy to select the wrong tool for the wrong reasons',
-                        'Staff are likely using AI tools outside approved channels — creating shadow AI exposure the current governance does not cover'
-                    ],
-                    actions: [
-                        { action: 'Conduct an AI shadow use audit', why: 'Staff are almost certainly using AI tools the municipality has not approved. An honest audit gives you the real picture of your exposure — not the assumed one.', start: 'Send a short anonymous survey: "Which AI tools do you use at work?" Emphasize no punishment — you need accurate data to protect the organization' },
-                        { action: 'Add AI-specific criteria to your technology procurement checklist', why: 'General procurement criteria do not capture the unique risks of AI: data use by vendors, model training on municipal data, explainability of outputs, and exit terms.', start: 'Add 5 AI questions to every technology evaluation: Does it use our data to train models? Is it GDPR-compliant for public sector? Who is liable for incorrect outputs? What is the data retention policy? What are the exit terms?' },
-                        { action: 'Update your GDPR documentation to cover AI processing activities', why: 'If AI processes citizen data, that processing must be documented in your Record of Processing Activities and assessed for necessity and proportionality under GDPR.', start: 'List every AI tool currently in use, identify what citizen data each processes, and add each to your Record of Processing Activities with a lawful basis documented' }
-                    ]
-                },
-                emerging: {
-                    situation: 'Your governance foundations are solid. Documented processes, GDPR compliance, and basic AI policies are in place. The challenge now is keeping governance ahead of rapid AI adoption — policies written for 2023 AI tools will not cover the AI tools of 2025.',
-                    strengths: [
-                        'Documented processes enable AI to be deployed into well-understood workflows — with predictable, auditable behaviour',
-                        'GDPR compliance gives you a defensible position with regulators and citizen trust that AI outputs are handled responsibly',
-                        'Structured procurement prevents vendor lock-in and ensures AI tools are evaluated for fit, not just marketed features'
-                    ],
-                    gaps: [
-                        'AI governance is evolving faster than most public sector frameworks — your policies risk being outdated within 12 months of writing them',
-                        'Citizen transparency — informing people when AI influences decisions about them — is not yet standard in most municipal AI deployments',
-                        'Vendor AI governance — what your AI suppliers do with municipal data — is often completely unreviewed even in well-governed municipalities'
-                    ],
-                    actions: [
-                        { action: 'Implement a DPIA process for every new AI system', why: 'A Data Protection Impact Assessment is legally required under GDPR for high-risk processing — which includes most AI systems that profile or make automated decisions about citizens.', start: 'Create a simple DPIA template for AI systems covering: purpose, data used, necessity, risks, mitigations, and DPO sign-off — require completion before any new AI system goes live' },
-                        { action: 'Develop citizen transparency notices for AI-assisted services', why: 'Citizens have the right to know when AI influences decisions about them. Plain-language transparency is both a legal requirement and a trust-building measure for public institutions.', start: 'For each AI-assisted citizen service, draft a 2-sentence transparency notice: what AI does in this service, what data it uses, and who to contact for a human review' },
-                        { action: 'Review AI vendor contracts for data governance terms', why: "Many municipalities discover their AI vendors have rights to use municipal citizen data for model training. Contract review prevents this — and demonstrates to citizens that you protect their data even from your own suppliers.", start: "Pull contracts for your top 3 AI tools and review: data use terms, model training clauses, data residency, retention periods, and what happens to your data if you terminate the contract" }
-                    ]
-                },
-                advanced: {
-                    situation: 'Your governance and compliance maturity is strong. You can deploy AI with confidence and defend your practices to citizens, council, auditors, and regulators. The focus is staying ahead of the EU AI Act, developing AI-specific accountability structures, and managing the growing complexity of AI vendor relationships.',
-                    strengths: [
-                        'Mature process documentation enables systematic, auditable AI deployment across service areas',
-                        'Advanced GDPR compliance reduces regulatory risk as AI-specific regulation tightens under the EU AI Act',
-                        'Structured AI procurement governance enables confident vendor selection and protects municipal data from misuse'
-                    ],
-                    gaps: [
-                        'EU AI Act public sector obligations — particularly for high-risk AI systems — require assessment, documentation, and human oversight processes that go beyond current GDPR frameworks',
-                        'AI algorithmic accountability — being able to explain to a citizen why an AI system produced a specific output — is not yet standard even in advanced municipal AI deployments',
-                        'Third-party AI risk management is an emerging gap: what your AI vendors do with your data and how their models behave is often opaque even to governance-mature organizations'
-                    ],
-                    actions: [
-                        { action: 'Complete an EU AI Act risk classification for all municipal AI systems', why: 'Municipal AI systems in areas like benefits, law enforcement support, or critical infrastructure may be classified as high-risk under the EU AI Act — triggering mandatory conformity assessments, human oversight requirements, and registration obligations.', start: 'List every AI tool in use, classify each using the EU AI Act risk tier guidance, and for every high-risk system begin the conformity documentation process' },
-                        { action: 'Implement algorithmic accountability for citizen-facing AI decisions', why: "Citizens in democratic societies have the right to understand and contest automated decisions. Building explainability into your AI systems is both a legal requirement and a demonstration of the municipality's commitment to fair governance.", start: 'For each AI system influencing citizen outcomes, define: what factors influence the output, how a citizen can request human review, who reviews contested decisions, and what the appeal process is' },
-                        { action: 'Develop a municipal AI vendor governance standard', why: 'Your AI risk extends to every vendor supplying AI tools. A vendor governance standard ensures suppliers meet your GDPR, security, and ethical AI requirements — and gives you contractual recourse if they do not.', start: 'Draft a municipal AI vendor standard covering: training data sources, model bias testing, data residency, incident reporting obligations, audit rights, and exit terms — require compliance for all new AI procurement' }
-                    ]
-                }
-            },
-            overall_summary: {
-                not_ready: 'Significant groundwork is needed before AI can safely serve your citizens. Prioritize digitizing citizen records, securing leadership commitment, and establishing GDPR compliance — these three foundations unlock everything else.',
-                foundation: 'The building blocks are in place. Targeted investment in your weakest area — whether data quality, staff capacity, or governance — will unlock meaningful AI results in citizen services within 6–12 months.',
-                emerging: 'Solid foundations are established across your municipality. Focused improvements to your key governance and capacity gaps will allow you to scale AI from pilots to systematic service improvement.',
-                advanced: 'Your municipality is well-positioned for sophisticated public sector AI. The focus is now on EU AI Act compliance, algorithmic accountability, and building the specialized expertise needed to lead responsible AI in your region.'
-            }
-        }
-    }
 };
 
 // v0.94: AI services offering, named partners, and cross-platform labels.

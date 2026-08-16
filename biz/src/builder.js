@@ -1,7 +1,6 @@
 (function () {
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['src/builder'] = AINOW['src/builder'] || {};
-// AINOW Builder Module
 const { useState, useEffect, useMemo, useRef } = React;
 const { createRoot } = ReactDOMClient;
 
@@ -11,7 +10,6 @@ const { compressState, decompressState, copyTextToClipboard } = AINOW['src/utils
 
 const html = htm.bind(React.createElement);
 
-// --- BUILDER CONFIG ---
 
 const DEFAULT_STATE = {
     framework: "standard",

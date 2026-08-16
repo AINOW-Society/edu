@@ -1,7 +1,6 @@
 (function () {
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['src/index'] = AINOW['src/index'] || {};
-// AINOW Main App Module
 const { useState, useMemo, useEffect, useRef, useCallback } = React;
 const { createRoot } = ReactDOMClient;
 

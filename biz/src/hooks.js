@@ -4,7 +4,6 @@ var __exports = AINOW['src/hooks'] = AINOW['src/hooks'] || {};
 const { useState, useEffect, useCallback, useRef } = React;
 const { loadLocale, getCachedLocale } = AINOW['locales/locales'];
 
-// --- HOOKS ---
 
 const useLanguage = () => {
     const getStoredLangCode = () => {

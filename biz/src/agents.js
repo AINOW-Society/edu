@@ -1,7 +1,6 @@
 (function () {
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['src/agents'] = AINOW['src/agents'] || {};
-// AINOW Agents Module
 const { useState, useMemo, useEffect, useRef, useCallback } = React;
 const { createRoot } = ReactDOMClient;
 

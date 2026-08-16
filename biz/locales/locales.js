@@ -1,7 +1,6 @@
 (function () {
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['locales/locales'] = AINOW['locales/locales'] || {};
-// AINOW Locale Loader
 // Static imports ensure offline functionality via file:// protocol
 const { data: en } = AINOW['locales/locales-en'];
 const { data: mk } = AINOW['locales/locales-mk'];

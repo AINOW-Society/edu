@@ -1,7 +1,6 @@
 (function () {
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['data/data-business'] = AINOW['data/data-business'] || {};
-// Contains all prompts for the 'Business' category.
 const businessPrompts = [
 
   // ── HR: Recruitment & Hiring (b-1 to b-10) ──────────────────────────────
