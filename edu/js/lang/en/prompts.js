@@ -2163,6 +2163,90 @@
       title: "Handling a student complaint fairly",
       prompt: "Act as a student casework officer. A student has submitted a formal complaint about a member of teaching staff. Help me handle it properly. Produce: how to acknowledge the complaint so the student feels heard without pre-judging the outcome; how to separate the factual allegations from the student's interpretation of them, and why that distinction matters; what to put to the staff member and how, so they are treated fairly too; how to reach a proportionate outcome when both accounts are plausible and there are no witnesses; how to write the decision so the reasoning is visible even to the party who loses; and the appeal route. Include what to do when the complaint is really about a mark, which is usually a different process.",
       tags: ["complaints", "appeals", "casework", "procedure"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Co-supervision",
+      title: "When two supervisors give opposing advice",
+      prompt: "Act as a doctoral education specialist. My student has two supervisors who disagree about the direction of the thesis, and the student is caught between us, rewriting the same chapter in two directions. Help me resolve it. Produce: how to establish whether this is a genuine methodological disagreement or a difference of academic taste, because they need different resolutions; how to hold the conversation between supervisors without the student present and without it becoming territorial; how to agree who has the final word on what, in writing; what to tell the student afterwards so their confidence recovers; and how to structure future meetings so the disagreement does not resurface at submission. Include when this should be escalated to the doctoral school.",
+      tags: ["co-supervision", "conflict", "doctoral", "supervision"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Publishing",
+      title: "Publishing during the doctorate without derailing it",
+      prompt: "Act as a doctoral adviser. My student wants to publish papers during the PhD, and I am unsure whether it will strengthen the thesis or fragment it. Help us decide and plan. Produce: an honest assessment of when publishing during the doctorate helps and when it delays submission; the difference between a paper-based thesis and a monograph with publications alongside, and how to tell which suits this project; how to sequence papers so each one becomes a chapter rather than a detour; authorship order and how to agree it before the writing starts, not after; and realistic timelines given review cycles in our field. Be direct if the student's motivation is really about the job market rather than the work.",
+      tags: ["publishing", "paper-based thesis", "doctoral", "authorship"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Wellbeing",
+      title: "Isolation and stalled motivation in doctoral study",
+      prompt: "Act as a doctoral researcher developer. Doctoral study is unusually isolating, and my student has withdrawn from the research group and stopped answering emails. Help me respond. Produce: how to make contact so it reads as concern rather than a progress check; questions that distinguish burnout, depression, imposter feelings, and a genuine loss of interest in the topic, because each needs a different response; what is inside my role as supervisor and what needs professional support, stated clearly; practical structures that reduce isolation without adding pressure; and how to talk about the possibility of interrupting or leaving as a legitimate option rather than a failure. Include what to document.",
+      tags: ["wellbeing", "isolation", "doctoral", "supervision"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Funding",
+      title: "Doctoral scholarship application",
+      prompt: "Act as a doctoral funding reviewer. Help a prospective student write a competitive scholarship application. Produce: how to state a research problem in the opening paragraph so a non-specialist panel sees why it matters; how to show the project is feasible in the funded period rather than a lifetime's work; how to evidence the applicant's preparedness without a long publication list; what the fit with the host institution and supervisor should actually demonstrate, beyond naming them; and how to write a budget that is neither padded nor unrealistically thin. Then list the three weaknesses panels most often cite, and rewrite one weak sentence into a strong one as a worked example.",
+      tags: ["scholarship", "funding", "doctoral", "application"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Curriculum Design",
+      title: "Programme-level curriculum map",
+      prompt: "Act as a curriculum consultant. Help me map an entire degree programme, not a single module. I will list the modules and the programme learning outcomes. Produce: a matrix showing where each programme outcome is introduced, developed, and assessed, and flag any outcome that is assessed without ever being taught; where content is unintentionally duplicated across modules and where a genuine gap leaves students unprepared for a later module; whether assessment types are varied enough or the programme is six essays wearing different titles; and how the workload is distributed across the year, including the weeks where four deadlines collide. Give me the two changes with the largest effect for the least disruption.",
+      tags: ["curriculum mapping", "programme design", "constructive alignment"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Accreditation",
+      title: "Preparing for an accreditation site visit",
+      prompt: "Act as a quality assurance specialist who has sat on accreditation panels. My programme has a site visit in six weeks. Help me prepare properly rather than perform. Produce: what the panel will actually do with its time and what it is trying to establish; how to prepare staff and students to speak honestly without either rehearsing them or leaving them exposed; the documents that must be available on the day and how they should be organised; how to answer a question about a genuine weakness — conceding it with a credible plan usually scores better than defending it; the questions panels ask that catch programmes out; and what to do if a student says something unflattering in the student session.",
+      tags: ["accreditation", "site visit", "quality assurance", "panel"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Benchmarking",
+      title: "Benchmarking a programme against peers",
+      prompt: "Act as a higher education analyst. Help me benchmark my programme against comparable ones, in a way that produces decisions rather than a table. Produce: how to choose genuine comparators rather than aspirational ones, and why that choice determines everything that follows; what is actually comparable across institutions and what looks comparable but is not, given different credit systems and grading cultures; where to find the data without a subscription budget; how to interpret a gap — a difference is not automatically a deficiency; and how to present findings to colleagues so they read as an opportunity rather than an accusation. Name the three metrics most often misused in this exercise.",
+      tags: ["benchmarking", "comparison", "quality", "analysis"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Continuous Improvement",
+      title: "Closing the loop on quality actions",
+      prompt: "Act as a quality officer. Our reviews produce action plans every year and almost nothing changes, because actions are recorded and then quietly forgotten. Help me fix the process itself. Produce: why actions fail — vague ownership, no deadline, no resource, or nobody checking — and how to test an action against all four before it is written down; a tracking format light enough to be maintained but specific enough to be auditable; how to run a mid-year check that takes under an hour; how to close an action honestly when it was not completed, rather than restating it for another year; and how to show an external panel a credible improvement trail.",
+      tags: ["continuous improvement", "action planning", "quality", "governance"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Recruitment",
+      title: "Academic recruitment and selection",
+      prompt: "Act as an academic recruitment adviser. I am chairing a panel for a lectureship. Help me run it fairly and well. Produce: a job description that describes the role we need rather than a wish list nobody satisfies; selection criteria that are assessable from the evidence we will actually have; how to structure shortlisting so it is defensible and how to record the reasoning; interview questions that reveal teaching ability rather than the ability to talk about teaching; how to weigh a strong researcher against a strong teacher when the role needs both; and the biases most likely to operate on this panel, with a practical check against each. Include what to say to strong candidates we do not appoint.",
+      tags: ["recruitment", "selection", "hiring", "leadership"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Budget",
+      title: "Leading through a budget reduction",
+      prompt: "Act as a faculty leadership adviser. My department must cut its budget by a significant margin next year. Help me handle it without hollowing out the department or losing everyone's trust. Produce: how to work out what is genuinely protected — the things that, if cut, cause disproportionate damage later; the difference between a cut that reduces cost and one that merely moves work onto people already at capacity; how to involve colleagues in the decision without staging consultation on a decision already made; how to communicate the outcome, including to those most affected; and what to say honestly when asked whether more cuts are coming. Include the two mistakes leaders most often make in this situation.",
+      tags: ["budget", "difficult decisions", "communication", "leadership"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Staff Development",
+      title: "Mentoring an early-career academic",
+      prompt: "Act as an experienced academic mentor. I am mentoring a new lecturer in their first two years, who is currently saying yes to everything and heading for burnout. Help me structure the mentoring. Produce: what these two years should actually establish, as distinct from what the probation form measures; how to help them decline requests without damaging their reputation, with specific wording; how to balance the teaching load that fills their week against the research that determines their future; the difference between mentoring and managing, and how to stay on the right side of it when I am also senior to them; and a meeting rhythm that survives a busy semester. Include the signs that they are struggling but not saying so.",
+      tags: ["mentoring", "early career", "workload", "leadership"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Conflict",
+      title: "Mediating a conflict between two colleagues",
+      prompt: "Act as a workplace mediation specialist working in universities. Two colleagues in my department are in an entrenched conflict that is now affecting their teams and being managed by avoidance. Help me intervene. Produce: how to judge whether this is mediable or has already passed into formal territory; how to open separate conversations so neither believes I have taken a side; how to distinguish the stated issue from the actual one, which is usually older; how to run a joint conversation with ground rules that hold when it becomes heated; what a realistic outcome looks like, since colleagues do not have to like each other but do have to work together; and what to document. Include what to do if one of them refuses to participate.",
+      tags: ["conflict", "mediation", "leadership", "difficult conversations"]
     }
   ]
 };

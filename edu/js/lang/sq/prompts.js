@@ -2842,6 +2842,90 @@
       title: "Trajtimi i drejtë i një ankese studentore",
       prompt: "Vepro si zyrtar për rastet studentore. Një student ka paraqitur ankesë formale ndaj një anëtari të stafit mësimor. Ndihmomë ta trajtoj si duhet. Përgatit: si ta konfirmoj marrjen e ankesës ashtu që studenti të ndihet i dëgjuar, pa e paragjykuar rezultatin; si t'i ndaj pretendimet faktike nga interpretimi i studentit për to, dhe pse ka rëndësi ky dallim; çfarë t'i paraqitet anëtarit të stafit dhe si, që edhe ai të trajtohet drejt; si të arrihet një rezultat proporcional kur të dyja rrëfimet janë të besueshme dhe nuk ka dëshmitarë; si të shkruhet vendimi ashtu që arsyetimi të jetë i dukshëm edhe për palën që humb; dhe rrugën e apelimit. Përfshi çfarë të bëj kur ankesa në të vërtetë ka të bëjë me një notë, që zakonisht është procedurë tjetër.",
       tags: ["ankesa", "apelime", "procedurë", "raste studentore"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Bashkëmentorim",
+      title: "Kur dy mentorë japin këshilla të kundërta",
+      prompt: "Vepro si specialist i arsimit doktoral. Studenti im ka dy mentorë që nuk pajtohen për drejtimin e tezës, dhe studenti ndodhet mes nesh, duke rishkruar të njëjtin kapitull në dy drejtime. Ndihmomë ta zgjidh. Përgatit: si të përcaktoj nëse ky është mospajtim i vërtetë metodologjik apo ndryshim shijeje akademike, sepse kërkojnë zgjidhje të ndryshme; si ta zhvilloj bisedën mes mentorëve pa praninë e studentit dhe pa u kthyer në përplasje territoresh; si të dakordohemi me shkrim se kush ka fjalën e fundit për çfarë; çfarë t'i them studentit më pas që t'i rikthehet vetëbesimi; dhe si t'i strukturoj takimet e ardhshme që mospajtimi të mos rishfaqet në dorëzim. Përfshi kur kjo duhet përshkallëzuar te shkolla doktorale.",
+      tags: ["bashkëmentorim", "konflikt", "doktoraturë"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Botim",
+      title: "Botimi gjatë doktoratës pa e shmangur atë nga rruga",
+      prompt: "Vepro si këshilltar doktoral. Studenti im dëshiron të botojë punime gjatë doktoratës, dhe unë nuk jam i sigurt nëse kjo do ta forcojë tezën apo do ta copëtojë. Ndihmona të vendosim dhe të planifikojmë. Përgatit: një vlerësim të sinqertë se kur botimi gjatë doktoratës ndihmon dhe kur e vonon dorëzimin; dallimin mes një teze të bazuar në punime dhe një monografie me punime paralel, dhe si të kuptohet cila i përshtatet këtij projekti; si t'i radhis punimet ashtu që secili të bëhet kapitull e jo shmangie; radhën e autorësisë dhe si të dakordohet para se të nisë shkrimi, jo pas; dhe afate realiste duke pasur parasysh ciklet e recensionit në fushën tonë. Ji i drejtpërdrejtë nëse motivi i studentit është në fakt tregu i punës e jo puna vetë.",
+      tags: ["botim", "tezë", "autorësi", "doktoraturë"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Mirëqenie",
+      title: "Izolimi dhe motivimi i ndalur në studimet doktorale",
+      prompt: "Vepro si zhvillues i studiuesve doktoralë. Studimet doktorale janë jashtëzakonisht izoluese, dhe studenti im është tërhequr nga grupi kërkimor e ka ndaluar së përgjigjuri email-eve. Ndihmomë të reagoj. Përgatit: si të vendos kontakt ashtu që të lexohet si shqetësim e jo si kontroll progresi; pyetje që dallojnë rraskapitjen, depresionin, ndjesinë e mashtruesit dhe humbjen e vërtetë të interesit për temën, sepse secila kërkon përgjigje tjetër; çfarë hyn në rolin tim si mentor dhe çfarë kërkon mbështetje profesionale, thënë qartë; struktura praktike që zvogëlojnë izolimin pa shtuar presion; dhe si të flitet për mundësinë e ndërprerjes ose largimit si zgjedhje e ligjshme e jo si dështim. Përfshi çfarë duhet dokumentuar.",
+      tags: ["mirëqenie", "izolim", "doktoraturë"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Financim",
+      title: "Aplikim për bursë doktorale",
+      prompt: "Vepro si vlerësues i bursave doktorale. Ndihmo një kandidat të shkruajë një aplikim konkurrues. Përgatit: si të parashtrohet problemi kërkimor në paragrafin e parë ashtu që një panel jospecialist të shohë pse ka rëndësi; si të tregohet se projekti është i realizueshëm brenda periudhës së financuar e jo punë e një jete; si të dëshmohet gatishmëria e kandidatit pa një listë të gjatë botimesh; çfarë duhet të tregojë vërtet përputhja me institucionin dhe mentorin, përtej emërtimit të tyre; dhe si të shkruhet një buxhet as i fryrë as joreal i ngushtë. Pastaj rendit tri dobësitë që panelet përmendin më shpesh, dhe rishkruaj një fjali të dobët në një të fortë si shembull pune.",
+      tags: ["bursë", "financim", "aplikim"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Dizajn kurrikular",
+      title: "Harta kurrikulare e programit",
+      prompt: "Vepro si konsulent kurrikular. Ndihmomë të hartoj një program të tërë studimi, jo një lëndë të vetme. Do të t'i listoj lëndët dhe rezultatet e të nxënit të programit. Përgatit: një matricë që tregon ku secili rezultat i programit prezantohet, zhvillohet dhe vlerësohet, dhe shëno çdo rezultat që vlerësohet pa u mësuar kurrë; ku përmbajtja përsëritet pa dashje nëpër lëndë dhe ku një zbrazëti e vërtetë i lë studentët të papërgatitur për një lëndë të mëvonshme; nëse llojet e vlerësimit janë mjaft të larmishme apo programi janë gjashtë ese me tituj të ndryshëm; dhe si shpërndahet ngarkesa gjatë vitit, përfshirë javët ku përplasen katër afate. Më jep dy ndryshimet me efektin më të madh dhe shqetësimin më të vogël.",
+      tags: ["hartë kurrikulare", "dizajn programi", "përputhje"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Akreditim",
+      title: "Përgatitja për vizitën e panelit akreditues",
+      prompt: "Vepro si specialist i cilësisë me përvojë në panele akreditimi. Programi im ka një vizitë pas gjashtë javësh. Ndihmomë të përgatitem vërtet, jo të luaj një rol. Përgatit: çfarë do të bëjë realisht paneli me kohën e vet dhe çfarë përpiqet të përcaktojë; si të përgatiten stafi dhe studentët të flasin sinqerisht, pa u stërvitur dhe pa u lënë të ekspozuar; dokumentet që duhet të jenë të disponueshme atë ditë dhe si duhet organizuar; si t'i përgjigjemi një pyetjeje për një dobësi të vërtetë — pranimi me një plan të besueshëm zakonisht vlerësohet më mirë se mbrojtja; pyetjet me të cilat panelet i zënë programet në befasi; dhe çfarë të bëj nëse një student thotë diçka jo të favorshme në seancën studentore.",
+      tags: ["akreditim", "vizitë", "cilësi", "panel"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Krahasim",
+      title: "Krahasimi i programit me programe të ngjashme",
+      prompt: "Vepro si analist i arsimit të lartë. Ndihmomë ta krahasoj programin tim me programe të krahasueshme, ashtu që të prodhojë vendime e jo një tabelë. Përgatit: si të zgjidhen institucione krahasuese të vërteta e jo aspiruese, dhe pse ajo zgjedhje përcakton gjithçka që vjen pas; çfarë është vërtet e krahasueshme mes institucioneve dhe çfarë duket e krahasueshme por nuk është, duke pasur parasysh sisteme kreditore dhe kultura notimi të ndryshme; ku gjenden të dhënat pa buxhet abonimi; si të interpretohet një ndryshim — një dallim nuk është automatikisht mangësi; dhe si t'u paraqiten gjetjet kolegëve ashtu që të lexohen si mundësi e jo si akuzë. Emërto tri treguesit që keqpërdoren më shpesh në këtë ushtrim.",
+      tags: ["krahasim", "analizë", "cilësi"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Përmirësim i vazhdueshëm",
+      title: "Mbyllja e ciklit te masat për cilësinë",
+      prompt: "Vepro si zyrtar i cilësisë. Shqyrtimet tona prodhojnë plane veprimi çdo vit dhe pothuajse asgjë nuk ndryshon, sepse masat regjistrohen e pastaj harrohen në heshtje. Ndihmomë ta ndreq vetë procesin. Përgatit: pse dështojnë masat — përgjegjësi e paqartë, pa afat, pa burim, ose askush nuk kontrollon — dhe si të testohet një masë kundrejt të katërtave para se të shkruhet fare; një format ndjekjeje mjaft i lehtë për t'u mbajtur por mjaft konkret për t'u audituar; si të zhvillohet një kontroll gjysmëvjetor që zgjat nën një orë; si të mbyllet një masë sinqerisht kur nuk u realizua, në vend që të rishkruhet për edhe një vit; dhe si t'i tregohet një paneli të jashtëm një gjurmë e besueshme përmirësimi.",
+      tags: ["përmirësim", "plan veprimi", "cilësi"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Rekrutim",
+      title: "Rekrutimi dhe përzgjedhja e stafit akademik",
+      prompt: "Vepro si këshilltar për rekrutim akademik. Po kryesoj një panel për një vend ligjëruesi. Ndihmomë ta drejtoj drejt dhe mirë. Përgatit: një përshkrim pune që përshkruan rolin që na duhet e jo një listë dëshirash që askush nuk i plotëson; kritere përzgjedhjeje që mund të vlerësohen nga dëshmitë që do të kemi realisht; si të strukturohet lista e ngushtë që të jetë e mbrojtshme dhe si të regjistrohet arsyetimi; pyetje interviste që zbulojnë aftësinë për të dhënë mësim e jo aftësinë për të folur për mësimdhënien; si të peshohet një studiues i fortë kundrejt një mësimdhënësi të fortë kur roli i kërkon të dyja; dhe paragjykimet që kanë më shumë gjasa të veprojnë në këtë panel, me një kontroll praktik për secilin. Përfshi çfarë t'u thuhet kandidatëve të fortë që nuk emërohen.",
+      tags: ["rekrutim", "përzgjedhje", "panel", "udhëheqje"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Buxhet",
+      title: "Udhëheqja gjatë një shkurtimi buxhetor",
+      prompt: "Vepro si këshilltar i udhëheqjes së fakultetit. Departamenti im duhet ta shkurtojë buxhetin ndjeshëm vitin e ardhshëm. Ndihmomë ta përballoj pa e zbrazur departamentin dhe pa humbur besimin e të gjithëve. Përgatit: si të përcaktoj çfarë është vërtet e mbrojtur — gjërat që, nëse priten, shkaktojnë dëm joproporcional më vonë; dallimin mes një shkurtimi që ul koston dhe një shkurtimi që thjesht e zhvendos punën te njerëz tashmë në kufi; si t'i përfshij kolegët në vendim pa vënë në skenë një konsultim për një vendim tashmë të marrë; si ta komunikoj rezultatin, përfshirë te më të prekurit; dhe çfarë të them sinqerisht kur më pyesin nëse do të vijnë shkurtime të tjera. Përfshi dy gabimet që udhëheqësit bëjnë më shpesh në këtë situatë.",
+      tags: ["buxhet", "vendime të vështira", "komunikim"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Zhvillim i stafit",
+      title: "Mentorimi i një akademiku në fillim të karrierës",
+      prompt: "Vepro si mentor akademik me përvojë. Po mentoroj një ligjërues të ri në dy vitet e tij të para, i cili aktualisht po pranon gjithçka dhe po shkon drejt rraskapitjes. Ndihmomë ta strukturoj mentorimin. Përgatit: çfarë duhet të vendosin realisht këto dy vite, ndryshe nga ajo që mat formulari i provës; si ta ndihmoj të refuzojë kërkesa pa dëmtuar reputacionin e tij, me formulime konkrete; si të balancohet ngarkesa mësimore që i mbush javën kundrejt kërkimit që i përcakton të ardhmen; dallimin mes mentorimit dhe drejtimit, dhe si të qëndroj në anën e duhur kur jam edhe më i lartë se ai; dhe një ritëm takimesh që i mbijeton një semestri të ngjeshur. Përfshi shenjat se po e ka të vështirë por nuk po e thotë.",
+      tags: ["mentorim", "fillim karriere", "ngarkesë"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Konflikt",
+      title: "Ndërmjetësimi i një konflikti mes kolegëve",
+      prompt: "Vepro si specialist i ndërmjetësimit në mjedis universitar. Dy kolegë në departamentin tim janë në një konflikt të rrënjosur që tani po prek ekipet e tyre dhe po menaxhohet me shmangie. Ndihmomë të ndërhyj. Përgatit: si të gjykoj nëse kjo është ende e ndërmjetësueshme apo ka kaluar në terren formal; si t'i hap bisedat e veçanta ashtu që asnjëri të mos besojë se kam mbajtur anë; si ta dalloj çështjen e deklaruar nga ajo e vërteta, që zakonisht është më e vjetër; si të zhvilloj një bisedë të përbashkët me rregulla bazë që mbahen kur nxehet; si duket një rezultat realist, sepse kolegët nuk kanë pse të pëlqehen por duhet të punojnë bashkë; dhe çfarë të dokumentoj. Përfshi çfarë të bëj nëse njëri refuzon të marrë pjesë.",
+      tags: ["konflikt", "ndërmjetësim", "udhëheqje"]
     }
   ]
 };
