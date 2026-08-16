@@ -22,9 +22,7 @@
 
 <script>
 (function () {
-    // An installed home-screen icon must open the app the user installed,
-    // not a chooser they never asked for. Runs before render so the chooser
-    // never flashes.
+
     var standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches)
                      || window.navigator.standalone === true;
     if (standalone) { window.location.replace('./edu/index.html'); }
@@ -190,10 +188,7 @@
         document.querySelectorAll('.lang-btn').forEach(function (b) {
             b.classList.toggle('active', b.dataset.lang === lang);
         });
-        // Carry the choice into both apps. They store it under their own
-        // keys ('ainow_lang' in education, 'language' in business), so
-        // picking Albanian here opens either app in Albanian rather than
-        // silently reverting to the default.
+
         try {
             localStorage.setItem('ainow-lang', lang);
             localStorage.setItem('ainow_lang', lang);
@@ -214,8 +209,6 @@
         b.addEventListener('click', function () { apply(b.dataset.lang); });
     });
 
-    // Shares the 'ainow-theme' key with both apps, so a choice made here
-    // carries into whichever one you open.
     document.getElementById('theme-btn').addEventListener('click', function () {
         var dark = document.documentElement.getAttribute('data-theme') === 'dark';
         if (dark) { document.documentElement.removeAttribute('data-theme'); }
@@ -230,9 +223,7 @@
 <script>
 (function () {
     if (window.location.protocol === 'file:' || !('serviceWorker' in navigator)) { return; }
-    // One-shot migration worker for devices that installed v0.93 from '/'.
-    // Registering it on every visit would loop: reload -> register ->
-    // activate -> reload. Guarded here and again inside the worker.
+
     try {
         if (localStorage.getItem('ainow-sw-cleaned') === '1') { return; }
         localStorage.setItem('ainow-sw-cleaned', '1');

@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AINOW - Платформа за AI Писменост</title>
     <script>
-        // GitHub Pages serves this for every unmatched path and allows only
-        // one 404 handler, at the site root. Route the visitor into whichever
-        // app they were aiming at rather than always dumping them on the
-        // chooser.
         (function () {
             var path = window.location.pathname;
             sessionStorage.setItem('spa-redirect', window.location.href);
