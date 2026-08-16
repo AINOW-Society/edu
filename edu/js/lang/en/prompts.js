@@ -2037,6 +2037,132 @@
       title: "Post-doctoral career planning conversation",
       prompt: "Act as a researcher development adviser. I am advising a final-year doctoral student who assumes they will stay in academia but has not examined that assumption. Structure the conversation: the questions that surface what they actually value about research, as distinct from what they believe is expected of them; an honest account of academic job market realities in their field without either crushing them or pretending; how their doctoral skills translate to work outside academia, with concrete examples rather than generic 'transferable skills' language; two or three routes worth exploring in parallel; and the specific actions for the next three months whichever route they choose.",
       tags: ["career development", "post-doc", "doctoral", "advising"]
+    },
+    {
+      subcategory: "lecturer",
+      subject: "Feedback",
+      title: "Meaningful feedback at scale",
+      prompt: "Act as an assessment specialist. I must return feedback on 180 essays in three weeks alongside my normal teaching. Help me do it without either burning out or producing feedback students ignore. Produce: a feedback strategy that distinguishes what must be individual from what can be delivered to the whole cohort; a bank of reusable comments for the eight most common problems, each written so it tells the student what to do differently rather than only what was wrong; a realistic per-script time budget and what to cut to meet it; and how to structure the cohort-level feedback so students actually read it. Include how to make feedback usable for the next assignment rather than a post-mortem on this one.",
+      tags: ["feedback", "marking", "workload", "assessment"]
+    },
+    {
+      subcategory: "lecturer",
+      subject: "Teaching Practice",
+      title: "Seminar where students actually talk",
+      prompt: "Act as a higher education teaching developer. I run a 20-student seminar where the same three people speak and everyone else waits it out. Redesign it. Produce: what to change in how I set the reading so students arrive with something to say; three discussion structures that make participation the default rather than a volunteering act, with exact instructions for each; how to handle the dominant speaker without humiliating them and the silent student without putting them on the spot; what to do when nobody has done the reading; and how to assess participation fairly if I must. Be specific about what I say out loud, not just the principle.",
+      tags: ["seminar", "discussion", "participation", "teaching"]
+    },
+    {
+      subcategory: "lecturer",
+      subject: "Assessment",
+      title: "Writing valid exam questions",
+      prompt: "Act as a psychometrician working with university examiners. Help me write an exam paper that tests understanding rather than recall. I will give you the module learning outcomes. Produce: a blueprint mapping questions to outcomes and to cognitive level, so the paper's balance is deliberate; for multiple choice, how to write plausible distractors and the flaws that let test-wise students guess correctly; for extended response, how to word a question so strong and weak answers separate clearly; realistic timing so the paper is a test of competence and not speed; and a review checklist to run before the paper goes to the external examiner.",
+      tags: ["exams", "question design", "validity", "assessment"]
+    },
+    {
+      subcategory: "lecturer",
+      subject: "Blended Learning",
+      title: "Hybrid module that works for both audiences",
+      prompt: "Act as a learning designer. I must deliver a module to students in the room and online simultaneously, and currently the online group is a neglected audience watching a recording of someone else's class. Redesign it. Produce: which activities genuinely work synchronously for both groups and which should be asynchronous for everyone; how to run discussion so the online group is not perpetually second; the minimum technical setup and what to do when it fails mid-session; how to keep the workload from doubling; and what to stop doing entirely. Be honest about which parts of hybrid teaching do not work well and should not be attempted.",
+      tags: ["hybrid", "online learning", "blended", "module design"]
+    },
+    {
+      subcategory: "lecturer",
+      subject: "Course Design",
+      title: "First lecture that sets working expectations",
+      prompt: "Act as an experienced university teacher. Help me design the first session of a module so it establishes how we will work together, not just what the module covers. Produce: how to open in a way that signals this will be participatory before students settle into passive mode; how to state expectations about preparation, attendance, and communication so they are heard as reasonable rather than as rules; how to explain the assessment so students understand what good work looks like from week one; an activity that gets every student speaking to someone in the first twenty minutes; and what to say about AI use so the position is clear from the start.",
+      tags: ["first lecture", "expectations", "module design", "teaching"]
+    },
+    {
+      subcategory: "lecturer",
+      subject: "Academic Integrity",
+      title: "Confronting suspected undeclared AI use",
+      prompt: "Act as an academic conduct adviser. I suspect a student submitted work largely generated by AI, but detection tools are unreliable and I have no proof. Help me handle this properly. Produce: what evidence is and is not defensible, and why detector output alone is not; how to open a conversation that is investigative rather than accusatory; the questions that establish whether the student can explain their own work, and how to distinguish genuine nervousness from inability; what to do if the explanation is convincing; what to do if it is not; and where the institutional process must take over from me. Include the wording for a written record of the meeting.",
+      tags: ["academic integrity", "AI detection", "misconduct", "student meeting"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Peer Review",
+      title: "Writing a constructive referee report",
+      prompt: "Act as a journal editor briefing a first-time reviewer. I have been asked to review a manuscript in my field. Produce: how to structure a report the editor can act on and the author can use; how to separate fundamental problems from matters of taste, and how to say so explicitly; how to phrase serious criticism so it is direct without being contemptuous; what to do when the work is outside my precise expertise; how to handle a paper that is competent but unremarkable; and how to reach a recommendation that matches the substance of the report rather than softening it. Include what a reviewer should never do, including using the manuscript's ideas.",
+      tags: ["peer review", "publishing", "research ethics"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Publishing",
+      title: "Responding to revise and resubmit",
+      prompt: "Act as an experienced author and editor. I have a revise-and-resubmit with three reviewers, one of whom has misread my argument and one who wants a different paper written. Help me respond. Produce: how to sort comments into accept, negotiate, and decline; how to write a response letter that is courteous, point-by-point, and shows exactly where each change was made; how to disagree with a reviewer persuasively without antagonising them or the editor; how to handle contradictory requests from two reviewers; and when it is legitimate to appeal to the editor. Draft the opening paragraph of the response letter and the wording for a polite refusal.",
+      tags: ["publishing", "revisions", "peer review", "academic writing"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Research Data",
+      title: "Data management plan for a funded project",
+      prompt: "Act as a research data manager. Help me write a data management plan that satisfies a funder and is actually followed. I will describe my project and data types. Produce: what data will be collected and in what formats, with the reasoning behind format choices for long-term readability; storage, backup, and access arrangements during the project; how personal data will be handled under GDPR, including the lawful basis and retention period; what will be shared at the end, in which repository, under what licence, and what legitimately cannot be shared; and who is responsible for each step. Flag anything in my plan that is aspirational rather than resourced.",
+      tags: ["data management", "GDPR", "open data", "research"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Conferences",
+      title: "Conference abstract and presentation",
+      prompt: "Act as a conference programme chair. Help me get accepted and then present well. First, the abstract: the structure reviewers expect, how to state a contribution in the first two sentences, and the three phrasings that signal an unfinished project. Then the talk: how to cut a 40-minute argument to 12 minutes without it becoming a list; what belongs on slides and what does not; how to open so people look up from their laptops; how to handle the questioner who is really making a speech; and what to do if you run out of time mid-argument. Include the one sentence that must survive if everything else is cut.",
+      tags: ["conferences", "presenting", "abstract", "academic communication"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Publishing Strategy",
+      title: "Choosing where to publish, and avoiding predatory journals",
+      prompt: "Act as a scholarly communication librarian. Help me decide where to submit a paper and avoid being exploited. Produce: how to build a shortlist that balances fit, audience, and realistic acceptance odds rather than chasing impact factor alone; the concrete checks that distinguish a legitimate open access journal from a predatory one, including what to verify rather than trust; how to read an article processing charge in context and what to do if I cannot pay it; the realistic time cost of each option; and how open access mandates from funders constrain the choice. Be specific about warning signs in an unsolicited invitation to publish.",
+      tags: ["publishing", "open access", "predatory journals", "research strategy"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Research Profile",
+      title: "Making research findable and citable",
+      prompt: "Act as a research impact officer. My work is solid but almost invisible outside a small circle. Help me fix that without turning into a self-promotion machine. Produce: the identifiers and profiles that actually matter and how they connect to each other; how to deposit work in a repository correctly, including which version I am permitted to share; how to write a plain-language summary that a journalist or practitioner could use; where my specific field's non-academic audience actually looks for work; and a realistic monthly routine that takes under an hour. Be honest about which visibility activities are worth the time and which are noise.",
+      tags: ["research impact", "visibility", "open access", "dissemination"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Academic Conduct",
+      title: "Academic misconduct meeting with a student",
+      prompt: "Act as an academic conduct officer. I must meet a student alleged to have committed plagiarism. Help me conduct it fairly. Produce: what the student must be told in advance and what rights they have, including the right to be accompanied; how to open so the meeting is an inquiry and not a verdict; questions that establish whether this was deliberate, careless, or a genuine misunderstanding of citation conventions, which need very different outcomes; how to respond if the student becomes distressed or discloses a personal crisis; how to explain the decision and the appeal route; and what must be recorded. Include how to keep my own certainty in check when the evidence looks obvious.",
+      tags: ["academic conduct", "plagiarism", "procedure", "student meeting"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Inclusive Practice",
+      title: "Reasonable adjustments for a disabled student",
+      prompt: "Act as a disability services adviser. A student has disclosed a condition and needs adjustments to study and assessment. Help me put a plan together. Produce: the questions to ask about the barriers they experience rather than about their diagnosis; adjustments that address the actual barrier, with examples for teaching, assessment, and placement; how to judge whether an adjustment compromises a genuine competence standard, and what to do when it might; how to communicate the plan to teaching staff on a need-to-know basis without disclosing medical information; and how to review whether it is working. Include what to do when a student declines to disclose but is clearly struggling.",
+      tags: ["disability", "reasonable adjustments", "inclusion", "student support"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "International Students",
+      title: "Arrival and integration programme",
+      prompt: "Act as an international student adviser. Design the first six weeks for international students. Cover the practical crises that dominate week one — accommodation, banking, registration, healthcare — and why unresolved practicalities prevent academic engagement. Then the academic transition: the assumptions about seminars, referencing, and staff-student relationships that differ by educational culture and are rarely explained to anyone. Then belonging: what actually produces friendships across the domestic and international divide, as opposed to events that segregate. Include the signs of a student in serious difficulty who is unlikely to ask for help, and how to reach them.",
+      tags: ["international students", "transition", "integration", "support"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Retention",
+      title: "Early-warning outreach to a disengaging student",
+      prompt: "Act as a student retention specialist. Our data shows a student has stopped attending and missed two submissions. Help me design the outreach. Produce: how quickly to make contact and why the timing matters; the wording of a first message that reads as concern rather than surveillance or a disciplinary warning; what to do after no response, and how many attempts before escalating; how to open the conversation if they do respond, given the cause could be illness, money, caring responsibilities, or having quietly decided to leave; the options I should be able to offer, including an honest exit; and what to record. Include what not to promise.",
+      tags: ["retention", "early warning", "outreach", "student support"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Peer Support",
+      title: "Peer mentoring programme that survives the year",
+      prompt: "Act as a student engagement manager. Design a peer mentoring programme pairing second-year students with first-years. Produce: how to recruit mentors who will still be showing up in month four, and what to offer them in return; the training mentors need, especially on the boundary between support and counselling and when to refer on; a structure with enough shape that pairs are not left to invent it, but not so rigid it becomes a chore; how to match pairs and what to do when a pairing fails; and how to measure whether it worked beyond satisfaction scores. Include the three reasons these programmes usually collapse by semester two.",
+      tags: ["peer mentoring", "student engagement", "retention", "programme design"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Complaints & Appeals",
+      title: "Handling a student complaint fairly",
+      prompt: "Act as a student casework officer. A student has submitted a formal complaint about a member of teaching staff. Help me handle it properly. Produce: how to acknowledge the complaint so the student feels heard without pre-judging the outcome; how to separate the factual allegations from the student's interpretation of them, and why that distinction matters; what to put to the staff member and how, so they are treated fairly too; how to reach a proportionate outcome when both accounts are plausible and there are no witnesses; how to write the decision so the reasoning is visible even to the party who loses; and the appeal route. Include what to do when the complaint is really about a mark, which is usually a different process.",
+      tags: ["complaints", "appeals", "casework", "procedure"]
     }
   ]
 };

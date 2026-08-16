@@ -2716,6 +2716,132 @@
       title: "Bisedë për karrierën pas doktoratës",
       prompt: "Vepro si këshilltar për zhvillimin e studiuesve. Po këshilloj një doktorant të vitit të fundit që supozon se do të mbetet në akademi, por nuk e ka vënë kurrë në pyetje atë supozim. Strukturo bisedën: pyetjet që zbulojnë çfarë vlerëson vërtet te kërkimi, ndryshe nga ajo që beson se pritet prej tij; një pasqyrë të sinqertë të tregut akademik të punës në fushën e tij, pa e thyer dhe pa u shtirur; si përkthehen aftësitë e tij doktorale në punë jashtë akademisë, me shembuj konkretë e jo me fraza të përgjithshme për 'aftësi të transferueshme'; dy-tri rrugë që ia vlen të eksplorohen paralelisht; dhe hapat konkretë për tre muajt e ardhshëm, cilado qoftë rruga.",
       tags: ["karrierë", "post-doktoraturë", "këshillim"]
+    },
+    {
+      subcategory: "lecturer",
+      subject: "Reagime",
+      title: "Reagime kuptimplota në vëllim të madh",
+      prompt: "Vepro si specialist i vlerësimit. Duhet të kthej reagime për 180 ese brenda tri javësh, krahas mësimdhënies së zakonshme. Ndihmomë ta bëj pa u rraskapitur dhe pa prodhuar reagime që studentët i shpërfillin. Përgatit: një strategji që dallon çfarë duhet të jetë individuale nga ajo që mund t'i jepet tërë gjeneratës; një bankë komentesh të ripërdorshme për tetë problemet më të shpeshta, secili i shkruar ashtu që t'i thotë studentit çfarë të bëjë ndryshe e jo vetëm çfarë ishte gabim; një buxhet realist kohe për punim dhe çfarë të shkurtohet për ta arritur; dhe si të strukturohet reagimi në nivel gjenerate që studentët ta lexojnë vërtet. Përfshi si t'i bëj reagimet të përdorshme për detyrën e ardhshme e jo autopsi të kësaj.",
+      tags: ["reagime", "notim", "ngarkesë", "vlerësim"]
+    },
+    {
+      subcategory: "lecturer",
+      subject: "Praktikë mësimore",
+      title: "Seminar ku studentët flasin vërtet",
+      prompt: "Vepro si zhvillues i mësimdhënies në arsimin e lartë. Drejtoj një seminar me 20 studentë ku flasin të njëjtët tre dhe të tjerët presin të kalojë. Riprojektoje. Përgatit: çfarë të ndryshoj në mënyrën si e caktoj leximin që studentët të vijnë me diçka për të thënë; tri struktura diskutimi që e bëjnë pjesëmarrjen normë e jo akt vullnetar, me udhëzime të sakta për secilën; si të përballem me folësin dominues pa e poshtëruar dhe me studentin e heshtur pa e ekspozuar; çfarë të bëj kur askush nuk e ka lexuar materialin; dhe si ta vlerësoj drejt pjesëmarrjen nëse më duhet. Ji konkret për çfarë them me zë, jo vetëm për parimin.",
+      tags: ["seminar", "diskutim", "pjesëmarrje", "mësimdhënie"]
+    },
+    {
+      subcategory: "lecturer",
+      subject: "Vlerësim",
+      title: "Shkrimi i pyetjeve valide të provimit",
+      prompt: "Vepro si psikometrist që punon me provimdhënës universitarë. Ndihmomë të shkruaj një provim që teston të kuptuarit e jo riprodhimin. Do të t'i jap rezultatet e të nxënit të lëndës. Përgatit: një skemë që i lidh pyetjet me rezultatet dhe me nivelin kognitiv, që baraspesha e provimit të jetë e qëllimshme; për pyetjet me zgjedhje të shumëfishtë — si të shkruhen shpërqendrues të besueshëm dhe cilat të meta u lejojnë studentëve të zgjuar ta gjejnë përgjigjen me hamendje; për pyetjet me përgjigje të zgjeruar — si të formulohet pyetja që përgjigjet e forta dhe të dobëta të ndahen qartë; kohëzgjatje realiste që provimi të matë kompetencë e jo shpejtësi; dhe një listë kontrolli para se provimi t'i shkojë vlerësuesit të jashtëm.",
+      tags: ["provime", "dizajn pyetjesh", "vlefshmëri"]
+    },
+    {
+      subcategory: "lecturer",
+      subject: "Mësimdhënie hibride",
+      title: "Lëndë hibride që funksionon për të dyja audiencat",
+      prompt: "Vepro si projektues i të nxënit. Duhet ta jap një lëndë njëkohësisht për studentët në sallë dhe ata online, dhe aktualisht grupi online është një audiencë e lënë pas dore që shikon regjistrimin e orës së dikujt tjetër. Riprojektoje. Përgatit: cilat aktivitete funksionojnë vërtet në mënyrë sinkrone për të dyja grupet dhe cilat duhet të jenë asinkrone për të gjithë; si të zhvillohet diskutimi ashtu që grupi online të mos jetë përherë i dytë; pajisjen minimale teknike dhe çfarë të bëj kur dështon në mes të orës; si të mos dyfishohet ngarkesa; dhe çfarë të ndaloj tërësisht. Ji i sinqertë se cilat pjesë të mësimdhënies hibride nuk funksionojnë mirë dhe nuk duhen provuar fare.",
+      tags: ["hibride", "mësim online", "dizajn lënde"]
+    },
+    {
+      subcategory: "lecturer",
+      subject: "Dizajn kursi",
+      title: "Leksioni i parë që vendos pritshmëritë e punës",
+      prompt: "Vepro si mësimdhënës universitar me përvojë. Ndihmomë ta projektoj orën e parë të lëndës ashtu që të vendosë si do të punojmë bashkë, jo vetëm çfarë mbulon lënda. Përgatit: si ta hap ashtu që sinjalizon se kjo do të jetë pjesëmarrëse, para se studentët të zënë vend në modalitet pasiv; si t'i paraqes pritshmëritë për përgatitjen, praninë dhe komunikimin ashtu që të dëgjohen si të arsyeshme e jo si rregulla; si ta shpjegoj vlerësimin që nga java e parë studentët të dinë si duket puna e mirë; një aktivitet ku çdo student flet me dikë brenda njëzet minutave të para; dhe çfarë të them për përdorimin e IA-së që qëndrimi të jetë i qartë që në fillim.",
+      tags: ["leksioni i parë", "pritshmëri", "dizajn kursi"]
+    },
+    {
+      subcategory: "lecturer",
+      subject: "Integritet akademik",
+      title: "Bisedë për dyshim mbi përdorim të padeklaruar të IA-së",
+      prompt: "Vepro si këshilltar për sjelljen akademike. Dyshoj se një student ka dorëzuar punim kryesisht të gjeneruar nga IA, por mjetet e zbulimit janë të pabesueshme dhe nuk kam provë. Ndihmomë të veproj si duhet. Përgatit: çfarë dëshmish janë dhe nuk janë të mbrojtshme, dhe pse rezultati i një detektori në vetvete nuk është; si ta hap bisedën ashtu që të jetë hetim e jo akuzë; pyetjet që përcaktojnë nëse studenti mund ta shpjegojë punën e vet dhe si të dalloj nervozizmin e vërtetë nga paaftësia; çfarë të bëj nëse shpjegimi është bindës; çfarë nëse nuk është; dhe ku procedura institucionale duhet të më zëvendësojë. Përfshi formulimin për një shënim me shkrim të takimit.",
+      tags: ["integritet akademik", "IA", "sjellje", "takim"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Recension",
+      title: "Shkrimi i një recensioni konstruktiv",
+      prompt: "Vepro si redaktor reviste që udhëzon një recensent fillestar. Më është kërkuar të recensoj një dorëshkrim në fushën time. Përgatit: si ta strukturoj raportin që redaktori të veprojë dhe autori ta përdorë; si t'i ndaj problemet thelbësore nga çështjet e shijes dhe si ta them këtë shprehimisht; si ta formuloj kritikën e rëndë ashtu që të jetë e drejtpërdrejtë pa qenë përbuzëse; çfarë të bëj kur puna del jashtë ekspertizës sime të ngushtë; si të veproj me një punim korrekt por të parëndësishëm; dhe si të arrij te një rekomandim që përputhet me përmbajtjen e raportit në vend që ta zbus. Përfshi çfarë një recensent nuk duhet të bëjë kurrë, përfshirë përvetësimin e ideve nga dorëshkrimi.",
+      tags: ["recension", "botim", "etikë"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Botim",
+      title: "Përgjigje ndaj kërkesës për rishikim",
+      prompt: "Vepro si autor dhe redaktor me përvojë. Kam një kërkesë për rishikim me tre recensentë, njëri prej të cilëve e ka keqlexuar argumentin tim dhe një tjetër do që të shkruaj një punim krejt tjetër. Ndihmomë të përgjigjem. Përgatit: si t'i rendis komentet në prano, negocio dhe refuzo; si të shkruaj një letër shoqëruese që është e sjellshme, pikë për pikë, dhe tregon saktësisht ku është bërë secili ndryshim; si të mos pajtohem bindshëm me një recensent pa e armiqësuar atë ose redaktorin; si të veproj me kërkesa kontradiktore nga dy recensentë; dhe kur është e ligjshme t'i drejtohem redaktorit. Harto paragrafin hyrës të letrës dhe formulimin për një refuzim të sjellshëm.",
+      tags: ["botim", "rishikim", "recension"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Të dhëna kërkimore",
+      title: "Plan për menaxhimin e të dhënave",
+      prompt: "Vepro si menaxher i të dhënave kërkimore. Ndihmomë të shkruaj një plan për menaxhimin e të dhënave që kënaq financuesin dhe zbatohet vërtet. Do të ta përshkruaj projektin dhe llojet e të dhënave. Përgatit: cilat të dhëna do të mblidhen dhe në cilat formate, me arsyetimin për zgjedhjen e formateve për lexueshmëri afatgjatë; ruajtjen, kopjet rezervë dhe qasjen gjatë projektit; si do të trajtohen të dhënat personale sipas GDPR-së, përfshirë bazën ligjore dhe afatin e ruajtjes; çfarë do të ndahet në fund, në cilin depozitar, nën cilën licencë dhe çfarë ligjërisht nuk mund të ndahet; dhe kush është përgjegjës për secilin hap. Shëno gjithçka në planin tim që është dëshirë e jo burim i siguruar.",
+      tags: ["të dhëna", "GDPR", "të dhëna të hapura"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Konferenca",
+      title: "Abstrakt dhe prezantim në konferencë",
+      prompt: "Vepro si kryesues i programit të një konference. Ndihmomë të pranohem e pastaj të prezantoj mirë. Së pari abstrakti: struktura që presin recensentët, si ta paraqes kontributin në dy fjalitë e para dhe tri formulimet që sinjalizojnë projekt të papërfunduar. Pastaj fjalimi: si ta shkurtoj një argument 40-minutësh në 12 minuta pa u shndërruar në listë; çfarë i takon sllajdeve dhe çfarë jo; si ta hap ashtu që njerëzit të ngrenë sytë nga laptopët; si të veproj me pyetësin që në fakt po mban fjalim; dhe çfarë të bëj nëse koha mbaron në mes të argumentit. Përfshi fjalinë e vetme që duhet të mbijetojë nëse gjithçka tjetër hiqet.",
+      tags: ["konferenca", "prezantim", "abstrakt"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Strategji botimi",
+      title: "Ku të botohet dhe si të shmangen revistat grabitqare",
+      prompt: "Vepro si bibliotekar i komunikimit shkencor. Ndihmomë të vendos ku ta dorëzoj një punim dhe të mos shfrytëzohem. Përgatit: si të ndërtoj një listë të ngushtë që balancon përshtatshmërinë, audiencën dhe gjasat realiste të pranimit, në vend që të ndjek vetëm faktorin e ndikimit; kontrollet konkrete që dallojnë një revistë legjitime me qasje të hapur nga një grabitqare, përfshirë çfarë të verifikoj në vend që të besoj; si ta lexoj tarifën e përpunimit të artikullit në kontekst dhe çfarë të bëj nëse nuk mund ta paguaj; koston reale kohore të secilës mundësi; dhe si e kufizojnë zgjedhjen detyrimet e financuesve për qasje të hapur. Ji konkret për shenjat paralajmëruese në një ftesë të pakërkuar për botim.",
+      tags: ["botim", "qasje e hapur", "revista grabitqare"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Profil kërkimor",
+      title: "Ta bësh punën të gjendet dhe të citohet",
+      prompt: "Vepro si zyrtar për ndikimin kërkimor. Puna ime është solide, por pothuajse e padukshme jashtë një rrethi të ngushtë. Ndihmomë ta ndryshoj këtë pa u shndërruar në makinë vetëpromovimi. Përgatit: identifikuesit dhe profilet që kanë vërtet rëndësi dhe si lidhen mes tyre; si ta depozitoj punën saktë në një depozitar, përfshirë cilin version më lejohet ta ndaj; si të shkruaj një përmbledhje në gjuhë të thjeshtë që një gazetar ose praktikues mund ta përdorë; ku e kërkon vërtet punën audienca joakademike e fushës sime konkrete; dhe një rutinë mujore realiste që zgjat nën një orë. Ji i sinqertë se cilat aktivitete dukshmërie ia vlejnë dhe cilat janë zhurmë.",
+      tags: ["ndikim", "dukshmëri", "qasje e hapur"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Sjellje akademike",
+      title: "Takim me student për shkelje akademike",
+      prompt: "Vepro si zyrtar për sjelljen akademike. Duhet të mbaj takim me një student të akuzuar për plagjiaturë. Ndihmomë ta zhvilloj drejt. Përgatit: çfarë duhet t'i thuhet studentit paraprakisht dhe çfarë të drejtash ka, përfshirë të drejtën për shoqërues; si ta hap ashtu që takimi të jetë hetim e jo verdikt; pyetje që përcaktojnë nëse bëhet fjalë për qëllim, pakujdesi apo keqkuptim të vërtetë të konventave të citimit, që kërkojnë rezultate krejt të ndryshme; si të reagoj nëse studenti shqetësohet ose zbulon një krizë personale; si ta shpjegoj vendimin dhe rrugën e ankesës; dhe çfarë duhet regjistruar. Përfshi si ta mbaj nën kontroll sigurinë time kur dëshmitë duken të qarta.",
+      tags: ["sjellje", "plagjiaturë", "procedurë"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Praktikë gjithëpërfshirëse",
+      title: "Përshtatje të arsyeshme për student me aftësi të kufizuara",
+      prompt: "Vepro si këshilltar i shërbimeve për aftësi të kufizuara. Një student ka zbuluar një gjendje dhe i duhen përshtatje në studim e vlerësim. Ndihmomë të hartoj një plan. Përgatit: pyetjet që duhet të bëj për pengesat që përjeton e jo për diagnozën e tij; përshtatje që adresojnë pengesën reale, me shembuj për mësimdhënien, vlerësimin dhe praktikën; si të gjykoj nëse një përshtatje cenon një standard të vërtetë kompetence dhe çfarë të bëj kur mund ta cenojë; si t'ua komunikoj planin mësimdhënësve sipas parimit të nevojës për të ditur, pa zbuluar informacion mjekësor; dhe si të rishikohet nëse po funksionon. Përfshi çfarë të bëj kur studenti nuk pranon të zbulojë, por qartazi po e ka të vështirë.",
+      tags: ["aftësi të kufizuara", "përshtatje", "gjithëpërfshirje"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Studentë ndërkombëtarë",
+      title: "Program pritjeje dhe integrimi",
+      prompt: "Vepro si këshilltar për studentë ndërkombëtarë. Dizajno gjashtë javët e para për studentët ndërkombëtarë. Mbulo krizat praktike që dominojnë javën e parë — strehimi, banka, regjistrimi, kujdesi shëndetësor — dhe pse çështjet praktike të pazgjidhura e pengojnë angazhimin akademik. Pastaj tranzicionin akademik: supozimet për seminaret, citimin dhe marrëdhënien staf-student që ndryshojnë sipas kulturës arsimore dhe rrallë i shpjegohen dikujt. Pastaj përkatësinë: çfarë krijon vërtet miqësi përtej ndarjes vendas-ndërkombëtarë, ndryshe nga ngjarjet që i ndajnë. Përfshi shenjat e një studenti në vështirësi serioze që nuk ka gjasa të kërkojë ndihmë dhe si të arrihet tek ai.",
+      tags: ["studentë ndërkombëtarë", "tranzicion", "integrim"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Mbajtja e studentëve",
+      title: "Kontakt i hershëm me student që po shkëputet",
+      prompt: "Vepro si specialist për mbajtjen e studentëve. Të dhënat tregojnë se një student ka ndaluar së ardhuri dhe ka humbur dy dorëzime. Ndihmomë ta hartoj kontaktin. Përgatit: sa shpejt duhet vendosur kontakti dhe pse koha ka rëndësi; formulimin e mesazhit të parë që lexohet si shqetësim e jo si mbikëqyrje ose paralajmërim disiplinor; çfarë të bëj pas mospërgjigjes dhe sa përpjekje para përshkallëzimit; si ta hap bisedën nëse përgjigjet, duke pasur parasysh se shkaku mund të jetë sëmundja, paratë, përgjegjësitë e kujdesit ose një vendim i heshtur për t'u tërhequr; mundësitë që duhet të jem në gjendje t'i ofroj, përfshirë një dalje të ndershme; dhe çfarë të regjistroj. Përfshi çfarë të mos premtoj.",
+      tags: ["mbajtje", "paralajmërim i hershëm", "mbështetje"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Mbështetje nga bashkëmoshatarët",
+      title: "Mentorim mes studentëve që zgjat tërë vitin",
+      prompt: "Vepro si menaxher i angazhimit studentor. Dizajno një program mentorimi që çifton studentë të vitit të dytë me ata të vitit të parë. Përgatit: si të rekrutohen mentorë që do të vazhdojnë të shfaqen edhe në muajin e katërt dhe çfarë t'u ofrohet si shpërblim; trajnimin që u duhet mentorëve, sidomos për kufirin mes mbështetjes dhe këshillimit dhe kur duhet referuar më tej; një strukturë me mjaftueshëm formë që çiftet të mos e shpikin vetë, por jo aq e ngurtë sa të bëhet detyrim; si të çiftohen dhe çfarë të bëhet kur një çiftim nuk funksionon; dhe si të matet nëse funksionoi, përtej pikëve të kënaqësisë. Përfshi tri arsyet pse këto programe zakonisht shuhen deri në semestrin e dytë.",
+      tags: ["mentorim", "angazhim", "mbajtje"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Ankesa dhe apelime",
+      title: "Trajtimi i drejtë i një ankese studentore",
+      prompt: "Vepro si zyrtar për rastet studentore. Një student ka paraqitur ankesë formale ndaj një anëtari të stafit mësimor. Ndihmomë ta trajtoj si duhet. Përgatit: si ta konfirmoj marrjen e ankesës ashtu që studenti të ndihet i dëgjuar, pa e paragjykuar rezultatin; si t'i ndaj pretendimet faktike nga interpretimi i studentit për to, dhe pse ka rëndësi ky dallim; çfarë t'i paraqitet anëtarit të stafit dhe si, që edhe ai të trajtohet drejt; si të arrihet një rezultat proporcional kur të dyja rrëfimet janë të besueshme dhe nuk ka dëshmitarë; si të shkruhet vendimi ashtu që arsyetimi të jetë i dukshëm edhe për palën që humb; dhe rrugën e apelimit. Përfshi çfarë të bëj kur ankesa në të vërtetë ka të bëjë me një notë, që zakonisht është procedurë tjetër.",
+      tags: ["ankesa", "apelime", "procedurë", "raste studentore"]
     }
   ]
 };
