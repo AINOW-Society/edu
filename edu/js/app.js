@@ -792,7 +792,9 @@ const App = {
                 ? Object.values(embeddedPromptsData).reduce((s, a) => s + a.length, 0)
                 : 0);
         const toolCount   = this._toolsData ? this._toolsData.length : 0;
-        const chapterCount = (typeof DOCS_DATA !== 'undefined') ? DOCS_DATA.length : 0;
+        const chapterCount = (typeof DOCS_DATA !== 'undefined')
+            ? DOCS_DATA.filter(s => s.id !== 'about').length
+            : 0;
         const t = (k) => I18n.t(k);
         bar.textContent = `${promptCount} ${t('stats.prompts')} • ${chapterCount} ${t('stats.chapters')} • ${toolCount} ${t('stats.tools')}`;
     },

@@ -1,8 +1,8 @@
 # AINOW Platform for AI Literacy
 
 <div align="center">
-  <h3>The Open-Source AI Literacy Platform for Educators</h3>
-  <img src="assets/ainow.png" alt="AINOW Platform Preview" width="100%">
+  <h3>Two Open-Source AI Products, One Platform</h3>
+  <img src="assets/screenshots/platform.png" alt="AINOW platform chooser: Education and Business" width="100%">
   <p>Available at <a href="https://edu.ainow.mk">edu.ainow.mk</a></p>
 </div>
 
@@ -10,15 +10,26 @@
 
 ## About The Project
 
-As Artificial Intelligence reshapes education, the **AINOW Platform for AI Literacy** exists to ensure educators aren't left behind. We built an offline-first, deeply pedagogical Progressive Web App (PWA) to give teachers, principals, and school administrators the exact skills and tools they need to leverage AI in their daily work. 
+As Artificial Intelligence reshapes work and study, **AINOW** exists to ensure the people it affects aren't left behind. The site root is a chooser between two products that share one design system, one type system, and the same privacy guarantee:
 
-Currently deployed for schools across the Balkans, the platform is proudly **100% open-source, zero-dependency, and strictly privacy-first**. No data ever leaves the device.
+- **Education (`/edu/`)** — an offline-first PWA giving teachers, principals, and school administrators the skills and tools to use AI in their daily work. Free, and staying free.
+- **Business (`/biz/`)** — the AINOW Prompt Library: prompts, agents, situations, playbooks, and an agent builder for professional use.
+
+Both run with **no build step and no server**. Open `index.html` by double-click from a USB stick and everything works. Currently deployed for schools across the Balkans, the platform is **100% open-source, zero-dependency, and strictly privacy-first**. No data ever leaves the device.
+
+<div align="center">
+  <img src="assets/screenshots/education.png" alt="The Education app" width="49%">
+  <img src="assets/screenshots/business.png" alt="The Business prompt library" width="49%">
+  <br>
+  <em>Education — guide, prompts and classroom tools &nbsp;·&nbsp; Business — 3,270 prompts across 33 areas</em>
+</div>
 
 ## Key Features
 
-- **Interactive Learning Guide:** A 17-chapter curriculum (Foundations, Practice, Reference — including prompt engineering, RAG, performance, and safety) in MK, EN, and SQ.
+- **Interactive Learning Guide:** A 19-chapter curriculum (Foundations, Practice, Reference — including prompt engineering, RAG, performance, and safety) in MK, EN, and SQ.
 - **Homework Sheets:** Chapter-aligned student tasks in Resources—print or PDF, with an optional teacher-only guidance block (per response field) in all three languages.
-- **Massive Prompt Bank:** Over 950 high-quality, educator-tested prompts across the three languages. From designing Flipped Classroom lesson plans to handling difficult parent conferences — organized by grade level, administrative role, and higher-education function.
+- **Massive Prompt Bank:** 1,106 educator-tested prompts across the three languages, organized by grade level, administrative role, and higher-education function — from Flipped Classroom lesson plans to difficult parent conferences. The Business library adds 3,270 more across 33 professional areas.
+- **AI Agents & Playbooks (Business):** 2,190 ready agent definitions, 8 guided situations, and step-by-step playbooks, plus a builder for composing your own agent without writing code.
 - **AI Tool Directory:** A curated list of 57 AI tools for classrooms, categorized by use-case (Planning, Multimedia, Assessment, etc.) with clear pricing badges.
 - **AI Literacy Glossary:** 60-term glossary covering essential AI and education vocabulary, filterable by category, with live search — in all three languages.
 - **Lightning Fast & Offline-Ready:** Built with vanilla HTML/CSS/JS. The built-in Service Worker ensures the platform works perfectly even when a school loses internet access.
@@ -73,7 +84,10 @@ We have prepared a comprehensive **[Contribution Guide](CONTRIBUTING.md)** that 
 - **Dead translation removed:** The Readiness Assessment was dropped in v0.94 but its translation tree survived — 888 keys in MK, 887 in SQ, 157 in EN, referenced by no code. Removing it takes `locales-mk.js` from 380 KB to 137 KB and `locales-sq.js` from 264 KB to 91 KB.
 - **Three-way locale parity:** MK and SQ were missing all 40 `playbooks.ql.*` form placeholders, MK two FAQ entries, SQ two playbook strings — all rendering in English. Now translated. EN, MK and SQ resolve exactly 901 keys each, with zero missing and zero orphaned.
 - **Stale copy corrected:** The landing page claimed 3,370 prompts across 34 areas; the real figures are 3,270 across 33. Help copy in all three languages still advertised "1,000+ prompts", an Education prompt category that lives in the education app rather than in Business, and the Lab tools removed earlier in v0.94.
-- **Comment cleanup:** 47 divider bars and comments that restated the code below them removed across 18 files. Comments explaining non-obvious decisions were kept deliberately.
+- **Chapter count fix (Education):** The home stat bar read 20 chapters against the landing page's 19. `DOCS_DATA` gains a synthetic `about` entry with empty content at runtime, and the counter was including it. Both surfaces now report 19.
+- **README accuracy:** The hero image pointed at `assets/ainow.png`, a path the `/edu/` relocation invalidated — the banner had been broken since v0.94 began. Replaced with fresh platform screenshots. The feature list still claimed a 17-chapter curriculum and "over 950" prompts; the real figures are 19 and 1,106.
+- **Code comments removed:** Every tracked JS, CSS and HTML file, inline `<script>` and `<style>` blocks included. Stripping used a tokenizer rather than a regex, because prompt data carries `//` and `/*` inside strings; each data and locale file was loaded in a sandbox and its exports hashed before and after to prove nothing was altered. The `<!-- -->` markers inside `edu/js/lang/*/docs.js` remain — they are lesson content, not code.
+- **Internal plans untracked:** `docs/superpowers/` held three build plans carrying 59 hardcoded local paths and `rm -rf` commands in a public repo. Removed from Git and gitignored; the files stay on the maintainer's disk.
 
 ### v0.93 (April 27, 2026)
 - **Onboarding refresh:** Reworked the welcome tour into a clearer 6-step onboarding flow with improved content coverage for navigation, resources, privacy, and responsible AI use.
