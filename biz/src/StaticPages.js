@@ -195,74 +195,6 @@ const DocumentationPage = () => {
     `;
 };
 
-const TransparencyPage = () => {
-    const { t } = useLanguage();
-    return html`
-    <${PageWrapper} title=${t('pages.transparency.title')}>
-        <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-3xl p-8 border border-emerald-100 dark:border-emerald-800 mb-12 not-prose">
-            <div className="flex items-center gap-3 mb-4 text-emerald-600 dark:text-emerald-400">
-                <${Activity} className="w-6 h-6" />
-                <h2 className="text-2xl font-bold m-0 dark:text-white">${t('pages.transparency.active.title')}</h2>
-            </div>
-            <p className="text-emerald-800 dark:text-emerald-200 leading-relaxed text-base">
-                ${t('pages.transparency.active.text')}
-            </p>
-        </div>
-
-        <section>
-            <h3 className="text-xl font-bold flex items-center gap-2"><${Globe} className="w-5 h-5 text-coral" /> ${t('pages.transparency.dependencies.title')}</h3>
-            <p className="text-sm text-slate-500 mb-4">${t('pages.transparency.dependencies.intro')}</p>
-            <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 not-prose">
-                <table className="w-full text-xs">
-                    <thead>
-                        <tr className="border-b dark:border-slate-700 text-slate-400 uppercase tracking-widest font-black">
-                            <td className="pb-2">${t('pages.transparency.dependencies.table.domain')}</td>
-                            <td className="pb-2">${t('pages.transparency.dependencies.table.purpose')}</td>
-                            <td className="pb-2">${t('pages.transparency.dependencies.table.frequency')}</td>
-                        </tr>
-                    </thead>
-                    <tbody className="text-slate-600 dark:text-slate-400 divide-y dark:divide-slate-700">
-                        <tr>
-                            <td className="py-3 font-mono font-bold text-coral">esm.sh</td>
-                            <td>${t('pages.transparency.dependencies.esm.desc')}</td>
-                            <td>${t('pages.transparency.dependencies.esm.freq')}</td>
-                        </tr>
-                        <tr>
-                            <td className="py-3 font-mono font-bold text-coral">cdn.tailwindcss.com</td>
-                            <td>${t('pages.transparency.dependencies.tailwind.desc')}</td>
-                            <td>${t('pages.transparency.dependencies.tailwind.freq')}</td>
-                        </tr>
-                        <tr>
-                            <td className="py-3 font-mono font-bold text-coral">fonts.googleapis.com</td>
-                            <td>${t('pages.transparency.dependencies.fonts.desc')}</td>
-                            <td>${t('pages.transparency.dependencies.fonts.freq')}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section className="mt-12">
-            <h3 className="text-xl font-bold flex items-center gap-2"><${Shield} className="w-5 h-5 text-emerald-500" /> ${t('pages.transparency.security.title')}</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="p-5 bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-xl shadow-sm">
-                    <h4 className="font-bold text-sm mb-2">${t('pages.transparency.security.db.title')}</h4>
-                    <p className="text-xs text-slate-500 leading-relaxed" dangerouslySetInnerHTML=${{ __html: t('pages.transparency.security.db.text') }}></p>
-                </div>
-                <div className="p-5 bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-xl shadow-sm">
-                    <h4 className="font-bold text-sm mb-2">${t('pages.transparency.security.track.title')}</h4>
-                    <p className="text-xs text-slate-500 leading-relaxed" dangerouslySetInnerHTML=${{ __html: t('pages.transparency.security.track.text') }}></p>
-                </div>
-            </div>
-        </section>
-
-        <section className="mt-16 border-t dark:border-slate-800 pt-8 text-center">
-            <p className="text-xs text-slate-400 italic">"${t('pages.transparency.quote')}" - Suad Seferi</p>
-        </section>
-    <//>
-    `;
-};
-
 const PoliciesPage = () => {
     const { t } = useLanguage();
     return html`
@@ -491,10 +423,6 @@ const DocumentsPage = () => {
             </div>
         </section>
 
-        <section className="mt-16 text-center">
-            <p className="text-sm text-slate-500 italic">"${t('pages.about.creator_quote')}"</p>
-        </section>
-
     <//>
     `;
 };
@@ -508,18 +436,12 @@ const PartnersPage = () => {
         </p>
 
         <h2 className="text-2xl font-bold text-charcoal dark:text-white mb-6">${t('pages.partners.current')}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 not-prose">
+        <div className="mb-16 not-prose">
             <a href="https://ctrlab.net" target="_blank" rel="noopener"
-               className="block bg-white dark:bg-slate-800 p-6 rounded-2xl border-2 border-mist dark:border-slate-700 hover:border-coral transition-colors">
+               className="block max-w-xl bg-white dark:bg-slate-800 p-6 rounded-2xl border-2 border-mist dark:border-slate-700 hover:border-coral transition-colors">
                 <h3 className="text-xl font-bold mb-1 text-charcoal dark:text-white">CTRLab</h3>
                 <p className="text-xs font-mono uppercase tracking-widest text-coral mb-3">ctrlab.net</p>
                 <p className="text-sm text-slate-600 dark:text-slate-400">${t('pages.partners.ctrlab_text')}</p>
-            </a>
-            <a href="https://www.ainow.mk" target="_blank" rel="noopener"
-               className="block bg-white dark:bg-slate-800 p-6 rounded-2xl border-2 border-mist dark:border-slate-700 hover:border-coral transition-colors">
-                <h3 className="text-xl font-bold mb-1 text-charcoal dark:text-white">AINOW Society</h3>
-                <p className="text-xs font-mono uppercase tracking-widest text-coral mb-3">ainow.mk</p>
-                <p className="text-sm text-slate-600 dark:text-slate-400">${t('pages.partners.ainow_text')}</p>
             </a>
         </div>
 
@@ -548,55 +470,6 @@ const PartnersPage = () => {
             <p className="text-stone-light dark:text-teal-200 mb-6">
                 ${t('pages.partners.become_text')} <a href="mailto:contact@ainow.mk" className="font-bold underline">contact@ainow.mk</a>
             </p>
-        </div>
-    <//>
-    `;
-};
-
-const ModelsPage = () => {
-    const { t } = useLanguage();
-
-    const models = [
-        { id: 'claude',      icon: Sparkles,    color: 'orange', url: 'https://claude.ai' },
-        { id: 'gpt4o',       icon: BrainCircuit, color: 'emerald', url: 'https://chat.openai.com' },
-        { id: 'gemini',      icon: Cpu,         color: 'blue',   url: 'https://gemini.google.com' },
-        { id: 'deepseek',    icon: Globe,       color: 'sky',    url: 'https://chat.deepseek.com' },
-        { id: 'perplexity',  icon: Search,      color: 'violet', url: 'https://www.perplexity.ai' },
-        { id: 'midjourney',  icon: Palette,     color: 'purple', url: 'https://www.midjourney.com' },
-        { id: 'ollama',      icon: Terminal,    color: 'slate',  url: 'https://ollama.com' },
-        { id: 'lmstudio',    icon: Box,         color: 'indigo', url: 'https://lmstudio.ai' },
-    ];
-
-    return html`
-    <${PageWrapper} title=${t('pages.models.title')}>
-        <p className="lead text-lg text-slate-600 dark:text-slate-300 mb-12">
-            ${t('pages.models.intro')}
-        </p>
-        
-        <div className="space-y-8 not-prose">
-            ${models.map(model => html`
-            <div key=${model.id} className="p-8 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col md:flex-row gap-6 items-start hover:shadow-md transition-shadow">
-                <div className=${`p-4 rounded-xl shrink-0 bg-${model.color}-100 dark:bg-${model.color}-900/30 text-${model.color}-600 dark:text-${model.color}-400`}>
-                    <${model.icon} className="w-8 h-8" />
-                </div>
-                <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">${t(`pages.models.${model.id}.name`)}</h3>
-                    <div className="flex gap-2 mb-3 flex-wrap">
-                        ${t(`pages.models.${model.id}.tags`, { returnObjects: true }).map(tag => html`
-                            <span key=${tag} className=${`px-2 py-1 text-[10px] font-bold uppercase rounded bg-${model.color}-50 text-${model.color}-700 dark:bg-${model.color}-900/50 dark:text-${model.color}-300`}>
-                                ${tag}
-                            </span>
-                        `)}
-                    </div>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
-                        ${t(`pages.models.${model.id}.desc`)}
-                    </p>
-                    <a href=${model.url} target="_blank" rel="noopener noreferrer" className=${`font-bold text-sm text-${model.color}-600 hover:text-${model.color}-500 flex items-center gap-2`}>
-                        ${t(`pages.models.${model.id}.link`)} <${ExternalLink} className="w-3 h-3" />
-                    </a>
-                </div>
-            </div>
-            `)}
         </div>
     <//>
     `;
@@ -692,9 +565,7 @@ const pages = {
     documents: DocumentsPage,
     partners: PartnersPage,
     services: ServicesPage,
-    models: ModelsPage,
     accessibility: AccessibilityPage,
-    transparency: TransparencyPage
 };
 
 const StaticPage = ({ page }) => {

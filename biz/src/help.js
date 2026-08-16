@@ -187,7 +187,6 @@ const PLATFORM_NAV = [
     { id: 'about',          labelKey: 'resources.nav.about',          icon: Info },
     { id: 'documentation',  labelKey: 'resources.nav.getting_started', icon: BookOpen },
     { id: 'documents',      labelKey: 'resources.nav.ethical_ai',     icon: ShieldCheck },
-    { id: 'models',         labelKey: 'resources.nav.models',         icon: Sparkles },
     { id: 'services',       labelKey: 'resources.nav.services',       icon: Briefcase },
     { id: 'partners',       labelKey: 'resources.nav.partners',       icon: Users },
     { id: 'policies',       labelKey: 'resources.nav.privacy',        icon: Shield },

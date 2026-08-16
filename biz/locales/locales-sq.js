@@ -603,252 +603,9 @@ const data = {
                 "desc": "Kjo lëshon një server zhvillimi Vite në <code>http://localhost:5173</code>."
             }
         },
-        "transparency": {
-            "title": "Transparenca dhe Qarkullimi i të Dhënave",
-            "active": {
-                "title": "Transparenca Aktive",
-                "text": "AINOW është një aplikacion gati për offline. 100% e funksionalitetit të tij ndodh në pajisjen tuaj. Ne prioritizojmë privatësinë dhe sigurojmë që të dhënat e prompteve tuaja nuk largohen kurrë nga shfletuesi përveçse nëse zgjidhni në mënyrë eksplicite të hapni një mjet të jashtëm."
-            },
-            "dependencies": {
-                "title": "Varësitë e Palëve të Treta",
-                "intro": "Për të funksionuar pa një hap ndërtimi lokal, ky aplikacion ngarkon biblioteka thelbësore nga CDN-të e shpejta dhe të sigurta. Këto janë lidhjet e vetme të jashtme të bëra gjatë funksionimit normal:",
-                "table": {
-                    "domain": "Domaini",
-                    "purpose": "Qëllimi",
-                    "frequency": "Frekuenca"
-                },
-                "esm": {
-                    "desc": "Ngarkon React, Ikonat Lucide, dhe logjikën Fuse.js.",
-                    "freq": "Vetëm në fillimin e aplikacionit."
-                },
-                "tailwind": {
-                    "desc": "Injekton stilizimin modern dhe paraqitjet responsive.",
-                    "freq": "Vetëm në fillimin e aplikacionit."
-                },
-                "fonts": {
-                    "desc": "Ngarkon tipografinë Poppins dhe Sans-Serif.",
-                    "freq": "Vetëm në fillimin e aplikacionit."
-                }
-            },
-            "security": {
-                "title": "Siguria e të Dhënave",
-                "db": {
-                    "title": "Pa Baza të Dhënash",
-                    "text": "Të preferuarat dhe agjentët tuaj të personalizuar ruhen në <strong>Local Storage</strong> të shfletuesit tuaj. Ne fizikisht nuk mund t'i shohim ato."
-                },
-                "track": {
-                    "title": "Pa Gjurmues",
-                    "text": "Ky aplikacion përmban <strong>ZERO</strong> Google Analytics, Facebook Pixels, ose gjurmues marketingu. Përdorimi juaj është plotësisht anonim."
-                }
-            },
-            "quote": "Transparenca është i vetmi ilaç për epokën e 'kutisë së zezë' të teknologjisë."
-        },
-        "models": {
-            "title": "Modele të Rekomanduara të IA",
-            "intro": "Këto prompte funksionojnë me çdo model IA të aftë. Peizazhi ndryshon vazhdimisht — ky është një përmbledhje e gjallë, jo një renditje e përhershme. Modeli më i mirë është ai të cilin e keni qasje sot.",
-            "claude": {
-                "name": "Claude — Anthropic",
-                "tags": [
-                    "Udhëzime",
-                    "Shkrim",
-                    "Kodim",
-                    "Falas"
-                ],
-                "desc": "I njohur për shkrim të nuancuar, ndjekje të udhëzimeve dhe sigurinë. Shkëlqyer për agjentë dhe detyra të strukturuara. Nivel falas në claude.ai.",
-                "link": "Hapni Claude →"
-            },
-            "gpt4o": {
-                "name": "ChatGPT — OpenAI",
-                "tags": [
-                    "Përdorim i Gjerë",
-                    "Multimodal",
-                    "Falas"
-                ],
-                "desc": "Asistenti IA më i përdorur. Funksionon për shkrim, kodim, analizë dhe bisedë. Nivel falas në chat.openai.com.",
-                "link": "Hapni ChatGPT →"
-            },
-            "gemini": {
-                "name": "Gemini — Google",
-                "tags": [
-                    "Kontekst i Madh",
-                    "Multimodal",
-                    "Falas"
-                ],
-                "desc": "Ndërtuar për detyra me kontekst të madh — analizë dokumentesh të gjata dhe bazash kodi. Integrim me Google Workspace. Nivel falas.",
-                "link": "Hapni Gemini →"
-            },
-            "ollama": {
-                "name": "Ollama",
-                "tags": [
-                    "Lokal",
-                    "Privat",
-                    "Falas"
-                ],
-                "desc": "Ekzekutoni Llama, Mistral, DeepSeek dhe të tjerë lokalisht në kompjuterin tuaj. Asnjë të dhënë nuk largohet nga pajisja juaj.",
-                "link": "Merrni Ollama →"
-            },
-            "lmstudio": {
-                "name": "LM Studio",
-                "tags": [
-                    "Lokal",
-                    "GUI",
-                    "Falas"
-                ],
-                "desc": "Aplikacion desktop për shfletimin, shkarkimin dhe ekzekutimin lokal të modeleve me burim të hapur. Pa linjë komande.",
-                "link": "Merrni LM Studio →"
-            },
-            "deepseek": {
-                "name": "DeepSeek",
-                "tags": [
-                    "Arsyetim",
-                    "Kodim",
-                    "Falas"
-                ],
-                "desc": "Model me burim të hapur me aftësi të forta arsyetimi dhe kodimi. Falas në chat.deepseek.com.",
-                "link": "Hapni DeepSeek →"
-            },
-            "perplexity": {
-                "name": "Perplexity AI",
-                "tags": [
-                    "Kërkim",
-                    "Hulumtim",
-                    "Falas"
-                ],
-                "desc": "Motor kërkimi me IA që ofron përgjigje të cituara në kohë reale. Shkëlqyer për hulumtim dhe verifikim faktesh.",
-                "link": "Hapni Perplexity →"
-            },
-            "midjourney": {
-                "name": "Midjourney",
-                "tags": [
-                    "Imazhe",
-                    "Art",
-                    "Dizajn"
-                ],
-                "desc": "Platformë kryesore për gjenerimin e imazheve IA. Përdorni promptet tona vizuale për rezultate të detajuara dhe të stilizuara.",
-                "link": "Hapni Midjourney →"
-            }
-        },
-        "docs": {
-            "title": "Fillimi",
-            "definition_title": "Çfarë është ky Projekt?",
-            "definition_text": "Biblioteka e Prompteve AINOW është një platformë gjithëpërfshirëse me kod të hapur, e krijuar për të demokratizuar aksesin në inteligjencën artificiale. Ajo shërben si një qendër e centralizuar për prompte cilësore dhe konfigurime ekspertësh të agjentëve.",
-            "privacy_card": "Privatësia në Radhë të Parë",
-            "community_card": "E Drejtuar nga Komuniteti",
-            "privacy_text": "Ekzekutohet tërësisht në shfletuesin tuaj. Asnjë e dhënë personale ose prompte nuk dërgohen në server.",
-            "community_text": "Një bibliotekë e gjallë e ndërtuar nga Shoqëria AINOW dhe kontribuesit, e licencuar nën MIT & CC BY 4.0.",
-            "features": {
-                "title": "Zotërimi i Bibliotekës së Prompteve",
-                "intro": "Biblioteka është dizajnuar për shpejtësi dhe dobi. Ja si të përdorni veçoritë kryesore:",
-                "actions": {
-                    "title": "Veprimet e Shpejta",
-                    "text": "Çdo kartë prompti vjen me një shirit veglash të fuqishëm për të thjeshtuar rrjedhën tuaj të punës:",
-                    "favorites": "Të Preferuarat",
-                    "copy": "Kopjo",
-                    "share": "Ndaj Linkun",
-                    "try": "Provo me IA"
-                },
-                "custom": {
-                    "title": "Prompte të Personalizueshme [ ]",
-                    "text": "Promptet që përmbajnë kllapa si [Fut Temën] janë interaktive. Klikimi i ikonës së ingranazhit hap një formë ku mund të plotësoni variablat para kopjimit."
-                },
-                "discovery": {
-                    "title": "Veglat e Zbulimit",
-                    "text": "Përdorni \"Më Befaso\" për frymëzim të rastësishëm dhe Kërkimin Fuzzy për të gjetur prompte edhe me gabime shkrimi."
-                }
-            },
-            "agents": {
-                "title": "Si t'i zbatoni udhëzimet tek Agjentët",
-                "intro": "Agjentët e IA-së janë \"Udhëzime Sistemi\" të sofistikuara që përcaktojnë ekspertizën dhe sjelljen e një modeli IA. Pasi të klikoni \"Kopjo Konfigurimin\" në një kartë agjenti, ndiqni këto hapa për t'i aktivizuar:",
-                "chatgpt": {
-                    "title": "ChatGPT",
-                    "steps": [
-                        "1. Hapni ChatGPT.",
-                        "2. Shkoni te Settings (të aksesueshme përmes menysë së profilit).",
-                        "3. Nën skedën General, gjeni Custom Instructions.",
-                        "4. Ngjisni konfigurimin tuaj në kutinë e udhëzimeve të përgjigjes."
-                    ]
-                },
-                "gemini": {
-                    "title": "Google Gemini",
-                    "text": "Krijoni një \"Gem\" dhe ngjisni kodin në fushën System Instructions."
-                },
-                "perplexity": {
-                    "title": "Perplexity",
-                    "text": "Krijoni një \"Collection\" dhe ngjisni konfigurimin në kutinë AI Instructions në cilësimet."
-                },
-                "claude": {
-                    "title": "Claude.ai",
-                    "text": "Përdorni veçorinë \"Projects\" dhe ngjisni konfigurimin në \"Project Instructions\"."
-                }
-            },
-            "playbooks_section": {
-                "title": "Automatizimi i Punës me Udhëzues",
-                "intro": "Udhëzuesit (Playbooks) janë 'Zinxhirë Promptesh' të avancuar. Sistemi ju udhëzon hap pas hapi, duke kaluar automatikisht rezultatin e një hapi te tjetri.",
-                "steps": [
-                    {
-                        "title": "1. Zgjidhni një Rrjedhë",
-                        "text": "Zgjidhni një detyrë të specializuar si 'Refaktorim Kodi' ose 'Propozim Granti'."
-                    },
-                    {
-                        "title": "2. Inicializoni Kontekstin",
-                        "text": "Jepni detajet e nivelit të lartë (Emri i Projektit, Audienca) vetëm një herë."
-                    },
-                    {
-                        "title": "3. Ekzekutoni dhe Lidhni",
-                        "text": "Kopjoni promptin te IA juaj. Ngjitni përgjigjen mbrapsht. Sistemi gjeneron hapin tjetër."
-                    }
-                ]
-            },
-            "builder": {
-                "title": "Dizajnimi i Agjentëve me Ndërtuesin",
-                "intro": "Ndërtuesi i Agjentëve është një mjet profesional për të krijuar \"Udhëzime Sistemi\" me porosi.",
-                "steps": [
-                    {
-                        "title": "1. Përcaktoni Identitetin",
-                        "text": "Vendosni Rolin dhe Ekspertizën. Kjo ankoron njohuritë e IA-së (p.sh., \"Konsulent i Lartë Ligjor\")."
-                    },
-                    {
-                        "title": "2. Kalibroni Sjelljen",
-                        "text": "Zgjidhni një kornizë (si Chain-of-Thought) dhe një Ton (si \"Direkt dhe Ekzekutiv\")."
-                    },
-                    {
-                        "title": "3. Vendosni Mbrojtëset",
-                        "text": "Aplikoni Kufizime Negative (p.sh., \"Pa Fjalë të Tepërta\", \"Pa Moralizime\")."
-                    },
-                    {
-                        "title": "4. Eksportoni",
-                        "text": "Kopjoni bllokun e promptit dhe ngjiteni në mjetin tuaj të IA-së."
-                    }
-                ]
-            },
-            "running": {
-                "title": "Ekzekutimi i Projektit Lokalisht",
-                "intro": "Ky projekt përdor ES Modulë. Ju duhet të shërbeni skedarët duke përdorur një server lokal uebi.",
-                "python": {
-                    "title": "Duke përdorur Python (E rekomanduar)",
-                    "text": "En terminalin tuaj, ekzekutoni:",
-                    "cmd": "python -m http.server 8000"
-                },
-                "vscode": {
-                    "title": "Duke përdorur VS Code Live Server",
-                    "text": "Instaloni shtesën Live Server dhe klikoni 'Go Live' në shiritin e statusit."
-                },
-                "node": {
-                    "title": "Duke përdorur Node.js",
-                    "text": "Nëse keni Node.js, përdorni paketën serve.",
-                    "cmd1": "npm install -g serve",
-                    "cmd2": "serve -l 8000"
-                }
-            },
-            "contribute": {
-                "title": "Si të Kontribuoni",
-                "text": "Biblioteka ndërtohet nga komuniteti. Dërgoni një Pull Request në depon tonë në GitHub."
-            },
-            "support": {
-                "title": "Mbështetja dhe Feedback",
-                "text": "Keni nevojë për ndihmë? Ekipi ynë është gjithmonë i hapur për bashkëpunim."
-            }
-        },
+        
+        
+        
         "ethical": {
             "title": "Udhëzimet Etike të IA",
             "intro": "Ne besojmë se IA duhet të fuqizojë njerëzimin, jo ta zëvendësojë atë. Promptet tona janë dizajnuar me fokus te drejtësia dhe siguria.",
@@ -3447,7 +3204,56 @@ Object.assign(data.pages.partners, {
     current: 'Partnerët tanë',
     areas: 'Fushat e partneritetit',
     ctrlab_text: 'Partner teknologjik. CTRLab ndërton inxhinierinë pas produkteve të AINOW dhe bashkëpunon në punë të aplikuar me IA në rajon.',
-    ainow_text: 'AINOW Society është organizata jofitimprurëse pas kësaj platforme, që zhvillon programe të shkrim-leximit të IA-së për shkolla dhe institucione publike.'
 });
+
+// v0.94: Albanian Builder labels. Previously absent, so the page fell back
+// to English via t()'s en fallback.
+data.builder = {
+    title: "Ndërtuesi i agjentëve",
+    subtitle: "Projektoni asete inteligjence të personalizuara",
+    autosaved: "Ruajtur automatikisht",
+    export: "Eksporto JSON",
+    reset: "Rivendos formularin",
+    framework: "Korniza e arsyetimit",
+    identity: "Identiteti bazë",
+    name: "Emri i agjentit",
+    role: "Roli",
+    domain: "Fusha",
+    behavior: "Sjellja dhe toni",
+    tone_style: "Toni dhe stili",
+    focus: "Fokusi kryesor",
+    methodology: "Metodologjia",
+    constraints: "Kufizime negative",
+    task: "Detyra dhe udhëzimet",
+    instructions: "Udhëzime dhe rregulla",
+    input_format: "Çfarë do t'i ngjitni agjentit?",
+    examples: "Mësojeni IA-në me shembuj",
+    capabilities: "Aftësi (shtoni shkathtësi)",
+    quality: "Cilësia e promptit",
+    preview: "Pamje e drejtpërdrejtë",
+    copy: "Kopjo udhëzimet e sistemit",
+    copied_clip: "U kopjua në kujtesë",
+    tooltip: "Puna juaj ruhet lokalisht në shfletuesin tuaj. Asnjë e dhënë nuk dërgohet në serverët tanë.",
+    presets: {
+        professional: "Profesional",
+        empathetic: "Empatik",
+        academic: "Akademik",
+        eli5: "Shpjegim i thjeshtë",
+        sarcastic: "Sarkastik",
+        executive: "Drejtues"
+    },
+    quality_checks: {
+        identity_ok: "Identiteti bazë është përcaktuar",
+        identity_bad: "Mungon emri, roli ose fusha",
+        context_ok: "Konteksti është i detajuar",
+        context_mid: "Konteksti është disi i shkurtër",
+        context_bad: "Konteksti është bosh",
+        examples_ok: "Shembujt janë dhënë",
+        examples_bad: "U zgjodh Few-Shot, por nuk ka shembuj",
+        guardrails_ok: "Masat mbrojtëse janë aktive",
+        guardrails_bad: "Nuk ka kufizime negative",
+        input_ok: "Formati i hyrjes është përcaktuar"
+    }
+};
   __exports.data = data;
 })();

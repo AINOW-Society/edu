@@ -607,150 +607,9 @@ const data = {
             },
             running: { title: "Running Locally", text: "To modify the code, you need <strong>Node.js</strong> installed. Clone the repo and run:", desc: "This launches a Vite development server at <code>http://localhost:5173</code>." }
         },
-        transparency: {
-            title: "Transparency & Data Flow",
-            active: { title: "Active Transparency", text: "AINOW is an offline-ready application. 100% of its functionality happens locally on your device. We prioritize privacy and ensure that your prompt data never leaves your browser unless you explicitly choose to launch an external tool." },
-            dependencies: {
-                title: "Third-Party Dependencies",
-                intro: "To run without a local build step, this app loads core libraries from high-speed, secure CDNs. These are the only external connections made by the application during normal operation:",
-                table: { domain: "Domain", purpose: "Purpose", frequency: "Frequency" },
-                esm: { desc: "Loads React, Lucide Icons, and Fuse.js logic.", freq: "Only at app startup." },
-                tailwind: { desc: "Injects modern styling and responsive layouts.", freq: "Only at app startup." },
-                fonts: { desc: "Loads the Poppins and Sans-Serif typography.", freq: "Only at app startup." }
-            },
-            security: {
-                title: "Data Security",
-                db: { title: "No Databases", text: "Your favorites and custom agents are stored in your browser's <strong>Local Storage</strong>. We physically cannot see them." },
-                track: { title: "No Trackers", text: "This app contains <strong>ZERO</strong> Google Analytics, Facebook Pixels, or marketing trackers. Your usage is completely anonymous." }
-            },
-            quote: "Transparency is the only cure for the black-box era of technology."
-        },
-        models: {
-            title: 'The AI Landscape',
-            intro: 'These prompts work with any capable AI model. The landscape evolves constantly — this is a living overview, not a permanent ranking. The best model is the one you have access to today.',
-            claude: {
-                name: 'Claude — Anthropic',
-                tags: ['Instruction-Following', 'Writing', 'Coding', 'Free Tier'],
-                desc: 'Known for nuanced writing, strong instruction-following, and safety alignment. Excellent for agents, long-form tasks, and structured professional output. Free tier available at claude.ai.',
-                link: 'Open Claude →'
-            },
-            gpt4o: {
-                name: 'ChatGPT — OpenAI',
-                tags: ['General Purpose', 'Multimodal', 'Free Tier'],
-                desc: 'The most widely used AI assistant. Handles a broad range of tasks — writing, coding, analysis, conversation, and image understanding. Free tier available at chat.openai.com.',
-                link: 'Open ChatGPT →'
-            },
-            gemini: {
-                name: 'Gemini — Google',
-                tags: ['Large Context', 'Multimodal', 'Free Tier'],
-                desc: 'Built for large-context tasks — analyzing long documents, codebases, or entire conversations. Deep integration with Google Workspace. Free tier available at gemini.google.com.',
-                link: 'Open Gemini →'
-            },
-            deepseek: {
-                name: 'DeepSeek',
-                tags: ['Reasoning', 'Coding', 'Free'],
-                desc: 'A powerful open-source model with strong reasoning and coding capabilities. Competitive with frontier models on many benchmarks. Free to use at chat.deepseek.com.',
-                link: 'Open DeepSeek →'
-            },
-            perplexity: {
-                name: 'Perplexity AI',
-                tags: ['Search', 'Research', 'Free Tier'],
-                desc: 'An AI-powered search engine that provides sourced, cited answers in real time. Great for research, fact-checking, and staying current. Free tier available.',
-                link: 'Open Perplexity →'
-            },
-            midjourney: {
-                name: 'Midjourney',
-                tags: ['Images', 'Art', 'Design'],
-                desc: 'A leading platform for AI image generation. Use our Visual Arts prompts for detailed, stylized, and professional image results.',
-                link: 'Open Midjourney →'
-            },
-            ollama: {
-                name: 'Ollama',
-                tags: ['Local', 'Private', 'Free'],
-                desc: 'Run Llama, Mistral, DeepSeek, Gemma, and others locally on your own machine. Zero data leaves your device — ideal for sensitive or offline environments.',
-                link: 'Get Ollama →'
-            },
-            lmstudio: {
-                name: 'LM Studio',
-                tags: ['Local', 'GUI', 'Free'],
-                desc: 'A user-friendly desktop app to browse, download, and run open-source models locally. No command line needed — the easiest way to get started with local AI.',
-                link: 'Get LM Studio →'
-            }
-        },
-        docs: {
-            title: 'Getting Started',
-            definition_title: 'What is this Project?',
-            definition_text: 'The AINOW Prompt Library is a comprehensive, open-source platform designed to democratize access to artificial intelligence. It serves as a centralized hub for high-quality prompts and expert agent configurations, helping students, professionals, and enthusiasts unlock the full potential of tools like ChatGPT, Gemini and Claude.',
-            privacy_card: 'Privacy First',
-            community_card: 'Community Driven',
-            privacy_text: 'Runs entirely in your browser (Client-Side). No personal data or prompts are ever sent to a server.',
-            community_text: 'A living library built by AINOW Society and contributors, licensed under MIT & CC BY 4.0.',
-            features: {
-                title: 'Mastering the Prompt Library',
-                intro: 'The library is designed for speed and utility. Here is how to use the key features found on every prompt card:',
-                actions: {
-                    title: 'Quick Actions',
-                    text: 'Every prompt card comes with a powerful toolbar to streamline your workflow:',
-                    favorites: 'Favorites',
-                    copy: 'Copy',
-                    share: 'Share Link',
-                    try: 'Try with AI'
-                },
-                custom: {
-                    title: 'Customizable Prompts [ ]',
-                    text: 'Prompts containing brackets like [Insert Topic] are interactive. Clicking the Gear icon or the prompt card opens a form where you can fill in variables before copying the final result.'
-                },
-                discovery: {
-                    title: 'Discovery Tools',
-                    text: 'Use Surprise Me for random inspiration, toggle Views for density, and use the Fuzzy Search bar to find prompts even with typos.'
-                }
-            },
-            agents: {
-                title: 'How to Apply Instructions to Agents',
-                intro: 'AI Agents are sophisticated "System Instructions" that define the expertise and behavior of an AI model. Once you click "Copy Configuration" on an agent card, follow these steps to activate them:',
-                chatgpt: {
-                    title: 'ChatGPT',
-                    steps: [
-                        '1. Open ChatGPT.',
-                        '2. Navigate to Settings (accessible via your profile menu).',
-                        '3. Under the General tab, find Custom Instructions.',
-                        '4. Paste your copied configuration into the response instruction box.'
-                    ]
-                },
-                gemini: { title: 'Google Gemini', text: 'Create a "Gem" and paste the configuration code into the System Instructions field.' },
-                perplexity: { title: 'Perplexity', text: 'Create a "Collection" and paste the configuration into the AI Instructions box in settings.' },
-                claude: { title: 'Claude.ai', text: 'Use the "Projects" feature and paste the configuration into "Project Instructions".' }
-            },
-            playbooks_section: {
-                title: "Automating Workflows with Playbooks",
-                intro: "Playbooks are advanced \"Prompt Chains\" that execute complex tasks. Instead of one giant prompt, the system guides you step-by-step, feeding the output of one step into the context of the next.",
-                steps: [
-                    { title: "1. Select a Workflow", text: "Choose a specialized task like \"Code Refactoring\" or \"Grant Proposal\"." },
-                    { title: "2. Initialize Context", text: "Enter the high-level details (Project Name, Audience) once." },
-                    { title: "3. Execute & Chain", text: "Copy the prompt to your AI. Paste the answer back. The system automatically generates the next step." }
-                ]
-            },
-            builder: {
-                title: 'Designing Custom Agents with the Builder',
-                intro: 'The Agent Builder is a professional-grade tool for crafting bespoke "System Instructions". It abstracts away the complexity of prompt engineering, allowing you to visually design how an AI thinks, speaks, and behaves.',
-                steps: [
-                    { title: '1. Define Identity', text: 'Set the Role, Domain, and Expertise. This anchors the AI\'s knowledge base to a specific vertical (e.g., "Senior Legal Counsel").' },
-                    { title: '2. Calibrate Behavior', text: 'Choose a Framework (like Chain-of-Thought for logic) and a Tone (like "Direct & Executive"). This controls how the IA answers.' },
-                    { title: '3. Set Guardrails', text: 'Apply Negative Constraints (e.g., "No Fluff", "No Moralizing") to strictly prevent unwanted AI behaviors and clichés.' },
-                    { title: '4. Export & Deploy', text: 'The Live Preview generates a specialized prompt block. Copy this and paste it into the "System Instructions" or "Custom Instructions" field of your AI tool.' }
-                ]
-            },
-            playbooks_title: 'Automating Workflows with Playbooks',
-            running: {
-                title: 'Running Project Locally',
-                intro: 'This project uses ES Modules. Opening index.html directly in your browser will result in CORS errors. You must serve the files using a local web server.',
-                python: { title: 'Using Python (Recommended)', text: "Navigate to the project's root directory in your terminal and run:", cmd: "python -m http.server 8000" },
-                vscode: { title: 'Using VS Code Live Server', text: "If you use Visual Studio Code, the easiest method is to install the Live Server extension. Install it from the Marketplace, open the project folder, and click 'Go Live' in the status bar." },
-                node: { title: 'Using Node.js', text: "If you have Node.js installed, you can use the serve package.", cmd1: "npm install -g serve", cmd2: "serve -l 8000" }
-            },
-            contribute: { title: 'How to Contribute', text: 'The library is built by the community. If you have an exceptional prompt or agent, submit a Pull Request on our GitHub repository.' },
-            support: { title: 'Support & Feedback', text: 'Need help with an implementation or want to suggest a new category? Our team is always open to collaboration.' }
-        },
+        
+        
+        
         ethical: {
             title: 'Ethical AI Guidelines',
             intro: 'We believe AI should empower humanity, not replace it. Our prompts and agents are designed with a focus on fairness, accuracy, and safety. We advocate for the transparent and ethical use of generative AI in all sectors.',
@@ -1482,7 +1341,6 @@ Object.assign(data.pages.partners, {
     current: 'Our partners',
     areas: 'Partnership areas',
     ctrlab_text: 'Technology partner. CTRLab builds the engineering behind AINOW products and collaborates on applied AI work across the region.',
-    ainow_text: 'AINOW Society is the non-profit behind this platform, running AI literacy programmes for schools and public institutions.'
 });
   __exports.data = data;
 })();
