@@ -6204,8 +6204,9 @@ select:focus-visible {
 }
 
 /* ── Shared typography (v0.94) ────────────────────────────────────────────
-   Onest carries the UI, Playfair Display the display moments — the same
-   pair the landing page and /biz/ use. Faces are declared in
+   Onest carries everything; display moments differ by weight and tracking
+   rather than family — the same face the landing page and /biz/ use.
+   Faces are declared in
    assets/fonts/fonts.css, linked from index.html. */
 
 .pd-title,

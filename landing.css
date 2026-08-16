@@ -7,7 +7,7 @@
 
    Instrument Serif was the first choice and was rejected: it ships no
    Cyrillic, so every Macedonian headline would have fallen back mid-word.
-   Playfair Display and Onest both carry full Cyrillic. */
+   Onest carries full Cyrillic, which is why it survived. */
 
 :root {
     --bg-app: #faf8f4;
