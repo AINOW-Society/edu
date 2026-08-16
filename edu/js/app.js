@@ -843,7 +843,14 @@ const App = {
         const header = document.getElementById('prompts-header');
 
         const allPrompts = embeddedPromptsData[category] || [];
-        let filtered = allPrompts.filter(p => subcategory === 'all' || p.subcategory === subcategory);
+        let filtered = allPrompts.filter(p =>
+            subcategory === 'all'
+            || p.subcategory === subcategory
+            // Prompts marked 'all' are cross-grade / cross-role (inclusion,
+            // classroom management, assessment). They apply to every filter,
+            // so surface them there instead of only in the unfiltered view.
+            || p.subcategory === 'all'
+        );
 
         const query = this.currentPromptSearch;
         if (query) {

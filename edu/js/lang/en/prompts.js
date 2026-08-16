@@ -1483,20 +1483,8 @@
       prompt: "Role: ICT teacher. Context: Class is co-creating classroom norms for using AI tools ethically. Task: Draft text for an A3 poster (5 rules, 5 \"do not\" items, 3 reflection questions) students can adapt. Constraints: Align with academic integrity and privacy; mention verifying facts and citing help from AI when allowed.",
       tags: ["ICT", "policy", "ethics", "secondary"]
     },
-    {
-      subcategory: "department_head",
-      subject: "STEM coordination",
-      title: "Interdisciplinary project week — AI as research assistant",
-      prompt: "Role: Head of STEM. Context: One-week project bridging physics and geography on environmental sensors. Task: Outline daily goals, team roles, safety notes, and where students may use AI (literature scan, phrasing) vs where they may not (raw data fabrication). Constraints: Include a teacher moderation checklist before final posters are displayed.",
-      tags: ["STEM", "project week", "AI policy", "department_head"]
-    },
-    {
-      subcategory: "pedagogue",
-      subject: "Career guidance",
-      title: "VET orientation talk — outline for 45 minutes",
-      prompt: "Role: Pedagogue. Context: Talk to grade 9 students about vocational vs general secondary paths in North Macedonia. Task: Produce a session plan with objectives, a myth-busting segment (4 myths), a Q&A bank, and a short parent SMS template. Constraints: Non-judgmental tone; no promises about labour market outcomes.",
-      tags: ["VET", "careers", "orientation", "pedagogue"]
-    },
+    
+    
     {
       subcategory: "secondary",
       subject: "Classroom norms",
@@ -1525,13 +1513,7 @@
       prompt: "Role: Teacher leader. Context: 20-minute segment at parent night on honest AI use and homework. Task: Outline 6 slides (title + 3 bullets each): what AI is, what it is not, school expectations, examples of allowed help, how to supervise at home, who to contact. Constraints: Plain language; multilingual families in mind.",
       tags: ["parents", "integrity", "all"]
     },
-    {
-      subcategory: "department_head",
-      subject: "Quality assurance",
-      title: "Staff micro-meeting — aligning on integrity",
-      prompt: "Role: Department or grade-level lead. Context: 25-minute stand-up after a new guide chapter on integrity. Task: Agenda with objective, 3 discussion prompts, one decision to record (e.g. common disclosure phrase), and homework for teams. Constraints: Focus on fairness and support, not surveillance tech.",
-      tags: ["department_head", "integrity", "PD"]
-    },
+    
     {
       subcategory: "primary_lower",
       subject: "Classroom culture",
@@ -1820,6 +1802,28 @@
       title: "Conversation guide — after advantage concerns",
       prompt: "Role: School psychologist. Context: Student admits or is suspected of misusing AI in a graded task; goal is learning and repair. Task: Outline for a 20-minute conversation: rapport, facts without moral panic, impact on trust, agreed next step, follow-up. Constraints: Trauma-informed; suitable for ages 12–18.",
       tags: ["psychologist", "restorative", "integrity"]
+    }
+  ,
+    {
+      subcategory: "department_head",
+      subject: "STEM coordination",
+      title: "Interdisciplinary project week — AI as research assistant",
+      prompt: "Role: Head of STEM. Context: One-week project bridging physics and geography on environmental sensors. Task: Outline daily goals, team roles, safety notes, and where students may use AI (literature scan, phrasing) vs where they may not (raw data fabrication). Constraints: Include a teacher moderation checklist before final posters are displayed.",
+      tags: ["STEM", "project week", "AI policy", "department_head"]
+    },
+    {
+      subcategory: "pedagogue",
+      subject: "Career guidance",
+      title: "VET orientation talk — outline for 45 minutes",
+      prompt: "Role: Pedagogue. Context: Talk to grade 9 students about vocational vs general secondary paths in North Macedonia. Task: Produce a session plan with objectives, a myth-busting segment (4 myths), a Q&A bank, and a short parent SMS template. Constraints: Non-judgmental tone; no promises about labour market outcomes.",
+      tags: ["VET", "careers", "orientation", "pedagogue"]
+    },
+    {
+      subcategory: "department_head",
+      subject: "Quality assurance",
+      title: "Staff micro-meeting — aligning on integrity",
+      prompt: "Role: Department or grade-level lead. Context: 25-minute stand-up after a new guide chapter on integrity. Task: Agenda with objective, 3 discussion prompts, one decision to record (e.g. common disclosure phrase), and homework for teams. Constraints: Focus on fairness and support, not surveillance tech.",
+      tags: ["department_head", "integrity", "PD"]
     }
   ],
 

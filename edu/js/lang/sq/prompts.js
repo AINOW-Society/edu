@@ -1378,20 +1378,8 @@
       prompt: "Roli: Mësues informatike. Konteksti: Klasa bashkë-krijon norma për përdorim etik të mjeteve IA. Detyra: Tekst për poster A3: 5 rregulla, 5 pika 'mos bëj kështu' dhe 3 pyetje reflektuese që nxënësit mund t'i përshtatin. Kufizimet: Integritet akademik dhe privatësi; kujto verifikimin e fakteve dhe citimin e ndihmës nga IA kur lejohet.",
       tags: ["informatikë", "etika", "IA", "i_mesëm"]
     },
-    {
-      subcategory: "department_head",
-      subject: "STEM",
-      title: "Javë projekti — IA si asistent kërkimi",
-      prompt: "Roli: Krye i STEM. Konteksti: Një javë projekti që lidh fizikën dhe gjeografinë për sensorë mjedisorë. Detyra: Objektiva ditore, role në ekip, shënime sigurie dhe ku nxënësit mund të përdorin IA (skanim literature, formulim) kundrejt ku nuk mund (fabrikim të dhënash). Kufizimet: Listë kontrolli për moderim para posterave përfundimtarë.",
-      tags: ["STEM", "projekti", "politika_IA", "kreu_departamenti"]
-    },
-    {
-      subcategory: "pedagogue",
-      subject: "Orientim karriere",
-      title: "Bisedë orientimi për arsimin profesional — 45 min",
-      prompt: "Roli: Pedagog. Konteksti: Sesion me klasën e 9-të për rrugët e përgjithshme vs profesionale në RMV. Detyra: Plan sesioni me objektiva, segment 'zbërthimi i miteve' (4 mite), bankë pyetjesh dhe shabllon SMS të shkurtër për prindër. Kufizimet: Ton jo-gjyqësues; pa premtime për tregun e punës.",
-      tags: ["karriera", "profesionale", "orientimi", "pedagog"]
-    },
+    
+    
     {
       subcategory: "secondary",
       subject: "Normat e klasës",
@@ -1420,13 +1408,7 @@
       prompt: "Roli: Udhëheqës mësuesish. Konteksti: 20 minuta në mbrëmjen e prindërve për përdorim të ndershëm të IA-së dhe detyrave. Detyra: 6 slide (titull + 3 pika secila): çfarë është IA, çfarë nuk është, pritjet e shkollës, shembuj ndihme të lejuara, mbikëqyrje në shtëpi, kontakt. Kufizimet: Gjuhë e thjeshtë; familje shumëgjuhëshe parasysh.",
       tags: ["prindërit", "integriteti", "të_gjitha"]
     },
-    {
-      subcategory: "department_head",
-      subject: "Siguria e cilësisë",
-      title: "Mikro-takim stafi — përputhje mbi integritetin",
-      prompt: "Roli: Krye i departamentit ose nivelit. Konteksti: 25 minuta pas një kapitulli të ri të udhëzuesit mbi integritetin. Detyra: Rend dite me qëllim, 3 pyetje diskutimi, një vendim për të shënuar (p.sh. frazë e përbashkët deklarimi) dhe detyrë për ekipet. Kufizimet: Fokus në drejtësi dhe mbështetje, jo në teknologji survejimi.",
-      tags: ["departamenti", "integriteti", "ZHP"]
-    },
+    
     {
       subcategory: "primary_lower",
       subject: "Klima e klasës",
@@ -1434,78 +1416,7 @@
       prompt: "Roli: Mësues i ulët fillor. Konteksti: Shpjegim pse kopjimi nga robotët pa menduar dëmton të nxënit. Detyra: Skriptë 10 minuta në rreth: analogji e thjeshtë, 4 rregulla fëmijërore dhe thirrje-përgjigje. Kufizimet: Pa frikëzime; fjalor për moshën.",
       tags: ["integriteti", "fillore", "socio-emocional"]
     }
-  ],
-  administration: [
-    {
-      subcategory: "director",
-      subject: "Menaxhimi",
-      title: "Fjalimi i fillimit të vitit shkollor",
-      prompt: "Shkruaj një fjalim motivues 3-minutësh për Drejtorin e shkollës që do t'u drejtohet mësuesve në mbledhjen e parë të shtatorit. Fjalimi duhet të fokusohet në rëndësinë e bashkëpunimit, shëndetin mendor të nxënësve dhe përdorimin e teknologjisë (si IA) si një mjet mbështetës, jo si rrezik.",
-      tags: ["fjalim", "lidership", "drejtori"]
-    },
-    {
-      subcategory: "pedagogue",
-      subject: "Këshillimi",
-      title: "Zgjidhja e konflikteve mes nxënësve",
-      prompt: "Vepro si një pedagog shkolle. Përgatit një skript ose udhëzues të shkurtër mediacioni që unë mund ta përdor kur dy nxënës vijnë në zyrën time pas një konflikti verbal. Përfshi pyetje të hapura që nxisin ndjeshmërinë dhe një marrëveshje të thjeshtë paqeje në fund.",
-      tags: ["pedagogji", "konflikt", "mediacion"]
-    },
-    {
-      subcategory: "psychologist",
-      subject: "Komunikimi me Prindërit",
-      title: "Ftesë për takim psikologjik",
-      prompt: "Harto një email të sjellshëm, profesional dhe jo-kërcënues drejtuar një prindi, duke e ftuar për një takim me psikologun e shkollës për të diskutuar rënien e papritur të përqendrimit të fëmijës së tyre. Toni duhet të jetë tepër mbështetës.",
-      tags: ["komunikim", "psikolog", "prindër"]
-    },
-    {
-      subcategory: "pedagogue",
-      subject: "Lojëra Edukative",
-      title: "Aktivitet për thyerjen e akullit",
-      prompt: "Si pedagog i shkollës, sugjero 3 lojëra të shkurtra (icebreakers) për të zhvilluar shpirtin e skuadrës tek nxënësit që sapo kanë kaluar në klasën e 6-të dhe vijnë nga klasa të ndryshme. Lojërat nuk duhet të kërkojnë materiale fizike dhe duhet të zgjasin maksimumi 10 minuta.",
-      tags: ["lojëra", "pedagog", "bashkëpunim"]
-    },
-    {
-      subcategory: "secretary",
-      subject: "Administrata",
-      title: "Njoftim për prindërit (Mbledhje)",
-      prompt: "Shkruaj një njoftim zyrtar dhe të qartë në gjuhën shqipe nga sekretaria e shkollës për prindërit. Njoftimi duhet t'i ftojë ata në mbledhjen e parë të prindërve ku do të diskutohet plani i ri vjetor dhe rregullorja e re për përdorimin e celularëve në shkollë. Lër hapësira për datën, orën dhe klasën.",
-      tags: ["njoftim", "sekretari", "prindër"]
-    },
-    {
-      subcategory: "director",
-      subject: "Motivimi i Stafit",
-      title: "Mesazh në fund të semestrit",
-      prompt: "Shkruaj një letër të ngrohtë dhe frymëzuese nga Drejtori i Shkollës për të gjithë mësuesit në fund të semestrit të parë. Letra duhet të vlerësojë lodhjen e tyre, të festojë sukseset e arritura dhe t'u urojë pushime të mbara.",
-      tags: ["drejtori", "motivim", "falënderim"]
-    },
-    {
-      subcategory: "pedagogue",
-      subject: "Vlerësimi",
-      title: "Formular i sjelljes në klasë",
-      prompt: "Vepro si një pedagog shkolle. Krijo një shabllon (rubrikë) të thjeshtë vlerësimi që mësuesit mund ta përdorin për të mbajtur shënime mbi sjelljen, pjesëmarrjen dhe bashkëpunimin e nxënësve gjatë punës në grup. Përdor kritere nga 1 në 5.",
-      tags: ["pedagog", "vlerësim", "sjellja"]
-    },
-    {
-      subcategory: "psychologist",
-      subject: "Mirëqenia",
-      title: "Teknika frymëmarrjeje për ankthin",
-      prompt: "Përgatit një material të shkurtër me udhëzime (si një fletëpalosje) për nxënësit që vuajnë nga ankthi i lartë para provimeve. Përshkruaj teknikën e frymëmarrjes 4-7-8 në një gjuhë shumë qetësuese dhe ofro dy këshilla praktike për t'u fokusuar.",
-      tags: ["psikolog", "ankthi", "këshilla"]
-    },
-    {
-      subcategory: "secretary",
-      subject: "Administrata",
-      title: "Njoftim për Festat Kombëtare",
-      prompt: "Përgatit një njoftim zyrtar dhe konciz nga sekretaria drejtuar stafit dhe prindërve lidhur me pushimet e ardhshme për Festat e Nëntorit. Përfshi datën kur mbyllet shkolla dhe datën e saktë të rikthimit në mësim.",
-      tags: ["sekretari", "njoftim", "festat"]
-    },
-    {
-      subcategory: "department_head",
-      subject: "Planifikimi",
-      title: "Agjenda e takimit të shkencave",
-      prompt: "Si Drejtues i Departamentit të Shkencave (Kimi, Biologji, Fizikë), harto një agjendë profesionale për takimin e radhës mujor. Agjenda duhet të mbulojë: rishikimin e planit mësimor, nevojat për materiale laboratorike dhe organizimin e panairit të shkencës.",
-      tags: ["departamenti", "agjenda", "shkencat"]
-    },
+  ,
     {
       subcategory: "secondary",
       subject: "Informatikë",
@@ -2135,7 +2046,169 @@
       title: "Hapat e Metodës Shkencore",
       prompt: "Roli: Shkencëtar Mentor. Konteksti: Nxënësit e klasës së 7-të duhet të bëjnë një projekt shkencor. Detyra: Shpjego 5 hapat e metodës shkencore (Vëzhgimi, Hipoteza, Eksperimenti, Të dhënat, Përfundimi) duke përdorur një mister se pse 'bima e klasës po thahet'. Kufizimet: Zgjidhja duhet të jetë logjike.",
       tags: ["shkencë", "metoda", "hulumtim"]
+    }
+  ],
+  administration: [
+    {
+      subcategory: "director",
+      subject: "Menaxhimi",
+      title: "Fjalimi i fillimit të vitit shkollor",
+      prompt: "Shkruaj një fjalim motivues 3-minutësh për Drejtorin e shkollës që do t'u drejtohet mësuesve në mbledhjen e parë të shtatorit. Fjalimi duhet të fokusohet në rëndësinë e bashkëpunimit, shëndetin mendor të nxënësve dhe përdorimin e teknologjisë (si IA) si një mjet mbështetës, jo si rrezik.",
+      tags: ["fjalim", "lidership", "drejtori"]
     },
+    {
+      subcategory: "pedagogue",
+      subject: "Këshillimi",
+      title: "Zgjidhja e konflikteve mes nxënësve",
+      prompt: "Vepro si një pedagog shkolle. Përgatit një skript ose udhëzues të shkurtër mediacioni që unë mund ta përdor kur dy nxënës vijnë në zyrën time pas një konflikti verbal. Përfshi pyetje të hapura që nxisin ndjeshmërinë dhe një marrëveshje të thjeshtë paqeje në fund.",
+      tags: ["pedagogji", "konflikt", "mediacion"]
+    },
+    {
+      subcategory: "psychologist",
+      subject: "Komunikimi me Prindërit",
+      title: "Ftesë për takim psikologjik",
+      prompt: "Harto një email të sjellshëm, profesional dhe jo-kërcënues drejtuar një prindi, duke e ftuar për një takim me psikologun e shkollës për të diskutuar rënien e papritur të përqendrimit të fëmijës së tyre. Toni duhet të jetë tepër mbështetës.",
+      tags: ["komunikim", "psikolog", "prindër"]
+    },
+    {
+      subcategory: "pedagogue",
+      subject: "Lojëra Edukative",
+      title: "Aktivitet për thyerjen e akullit",
+      prompt: "Si pedagog i shkollës, sugjero 3 lojëra të shkurtra (icebreakers) për të zhvilluar shpirtin e skuadrës tek nxënësit që sapo kanë kaluar në klasën e 6-të dhe vijnë nga klasa të ndryshme. Lojërat nuk duhet të kërkojnë materiale fizike dhe duhet të zgjasin maksimumi 10 minuta.",
+      tags: ["lojëra", "pedagog", "bashkëpunim"]
+    },
+    {
+      subcategory: "secretary",
+      subject: "Administrata",
+      title: "Njoftim për prindërit (Mbledhje)",
+      prompt: "Shkruaj një njoftim zyrtar dhe të qartë në gjuhën shqipe nga sekretaria e shkollës për prindërit. Njoftimi duhet t'i ftojë ata në mbledhjen e parë të prindërve ku do të diskutohet plani i ri vjetor dhe rregullorja e re për përdorimin e celularëve në shkollë. Lër hapësira për datën, orën dhe klasën.",
+      tags: ["njoftim", "sekretari", "prindër"]
+    },
+    {
+      subcategory: "director",
+      subject: "Motivimi i Stafit",
+      title: "Mesazh në fund të semestrit",
+      prompt: "Shkruaj një letër të ngrohtë dhe frymëzuese nga Drejtori i Shkollës për të gjithë mësuesit në fund të semestrit të parë. Letra duhet të vlerësojë lodhjen e tyre, të festojë sukseset e arritura dhe t'u urojë pushime të mbara.",
+      tags: ["drejtori", "motivim", "falënderim"]
+    },
+    {
+      subcategory: "pedagogue",
+      subject: "Vlerësimi",
+      title: "Formular i sjelljes në klasë",
+      prompt: "Vepro si një pedagog shkolle. Krijo një shabllon (rubrikë) të thjeshtë vlerësimi që mësuesit mund ta përdorin për të mbajtur shënime mbi sjelljen, pjesëmarrjen dhe bashkëpunimin e nxënësve gjatë punës në grup. Përdor kritere nga 1 në 5.",
+      tags: ["pedagog", "vlerësim", "sjellja"]
+    },
+    {
+      subcategory: "psychologist",
+      subject: "Mirëqenia",
+      title: "Teknika frymëmarrjeje për ankthin",
+      prompt: "Përgatit një material të shkurtër me udhëzime (si një fletëpalosje) për nxënësit që vuajnë nga ankthi i lartë para provimeve. Përshkruaj teknikën e frymëmarrjes 4-7-8 në një gjuhë shumë qetësuese dhe ofro dy këshilla praktike për t'u fokusuar.",
+      tags: ["psikolog", "ankthi", "këshilla"]
+    },
+    {
+      subcategory: "secretary",
+      subject: "Administrata",
+      title: "Njoftim për Festat Kombëtare",
+      prompt: "Përgatit një njoftim zyrtar dhe konciz nga sekretaria drejtuar stafit dhe prindërve lidhur me pushimet e ardhshme për Festat e Nëntorit. Përfshi datën kur mbyllet shkolla dhe datën e saktë të rikthimit në mësim.",
+      tags: ["sekretari", "njoftim", "festat"]
+    },
+    {
+      subcategory: "department_head",
+      subject: "Planifikimi",
+      title: "Agjenda e takimit të shkencave",
+      prompt: "Si Drejtues i Departamentit të Shkencave (Kimi, Biologji, Fizikë), harto një agjendë profesionale për takimin e radhës mujor. Agjenda duhet të mbulojë: rishikimin e planit mësimor, nevojat për materiale laboratorike dhe organizimin e panairit të shkencës.",
+      tags: ["departamenti", "agjenda", "shkencat"]
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     {
       subcategory: "director",
       subject: "Menaxhimi i Krizave",
@@ -2408,6 +2481,28 @@
       title: "Udhëzues bisede — pas shqetësimeve për avantazh",
       prompt: "Roli: Psikolog shkolle. Konteksti: Nxënësi pranon ose dyshohet për keqpërdorim të IA në detyrë të notuar; qëllimi është të nxënit dhe rikuperimi. Detyra: Përmbledhje për 20 minuta: raport, fakte pa panik moral, ndikimi te besimi, hap i radhës i dakordësuar, ndjekje. Kufizimet: Trauma-informuar; mosha 12–18.",
       tags: ["psikologji", "rikuperuese", "integriteti"]
+    }
+  ,
+    {
+      subcategory: "department_head",
+      subject: "STEM",
+      title: "Javë projekti — IA si asistent kërkimi",
+      prompt: "Roli: Krye i STEM. Konteksti: Një javë projekti që lidh fizikën dhe gjeografinë për sensorë mjedisorë. Detyra: Objektiva ditore, role në ekip, shënime sigurie dhe ku nxënësit mund të përdorin IA (skanim literature, formulim) kundrejt ku nuk mund (fabrikim të dhënash). Kufizimet: Listë kontrolli për moderim para posterave përfundimtarë.",
+      tags: ["STEM", "projekti", "politika_IA", "kreu_departamenti"]
+    },
+    {
+      subcategory: "pedagogue",
+      subject: "Orientim karriere",
+      title: "Bisedë orientimi për arsimin profesional — 45 min",
+      prompt: "Roli: Pedagog. Konteksti: Sesion me klasën e 9-të për rrugët e përgjithshme vs profesionale në RMV. Detyra: Plan sesioni me objektiva, segment 'zbërthimi i miteve' (4 mite), bankë pyetjesh dhe shabllon SMS të shkurtër për prindër. Kufizimet: Ton jo-gjyqësues; pa premtime për tregun e punës.",
+      tags: ["karriera", "profesionale", "orientimi", "pedagog"]
+    },
+    {
+      subcategory: "department_head",
+      subject: "Siguria e cilësisë",
+      title: "Mikro-takim stafi — përputhje mbi integritetin",
+      prompt: "Roli: Krye i departamentit ose nivelit. Konteksti: 25 minuta pas një kapitulli të ri të udhëzuesit mbi integritetin. Detyra: Rend dite me qëllim, 3 pyetje diskutimi, një vendim për të shënuar (p.sh. frazë e përbashkët deklarimi) dhe detyrë për ekipet. Kufizimet: Fokus në drejtësi dhe mbështetje, jo në teknologji survejimi.",
+      tags: ["departamenti", "integriteti", "ZHP"]
     }
   ],
 
