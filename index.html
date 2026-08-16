@@ -60,8 +60,8 @@
                 <path fill-rule="nonzero" d="M0 116.95c0 64.15 52.06 116.58 116.58 116.58 64.52 0 116.95-52.43 116.95-116.58 0-64.52 -52.42 -116.95 -116.95 -116.95 -64.52 0 -116.58 52.42 -116.58 116.95zm23.46 0c0-51.69 41.79-93.48 93.12-93.48 51.69 0 93.12 41.79 93.12 93.48 0 26.03 -10.63 49.49 -27.86 66.35l0 -66.72c0-35.93 -29.33 -64.89 -65.26 -64.89 -35.93 0 -65.26 28.96 -65.26 64.89 0 36.29 29.33 65.25 65.26 65.26l0 -25.3c-21.99 0 -39.59 -17.96 -39.59 -39.96 0-21.63 17.6 -39.59 39.59 -39.59 22 0 39.59 17.96 39.59 39.59l0 52.06 0 32.63c-11.73 5.5 -25.3 8.8 -39.59 8.8 -51.32 0 -93.12 -41.79 -93.12 -93.12z" />
             </svg>
         </div>
-        <h1>AINOW</h1>
-        <p data-t="tagline">Изберете платформа</p>
+        <h1>AINOW Society</h1>
+        <p class="tag" data-t="tagline">Изберете платформа</p>
         <p class="note" data-t="note">Двете работат офлајн, без сметка и без следење. Отворен код.</p>
     </div>
 
@@ -94,6 +94,7 @@
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
                     </span>
                     <h2 data-t="biz.title">Бизнис</h2>
+                    <span class="badge badge--biz" data-t="biz.badge">Бесплатно</span>
                 </div>
                 <p class="card-desc" data-t="biz.desc">Промптови, агенти и сценарија за професионална употреба.</p>
                 <ul class="card-stats">
@@ -126,7 +127,7 @@
             'edu.f2': 'поглавја',
             'edu.f3': 'поими',
             'edu.f4': 'алатки',
-            'biz.title': 'Бизнис', 'biz.cta': 'Отвори',
+            'biz.title': 'Бизнис', 'biz.badge': 'Бесплатно', 'biz.cta': 'Отвори',
             'biz.desc': 'Промптови, агенти и сценарија за професионална употреба.',
             'biz.f1': 'промптови',
             'biz.f2': 'агенти',
@@ -144,7 +145,7 @@
             'edu.f2': 'kapituj',
             'edu.f3': 'terma',
             'edu.f4': 'mjete',
-            'biz.title': 'Biznesi', 'biz.cta': 'Hap',
+            'biz.title': 'Biznesi', 'biz.badge': 'Falas', 'biz.cta': 'Hap',
             'biz.desc': 'Prompte, agjentë dhe skenarë për përdorim profesional.',
             'biz.f1': 'prompte',
             'biz.f2': 'agjentë',
@@ -162,7 +163,7 @@
             'edu.f2': 'chapters',
             'edu.f3': 'terms',
             'edu.f4': 'tools',
-            'biz.title': 'Business', 'biz.cta': 'Open',
+            'biz.title': 'Business', 'biz.badge': 'Free', 'biz.cta': 'Open',
             'biz.desc': 'Prompts, agents and situations for professional use.',
             'biz.f1': 'prompts',
             'biz.f2': 'agents',
@@ -188,11 +189,24 @@
         document.querySelectorAll('.lang-btn').forEach(function (b) {
             b.classList.toggle('active', b.dataset.lang === lang);
         });
-        try { localStorage.setItem('ainow-lang', lang); } catch (e) {}
+        // Carry the choice into both apps. They store it under their own
+        // keys ('ainow_lang' in education, 'language' in business), so
+        // picking Albanian here opens either app in Albanian rather than
+        // silently reverting to the default.
+        try {
+            localStorage.setItem('ainow-lang', lang);
+            localStorage.setItem('ainow_lang', lang);
+            localStorage.setItem('language', lang);
+        } catch (e) {}
     }
 
     var saved = 'mk';
-    try { saved = localStorage.getItem('ainow-lang') || 'mk'; } catch (e) {}
+    try {
+        saved = localStorage.getItem('ainow-lang')
+             || localStorage.getItem('ainow_lang')
+             || localStorage.getItem('language')
+             || 'mk';
+    } catch (e) {}
     if (!T[saved]) { saved = 'mk'; }
 
     document.querySelectorAll('.lang-btn').forEach(function (b) {

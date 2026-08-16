@@ -1,43 +1,80 @@
 /* AINOW landing — product chooser.
-   Tokens mirror edu/css/styles.css so the chooser reads as the same family.
 
-   Design notes:
-   - Asymmetric split rather than a centred hero. A centred stack is the
-     default everything lands on; the split gives the page an axis.
-   - Cards are nested enclosures (outer shell + inner core) rather than flat
-     rectangles, so depth comes from construction instead of a drop shadow.
-   - No webfont. The apps are offline-first and we removed Google Fonts on
-     purpose; a display face would undo that for a decorative gain. */
+   Typography is self-hosted, not linked. The previous version fell back to
+   the system UI stack to protect offline use, which is exactly what made it
+   read like a document rather than a product. Local woff2 files (88 KB
+   across six subsets) give real type AND keep the page fully offline.
+
+   Instrument Serif was the first choice and was rejected: it ships no
+   Cyrillic, so every Macedonian headline would have fallen back mid-word.
+   Playfair Display and Onest both carry full Cyrillic. */
+
+@font-face {
+    font-family: 'Playfair Display';
+    font-style: normal; font-weight: 700; font-display: swap;
+    src: url('assets/fonts/playfair-display-latin-700.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2122, U+2191, U+2193, U+2212;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    font-style: normal; font-weight: 700; font-display: swap;
+    src: url('assets/fonts/playfair-display-cyrillic-700.woff2') format('woff2');
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+    font-family: 'Onest';
+    font-style: normal; font-weight: 400; font-display: swap;
+    src: url('assets/fonts/onest-latin-400.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2122, U+2191, U+2193, U+2212;
+}
+@font-face {
+    font-family: 'Onest';
+    font-style: normal; font-weight: 400; font-display: swap;
+    src: url('assets/fonts/onest-cyrillic-400.woff2') format('woff2');
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+    font-family: 'Onest';
+    font-style: normal; font-weight: 600; font-display: swap;
+    src: url('assets/fonts/onest-latin-600.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2122, U+2191, U+2193, U+2212;
+}
+@font-face {
+    font-family: 'Onest';
+    font-style: normal; font-weight: 600; font-display: swap;
+    src: url('assets/fonts/onest-cyrillic-600.woff2') format('woff2');
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
 
 :root {
-    --bg-app: #fbfaf7;
-    --bg-shell: rgba(30, 29, 27, 0.045);
+    --bg-app: #faf8f4;
+    --bg-shell: rgba(30, 29, 27, 0.05);
     --bg-card: #ffffff;
-    --bg-body: #f5f4ef;
-    --text-primary: #1e1d1b;
+    --bg-inset: #f6f4ef;
+    --text-primary: #1a1917;
     --text-secondary: #5a5550;
-    --text-tertiary: #8b8a87;
-    --border-light: #e8e6e1;
-    --border-hover: #d2d0cb;
+    --text-tertiary: #918d86;
+    --border-light: #e9e6e0;
     --edu: #d97757;
-    --edu-light: #fcf6f4;
+    --edu-light: #fbf1ed;
     --biz: #0f766e;
-    --biz-light: #eefbf8;
+    --biz-light: #eaf7f4;
     --ease: cubic-bezier(0.32, 0.72, 0, 1);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-ui: 'Onest', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 [data-theme="dark"] {
-    --bg-app: #1b1917;
-    --bg-shell: rgba(255, 255, 255, 0.05);
-    --bg-card: #26231f;
-    --bg-body: #201d1a;
-    --text-primary: #e6e4df;
-    --text-secondary: #b0ada6;
-    --text-tertiary: #7d7b77;
-    --border-light: #3a3733;
-    --border-hover: #514d48;
-    --edu-light: rgba(217, 119, 87, 0.16);
-    --biz-light: rgba(15, 118, 110, 0.2);
+    --bg-app: #171614;
+    --bg-shell: rgba(255, 255, 255, 0.055);
+    --bg-card: #232120;
+    --bg-inset: #1d1c1a;
+    --text-primary: #ece9e4;
+    --text-secondary: #a8a49d;
+    --text-tertiary: #767370;
+    --border-light: #34312d;
+    --edu-light: rgba(217, 119, 87, 0.14);
+    --biz-light: rgba(15, 118, 110, 0.18);
 }
 
 * { box-sizing: border-box; }
@@ -49,18 +86,32 @@ body {
     flex-direction: column;
     background: var(--bg-app);
     color: var(--text-primary);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    font-family: var(--font-ui);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* Faint warm wash so the canvas is not dead flat. Fixed and
+   pointer-events-none so it never repaints on scroll. */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(60rem 32rem at 50% -12%, rgba(217, 119, 87, 0.07), transparent 65%),
+        radial-gradient(44rem 28rem at 88% 108%, rgba(15, 118, 110, 0.055), transparent 62%);
 }
 
 /* ── Top bar ─────────────────────────────────────────────────────────── */
 
 .topbar {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    padding: 20px 28px;
+    padding: 22px 30px;
 }
 
 .lang-row {
@@ -72,17 +123,17 @@ body {
 }
 
 .lang-btn {
-    padding: 6px 14px;
+    padding: 6px 15px;
     border: none;
     border-radius: 999px;
     background: transparent;
     color: var(--text-tertiary);
-    font-size: 12px;
-    font-weight: 600;
     font-family: inherit;
-    letter-spacing: 0.02em;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
     cursor: pointer;
-    transition: color 0.2s var(--ease), background 0.2s var(--ease);
+    transition: color 0.25s var(--ease), background 0.25s var(--ease);
 }
 
 .lang-btn:hover { color: var(--text-primary); }
@@ -90,7 +141,7 @@ body {
 .lang-btn.active {
     background: var(--bg-card);
     color: var(--text-primary);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .lang-btn:focus-visible { outline: 2px solid var(--edu); outline-offset: 2px; }
@@ -106,102 +157,130 @@ body {
     background: var(--bg-shell);
     color: var(--text-secondary);
     cursor: pointer;
-    transition: color 0.2s var(--ease), transform 0.2s var(--ease);
+    transition: color 0.25s var(--ease), transform 0.25s var(--ease);
 }
 
 .icon-btn:hover { color: var(--text-primary); }
-.icon-btn:active { transform: scale(0.94); }
+.icon-btn:active { transform: scale(0.93); }
 .icon-btn:focus-visible { outline: 2px solid var(--edu); outline-offset: 2px; }
 
-/* ── Split layout ────────────────────────────────────────────────────── */
+/* ── Layout ──────────────────────────────────────────────────────────── */
 
 .wrap {
+    position: relative;
     flex: 1;
     width: 100%;
-    max-width: 1140px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 32px 28px 56px;
-    display: grid;
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-    gap: 64px;
+    padding: 16px 30px 52px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-.intro { max-width: 380px; }
+.intro {
+    max-width: 520px;
+    margin-bottom: 44px;
+    text-align: center;
+}
 
-.intro-mark { color: var(--edu); margin-bottom: 22px; }
+.intro-mark {
+    color: var(--edu);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: rise 0.8s var(--ease) 0.02s forwards;
+}
 
 .intro h1 {
-    margin: 0 0 14px;
-    font-size: clamp(2.1rem, 4vw, 2.9rem);
+    margin: 0 0 12px;
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 6vw, 3.9rem);
     font-weight: 700;
-    letter-spacing: -0.035em;
-    line-height: 1.02;
+    letter-spacing: -0.025em;
+    line-height: 0.98;
+    opacity: 0;
+    animation: rise 0.8s var(--ease) 0.08s forwards;
 }
 
-.intro p {
-    margin: 0;
+.intro .tag {
+    margin: 0 auto;
     font-size: 15px;
-    line-height: 1.65;
+    line-height: 1.6;
     color: var(--text-secondary);
     max-width: 34ch;
+    opacity: 0;
+    animation: rise 0.8s var(--ease) 0.14s forwards;
 }
 
 .intro .note {
-    margin-top: 28px;
+    margin: 24px auto 0;
     padding-top: 20px;
     border-top: 1px solid var(--border-light);
     font-size: 12.5px;
     line-height: 1.6;
     color: var(--text-tertiary);
-    max-width: 40ch;
+    max-width: 44ch;
+    opacity: 0;
+    animation: rise 0.8s var(--ease) 0.2s forwards;
 }
 
-.cards { display: flex; flex-direction: column; gap: 16px; }
+@keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+    align-items: stretch;
+}
 
 /* ── Card: outer shell + inner core ──────────────────────────────────── */
 
 .card {
-    display: block;
+    display: flex;
     padding: 6px;
     border-radius: 26px;
     background: var(--bg-shell);
     text-decoration: none;
     color: inherit;
-    transition: background 0.35s var(--ease), transform 0.35s var(--ease);
     opacity: 0;
-    animation: rise 0.75s var(--ease) forwards;
+    animation: rise 0.8s var(--ease) forwards;
+    transition: background 0.4s var(--ease), transform 0.4s var(--ease);
 }
 
-.card:nth-of-type(1) { animation-delay: 0.06s; }
-.card:nth-of-type(2) { animation-delay: 0.16s; }
+.card:nth-of-type(1) { animation-delay: 0.26s; }
+.card:nth-of-type(2) { animation-delay: 0.34s; }
 
-@keyframes rise {
-    from { opacity: 0; transform: translateY(14px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-.card:hover { transform: translateY(-3px); }
+.card:hover { transform: translateY(-4px); }
 .card--edu:hover { background: var(--edu-light); }
 .card--biz:hover { background: var(--biz-light); }
 .card:active { transform: translateY(-1px) scale(0.995); }
 .card:focus-visible { outline: 2px solid var(--edu); outline-offset: 3px; }
 
+/* Flex column plus an auto margin on the CTA keeps both cards' buttons on
+   one baseline however the stat labels wrap. */
 .card-core {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     padding: 24px 24px 20px;
     border-radius: 20px;
     background: var(--bg-card);
     border: 1px solid var(--border-light);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
-[data-theme="dark"] .card-core { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05); }
+[data-theme="dark"] .card-core { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045); }
 
 .card-head {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
+    gap: 11px;
+    margin-bottom: 15px;
 }
 
 .card-icon {
@@ -209,8 +288,8 @@ body {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     border-radius: 11px;
 }
 
@@ -220,53 +299,59 @@ body {
 .card-head h2 {
     flex: 1;
     margin: 0;
-    font-size: 17px;
-    font-weight: 700;
-    letter-spacing: -0.015em;
+    font-size: 16.5px;
+    font-weight: 600;
+    letter-spacing: -0.012em;
 }
 
 .badge {
     padding: 3px 9px;
     border-radius: 999px;
-    font-size: 10px;
-    font-weight: 700;
+    font-size: 9.5px;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.09em;
     background: var(--edu-light);
     color: var(--edu);
 }
 
+.badge--biz { background: var(--biz-light); color: var(--biz); }
+
 .card-desc {
-    margin: 0 0 16px;
+    margin: 0 0 18px;
     font-size: 13px;
     line-height: 1.6;
     color: var(--text-secondary);
+    min-height: 2.6em;
 }
 
-/* Contents, as a hairline-separated data row rather than boxed stats. */
+/* Contents as an inset data strip rather than boxed stat tiles. */
 .card-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     margin: 0 0 18px;
-    padding: 0;
+    padding: 13px 4px;
     list-style: none;
-    border-top: 1px solid var(--border-light);
+    background: var(--bg-inset);
+    border-radius: 13px;
 }
 
 .card-stats li {
-    flex: 1 1 0;
-    min-width: 88px;
-    padding: 13px 12px 0 0;
-    font-size: 11.5px;
-    line-height: 1.35;
+    text-align: center;
+    padding: 0 4px;
+    font-size: 10px;
+    line-height: 1.3;
     color: var(--text-tertiary);
+    letter-spacing: 0.01em;
 }
+
+.card-stats li + li { border-left: 1px solid var(--border-light); }
 
 .card-stats b {
     display: block;
-    margin-bottom: 2px;
-    font-size: 16px;
+    margin-bottom: 3px;
+    font-family: var(--font-display);
+    font-size: 19px;
     font-weight: 700;
     letter-spacing: -0.02em;
     color: var(--text-primary);
@@ -277,10 +362,12 @@ body {
 .card-go {
     display: inline-flex;
     align-items: center;
+    align-self: flex-start;
     gap: 10px;
+    margin-top: auto;
     padding: 5px 5px 5px 16px;
     border-radius: 999px;
-    background: var(--bg-body);
+    background: var(--bg-inset);
     font-size: 12.5px;
     font-weight: 600;
 }
@@ -298,13 +385,14 @@ body {
     background: var(--bg-card);
     font-style: normal;
     font-size: 12px;
-    transition: transform 0.35s var(--ease);
+    transition: transform 0.4s var(--ease);
 }
 
 .card:hover .card-go i { transform: translateX(3px); }
 
 footer {
-    padding: 0 28px 26px;
+    position: relative;
+    padding: 0 30px 26px;
     font-size: 11.5px;
     color: var(--text-tertiary);
     text-align: center;
@@ -312,24 +400,21 @@ footer {
 
 footer a { color: inherit; }
 
-/* ── Mobile: collapse hard to a single column ────────────────────────── */
+/* ── Mobile ──────────────────────────────────────────────────────────── */
 
-@media (max-width: 900px) {
-    .wrap {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        padding: 12px 20px 40px;
-        align-items: start;
-    }
-    .intro { max-width: none; }
-    .intro h1 { font-size: 2rem; }
-    .intro .note { display: none; }
+@media (max-width: 760px) {
+    .wrap { padding: 4px 18px 36px; justify-content: flex-start; }
+    .intro { margin-bottom: 30px; }
+    .intro h1 { font-size: 2.5rem; }
+    .cards { grid-template-columns: 1fr; gap: 12px; }
     .card-core { padding: 20px; }
-    .card-stats li { min-width: 76px; }
+    .card-desc { min-height: 0; }
+    .card-stats { padding: 12px 2px; }
+    .card-stats b { font-size: 17px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { transition: none !important; animation: none !important; }
-    .card { opacity: 1; }
+    .intro-mark, .intro h1, .intro .tag, .intro .note, .card { opacity: 1; }
     .card:hover, .card:active { transform: none; }
 }
