@@ -316,9 +316,10 @@ const App = {
                     ${this._sidebarPromptSubLink('department_head', countSub(admin, 'department_head'), 'administration')}
                     ${higherEd.length ? `
                         <div class="sidebar-section-title">${t('prompts.cat.higher_ed')}</div>
-                        ${this._sidebarPromptSubLink('lecturer',         countSub(higherEd, 'lecturer'), 'higher_ed')}
-                        ${this._sidebarPromptSubLink('researcher',       countSub(higherEd, 'researcher'), 'higher_ed')}
-                        ${this._sidebarPromptSubLink('student_services', countSub(higherEd, 'student_services'), 'higher_ed')}
+                        ${this._promptSubMap.higher_ed
+                            .filter(s => s !== 'all')
+                            .map(s => this._sidebarPromptSubLink(s, countSub(higherEd, s), 'higher_ed'))
+                            .join('')}
                     ` : ''}
                     ${this._renderSidebarAILinks_prompts()}
                     ${this.renderSidebarTip('prompts')}
@@ -796,7 +797,7 @@ const App = {
     _promptSubMap: {
         teachers:       ['all', 'primary_lower', 'primary_upper', 'secondary'],
         administration: ['all', 'director', 'pedagogue', 'psychologist', 'secretary', 'department_head'],
-        higher_ed:      ['all', 'lecturer', 'researcher', 'student_services'],
+        higher_ed:      ['all', 'lecturer', 'researcher', 'doctoral', 'student_services', 'quality', 'leadership'],
     },
 
     currentPromptCategory: 'teachers',
@@ -1169,6 +1170,9 @@ const App = {
         lecturer: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
         researcher: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.31"/><path d="M14 9.3V2"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/></svg>',
         student_services: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>',
+        doctoral: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/><line x1="22" y1="7" x2="22" y2="13"/></svg>',
+        quality: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3z"/><polyline points="9 12 11 14 15 10"/></svg>',
+        leadership: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="3"/><path d="M5 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><polyline points="9 3 12 1 15 3"/></svg>',
     },
 
     _sidebarPromptSubLink(subId, count, category) {

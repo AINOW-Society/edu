@@ -2495,6 +2495,132 @@
       title: "Udhëzues bisede për mirëqenien me kufij të qartë",
       prompt: "Vepro si praktikant i mirëqenies studentore. Shkruaj një udhëzues për punonjësit e universitetit që nuk janë këshillues, por të cilëve studentët u rrëfejnë shqetësime. Mbulo: si të hapet biseda dhe çfarë të thuhet në minutën e parë; si të dëgjohet pa kaluar menjëherë te zgjidhjet; cilat fraza ndihmojnë dhe cilat fraza me qëllim të mirë e mbyllin studentin; si të vendosen qartë kufijtë e rolit tuaj pa e bërë studentin të ndihet i refuzuar; dhe si t'i dorëzohet mbështetjes profesionale ashtu që të duket urë e jo shkarkim. Përfshi shenjat që kërkojnë përshkallëzim të menjëhershëm dhe një shënim të shkurtër për kujdesin e stafit ndaj vetes pas një bisede të vështirë.",
       tags: ["mirëqenie", "mbështetje studentore", "udhëzime për stafin"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Udhëheqje departamenti",
+      title: "Shpërndarja vjetore e ngarkesës së punës",
+      prompt: "Vepro si udhëheqës me përvojë i një departamenti universitar. Ndihmomë të ndërtoj një model transparent për shpërndarjen e ngarkesës së punës për vitin e ardhshëm akademik. Do të të them numrin e stafit akademik, lëndët që duhet të realizojmë dhe angazhimet tona kërkimore e administrative. Përgatit: një model që i shndërron mësimdhënien, mentorimin, kërkimin dhe administratën në njësi të krahasueshme, me arsyetimin pas secilit shndërrim; një shpërndarje që mbrohet nëse një koleg e kundërshton; dhe një arsyetim të shkurtër me shkrim që mund ta qarkulloj. Shëno çdo person ngarkesa e të cilit duket e paqëndrueshme dhe emërto tri bisedat më të vështira që më presin, me mënyrën si ta hap secilën.",
+      tags: ["ngarkesë pune", "udhëheqje", "planifikim", "drejtësi"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Strategji",
+      title: "Strategji departamenti me buxhet realist",
+      prompt: "Vepro si këshilltar për strategji fakulteti. Ndihmomë të hartoj një strategji trevjeçare të departamentit që do t'i mbijetojë përballjes me një buxhet real. Pyetmë për numrin aktual të studentëve, stafin, të ardhurat nga kërkimi dhe dy-tri gjërat që i interesojnë më shumë udhëheqjes mbi mua. Përgatit: tri prioritete strategjike, secili me një objektiv të matshëm dhe burimin konkret që kërkon; një vlerësim të sinqertë se çfarë duhet të ndalojmë për t'i financuar; rreziqet që do të prishnin secilin prioritet; dhe versionin njëfaqësh për ta paraqitur para këshillit të fakultetit. Kundërshto çdo prioritet që në të vërtetë është dëshirë pa mekanizëm pas vetes.",
+      tags: ["strategji", "planifikim", "buxhet", "udhëheqje"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Zhvillim i stafit",
+      title: "Bisedë e vështirë për performancën",
+      prompt: "Vepro si udhëheqës akademik me përvojë dhe si trajner. Duhet të zhvilloj një bisedë të vështirë me një koleg, vlerësimet e të cilit nga studentët kanë rënë ndjeshëm, ndërsa prodhimtaria kërkimore i mbetet e fortë. Ndihmomë të përgatitem: si ta hap bisedën ashtu që të jetë për modelin dhe jo për personin; çfarë dëshmish duhet të kem përpara dhe si t'i paraqes pa u dukur si pritë; pyetjet që zbulojnë nëse shkaku është ngarkesa, rrethanat personale apo shkëputja; çfarë mund të ofroj realisht si mbështetje; dhe si të dakordohemi për hapa konkretë e të rishikueshëm. Përfshi çfarë të bëj nëse bëhet mbrojtës dhe çfarë duhet të dokumentoj më pas.",
+      tags: ["performancë", "biseda të vështira", "udhëheqje"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Qeverisje kurrikulare",
+      title: "Propozim për program të ri studimi",
+      prompt: "Vepro si udhëheqës për zhvillim kurrikular. Ndihmomë të ndërtoj argumentin për një program të ri studimi. Pyetmë për fushën e propozuar, ciklin dhe numrin e synuar të studentëve. Përgatit: dëshmi për kërkesën dhe si do ta mbështesja në vend që thjesht ta pohoja; me çfarë ndryshon programi nga ato që universitetet konkurruese ofrojnë tashmë; stafi dhe hapësirat e nevojshme, përfshirë ato që nuk i kemi; numra realistë studentësh për tri vitet e para me pikën e barazimit; dhe argumentin akademik pse kjo i takon pikërisht departamentit tonë. Ji i drejtpërdrejtë nëse propozimi duket si dublikat i një programi ekzistues ose varet nga regjistrim tepër optimist.",
+      tags: ["program studimi", "argumentim", "kurrikul"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Mbledhje",
+      title: "Mbledhje fakulteti që sjell vendime",
+      prompt: "Vepro si kryesues i njohur për mbledhje të shkurtra dhe vendimtare. Drejtoj një mbledhje mujore fakulteti me rreth 25 akademikë që zgjatet rregullisht dhe përfundon pa vendime. Riprojektoje. Përgatit: një strukturë rendi dite që i ndan pikat në informim, diskutim dhe vendim, dhe thotë qartë cila është cila; rregulla se sa kohë merr secili lloj; si të përballem me kolegun që rihap çështjet e mbyllura dhe me atë që nuk flet kurrë; çfarë duhet shpërndarë paraprakisht që mbledhja të mos harxhohet me informim; dhe një format procesverbali që regjistron vendime dhe përgjegjës, jo transkript se kush çfarë tha.",
+      tags: ["mbledhje", "kryesim", "vendimmarrje"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Menaxhim i ndryshimit",
+      title: "Prezantimi i një politike për IA para një kolegjiumi skeptik",
+      prompt: "Vepro si këshilltar për menaxhimin e ndryshimit në arsimin e lartë. Duhet të prezantoj një politikë institucionale për përdorimin e IA-së në mësimdhënie dhe vlerësim para një kolegjiumi të ndarë mes entuziastëve dhe atyre që duan ndalim të plotë. Ndihmomë ta planifikoj zbatimin: si ta kornizoj politikën ashtu që asnjë palë të mos e dëgjojë si disfatë; me cilët kolegë të konsultohem para se të bëhet publike dhe pse; kundërshtimet që pres nga secila palë me një përgjigje të sinqertë për secilën; radhën e komunikimit; dhe çfarë të pilotoj para se të detyroj çfarëdo. Më thuaj hapur cilat pjesë të kësaj ka gjasa të dështojnë dhe cili është plani rezervë.",
+      tags: ["menaxhim ndryshimi", "politikë IA", "komunikim"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Akreditim",
+      title: "Raport vetëvlerësimi për akreditim",
+      prompt: "Vepro si specialist i sigurimit të cilësisë me përvojë në akreditimin evropian të arsimit të lartë. Ndihmomë të strukturoj një raport vetëvlerësimi për një program studimi. Pyetmë cila agjenci dhe cilat standarde zbatohen dhe për cilin program bëhet fjalë. Përgatit: strukturën e raportit të përputhur me standardet përkatëse; për secilin standard, çfarë dëshmish do të presë paneli dhe në çfarë forme; dallimin mes përshkrimit dhe demonstrimit të praktikës, me nga një shembull; dhe pjesët ku programet më së shpeshti humbin besueshmërinë. Pastaj rendit dobësitë që paneli ka më shumë gjasa t'i identifikojë dhe si t'u përgjigjemi sinqerisht në vend që t'i fshehim.",
+      tags: ["akreditim", "cilësi", "vetëvlerësim", "standarde"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Procesi i Bolonjës",
+      title: "Ndarja e kredive ECTS sipas ngarkesës reale",
+      prompt: "Vepro si ekspert i Procesit të Bolonjës. Ndihmomë t'i ndaj saktë kreditë ECTS për një lëndë, bazuar në ngarkesën reale të studentit e jo në orët e kontaktit. Do të ta përshkruaj lëndën. Përgatit: një zbërthim të plotë të ngarkesës — orët e kontaktit, studimi i pavarur i udhëhequr, përgatitja për vlerësim dhe përsëritja, me orë realiste për secilën; vlerën e kredive që del dhe nëse përputhet me atë që japim tani; dhe ku vlerësimi ynë ka gjasa të gabojë sepse stafi nënvlerëson kohën që u duhet studentëve. Përfshi një metodë të shkurtër për verifikimin e vlerësimit me studentët dhe çfarë të bëj nëse lënda del dukshëm e mbingarkuar.",
+      tags: ["ECTS", "Bolonjë", "ngarkesë", "kredi"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Rishikim programi",
+      title: "Raport vjetor i monitorimit të programit",
+      prompt: "Vepro si zyrtar i cilësisë. Ndihmomë të shkruaj një raport vjetor monitorimi për një program studimi që të jetë vërtet analitik e jo thjesht një grumbull të dhënash. Do të t'i jap shifrat e kalueshmërisë, mbajtjes, arritjeve dhe kënaqësisë. Përgatit: një analizë që dallon cilat lëvizje janë kuptimplota dhe cilat janë zhurmë, duke pasur parasysh madhësinë e gjeneratës; shpjegime të besueshme për secilën ndryshim të rëndësishëm dhe çfarë dëshmish shtesë do t'i konfirmonin ose përgënjeshtronin; veprime konkrete me përgjegjës dhe afate; dhe një rishikim të sinqertë nëse veprimet e vitit të kaluar u realizuan dhe nëse dhanë efekt. Kundërshtomë nëse një ndryshim ia atribuoj një shkaku që të dhënat nuk e mbështesin.",
+      tags: ["rishikim programi", "monitorim", "analizë", "cilësi"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Vlerësim i jashtëm",
+      title: "Përgjigje ndaj raportit të vlerësuesit të jashtëm",
+      prompt: "Vepro si drejtues studimesh. Një vlerësues i jashtëm ka ngritur shqetësime për qëndrueshmërinë e notimit në një ekip të madh lënde. Ndihmomë të përgjigjem si duhet. Përgatit: si të përcaktoj nëse shqetësimi pasqyron problem real apo ndryshim në pritshmëri; çfarë dëshmish të mbledh dhe si t'i analizoj pa e kthyer në hetim; një përgjigje formale me shkrim që as nuk e hedh poshtë as nuk lëshon pe tepër; ndryshimet në praktikën e moderimit që do ta zgjidhnin vërtet; dhe si t'ia komunikoj këtë ekipit ashtu që praktika të përmirësohet pa dëmtuar besimin. Shëno cilat pjesë të përgjigjes duhet dokumentuar për auditim.",
+      tags: ["vlerësues i jashtëm", "moderim", "notim", "cilësi"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Reagime studentore",
+      title: "Veprim i besueshëm mbi rezultatet e anketave",
+      prompt: "Vepro si udhëheqës për përvojën studentore. Anketat tona për lëndët kanë përgjigje të ulët dhe komentet e lira kundërshtojnë njëra-tjetrën. Ndihmomë ta kthej këtë në diçka të përdorshme. Përgatit: si të gjykoj nëse përgjigjja e ulët i bën rezultatet të papërdorshme dhe çfarë niveli përgjigjeje na duhet realisht; si të peshoj një numër të vogël komentesh fort negative kundrejt shumicës që hesht; një metodë për identifikimin e temave që përsëriten nëpër lëndë në vend që të reagoj ndaj ankesave individuale; ndryshimet që ia vlen të bëhen dhe ato që do të ishin mbikorrigjim; dhe një komunikim 'ju thatë, ne bëmë' mjaftueshëm konkret për të qenë i besueshëm. Thuaj qartë ku të dhënat nuk mbështesin përfundim.",
+      tags: ["reagime", "anketa", "përvoja studentore"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Standarde vlerësimi",
+      title: "Kalibrim mes vlerësuesve",
+      prompt: "Vepro si udhëheqës i vlerësimit. Dizajno një ushtrim kalibrimi për një ekip prej tetë vlerësuesish që do të notojnë 400 punime sipas së njëjtës rubrikë. Përgatit: si të zgjidhen punimet mostër ashtu që të mbulojnë tërë shkallën e notave dhe të përfshijnë rastet vërtet të diskutueshme; si të drejtohet seanca ashtu që mospajtimet të dalin në sipërfaqe në vend që të shmangen me mirësjellje; çfarë të bëhet kur dy vlerësues me përvojë ndryshojnë për një klasifikim të tërë dhe asnjëri nuk lëshon; evidenca me shkrim që e bën standardin e dakorduar të përdorshëm më vonë; dhe qasja për kontrollin e qëndrueshmërisë gjatë notimit. Përfshi kohëzgjatje realiste dhe çfarë të shkurtohet nëse ka vetëm 90 minuta.",
+      tags: ["moderim", "kalibrim", "notim", "standarde"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Mentorim",
+      title: "Marrëveshje mentorimi dhe pritshmëri të ndërsjella",
+      prompt: "Vepro si specialist i arsimit doktoral. Ndihmomë të shkruaj një marrëveshje mentorimi që plotësohet bashkërisht me një doktorant të ri në muajin e parë. Mbulo: shpeshtinë e takimeve dhe kush i cakton; çfarë sjell studenti në secilin takim dhe çfarë kthej unë, me afate për reagim mbi punën e shkruar; autorësinë dhe pronësinë e të dhënave, të thëna shprehimisht e jo të nënkuptuara; si veprojmë kur nuk pajtohemi për drejtimin e punës; çfarë ndodh gjatë mungesës sime; dhe si do të rishikohet progresi. Shkruaje në gjuhë të thjeshtë që një student i vitit të parë do ta lexojë vërtet, dhe shëno cilat klauzola parandalojnë më shpesh konflikte të mëvonshme.",
+      tags: ["mentorim doktoral", "pritshmëri", "marrëveshje"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Përparim",
+      title: "Shqyrtim për kalim në statusin e plotë doktoral",
+      prompt: "Vepro si kryesues i panelit të përparimit doktoral. Ndihmomë të përgatit një shqyrtim të drejtë për një student që kalon nga regjistrimi i përkohshëm në atë të plotë doktoral. Përgatit: çfarë duhet të dorëzojë studenti dhe çfarë vlerëson realisht paneli në këtë fazë krahasuar me dorëzimin përfundimtar; pyetjet që dallojnë një projekt me kontribut të realizueshëm nga një projekt që thjesht prodhon veprimtari; si të njihet një student që punon shumë mbi problemin e gabuar; tri rezultatet e mundshme dhe kriteret për secilin; dhe si të jepet rezultati 'ende jo' ashtu që studenti të mund të rimëkëmbet. Përfshi çfarë duhet të regjistrojë paneli për të mbrojtur si studentin ashtu edhe institucionin.",
+      tags: ["përparim", "doktoraturë", "vlerësim"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Shkrim teze",
+      title: "Struktura e tezës dhe plani i shkrimit",
+      prompt: "Vepro si këshilltar për shkrimin doktoral. Studenti im ka rezultate të konsiderueshme, por prej muajsh nuk arrin të fillojë shkrimin. Ndihmomë ta ndihmoj. Përgatit: pyetje diagnostikuese që dallojnë perfeksionizmin, argumentin e paqartë dhe materialin vërtet të pamjaftueshëm, sepse secila kërkon përgjigje të ndryshme; një strukturë kapitujsh të nxjerrë nga argumenti i tezës e jo nga kronologjia e punës së bërë; një orar shkrimi me objektiva javore që parashikon se do të ketë edhe javë të këqija; detyrën e parë më të vogël të mundshme për të thyer bllokimin; dhe si duhet të jap unë reagime mbi draftet e para ashtu që të ndërtohet vrull në vend që të ndalet.",
+      tags: ["tezë", "shkrim akademik", "doktoraturë"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Mbrojtje",
+      title: "Përgatitje për mbrojtjen e tezës",
+      prompt: "Vepro si anëtar me përvojë i komisionit të mbrojtjes. Ndihmomë të përgatit një student për mbrojtje. Përgatit: pyetjet me të cilat nis pothuajse çdo mbrojtje dhe çfarë teston komisioni me secilën; sfidat konkrete që kjo tezë i fton, të cilat do t'i përshkruaj; si të mbrohet një zgjedhje metodologjike pa u bërë mbrojtës; si të pranohet një kufizim i vërtetë ashtu që të tregojë gjykim e jo dobësi; çfarë të bëjë studenti kur nuk e di përgjigjen; dhe si të zhvillohet një mbrojtje provë realiste, përfshirë sa fort të shtyhet. Shto një shënim të shkurtër për menaxhimin e ankthit në ditët para mbrojtjes.",
+      tags: ["mbrojtje", "doktoraturë", "provim"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Etika e kërkimit",
+      title: "Aplikim etik për kërkim me pjesëmarrës njerëzorë",
+      prompt: "Vepro si kryesues i komisionit të etikës së kërkimit. Ndihmomë të përgatit një aplikim etik që nuk do të kthehet për rishikim. Do të ta përshkruaj studimin. Përgatit: si të paraqitet rreziku për pjesëmarrësit në mënyrë proporcionale, pa e zvogëluar e pa e fryrë; formulimin e pëlqimit dhe fletës informuese në gjuhë që një pjesëmarrës joakademik do ta kuptojë; planin e menaxhimit dhe ruajtjes së të dhënave që komisioni pret, përfshirë anonimizimin dhe ruajtjen; çështjet specifike që dalin me pjesëmarrës të cenueshëm ose me pabarazi pushteti mes studiuesit dhe pjesëmarrësit; dhe tri arsyet më të shpeshta pse aplikimet kthehen. Më thuaj drejtpërdrejt nëse ndonjë pjesë e dizajnit tim ngre një problem etik që nuk e kam pranuar.",
+      tags: ["etikë kërkimi", "pëlqim", "mbrojtje të dhënash"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Zhvillim i studiuesve",
+      title: "Bisedë për karrierën pas doktoratës",
+      prompt: "Vepro si këshilltar për zhvillimin e studiuesve. Po këshilloj një doktorant të vitit të fundit që supozon se do të mbetet në akademi, por nuk e ka vënë kurrë në pyetje atë supozim. Strukturo bisedën: pyetjet që zbulojnë çfarë vlerëson vërtet te kërkimi, ndryshe nga ajo që beson se pritet prej tij; një pasqyrë të sinqertë të tregut akademik të punës në fushën e tij, pa e thyer dhe pa u shtirur; si përkthehen aftësitë e tij doktorale në punë jashtë akademisë, me shembuj konkretë e jo me fraza të përgjithshme për 'aftësi të transferueshme'; dy-tri rrugë që ia vlen të eksplorohen paralelisht; dhe hapat konkretë për tre muajt e ardhshëm, cilado qoftë rruga.",
+      tags: ["karrierë", "post-doktoraturë", "këshillim"]
     }
   ]
 };

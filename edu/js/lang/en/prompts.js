@@ -1907,6 +1907,132 @@
       title: "Boundaried wellbeing conversation guide",
       prompt: "Act as a student wellbeing practitioner. Write a guide for university staff who are not counsellors but who students disclose distress to. Cover: how to open the conversation and what to say in the first minute; how to listen without moving straight to solutions; the specific phrases that help and the well-meant ones that shut a student down; how to be clear about the limits of your role without the student feeling rejected; and how to hand over to professional support so it feels like a bridge rather than a dismissal. Include the warning signs that mean escalate immediately, and a short note on staff looking after themselves after a difficult disclosure.",
       tags: ["wellbeing", "student support", "safeguarding", "staff guidance"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Department Leadership",
+      title: "Annual departmental workload allocation",
+      prompt: "Act as an experienced head of an academic department. Help me build a transparent workload allocation model for the coming academic year. I will tell you the number of academic staff, the modules we must deliver, and our research and administrative commitments. Produce: a workload model that converts teaching, supervision, research, and administration into comparable units, with the reasoning behind each conversion; an allocation that is defensible if a colleague challenges it; and a short written rationale I can circulate. Flag any individual whose allocation looks unsustainable, and name the three conversations most likely to be difficult, with how to open each.",
+      tags: ["workload", "department leadership", "planning", "fairness"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Strategy",
+      title: "Departmental strategy on a realistic budget",
+      prompt: "Act as a faculty strategy adviser. Help me draft a three-year departmental strategy that will survive contact with an actual budget. Ask me for our current student numbers, staffing, research income, and the two or three things leadership above me cares most about. Produce: three strategic priorities, each with a measurable target and the specific resource it requires; an honest assessment of what we must stop doing to fund them; the risks that would derail each priority; and the one-page version I can present to a faculty board. Challenge any priority that is really an aspiration with no mechanism behind it.",
+      tags: ["strategy", "planning", "budget", "leadership"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Staff Development",
+      title: "Difficult performance conversation with an academic",
+      prompt: "Act as an experienced academic leader and coach. I need to have a difficult conversation with a colleague whose teaching evaluations have declined sharply while their research output remains strong. Help me prepare: how to open the conversation so it is about the pattern and not the person; the evidence I should have in front of me and how to present it without it feeling like an ambush; the questions that surface whether the cause is workload, personal circumstances, or disengagement; what I can realistically offer as support; and how to agree concrete, reviewable actions. Include what to do if they become defensive, and what I must document afterwards.",
+      tags: ["performance", "difficult conversations", "leadership", "staff"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Curriculum Governance",
+      title: "New programme proposal and business case",
+      prompt: "Act as a curriculum development lead. Help me build the case for a new degree programme. Ask me for the proposed subject, level, and target intake. Produce: evidence of demand and how I would substantiate it rather than assert it; how the programme differs from what competitor institutions already offer; the staffing and facilities required, including what we do not currently have; a realistic first three years of student numbers with the break-even point; and the academic case for why this belongs in our department specifically. Be direct if the proposal looks like it duplicates existing provision or depends on optimistic recruitment.",
+      tags: ["programme design", "business case", "curriculum", "governance"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Meetings",
+      title: "Faculty meeting that produces decisions",
+      prompt: "Act as a chair with a reputation for short, decisive meetings. I run a monthly faculty meeting of about 25 academics that routinely overruns and ends without decisions. Redesign it. Produce: an agenda structure that separates items for information, discussion, and decision, and states which is which; a rule set for how long each type gets; how to handle the colleague who reopens settled matters and the one who never speaks; what should be circulated beforehand so the meeting is not spent on briefing; and a minute format that records decisions and owners rather than a transcript of who said what.",
+      tags: ["meetings", "chairing", "governance", "decision-making"]
+    },
+    {
+      subcategory: "leadership",
+      subject: "Change Management",
+      title: "Introducing an AI policy to a sceptical faculty",
+      prompt: "Act as a change management adviser working in higher education. I need to introduce an institutional policy on AI use in teaching and assessment to a faculty that is split between enthusiasts and people who want it banned outright. Help me plan the rollout: how to frame the policy so neither camp hears it as a defeat; which colleagues to consult before it becomes public and why; the objections I should expect from each camp with an honest response to each; the sequence of communication; and what to pilot before mandating anything. Tell me plainly which parts of this are likely to fail and what the fallback is.",
+      tags: ["change management", "AI policy", "faculty", "communication"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Accreditation",
+      title: "Self-evaluation report for accreditation",
+      prompt: "Act as a quality assurance specialist experienced with European higher education accreditation. Help me structure a programme self-evaluation report. Ask me which agency and standards apply, and the programme under review. Produce: the report structure mapped to the relevant standards; for each standard, what evidence the panel will expect and what form it should take; the difference between describing practice and demonstrating it, with an example of each; and the sections where programmes most often lose credibility. Then list the weaknesses a panel is most likely to identify and how to address them honestly rather than conceal them.",
+      tags: ["accreditation", "quality assurance", "self-evaluation", "standards"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Bologna Process",
+      title: "ECTS credit allocation and student workload",
+      prompt: "Act as a Bologna Process expert. Help me allocate ECTS credits to a module properly, based on actual student workload rather than contact hours. I will describe the module. Produce: a full workload breakdown covering contact time, guided independent study, assessment preparation, and revision, with realistic hours for each; the resulting credit value and whether it matches what we currently award; and where our estimate is likely to be wrong because staff underestimate how long students take. Include a short method for validating the estimate with students, and what to do if the module turns out to be significantly over-loaded.",
+      tags: ["ECTS", "Bologna", "workload", "credits"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Programme Review",
+      title: "Annual programme monitoring report",
+      prompt: "Act as a quality officer. Help me write an annual monitoring report for a degree programme that is genuinely analytical rather than a data dump. I will give you the progression, retention, attainment, and satisfaction figures. Produce: an analysis that identifies which movements are meaningful and which are noise given our cohort size; plausible explanations for each significant change and what further evidence would confirm or refute them; specific actions with owners and deadlines; and an honest review of whether last year's actions were completed and whether they worked. Push back if I attribute a change to a cause the data does not support.",
+      tags: ["programme review", "monitoring", "data analysis", "quality"]
+    },
+    {
+      subcategory: "quality",
+      subject: "External Examining",
+      title: "Responding to an external examiner report",
+      prompt: "Act as a director of studies. An external examiner has raised concerns about marking consistency across a large module team. Help me respond properly. Produce: how to establish whether the concern reflects a real problem or a difference in expectation; the evidence to gather and how to analyse it without turning it into an inquisition; a formal written response that neither dismisses nor over-concedes; the changes to moderation practice that would actually address it; and how to communicate this to the module team so it improves practice rather than damaging trust. Note which parts of the response must be documented for audit.",
+      tags: ["external examiner", "moderation", "marking", "quality"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Student Feedback",
+      title: "Acting on student survey results credibly",
+      prompt: "Act as a student experience lead. Our module surveys have low response rates and the free-text comments contradict each other. Help me turn this into something usable. Produce: how to judge whether a low response rate makes the results unusable, and what response rate we actually need; how to weigh a small number of strongly negative comments against a silent majority; a method for identifying the themes that recur across modules rather than reacting to individual complaints; the changes worth making and those that would be over-correction; and a 'you said, we did' communication that is specific enough to be believed. Say clearly where the data cannot support a conclusion.",
+      tags: ["student feedback", "surveys", "student experience", "evaluation"]
+    },
+    {
+      subcategory: "quality",
+      subject: "Assessment Standards",
+      title: "Cross-marker moderation and calibration exercise",
+      prompt: "Act as an assessment lead. Design a calibration exercise for a team of eight markers who will grade 400 scripts against the same rubric. Produce: how to select the sample scripts so they span the grade range and include the genuinely ambiguous cases; how to run the session so disagreements are surfaced rather than politely avoided; what to do when two experienced markers differ by a full classification and neither will move; the written record that makes the agreed standard usable later; and the sampling approach for checking consistency once marking is underway. Include realistic timings and what to cut if only 90 minutes are available.",
+      tags: ["moderation", "calibration", "marking", "assessment standards"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Supervision",
+      title: "Doctoral supervision agreement and expectations",
+      prompt: "Act as a doctoral education specialist. Help me write a supervision agreement to be completed jointly with a new PhD student in the first month. Cover: meeting frequency and who schedules them; what the student brings to each meeting and what I return, with turnaround times for feedback on written work; authorship and data ownership, stated explicitly rather than assumed; how we handle disagreement about the direction of the work; what happens during my absence or leave; and how progress will be reviewed. Write it in plain language a first-year student will actually read, and note which clauses most often prevent later conflict.",
+      tags: ["doctoral supervision", "PhD", "expectations", "agreement"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Progression",
+      title: "Doctoral upgrade or confirmation review",
+      prompt: "Act as a doctoral progression panel chair. Help me prepare a fair upgrade review for a student moving from provisional to full doctoral registration. Produce: what the student should submit and what the panel is genuinely assessing at this stage as opposed to at submission; the questions that distinguish a project with a viable contribution from one that is merely busy; how to identify a student who is working hard on the wrong problem; the three possible outcomes and the criteria for each; and how to deliver a 'not yet' outcome so the student can recover from it. Include what the panel must record to protect both student and institution.",
+      tags: ["upgrade", "progression", "doctoral", "assessment"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Thesis Writing",
+      title: "Thesis structure and writing plan",
+      prompt: "Act as a doctoral writing adviser. My student has substantial results but has been unable to start writing for months. Help me help them. Produce: a diagnostic set of questions to distinguish perfectionism, an unclear argument, and genuinely insufficient material, because each needs a different response; a chapter structure derived from the thesis argument rather than from the chronology of the work done; a writing schedule with weekly targets that assumes bad weeks will happen; the smallest possible first task to break the block; and how I should give feedback on early drafts so it builds momentum instead of stopping it.",
+      tags: ["thesis", "academic writing", "doctoral", "writing block"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Viva Preparation",
+      title: "Mock viva and defence preparation",
+      prompt: "Act as an experienced doctoral examiner. Help me prepare a student for their viva. Produce: the questions almost every viva opens with and what examiners are actually testing with each; the specific challenges this thesis invites, which I will describe to you; how to defend a methodological choice without becoming defensive; how to concede a genuine limitation in a way that demonstrates judgement rather than weakness; what to do when the student does not know an answer; and how to run a realistic mock viva, including how hard to push. Add a short note on managing nerves in the days before.",
+      tags: ["viva", "defence", "doctoral", "examination"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Research Ethics",
+      title: "Ethics application for research with human participants",
+      prompt: "Act as a research ethics committee chair. Help me prepare an ethics application that will not be returned for revision. I will describe my study. Produce: how to state the risk to participants proportionately, neither minimising nor inflating it; consent and information sheet wording in language a non-academic participant will understand; the data management and retention plan the committee expects, including anonymisation and storage; the specific issues that arise with vulnerable participants or unequal power between researcher and participant; and the three most common reasons applications are sent back. Tell me directly if any part of my design raises an ethical problem I have not acknowledged.",
+      tags: ["research ethics", "consent", "data protection", "doctoral"]
+    },
+    {
+      subcategory: "doctoral",
+      subject: "Researcher Development",
+      title: "Post-doctoral career planning conversation",
+      prompt: "Act as a researcher development adviser. I am advising a final-year doctoral student who assumes they will stay in academia but has not examined that assumption. Structure the conversation: the questions that surface what they actually value about research, as distinct from what they believe is expected of them; an honest account of academic job market realities in their field without either crushing them or pretending; how their doctoral skills translate to work outside academia, with concrete examples rather than generic 'transferable skills' language; two or three routes worth exploring in parallel; and the specific actions for the next three months whichever route they choose.",
+      tags: ["career development", "post-doc", "doctoral", "advising"]
     }
   ]
 };
