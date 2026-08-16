@@ -9,6 +9,34 @@ function escapeHtml(str) {
         .replace(/'/g, '&#39;');
 }
 
+// One glyph per concept. Before this the same idea was drawn differently
+// depending on where you stood — prompts had four icons, the guide three —
+// so an icon carried no meaning and the app read as visually noisy.
+// Add a concept here rather than inlining another SVG somewhere.
+const ICONS = {
+    guide:     '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+    prompts:   '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+    tools:     '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
+    glossary:  '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
+    resources: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>',
+    tests:     '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
+    homework:  '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/>',
+    handouts:  '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
+    prompt_lists: '<line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>',
+    all:       '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+    // School levels
+    primary:          '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
+    secondary_school: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
+    higher_ed:        '<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>',
+};
+
+function icon(name, size = 20) {
+    const body = ICONS[name];
+    if (!body) return '';
+    return `<svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${body}</svg>`;
+}
+
 const App = {
     currentView: 'home',
     theme: 'light',
@@ -128,6 +156,7 @@ const App = {
 
         if (viewId === 'home') {
             delete this._scrollPositions['home'];
+            this._renderHomeCards();
             this._renderHomeStats();
         } else if (viewId === 'guide') {
             const activeItem = document.querySelector('.sb-sub.active');
@@ -734,6 +763,44 @@ const App = {
         }
     },
 
+    // Two bands, because the cards are two different kinds of thing:
+    // destinations you navigate to, and formats the Resources builder makes.
+    _homeCards: {
+        learn: [
+            { id: 'guide',    icon: 'guide',    action: "App.switchView('guide')" },
+            { id: 'prompts',  icon: 'prompts',  action: "App.switchView('prompts')" },
+            { id: 'tools',    icon: 'tools',    action: "App.switchView('tools')" },
+            { id: 'glossary', icon: 'glossary', action: "App.switchView('glossary')" },
+        ],
+        create: [
+            { id: 'tests',        icon: 'tests',        action: "App.openResourcesWidget('tests')" },
+            { id: 'homework',     icon: 'homework',     action: "App.openResourcesWidget('homework')" },
+            { id: 'handouts',     icon: 'handouts',     action: "App.openResourcesWidget('guide')" },
+            { id: 'prompt_lists', icon: 'prompt_lists', action: "App.openResourcesWidget('prompts')" },
+        ],
+    },
+
+    _renderHomeCards() {
+        const t = (k) => I18n.t(k);
+        const build = (list, compact) => list.map(c => `
+            <div class="home-feature-card ${compact ? 'home-feature-card--compact' : ''}"
+                 role="button" tabindex="0" onclick="${c.action}"
+                 onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                <div class="card-icon">${icon(c.icon, compact ? 20 : 22)}</div>
+                <div class="home-card-text">
+                    <h3>${t('card.' + c.id + '.title')}</h3>
+                    ${compact ? '' : `<p>${t('card.' + c.id + '.desc')}</p>`}
+                </div>
+                <span class="card-arrow" aria-hidden="true">→</span>
+            </div>
+        `).join('');
+
+        const learn = document.getElementById('home-grid-learn');
+        const create = document.getElementById('home-grid-create');
+        if (learn) learn.innerHTML = build(this._homeCards.learn, false);
+        if (create) create.innerHTML = build(this._homeCards.create, true);
+    },
+
     _renderHomeStats() {
         const bar = document.getElementById('home-stat-bar');
         if (!bar) return;
@@ -851,18 +918,9 @@ const App = {
     // _levelOf(). Administration is level-agnostic and appears under both
     // Основно and Средно from a single stored copy.
     _promptCategories: [
-        {
-            id: 'primary',
-            icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>'
-        },
-        {
-            id: 'secondary_school',
-            icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>'
-        },
-        {
-            id: 'higher_ed',
-            icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>'
-        },
+        { id: 'primary',          icon: icon('primary') },
+        { id: 'secondary_school', icon: icon('secondary_school') },
+        { id: 'higher_ed',        icon: icon('higher_ed') },
     ],
 
     _promptSubMap: {
