@@ -38,3 +38,4 @@ data.json
 
 # Local release helper
 release-v094.ps1
+RELEASE-NOTES-v0.94.md
