@@ -330,12 +330,15 @@ const App = {
                             </svg>
                         </button>
                         <div class="sb-group-body">
-                            <button class="sb-sub ${activeCat === c.id && (this.currentPromptSubcategory || 'all') === 'all' ? 'active' : ''}"
-                                    onclick="App.switchPromptSubcategory('all', '${c.id}')">
-                                <span class="sb-sub-label">${t('prompts.sub.all')}</span>
-                                <span class="sb-sub-count">${pool.length}</span>
-                            </button>
-                            ${links}
+                            <div class="sb-group-inner">
+                                <button class="sb-sub ${activeCat === c.id && (this.currentPromptSubcategory || 'all') === 'all' ? 'active' : ''}"
+                                        onclick="App.switchPromptSubcategory('all', '${c.id}')">
+                                    <span class="sb-sub-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+                                    <span class="sb-sub-label">${t('prompts.sub.all')}</span>
+                                    <span class="sb-sub-count">${pool.length}</span>
+                                </button>
+                                ${links}
+                            </div>
                         </div>
                     </div>`;
             }).join('');
