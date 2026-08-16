@@ -52,7 +52,10 @@ We have prepared a comprehensive **[Contribution Guide](CONTRIBUTING.md)** that 
 ## Changelog
 
 ### v0.94 (August 16, 2026)
-- **Two products, one platform:** The site root is now a chooser between **Education** and **Business**. The education app moves to `/edu/` and keeps every feature, its offline behavior, and its free licence unchanged. Business ships in a later release.
+- **Two products, one platform:** The site root is now a chooser between **Education** and **Business**. The education app moves to `/edu/` and keeps every feature, its offline behavior, and its free licence unchanged.
+- **Business (`/biz/`):** The AINOW Prompt Library joins the platform with Prompts, Agents, Situations, Playbooks and Builder, in MK/EN/SQ, in its own indigo accent (`#4F46E5`).
+- **Business runs with no build step.** It was a React + Vite app; Vite is gone and its ES modules are converted to classic scripts, so `biz/index.html` opens by double-click from a USB stick with no server and no internet — the same promise the education app has always made. React and htm are unchanged; only module resolution differs.
+- **Business trimmed for scope:** dropped the Lab and its 6 tools (including the Readiness Assessment), Bosnian and Serbian, external Google Fonts, and 898 lines of orphaned PDF-export code.
 - **PWA migration:** `start_url` and `scope` retargeted to `/edu/`; the service worker precache list rewritten from root-absolute to relative paths. A root-scope cleanup worker evicts stale `ai-edu-v0.93` caches from already-installed devices, then unregisters itself. The landing page redirects to `/edu/` when launched in standalone mode, so existing home-screen icons still open the app.
 - **Path-aware 404:** Unmatched URLs under `/edu/` now return to the education app instead of the chooser.
 - **Social preview fix:** `og:image` and `twitter:image` pointed at `/assets/ainow.png`, which the relocation invalidated; both now resolve.
