@@ -18,19 +18,11 @@ const Router = {
             return;
         }
 
-        document.querySelectorAll('.sidebar-item').forEach(el => {
-            el.classList.remove('active');
-            el.style.borderLeft = '3px solid transparent';
-            el.style.background = 'transparent';
-            el.style.color = 'var(--text-primary)';
-        });
+        // Active state is a class now rather than inline styles — the sidebar
+        // owns its own appearance in CSS.
+        document.querySelectorAll('.sb-sub').forEach(el => el.classList.remove('active'));
         const activeSidebarItem = document.getElementById(`sidebar-${sectionId}`);
-        if (activeSidebarItem) {
-            activeSidebarItem.classList.add('active');
-            activeSidebarItem.style.borderLeft = '3px solid var(--primary)';
-            activeSidebarItem.style.background = 'var(--primary-light)';
-            activeSidebarItem.style.color = 'var(--primary)';
-        }
+        if (activeSidebarItem) activeSidebarItem.classList.add('active');
 
         if (window.App && App._guideCategoryMap) {
             for (const [catId, ids] of Object.entries(App._guideCategoryMap)) {

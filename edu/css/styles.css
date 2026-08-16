@@ -6004,3 +6004,40 @@ select:focus-visible {
     .sb-sub { transition: none; }
     .sb-sub:hover { transform: none; }
 }
+
+/* Flat sidebars (tools, glossary) reuse the row styling without groups. */
+.sb-flat {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.sb-flat .sb-sub { padding: 8px 10px; font-size: 13px; }
+.sb-flat .sb-sub-icon svg { width: 15px; height: 15px; }
+.sb-flat .sb-sub.active::before { display: none; }
+
+/* Guide chapters are numbered rather than icon-led. */
+.sb-sub-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 19px;
+    height: 19px;
+    border-radius: 6px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-tertiary);
+    font-variant-numeric: tabular-nums;
+    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.sb-sub:hover .sb-sub-num { border-color: var(--border-hover); color: var(--text-secondary); }
+
+.sb-sub.active .sb-sub-num {
+    background: var(--primary);
+    border-color: transparent;
+    color: #fff;
+}

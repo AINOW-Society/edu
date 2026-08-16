@@ -130,7 +130,7 @@ const App = {
             delete this._scrollPositions['home'];
             this._renderHomeStats();
         } else if (viewId === 'guide') {
-            const activeItem = document.querySelector('.sidebar-item.active');
+            const activeItem = document.querySelector('.sb-sub.active');
             let targetSection = DOCS_DATA[0] ? DOCS_DATA[0].id : 'intro';
             if (activeItem && activeItem.id && activeItem.id.startsWith('sidebar-')) {
                 targetSection = activeItem.id.replace('sidebar-', '');
@@ -233,41 +233,55 @@ const App = {
                 reference:   '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
             };
 
-            const activeEl = document.querySelector('.sidebar-item.active');
-            let activeSection = activeEl && activeEl.id ? activeEl.id.replace('sidebar-', '') : null;
+            const activeEl = document.querySelector('.sb-sub.active');
+            const activeSection = activeEl && activeEl.id ? activeEl.id.replace('sidebar-', '') : null;
 
-            html = '<div class="sidebar-menu">';
+            // Same group pattern as prompts: one collapsible group per guide
+            // part, chapters nested beneath, only the current part open.
+            const groups = ['foundations', 'practice', 'reference'].map(cId => {
+                const chapterIds = this._guideCategoryMap[cId] || [];
+                const chapters = (typeof DOCS_DATA !== 'undefined')
+                    ? chapterIds.map(id => DOCS_DATA.find(s => s.id === id)).filter(Boolean)
+                    : [];
+                if (!chapters.length) return '';
+                const open = cat === cId;
 
-            ['foundations', 'practice', 'reference'].forEach(cId => {
-                const isActive = cat === cId;
-                html += `
-                    <div class="sidebar-item ${isActive ? 'active' : ''}" onclick="App.switchGuideCategory('${cId}'); App.renderSidebarCtx('guide');">
-                        <div class="sidebar-item-icon">${catIcons[cId]}</div>
-                        <span class="sidebar-item-label">${t('guide.cat.' + cId)}</span>
+                const rows = chapters.map((section, idx) => {
+                    const key = 'guide.section.' + section.id;
+                    const translated = t(key);
+                    const label = (translated !== key) ? translated : section.title.replace(/^[IVX]+\.\s*/, '');
+                    const isActive = section.id === activeSection;
+                    return `
+                        <button class="sb-sub ${isActive ? 'active' : ''}" id="sidebar-${section.id}"
+                                onclick="Router.renderContent('${section.id}')">
+                            <span class="sb-sub-num" aria-hidden="true">${idx + 1}</span>
+                            <span class="sb-sub-label">${label}</span>
+                        </button>`;
+                }).join('');
+
+                return `
+                    <div class="sb-group ${open ? 'open' : ''}">
+                        <button class="sb-group-head ${open ? 'current' : ''}"
+                                aria-expanded="${open ? 'true' : 'false'}"
+                                onclick="App.switchGuideCategory('${cId}'); App.renderSidebarCtx('guide');">
+                            <span class="sb-group-icon" aria-hidden="true">${catIcons[cId]}</span>
+                            <span class="sb-group-label">${t('guide.cat.' + cId)}</span>
+                            <span class="sb-group-count">${chapters.length}</span>
+                            <svg class="sb-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                 stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="sb-group-body"><div class="sb-group-inner">${rows}</div></div>
                     </div>`;
-            });
+            }).join('');
 
-            if (typeof DOCS_DATA !== 'undefined') {
-                const chapterIds = this._guideCategoryMap[cat] || [];
-                const chapters = chapterIds.map(id => DOCS_DATA.find(s => s.id === id)).filter(Boolean);
-                if (chapters.length) {
-                    html += `<div class="sidebar-section-title">${t('guide.toc.chapters') || 'Поглавја'}</div>`;
-                    chapters.forEach((section, idx) => {
-                        const i18nKey = 'guide.section.' + section.id;
-                        const translated = t(i18nKey);
-                        const label = (translated !== i18nKey) ? translated : section.title.replace(/^[IVX]+\.\s*/, '');
-                        const isChapterActive = section.id === activeSection;
-                        html += `
-                            <div class="sidebar-item sidebar-chapter-item ${isChapterActive ? 'active' : ''}" id="sidebar-${section.id}"
-                                 onclick="Router.renderContent('${section.id}')">
-                                <div class="sidebar-item-icon sidebar-chapter-num">${idx + 1}</div>
-                                <span class="sidebar-item-label sidebar-chapter-label">${label}</span>
-                            </div>`;
-                    });
-                }
-            }
-
-            html += `${this.renderSidebarTip(viewId)}</div>`;
+            html = `
+                <div class="sidebar-ctx-wrap">
+                    <div class="sb-section-label">${t('nav.guide')}</div>
+                    ${groups}
+                </div>
+            `;
         } else if (viewId === 'tools') {
             const categories = [
                 { id: 'all', title: I18n.t('tools.cat.all'), icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="8"/></svg>' },
@@ -282,17 +296,30 @@ const App = {
                 { id: 'students', title: I18n.t('tools.cat.students'), icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' }
             ];
 
-            html = '<div class="sidebar-menu">';
-            categories.forEach(cat => {
-                const isActive = (this.currentToolCategory || 'all') === cat.id;
-                html += `
-                    <div class="sidebar-item ${isActive ? 'active' : ''}" onclick="App.filterTools('${cat.id}')">
-                        <div class="sidebar-item-icon">${cat.icon}</div>
-                        <span class="sidebar-item-label">${cat.title}</span>
-                    </div>
-                `;
-            });
-            html += `${this._renderSidebarAILinks_tools()}${this.renderSidebarTip(viewId)}</div>`;
+            // Flat list — tool categories have no sub-levels, so rows without
+            // groups, using the same row styling as the other sidebars.
+            const current = this.currentToolCategory || 'all';
+            const rows = categories.map(cat => {
+                const n = cat.id === 'all'
+                    ? this._toolsData.length
+                    : this._toolsData.filter(x => x.category === cat.id).length;
+                if (!n) return '';
+                return `
+                    <button class="sb-sub ${current === cat.id ? 'active' : ''}"
+                            onclick="App.filterTools('${cat.id}')">
+                        <span class="sb-sub-icon" aria-hidden="true">${cat.icon}</span>
+                        <span class="sb-sub-label">${cat.title}</span>
+                        <span class="sb-sub-count">${n}</span>
+                    </button>`;
+            }).join('');
+
+            html = `
+                <div class="sidebar-ctx-wrap">
+                    <div class="sb-section-label">${I18n.t('nav.tools')}</div>
+                    <div class="sb-flat">${rows}</div>
+                    ${this._renderSidebarAILinks_tools()}
+                </div>
+            `;
 
             this.renderTools(this.currentToolCategory || 'all');
         } else if (viewId === 'prompts') {
@@ -387,16 +414,28 @@ const App = {
                 { id: 'prompts', label: t('glossary.cat.prompts'), icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' },
             ];
             const cur = this.currentGlossaryCat || 'all';
-            html = '<div class="sidebar-menu">';
-            cats.forEach(c => {
-                const isActive = cur === c.id;
-                html += `
-                    <div class="sidebar-item ${isActive ? 'active' : ''}" onclick="App.setGlossaryCat('${c.id}')">
-                        <div class="sidebar-item-icon">${c.icon}</div>
-                        <span class="sidebar-item-label">${c.label}</span>
-                    </div>`;
-            });
-            html += `${this.renderSidebarTip('glossary')}</div>`;
+            const lang = I18n.currentLang || I18n.lang || 'mk';
+            const terms = (typeof GLOSSARY_DATA !== 'undefined')
+                ? (GLOSSARY_DATA[lang] || GLOSSARY_DATA.mk || [])
+                : [];
+            const rows = cats.map(c => {
+                const n = c.id === 'all' ? terms.length : terms.filter(x => x.category === c.id).length;
+                if (!n) return '';
+                return `
+                    <button class="sb-sub ${cur === c.id ? 'active' : ''}"
+                            onclick="App.setGlossaryCat('${c.id}')">
+                        <span class="sb-sub-icon" aria-hidden="true">${c.icon}</span>
+                        <span class="sb-sub-label">${c.label}</span>
+                        <span class="sb-sub-count">${n}</span>
+                    </button>`;
+            }).join('');
+
+            html = `
+                <div class="sidebar-ctx-wrap">
+                    <div class="sb-section-label">${t('nav.glossary')}</div>
+                    <div class="sb-flat">${rows}</div>
+                </div>
+            `;
         } else {
             html = `
                 <div class="sidebar-ctx-wrap">
@@ -1246,7 +1285,7 @@ const App = {
         });
 
         let activeChapterId = null;
-        const activeEl = document.querySelector('.sidebar-item.active');
+        const activeEl = document.querySelector('.sb-sub.active');
         if (activeEl && activeEl.id && activeEl.id.startsWith('sidebar-')) {
             activeChapterId = activeEl.id.replace('sidebar-', '');
         }
