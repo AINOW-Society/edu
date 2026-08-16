@@ -3,6 +3,7 @@ const CACHE_NAME = 'ainow-biz-v0.94';
 // Generated from the file tree. Regenerate when files are added or removed.
 const ASSETS = [
   './',
+  './about.html',
   './agents.html',
   './assets/logo-placeholder.png',
   './assets/preview.png',
@@ -22,7 +23,6 @@ const ASSETS = [
   './data/data-creative.js',
   './data/data-cybersecurity.js',
   './data/data-dataanalysis.js',
-  './data/data-education.js',
   './data/data-finance.js',
   './data/data-gov.js',
   './data/data-health.js',
@@ -62,6 +62,7 @@ const ASSETS = [
   './playbooks.html',
   './src/ErrorBoundary.js',
   './src/StaticPages.js',
+  './src/about.js',
   './src/agents.js',
   './src/builder.js',
   './src/components.js',

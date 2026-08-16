@@ -31,7 +31,6 @@ const embeddedPromptsData = {
     finance: () => AINOW.loadScript('data/data-finance.js'),
     ngo: () => AINOW.loadScript('data/data-ngo.js'),
     medicine: () => AINOW.loadScript('data/data-medicine.js'),
-    education: () => AINOW.loadScript('data/data-education.js'),
     creative: () => AINOW.loadScript('data/data-creative.js'),
     health: () => AINOW.loadScript('data/data-health.js'),
     sustainability: () => AINOW.loadScript('data/data-sustainability.js'),

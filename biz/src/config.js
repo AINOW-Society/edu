@@ -1,7 +1,7 @@
 (function () {
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['src/config'] = AINOW['src/config'] || {};
-const { BookOpen, Globe, Briefcase, PenTool, Megaphone, Code, GraduationCap, HeartPulse, Sparkles, Heart, Cpu, Search, List, Wand2, Building2, Settings, GitMerge, Hammer, HeartHandshake, Stethoscope, Scale, Landmark, Shield, TrendingUp, Home, FlaskConical, Brain, Leaf, Layers, Users, Truck, BarChart3, Binary, UserCog, Library, Zap, Newspaper, Palette, Utensils, Wheat } = lucide;
+const { BookOpen, Globe, Briefcase, PenTool, Megaphone, Code, GraduationCap, HeartPulse, Sparkles, Heart, Cpu, Search, List, Wand2, Building2, Settings, GitMerge, Hammer, HeartHandshake, Stethoscope, Scale, Landmark, Shield, TrendingUp, Home, FlaskConical, Brain, Leaf, Layers, Users, Truck, BarChart3, Binary, UserCog, Library, Zap, Newspaper, Palette, Utensils, Wheat, Info } = lucide;
 
 
 
@@ -18,7 +18,6 @@ const CATEGORY_CONFIG = [
   { id: 'creativevisual', nameKey: 'categories.creativevisual', icon: Palette },
   { id: 'cybersecurity', nameKey: 'categories.cybersecurity', icon: Shield },
   { id: 'dataanalysis', nameKey: 'categories.dataanalysis', icon: BarChart3 },
-  { id: 'education', nameKey: 'categories.education', icon: GraduationCap },
   { id: 'finance', nameKey: 'categories.finance', icon: Landmark },
   { id: 'gov', nameKey: 'categories.gov', icon: Building2 },
   { id: 'health', nameKey: 'categories.health', icon: HeartPulse },
@@ -91,7 +90,8 @@ const NAV_CONFIG = [
     { href: 'index.html', labelKey: 'nav.prompts', icon: BookOpen, id: 'prompts' },
     { href: 'agents.html', labelKey: 'nav.agents', icon: Cpu, id: 'agents' },
     { href: 'playbooks.html', labelKey: 'nav.situations', icon: Sparkles, id: 'playbooks' },
-    { href: 'builder.html', labelKey: 'nav.builder', icon: Hammer, id: 'builder' }
+    { href: 'builder.html', labelKey: 'nav.builder', icon: Hammer, id: 'builder' },
+    { href: 'about.html', labelKey: 'nav.about', icon: Info, id: 'about' }
 ];
 
 const NAV_LINKS = NAV_CONFIG.map(n => ({...n, label: n.id}));

@@ -12,7 +12,6 @@ const promptCounts = {
     creativevisual: 100,
     cybersecurity: 100,
     dataanalysis: 100,
-    education: 100, 
     finance: 100,
     gov: 100,
     hospitality: 100,

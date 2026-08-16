@@ -182,14 +182,6 @@ const GUIDE_NAV = [
     { id: 'faq',             labelKey: 'help.toc.faq',             icon: HelpCircle },
 ];
 
-const PLATFORM_NAV = [
-    { id: 'about',          labelKey: 'resources.nav.about',          icon: Info },
-    { id: 'documents',      labelKey: 'resources.nav.ethical_ai',     icon: ShieldCheck },
-    { id: 'services',       labelKey: 'resources.nav.services',       icon: Briefcase },
-    { id: 'partners',       labelKey: 'resources.nav.partners',       icon: Users },
-    { id: 'policies',       labelKey: 'resources.nav.privacy',        icon: Shield },
-    { id: 'accessibility',  labelKey: 'resources.nav.accessibility',  icon: Keyboard },
-];
 
 // ─── Shared Doc Components ────────────────────────────────────────────────────
 const DocSection = ({ title, icon: Icon, children }) => html`
@@ -494,17 +486,6 @@ const PageNav = ({ currentHash, t, onClose }) => {
                     `guide-${item.id}`,
                     `#/guide/${item.id}`,
                     isGuideActive(item.id),
-                    item.icon,
-                    t(item.labelKey)
-                ))}
-            </nav>
-            <div className="border-t border-mist dark:border-slate-800 my-4"></div>
-            <p className="text-[10px] font-black text-stone-light uppercase tracking-widest mb-3 px-3">${t('resources.sidebar.platform_section')}</p>
-            <nav className="space-y-0.5">
-                ${PLATFORM_NAV.map(item => navItem(
-                    `page-${item.id}`,
-                    `#/page/${item.id}`,
-                    isPageActive(item.id),
                     item.icon,
                     t(item.labelKey)
                 ))}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AINOW OS | About</title>
+  <link rel="icon" href="assets/logo-placeholder.png" type="image/png">
+
+  <link rel="canonical" href="https://edu.ainow.mk/biz/about.html">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AI Field Guide & Prompting 101",
+      "operatingSystem": "Any",
+      "applicationCategory": "ProductivityApplication",
+      "url": "https://edu.ainow.mk/biz/help.html",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Suad Seferi",
+        "url": "https://www.ainow.mk"
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Suad Seferi"
+      },
+      "description": "Learn the fundamentals of Artificial Intelligence and Prompt Engineering. Understand LLMs and master the 4 Pillars of professional prompting."
+    }
+  </script>
+  <meta name="description"
+    content="Learn the fundamentals of Artificial Intelligence and Prompt Engineering. Understand LLMs and master the 4 Pillars of professional prompting.">
+  <meta name="keywords"
+    content="prompting 101, ai basics, how to use chatgpt, gemini guide, ai literacy, llm explanation, prompting framework, AINOW">
+  <meta name="author" content="Suad Seferi - AINOW Society">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://edu.ainow.mk/biz/help.html">
+  <meta property="og:title" content="AI Field Guide & Prompting 101 | AINOW">
+  <meta property="og:description"
+    content="Master the art of communicating with AI. Learn the core mechanics of LLMs and the 4 Pillars of professional prompting.">
+  <meta property="og:image" content="assets/logo-placeholder.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://edu.ainow.mk/biz/help.html">
+  <meta property="twitter:title" content="AI Field Guide & Prompting 101 | AINOW">
+  <meta property="twitter:description"
+    content="Master the art of communicating with AI. Learn the core mechanics of LLMs and the 4 Pillars of professional prompting.">
+  <meta property="twitter:image"
+    content="https://raw.githubusercontent.com/AINOW-Society/AINOW-Society/main/assets/icon-512.png">
+
+  <script>(function(){var w=console.warn;console.warn=function(){if(arguments[0]&&String(arguments[0]).includes("cdn.tailwindcss"))return;w.apply(console,arguments)};})();</script>
+  <script src="libs/tailwindcss.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            opal: {
+              bg: '#FAF9F7',
+              surface: '#FFFFFF',
+              sidebar: '#F7F5F2',
+              'sidebar-hover': '#F0EDE9',
+              DEFAULT: '#FAF9F7'
+            },
+            coral: {
+              DEFAULT: '#0F766E',
+              light: 'rgba(15, 118, 110, 0.15)', // for shadows/highlights
+              hover: '#0D5C56',
+            },
+            purple: {
+              warm: '#8B7CFF',
+            },
+            charcoal: {
+              DEFAULT: '#2D2D2D',
+            },
+            stone: {
+              DEFAULT: '#6B6662',
+              light: '#9B9791',
+            },
+            mist: {
+              DEFAULT: '#EEEBE8',
+            }
+          },
+          fontFamily: {
+            sans: ['Onest', 'system-ui', 'sans-serif'],
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+          },
+          boxShadow: {
+            'level-1': '0 1px 3px rgba(0,0,0,0.03)',
+            'level-2': '0 4px 20px rgba(0,0,0,0.08)',
+            'level-3': '0 12px 48px rgba(0,0,0,0.12)',
+            'coral-glow': '0 2px 8px rgba(15, 118, 110, 0.15)',
+          },
+          backgroundImage: {
+            'gradient-gold-amber': 'linear-gradient(135deg, #FFD700 0%, #FFB347 100%)', // Example warm gradient
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body class="">
+  <div id="root"></div>
+
+  <script>
+      (function () {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+        if ('serviceWorker' in navigator) {
+          const isLocalDev = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+          if (isLocalDev) {
+            navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(reg => reg.unregister()));
+          } else {
+            navigator.serviceWorker.register('./sw.js');
+          }
+        }
+      })();
+  </script>
+  <script src="libs/vendor.js"></script>
+  <script src="libs/htm.js"></script>
+  <script src="libs/fuse.js"></script>
+  <script src="src/runtime.js"></script>
+  <script src="config.js"></script>
+  <script src="locales/locales-en.js"></script>
+  <script src="locales/locales-mk.js"></script>
+  <script src="locales/locales-sq.js"></script>
+  <script src="locales/locales.js"></script>
+  <script src="src/config.js"></script>
+  <script src="src/hooks.js"></script>
+  <script src="src/components/layout/Footer.js"></script>
+  <script src="src/components/ui/Logo.js"></script>
+  <script src="src/components/layout/Header.js"></script>
+  <script src="src/components/layout/Sidebar.js"></script>
+  <script src="src/utils.js"></script>
+  <script src="src/components.js"></script>
+  <script src="src/StaticPages.js"></script>
+  <script src="src/about.js"></script>
+</body>
+
+</html>
