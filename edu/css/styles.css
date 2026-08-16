@@ -64,7 +64,7 @@
 }
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: var(--font-ui);
     color: var(--text-primary);
     background: var(--bg-app);
     height: 100vh;
@@ -360,7 +360,7 @@ button {
 }
 
 .view-title {
-    font-family: 'Georgia', 'Charter', serif;
+    font-family: var(--font-display);
     font-size: 32px;
     font-weight: 400;
     margin-bottom: 8px;
@@ -1462,7 +1462,7 @@ button,
 }
 
 .hero-heading {
-    font-family: 'Georgia', 'Charter', serif;
+    font-family: var(--font-display);
     font-size: 48px;
     font-weight: 400;
     color: var(--text-primary);
@@ -1507,7 +1507,7 @@ button,
 }
 
 .home-stat-value {
-    font-family: 'Georgia', 'Charter', serif;
+    font-family: var(--font-display);
     font-size: 28px;
     font-weight: 400;
     color: var(--text-primary);
@@ -1620,7 +1620,7 @@ button,
 }
 
 .home-cta-banner h3 {
-    font-family: 'Georgia', 'Charter', serif;
+    font-family: var(--font-display);
     font-size: 32px;
     font-weight: 400;
     margin-bottom: 10px;
@@ -1757,7 +1757,7 @@ button {
 }
 
 .view-title {
-    font-family: 'Georgia', 'Charter', serif;
+    font-family: var(--font-display);
     font-size: 36px;
     font-weight: 400;
     letter-spacing: -0.4px;
@@ -2127,7 +2127,7 @@ button {
 }
 
 .page-hero-title {
-    font-family: 'Georgia', 'Charter', serif;
+    font-family: var(--font-display);
     font-size: 24px;
     font-weight: 400;
     color: var(--text-primary);
@@ -2441,7 +2441,7 @@ button {
 }
 
 .about-hero-title {
-    font-family: 'Georgia', 'Charter', serif;
+    font-family: var(--font-display);
     font-size: 42px;
     font-weight: 400;
     color: var(--text-primary);
@@ -2479,7 +2479,7 @@ button {
 }
 
 .about-stat-num {
-    font-family: 'Georgia', 'Charter', serif;
+    font-family: var(--font-display);
     font-size: 28px;
     font-weight: 400;
     color: var(--text-primary);
@@ -2641,7 +2641,7 @@ button {
 
 .about-quote-mark {
     display: block;
-    font-family: Georgia, serif;
+    font-family: var(--font-display);
     font-size: 48px;
     line-height: 0.8;
     color: var(--border-hover);
@@ -2946,7 +2946,7 @@ button {
 }
 
 .guide-inner-content h2 {
-    font-family: 'Georgia', 'Charter', serif;
+    font-family: var(--font-display);
     font-size: 23px;
     font-weight: 400;
     color: var(--text-primary);
@@ -3573,7 +3573,7 @@ button {
 }
 
 .tools-hero-title {
-    font-family: 'Georgia', 'Charter', serif;
+    font-family: var(--font-display);
     font-size: 24px;
     font-weight: 400;
     color: var(--text-primary);
@@ -3840,7 +3840,7 @@ button {
     }
 
     .print-module-title {
-        font-family: 'Inter', system-ui, sans-serif;
+        font-family: system-ui, sans-serif;
         font-size: 28px;
         font-weight: 800;
         color: #111827;
@@ -4093,7 +4093,7 @@ button {
 }
 
 .tools-hero-title {
-    font-family: 'Georgia', 'Charter', serif;
+    font-family: var(--font-display);
     font-size: 22px;
     font-weight: 400;
     color: var(--text-primary);
@@ -6201,4 +6201,14 @@ select:focus-visible {
     .home-feature-card, .card-arrow { transition: none; }
     .home-feature-card:hover { transform: none; }
     .home-feature-card:hover .card-arrow { transform: none; }
+}
+
+/* ── Shared typography (v0.94) ────────────────────────────────────────────
+   Onest carries the UI, Playfair Display the display moments — the same
+   pair the landing page and /biz/ use. Faces are declared in
+   assets/fonts/fonts.css, linked from index.html. */
+
+.pd-title,
+.sb-group-count {
+    font-family: var(--font-display);
 }

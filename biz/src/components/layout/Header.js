@@ -3,7 +3,7 @@ window.AINOW = window.AINOW || {};
 var __exports = AINOW['src/components/layout/Header'] = AINOW['src/components/layout/Header'] || {};
 const { useState } = React;
 
-const { Sun, Moon, Menu, NotebookPen, Globe, Check, CircleHelp, GraduationCap } = lucide;
+const { Sun, Moon, Menu, NotebookPen, Globe, Check, CircleHelp, GraduationCap, Home } = lucide;
 const { NAV_CONFIG, LANGUAGES } = AINOW['src/config'];
 const { useLanguage } = AINOW['src/hooks'];
 const { Logo } = AINOW['src/components/ui/Logo'];
@@ -88,6 +88,11 @@ const Header = ({ currentTheme, onThemeToggle, onMenuClick, activePage, onScratc
                     <!-- Field Guide (Help) Icon -->
                     <a href="help.html" className="p-2 text-slate-500 hover:text-coral transition-colors min-w-[40px] min-h-[40px] flex items-center justify-center" title=${t('help.badge')}>
                         <${CircleHelp} className="w-5 h-5" />
+                    </a>
+
+                    <!-- Back to the platform chooser -->
+                    <a href="../index.html" className="p-2 text-slate-500 hover:text-coral transition-colors min-w-[40px] min-h-[40px] flex items-center justify-center" title=${t('platform.home')}>
+                        <${Home} className="w-5 h-5" />
                     </a>
 
                     <!-- Cross-link to the Education half of the platform -->

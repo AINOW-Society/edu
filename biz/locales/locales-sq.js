@@ -5,7 +5,8 @@ const data = {
     "platform": {
         "education": "AINOW Arsim — shkrim-lexim i IA falas për mësimdhënës",
         "business": "AINOW Biznes",
-        "back_to_education": "Shko te Arsimi"
+        "back_to_education": "Shko te Arsimi",
+        "home": "AINOW — kryefaqja"
     },
     "language_note": {
         "title": "Pse agjentët janë në anglisht?",
@@ -571,38 +572,7 @@ const data = {
             "user_resp_title": "3. Përgjegjësitë e Përdoruesit",
             "user_resp_text": "Duke përdorur këtë sajt, ju pranoni të përdorni përmbajtjen në mënyrë të ligjshme. Ju mbeteni përgjegjës për mënyrën se si përdorni rezultatet e gjeneruara nga modelet e IA."
         },
-        "documentation": {
-            "title": "Udhëzuesi i Zhvilluesit dhe të Dhënave",
-            "intro": {
-                "title": "Specifikimi Teknik",
-                "text": "Për zhvilluesit dhe përdoruesit e avancuar që duan të kuptojnë strukturën e të dhënave ose të kontribuojnë në kod."
-            },
-            "architecture": {
-                "title": "Arkitektura e të Dhënave",
-                "text_1": "Biblioteka përdor qasjen",
-                "text_strong": "Të dhëna-si-Kod",
-                "text_2": ". Përmbajtja ruhet në objekte JavaScript brenda dosjes <code>src/data/</code>, duke vepruar si një bazë të dhënash vetëm për lexim."
-            },
-            "variables": {
-                "title": "Sistemi i Variablave",
-                "text_1": "Motori përdor një sistem të thjeshtë",
-                "text_strong": "Interpolimi i bazuar në Regex",
-                "text_2": ". Çdo tekst brenda kllapave katrore trajtohet si ndryshore.",
-                "prompt": {
-                    "title": "Variablat e Promptit",
-                    "desc": "Krijon hyrje për \"Emri\" dhe \"Qyteti\"."
-                },
-                "playbook": {
-                    "title": "Variablat e Udhëzuesit",
-                    "desc": "Përdoren në rrjedhën e punës shumë-hapëshe për të kaluar të dhëna midis hapave."
-                }
-            },
-            "running": {
-                "title": "Ekzekutimi Lokal",
-                "text": "Për të modifikuar kodin, ju duhet të keni <strong>Node.js</strong> të instaluar. Klononi depon dhe ekzekutoni:",
-                "desc": "Kjo lëshon një server zhvillimi Vite në <code>http://localhost:5173</code>."
-            }
-        },
+        
         
         
         
@@ -3255,5 +3225,15 @@ data.builder = {
         input_ok: "Formati i hyrjes është përcaktuar"
     }
 };
+
+// v0.94
+Object.assign(data.pages.about, {
+    visit: 'Vizitoni faqen e AINOW Society',
+    beyond_title: 'Ku mbaron biblioteka',
+    beyond_free: 'Gjithçka këtu është falas dhe mbetet falas — promptet, agjentët, skenarët, në tri gjuhë, pa llogari dhe pa gjurmim. AINOW Society është organizatë jofitimprurëse dhe kjo bibliotekë është pjesë e asaj pune.',
+    beyond_work: 'Disa gjëra nuk zënë vend në një bibliotekë. Futja e IA-së në tërë ekipin, vendimi se çfarë duhet dhe çfarë nuk duhet automatizuar, shkrimi i një politike që qëndron para një auditimi, ndërtimi i diçkaje që përshtatet me mënyrën si punon tashmë organizata juaj. Kjo është zbatim, dhe me të merret partneri ynë teknologjik CTRLab — për ekipe me pesë veta dhe për organizata me disa qindra, në Mbretërinë e Bashkuar, BE dhe Ballkanin Perëndimor.',
+    beyond_close: 'Nëse biblioteka ju përgjigjet pyetjes, merrni atë që ju duhet. Nëse ju hap një pyetje të re, ia vlen një bisedë.',
+    beyond_services: 'Çfarë bëjmë për organizatat'
+});
   __exports.data = data;
 })();

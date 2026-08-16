@@ -177,7 +177,6 @@ const GUIDE_NAV = [
     { id: 'intro',           labelKey: 'help.toc.intro',           icon: BookOpen },
     { id: 'getting-started', labelKey: 'help.toc.getting_started', icon: Zap },
     { id: 'features',        labelKey: 'help.toc.features',        icon: Layers },
-    { id: 'interface',       labelKey: 'help.toc.interface',       icon: Command },
     { id: 'shortcuts',       labelKey: 'help.toc.shortcuts',       icon: Keyboard },
     { id: 'tools',           labelKey: 'help.toc.tools',           icon: Globe },
     { id: 'faq',             labelKey: 'help.toc.faq',             icon: HelpCircle },
@@ -185,7 +184,6 @@ const GUIDE_NAV = [
 
 const PLATFORM_NAV = [
     { id: 'about',          labelKey: 'resources.nav.about',          icon: Info },
-    { id: 'documentation',  labelKey: 'resources.nav.getting_started', icon: BookOpen },
     { id: 'documents',      labelKey: 'resources.nav.ethical_ai',     icon: ShieldCheck },
     { id: 'services',       labelKey: 'resources.nav.services',       icon: Briefcase },
     { id: 'partners',       labelKey: 'resources.nav.partners',       icon: Users },
@@ -330,52 +328,6 @@ const GuideFeatures = ({ t }) => html`
     </div>
 `;
 
-const GuideInterface = ({ t }) => html`
-    <div className="animate-fade-in">
-        <${DocSection} title=${t('help.sections.interface.title')} icon=${Command}>
-            <p>${t('help.sections.interface.desc')}</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                <div className="flex items-start gap-4 p-4 rounded-xl border border-mist dark:border-slate-800 bg-opal-surface dark:bg-slate-800/50 group/card hover:border-coral transition-colors">
-                    <div className="p-2 rounded-lg bg-coral/10 text-coral group-hover/card:bg-coral group-hover/card:text-white transition-colors">
-                        <${Play} className="w-4 h-4" />
-                    </div>
-                    <div>
-                        <h4 className="font-black text-charcoal dark:text-white text-xs uppercase tracking-widest">${t('help.sections.interface.try.title')}</h4>
-                        <p className="text-[11px] text-stone dark:text-slate-400 mt-1 font-medium leading-tight">${t('help.sections.interface.try.desc')}</p>
-                    </div>
-                </div>
-                <div className="flex items-start gap-4 p-4 rounded-xl border border-mist dark:border-slate-800 bg-opal-surface dark:bg-slate-800/50 group/card hover:border-coral transition-colors">
-                    <div className="p-2 rounded-lg bg-opal-sidebar dark:bg-slate-700 text-stone group-hover/card:bg-coral group-hover/card:text-white transition-colors">
-                        <${Copy} className="w-4 h-4" />
-                    </div>
-                    <div>
-                        <h4 className="font-black text-charcoal dark:text-white text-xs uppercase tracking-widest">${t('help.sections.interface.copy.title')}</h4>
-                        <p className="text-[11px] text-stone dark:text-slate-400 mt-1 font-medium leading-tight">${t('help.sections.interface.copy.desc')}</p>
-                    </div>
-                </div>
-                <div className="flex items-start gap-4 p-4 rounded-xl border border-mist dark:border-slate-800 bg-opal-surface dark:bg-slate-800/50 group/card hover:border-coral transition-colors">
-                    <div className="p-2 rounded-lg bg-opal-sidebar dark:bg-slate-700 text-stone group-hover/card:bg-coral group-hover/card:text-white transition-colors">
-                        <${MessageSquare} className="w-4 h-4" />
-                    </div>
-                    <div>
-                        <h4 className="font-black text-charcoal dark:text-white text-xs uppercase tracking-widest">${t('help.sections.interface.scratchpad.title')}</h4>
-                        <p className="text-[11px] text-stone dark:text-slate-400 mt-1 font-medium leading-tight">${t('help.sections.interface.scratchpad.desc')}</p>
-                    </div>
-                </div>
-                <div className="flex items-start gap-4 p-4 rounded-xl border border-mist dark:border-slate-800 bg-opal-surface dark:bg-slate-800/50 group/card hover:border-coral transition-colors">
-                    <div className="p-2 rounded-lg bg-opal-sidebar dark:bg-slate-700 text-stone group-hover/card:bg-coral group-hover/card:text-white transition-colors">
-                        <${Share2} className="w-4 h-4" />
-                    </div>
-                    <div>
-                        <h4 className="font-black text-charcoal dark:text-white text-xs uppercase tracking-widest">${t('help.sections.interface.share.title')}</h4>
-                        <p className="text-[11px] text-stone dark:text-slate-400 mt-1 font-medium leading-tight">${t('help.sections.interface.share.desc')}</p>
-                    </div>
-                </div>
-            </div>
-        <//>
-    </div>
-`;
-
 const GuideShortcuts = ({ t }) => html`
     <div className="animate-fade-in">
         <${DocSection} title=${t('help.toc.shortcuts')} icon=${Keyboard}>
@@ -511,7 +463,6 @@ const GUIDE_PAGES = {
     'intro':           GuideIntro,
     'getting-started': GuideGettingStarted,
     'features':        GuideFeatures,
-    'interface':       GuideInterface,
     'shortcuts':       GuideShortcuts,
     'tools':           GuideTools,
     'faq':             GuideFaq,

@@ -107,90 +107,27 @@ const AboutPage = () => {
 
         <div className="flex justify-center mb-16 not-prose">
             <a href="https://www.ainow.mk" target="_blank" className="group inline-flex items-center gap-3 px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-bold transition-all hover:scale-105 shadow-xl hover:shadow-2xl">
-                Visit Official Website <${ExternalLink} className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                ${t('pages.about.visit')} <${ExternalLink} className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
         </div>
 
-        <hr className="my-12 border-slate-200 dark:border-slate-800" />
-
-        <section>
-            <h2>${t('pages.about.project_title')}</h2>
-            <p>${t('pages.about.project_text')}</p>
-            <p>${t('pages.about.project_text_2')}</p>
+        <!-- The library is free and stays free; this says plainly where the
+             paid work begins, without turning the page into a pitch. -->
+        <section className="not-prose border-t border-slate-200 dark:border-slate-800 pt-12">
+            <h2 className="text-2xl font-bold tracking-tight text-charcoal dark:text-white mb-4">${t('pages.about.beyond_title')}</h2>
+            <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">${t('pages.about.beyond_free')}</p>
+            <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">${t('pages.about.beyond_work')}</p>
+            <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">${t('pages.about.beyond_close')}</p>
+            <div className="flex flex-wrap items-center gap-3">
+                <a href="/biz/help.html#/page/services" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-coral/10 text-coral font-bold text-sm hover:bg-coral/15 transition-colors">
+                    ${t('pages.about.beyond_services')}
+                </a>
+                <a href="https://ctrlab.net" target="_blank" rel="noopener" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold text-sm hover:border-coral hover:text-coral transition-colors">
+                    ctrlab.net <${ExternalLink} className="w-3.5 h-3.5" />
+                </a>
+            </div>
         </section>
 
-        <h2 className="mt-12 text-2xl font-bold tracking-tight">${t('pages.about.contact_title')}</h2>
-        <p>${t('pages.about.contact_text')} <a href="mailto:contact@ainow.mk" className="text-coral font-bold hover:underline">contact@ainow.mk</a>.</p>
-    <//>
-    `;
-};
-
-const DocumentationPage = () => {
-    const { t } = useLanguage();
-
-    return html`
-    <${PageWrapper} title=${t('pages.documentation.title')}>
-        <div className="bg-coral/10 dark:bg-coral/10 rounded-3xl p-8 border border-mist dark:border-coral-dark mb-12 not-prose">
-            <h2 className="text-2xl font-bold tracking-tight text-charcoal dark:text-coral-light mb-4 mt-0">${t('pages.documentation.intro.title')}</h2>
-            <p className="text-stone-light dark:text-coral-light leading-relaxed mb-0 text-base">
-                ${t('pages.documentation.intro.text')}
-            </p>
-        </div>
-        
-        <div className="space-y-16">
-            <section>
-                <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                    <${Code} className="w-6 h-6 text-coral" />
-                    ${t('pages.documentation.architecture.title')}
-                </h2>
-                <p>${t('pages.documentation.architecture.text_1')} <strong>${t('pages.documentation.architecture.text_strong')}</strong> ${t('pages.documentation.architecture.text_2')}</p>
-                
-                <div className="mt-6 space-y-4">
-                    <div className="bg-slate-900 text-slate-300 p-4 rounded-xl font-mono text-xs overflow-x-auto border border-slate-700">
-                        <div className="mb-2 text-slate-500">// Example Prompt Entry (src/data/data-prompts.js)</div>
-                        <div>{</div>
-                        <div className="pl-4">id: <span className="text-emerald-400">"dev-01"</span>,</div>
-                        <div className="pl-4">title: <span className="text-emerald-400">"React Component Generator"</span>,</div>
-                        <div className="pl-4">desc: <span className="text-emerald-400">"Creates a functional component with PropType validation."</span>,</div>
-                        <div className="pl-4">prompt: <span className="text-emerald-400">"Create a React component named [Component Name]..."</span>,</div>
-                        <div className="pl-4">category: <span className="text-emerald-400">"Coding"</span>,</div>
-                        <div className="pl-4">tags: [<span className="text-emerald-400">"React"</span>, <span className="text-emerald-400">"Frontend"</span>]</div>
-                        <div>}</div>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                    <${Terminal} className="w-6 h-6 text-coral" />
-                    ${t('pages.documentation.variables.title')}
-                </h2>
-                <p>${t('pages.documentation.variables.text_1')} <strong>${t('pages.documentation.variables.text_strong')}</strong> ${t('pages.documentation.variables.text_2')}</p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 not-prose">
-                    <div className="p-4 bg-white dark:bg-slate-800 border rounded-xl">
-                        <h4 className="font-bold text-sm mb-2">${t('pages.documentation.variables.prompt.title')}</h4>
-                        <code className="bg-slate-100 dark:bg-slate-900 px-2 py-1 rounded text-xs">Hello [Name], welcome to [City].</code>
-                        <p className="text-xs text-slate-500 mt-2">${t('pages.documentation.variables.prompt.desc')}</p>
-                    </div>
-                    <div className="p-4 bg-white dark:bg-slate-800 border rounded-xl">
-                        <h4 className="font-bold text-sm mb-2">${t('pages.documentation.variables.playbook.title')}</h4>
-                        <code className="bg-slate-100 dark:bg-slate-900 px-2 py-1 rounded text-xs">{{User Code}}</code>
-                        <p className="text-xs text-slate-500 mt-2">${t('pages.documentation.variables.playbook.desc')}</p>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <h2 className="text-2xl font-bold mb-6">${t('pages.documentation.running.title')}</h2>
-                <p dangerouslySetInnerHTML=${{ __html: t('pages.documentation.running.text') }}></p>
-                <div className="bg-slate-900 text-slate-300 p-4 rounded-xl font-mono text-sm border border-slate-700 mt-4">
-                    <div>npm install</div>
-                    <div>npm run dev</div>
-                </div>
-                <p className="mt-4 text-sm text-slate-500" dangerouslySetInnerHTML=${{ __html: t('pages.documentation.running.desc') }}></p>
-            </section>
-        </div>
     <//>
     `;
 };
@@ -560,7 +497,6 @@ const ServicesPage = () => {
 
 const pages = {
     about: AboutPage,
-    documentation: DocumentationPage,
     policies: PoliciesPage,
     documents: DocumentsPage,
     partners: PartnersPage,
