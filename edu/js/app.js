@@ -149,7 +149,7 @@ const App = {
         } else if (viewId === 'prompts') {
             this.currentPromptSearch = '';
             this.renderPromptCatTabs();
-            this.renderPrompts(this.currentPromptCategory || 'teachers', this.currentPromptSubcategory || 'all');
+            this.renderPrompts(this.currentPromptCategory || 'primary', this.currentPromptSubcategory || 'all');
         }
     },
 
@@ -297,33 +297,34 @@ const App = {
             this.renderTools(this.currentToolCategory || 'all');
         } else if (viewId === 'prompts') {
             const t = (k) => I18n.t(k);
-            const data = (typeof embeddedPromptsData !== 'undefined') ? embeddedPromptsData : {};
-            const teachers = data.teachers || [];
-            const admin = data.administration || [];
-            const higherEd = data.higher_ed || [];
-            const countSub = (arr, sub) => arr.filter(p => p.subcategory === sub).length;
 
+            // One section per school level, driven by the same data the
+            // filter bar uses, so the two can never drift apart.
+            const sections = this._promptCategories.map(c => {
+                const pool = this._promptsForCategory(c.id);
+                if (!pool.length) return '';
+                const subs = (this._promptSubMap[c.id] || []).filter(s => s !== 'all');
+                const links = subs.map(s => {
+                    const n = pool.filter(p => p.subcategory === s).length;
+                    return n ? this._sidebarPromptSubLink(s, n, c.id) : '';
+                }).join('');
+                return `
+                    <div class="sidebar-section-title sidebar-level-title"
+                         role="button" tabindex="0"
+                         onclick="App.switchPromptCategory('${c.id}')"
+                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                        ${t('prompts.cat.' + c.id)}
+                        <span class="sidebar-sub-count">${pool.length}</span>
+                    </div>
+                    ${links}`;
+            }).join('');
+
+            // No AI links or tip box here: the sidebar is now the page's
+            // navigation, and the AI launcher lives in the prompt detail
+            // panel where it is actually used.
             html = `
                 <div class="sidebar-ctx-wrap">
-                    <div class="sidebar-section-title">${t('prompts.cat.teachers')}</div>
-                    ${this._sidebarPromptSubLink('primary_lower', countSub(teachers, 'primary_lower'), 'teachers')}
-                    ${this._sidebarPromptSubLink('primary_upper', countSub(teachers, 'primary_upper'), 'teachers')}
-                    ${this._sidebarPromptSubLink('secondary',     countSub(teachers, 'secondary'), 'teachers')}
-                    <div class="sidebar-section-title">${t('prompts.cat.administration')}</div>
-                    ${this._sidebarPromptSubLink('director',     countSub(admin, 'director'), 'administration')}
-                    ${this._sidebarPromptSubLink('pedagogue',    countSub(admin, 'pedagogue'), 'administration')}
-                    ${this._sidebarPromptSubLink('psychologist', countSub(admin, 'psychologist'), 'administration')}
-                    ${this._sidebarPromptSubLink('secretary',    countSub(admin, 'secretary'), 'administration')}
-                    ${this._sidebarPromptSubLink('department_head', countSub(admin, 'department_head'), 'administration')}
-                    ${higherEd.length ? `
-                        <div class="sidebar-section-title">${t('prompts.cat.higher_ed')}</div>
-                        ${this._promptSubMap.higher_ed
-                            .filter(s => s !== 'all')
-                            .map(s => this._sidebarPromptSubLink(s, countSub(higherEd, s), 'higher_ed'))
-                            .join('')}
-                    ` : ''}
-                    ${this._renderSidebarAILinks_prompts()}
-                    ${this.renderSidebarTip('prompts')}
+                    ${sections}
                 </div>
             `;
         } else if (viewId === 'about') {
@@ -780,13 +781,18 @@ const App = {
         `).join('');
     },
 
+    // Categories are school levels, matching how the education system is
+    // actually organised. The data still stores teachers / administration /
+    // higher_ed, so the level is derived rather than duplicated — see
+    // _levelOf(). Administration is level-agnostic and appears under both
+    // Основно and Средно from a single stored copy.
     _promptCategories: [
         {
-            id: 'teachers',
+            id: 'primary',
             icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>'
         },
         {
-            id: 'administration',
+            id: 'secondary_school',
             icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>'
         },
         {
@@ -796,12 +802,44 @@ const App = {
     ],
 
     _promptSubMap: {
-        teachers:       ['all', 'primary_lower', 'primary_upper', 'secondary'],
-        administration: ['all', 'director', 'pedagogue', 'psychologist', 'secretary', 'department_head'],
-        higher_ed:      ['all', 'lecturer', 'researcher', 'doctoral', 'student_services', 'quality', 'leadership'],
+        primary:          ['all', 'primary_lower', 'primary_upper', 'director', 'pedagogue', 'psychologist', 'secretary', 'department_head'],
+        secondary_school: ['all', 'secondary', 'director', 'pedagogue', 'psychologist', 'secretary', 'department_head'],
+        higher_ed:        ['all', 'lecturer', 'researcher', 'doctoral', 'student_services', 'quality', 'leadership'],
     },
 
-    currentPromptCategory: 'teachers',
+    // Subcategories that mean classroom teaching. Cross-grade prompts
+    // (subcategory 'all') belong to these, not to administrative roles — a
+    // director filtering to their own role should not get lesson prompts.
+    _teachingSubs: {
+        primary:          ['primary_lower', 'primary_upper'],
+        secondary_school: ['secondary'],
+        higher_ed:        ['lecturer'],
+    },
+
+    // primary | secondary | higher | both
+    _levelOf(prompt, sourceArray) {
+        if (sourceArray === 'higher_ed') return 'higher';
+        if (sourceArray === 'administration') return 'both';
+        if (prompt.subcategory === 'primary_lower' || prompt.subcategory === 'primary_upper') return 'primary';
+        if (prompt.subcategory === 'secondary') return 'secondary';
+        return 'both';
+    },
+
+    _promptsForCategory(categoryId) {
+        const data = (typeof embeddedPromptsData !== 'undefined') ? embeddedPromptsData : {};
+        const out = [];
+        ['teachers', 'administration', 'higher_ed'].forEach(src => {
+            (data[src] || []).forEach(p => {
+                const level = this._levelOf(p, src);
+                if (categoryId === 'primary' && (level === 'primary' || level === 'both')) out.push(p);
+                else if (categoryId === 'secondary_school' && (level === 'secondary' || level === 'both')) out.push(p);
+                else if (categoryId === 'higher_ed' && level === 'higher') out.push(p);
+            });
+        });
+        return out;
+    },
+
+    currentPromptCategory: 'primary',
     currentPromptSubcategory: 'all',
     currentPromptSearch: '',
     currentPromptPage: 1,
@@ -843,14 +881,16 @@ const App = {
         if (!list) return;
         const header = document.getElementById('prompts-header');
 
-        const allPrompts = embeddedPromptsData[category] || [];
+        const allPrompts = this._promptsForCategory(category);
+        // Cross-grade prompts (subcategory 'all' — inclusion, classroom
+        // management, assessment) apply to every teaching filter, so surface
+        // them there rather than only in the unfiltered view. They are not
+        // added to administrative roles.
+        const isTeachingSub = (this._teachingSubs[category] || []).includes(subcategory);
         let filtered = allPrompts.filter(p =>
             subcategory === 'all'
             || p.subcategory === subcategory
-            // Prompts marked 'all' are cross-grade / cross-role (inclusion,
-            // classroom management, assessment). They apply to every filter,
-            // so surface them there instead of only in the unfiltered view.
-            || p.subcategory === 'all'
+            || (isTeachingSub && p.subcategory === 'all')
         );
 
         const query = this.currentPromptSearch;
@@ -1094,19 +1134,21 @@ const App = {
         if (!catEl || !subEl) return;
 
         const t  = (k) => I18n.t(k);
-        const d  = (typeof embeddedPromptsData !== 'undefined') ? embeddedPromptsData : {};
-        const cat = this.currentPromptCategory || 'teachers';
+        const cat = this.currentPromptCategory || 'primary';
         const sub = this.currentPromptSubcategory || 'all';
 
         catEl.innerHTML = `
             <div class="prompts-cat-grid">
-                ${this._promptCategories.filter(c => (d[c.id] || []).length).map(c => `
+                ${this._promptCategories
+                    .map(c => ({ ...c, count: this._promptsForCategory(c.id).length }))
+                    .filter(c => c.count)
+                    .map(c => `
                     <button class="prompts-cat-btn ${cat === c.id ? 'active' : ''}"
                             onclick="App.switchPromptCategory('${c.id}')">
                         <div class="prompts-cat-btn-head">
                             ${c.icon}
                             <span class="prompts-cat-btn-label">${t('prompts.cat.' + c.id)}</span>
-                            <span class="prompts-cat-btn-count">${(d[c.id] || []).length}</span>
+                            <span class="prompts-cat-btn-count">${c.count}</span>
                         </div>
                     </button>
                 `).join('')}

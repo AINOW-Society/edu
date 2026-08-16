@@ -5771,3 +5771,20 @@ select:focus-visible {
 
     .pcm-card--clickable { padding: 16px; }
 }
+
+/* Level headings in the prompts sidebar are clickable — selecting a level
+   with no role filter. Without this they read as inert labels. */
+.sidebar-level-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    padding: 6px 8px;
+    margin-top: 14px;
+}
+
+.sidebar-level-title:first-child { margin-top: 0; }
+.sidebar-level-title:hover { background: var(--bg-hover); color: var(--primary); }
+.sidebar-level-title:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
