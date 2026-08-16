@@ -1,12 +1,13 @@
-import React from 'react';
-import htm from 'htm';
-import { Github, Linkedin } from 'lucide-react';
-import { useLanguage } from '../../hooks.js';
-import { APP_VERSION } from '../../config.js';
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['src/components/layout/Footer'] = AINOW['src/components/layout/Footer'] || {};
+const { Github, Linkedin } = lucide;
+const { useLanguage } = AINOW['src/hooks'];
+const { APP_VERSION } = AINOW['src/config'];
 
 const html = htm.bind(React.createElement);
 
-export const Footer = ({ isZenMode }) => {
+const Footer = ({ isZenMode }) => {
     const { t } = useLanguage();
     if (isZenMode) return null;
     return html`
@@ -33,3 +34,5 @@ export const Footer = ({ isZenMode }) => {
       </footer>
     `;
 };
+  __exports.Footer = Footer;
+})();

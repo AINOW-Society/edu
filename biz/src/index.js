@@ -1,19 +1,17 @@
-
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['src/index'] = AINOW['src/index'] || {};
 // AINOW Main App Module
-import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
-import { createRoot } from 'react-dom/client';
-import htm from 'htm';
-import Fuse from 'fuse.js';
-import {
-    Search, LayoutGrid, List, TableProperties,
-    Loader2, Wand2, Settings2, Edit, X, Hash,
-    ArrowUpDown, ArrowUp, ArrowDown, Heart, Copy, Share2, ExternalLink, Calendar
-} from 'lucide-react';
-import { embeddedPromptsData } from '../data/data.js';
-import { promptCounts } from '../data/data-counts.js';
-import { Header, Footer, ShortcutsModal, SidebarWrapper, EmptyState, addToHistory, useLanguage, ActionButtons, useToast, Toast, useGlobalShortcuts, Scratchpad, SettingsModal, Pagination } from './components.js';
-import { CATEGORY_CONFIG } from './config.js';
-import { useDebounce, copyTextToClipboard } from './utils.js';
+const { useState, useMemo, useEffect, useRef, useCallback } = React;
+const { createRoot } = ReactDOMClient;
+
+
+const { Search, LayoutGrid, List, TableProperties, Loader2, Wand2, Settings2, Edit, X, Hash, ArrowUpDown, ArrowUp, ArrowDown, Heart, Copy, Share2, ExternalLink, Calendar } = lucide;
+const { embeddedPromptsData } = AINOW['data/data'];
+const { promptCounts } = AINOW['data/data-counts'];
+const { Header, Footer, ShortcutsModal, SidebarWrapper, EmptyState, addToHistory, useLanguage, ActionButtons, useToast, Toast, useGlobalShortcuts, Scratchpad, SettingsModal, Pagination } = AINOW['src/components'];
+const { CATEGORY_CONFIG } = AINOW['src/config'];
+const { useDebounce, copyTextToClipboard } = AINOW['src/utils'];
 
 const html = htm.bind(React.createElement);
 
@@ -407,7 +405,8 @@ const App = () => {
     `;
 };
 
-import { ErrorBoundary } from './ErrorBoundary.js';
+const { ErrorBoundary } = AINOW['src/ErrorBoundary'];
 
 const root = createRoot(document.getElementById('root'));
 root.render(html`<${ErrorBoundary}><${App} /><//>`);
+})();

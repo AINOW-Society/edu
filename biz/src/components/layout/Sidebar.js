@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import htm from 'htm';
-import { X, History } from 'lucide-react';
-import { NAV_CONFIG } from '../../config.js';
-import { useLanguage } from '../../hooks.js';
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['src/components/layout/Sidebar'] = AINOW['src/components/layout/Sidebar'] || {};
+const { useState, useEffect } = React;
+
+const { X, History } = lucide;
+const { NAV_CONFIG } = AINOW['src/config'];
+const { useLanguage } = AINOW['src/hooks'];
 
 const html = htm.bind(React.createElement);
 
@@ -56,7 +59,7 @@ const RecentlyViewed = () => {
     `;
 };
 
-export const SidebarWrapper = ({ isOpen, onClose, children, showOnDesktop = true, isZenMode }) => {
+const SidebarWrapper = ({ isOpen, onClose, children, showOnDesktop = true, isZenMode }) => {
     const { t } = useLanguage();
     const path = window.location.pathname;
     const activeId = NAV_CONFIG.find(l => path.includes(l.href))?.id || (path.endsWith('/') || path.includes('index') ? 'prompts' : '');
@@ -93,3 +96,5 @@ export const SidebarWrapper = ({ isOpen, onClose, children, showOnDesktop = true
     <//>
     `;
 };
+  __exports.SidebarWrapper = SidebarWrapper;
+})();

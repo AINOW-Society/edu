@@ -1,21 +1,15 @@
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['src/playbooks'] = AINOW['src/playbooks'] || {};
+const { MessageSquare, FileText, TrendingUp, AlertCircle, Briefcase, Users, Handshake, CalendarCheck, ArrowRight, Copy, RotateCcw, ChevronRight, ChevronLeft, Sparkles, Zap, BookOpen, Layers, Search, Loader2, Wand2, Brain, Target, UserCog, PenTool, Code, GraduationCap, Megaphone, HeartHandshake, Feather, Building2, Shield, BarChart3, Truck, Leaf, Scale, Landmark, Heart, Info, Lightbulb } = lucide;
+const { useState, useEffect, useRef, useMemo, useCallback } = React;
+const { createRoot } = ReactDOMClient;
 
-import {
-    MessageSquare, FileText, TrendingUp, AlertCircle, Briefcase, Users,
-    Handshake, CalendarCheck, ArrowRight, Copy, RotateCcw,
-    ChevronRight, ChevronLeft, Sparkles, Zap, BookOpen, Layers,
-    Search, Loader2, Wand2, Brain, Target, UserCog,
-    PenTool, Code, GraduationCap, Megaphone, HeartHandshake, Feather,
-    Building2, Shield, BarChart3, Truck, Leaf, Scale,
-    Landmark, Heart, Info, Lightbulb
-} from 'lucide-react';
-import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { createRoot } from 'react-dom/client';
-import htm from 'htm';
-import Fuse from 'fuse.js';
-import { Header, Footer, ShortcutsModal, SidebarWrapper, EmptyState, addToHistory, useLanguage, useToast, Toast, useGlobalShortcuts, Scratchpad, SettingsModal, Pagination } from './components.js';
-import { playbooksData } from '../data/data-playbooks.js';
-import { SITUATIONS, SITUATION_CATEGORIES } from '../data/data-situations.js';
-import { copyTextToClipboard } from './utils.js';
+
+const { Header, Footer, ShortcutsModal, SidebarWrapper, EmptyState, addToHistory, useLanguage, useToast, Toast, useGlobalShortcuts, Scratchpad, SettingsModal, Pagination } = AINOW['src/components'];
+const { playbooksData } = AINOW['data/data-playbooks'];
+const { SITUATIONS, SITUATION_CATEGORIES } = AINOW['data/data-situations'];
+const { copyTextToClipboard } = AINOW['src/utils'];
 
 const html = htm.bind(React.createElement);
 
@@ -2693,3 +2687,4 @@ const App = () => {
 
 const root = createRoot(document.getElementById('root'));
 root.render(html`<${App} />`);
+})();

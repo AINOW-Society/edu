@@ -1,3 +1,6 @@
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['data/data-playbooks'] = AINOW['data/data-playbooks'] || {};
 // AINOW Playbooks - Advanced Workflow Engine
 // Generating 440+ unique specialized prompt chains.
 
@@ -302,4 +305,6 @@ const buildLibrary = () => {
     return library;
 };
 
-export const playbooksData = buildLibrary();
+const playbooksData = buildLibrary();
+  __exports.playbooksData = playbooksData;
+})();

@@ -1,17 +1,13 @@
-
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['src/builder'] = AINOW['src/builder'] || {};
 // AINOW Builder Module
-import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { createRoot } from 'react-dom/client';
-import htm from 'htm';
-import {
-    Hammer,
-    Menu, X, Check,
-    RefreshCw, Terminal, Sparkles, User,
-    Zap, FileText, Ban, Quote,
-    Brain, AlertTriangle, HelpCircle, Plus, Save, Copy, Download, Upload, Share2, Loader2
-} from 'lucide-react';
-import { Header, Footer, ShortcutsModal, NAV_LINKS, useLanguage, ActionButtons, useToast, Toast, useGlobalShortcuts, Scratchpad, SettingsModal, SidebarWrapper } from './components.js';
-import { compressState, decompressState, copyTextToClipboard } from './utils.js';
+const { useState, useEffect, useMemo, useRef } = React;
+const { createRoot } = ReactDOMClient;
+
+const { Hammer, Menu, X, Check, RefreshCw, Terminal, Sparkles, User, Zap, FileText, Ban, Quote, Brain, AlertTriangle, HelpCircle, Plus, Save, Copy, Download, Upload, Share2, Loader2 } = lucide;
+const { Header, Footer, ShortcutsModal, NAV_LINKS, useLanguage, ActionButtons, useToast, Toast, useGlobalShortcuts, Scratchpad, SettingsModal, SidebarWrapper } = AINOW['src/components'];
+const { compressState, decompressState, copyTextToClipboard } = AINOW['src/utils'];
 
 const html = htm.bind(React.createElement);
 
@@ -368,3 +364,4 @@ const BuilderApp = () => {
 
 const root = createRoot(document.getElementById('root'));
 root.render(html`<${BuilderApp} />`);
+})();

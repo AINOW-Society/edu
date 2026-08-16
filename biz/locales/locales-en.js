@@ -1,5 +1,7 @@
-
-export const data = {
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['locales/locales-en'] = AINOW['locales/locales-en'] || {};
+const data = {
     nav: {
         prompts: 'Prompts',
         agents: 'Agents',
@@ -1930,3 +1932,5 @@ export const data = {
         },
     },
 };
+  __exports.data = data;
+})();

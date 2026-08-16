@@ -1,42 +1,45 @@
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['data/data'] = AINOW['data/data'] || {};
 // AINOW Prompt Library - Core Data Orchestrator
-export const embeddedPromptsData = {
-    agriculture: () => import('./data-agriculture.js'),
-    writing: () => import('./data-writing.js'),
-    business: () => import('./data-business.js'),
-    product: () => import('./data-product.js'),
-    marketing: () => import('./data-marketing.js'),
-    coding: () => import('./data-coding.js'),
-    aiengineering: () => import('./data-aiengineering.js'),
-    dataanalysis: () => import('./data-dataanalysis.js'),
-    cybersecurity: () => import('./data-cybersecurity.js'),
-    sales: () => import('./data-sales.js'),
-    hr: () => import('./data-hr.js'),
-    career: () => import('./data-career.js'),
-    humanities: () => import('./data-humanities.js'),
-    productivity: () => import('./data-productivity.js'),
-    journalism: () => import('./data-journalism.js'),
-    creativevisual: () => import('./data-creative-visual.js'),
-    logistics: () => import('./data-logistics.js'),
-    hospitality: () => import('./data-hospitality.js'),
-    realestate: () => import('./data-realestate.js'),
-    science: () => import('./data-science.js'),
-    psychology: () => import('./data-psychology.js'),
-    publichealth: () => import('./data-publichealth.js'),
-    climate: () => import('./data-climate.js'),
-    gov: () => import('./data-gov.js'),
-    legal: () => import('./data-legal.js'),
-    finance: () => import('./data-finance.js'),
-    ngo: () => import('./data-ngo.js'),
-    medicine: () => import('./data-medicine.js'),
-    education: () => import('./data-education.js'),
-    creative: () => import('./data-creative.js'),
-    health: () => import('./data-health.js'),
-    sustainability: () => import('./data-sustainability.js'),
-    macedonian: () => import('./data-macedonian.js'),
-    albanian: () => import('./data-albanian.js'),
+const embeddedPromptsData = {
+    agriculture: () => AINOW.loadScript('data/data-agriculture.js'),
+    writing: () => AINOW.loadScript('data/data-writing.js'),
+    business: () => AINOW.loadScript('data/data-business.js'),
+    product: () => AINOW.loadScript('data/data-product.js'),
+    marketing: () => AINOW.loadScript('data/data-marketing.js'),
+    coding: () => AINOW.loadScript('data/data-coding.js'),
+    aiengineering: () => AINOW.loadScript('data/data-aiengineering.js'),
+    dataanalysis: () => AINOW.loadScript('data/data-dataanalysis.js'),
+    cybersecurity: () => AINOW.loadScript('data/data-cybersecurity.js'),
+    sales: () => AINOW.loadScript('data/data-sales.js'),
+    hr: () => AINOW.loadScript('data/data-hr.js'),
+    career: () => AINOW.loadScript('data/data-career.js'),
+    humanities: () => AINOW.loadScript('data/data-humanities.js'),
+    productivity: () => AINOW.loadScript('data/data-productivity.js'),
+    journalism: () => AINOW.loadScript('data/data-journalism.js'),
+    creativevisual: () => AINOW.loadScript('data/data-creative-visual.js'),
+    logistics: () => AINOW.loadScript('data/data-logistics.js'),
+    hospitality: () => AINOW.loadScript('data/data-hospitality.js'),
+    realestate: () => AINOW.loadScript('data/data-realestate.js'),
+    science: () => AINOW.loadScript('data/data-science.js'),
+    psychology: () => AINOW.loadScript('data/data-psychology.js'),
+    publichealth: () => AINOW.loadScript('data/data-publichealth.js'),
+    climate: () => AINOW.loadScript('data/data-climate.js'),
+    gov: () => AINOW.loadScript('data/data-gov.js'),
+    legal: () => AINOW.loadScript('data/data-legal.js'),
+    finance: () => AINOW.loadScript('data/data-finance.js'),
+    ngo: () => AINOW.loadScript('data/data-ngo.js'),
+    medicine: () => AINOW.loadScript('data/data-medicine.js'),
+    education: () => AINOW.loadScript('data/data-education.js'),
+    creative: () => AINOW.loadScript('data/data-creative.js'),
+    health: () => AINOW.loadScript('data/data-health.js'),
+    sustainability: () => AINOW.loadScript('data/data-sustainability.js'),
+    macedonian: () => AINOW.loadScript('data/data-macedonian.js'),
+    albanian: () => AINOW.loadScript('data/data-albanian.js'),
 };
 
-export const generatePrompts = (seeds, categoryPrefix, count) => {
+const generatePrompts = (seeds, categoryPrefix, count) => {
     if (!seeds || seeds.length === 0) return [];
     const generated = [];
     for (let i = 0; i < count; i++) {
@@ -52,3 +55,6 @@ export const generatePrompts = (seeds, categoryPrefix, count) => {
     }
     return generated;
 };
+  __exports.embeddedPromptsData = embeddedPromptsData;
+  __exports.generatePrompts = generatePrompts;
+})();

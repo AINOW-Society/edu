@@ -7,7 +7,7 @@
   <title>AI Agents Hub | AINOW OS</title>
   <link rel="icon" href="assets/logo-placeholder.png" type="image/png">
 
-  <link rel="canonical" href="https://your-domain.example/agents.html">
+  <link rel="canonical" href="https://edu.ainow.mk/biz/agents.html">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -15,7 +15,7 @@
       "name": "AI Agents Hub",
       "operatingSystem": "Any",
       "applicationCategory": "ProductivityApplication",
-      "url": "https://your-domain.example/agents.html",
+      "url": "https://edu.ainow.mk/biz/agents.html",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -62,9 +62,9 @@
               DEFAULT: '#FAF9F7'
             },
             coral: {
-              DEFAULT: '#E87B5F',
-              light: 'rgba(232, 123, 95, 0.15)', // for shadows/highlights
-              hover: '#D66A4E',
+              DEFAULT: '#4F46E5',
+              light: 'rgba(79, 70, 229, 0.15)', // for shadows/highlights
+              hover: '#4338CA',
             },
             purple: {
               warm: '#8B7CFF',
@@ -87,7 +87,7 @@
             'level-1': '0 1px 3px rgba(0,0,0,0.03)',
             'level-2': '0 4px 20px rgba(0,0,0,0.08)',
             'level-3': '0 12px 48px rgba(0,0,0,0.12)',
-            'coral-glow': '0 2px 8px rgba(232, 123, 95, 0.15)',
+            'coral-glow': '0 2px 8px rgba(79, 70, 229, 0.15)',
           },
           backgroundImage: {
             'gradient-gold-amber': 'linear-gradient(135deg, #FFD700 0%, #FFB347 100%)', // Example warm gradient
@@ -96,8 +96,6 @@
       }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap"
-    rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 
@@ -119,7 +117,25 @@
         }
       })();
   </script>
-  <script type="module" src="src/agents.js"></script>
+  <script src="libs/vendor.js"></script>
+  <script src="libs/htm.js"></script>
+  <script src="libs/fuse.js"></script>
+  <script src="src/runtime.js"></script>
+  <script src="config.js"></script>
+  <script src="data/data-agents.js"></script>
+  <script src="locales/locales-en.js"></script>
+  <script src="locales/locales-mk.js"></script>
+  <script src="locales/locales-sq.js"></script>
+  <script src="locales/locales.js"></script>
+  <script src="src/config.js"></script>
+  <script src="src/hooks.js"></script>
+  <script src="src/components/layout/Footer.js"></script>
+  <script src="src/components/ui/Logo.js"></script>
+  <script src="src/components/layout/Header.js"></script>
+  <script src="src/components/layout/Sidebar.js"></script>
+  <script src="src/utils.js"></script>
+  <script src="src/components.js"></script>
+  <script src="src/agents.js"></script>
 </body>
 
 </html>

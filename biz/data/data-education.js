@@ -1,6 +1,8 @@
-
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['data/data-education'] = AINOW['data/data-education'] || {};
 // Contains all prompts for the 'Education' category.
-export const educationPrompts = [
+const educationPrompts = [
 
   // --- 1. LESSON DESIGN (1-10) ---
   {"id":"edu-1","title":"90-Minute ELL-Inclusive Persuasive Writing Block","prompt":"You are a 9th-grade English teacher in a Title I high school with 28 students, half of whom are English Language Learners reading at a 5th-grade level. You need a 90-minute block lesson on persuasive writing that meets Common Core standard W.9-10.1 and is accessible to ELL students without dumbing down the content. Design the full lesson plan including: a 10-minute hook using a viral ad or current event to illustrate persuasion, a 20-minute direct instruction segment on the PEEL paragraph structure with an anchor chart, a 40-minute collaborative writing workshop with sentence stems for ELL students, a 10-minute peer review using a structured feedback protocol, and a 10-minute exit ticket that doubles as formative assessment. Include differentiation strategies for two specific student profiles: a student reading 3 grade levels below and a gifted student who finishes early.","tags":["lesson-design","ell","writing","high-school","differentiation"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":true},
@@ -213,3 +215,5 @@ export const educationPrompts = [
   {"id":"edu-100","title":"School Improvement Planning for an Academic Watch List Middle School","prompt":"You are a principal at a middle school that has been on your state's academic watch list for 3 consecutive years due to low math and ELA proficiency rates, particularly among Black and Latino students. Your school has 420 students and 28 teachers, a new district superintendent who is watching closely, and a school community that has experienced rapid leadership turnover. You have 2 years to demonstrate meaningful improvement or face state intervention. Design a rigorous school improvement planning process: a 6-week stakeholder engagement process that includes students, teachers, families, and community members and produces a root cause analysis (describe the 3 community sessions, who facilitates each, and how data is used to ground the conversation), the structure of the School Improvement Plan document itself (specify the 5 sections, what data goes in each, and who is responsible), the 3 priority goals you will likely identify based on typical watch-list school patterns (provide plausible specific goals with measurable targets), the quarterly progress monitoring process including who reviews what data and how mid-year corrections happen, and how you maintain community trust and teacher morale during a period of intense external scrutiny. Include the 10-minute weekly leadership team check-in protocol.\n\n[Describe your classroom situation]","tags":["professional-development","school-improvement","principal","leadership","strategic-planning"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":false}
 
 ];
+  __exports.educationPrompts = educationPrompts;
+})();

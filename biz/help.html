@@ -7,7 +7,7 @@
   <title>AI Field Guide & Prompting 101 | AINOW OS</title>
   <link rel="icon" href="assets/logo-placeholder.png" type="image/png">
 
-  <link rel="canonical" href="https://your-domain.example/help.html">
+  <link rel="canonical" href="https://edu.ainow.mk/biz/help.html">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -15,7 +15,7 @@
       "name": "AI Field Guide & Prompting 101",
       "operatingSystem": "Any",
       "applicationCategory": "ProductivityApplication",
-      "url": "https://your-domain.example/help.html",
+      "url": "https://edu.ainow.mk/biz/help.html",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -41,7 +41,7 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://your-domain.example/help.html">
+  <meta property="og:url" content="https://edu.ainow.mk/biz/help.html">
   <meta property="og:title" content="AI Field Guide & Prompting 101 | AINOW">
   <meta property="og:description"
     content="Master the art of communicating with AI. Learn the core mechanics of LLMs and the 4 Pillars of professional prompting.">
@@ -49,7 +49,7 @@
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://your-domain.example/help.html">
+  <meta property="twitter:url" content="https://edu.ainow.mk/biz/help.html">
   <meta property="twitter:title" content="AI Field Guide & Prompting 101 | AINOW">
   <meta property="twitter:description"
     content="Master the art of communicating with AI. Learn the core mechanics of LLMs and the 4 Pillars of professional prompting.">
@@ -72,9 +72,9 @@
               DEFAULT: '#FAF9F7'
             },
             coral: {
-              DEFAULT: '#E87B5F',
-              light: 'rgba(232, 123, 95, 0.15)', // for shadows/highlights
-              hover: '#D66A4E',
+              DEFAULT: '#4F46E5',
+              light: 'rgba(79, 70, 229, 0.15)', // for shadows/highlights
+              hover: '#4338CA',
             },
             purple: {
               warm: '#8B7CFF',
@@ -97,7 +97,7 @@
             'level-1': '0 1px 3px rgba(0,0,0,0.03)',
             'level-2': '0 4px 20px rgba(0,0,0,0.08)',
             'level-3': '0 12px 48px rgba(0,0,0,0.12)',
-            'coral-glow': '0 2px 8px rgba(232, 123, 95, 0.15)',
+            'coral-glow': '0 2px 8px rgba(79, 70, 229, 0.15)',
           },
           backgroundImage: {
             'gradient-gold-amber': 'linear-gradient(135deg, #FFD700 0%, #FFB347 100%)', // Example warm gradient
@@ -106,7 +106,6 @@
       }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 
@@ -129,7 +128,25 @@
         }
       })();
   </script>
-  <script type="module" src="src/help.js"></script>
+  <script src="libs/vendor.js"></script>
+  <script src="libs/htm.js"></script>
+  <script src="libs/fuse.js"></script>
+  <script src="src/runtime.js"></script>
+  <script src="config.js"></script>
+  <script src="locales/locales-en.js"></script>
+  <script src="locales/locales-mk.js"></script>
+  <script src="locales/locales-sq.js"></script>
+  <script src="locales/locales.js"></script>
+  <script src="src/config.js"></script>
+  <script src="src/hooks.js"></script>
+  <script src="src/components/layout/Footer.js"></script>
+  <script src="src/components/ui/Logo.js"></script>
+  <script src="src/components/layout/Header.js"></script>
+  <script src="src/components/layout/Sidebar.js"></script>
+  <script src="src/utils.js"></script>
+  <script src="src/components.js"></script>
+  <script src="src/StaticPages.js"></script>
+  <script src="src/help.js"></script>
 </body>
 
 </html>

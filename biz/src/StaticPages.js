@@ -1,13 +1,10 @@
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['src/StaticPages'] = AINOW['src/StaticPages'] || {};
+const { useEffect } = React;
 
-import React, { useEffect } from 'react';
-import htm from 'htm';
-import {
-    Settings2, Search, Play, Copy,
-    Terminal, Code, CheckCircle,
-    Heart, Share2, ExternalLink, Shield, Users, Lock, Eye, Scale,
-    BrainCircuit, AlertTriangle, Book, Github, Hand, User, Sparkles, Ban, GitMerge, Globe, Activity, Keyboard, Cpu, Palette, Box
-} from 'lucide-react';
-import { useLanguage } from './components.js';
+const { Settings2, Search, Play, Copy, Terminal, Code, CheckCircle, Heart, Share2, ExternalLink, Shield, Users, Lock, Eye, Scale, BrainCircuit, AlertTriangle, Book, Github, Hand, User, Sparkles, Ban, GitMerge, Globe, Activity, Keyboard, Cpu, Palette, Box } = lucide;
+const { useLanguage } = AINOW['src/components'];
 
 const html = htm.bind(React.createElement);
 
@@ -635,7 +632,9 @@ const pages = {
     transparency: TransparencyPage
 };
 
-export const StaticPage = ({ page }) => {
+const StaticPage = ({ page }) => {
     const PageComponent = pages[page] || pages['documentation'];
     return html`<${PageComponent} />`;
 };
+  __exports.StaticPage = StaticPage;
+})();

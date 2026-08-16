@@ -1,18 +1,16 @@
-
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['src/agents'] = AINOW['src/agents'] || {};
 // AINOW Agents Module
-import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
-import { createRoot } from 'react-dom/client';
-import htm from 'htm';
-import Fuse from 'fuse.js';
-import {
-    Search, LayoutGrid, List, TableProperties,
-    Settings2, Cpu, X, Wand2, Loader2,
-    Heart, Copy, Share2, ExternalLink, ArrowUpDown, ArrowUp, ArrowDown
-} from 'lucide-react';
-import { agentsData } from '../data/data-agents.js';
-import { Header, Footer, ShortcutsModal, EmptyState, SidebarWrapper, addToHistory, useLanguage, ActionButtons, useToast, Toast, useGlobalShortcuts, Scratchpad, SettingsModal, Pagination } from './components.js';
-import { AGENT_CATEGORIES } from './config.js';
-import { copyTextToClipboard } from './utils.js';
+const { useState, useMemo, useEffect, useRef, useCallback } = React;
+const { createRoot } = ReactDOMClient;
+
+
+const { Search, LayoutGrid, List, TableProperties, Settings2, Cpu, X, Wand2, Loader2, Heart, Copy, Share2, ExternalLink, ArrowUpDown, ArrowUp, ArrowDown } = lucide;
+const { agentsData } = AINOW['data/data-agents'];
+const { Header, Footer, ShortcutsModal, EmptyState, SidebarWrapper, addToHistory, useLanguage, ActionButtons, useToast, Toast, useGlobalShortcuts, Scratchpad, SettingsModal, Pagination } = AINOW['src/components'];
+const { AGENT_CATEGORIES } = AINOW['src/config'];
+const { copyTextToClipboard } = AINOW['src/utils'];
 
 const html = htm.bind(React.createElement);
 
@@ -352,3 +350,4 @@ const App = () => {
 
 const root = createRoot(document.getElementById('root'));
 root.render(html`<${App} />`);
+})();

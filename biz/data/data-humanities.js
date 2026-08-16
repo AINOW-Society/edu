@@ -1,5 +1,7 @@
-
-export const humanitiesPrompts = [
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['data/data-humanities'] = AINOW['data/data-humanities'] || {};
+const humanitiesPrompts = [
 
     // --- PHILOSOPHY (1-12) ---
     {"id":"hum-1","title":"Close Reading: Stoic Texts","prompt":"You are a professor of ancient philosophy specializing in Hellenistic thought. Perform a close reading of the following passage: [Paste the text or passage you want analyzed]. Identify the core philosophical claims being advanced, the rhetorical strategies the author uses to persuade, the implicit assumptions that underpin the argument, and any tensions or contradictions within the text itself. Situate the passage within the broader tradition of Stoic ethics, noting where it converges with or departs from earlier Stoic thinkers such as Zeno and Chrysippus. Conclude by explaining what this passage reveals about the relationship between reason, virtue, and the good life in Stoic thought.","tags":["humanities","philosophy","stoicism","close-reading"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":true},
@@ -122,3 +124,5 @@ export const humanitiesPrompts = [
     {"id":"hum-100","title":"The Digital Humanities: Promise and Critique","prompt":"You are a scholar at the intersection of computational methods and humanistic inquiry. Write an essay assessing the digital humanities as an intellectual project. Explain the principal methods that digital humanities scholars have brought to bear on humanistic questions: large-scale text analysis and distant reading (Moretti's 'Graphs, Maps, Trees'), network analysis of social and intellectual relationships, geospatial visualization of historical data, and digital archiving and edition-making. For each method, identify what new questions it enables and what it cannot capture that traditional close reading and archival research can. Then engage with the critical debate: Alan Liu's argument that the digital humanities has been too focused on building and not enough on cultural criticism, Tara McPherson's argument that digital architecture is not politically neutral but encodes racial and gender assumptions, and the concern that digital humanities reproduces the quantitative prestige hierarchies of the sciences within the humanities. Conclude with a vision of what a methodologically and politically self-aware digital humanities would look like.","tags":["humanities","digital-humanities","methodology","critical-theory","interdisciplinary"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":false}
 
 ];
+  __exports.humanitiesPrompts = humanitiesPrompts;
+})();

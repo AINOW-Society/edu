@@ -1,5 +1,7 @@
-
-export const salesPrompts = [
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['data/data-sales'] = AINOW['data/data-sales'] || {};
+const salesPrompts = [
 
     // --- PROSPECTING (1-10) ---
     {
@@ -924,3 +926,5 @@ export const salesPrompts = [
     }
 
 ];
+  __exports.salesPrompts = salesPrompts;
+})();

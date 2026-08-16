@@ -1,5 +1,7 @@
-
-export const productivityPrompts = [
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['data/data-productivity'] = AINOW['data/data-productivity'] || {};
+const productivityPrompts = [
 
     // --- TIME MANAGEMENT (1-10) ---
     {"id":"prod-1","title":"Weekly Review System Builder","prompt":"You are a productivity systems coach who has worked with Fortune 500 executives and startup founders. Design a complete weekly review system for a senior product manager at a 150-person SaaS company who manages 3 direct reports, sits on the leadership team, and regularly loses Friday afternoons to reactive work. The system should take no more than 90 minutes each Friday and include: a 15-minute energy and wins capture (what went well, what drained energy), a 20-minute task and project audit (what moved, what stalled, what needs to be killed or delegated), a 15-minute calendar review for next week (blocking deep work, identifying meetings that should be async), a 20-minute priorities reset (top 3 outcomes for next week tied to quarterly OKRs), a 15-minute relationship check (anyone who needs a follow-up, recognition, or a difficult conversation), and a 5-minute close ritual. Provide the exact questions to ask at each stage.","tags":["productivity","systems","planning"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":true},
@@ -212,3 +214,5 @@ export const productivityPrompts = [
     {"id":"prod-100","title":"The 90-Day Productivity Transformation Plan","prompt":"You are a performance transformation coach. Design a complete 90-day productivity transformation plan for a knowledge worker who feels perpetually behind, chronically overwhelmed, and unable to make progress on the work that matters most despite working long hours. The plan is organized in three 30-day phases. Phase one (foundation): eliminate the largest sources of waste and friction — a time audit in week one to establish baseline data, a distraction elimination protocol in week two, an inbox and capture system installation in week three, and a weekly review habit in week four. Phase two (architecture): build the structural conditions for high performance — a time-blocking system in weeks five and six, a daily prioritization practice in week seven, and a delegation audit in week eight. Phase three (optimization): make the system sustainable and compounding — an energy management protocol in weeks nine and ten, a recovery and rest design in week eleven, and a system review and recalibration in week twelve. For each week, provide the specific action, the expected outcome, and the measurement of success.","tags":["productivity","transformation","planning"],"author":"AINOW","created":"2024-02-15T18:15:00Z","featured":true}
 
 ];
+  __exports.productivityPrompts = productivityPrompts;
+})();

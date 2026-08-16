@@ -1,4 +1,7 @@
-export const dataanalysisPrompts = [
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['data/data-dataanalysis'] = AINOW['data/data-dataanalysis'] || {};
+const dataanalysisPrompts = [
 
   // --- 1. EXPLORATORY DATA ANALYSIS (da-1 to da-10) ---
   {"id":"da-1","title":"EDA on Customer Transaction Data","prompt":"You are a senior data analyst at a 500-person subscription SaaS company. Your stack is Python with pandas, matplotlib, seaborn, and Jupyter notebooks. You have just received a new customer transaction dataset before any modeling work begins. Write a complete EDA script that computes descriptive statistics (mean, median, std, skewness, kurtosis) for all numeric columns, plots univariate distributions using seaborn histplots with KDE overlays, generates a Pearson correlation heatmap, and uses the IQR method to flag outliers in the monthly_spend and session_count columns. The script should produce a final printed summary of columns with more than 5% null values and a list of detected outlier row indices.","tags":["eda","python","pandas","distributions","outliers"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":true},
@@ -211,3 +214,5 @@ export const dataanalysisPrompts = [
   {"id":"da-100","title":"Regression Discontinuity Design for Lending Cutoff Analysis","prompt":"You are a senior economist at a 180-person fintech lending company using Python with statsmodels. The company uses a credit score cutoff of 650 to determine loan approval. The credit risk team wants to estimate the causal effect of loan approval on default rates and 12-month income growth among applicants near the cutoff — information that would inform whether the cutoff should be raised or lowered. Write a Python analysis using a Regression Discontinuity Design that: subsets the applicant data to a bandwidth of 50 credit score points on either side of the 650 cutoff; plots the RDD visual diagnostic showing outcome means in score bins on both sides of the cutoff with overlaid linear fits and the discontinuity gap; estimates the Local Average Treatment Effect (LATE) using local linear regression with a triangular kernel; performs a density test (McCrary sorting test) to verify that applicants are not manipulating their scores to just above the cutoff; runs a falsification test using pre-determined baseline covariates (age, employment_status) as outcomes to verify they show no discontinuity at the cutoff; and interprets the LATE estimate in a 150-word policy recommendation for the chief risk officer.","tags":["advanced-analytics","regression-discontinuity","causal-inference","fintech","econometrics"],"author":"AINOW","created":"2024-02-15T18:15:00Z","featured":false}
 
 ];
+  __exports.dataanalysisPrompts = dataanalysisPrompts;
+})();

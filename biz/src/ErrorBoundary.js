@@ -1,11 +1,14 @@
-import { Component } from 'react';
-import htm from 'htm';
-import React from 'react';
-import { RefreshCw, AlertTriangle } from 'lucide-react';
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['src/ErrorBoundary'] = AINOW['src/ErrorBoundary'] || {};
+const { Component } = React;
+
+
+const { RefreshCw, AlertTriangle } = lucide;
 
 const html = htm.bind(React.createElement);
 
-export class ErrorBoundary extends Component {
+class ErrorBoundary extends Component {
     constructor(props) {
         super(props);
         this.state = { hasError: false, error: null, errorInfo: null };
@@ -58,3 +61,5 @@ export class ErrorBoundary extends Component {
         return this.props.children;
     }
 }
+  __exports.ErrorBoundary = ErrorBoundary;
+})();

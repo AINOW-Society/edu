@@ -1,35 +1,34 @@
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['src/components'] = AINOW['src/components'] || {};
+Object.assign(__exports, AINOW['src/hooks']);
 // AINOW Core Components
-import React, { useState, useEffect, useRef, useMemo } from 'react';
-import htm from 'htm';
-import {
-    Globe, Sun, Moon, Menu, X, Github, Linkedin,
-    Keyboard, Ghost, History, Check, Play, Copy, Share2, Heart, CheckCircle, Wand2,
-    NotebookPen, Plus, Folder, Trash2, Save, Maximize2, Minimize2, Settings, Download, Upload, Square,
-    CircleHelp, ChevronLeft, ChevronRight, GitMerge, Cpu, BookOpen, Info, Loader2, Sparkles, SearchX
-} from 'lucide-react';
-import { loadLocale, getCachedLocale } from '../locales/locales.js';
-import { LANGUAGES, NAV_CONFIG, NAV_LINKS, CHATBOTS, APP_VERSION } from './config.js';
-import { copyTextToClipboard } from './utils.js';
+const { useState, useEffect, useRef, useMemo } = React;
+
+const { Globe, Sun, Moon, Menu, X, Github, Linkedin, Keyboard, Ghost, History, Check, Play, Copy, Share2, Heart, CheckCircle, Wand2, NotebookPen, Plus, Folder, Trash2, Save, Maximize2, Minimize2, Settings, Download, Upload, Square, CircleHelp, ChevronLeft, ChevronRight, GitMerge, Cpu, BookOpen, Info, Loader2, Sparkles, SearchX } = lucide;
+const { loadLocale, getCachedLocale } = AINOW['locales/locales'];
+const { LANGUAGES, NAV_CONFIG, NAV_LINKS, CHATBOTS, APP_VERSION } = AINOW['src/config'];
+const { copyTextToClipboard } = AINOW['src/utils'];
 
 // Re-export Hooks
-export * from './hooks.js';
-import { useLanguage, useToast, useGlobalShortcuts } from './hooks.js';
+
+const { useLanguage, useToast, useGlobalShortcuts } = AINOW['src/hooks'];
 
 // Import Layout Components
-import { Header } from './components/layout/Header.js';
-import { SidebarWrapper } from './components/layout/Sidebar.js';
-import { Footer } from './components/layout/Footer.js';
+const { Header } = AINOW['src/components/layout/Header'];
+const { SidebarWrapper } = AINOW['src/components/layout/Sidebar'];
+const { Footer } = AINOW['src/components/layout/Footer'];
 
 // Re-export Layout Components
-export { Header, SidebarWrapper, Footer };
+
 
 const html = htm.bind(React.createElement);
 
-export { LANGUAGES, NAV_CONFIG, NAV_LINKS };
+
 
 // --- ACTIONS ---
 
-export const addToHistory = (item) => {
+const addToHistory = (item) => {
     try {
         let history = JSON.parse(localStorage.getItem('ainow_recent_items') || '[]');
         history = history.filter(i => i.id !== item.id);
@@ -42,7 +41,7 @@ export const addToHistory = (item) => {
 
 // --- VISUAL COMPONENTS ---
 
-export const Pagination = ({ currentPage, totalPages, onPageChange, totalItems, itemsPerPage, t, itemType = 'items', simple = false }) => {
+const Pagination = ({ currentPage, totalPages, onPageChange, totalItems, itemsPerPage, t, itemType = 'items', simple = false }) => {
     const pageNumbers = useMemo(() => {
         const pages = [];
         if (totalPages <= 7) for (let i = 1; i <= totalPages; i++) pages.push(i);
@@ -84,7 +83,7 @@ export const Pagination = ({ currentPage, totalPages, onPageChange, totalItems, 
     `;
 };
 
-export const Toast = ({ toast }) => {
+const Toast = ({ toast }) => {
     return html`
         <div className=${`fixed bottom-10 left-1/2 -translate-x-1/2 z-[250] transition-all duration-500 ease-out no-print ${toast.show ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-90 pointer-events-none'}`}>
             <div className="bg-slate-900 text-white px-8 py-4 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex items-center gap-4 font-black text-sm border border-white/10 backdrop-blur-xl">
@@ -97,7 +96,7 @@ export const Toast = ({ toast }) => {
     `;
 };
 
-export const EmptyState = ({ message, icon, onClear }) => {
+const EmptyState = ({ message, icon, onClear }) => {
     const Icon = icon || Ghost;
     return html`
         <div className="flex flex-col items-center justify-center py-20 text-center animate-fade-in">
@@ -114,7 +113,7 @@ export const EmptyState = ({ message, icon, onClear }) => {
     `;
 };
 
-export const SettingsModal = ({ isOpen, onClose }) => {
+const SettingsModal = ({ isOpen, onClose }) => {
     const { t } = useLanguage();
     const [activeTab, setActiveTab] = useState('data');
     const fileInputRef = useRef(null);
@@ -215,7 +214,7 @@ export const SettingsModal = ({ isOpen, onClose }) => {
 };
 
 // --- SCRATCHPAD ---
-export const Scratchpad = ({ isOpen, onClose }) => {
+const Scratchpad = ({ isOpen, onClose }) => {
     const { t } = useLanguage();
     const [content, setContent] = useState(() => localStorage.getItem('ainow_scratchpad') || '');
 
@@ -261,7 +260,7 @@ export const Scratchpad = ({ isOpen, onClose }) => {
     `;
 };
 
-export const ActionButtons = ({
+const ActionButtons = ({
     text,
     title,
     isFavorite,
@@ -374,13 +373,13 @@ export const ActionButtons = ({
 
 
 // Import UI Components
-import { Logo } from './components/ui/Logo.js';
-export { Logo };
+const { Logo } = AINOW['src/components/ui/Logo'];
 
 
 
 
-export const ShortcutsModal = ({ isOpen, onClose, extraShortcuts }) => {
+
+const ShortcutsModal = ({ isOpen, onClose, extraShortcuts }) => {
     useEffect(() => {
         if (isOpen) document.body.style.overflow = 'hidden';
         else document.body.style.overflow = '';
@@ -440,7 +439,7 @@ export const ShortcutsModal = ({ isOpen, onClose, extraShortcuts }) => {
 };
 
 // New PageShell component for consistent layouts across all pages
-export const PageShell = ({ activePage, children, sidebarItems, isSidebarOpen: externalOpen, onSidebarToggle: setExternalOpen }) => {
+const PageShell = ({ activePage, children, sidebarItems, isSidebarOpen: externalOpen, onSidebarToggle: setExternalOpen }) => {
     const { lang, setLang, t, isReady } = useLanguage();
     const [currentTheme, setCurrentTheme] = useState(() => localStorage.getItem('theme') || 'light');
     const [internalOpen, setInternalOpen] = useState(false);
@@ -505,3 +504,20 @@ export const PageShell = ({ activePage, children, sidebarItems, isSidebarOpen: e
         </div>
     `;
 };
+  __exports.addToHistory = addToHistory;
+  __exports.Pagination = Pagination;
+  __exports.Toast = Toast;
+  __exports.EmptyState = EmptyState;
+  __exports.SettingsModal = SettingsModal;
+  __exports.Scratchpad = Scratchpad;
+  __exports.ActionButtons = ActionButtons;
+  __exports.ShortcutsModal = ShortcutsModal;
+  __exports.PageShell = PageShell;
+  __exports.Header = Header;
+  __exports.SidebarWrapper = SidebarWrapper;
+  __exports.Footer = Footer;
+  __exports.LANGUAGES = LANGUAGES;
+  __exports.NAV_CONFIG = NAV_CONFIG;
+  __exports.NAV_LINKS = NAV_LINKS;
+  __exports.Logo = Logo;
+})();

@@ -7,7 +7,7 @@
   <title>AINOW OS | Prompt Different.</title>
   <link rel="icon" href="assets/logo-placeholder.png" type="image/png">
 
-  <link rel="canonical" href="https://your-domain.example/index.html">
+  <link rel="canonical" href="https://edu.ainow.mk/biz/index.html">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -43,17 +43,13 @@
   <meta property="og:description"
     content="Explore thousands of professional-grade AI prompts. Privacy-first and 100% open source.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://your-domain.example/">
+  <meta property="og:url" content="https://edu.ainow.mk/biz/">
   <meta property="og:image" content="assets/logo-placeholder.png">
 
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#4f46e5">
 
   <!-- Module Preload for faster initialization -->
-  <link rel="modulepreload" href="src/index.js">
-  <link rel="modulepreload" href="src/components.js">
-  <link rel="modulepreload" href="src/config.js">
-  <link rel="modulepreload" href="src/utils.js">
 
   <script>
     // Suppress Tailwind CDN warning
@@ -80,9 +76,9 @@
               DEFAULT: '#FAF9F7'
             },
             coral: {
-              DEFAULT: '#E87B5F',
-              light: 'rgba(232, 123, 95, 0.15)', // for shadows/highlights
-              hover: '#D66A4E',
+              DEFAULT: '#4F46E5',
+              light: 'rgba(79, 70, 229, 0.15)', // for shadows/highlights
+              hover: '#4338CA',
             },
             purple: {
               warm: '#8B7CFF',
@@ -105,7 +101,7 @@
             'level-1': '0 1px 3px rgba(0,0,0,0.03)',
             'level-2': '0 4px 20px rgba(0,0,0,0.08)',
             'level-3': '0 12px 48px rgba(0,0,0,0.12)',
-            'coral-glow': '0 2px 8px rgba(232, 123, 95, 0.15)',
+            'coral-glow': '0 2px 8px rgba(79, 70, 229, 0.15)',
           },
           backgroundImage: {
             'gradient-gold-amber': 'linear-gradient(135deg, #FFD700 0%, #FFB347 100%)', // Example warm gradient
@@ -114,8 +110,6 @@
       }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap"
-    rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 
@@ -137,7 +131,27 @@
         }
       })();
   </script>
-  <script type="module" src="src/index.js"></script>
+  <script src="libs/vendor.js"></script>
+  <script src="libs/htm.js"></script>
+  <script src="libs/fuse.js"></script>
+  <script src="src/runtime.js"></script>
+  <script src="config.js"></script>
+  <script src="data/data.js"></script>
+  <script src="data/data-counts.js"></script>
+  <script src="src/ErrorBoundary.js"></script>
+  <script src="locales/locales-en.js"></script>
+  <script src="locales/locales-mk.js"></script>
+  <script src="locales/locales-sq.js"></script>
+  <script src="locales/locales.js"></script>
+  <script src="src/config.js"></script>
+  <script src="src/hooks.js"></script>
+  <script src="src/components/layout/Footer.js"></script>
+  <script src="src/components/ui/Logo.js"></script>
+  <script src="src/components/layout/Header.js"></script>
+  <script src="src/components/layout/Sidebar.js"></script>
+  <script src="src/utils.js"></script>
+  <script src="src/components.js"></script>
+  <script src="src/index.js"></script>
 </body>
 
 </html>

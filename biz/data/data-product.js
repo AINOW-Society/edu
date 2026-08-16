@@ -1,5 +1,7 @@
-
-export const productPrompts = [
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['data/data-product'] = AINOW['data/data-product'] || {};
+const productPrompts = [
 
     // --- PRODUCT STRATEGY (1-10) ---
     {"id":"prod-1","title":"RICE Feature Prioritization Framework","prompt":"You are a senior product manager with 10 years of experience at Figma, Notion, and Linear. I need to prioritize a backlog of competing feature requests for a B2B project management tool serving 8,000 paying teams. Walk me through how to apply the RICE scoring framework (Reach, Impact, Confidence, Effort) in a practical B2B SaaS context. First, explain what each component means with a concrete scoring rubric: provide a 1–3 scale with descriptions for each level of each component. Then walk through how a PM should facilitate a prioritization session with engineering and design leads: what inputs to gather beforehand, how to structure the 60-minute meeting, how to handle stakeholder disagreements where each person advocates for their own feature, and how to communicate the final priority order to teams whose requests were deprioritized without damaging trust or morale.","tags":["prioritization","roadmap","frameworks"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":true},
@@ -216,3 +218,5 @@ export const productPrompts = [
     {"id":"prod-100","title":"UX Review and Improvement Recommendations","prompt":"You are a senior UX designer and product thinker who has reviewed hundreds of B2B SaaS interfaces and identified the usability patterns that most reliably improve task completion and user satisfaction. I will describe a specific UX flow or interface. Your task is to provide a structured UX review with actionable recommendations. Cover: the primary usability issues (problems that prevent users from completing their goal), the secondary quality issues (friction points that do not block completion but create unnecessary effort or confusion), the UX writing issues (labels, instructions, and error messages that could be clearer), the accessibility concerns (issues that would affect users relying on keyboard navigation or assistive technology), and a prioritized improvement plan that distinguishes quick wins (fixes that take less than a day) from structural improvements (changes that require design and development investment). For each issue, be specific about why it is a problem, who it affects most, and what the improved version should look like.\n\n[Describe the UX flow or interface you want reviewed]","tags":["ux","design","review"],"author":"AINOW","created":"2024-02-15T18:15:00Z","featured":true}
 
 ];
+  __exports.productPrompts = productPrompts;
+})();

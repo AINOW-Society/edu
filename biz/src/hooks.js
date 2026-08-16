@@ -1,9 +1,12 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
-import { loadLocale, getCachedLocale } from '../locales/locales.js';
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['src/hooks'] = AINOW['src/hooks'] || {};
+const { useState, useEffect, useCallback, useRef } = React;
+const { loadLocale, getCachedLocale } = AINOW['locales/locales'];
 
 // --- HOOKS ---
 
-export const useLanguage = () => {
+const useLanguage = () => {
     const getStoredLangCode = () => {
         const stored = localStorage.getItem('language');
         return (stored && ['en', 'mk', 'sq', 'bs', 'sr'].includes(stored)) ? stored : 'en';
@@ -82,7 +85,7 @@ export const useLanguage = () => {
     return { lang, setLang, t, isReady };
 };
 
-export const useToast = () => {
+const useToast = () => {
     const [toast, setToast] = useState({ msg: '', show: false, type: 'success' });
     const timerRef = useRef(null);
 
@@ -97,7 +100,7 @@ export const useToast = () => {
     return { toast, showToast };
 };
 
-export const useGlobalShortcuts = ({ onSearch, onThemeToggle, onSidebarToggle, onHelp, onEscape, onScratchpad }) => {
+const useGlobalShortcuts = ({ onSearch, onThemeToggle, onSidebarToggle, onHelp, onEscape, onScratchpad }) => {
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
@@ -139,3 +142,7 @@ export const useGlobalShortcuts = ({ onSearch, onThemeToggle, onSidebarToggle, o
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [onSearch, onThemeToggle, onSidebarToggle, onHelp, onEscape, onScratchpad]);
 };
+  __exports.useLanguage = useLanguage;
+  __exports.useToast = useToast;
+  __exports.useGlobalShortcuts = useGlobalShortcuts;
+})();

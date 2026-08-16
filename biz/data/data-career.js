@@ -1,5 +1,7 @@
-
-export const careerPrompts = [
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['data/data-career'] = AINOW['data/data-career'] || {};
+const careerPrompts = [
 
     // --- JOB SEARCHING (1-8) ---
     {"id":"car-1","title":"Career Pivot Story Framework","prompt":"You are an executive career coach who has helped 200+ professionals successfully change industries. I am a 34-year-old financial analyst with 8 years at Goldman Sachs who wants to transition into product management at a tech company. I have strong quantitative skills, experience building Excel models used by C-suite executives, led a cross-functional project to overhaul the firm's reporting infrastructure, and have no formal PM experience. Write my career pivot narrative in three versions: (1) a 60-second elevator pitch for a networking event, (2) a 3-paragraph 'About' section for my LinkedIn profile that reframes my finance background as a product strength, and (3) a cover letter opening paragraph that preemptively addresses the 'no PM experience' objection by positioning my analytical depth as a differentiator. Tone: confident, self-aware, not defensive.","tags":["career-pivot","storytelling","job-search"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":true},
@@ -124,3 +126,5 @@ export const careerPrompts = [
     {"id":"car-100","title":"The Career Letter to Your Future Self","prompt":"You are a life design coach facilitating a powerful career reflection and visioning exercise. One of the most effective tools for career clarity and motivation is writing a letter from your future self — the version of you 5 years from now who has built exactly the career and life you wanted — back to the present. This exercise bypasses the analytical mind and accesses a deeper kind of knowing about what actually matters to you. Guide me through this exercise: (1) a 5-minute guided visualization to get into the mental state of the future self before writing, (2) a set of prompting questions to help me write the letter — covering professional achievements, personal growth, relationships built, and lessons learned, (3) a structure for the letter itself (200–300 words), and (4) instructions for how to use this letter as a practical planning document: what decisions does it clarify? What should I start, stop, or change? Run me through this exercise fully — do not just explain it. [Type 'Begin' and I will guide you through it step by step]","tags":["career-planning","self-reflection","life-design"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":true}
 
 ];
+  __exports.careerPrompts = careerPrompts;
+})();

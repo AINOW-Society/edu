@@ -1,15 +1,11 @@
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['src/config'] = AINOW['src/config'] || {};
+const { BookOpen, Globe, Briefcase, PenTool, Megaphone, Code, GraduationCap, HeartPulse, Sparkles, Heart, Cpu, Search, List, Wand2, Building2, Settings, GitMerge, Hammer, HeartHandshake, Stethoscope, Scale, Landmark, Shield, TrendingUp, Home, FlaskConical, Brain, Leaf, Layers, Users, Truck, BarChart3, Binary, UserCog, Library, Zap, Newspaper, Palette, Utensils, Wheat } = lucide;
 
-import { 
-  BookOpen, Globe, Briefcase, PenTool, Megaphone, Code,
-  GraduationCap, HeartPulse, Sparkles, Heart, Cpu, Search, List,
-  Wand2, Building2, Settings, GitMerge, Hammer, HeartHandshake, Stethoscope, Scale, Landmark,
-  Shield, TrendingUp, Home, FlaskConical, Brain, Leaf,
-  Layers, Users, Truck, BarChart3, Binary, UserCog, Library, Zap, Newspaper, Palette, Utensils, Wheat
-} from 'lucide-react';
 
-export { FlaskConical };
 
-export const CATEGORY_CONFIG = [
+const CATEGORY_CONFIG = [
   { id: 'all', nameKey: 'categories.all', icon: BookOpen },
   { id: 'favorites', nameKey: 'categories.favorites', icon: Heart },
   { id: 'agriculture', nameKey: 'categories.agriculture', icon: Wheat },
@@ -48,7 +44,7 @@ export const CATEGORY_CONFIG = [
   { id: 'albanian', nameKey: 'categories.albanian', icon: Globe },
 ];
 
-export const CHATBOTS = [
+const CHATBOTS = [
     { name: 'ChatGPT', url: 'https://chatgpt.com/?q=' },
     { name: 'Gemini', url: 'https://gemini.google.com/app?prompt=' },
     { name: 'Claude', url: 'https://claude.ai/new?q=' },
@@ -56,7 +52,7 @@ export const CHATBOTS = [
     { name: 'Perplexity', url: 'https://www.perplexity.ai/?q=' },
 ];
 
-export const AGENT_CATEGORIES = [
+const AGENT_CATEGORIES = [
     { id: 'all', nameKey: 'agent_categories.all', icon: Cpu },
     { id: 'favorites', nameKey: 'agent_categories.favorites', icon: Heart },
     { id: 'gov', nameKey: 'agent_categories.gov', icon: Building2 },
@@ -85,19 +81,28 @@ export const AGENT_CATEGORIES = [
     { id: 'creative', nameKey: 'agent_categories.creative', icon: Sparkles },
 ];
 
-export const LANGUAGES = [
+const LANGUAGES = [
     { code: 'en', label: 'EN', flag: 'EN' },
     { code: 'mk', label: 'MK', flag: 'MK' },
     { code: 'sq', label: 'AL', flag: 'AL' }
 ];
 
-export const NAV_CONFIG = [
+const NAV_CONFIG = [
     { href: 'index.html', labelKey: 'nav.prompts', icon: BookOpen, id: 'prompts' },
     { href: 'agents.html', labelKey: 'nav.agents', icon: Cpu, id: 'agents' },
     { href: 'playbooks.html', labelKey: 'nav.situations', icon: Sparkles, id: 'playbooks' },
     { href: 'builder.html', labelKey: 'nav.builder', icon: Hammer, id: 'builder' }
 ];
 
-export const NAV_LINKS = NAV_CONFIG.map(n => ({...n, label: n.id}));
+const NAV_LINKS = NAV_CONFIG.map(n => ({...n, label: n.id}));
 
-export const APP_VERSION = typeof __APP_VERSION__ !== 'undefined' ? __APP_VERSION__ : '0.5.0';
+const APP_VERSION = typeof __APP_VERSION__ !== 'undefined' ? __APP_VERSION__ : '0.5.0';
+  __exports.CATEGORY_CONFIG = CATEGORY_CONFIG;
+  __exports.CHATBOTS = CHATBOTS;
+  __exports.AGENT_CATEGORIES = AGENT_CATEGORIES;
+  __exports.LANGUAGES = LANGUAGES;
+  __exports.NAV_CONFIG = NAV_CONFIG;
+  __exports.NAV_LINKS = NAV_LINKS;
+  __exports.APP_VERSION = APP_VERSION;
+  __exports.FlaskConical = FlaskConical;
+})();

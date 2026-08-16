@@ -1,5 +1,8 @@
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['data/data-marketing'] = AINOW['data/data-marketing'] || {};
 // Contains all prompts for the 'Marketing' category.
-export const marketingPrompts = [
+const marketingPrompts = [
 
   // --- 1. STRATEGY & PLANNING (m-1 to m-10) ---
   {"id":"m-1","title":"Vertical SaaS GTM Launch Plan","prompt":"You are the VP of Marketing at a 40-person vertical SaaS startup that just built an AI-powered scheduling tool for dental practices. You are planning a go-to-market launch for Q2 targeting independent dental practices with 1–5 chairs in the US Southeast. Write a complete 8-week GTM plan covering: week-by-week launch activities, a channel mix rationale (why dental trade publications + Google Search + dental Facebook groups over LinkedIn), a 3-tier influencer strategy using dental KOLs on Instagram, a launch email sequence of 5 emails with subject lines, and the three metrics you will use to declare the launch a success or failure at the 60-day mark. Format as an executive deck outline with talking points under each slide heading.","tags":["gtm","strategy","saas","launch"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":true},
@@ -122,3 +125,5 @@ export const marketingPrompts = [
   {"id":"m-100","title":"Growth Audit: Diagnosing a Plateau","prompt":"You are the VP of Growth at a 110-person B2B SaaS company. For the past 6 months, net new MRR has been flat at approximately $280,000 per month despite consistent marketing spend of $180,000 per month. New business MRR is $420K, expansion MRR is $85K, and churn MRR is $225K — meaning gross churn is consuming most of your new business gains. The CEO is asking where the growth ceiling is and how to break through it. Conduct a complete growth audit by: decomposing the growth equation (new business + expansion − churn = net new MRR) and identifying which lever moving by what amount would have the greatest impact on net MRR (show the math), diagnosing the top three hypotheses for why churn MRR is $225K/month (list specific investigative questions for each hypothesis and the data source that would answer them), identifying three growth experiments ranked by expected 90-day net MRR impact, and writing a 90-day growth sprint plan with weekly milestones. Approximately 650 words.","tags":["growth-audit","saas","churn","strategy"],"author":"AINOW","created":"2024-02-15T18:15:00Z","featured":false}
 
 ];
+  __exports.marketingPrompts = marketingPrompts;
+})();

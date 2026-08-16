@@ -1,6 +1,8 @@
-
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['data/data-creative'] = AINOW['data/data-creative'] || {};
 // AINOW Creative Writing Library - 100 Prompts
-export const creativePrompts = [
+const creativePrompts = [
 
     // --- UNRELIABLE NARRATORS & VOICE (1-8) ---
     {"id":"crt-1","title":"Unreliable Narrator: The Forensic Accountant","prompt":"You are a master fiction writer and creative writing professor. Write the opening 500 words of a psychological thriller short story featuring an unreliable narrator named Meredith Voss, a 41-year-old forensic accountant who has just discovered what she believes is embezzlement evidence against her husband of 14 years — but the reader should gradually sense through subtle inconsistencies that Meredith herself may be misremembering or fabricating. The opening should: establish Meredith's voice as precise, methodical, and self-assured (she is a numbers person who trusts evidence), introduce the inciting discovery through a specific detail (a wire transfer to an account she doesn't recognize), plant two subtle unreliability signals that a careful reader will notice on a second read but not the first, and end on a line that feels like certainty but is actually a question. Write in close third person. Prose style: taut, precise, with short sentences that accelerate in the final paragraph.","tags":["creative-writing","fiction","thriller","unreliable-narrator"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":true},
@@ -214,3 +216,5 @@ export const creativePrompts = [
     {"id":"crt-100","title":"The Complete Short Story: From Premise to Final Draft Roadmap","prompt":"You are a master short story writer and creative writing professor who has published and taught the form for thirty years. I want to write a short story and I have only a premise: [describe your premise in 1-3 sentences]. Guide me through the complete development of this story from premise to final draft using the following stages: (1) PREMISE INTERROGATION — push the premise until it reveals its real subject: ask me three questions that will take the premise from what it is about to what it is really about; (2) THE FIRST DECISION — recommend the POV, tense, and narrative distance that will best serve this particular story, with a rationale; (3) THE STRUCTURAL SKETCH — outline the story in five beats, identifying what must happen at each beat and why; (4) THE OPENING — write the first 200 words as a model first draft, demonstrating the voice and entry point you recommend; (5) THE REVISION QUESTION — identify the one question I must be able to answer before I can revise this story from first draft to final.\n\n[Describe your story premise]","tags":["creative-writing","short-story","craft","workshop","complete-process"],"author":"AINOW","created":"2024-02-15T18:15:00Z","featured":true}
 
 ];
+  __exports.creativePrompts = creativePrompts;
+})();

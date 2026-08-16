@@ -1,3 +1,6 @@
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['data/data-agents'] = AINOW['data/data-agents'] || {};
 // AINOW Agents Hub - Core Data Source
 // Providing professional-grade agent configurations for copy-pasting into LLMs.
 
@@ -486,4 +489,6 @@ const seeds = [
 ];
 
 // Final generation logic: 362 Seeds * 6 specialized variants = 2,172 Unique Agents
-export const agentsData = generateAgents(seeds);
+const agentsData = generateAgents(seeds);
+  __exports.agentsData = agentsData;
+})();

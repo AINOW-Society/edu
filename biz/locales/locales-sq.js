@@ -1,4 +1,7 @@
-export const data = {
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['locales/locales-sq'] = AINOW['locales/locales-sq'] || {};
+const data = {
     "nav": {
         "prompts": "Prompte",
         "agents": "Agjentë",
@@ -4132,3 +4135,5 @@ export const data = {
         }
     }
 };
+  __exports.data = data;
+})();

@@ -1,5 +1,7 @@
-
-export const realestatePrompts = [
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['data/data-realestate'] = AINOW['data/data-realestate'] || {};
+const realestatePrompts = [
 
     // --- PROPERTY VALUATION (1-8) ---
     {"id":"re-1","title":"Multifamily Investment Underwriting","prompt":"You are a commercial real estate analyst specializing in multifamily investment underwriting. Underwrite a 48-unit apartment complex in a secondary Midwest market (Columbus, Ohio suburb) with the following details: asking price $7.2M, current gross rental income $684,000/year (average $1,187/unit/month), vacancy rate 6%, operating expenses $285,000/year (42% expense ratio), and the property is 1987 vintage needing $2,400/unit in deferred maintenance. The buyer plans to finance with a 70% LTV loan at 6.8% interest rate, 30-year amortization, 5-year term. Perform a full underwriting analysis including: Year 1 NOI calculation, going-in cap rate, debt service coverage ratio, cash-on-cash return, and equity multiple. Then model a value-add scenario: $3,000/unit renovation to 30 units over 24 months, pushing rents from $1,187 to $1,420/month on renovated units with 8% vacancy during renovation. Calculate the stabilized NOI, projected exit cap rate at 5.5%, and 5-year IRR assuming a sale at the end of Year 5. Identify the two biggest risks in this deal.","tags":["valuation","investment","underwriting","multifamily"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":true},
@@ -218,3 +220,5 @@ export const realestatePrompts = [
     {"id":"re-100","title":"Real Estate Investment Thesis Review","prompt":"You are a senior real estate investment advisor at a private equity firm. Review the investment thesis and supporting data provided below. Provide a comprehensive critical analysis covering: investment rationale and market positioning, underwriting assumptions vs. current market benchmarks, risk factors not adequately addressed in the thesis, capital structure optimization suggestions, and a final investment recommendation with the three conditions that must be true for the thesis to succeed.\n\n[Paste the property details, financials, or listing description]","tags":["investment","analysis","underwriting","strategy"],"author":"AINOW","created":"2024-02-15T18:15:00Z","featured":true}
 
 ];
+  __exports.realestatePrompts = realestatePrompts;
+})();

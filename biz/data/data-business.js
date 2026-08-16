@@ -1,5 +1,8 @@
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['data/data-business'] = AINOW['data/data-business'] || {};
 // Contains all prompts for the 'Business' category.
-export const businessPrompts = [
+const businessPrompts = [
 
   // ── HR: Recruitment & Hiring (b-1 to b-10) ──────────────────────────────
 
@@ -218,3 +221,5 @@ export const businessPrompts = [
   {"id":"b-100","title":"New CEO 100-Day Strategic Agenda","prompt":"You are an executive onboarding advisor helping a newly appointed CEO of a $120M revenue mid-market manufacturing company who is coming from outside the industry. The prior CEO led the company for 14 years and retired; the new CEO starts in 3 weeks and has 6 months before being expected to present a 3-year strategic plan to the board. Design a comprehensive 100-day agenda that balances learning, relationship-building, and early-impact actions. The agenda should include: a structured listening tour plan with internal and external stakeholder groups to meet, 5 key questions to ask in each category, and a synthesis methodology; a priority diagnostic framework for assessing the company's strategic position, financial health, organizational capability, and culture in the first 30 days; a decision framework for identifying which of the prior CEO's priorities to continue, accelerate, modify, or stop; a communication plan for building credibility with the board, employees, customers, and investors; a personal brand-setting moment in the first 60 days; and a Day 100 output: a crisp preliminary strategic hypothesis document to share with the board before the full 3-year plan development begins.","tags":["executive","leadership","strategy"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":true}
 
 ];
+  __exports.businessPrompts = businessPrompts;
+})();

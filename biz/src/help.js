@@ -1,18 +1,12 @@
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['src/help'] = AINOW['src/help'] || {};
+const { useState, useEffect } = React;
+const { createRoot } = ReactDOMClient;
 
-import React, { useState, useEffect } from 'react';
-import { createRoot } from 'react-dom/client';
-import htm from 'htm';
-import {
-    BookOpen, Command, Zap, Layers,
-    MessageSquare, Play,
-    Copy, ArrowRight, CheckCircle,
-    HelpCircle, Keyboard,
-    Shield, Terminal, Share2,
-    Globe, ExternalLink, Info, Users, ShieldCheck, Sparkles,
-    ChevronRight, Loader2, Hash
-} from 'lucide-react';
-import { Header, Footer, ShortcutsModal, useLanguage, Scratchpad, SettingsModal, Toast, useToast, useGlobalShortcuts, SidebarWrapper } from './components.js';
-import { StaticPage } from './StaticPages.js';
+const { BookOpen, Command, Zap, Layers, MessageSquare, Play, Copy, ArrowRight, CheckCircle, HelpCircle, Keyboard, Shield, Terminal, Share2, Globe, ExternalLink, Info, Users, ShieldCheck, Sparkles, ChevronRight, Loader2, Hash } = lucide;
+const { Header, Footer, ShortcutsModal, useLanguage, Scratchpad, SettingsModal, Toast, useToast, useGlobalShortcuts, SidebarWrapper } = AINOW['src/components'];
+const { StaticPage } = AINOW['src/StaticPages'];
 
 const html = htm.bind(React.createElement);
 
@@ -679,3 +673,4 @@ const HelpApp = () => {
 
 const root = createRoot(document.getElementById('root'));
 root.render(html`<${HelpApp} />`);
+})();

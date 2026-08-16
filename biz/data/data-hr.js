@@ -1,5 +1,7 @@
-
-export const hrPrompts = [
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['data/data-hr'] = AINOW['data/data-hr'] || {};
+const hrPrompts = [
 
     // --- TALENT ACQUISITION (hr-1 to hr-12) ---
     {"id":"hr-1","title":"30-Day Performance Improvement Plan","prompt":"You are an experienced HR Business Partner at a 300-person SaaS company. Draft a 30-day Performance Improvement Plan for a mid-level Customer Success Manager who has missed their quarterly renewal target by 35% for two consecutive quarters, has received three customer escalations in the past 60 days citing unresponsiveness, and was rated 'Below Expectations' in their last performance review. The PIP should include: a factual description of the performance gap without subjective language, 4 specific measurable objectives for the 30-day period with clear success criteria, a weekly check-in structure with the manager, resources and support the company will provide, and a plain-English explanation of outcomes if the plan is not met. Tone: firm, fair, legally careful, and human.","tags":["performance","pip","employee-relations"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":true},
@@ -211,3 +213,5 @@ export const hrPrompts = [
     {"id":"hr-100","title":"The Future of Work Strategy","prompt":"You are the Chief People Officer advising the Board of a 600-person company on a 5-year Future of Work strategy. The company is facing five simultaneous forces of change: AI automation of knowledge work is accelerating (estimated 30% of current job tasks automatable by 2028); the workforce spans four generations with fundamentally different expectations; skills are becoming obsolete faster than the company can retrain; remote and hybrid work has permanently changed social capital and collaboration patterns; and demographic changes mean the talent market for critical roles will tighten significantly. Write a Future of Work strategy covering: a horizon-scanning section analysing how each of the 5 forces will impact this specific company by 2028; a strategic workforce response for each force including specific actions, investments, and policy changes; a reskilling and workforce transition philosophy and investment commitment; a future of work principles document for how the company will make decisions about automation, skills, and ways of working; a governance model for future of work decisions; and a 12-month action plan for the most urgent items. The strategy should be honest about the hard trade-offs, not aspirational boilerplate.","tags":["future-of-work","strategy","workforce-planning"],"author":"AINOW","created":"2024-02-15T18:15:00Z","featured":true}
 
 ];
+  __exports.hrPrompts = hrPrompts;
+})();

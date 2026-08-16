@@ -1,6 +1,8 @@
-
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['data/data-coding'] = AINOW['data/data-coding'] || {};
 // Contains all prompts for the 'Coding' category.
-export const codingPrompts = [
+const codingPrompts = [
 
   // --- 1. CODE REVIEW & REFACTORING (c-1 to c-10) ---
   {"id":"c-1","title":"Payment Service Refactor","prompt":"You are a senior backend engineer reviewing a pull request on a Node.js + PostgreSQL microservice that handles payment processing for a multi-tenant B2B SaaS platform. The code below has been flagged for a readability and maintainability pass before it ships to production. Review it against SOLID principles, identify any violation of the single-responsibility principle, flag magic numbers or strings that should be constants, point out any async/await patterns that could cause unhandled promise rejections, and rewrite the problematic sections with clean TypeScript. Produce a review comment for each issue in the format a GitHub PR reviewer would write, followed by a fully refactored version of the file.\n\n[Paste your code here]","tags":["code-review","refactoring","typescript","node.js"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":true},
@@ -213,3 +215,5 @@ export const codingPrompts = [
   {"id":"c-100","title":"Write a Production Incident Postmortem","prompt":"You are a senior SRE writing a blameless postmortem document for a 47-minute production outage that affected 12,000 users of a payment processing SaaS. The incident: a database migration that added a NOT NULL column to a 200-million-row table caused a full table lock, the monitoring alert fired 8 minutes after the outage began because the alert threshold was too high, and the on-call engineer rolled back the migration after 39 more minutes. Write a complete postmortem following Google's SRE postmortem culture principles. Your postmortem must include: an executive summary (3 sentences: what happened, user impact, what was done), a timeline in UTC with each action timestamped to the minute (deploy started, first user impact, alert fired, on-call paged, investigation started, root cause identified, rollback initiated, service recovered), a root cause analysis section using the 5 Whys technique tracing from 'users got 500 errors' back to 'the migration strategy was not reviewed for large tables', a contributing factors section listing 3 factors without blaming individuals (missing staging data volume, alert threshold misconfigured, no runbook for migration rollback), and 5 concrete action items with owners, due dates, and success metrics (not 'improve monitoring' but 'reduce p99 alert threshold for checkout endpoint from 10s to 2s — owner: @alice, due: 2024-03-01, metric: alert fires within 2 minutes of next incident').","tags":["documentation","incident-response","sre","postmortem","process"],"author":"AINOW","created":"2024-02-15T18:15:00Z","featured":false}
 
 ];
+  __exports.codingPrompts = codingPrompts;
+})();

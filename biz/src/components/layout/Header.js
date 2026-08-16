@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
-import htm from 'htm';
-import { Sun, Moon, Menu, NotebookPen, Globe, Check, CircleHelp } from 'lucide-react';
-import { NAV_CONFIG, LANGUAGES } from '../../config.js';
-import { useLanguage } from '../../hooks.js';
-import { Logo } from '../ui/Logo.js';
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['src/components/layout/Header'] = AINOW['src/components/layout/Header'] || {};
+const { useState } = React;
+
+const { Sun, Moon, Menu, NotebookPen, Globe, Check, CircleHelp } = lucide;
+const { NAV_CONFIG, LANGUAGES } = AINOW['src/config'];
+const { useLanguage } = AINOW['src/hooks'];
+const { Logo } = AINOW['src/components/ui/Logo'];
 
 const html = htm.bind(React.createElement);
 
@@ -42,7 +45,7 @@ const LanguageSwitcher = ({ currentLang, setLang }) => {
     `;
 };
 
-export const Header = ({ currentTheme, onThemeToggle, onMenuClick, activePage, onScratchpad, isZenMode, onToggleZen, onSettingsClick }) => {
+const Header = ({ currentTheme, onThemeToggle, onMenuClick, activePage, onScratchpad, isZenMode, onToggleZen, onSettingsClick }) => {
     const { lang, setLang, t } = useLanguage();
     const themeIcon = currentTheme === 'dark' ? html`<${Sun} className="w-5 h-5" />` : html`<${Moon} className="w-5 h-5" />`;
 
@@ -96,3 +99,5 @@ export const Header = ({ currentTheme, onThemeToggle, onMenuClick, activePage, o
         </header>
     `;
 };
+  __exports.Header = Header;
+})();

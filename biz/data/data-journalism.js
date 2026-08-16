@@ -1,5 +1,7 @@
-
-export const journalismPrompts = [
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['data/data-journalism'] = AINOW['data/data-journalism'] || {};
+const journalismPrompts = [
 
     // --- NEWS WRITING (1-10) ---
     {"id":"jou-1","title":"Investigative Story Structure","prompt":"You are a senior investigative journalist with 20 years of experience at ProPublica and The Guardian. I am investigating potential wage theft at a large regional logistics company with 8,000 warehouse workers. I have obtained payroll records showing systematic rounding-down of hours, interviews with 12 workers, and an internal HR memo acknowledging the discrepancy. Help me structure this investigation into a publishable longform piece. Provide: a recommended narrative structure (chronological vs. revelatory vs. character-driven) with justification for this specific story, a story outline with section headers and the key fact or quote that should anchor each section, a list of 8 additional sources I should pursue before publishing (regulatory bodies, labor economists, legal experts, comparable cases), 5 specific records requests I should file under FOIA or state equivalents, and the legal review checklist I should walk through with our publication's attorney before running the story.","tags":["journalism","investigative","longform","structure"],"author":"AINOW","created":"2024-02-15T10:00:00Z","featured":true},
@@ -213,3 +215,5 @@ export const journalismPrompts = [
     {"id":"jou-100","title":"The Future of Local News: Sustainability Models","prompt":"You are a journalism business analyst and local news researcher who studies models for financially sustainable local journalism. Local news is in a structural crisis — advertising revenue has collapsed, newsroom employment has fallen by more than 60 percent since 2008, and hundreds of communities have lost all local coverage. Yet innovative models are emerging. Give me a comprehensive landscape of sustainability approaches. Cover: the nonprofit local news model — its funding sources (foundations, major donors, membership), its editorial independence risks and how the best organizations manage them, and the evidence on whether it can achieve the scale needed to replace commercial local news, the reader revenue model (subscriptions, membership, pay-per-view) and the specific editorial and audience development strategies that make it work in local markets, the public media model and its application outside traditional public broadcasting, the cooperatively owned newsroom model, how successful local news startups have used specific editorial niches (education, criminal justice, environment) to build loyal paying audiences, the role of journalism schools and university-affiliated newsrooms, and the policy interventions — tax credits, postal subsidies, local journalism investment funds — that have been proposed or implemented and the evidence on their effectiveness.","tags":["local-news","sustainability","business","future"],"author":"AINOW","created":"2024-02-15T18:15:00Z","featured":true}
 
 ];
+  __exports.journalismPrompts = journalismPrompts;
+})();

@@ -1,5 +1,7 @@
-
-import { useState, useEffect } from 'react';
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['src/utils'] = AINOW['src/utils'] || {};
+const { useState, useEffect } = React;
 
 /**
  * Hook to debounce a value
@@ -7,7 +9,7 @@ import { useState, useEffect } from 'react';
  * @param {number} delay 
  * @returns {any}
  */
-export const useDebounce = (value, delay) => {
+const useDebounce = (value, delay) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
   useEffect(() => {
     const handler = setTimeout(() => setDebouncedValue(value), delay);
@@ -21,7 +23,7 @@ export const useDebounce = (value, delay) => {
  * @param {string} text 
  * @returns {Promise<boolean>}
  */
-export const copyTextToClipboard = async (text) => {
+const copyTextToClipboard = async (text) => {
   if (navigator.clipboard && window.isSecureContext) {
     try { await navigator.clipboard.writeText(text); return true; } catch (err) {}
   }
@@ -43,7 +45,7 @@ export const copyTextToClipboard = async (text) => {
 /**
  * Compresses a JSON object into a Base64 string for URL sharing
  */
-export const compressState = (state) => {
+const compressState = (state) => {
     try {
         const json = JSON.stringify(state);
         return btoa(encodeURIComponent(json));
@@ -56,7 +58,7 @@ export const compressState = (state) => {
 /**
  * Decompresses a Base64 string back into a JSON object
  */
-export const decompressState = (encoded) => {
+const decompressState = (encoded) => {
     try {
         const json = decodeURIComponent(atob(encoded));
         return JSON.parse(json);
@@ -65,3 +67,8 @@ export const decompressState = (encoded) => {
         return null;
     }
 };
+  __exports.useDebounce = useDebounce;
+  __exports.copyTextToClipboard = copyTextToClipboard;
+  __exports.compressState = compressState;
+  __exports.decompressState = decompressState;
+})();

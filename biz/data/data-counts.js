@@ -1,5 +1,8 @@
+(function () {
+window.AINOW = window.AINOW || {};
+var __exports = AINOW['data/data-counts'] = AINOW['data/data-counts'] || {};
 // This file contains static counts of prompts per category.
-export const promptCounts = {
+const promptCounts = {
     agriculture: 100,
     aiengineering: 100,
     business: 100,
@@ -35,3 +38,5 @@ export const promptCounts = {
     macedonian: 100,
     albanian: 100,
 };
+  __exports.promptCounts = promptCounts;
+})();
