@@ -994,8 +994,12 @@ const App = {
     goToPromptPage(page) {
         this.currentPromptPage = page;
         this.renderPrompts(this.currentPromptCategory, this.currentPromptSubcategory);
-        const scrollArea = document.querySelector('.pc-cards-scroll');
-        if (scrollArea) scrollArea.scrollTo({top: 0, behavior: 'smooth'});
+        // '.pc-cards-scroll' belonged to an older layout and is not in this
+        // view, so paging silently left the reader at the bottom of the
+        // previous page. Scroll the actual container instead.
+        const scrollArea = document.querySelector('.pc-cards-scroll')
+            || document.getElementById('main-content');
+        if (scrollArea) scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
     },
 
     copyPrompt(btn) {
