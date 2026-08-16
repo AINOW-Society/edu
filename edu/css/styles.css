@@ -5788,3 +5788,142 @@ select:focus-visible {
 .sidebar-level-title:first-child { margin-top: 0; }
 .sidebar-level-title:hover { background: var(--bg-hover); color: var(--primary); }
 .sidebar-level-title:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+
+/* ── Sidebar: collapsible level groups (v0.94) ────────────────────────────
+   All three levels expanded meant 19 role links on screen at once. Only the
+   active level is open now. Active state is a soft filled pill rather than a
+   left border, so it reads as a selected row rather than an annotation. */
+
+.sb-section-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    padding: 0 10px;
+    margin: 4px 0 10px;
+}
+
+.sb-group + .sb-group { margin-top: 2px; }
+
+.sb-group-head {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 10px;
+    border: none;
+    background: transparent;
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s, color 0.15s;
+}
+
+.sb-group-head:hover { background: var(--bg-hover); }
+.sb-group-head:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
+.sb-group-head.current { color: var(--primary); }
+
+.sb-group-icon {
+    display: flex;
+    flex-shrink: 0;
+    line-height: 0;
+    color: var(--text-tertiary);
+}
+
+.sb-group-icon svg { width: 17px; height: 17px; }
+.sb-group-head.current .sb-group-icon { color: var(--primary); }
+
+.sb-group-label {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sb-group-count {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    font-variant-numeric: tabular-nums;
+}
+
+.sb-chevron {
+    flex-shrink: 0;
+    color: var(--text-tertiary);
+    transition: transform 0.18s ease;
+}
+
+.sb-group.open .sb-chevron { transform: rotate(180deg); }
+
+.sb-group-body {
+    display: none;
+    padding: 2px 0 6px 10px;
+    margin-left: 8px;
+    border-left: 1px solid var(--border-light);
+}
+
+.sb-group.open .sb-group-body { display: block; }
+
+.sb-sub {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 7px 10px;
+    border: none;
+    background: transparent;
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s, color 0.15s;
+}
+
+.sb-sub:hover { background: var(--bg-hover); color: var(--text-primary); }
+.sb-sub:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
+
+.sb-sub.active {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.sb-sub-icon {
+    display: flex;
+    flex-shrink: 0;
+    line-height: 0;
+    color: var(--text-tertiary);
+}
+
+.sb-sub-icon svg { width: 15px; height: 15px; }
+.sb-sub.active .sb-sub-icon { color: var(--primary); }
+
+.sb-sub-label {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sb-sub-count {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    font-variant-numeric: tabular-nums;
+}
+
+.sb-sub.active .sb-sub-count { color: var(--primary); }
+
+@media (prefers-reduced-motion: reduce) {
+    .sb-chevron { transition: none; }
+}

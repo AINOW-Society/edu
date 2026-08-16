@@ -298,33 +298,55 @@ const App = {
         } else if (viewId === 'prompts') {
             const t = (k) => I18n.t(k);
 
-            // One section per school level, driven by the same data the
-            // filter bar uses, so the two can never drift apart.
-            const sections = this._promptCategories.map(c => {
+            // Collapsible groups, one per school level. Only the active level
+            // is open, so the sidebar shows roughly 8 items instead of all 19
+            // roles at once. Driven by the same data as the filter bar, so
+            // the two cannot drift apart.
+            const activeCat = this.currentPromptCategory || 'primary';
+            const groups = this._promptCategories.map(c => {
                 const pool = this._promptsForCategory(c.id);
                 if (!pool.length) return '';
+
+                const open = this._openPromptLevel === c.id
+                    || (this._openPromptLevel === undefined && c.id === activeCat);
+
                 const subs = (this._promptSubMap[c.id] || []).filter(s => s !== 'all');
                 const links = subs.map(s => {
                     const n = pool.filter(p => p.subcategory === s).length;
                     return n ? this._sidebarPromptSubLink(s, n, c.id) : '';
                 }).join('');
+
                 return `
-                    <div class="sidebar-section-title sidebar-level-title"
-                         role="button" tabindex="0"
-                         onclick="App.switchPromptCategory('${c.id}')"
-                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
-                        ${t('prompts.cat.' + c.id)}
-                        <span class="sidebar-sub-count">${pool.length}</span>
-                    </div>
-                    ${links}`;
+                    <div class="sb-group ${open ? 'open' : ''}">
+                        <button class="sb-group-head ${activeCat === c.id ? 'current' : ''}"
+                                aria-expanded="${open ? 'true' : 'false'}"
+                                onclick="App.togglePromptLevel('${c.id}')">
+                            <span class="sb-group-icon" aria-hidden="true">${c.icon}</span>
+                            <span class="sb-group-label">${t('prompts.cat.' + c.id)}</span>
+                            <span class="sb-group-count">${pool.length}</span>
+                            <svg class="sb-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                 stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="sb-group-body">
+                            <button class="sb-sub ${activeCat === c.id && (this.currentPromptSubcategory || 'all') === 'all' ? 'active' : ''}"
+                                    onclick="App.switchPromptSubcategory('all', '${c.id}')">
+                                <span class="sb-sub-label">${t('prompts.sub.all')}</span>
+                                <span class="sb-sub-count">${pool.length}</span>
+                            </button>
+                            ${links}
+                        </div>
+                    </div>`;
             }).join('');
 
-            // No AI links or tip box here: the sidebar is now the page's
-            // navigation, and the AI launcher lives in the prompt detail
-            // panel where it is actually used.
+            // No AI links or tip box here: the sidebar is the page's
+            // navigation now, and the AI launcher lives in the detail panel
+            // where it is actually used.
             html = `
                 <div class="sidebar-ctx-wrap">
-                    ${sections}
+                    <div class="sb-section-label">${t('nav.prompts')}</div>
+                    ${groups}
                 </div>
             `;
         } else if (viewId === 'about') {
@@ -850,6 +872,8 @@ const App = {
         this.currentPromptSubcategory = 'all';
         this.currentPromptSearch = '';
         this.currentPromptPage = 1;
+        // Keep the sidebar group in step with the level being browsed.
+        this._openPromptLevel = cat;
         this.renderPromptCatTabs();
         this.renderPrompts(cat, 'all');
         this.renderSidebarCtx('prompts');
@@ -862,6 +886,8 @@ const App = {
         this.currentPromptSubcategory = sub;
         this.currentPromptSearch = '';
         this.currentPromptPage = 1;
+        // Never leave the active filter inside a collapsed group.
+        this._openPromptLevel = this.currentPromptCategory;
         this.renderPromptCatTabs();
         this.renderPrompts(this.currentPromptCategory, sub);
         this.renderSidebarCtx('prompts');
@@ -1279,12 +1305,34 @@ const App = {
         const isActive = this.currentPromptCategory === category && this.currentPromptSubcategory === subId;
         const icon = this._promptSubIcons[subId] || '';
         return `
-            <div class="sidebar-item ${isActive ? 'active' : ''}" onclick="App.switchPromptSubcategory('${subId}', '${category}')">
-                <div class="sidebar-item-icon">${icon}</div>
-                <span class="sidebar-item-label">${label}</span>
-                <span class="sidebar-sub-count">${count}</span>
-            </div>
+            <button class="sb-sub ${isActive ? 'active' : ''}"
+                    onclick="App.switchPromptSubcategory('${subId}', '${category}')">
+                <span class="sb-sub-icon" aria-hidden="true">${icon}</span>
+                <span class="sb-sub-label">${label}</span>
+                <span class="sb-sub-count">${count}</span>
+            </button>
         `;
+    },
+
+    // Which level group is expanded. undefined means "follow the active
+    // category", so the right group is open on first render.
+    _openPromptLevel: undefined,
+
+    togglePromptLevel(catId) {
+        const activeCat = this.currentPromptCategory || 'primary';
+        const currentlyOpen = this._openPromptLevel === undefined ? activeCat : this._openPromptLevel;
+        // Collapsing the group you are browsing would hide the active filter,
+        // so opening a different level also switches to it.
+        if (currentlyOpen === catId) {
+            this._openPromptLevel = null;
+        } else {
+            this._openPromptLevel = catId;
+            if (activeCat !== catId) {
+                this.switchPromptCategory(catId);
+                return;
+            }
+        }
+        this.renderSidebarCtx('prompts');
     },
 
     _initOfflineIndicator() {
