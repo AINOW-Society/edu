@@ -18,7 +18,7 @@ const data = {
         agents: 'Agents',
         playbooks: 'Playbooks',
         situations: 'Situations',
-        builder: 'Builder',
+        builder: 'Agent Builder',
         about: 'About',
         resources: 'Resources',
         settings: 'Settings'
@@ -633,8 +633,8 @@ const data = {
             stand: { title: 'Our Ethical Stand', text: 'We build AI tools to augment human creativity, never to replace the essential value of human connection.' }
         },
         accessibility: {
-            title: 'Accessibility & Shortcuts',
-            intro: 'The AINOW Platform is designed to be efficient for power users and accessible to everyone. We support keyboard navigation to streamline your workflow.',
+            title: 'Accessibility',
+            intro: 'AINOW should work for everyone, regardless of ability, hardware or connection. The pages are built on semantic HTML, run without JavaScript frameworks getting in the way of a screen reader, and work offline.',
             keyboard_title: 'Keyboard Shortcuts',
             global: { title: 'Global Navigation', show: 'Show Shortcuts', theme: 'Toggle Theme', sidebar: 'Toggle Sidebar' },
             jump: { title: 'Jump to Page', prompts: 'Prompt Library', agents: 'Agents Hub', builder: 'Agent Builder', resources: 'Resources', then: 'then' },
@@ -1339,7 +1339,8 @@ Object.assign(data.pages, {
         governance: 'Governance and compliance',
         governance_text: 'Every engagement is delivered against the frameworks that actually apply to AI use in Europe, so what you build stays defensible when someone asks.',
         cta: 'Start with the assessment',
-        cta_text: 'Tell us what you are trying to solve. If AI is the wrong tool for it, we will say so:'
+        cta_text: 'Tell us what you are trying to solve. If AI is the wrong tool for it, we will say so.',
+        cta_primary: 'Book a 30-minute call'
     }
 });
 Object.assign(data.pages.partners, {

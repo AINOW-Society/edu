@@ -460,6 +460,9 @@ const GUIDE_PAGES = {
     'faq':             GuideFaq,
 };
 
+// Pages that moved to about.html. Kept in sync with ABOUT_NAV in src/about.js.
+const ABOUT_OWNED_PAGES = ['about', 'services', 'partners', 'documents', 'policies', 'accessibility'];
+
 // ─── Sidebar Nav Component ────────────────────────────────────────────────────
 const PageNav = ({ currentHash, t, onClose }) => {
     const isGuideActive = (id) => currentHash === `#/guide/${id}`;
@@ -524,8 +527,22 @@ const HelpApp = () => {
         localStorage.setItem('theme', currentTheme);
     }, [currentTheme]);
 
+    // About took these pages when it became its own destination. Old links
+    // and bookmarks still point at help.html#/page/<id>, which used to render
+    // them inside a sidebar that no longer lists them. Forward instead.
     useEffect(() => {
-        const onHash = () => setHash(window.location.hash || '#/guide/intro');
+        const forward = () => {
+            const h = window.location.hash || '';
+            const m = h.match(/^#\/page\/(.+)$/);
+            if (m && ABOUT_OWNED_PAGES.includes(m[1])) {
+                window.location.replace('about.html#/page/' + m[1]);
+                return true;
+            }
+            return false;
+        };
+        if (forward()) return;
+
+        const onHash = () => { if (!forward()) setHash(window.location.hash || '#/guide/intro'); };
         window.addEventListener('hashchange', onHash);
         if (!window.location.hash) window.location.hash = '#/guide/intro';
         return () => window.removeEventListener('hashchange', onHash);

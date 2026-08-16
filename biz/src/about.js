@@ -8,7 +8,7 @@ var __exports = AINOW['src/about'] = AINOW['src/about'] || {};
 const { useState, useEffect } = React;
 const { createRoot } = ReactDOMClient;
 
-const { ExternalLink, ArrowRight, Users, ShieldCheck, Keyboard, Scale, Info, Briefcase } = lucide;
+const { ArrowRight, Users, ShieldCheck, Keyboard, Scale, Info, Briefcase } = lucide;
 const { Header, Footer, ShortcutsModal, useLanguage, Scratchpad, SettingsModal, Toast, useToast,
         useGlobalShortcuts, SidebarWrapper } = AINOW['src/components'];
 const { StaticPage } = AINOW['src/StaticPages'];
@@ -96,14 +96,11 @@ const App = () => {
                     <${AboutNav} current=${page} t=${t} onPick=${() => setIsSidebarOpen(false)} />
                 <//>
 
+                <!-- No ctrlab.net button down here: the Partners and Services
+                     pages already link out to it in context. A third copy in
+                     the rail was the same URL three times on one screen. -->
                 <div className="hidden lg:flex flex-col w-60 shrink-0 pt-8 px-2 border-r border-mist dark:border-slate-800 no-scrollbar overflow-y-auto">
                     <${AboutNav} current=${page} t=${t} onPick=${() => {}} />
-                    <div className="mt-auto pb-10 pt-8 px-2">
-                        <a href="https://ctrlab.net" target="_blank" rel="noopener"
-                           className="w-full flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest text-stone dark:text-slate-400 border border-mist dark:border-slate-700 hover:border-coral hover:text-coral transition-all">
-                            <${ExternalLink} className="w-3 h-3" /> ctrlab.net
-                        </a>
-                    </div>
                 </div>
 
                 <main className="flex-1 min-w-0">

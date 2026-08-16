@@ -3,7 +3,7 @@ window.AINOW = window.AINOW || {};
 var __exports = AINOW['src/StaticPages'] = AINOW['src/StaticPages'] || {};
 const { useEffect } = React;
 
-const { Settings2, Search, Play, Copy, Terminal, Code, CheckCircle, Heart, Share2, ExternalLink, Shield, Users, Lock, Eye, Scale, BrainCircuit, AlertTriangle, Book, Github, Hand, User, Sparkles, Ban, GitMerge, Globe, Activity, Keyboard, Cpu, Palette, Box } = lucide;
+const { Settings2, Search, Play, Copy, Terminal, Code, CheckCircle, Heart, Share2, ExternalLink, Shield, Users, Lock, Eye, Scale, BrainCircuit, AlertTriangle, Book, Github, Hand, User, Sparkles, Ban, GitMerge, Globe, Activity, Keyboard, Cpu, Palette, Box, ArrowRight } = lucide;
 const { useLanguage } = AINOW['src/components'];
 
 const html = htm.bind(React.createElement);
@@ -422,19 +422,10 @@ const AccessibilityPage = () => {
             ${t('pages.accessibility.intro')}
         </p>
 
-        <section className="mb-12">
-            <h2 className="text-2xl font-bold tracking-tight mb-6 dark:text-white">${t('pages.accessibility.keyboard_title')}</h2>
-            <div className="bg-coral/10 dark:bg-teal-900/20 p-8 rounded-2xl border border-mist dark:border-teal-800 text-center">
-                <p className="text-lg text-charcoal dark:text-teal-200 mb-6 font-medium">
-                    We provide extensive keyboard support for power users.
-                </p>
-                <a href="help.html#shortcuts" className="inline-flex items-center gap-2 px-6 py-3 bg-coral text-white rounded-xl font-bold hover:bg-teal-700 transition-colors shadow-lg shadow-coral-glow dark:shadow-none">
-                    <${Keyboard} className="w-5 h-5" />
-                    View Full Keyboard Shortcuts Guide
-                </a>
-            </div>
-        </section>
-
+        <!-- The keyboard-shortcuts panel lived here and has been removed:
+             shortcuts are documented in the guide (help.html#/guide/shortcuts),
+             and this page is about our accessibility commitment. The old panel
+             was also hardcoded English and its anchor no longer resolved. -->
         <section>
             <h2 className="text-2xl font-bold tracking-tight mb-4 dark:text-white">${t('pages.accessibility.commitment.title')}</h2>
             <p className="mb-4 text-slate-600 dark:text-slate-300">
@@ -485,11 +476,22 @@ const ServicesPage = () => {
             </div>
         </div>
 
+        <!-- Services are delivered by CTRLab, so the CTA has to land there.
+             A bare mailto to the NGO inbox routed business enquiries to the
+             wrong desk and gave the reader nothing to click. -->
         <div className="mt-12 p-8 bg-coral/10 dark:bg-teal-900/20 rounded-3xl border border-mist dark:border-teal-800 text-center not-prose">
-            <h2 className="text-2xl font-bold text-charcoal dark:text-white mb-4">${t('pages.services.cta')}</h2>
-            <p className="text-stone-light dark:text-teal-200 mb-6">
-                ${t('pages.services.cta_text')} <a href="mailto:contact@ainow.mk" className="font-bold underline">contact@ainow.mk</a>
-            </p>
+            <h2 className="text-2xl font-bold text-charcoal dark:text-white mb-3">${t('pages.services.cta')}</h2>
+            <p className="text-stone-light dark:text-teal-200 mb-6 max-w-xl mx-auto">${t('pages.services.cta_text')}</p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="https://www.ctrlab.net/contact/" target="_blank" rel="noopener"
+                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-coral text-white font-bold text-sm transition-all hover:brightness-110 active:scale-[0.98]">
+                    ${t('pages.services.cta_primary')} <${ArrowRight} className="w-4 h-4" />
+                </a>
+                <a href="mailto:contact@ctrlab.net"
+                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-mist dark:border-slate-700 text-stone dark:text-slate-300 font-bold text-sm transition-all hover:border-coral hover:text-coral active:scale-[0.98]">
+                    contact@ctrlab.net
+                </a>
+            </div>
         </div>
     <//>
     `;

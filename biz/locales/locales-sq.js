@@ -18,7 +18,7 @@ const data = {
         "agents": "Agjentë",
         "playbooks": "Udhëzues",
         "situations": "Situata",
-        "builder": "Ndërtues",
+        "builder": "Ndërtuesi i agjentëve",
         "about": "Rreth nesh",
         "resources": "Burime",
         "settings": "Cilësimet"
@@ -638,8 +638,8 @@ const data = {
             }
         },
         "accessibility": {
-            "title": "Udhëzuesi i Aksesueshmërisë",
-            "intro": "Platforma AINOW është krijuar duke u fokusuar te shpejtësia dhe qartësia.",
+            "title": "Aksesueshmëria",
+            "intro": "AINOW duhet të funksionojë për të gjithë, pavarësisht aftësive, pajisjes apo lidhjes. Faqet janë ndërtuar mbi HTML semantik, lexuesit e ekranit nuk hasin pengesa dhe gjithçka punon edhe offline.",
             "keyboard_title": "Shkurtoret e Tastierës",
             "global": {
                 "title": "Komandat Globale",
@@ -3184,7 +3184,8 @@ Object.assign(data.pages, {
         governance: 'Qeverisje dhe pajtueshmëri',
         governance_text: 'Çdo angazhim zbatohet sipas kuadrove që vlejnë vërtet për përdorimin e IA-së në Evropë, që ajo që ndërtoni të mbetet e mbrojtshme kur dikush pyet.',
         cta: 'Filloni me vlerësimin',
-        cta_text: 'Na tregoni çfarë doni të zgjidhni. Nëse IA është mjeti i gabuar për të, do t’ju themi:'
+        cta_text: 'Na tregoni çfarë doni të zgjidhni. Nëse IA është mjeti i gabuar për të, do t’ju themi.',
+        cta_primary: 'Rezervoni një bisedë 30-minutëshe'
     }
 });
 Object.assign(data.pages.partners, {
