@@ -2,6 +2,16 @@
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['locales/locales-en'] = AINOW['locales/locales-en'] || {};
 const data = {
+    platform: {
+        education: 'AINOW Education — free AI literacy for teachers',
+        business: 'AINOW Business',
+        back_to_education: 'Go to Education'
+    },
+    language_note: {
+        title: 'Why are the agents written in English?',
+        body: 'Agent instructions are kept in English because today\'s AI models were trained mostly on English text, and they follow English instructions more accurately and more consistently than translated ones. The difference is largest for long, structured instructions of exactly this kind.',
+        tip: 'You can still work in your own language: paste the agent as it is, then write to it in Macedonian, Albanian, or any other language. It will answer you in the language you use.'
+    },
     nav: {
         prompts: 'Prompts',
         agents: 'Agents',
@@ -1932,5 +1942,30 @@ const data = {
         },
     },
 };
+
+// v0.94: AI services offering, named partners, and cross-platform labels.
+Object.assign(data.resources.nav, { services: 'AI Services' });
+Object.assign(data.pages, {
+    services: {
+        title: 'AI Services',
+        intro: 'AINOW works with organisations across the Balkans to put AI to practical use — without hype, and without handing your data to someone else. Everything below is delivered in Macedonian, Albanian, or English.',
+        training: 'Team Training',
+        training_text: 'Hands-on workshops for teams who need to actually use AI in their daily work. Role-specific, built around your real tasks rather than generic demos.',
+        assessment: 'AI Readiness Assessment',
+        assessment_text: 'A structured review of where AI would genuinely help your organisation, where it would not, and what has to be in place first.',
+        integration: 'Workflow Integration',
+        integration_text: 'Designing and implementing AI into existing processes — documentation, customer communication, reporting, and internal knowledge.',
+        policy: 'AI Policy & Governance',
+        policy_text: 'Practical internal policy on acceptable use, data handling, and disclosure, written to fit how your people actually work.',
+        cta: 'Start a conversation',
+        cta_text: 'Tell us what you are trying to solve and we will tell you honestly whether AI is the right tool:'
+    }
+});
+Object.assign(data.pages.partners, {
+    current: 'Our partners',
+    areas: 'Partnership areas',
+    ctrlab_text: 'Technology partner. CTRLab builds the engineering behind AINOW products and collaborates on applied AI work across the region.',
+    ainow_text: 'AINOW Society is the non-profit behind this platform, running AI literacy programmes for schools and public institutions.'
+});
   __exports.data = data;
 })();

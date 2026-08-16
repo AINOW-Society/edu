@@ -2,6 +2,16 @@
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['locales/locales-sq'] = AINOW['locales/locales-sq'] || {};
 const data = {
+    "platform": {
+        "education": "AINOW Arsim — shkrim-lexim i IA falas për mësimdhënës",
+        "business": "AINOW Biznes",
+        "back_to_education": "Shko te Arsimi"
+    },
+    "language_note": {
+        "title": "Pse agjentët janë në anglisht?",
+        "body": "Udhëzimet e agjentëve mbahen në anglisht sepse modelet e sotme të IA-së janë trajnuar kryesisht me tekst në anglisht dhe i ndjekin udhëzimet në anglisht më saktë dhe më qëndrueshëm sesa ato të përkthyera. Dallimi është më i madh pikërisht te udhëzimet e gjata dhe të strukturuara si këto.",
+        "tip": "Prapëseprapë mund të punoni në gjuhën tuaj: ngjiteni agjentin ashtu siç është, pastaj shkruajini në shqip, maqedonisht ose në çdo gjuhë tjetër. Do t'ju përgjigjet në gjuhën që përdorni."
+    },
     "nav": {
         "prompts": "Prompte",
         "agents": "Agjentë",
@@ -4135,5 +4145,30 @@ const data = {
         }
     }
 };
+
+// v0.94
+Object.assign(data.resources.nav, { services: 'Shërbime IA' });
+Object.assign(data.pages, {
+    services: {
+        title: 'Shërbime IA',
+        intro: 'AINOW punon me organizata në rajon për zbatimin praktik të inteligjencës artificiale — pa ekzagjerime marketingu dhe pa ua dorëzuar të dhënat tuaja të tjerëve. Të gjitha shërbimet ofrohen në shqip, maqedonisht ose anglisht.',
+        training: 'Trajnim i ekipeve',
+        training_text: 'Punëtori praktike për ekipe që duhet ta përdorin vërtet IA-në në punën e përditshme. Të përshtatura sipas rolit dhe detyrave tuaja reale, jo demonstrime të përgjithshme.',
+        assessment: 'Vlerësim i gatishmërisë për IA',
+        assessment_text: 'Një shqyrtim i strukturuar se ku IA do të ndihmonte vërtet organizatën tuaj, ku nuk do të ndihmonte, dhe çfarë duhet vendosur më parë.',
+        integration: 'Integrim në proceset e punës',
+        integration_text: 'Projektimi dhe zbatimi i IA-së në proceset ekzistuese — dokumentacion, komunikim me klientët, raportim dhe njohuri të brendshme.',
+        policy: 'Politikë dhe qeverisje e IA-së',
+        policy_text: 'Politikë praktike e brendshme për përdorim të pranueshëm, trajtim të të dhënave dhe transparencë, e shkruar sipas mënyrës si punojnë vërtet njerëzit tuaj.',
+        cta: 'Nisni një bisedë',
+        cta_text: 'Na tregoni çfarë doni të zgjidhni dhe do t\'ju themi sinqerisht nëse IA është mjeti i duhur:'
+    }
+});
+Object.assign(data.pages.partners, {
+    current: 'Partnerët tanë',
+    areas: 'Fushat e partneritetit',
+    ctrlab_text: 'Partner teknologjik. CTRLab ndërton inxhinierinë pas produkteve të AINOW dhe bashkëpunon në punë të aplikuar me IA në rajon.',
+    ainow_text: 'AINOW Society është organizata jofitimprurëse pas kësaj platforme, që zhvillon programe të shkrim-leximit të IA-së për shkolla dhe institucione publike.'
+});
   __exports.data = data;
 })();

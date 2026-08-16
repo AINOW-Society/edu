@@ -46,7 +46,7 @@ const RecentlyViewed = () => {
             </div>
             <div className="space-y-1">
                 ${items.map(item => {
-        const dotColor = item.type === 'agent' ? 'bg-emerald-500' : (item.type === 'playbook' ? 'bg-amber-500' : 'bg-indigo-500');
+        const dotColor = item.type === 'agent' ? 'bg-emerald-500' : (item.type === 'playbook' ? 'bg-amber-500' : 'bg-teal-500');
         return html`
                         <a key=${item.id} href=${item.url} className="flex items-center gap-2 px-3 py-2 text-[11px] text-stone dark:text-slate-400 hover:bg-opal-bg dark:hover:bg-slate-800 rounded-xl group truncate block transition-all font-bold">
                             <span className=${`w-1.5 h-1.5 rounded-full flex-shrink-0 ${dotColor} group-hover:scale-125 transition-transform`}></span>

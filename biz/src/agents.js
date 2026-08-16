@@ -6,7 +6,7 @@ const { useState, useMemo, useEffect, useRef, useCallback } = React;
 const { createRoot } = ReactDOMClient;
 
 
-const { Search, LayoutGrid, List, TableProperties, Settings2, Cpu, X, Wand2, Loader2, Heart, Copy, Share2, ExternalLink, ArrowUpDown, ArrowUp, ArrowDown } = lucide;
+const { Search, LayoutGrid, List, TableProperties, Settings2, Cpu, X, Wand2, Loader2, Heart, Copy, Share2, ExternalLink, ArrowUpDown, ArrowUp, ArrowDown, Info } = lucide;
 const { agentsData } = AINOW['data/data-agents'];
 const { Header, Footer, ShortcutsModal, EmptyState, SidebarWrapper, addToHistory, useLanguage, ActionButtons, useToast, Toast, useGlobalShortcuts, Scratchpad, SettingsModal, Pagination } = AINOW['src/components'];
 const { AGENT_CATEGORIES } = AINOW['src/config'];
@@ -37,7 +37,7 @@ const AgentItem = React.memo(({ agent, onSelect, viewMode, showToast, favorites,
         return html`
           <div 
             onClick=${() => onSelect(agent)} 
-            className=${`group flex items-center gap-3 sm:gap-4 border-b border-mist dark:border-slate-800/50 px-3 sm:px-4 py-2 cursor-pointer hover:bg-opal-bg dark:hover:bg-indigo-900/20 transition-all ${index % 2 === 0 ? 'bg-opal-surface dark:bg-slate-800' : 'bg-opal-bg/30 dark:bg-slate-800/40'}`}
+            className=${`group flex items-center gap-3 sm:gap-4 border-b border-mist dark:border-slate-800/50 px-3 sm:px-4 py-2 cursor-pointer hover:bg-opal-bg dark:hover:bg-teal-900/20 transition-all ${index % 2 === 0 ? 'bg-opal-surface dark:bg-slate-800' : 'bg-opal-bg/30 dark:bg-slate-800/40'}`}
           >
             <div className="w-6 sm:w-8 shrink-0 text-[10px] font-bold text-slate-300 dark:text-slate-600 tabular-nums text-left">
                 ${globalIndex}
@@ -56,7 +56,7 @@ const AgentItem = React.memo(({ agent, onSelect, viewMode, showToast, favorites,
                 ${agent.name}
               </span>
               ${hasCustomization && html`
-                <div title="Editable Template" className="text-indigo-500 dark:text-indigo-400 shrink-0">
+                <div title="Editable Template" className="text-teal-500 dark:text-teal-400 shrink-0">
                    <${Wand2} className="w-3.5 h-3.5" />
                 </div>
               `}
@@ -163,9 +163,9 @@ const AgentModal = ({ agent, onClose, showToast, t, favorites, toggleFavorite })
             <div key=${p} className="space-y-1">
                 <label className="text-[10px] font-bold uppercase text-slate-400 tracking-wider text-left block">${label}</label>
                 ${options ? html`
-                    <select ref=${i === 0 ? firstInputRef : null} value=${vals[p] || ''} onChange=${e => setVals({ ...vals, [p]: e.target.value })} className=${`w-full bg-slate-50 dark:bg-slate-900 border ${isEmpty ? 'border-slate-200 dark:border-slate-700' : 'border-indigo-500'} rounded-lg p-3 text-sm outline-none focus:ring-2 focus:ring-indigo-500 transition-all dark:text-white cursor-pointer`}><option value="" disabled>Select ${label}...</option>${options.map(opt => html`<option key=${opt} value=${opt}>${opt}</option>`)}</select>
+                    <select ref=${i === 0 ? firstInputRef : null} value=${vals[p] || ''} onChange=${e => setVals({ ...vals, [p]: e.target.value })} className=${`w-full bg-slate-50 dark:bg-slate-900 border ${isEmpty ? 'border-slate-200 dark:border-slate-700' : 'border-teal-500'} rounded-lg p-3 text-sm outline-none focus:ring-2 focus:ring-teal-500 transition-all dark:text-white cursor-pointer`}><option value="" disabled>Select ${label}...</option>${options.map(opt => html`<option key=${opt} value=${opt}>${opt}</option>`)}</select>
                 ` : html`
-                    <textarea ref=${i === 0 ? firstInputRef : null} value=${vals[p] || ''} onChange=${e => setVals({ ...vals, [p]: e.target.value })} placeholder=${'Enter ' + label.toLowerCase() + '...'} rows="2" className=${`w-full bg-slate-50 dark:bg-slate-900 border ${isEmpty ? 'border-slate-200 dark:border-slate-700' : 'border-indigo-500'} rounded-lg p-3 text-sm outline-none focus:ring-2 focus:ring-indigo-500 transition-all dark:text-white resize-none`} />
+                    <textarea ref=${i === 0 ? firstInputRef : null} value=${vals[p] || ''} onChange=${e => setVals({ ...vals, [p]: e.target.value })} placeholder=${'Enter ' + label.toLowerCase() + '...'} rows="2" className=${`w-full bg-slate-50 dark:bg-slate-900 border ${isEmpty ? 'border-slate-200 dark:border-slate-700' : 'border-teal-500'} rounded-lg p-3 text-sm outline-none focus:ring-2 focus:ring-teal-500 transition-all dark:text-white resize-none`} />
                 `}
             </div>
         `;
@@ -175,7 +175,7 @@ const AgentModal = ({ agent, onClose, showToast, t, favorites, toggleFavorite })
         const text = agent.instructions || '';
         const parts = text.split(/(\[.*?\])/g);
         return parts.map((part, i) => {
-            if (placeholders.includes(part)) return html`<span key=${i} className="text-indigo-400 font-bold bg-indigo-900/30 px-1 rounded border border-indigo-500/30">${vals[part] || part}</span>`;
+            if (placeholders.includes(part)) return html`<span key=${i} className="text-teal-400 font-bold bg-teal-900/30 px-1 rounded border border-teal-500/30">${vals[part] || part}</span>`;
             if (part.startsWith('[') && part.endsWith(']')) return html`<span key=${i} className="text-emerald-600 dark:text-emerald-400 font-bold">${part}</span>`;
             return part;
         });
@@ -197,12 +197,12 @@ const AgentModal = ({ agent, onClose, showToast, t, favorites, toggleFavorite })
                     </div>
                 </header>
                 <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
-                    ${placeholders.length > 0 ? html`<div className="w-full md:w-1/3 border-r dark:border-slate-700 p-4 sm:p-6 overflow-y-auto bg-white dark:bg-slate-800 no-scrollbar text-left"><h3 className="text-[10px] font-black uppercase text-indigo-600 dark:text-indigo-400 tracking-widest mb-6">${t('agents_ui.customize_title')}</h3><div className="space-y-6">${inputs}</div><div className="mt-8 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl border border-indigo-100 dark:border-indigo-800/50"><p className="text-xs text-indigo-800 dark:text-indigo-200 leading-relaxed">${t('agents_ui.tip')}</p></div></div>` : null}
-                    <div className="flex-1 p-4 sm:p-6 overflow-y-auto bg-slate-50 dark:bg-slate-900/50 no-scrollbar text-left"><h3 className="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-4">${t('agents_ui.preview_title')}</h3><div className="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 font-mono text-[11px] sm:text-[13px] p-5 sm:p-8 rounded-2xl whitespace-pre-wrap leading-relaxed border border-slate-200 dark:border-slate-700 shadow-sm selection:bg-indigo-500/30 text-left">${previewParts}</div></div>
+                    ${placeholders.length > 0 ? html`<div className="w-full md:w-1/3 border-r dark:border-slate-700 p-4 sm:p-6 overflow-y-auto bg-white dark:bg-slate-800 no-scrollbar text-left"><h3 className="text-[10px] font-black uppercase text-teal-600 dark:text-teal-400 tracking-widest mb-6">${t('agents_ui.customize_title')}</h3><div className="space-y-6">${inputs}</div><div className="mt-8 p-4 bg-teal-50 dark:bg-teal-900/20 rounded-xl border border-teal-100 dark:border-teal-800/50"><p className="text-xs text-teal-800 dark:text-teal-200 leading-relaxed">${t('agents_ui.tip')}</p></div></div>` : null}
+                    <div className="flex-1 p-4 sm:p-6 overflow-y-auto bg-slate-50 dark:bg-slate-900/50 no-scrollbar text-left"><h3 className="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-4">${t('agents_ui.preview_title')}</h3><div className="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 font-mono text-[11px] sm:text-[13px] p-5 sm:p-8 rounded-2xl whitespace-pre-wrap leading-relaxed border border-slate-200 dark:border-slate-700 shadow-sm selection:bg-teal-500/30 text-left">${previewParts}</div></div>
                 </div>
                 <footer className="p-4 sm:p-6 border-t dark:border-slate-700 flex justify-end gap-3 bg-white dark:bg-slate-800 items-center">
                     <button onClick=${onClose} className="px-4 py-2 text-sm font-bold text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition-all mr-auto text-left">${t('agents_ui.cancel')}</button>
-                    <button onClick=${handleCopy} className="px-5 sm:px-8 py-2.5 sm:py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold shadow-xl shadow-indigo-200 dark:shadow-none transition-all flex items-center justify-center gap-2">${t('agents_ui.copy_config')}</button>
+                    <button onClick=${handleCopy} className="px-5 sm:px-8 py-2.5 sm:py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-bold shadow-xl shadow-teal-200 dark:shadow-none transition-all flex items-center justify-center gap-2">${t('agents_ui.copy_config')}</button>
                 </footer>
             </div>
         </div>
@@ -300,7 +300,7 @@ const App = () => {
         return sortConfig.direction === 'asc' ? html`<${ArrowUp} className="w-3 h-3" />` : html`<${ArrowDown} className="w-3 h-3" />`;
     };
 
-    if (!isReady) return html`<div className="fixed inset-0 bg-slate-50 dark:bg-slate-900 flex items-center justify-center"><${Loader2} className="w-12 h-12 animate-spin text-indigo-500" /></div>`;
+    if (!isReady) return html`<div className="fixed inset-0 bg-slate-50 dark:bg-slate-900 flex items-center justify-center"><${Loader2} className="w-12 h-12 animate-spin text-teal-500" /></div>`;
 
     const itemsPerPage = viewMode === 'table' ? 40 : (viewMode === 'compact' ? 24 : 12);
     const paginated = filteredAgents.slice((page - 1) * itemsPerPage, page * itemsPerPage);
@@ -309,7 +309,7 @@ const App = () => {
     const categoryButtons = AGENT_CATEGORIES.map(cat => {
         const active = selectedCategory === cat.id;
         const count = catCounts[cat.id] || 0;
-        return html`<button key=${cat.id} onClick=${() => { setSelectedCategory(cat.id); setPage(1); setIsSidebarOpen(false); window.location.hash = ''; }} className=${'w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all ' + (active ? 'bg-coral/10 dark:bg-indigo-900/30 text-coral dark:text-indigo-300 font-bold shadow-sm' : 'text-stone hover:bg-opal-sidebar/50 dark:text-slate-400 dark:hover:bg-slate-800')}><${cat.icon} className="w-4 h-4" /><span className="flex-1 text-left">${t(cat.nameKey)}</span><span className="text-[10px] px-2 py-0.5 rounded-full font-bold bg-white dark:bg-slate-800 tabular-nums">${count}</span></button>`;
+        return html`<button key=${cat.id} onClick=${() => { setSelectedCategory(cat.id); setPage(1); setIsSidebarOpen(false); window.location.hash = ''; }} className=${'w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all ' + (active ? 'bg-coral/10 dark:bg-teal-900/30 text-coral dark:text-teal-300 font-bold shadow-sm' : 'text-stone hover:bg-opal-sidebar/50 dark:text-slate-400 dark:hover:bg-slate-800')}><${cat.icon} className="w-4 h-4" /><span className="flex-1 text-left">${t(cat.nameKey)}</span><span className="text-[10px] px-2 py-0.5 rounded-full font-bold bg-white dark:bg-slate-800 tabular-nums">${count}</span></button>`;
     });
 
     const agentList = paginated.map((a, i) => html`<${AgentItem} key=${a.id} agent=${a} onSelect=${handleSelectAgent} viewMode=${viewMode} showToast=${showToast} favorites=${favorites} toggleFavorite=${toggleFavorite} t=${t} index=${i} currentPage=${page} itemsPerPage=${itemsPerPage} />`);
@@ -325,6 +325,16 @@ const App = () => {
                     <nav className="space-y-1"><p className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-3 mb-2">Agent Types</p>${categoryButtons}</nav>
                 <//>
                 <main className="flex-1 p-4 md:p-8 min-w-0">
+                    <details className="mb-6 max-w-2xl rounded-2xl border border-mist dark:border-slate-800 bg-opal-sidebar dark:bg-slate-900/50 text-left">
+                        <summary className="cursor-pointer select-none px-5 py-4 text-sm font-bold text-charcoal dark:text-slate-100 flex items-center gap-2">
+                            <${Info} className="w-4 h-4 text-coral shrink-0" />
+                            ${t('language_note.title')}
+                        </summary>
+                        <div className="px-5 pb-5 pt-1 space-y-3">
+                            <p className="text-[13px] leading-relaxed text-stone dark:text-slate-400">${t('language_note.body')}</p>
+                            <p className="text-[13px] leading-relaxed text-charcoal dark:text-slate-200 border-l-2 border-coral pl-3">${t('language_note.tip')}</p>
+                        </div>
+                    </details>
                     <div className="mb-8 relative max-w-2xl text-left shadow-sm rounded-2xl transition-all focus-within:shadow-level-2 focus-within:ring-2 focus-within:ring-coral/20">
                         <${Search} className="absolute left-5 top-1/2 -translate-y-1/2 text-stone-light w-5 h-5 pointer-events-none" />
                         <input ref=${searchInputRef} type="text" value=${searchQuery} onChange=${e => { setSearchQuery(e.target.value); setPage(1); }} placeholder=${t('agents_ui.search_placeholder')} className="w-full bg-white dark:bg-slate-800 border-2 border-mist dark:border-slate-700 rounded-2xl py-4 pl-14 pr-4 outline-none focus:border-coral transition-colors dark:text-white shadow-sm text-charcoal text-base" />
@@ -332,7 +342,7 @@ const App = () => {
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 gap-6"><div className="text-left w-full sm:w-auto"><h1 className="text-3xl sm:text-4xl font-[600] tracking-tight text-charcoal dark:text-white text-left tabular-nums mb-2">${pageTitle}</h1><p className="text-stone-light dark:text-slate-400 text-[11px] sm:text-[13px] font-medium uppercase tracking-[0.08em] text-left">${filteredAgents.length} INTELLIGENCE ASSETS</p></div><div className="flex bg-opal-sidebar dark:bg-slate-900 p-1.5 rounded-xl border border-mist dark:border-slate-800"><button onClick=${() => setViewMode('grid')} className=${'p-2 rounded-lg transition-all ' + (viewMode === 'grid' ? 'bg-coral/10 text-coral shadow-sm' : 'text-stone-light hover:text-stone hover:bg-white')} title=${t('common.view_grid')}><${LayoutGrid} className="w-4 h-4" /></button><button onClick=${() => setViewMode('compact')} className=${'p-2 rounded-lg transition-all ' + (viewMode === 'compact' ? 'bg-coral/10 text-coral shadow-sm' : 'text-stone-light hover:text-stone hover:bg-white')} title=${t('common.view_list')}><${List} className="w-4 h-4" /></button><button onClick=${() => setViewMode('table')} className=${'p-2 rounded-lg transition-all ' + (viewMode === 'table' ? 'bg-coral/10 text-coral shadow-sm' : 'text-stone-light hover:text-stone hover:bg-white')} title="Table View"><${TableProperties} className="w-4 h-4" /></button></div></div>
                     ${paginated.length > 0 ? html`
                         <${React.Fragment}>
-                            <div className=${viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6' : 'flex flex-col'}>${viewMode === 'table' && html`<div className="sticky top-16 z-20 flex items-center gap-3 sm:gap-4 bg-slate-100 dark:bg-slate-900 px-3 sm:px-4 py-3 text-[10px] font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 dark:border-slate-800"><div className="w-8 shrink-0 text-left">#</div><div className="w-6 shrink-0 flex justify-center" title=${t('common.table_favorite')}><${Heart} className="w-3.5 h-3.5" /></div><button onClick=${() => handleSort('name')} className="flex-1 text-left flex items-center gap-1 hover:text-indigo-500 transition-colors uppercase">${t('common.table_name')} <${SortIcon} colKey="name" /></button><button onClick=${() => handleSort('category')} className="hidden lg:flex w-32 shrink-0 items-center gap-1 hover:text-indigo-500 transition-colors uppercase">${t('common.table_category')} <${SortIcon} colKey="category" /></button><div className="w-10 sm:w-24 shrink-0 text-right sm:pr-4 uppercase">${t('common.table_actions')}</div></div>`}${agentList}</div>
+                            <div className=${viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6' : 'flex flex-col'}>${viewMode === 'table' && html`<div className="sticky top-16 z-20 flex items-center gap-3 sm:gap-4 bg-slate-100 dark:bg-slate-900 px-3 sm:px-4 py-3 text-[10px] font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 dark:border-slate-800"><div className="w-8 shrink-0 text-left">#</div><div className="w-6 shrink-0 flex justify-center" title=${t('common.table_favorite')}><${Heart} className="w-3.5 h-3.5" /></div><button onClick=${() => handleSort('name')} className="flex-1 text-left flex items-center gap-1 hover:text-teal-500 transition-colors uppercase">${t('common.table_name')} <${SortIcon} colKey="name" /></button><button onClick=${() => handleSort('category')} className="hidden lg:flex w-32 shrink-0 items-center gap-1 hover:text-teal-500 transition-colors uppercase">${t('common.table_category')} <${SortIcon} colKey="category" /></button><div className="w-10 sm:w-24 shrink-0 text-right sm:pr-4 uppercase">${t('common.table_actions')}</div></div>`}${agentList}</div>
                             ${filteredAgents.length > itemsPerPage && html`<${Pagination} currentPage=${page} totalPages=${totalPages} onPageChange=${setPage} totalItems=${filteredAgents.length} itemsPerPage=${itemsPerPage} t=${t} itemType="agents" />`}
                         <//>
                     ` : html`<${EmptyState} message=${t('agents_ui.no_results')} icon=${Cpu} onClear=${() => { setSearchQuery(''); setSelectedCategory('all'); }} />`}

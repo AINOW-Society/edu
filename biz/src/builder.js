@@ -185,7 +185,7 @@ const BuilderApp = () => {
             <h2 className="text-[10px] font-black text-stone-light uppercase tracking-widest px-3">${t('builder.framework')}</h2>
             <div className="grid grid-cols-1 gap-2 px-1">
                 ${Object.entries(FRAMEWORKS).map(([id, info]) => html`
-                    <button key=${id} onClick=${() => update('framework', id)} className=${`flex items-start gap-3 p-3 rounded-xl transition-all border text-left ${state.framework === id ? 'bg-opal-bg dark:bg-indigo-900/30 border-coral dark:border-indigo-800' : 'bg-opal-surface dark:bg-slate-800 border-mist dark:border-slate-700 hover:border-stone-light'}`}>
+                    <button key=${id} onClick=${() => update('framework', id)} className=${`flex items-start gap-3 p-3 rounded-xl transition-all border text-left ${state.framework === id ? 'bg-opal-bg dark:bg-teal-900/30 border-coral dark:border-teal-800' : 'bg-opal-surface dark:bg-slate-800 border-mist dark:border-slate-700 hover:border-stone-light'}`}>
                         <div className=${`p-2 rounded-lg ${state.framework === id ? 'bg-coral text-white' : 'bg-opal-bg dark:bg-slate-700 text-stone-light'}`}>
                             <${info.icon} className="w-4 h-4" />
                         </div>

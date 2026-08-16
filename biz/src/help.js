@@ -4,7 +4,7 @@ var __exports = AINOW['src/help'] = AINOW['src/help'] || {};
 const { useState, useEffect } = React;
 const { createRoot } = ReactDOMClient;
 
-const { BookOpen, Command, Zap, Layers, MessageSquare, Play, Copy, ArrowRight, CheckCircle, HelpCircle, Keyboard, Shield, Terminal, Share2, Globe, ExternalLink, Info, Users, ShieldCheck, Sparkles, ChevronRight, Loader2, Hash } = lucide;
+const { BookOpen, Command, Zap, Layers, MessageSquare, Play, Copy, ArrowRight, CheckCircle, HelpCircle, Keyboard, Shield, Terminal, Share2, Globe, ExternalLink, Info, Users, ShieldCheck, Sparkles, ChevronRight, Loader2, Hash, Briefcase } = lucide;
 const { Header, Footer, ShortcutsModal, useLanguage, Scratchpad, SettingsModal, Toast, useToast, useGlobalShortcuts, SidebarWrapper } = AINOW['src/components'];
 const { StaticPage } = AINOW['src/StaticPages'];
 
@@ -188,6 +188,7 @@ const PLATFORM_NAV = [
     { id: 'documentation',  labelKey: 'resources.nav.getting_started', icon: BookOpen },
     { id: 'documents',      labelKey: 'resources.nav.ethical_ai',     icon: ShieldCheck },
     { id: 'models',         labelKey: 'resources.nav.models',         icon: Sparkles },
+    { id: 'services',       labelKey: 'resources.nav.services',       icon: Briefcase },
     { id: 'partners',       labelKey: 'resources.nav.partners',       icon: Users },
     { id: 'policies',       labelKey: 'resources.nav.privacy',        icon: Shield },
     { id: 'accessibility',  labelKey: 'resources.nav.accessibility',  icon: Keyboard },
@@ -197,7 +198,7 @@ const PLATFORM_NAV = [
 const DocSection = ({ title, icon: Icon, children }) => html`
     <section className="mb-16 animate-fade-in group text-left">
         <div className="flex items-center gap-4 mb-8 pb-4 border-b border-mist dark:border-slate-800">
-            ${Icon ? html`<div className="p-2.5 bg-opal-sidebar dark:bg-indigo-900/30 text-coral dark:text-coral rounded-xl border border-mist dark:border-indigo-800 shadow-sm"><${Icon} className="w-5 h-5" /></div>` : ''}
+            ${Icon ? html`<div className="p-2.5 bg-opal-sidebar dark:bg-teal-900/30 text-coral dark:text-coral rounded-xl border border-mist dark:border-teal-800 shadow-sm"><${Icon} className="w-5 h-5" /></div>` : ''}
             <h2 className="text-xl font-black text-charcoal dark:text-white uppercase tracking-tight group-hover:text-coral transition-all">
                 ${title}
             </h2>
@@ -533,7 +534,7 @@ const PageNav = ({ currentHash, t, onClose }) => {
         <a key=${key} href=${href} onClick=${onClose}
            className=${`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all ${
                active
-                   ? 'bg-coral/10 dark:bg-indigo-900/30 text-coral font-semibold shadow-sm'
+                   ? 'bg-coral/10 dark:bg-teal-900/30 text-coral font-semibold shadow-sm'
                    : 'text-stone dark:text-slate-400 hover:bg-opal-bg dark:hover:bg-slate-800 hover:text-charcoal dark:hover:text-slate-200'
            }`}>
             <${icon} className="w-4 h-4 shrink-0" />

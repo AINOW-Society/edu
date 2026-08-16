@@ -3,7 +3,7 @@ window.AINOW = window.AINOW || {};
 var __exports = AINOW['src/components/layout/Header'] = AINOW['src/components/layout/Header'] || {};
 const { useState } = React;
 
-const { Sun, Moon, Menu, NotebookPen, Globe, Check, CircleHelp } = lucide;
+const { Sun, Moon, Menu, NotebookPen, Globe, Check, CircleHelp, GraduationCap } = lucide;
 const { NAV_CONFIG, LANGUAGES } = AINOW['src/config'];
 const { useLanguage } = AINOW['src/hooks'];
 const { Logo } = AINOW['src/components/ui/Logo'];
@@ -33,7 +33,7 @@ const LanguageSwitcher = ({ currentLang, setLang }) => {
                         <button 
                             key=${lang.code} 
                             onClick=${() => { setLang(lang.code); setIsOpen(false); }}
-                            className=${`w-full text-left px-4 py-2 text-sm flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-700 ${currentLang === lang.code ? 'text-indigo-600 dark:text-indigo-400 font-bold' : 'text-slate-600 dark:text-slate-300'}`}
+                            className=${`w-full text-left px-4 py-2 text-sm flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-700 ${currentLang === lang.code ? 'text-teal-600 dark:text-teal-400 font-bold' : 'text-slate-600 dark:text-slate-300'}`}
                         >
                             <span>${lang.label}</span>
                             ${currentLang === lang.code && html`<${Check} className="w-3 h-3" />`}
@@ -88,6 +88,11 @@ const Header = ({ currentTheme, onThemeToggle, onMenuClick, activePage, onScratc
                     <!-- Field Guide (Help) Icon -->
                     <a href="help.html" className="p-2 text-slate-500 hover:text-coral transition-colors min-w-[40px] min-h-[40px] flex items-center justify-center" title=${t('help.badge')}>
                         <${CircleHelp} className="w-5 h-5" />
+                    </a>
+
+                    <!-- Cross-link to the Education half of the platform -->
+                    <a href="../edu/index.html" className="p-2 text-slate-500 hover:text-coral transition-colors min-w-[40px] min-h-[40px] flex items-center justify-center" title=${t('platform.education')}>
+                        <${GraduationCap} className="w-5 h-5" />
                     </a>
 
                     <!-- Hamburger Menu - Strictly Mobile/Tablet Only -->

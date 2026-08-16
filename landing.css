@@ -12,8 +12,8 @@
     --border-hover: #d2d0cb;
     --edu: #d97757;
     --edu-light: #fcf6f4;
-    --biz: #4f46e5;
-    --biz-light: #f2f1fe;
+    --biz: #0f766e;
+    --biz-light: #eefbf8;
     --radius-lg: 16px;
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
@@ -27,7 +27,7 @@
     --border-light: #3f3c37;
     --border-hover: #514d48;
     --edu-light: rgba(217, 119, 87, 0.15);
-    --biz-light: rgba(79, 70, 229, 0.18);
+    --biz-light: rgba(15, 118, 110, 0.18);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.6);
 }
 

@@ -24,10 +24,10 @@ const Footer = ({ isZenMode }) => {
                 ${t('footer.tagline')}
             </p>
             <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                ${t('footer.rights')} • <a href="https://www.ainow.mk" target="_blank" className="hover:text-indigo-600 transition-colors">AINOW Society</a> • <span className="font-mono">v${APP_VERSION}</span>
+                ${t('footer.rights')} • <a href="https://www.ainow.mk" target="_blank" className="hover:text-teal-600 transition-colors">AINOW Society</a> • <span className="font-mono">v${APP_VERSION}</span>
             </p>
             <p className="pt-4">
-                <a href="https://your-domain.example" className="text-[10px] text-slate-400 hover:text-indigo-600 transition-colors font-mono uppercase tracking-widest">your-domain.example</a>
+                <a href="https://www.ainow.mk" target="_blank" rel="noopener" className="text-[10px] text-slate-400 hover:text-teal-600 transition-colors font-mono uppercase tracking-widest">ainow.mk</a>
             </p>
           </div>
         </div>

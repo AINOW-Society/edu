@@ -51,11 +51,11 @@ const AboutPage = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 not-prose">
-            <div className="bg-opal-sidebar dark:bg-indigo-900/20 p-8 rounded-3xl border border-mist dark:border-indigo-800">
-                <h2 className="text-xl font-bold text-charcoal dark:text-indigo-300 mb-4 flex items-center gap-2">
+            <div className="bg-opal-sidebar dark:bg-teal-900/20 p-8 rounded-3xl border border-mist dark:border-teal-800">
+                <h2 className="text-xl font-bold text-charcoal dark:text-teal-300 mb-4 flex items-center gap-2">
                     ${t('pages.about.mission_title')}
                 </h2>
-                <p className="text-stone dark:text-indigo-200 leading-relaxed text-sm">
+                <p className="text-stone dark:text-teal-200 leading-relaxed text-sm">
                     ${t('pages.about.mission_text')}
                 </p>
             </div>
@@ -363,7 +363,7 @@ const DocumentsPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 not-prose">
             <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                <div className="flex items-center gap-3 mb-3 text-coral dark:text-indigo-400">
+                <div className="flex items-center gap-3 mb-3 text-coral dark:text-teal-400">
                     <${Users} className="w-6 h-6" />
                     <h3 className="text-lg font-bold m-0 dark:text-white">${t('pages.ethical.pillars.human.title')}</h3>
                 </div>
@@ -479,7 +479,7 @@ const DocumentsPage = () => {
 
         <section className="mt-16 border-t border-slate-200 dark:border-slate-800 pt-12">
             <div className="flex flex-col md:flex-row items-center gap-6 bg-slate-50 dark:bg-slate-900/50 p-8 rounded-2xl border border-slate-100 dark:border-slate-800">
-                <div className="p-3 bg-white dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 shadow-sm text-coral dark:text-indigo-400">
+                <div className="p-3 bg-white dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 shadow-sm text-coral dark:text-teal-400">
                     <${Hand} className="w-6 h-6" />
                 </div>
                 <div className="text-center md:text-left">
@@ -507,9 +507,26 @@ const PartnersPage = () => {
             ${t('pages.partners.intro')}
         </p>
 
+        <h2 className="text-2xl font-bold text-charcoal dark:text-white mb-6">${t('pages.partners.current')}</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 not-prose">
+            <a href="https://ctrlab.net" target="_blank" rel="noopener"
+               className="block bg-white dark:bg-slate-800 p-6 rounded-2xl border-2 border-mist dark:border-slate-700 hover:border-coral transition-colors">
+                <h3 className="text-xl font-bold mb-1 text-charcoal dark:text-white">CTRLab</h3>
+                <p className="text-xs font-mono uppercase tracking-widest text-coral mb-3">ctrlab.net</p>
+                <p className="text-sm text-slate-600 dark:text-slate-400">${t('pages.partners.ctrlab_text')}</p>
+            </a>
+            <a href="https://www.ainow.mk" target="_blank" rel="noopener"
+               className="block bg-white dark:bg-slate-800 p-6 rounded-2xl border-2 border-mist dark:border-slate-700 hover:border-coral transition-colors">
+                <h3 className="text-xl font-bold mb-1 text-charcoal dark:text-white">AINOW Society</h3>
+                <p className="text-xs font-mono uppercase tracking-widest text-coral mb-3">ainow.mk</p>
+                <p className="text-sm text-slate-600 dark:text-slate-400">${t('pages.partners.ainow_text')}</p>
+            </a>
+        </div>
+
+        <h2 className="text-2xl font-bold text-charcoal dark:text-white mb-6">${t('pages.partners.areas')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 not-prose">
             <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
-                <h3 className="text-xl font-bold mb-2 text-charcoal dark:text-indigo-400">${t('pages.partners.academic')}</h3>
+                <h3 className="text-xl font-bold mb-2 text-charcoal dark:text-teal-400">${t('pages.partners.academic')}</h3>
                 <p className="text-sm text-slate-600 dark:text-slate-400">${t('pages.partners.academic_text')}</p>
             </div>
             <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
@@ -526,9 +543,9 @@ const PartnersPage = () => {
             </div>
         </div>
 
-        <div className="mt-16 p-8 bg-coral/10 dark:bg-indigo-900/20 rounded-3xl border border-mist dark:border-indigo-800 text-center not-prose">
+        <div className="mt-16 p-8 bg-coral/10 dark:bg-teal-900/20 rounded-3xl border border-mist dark:border-teal-800 text-center not-prose">
             <h2 className="text-2xl font-bold text-charcoal dark:text-white mb-4">${t('pages.partners.become')}</h2>
-            <p className="text-stone-light dark:text-indigo-200 mb-6">
+            <p className="text-stone-light dark:text-teal-200 mb-6">
                 ${t('pages.partners.become_text')} <a href="mailto:contact@ainow.mk" className="font-bold underline">contact@ainow.mk</a>
             </p>
         </div>
@@ -597,11 +614,11 @@ const AccessibilityPage = () => {
 
         <section className="mb-12">
             <h2 className="text-2xl font-bold tracking-tight mb-6 dark:text-white">${t('pages.accessibility.keyboard_title')}</h2>
-            <div className="bg-coral/10 dark:bg-indigo-900/20 p-8 rounded-2xl border border-mist dark:border-indigo-800 text-center">
-                <p className="text-lg text-charcoal dark:text-indigo-200 mb-6 font-medium">
+            <div className="bg-coral/10 dark:bg-teal-900/20 p-8 rounded-2xl border border-mist dark:border-teal-800 text-center">
+                <p className="text-lg text-charcoal dark:text-teal-200 mb-6 font-medium">
                     We provide extensive keyboard support for power users.
                 </p>
-                <a href="help.html#shortcuts" className="inline-flex items-center gap-2 px-6 py-3 bg-coral text-white rounded-xl font-bold hover:bg-indigo-700 transition-colors shadow-lg shadow-coral-glow dark:shadow-none">
+                <a href="help.html#shortcuts" className="inline-flex items-center gap-2 px-6 py-3 bg-coral text-white rounded-xl font-bold hover:bg-teal-700 transition-colors shadow-lg shadow-coral-glow dark:shadow-none">
                     <${Keyboard} className="w-5 h-5" />
                     View Full Keyboard Shortcuts Guide
                 </a>
@@ -621,12 +638,41 @@ const AccessibilityPage = () => {
     `;
 };
 
+const ServicesPage = () => {
+    const { t } = useLanguage();
+    const services = ['training', 'assessment', 'integration', 'policy'];
+    return html`
+    <${PageWrapper} title=${t('pages.services.title')}>
+        <p className="lead text-lg text-slate-600 dark:text-slate-300 mb-12">
+            ${t('pages.services.intro')}
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 not-prose">
+            ${services.map(id => html`
+                <div key=${id} className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+                    <h3 className="text-xl font-bold mb-2 text-charcoal dark:text-white">${t('pages.services.' + id)}</h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">${t('pages.services.' + id + '_text')}</p>
+                </div>
+            `)}
+        </div>
+
+        <div className="mt-16 p-8 bg-coral/10 dark:bg-teal-900/20 rounded-3xl border border-mist dark:border-teal-800 text-center not-prose">
+            <h2 className="text-2xl font-bold text-charcoal dark:text-white mb-4">${t('pages.services.cta')}</h2>
+            <p className="text-stone-light dark:text-teal-200 mb-6">
+                ${t('pages.services.cta_text')} <a href="mailto:contact@ainow.mk" className="font-bold underline">contact@ainow.mk</a>
+            </p>
+        </div>
+    <//>
+    `;
+};
+
 const pages = {
     about: AboutPage,
     documentation: DocumentationPage,
     policies: PoliciesPage,
     documents: DocumentsPage,
     partners: PartnersPage,
+    services: ServicesPage,
     models: ModelsPage,
     accessibility: AccessibilityPage,
     transparency: TransparencyPage

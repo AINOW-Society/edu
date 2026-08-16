@@ -50,7 +50,7 @@ const PromptItem = React.memo(({ prompt, viewMode, onSelect, showToast, favorite
         return html`
       <div 
         onClick=${() => onSelect(prompt)} 
-        className=${`group flex items-center gap-3 sm:gap-4 border-b border-mist dark:border-slate-800/50 px-3 sm:px-4 py-2 cursor-pointer hover:bg-opal-bg dark:hover:bg-indigo-900/20 transition-all ${index % 2 === 0 ? 'bg-opal-surface dark:bg-slate-800' : 'bg-opal-bg/30 dark:bg-slate-800/40'}`}
+        className=${`group flex items-center gap-3 sm:gap-4 border-b border-mist dark:border-slate-800/50 px-3 sm:px-4 py-2 cursor-pointer hover:bg-opal-bg dark:hover:bg-teal-900/20 transition-all ${index % 2 === 0 ? 'bg-opal-surface dark:bg-slate-800' : 'bg-opal-bg/30 dark:bg-slate-800/40'}`}
       >
         <div className="w-6 sm:w-8 shrink-0 text-[10px] font-bold text-stone-light dark:text-slate-600 tabular-nums text-left">
             ${globalIndex}
@@ -68,7 +68,7 @@ const PromptItem = React.memo(({ prompt, viewMode, onSelect, showToast, favorite
           <span className="font-black text-xs text-charcoal dark:text-slate-200 truncate group-hover:text-coral transition-colors text-left uppercase tracking-tight">
             ${prompt.title}
           </span>
-          ${isCustomizable && html`<div title="Editable Template" className="text-coral dark:text-indigo-400 shrink-0"><${Wand2} className="w-3.5 h-3.5" /></div>`}
+          ${isCustomizable && html`<div title="Editable Template" className="text-coral dark:text-teal-400 shrink-0"><${Wand2} className="w-3.5 h-3.5" /></div>`}
         </div>
         <div className="hidden lg:flex w-32 shrink-0 items-center">
             <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest truncate">${prompt.category}</span>
@@ -174,7 +174,7 @@ const PromptModal = ({ prompt, onClose, showToast, favorites, toggleFavorite, t 
         const text = prompt.prompt || '';
         const parts = text.split(/(\[.*?\])/g);
         return parts.map((part, i) => {
-            if (part.startsWith('[') && part.endsWith(']')) return html`<span key=${i} className="text-indigo-600 dark:text-indigo-400 font-bold bg-indigo-50 dark:bg-indigo-900/40 px-1 rounded">${vals[part] || part}</span>`;
+            if (part.startsWith('[') && part.endsWith(']')) return html`<span key=${i} className="text-teal-600 dark:text-teal-400 font-bold bg-teal-50 dark:bg-teal-900/40 px-1 rounded">${vals[part] || part}</span>`;
             return part;
         });
     }, [prompt.prompt, vals]);
@@ -198,7 +198,7 @@ const PromptModal = ({ prompt, onClose, showToast, favorites, toggleFavorite, t 
                 </div>
                 <footer className="p-4 sm:p-6 border-t dark:border-slate-700 flex justify-end items-center gap-3">
                     <button onClick=${onClose} className="px-4 py-2 text-sm font-bold text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition-all mr-auto">${t('common.cancel')}</button>
-                    <button onClick=${handleCopy} className="px-5 sm:px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold shadow-lg shadow-indigo-200 dark:shadow-none transition-all flex items-center justify-center gap-2">${t('common.copy_prompt')}</button>
+                    <button onClick=${handleCopy} className="px-5 sm:px-6 py-2.5 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-bold shadow-lg shadow-teal-200 dark:shadow-none transition-all flex items-center justify-center gap-2">${t('common.copy_prompt')}</button>
                 </footer>
             </div>
         </div>
@@ -213,7 +213,7 @@ const SidebarNav = React.memo(({ all, selectedCat, favoritesCount, liveCounts, t
             ${CATEGORY_CONFIG.map(cat => {
                 const active = selectedCat === cat.id;
                 const count = cat.id === 'all' ? all.length || Object.values(promptCounts).reduce((a, b) => a + b, 0) : (cat.id === 'favorites' ? favoritesCount : liveCounts[cat.id] || 0);
-                return html`<button key=${cat.id} onClick=${() => onCategorySelect(cat.id)} className=${'w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all ' + (active ? 'bg-coral/10 dark:bg-indigo-900/30 text-coral dark:text-indigo-300 font-bold shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800')}><${cat.icon} className="w-4 h-4" /><span className="flex-1 text-left">${t(cat.nameKey)}</span><span className="text-[10px] px-2 py-0.5 rounded-full font-bold bg-slate-100 dark:bg-slate-800 tabular-nums">${count}</span></button>`;
+                return html`<button key=${cat.id} onClick=${() => onCategorySelect(cat.id)} className=${'w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all ' + (active ? 'bg-coral/10 dark:bg-teal-900/30 text-coral dark:text-teal-300 font-bold shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800')}><${cat.icon} className="w-4 h-4" /><span className="flex-1 text-left">${t(cat.nameKey)}</span><span className="text-[10px] px-2 py-0.5 rounded-full font-bold bg-slate-100 dark:bg-slate-800 tabular-nums">${count}</span></button>`;
             })}
         </nav>
     <//>
@@ -345,7 +345,7 @@ const App = () => {
         return sortConfig.direction === 'asc' ? html`<${ArrowUp} className="w-3 h-3" />` : html`<${ArrowDown} className="w-3 h-3" />`;
     };
 
-    if (!isReady) return html`<div className="fixed inset-0 bg-slate-50 dark:bg-slate-900 flex items-center justify-center"><${Loader2} className="w-12 h-12 animate-spin text-indigo-500" /></div>`;
+    if (!isReady) return html`<div className="fixed inset-0 bg-slate-50 dark:bg-slate-900 flex items-center justify-center"><${Loader2} className="w-12 h-12 animate-spin text-teal-500" /></div>`;
 
     const itemsPerPage = view === 'table' ? 40 : (view === 'compact' ? 24 : 12);
     const paginated = filtered.slice((page - 1) * itemsPerPage, page * itemsPerPage);
@@ -365,7 +365,7 @@ const App = () => {
                     ${selectedTag && html`
                         <div className="flex items-center gap-2 mb-4">
                             <span className="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-bold">${t('common.filtered_by') || 'Filtered by'}:</span>
-                            <button onClick=${() => setSelectedTag(null)} className="flex items-center gap-1.5 px-3 py-1 bg-coral/10 text-coral dark:bg-indigo-900/40 dark:text-indigo-300 rounded-xl text-xs font-black uppercase tracking-tighter border border-coral/20 dark:border-indigo-700 hover:bg-coral hover:text-white dark:hover:bg-indigo-600 dark:hover:text-white transition-all">
+                            <button onClick=${() => setSelectedTag(null)} className="flex items-center gap-1.5 px-3 py-1 bg-coral/10 text-coral dark:bg-teal-900/40 dark:text-teal-300 rounded-xl text-xs font-black uppercase tracking-tighter border border-coral/20 dark:border-teal-700 hover:bg-coral hover:text-white dark:hover:bg-teal-600 dark:hover:text-white transition-all">
                                 ${selectedTag}
                                 <${X} className="w-3 h-3" />
                             </button>
@@ -387,7 +387,7 @@ const App = () => {
                     ${isLoading ? html`<div className="py-20 text-center"><${Loader2} className="animate-spin mx-auto mb-4" /> Loading...</div>` : html`
                         <${React.Fragment}>
                             <div className=${view === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6' : 'flex flex-col'}>
-                                ${view === 'table' && html`<div className="sticky top-16 z-20 flex items-center gap-3 sm:gap-4 bg-slate-100 dark:bg-slate-900 px-3 sm:px-4 py-3 text-[10px] font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 dark:border-slate-800"><div className="w-6 sm:w-8 shrink-0 text-left">#</div><div className="w-6 shrink-0 flex justify-center" title=${t('common.table_favorite')}><${Heart} className="w-3.5 h-3.5" /></div><button onClick=${() => handleSort('title')} className="flex-1 text-left flex items-center gap-1 hover:text-indigo-500 transition-colors uppercase">${t('common.table_title')} <${SortIcon} colKey="title" /></button><button onClick=${() => handleSort('category')} className="hidden lg:flex w-32 shrink-0 items-center gap-1 hover:text-indigo-500 transition-colors uppercase">${t('common.table_category')} <${SortIcon} colKey="category" /></button><div className="hidden md:flex w-40 shrink-0 uppercase">${t('common.table_tags')}</div><div className="w-10 sm:w-24 shrink-0 text-right sm:pr-4 uppercase">${t('common.table_actions')}</div></div>`}
+                                ${view === 'table' && html`<div className="sticky top-16 z-20 flex items-center gap-3 sm:gap-4 bg-slate-100 dark:bg-slate-900 px-3 sm:px-4 py-3 text-[10px] font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 dark:border-slate-800"><div className="w-6 sm:w-8 shrink-0 text-left">#</div><div className="w-6 shrink-0 flex justify-center" title=${t('common.table_favorite')}><${Heart} className="w-3.5 h-3.5" /></div><button onClick=${() => handleSort('title')} className="flex-1 text-left flex items-center gap-1 hover:text-teal-500 transition-colors uppercase">${t('common.table_title')} <${SortIcon} colKey="title" /></button><button onClick=${() => handleSort('category')} className="hidden lg:flex w-32 shrink-0 items-center gap-1 hover:text-teal-500 transition-colors uppercase">${t('common.table_category')} <${SortIcon} colKey="category" /></button><div className="hidden md:flex w-40 shrink-0 uppercase">${t('common.table_tags')}</div><div className="w-10 sm:w-24 shrink-0 text-right sm:pr-4 uppercase">${t('common.table_actions')}</div></div>`}
                                 ${paginated.map((p, i) => html`<${PromptItem} key=${p.id} prompt=${p} viewMode=${view} onSelect=${handlePromptSelection} showToast=${showToast} favorites=${favoritesSet} toggleFavorite=${toggleFavorite} t=${t} onTagClick=${(tag) => setSelectedTag(prev => prev === tag ? null : tag)} selectedTag=${selectedTag} index=${i} currentPage=${page} itemsPerPage=${itemsPerPage} />`)}
                             </div>
                             <${Pagination} currentPage=${page} totalPages=${Math.ceil(filtered.length / itemsPerPage)} onPageChange=${setPage} totalItems=${filtered.length} itemsPerPage=${itemsPerPage} t=${t} />

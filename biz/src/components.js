@@ -182,9 +182,9 @@ const SettingsModal = ({ isOpen, onClose }) => {
                 <div className="p-6 overflow-y-auto">
                     ${activeTab === 'data' && html`
                         <div className="space-y-6">
-                            <div className="p-4 bg-opal-bg dark:bg-indigo-900/20 rounded-xl border border-mist dark:border-indigo-800/50">
-                                <h4 className="font-bold text-charcoal dark:text-indigo-300 mb-2 flex items-center gap-2"><${Download} className="w-4 h-4" /> ${t('settings.export_title')}</h4>
-                                <p className="text-xs text-stone dark:text-indigo-200 mb-4">${t('settings.export_text')}</p>
+                            <div className="p-4 bg-opal-bg dark:bg-teal-900/20 rounded-xl border border-mist dark:border-teal-800/50">
+                                <h4 className="font-bold text-charcoal dark:text-teal-300 mb-2 flex items-center gap-2"><${Download} className="w-4 h-4" /> ${t('settings.export_title')}</h4>
+                                <p className="text-xs text-stone dark:text-teal-200 mb-4">${t('settings.export_text')}</p>
                                 <button onClick=${handleExport} className="w-full py-2 bg-coral hover:bg-coral-hover text-white rounded-lg text-xs font-bold transition-colors shadow-coral-glow">${t('settings.export_btn')}</button>
                             </div>
 

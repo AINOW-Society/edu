@@ -48,7 +48,7 @@ class ErrorBoundary extends Component {
 
             <button 
               onClick=${() => this.handleReset()}
-              className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl font-bold uppercase tracking-wider shadow-lg shadow-indigo-200 dark:shadow-none transition-all flex items-center justify-center gap-2"
+              className="w-full py-4 bg-teal-600 hover:bg-teal-700 text-white rounded-2xl font-bold uppercase tracking-wider shadow-lg shadow-teal-200 dark:shadow-none transition-all flex items-center justify-center gap-2"
             >
               <${RefreshCw} className="w-4 h-4" />
               Reload Application
