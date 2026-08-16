@@ -18,11 +18,11 @@ Currently deployed for schools across the Balkans, the platform is proudly **100
 
 - **Interactive Learning Guide:** A 17-chapter curriculum (Foundations, Practice, Reference — including prompt engineering, RAG, performance, and safety) in MK, EN, and SQ.
 - **Homework Sheets:** Chapter-aligned student tasks in Resources—print or PDF, with an optional teacher-only guidance block (per response field) in all three languages.
-- **Massive Prompt Bank:** Over 300 high-quality, educator-tested prompts. From designing Flipped Classroom lesson plans to handling difficult parent conferences — organized by grade level and administrative role.
+- **Massive Prompt Bank:** Over 950 high-quality, educator-tested prompts across the three languages. From designing Flipped Classroom lesson plans to handling difficult parent conferences — organized by grade level, administrative role, and higher-education function.
 - **AI Tool Directory:** A curated list of 57 AI tools for classrooms, categorized by use-case (Planning, Multimedia, Assessment, etc.) with clear pricing badges.
 - **AI Literacy Glossary:** 60-term glossary covering essential AI and education vocabulary, filterable by category, with live search — in all three languages.
 - **Lightning Fast & Offline-Ready:** Built with vanilla HTML/CSS/JS. The built-in Service Worker ensures the platform works perfectly even when a school loses internet access.
-- **Tri-Lingual:** Seamless, real-time language switching across English, Macedonian, and Albanian with full content parity.
+- **Tri-Lingual:** Seamless, real-time language switching across English, Macedonian, and Albanian. The interface, guide, glossary, quizzes, and homework are fully translated; the prompt bank is independently authored per language, so the three sets differ in size and content.
 
 ---
 
@@ -53,8 +53,13 @@ We have prepared a comprehensive **[Contribution Guide](CONTRIBUTING.md)** that 
 
 ### v0.94 (August 16, 2026)
 - **Two products, one platform:** The site root is now a chooser between **Education** and **Business**. The education app moves to `/edu/` and keeps every feature, its offline behavior, and its free licence unchanged.
-- **Business (`/biz/`):** The AINOW Prompt Library joins the platform with Prompts, Agents, Situations, Playbooks and Builder, in MK/EN/SQ, in its own indigo accent (`#4F46E5`).
+- **Business (`/biz/`):** The AINOW Prompt Library joins the platform with Prompts, Agents, Situations, Playbooks and Builder, in MK/EN/SQ, in its own teal accent (`#0F766E`). Each app's header links to the other, so users can move between the two without returning to the chooser.
+- **Agents language note (Business):** A collapsible explainer on the Agents page, in all three languages, covering why agent instructions are kept in English — models follow English instructions more reliably, especially long structured ones — and making clear that users can still write to the agents in their own language.
 - **Business runs with no build step.** It was a React + Vite app; Vite is gone and its ES modules are converted to classic scripts, so `biz/index.html` opens by double-click from a USB stick with no server and no internet — the same promise the education app has always made. React and htm are unchanged; only module resolution differs.
+- **Higher Education (Education):** New third prompt category beside Teachers and Administration, covering lecturers and teaching staff, researchers, and student services — 12 prompts per language in MK/EN/SQ, fully translated. Prompt totals are now 336 MK / 271 EN / 355 SQ.
+- **Help page cleanup (Business):** Removed documentation for features that no longer ship — the Lab tools section, its FAQ entry, and the Readiness Assessment content — along with Bosnian and Serbian language labels. About 173 KB of dead translation removed across the three locale files.
+- **AI Services (Business):** New page listing the services delivered by technology partner CTRLab: AI consultancy, training, Microsoft 365 & Copilot, readiness & adoption, agent orchestration, custom development, and SEO/GEO — with the governance frameworks each engagement is delivered against.
+- **Partners (Business):** Named-partner section added, listing CTRLab (ctrlab.net) and AINOW Society.
 - **Business trimmed for scope:** dropped the Lab and its 6 tools (including the Readiness Assessment), Bosnian and Serbian, external Google Fonts, and 898 lines of orphaned PDF-export code.
 - **PWA migration:** `start_url` and `scope` retargeted to `/edu/`; the service worker precache list rewritten from root-absolute to relative paths. A root-scope cleanup worker evicts stale `ai-edu-v0.93` caches from already-installed devices, then unregisters itself. The landing page redirects to `/edu/` when launched in standalone mode, so existing home-screen icons still open the app.
 - **Path-aware 404:** Unmatched URLs under `/edu/` now return to the education app instead of the chooser.

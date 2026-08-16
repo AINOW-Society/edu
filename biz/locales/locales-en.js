@@ -18,7 +18,6 @@ const data = {
         playbooks: 'Playbooks',
         situations: 'Situations',
         builder: 'Builder',
-        lab: 'Lab',
         resources: 'Resources',
         settings: 'Settings'
     },
@@ -228,16 +227,8 @@ const data = {
                     title: "Agent Builder",
                     text: "Create custom AI agents without writing code. Define the persona, set behavioural guardrails, specify the output format, and generate a ready-to-use system instruction in seconds.",
                     tip: "Perfect for company-specific assistants, project-based personas, or expert roles not covered by the default agent library."
-                },
-                lab: {
-                    title: "Lab Tools",
-                    text: "Two specialist productivity tools for power users:",
-                    tool_1_title: "Bulk Prompt Generator",
-                    tool_1_text: "Batch-generate prompt variations. Write one prompt with [Variables], enter a list of values, and produce dozens of personalised prompts instantly — ideal for emails, reports, or any repeated task.",
-                    tool_2_title: "Before & After",
-                    tool_2_text: "Side-by-side prompt refinement workspace. Paste your original prompt on the left and build an improved version on the right using the 4-Pillar method: Persona + Task + Context + Format. Use the ingredient palette to inject role, task, context, format, and cleanup snippets instantly."
                 }
-            },
+},
             interface: {
                 title: "Interface Guide",
                 desc: "A guide to the action buttons available across the application.",
@@ -281,499 +272,10 @@ const data = {
             q9: { question: "What is a \"Hallucination\"?", answer: "Sometimes AI makes things up confidently. This is called a hallucination. It happens when the AI tries to please you but doesn't actually know the answer. <strong>Always verify important facts</strong>, especially legal or medical information." },
             q10: { question: "What are \"Tokens\"?", answer: "AI doesn't read words like we do; it reads \"tokens\". A token is roughly 4 characters (or 0.75 words). If an AI has a \"context limit\" of 128k tokens, it means it can remember about a 300-page book in a single conversation." },
             q11: { question: "What is the Situation Advisor?", answer: "The Situation Advisor is an intelligent prompt generator for real-life professional moments — like preparing for a difficult conversation, writing a job application, or planning a negotiation. You answer a few smart questions about your specific context, and the platform builds a tailored prompt package (Quick, Full Brief, and Prompt Chain) ready to use in any AI assistant." },
-            q12: { question: "What is the Agent Builder?", answer: "The Agent Builder lets you create your own custom AI agent without any technical knowledge. You describe the persona, set the tone and constraints, and define the expected output format. The builder generates a complete system instruction you can paste into any AI platform to create a specialised assistant for your exact needs." },
-            q13: { question: "What are the Lab tools?", answer: "The Lab contains two power-user tools. The <strong>Bulk Prompt Generator</strong> — write one prompt, fill it in for many people or topics at once. Like auto-filling a form. <strong>Before & After</strong> — paste your prompt, improve it on the right, and instantly see what's missing." }
-        }
+            q12: { question: "What is the Agent Builder?", answer: "The Agent Builder lets you create your own custom AI agent without any technical knowledge. You describe the persona, set the tone and constraints, and define the expected output format. The builder generates a complete system instruction you can paste into any AI platform to create a specialised assistant for your exact needs." }
+}
     },
-    lab: {
-        menu_title: "Workflows",
-        send_variable: "Use as Bulk Template",
-        send_comparer: "Compare & Improve",
-        workstation_nav: "Workstation",
-        tool_variable: "Bulk Prompt Generator",
-        tool_comparer: "Before & After",
-        desc_variable: "Write one prompt, fill it in for many people or topics at once. Like auto-filling a form.",
-        desc_comparer: "Paste your prompt, improve it on the right, and instantly see what's missing.",
-        tool_policy: "AI Policy Generator",
-        desc_policy: "Create a professional AI use policy for your organization in minutes. Download as PDF.",
-        tool_rolemapper: "AI Role Mapper",
-        desc_rolemapper: "See which tasks in any job role AI can automate, assist with, or should leave entirely to humans.",
-        tool_roadmap: "AI Adoption Roadmap",
-        desc_roadmap: "Build a phased AI adoption plan for your organization based on your size, goals, and current readiness.",
-        tool_readiness: "AI Readiness Assessment",
-        desc_readiness: "Find out how ready your organization is for AI adoption with a scored assessment across data, people, and governance — and get a personalized 90-day improvement plan.",
-        pdf_export: "Export PDF",
-        pdf_copy: "Copy Text",
-        pdf_copied: "Copied to clipboard!",
-        active_workbench: "Active Tool",
-        tool_desc: "What this does",
-        variable: {
-            how_it_works: "See an example",
-            example_btn: "Show me an example",
-            example_loaded: "Example loaded!",
-            example_template: "Act as a travel expert. Write a short 1-day itinerary for [City] focusing on [Interest]. Format as a bulleted list.",
-            example_data: "Paris, art and museums\nTokyo, street food\nLondon, historical landmarks",
-            title_pattern: "Write your prompt",
-            desc_pattern: "Write your prompt normally. Then put [square brackets] around any word you want to change per person or topic.",
-            placeholder_template: "Example: Write a welcome email for [Name] who joined as a [Role]...",
-            no_vars: "Add [brackets] to your prompt above to get started...",
-            title_data: "Add your values",
-            syntax_guide_title: "How to fill in values",
-            syntax_guide_desc: "You have ${count} ${singular} to fill. Type the values separated by commas — one line per result.",
-            syntax_guide_add_brackets: "Once you add [brackets] in Step 1, you'll enter the values here.",
-            value_label: "Value ${index}",
-            placeholder_data: "Alice, Manager\nBob, Designer\nSara, Developer",
-            title_generated: "Your ready prompts",
-            variant_label: "Prompt #${idx}",
-            empty_title: "Nothing generated yet",
-            empty_subtitle: "Complete Steps 1 and 2 above to see your prompts here.",
-            help: {
-                title: "How the Bulk Generator works",
-                p1: "Imagine you need to write the same message for 20 different people. Instead of doing it 20 times, you write it once and let this tool do the rest.",
-                step1_title: "Write your prompt",
-                step1_desc: "Write what you want the AI to do. Put [brackets] around the parts that change — like [Name] or [Topic].",
-                step2_title: "Add your values",
-                step2_desc: "Type your values separated by commas. One line = one result. 3 lines = 3 ready prompts.",
-                example_title: "Real example:",
-                example_desc: "Write one email with [Name] and [City], then type your customer list. The tool instantly creates a personalized email for each person.",
-                close_btn: "Got it!"
-            }
-        },
-        clinic: {
-            formula_title: "A strong prompt has",
-            formula_text: "Role + Task + Context + Format",
-            box1_title: "Your original prompt",
-            box1_tag: "Starting version",
-            box2_title: "Your improved prompt",
-            palette_title: "Add ingredients",
-            launch: "Test in:",
-            clone_toast: "Copied to the right side!",
-            clone_title: "Copy to right side",
-            pillar_persona: "Has a role",
-            pillar_task: "Has a task",
-            pillar_context: "Has context",
-            pillar_format: "Has format",
-            palette_persona: "Add a role",
-            palette_task: "Add a task",
-            palette_context: "Add context",
-            palette_format: "Add format",
-            palette_cleanup: "Clean up",
-            placeholder_a: "Paste or type your prompt here...",
-            placeholder_b: "Improve it here — add more detail, a role, or a format...",
-            footer_title: "Runs in your browser",
-            footer_desc: "The analysis is instant and private — nothing leaves your device.",
-            footer_link: "Learn what makes a great prompt",
-            injected: "${label} added!"
-        },
-        policy: {
-            section_org: "Organization Details",
-            section_usage: "AI Usage & Tools",
-            section_risk: "Risk & Data Profile",
-            org_name_label: "Organization Name",
-            org_name_ph: "e.g. Acme Corp, City Hospital, University of...",
-            industry_label: "Industry",
-            industry_fintech: "Fintech & Financial Services",
-            industry_healthcare: "Healthcare & Life Sciences",
-            industry_legal: "Legal Services",
-            industry_education: "Education",
-            industry_technology: "Technology & Software",
-            industry_manufacturing: "Manufacturing & Industry",
-            industry_retail: "Retail & E-commerce",
-            industry_marketing: "Marketing & Advertising",
-            industry_consulting: "Consulting & Professional Services",
-            industry_government: "Government & Public Sector",
-            department_label: "Scope / Department",
-            department_ph: "e.g. All staff, Marketing team, IT Department...",
-            usecases_label: "Approved AI Use Cases",
-            usecases_ph: "List what employees may use AI for, one per line\ne.g. Drafting emails, summarizing documents, code assistance...",
-            tools_label: "AI Tools Currently Approved",
-            tools_ph: "List approved tools, one per line\ne.g. ChatGPT, Microsoft Copilot, GitHub Copilot...",
-            risk_label: "Risk Tolerance",
-            risk_low: "Low — Strict controls, regulated sector",
-            risk_medium: "Medium — Balanced approach",
-            risk_high: "High — Innovation-first, startup mindset",
-            data_label: "Data Sensitivity Level",
-            data_public: "Public Data Only",
-            data_internal: "Internal / Business Data",
-            data_confidential: "Confidential / Client Data",
-            data_restricted: "Restricted / Regulated (GDPR, HIPAA...)",
-            contact_label: "Policy Owner / Contact",
-            contact_ph: "e.g. IT Manager, Chief Compliance Officer, HR Director...",
-            generate_btn: "Generate AI Policy",
-            generated_toast: "Policy generated!",
-            empty_title: "Your policy will appear here",
-            empty_subtitle: "Fill in the form and click Generate AI Policy",
-        },
-        rolemapper: {
-            step_role: "Role Info",
-            step_tasks: "Responsibilities",
-            role_label: "Job Title / Role",
-            role_ph: "e.g. Marketing Manager, Software Engineer, HR Director...",
-            dept_label: "Department",
-            dept_ph: "e.g. Sales, Engineering, Operations...",
-            industry_label: "Industry",
-            tasks_label: "Key Responsibilities",
-            tasks_ph: "List the main tasks this role performs, one per line\ne.g. Write marketing campaigns\nAnalyze performance data\nManage team of 5...",
-            generate_btn: "Map This Role",
-            generated_toast: "Role map generated!",
-            col_automated: "AI-Automated",
-            col_assisted: "AI-Assisted",
-            col_human: "Human-Only",
-            col_automated_desc: "AI handles independently",
-            col_assisted_desc: "Best with human + AI together",
-            col_human_desc: "Requires human judgment",
-            skills_title: "Future Skills for This Role",
-            empty_title: "Your role map will appear here",
-            empty_subtitle: "Fill in the role details above and click Map This Role",
-        },
-        readiness: {
-            step_org: "Your Organization",
-            step_data: "Data & Technology",
-            step_people: "People & Leadership",
-            step_process: "Process & Governance",
-            generate_btn: "Generate Assessment",
-            generated_toast: "Assessment complete!",
-            empty_title: "Your readiness report will appear here",
-            empty_subtitle: "Complete all steps and click Generate Assessment",
-            answer_required: "Please answer all questions before continuing",
-            map_lbl_strength: "STRENGTH",
-            map_lbl_gap: "GAP",
-            map_lbl_action: "ACTION",
-            map_band_nr: "NOT READY",
-            map_band_foundation: "FOUNDATION",
-            map_band_emerging: "EMERGING",
-            map_band_advanced: "ADVANCED",
-            org_label: "Organization Name",
-            org_ph: "e.g. TechCorp, City Council, General Hospital...",
-            industry_label: "Industry",
-            data_context: "AI systems are only as good as the data behind them. This section checks whether your data foundation can actually support AI — before you invest in tools.",
-            people_context: "AI adoption is 20% technology and 80% people. This section checks whether your organization has the human foundation — skills, culture, and leadership — to actually benefit from AI.",
-            process_context: "AI amplifies your existing processes — good and bad. This section checks whether your processes are structured enough for AI to learn from, and whether your governance protects you from AI-related risks.",
-            d1_text: "How is your organization's data currently stored and managed?",
-            d1_hint: "Why it matters: AI needs accessible, reliable data. Scattered data is the #1 blocker for AI projects.",
-            d1_a: "Scattered across emails, personal drives and spreadsheets — no central access",
-            d1_b: "Shared spreadsheets and some cloud storage, but inconsistent and often outdated",
-            d1_c: "Mix of databases and spreadsheets — some departments have better data than others",
-            d1_d: "Centralized database or cloud platform most teams can access with reasonably current data",
-            d1_e: "Clean, governed data platform with quality controls, APIs and documented ownership",
-            d2_text: "What analytics or reporting capability does your organization have?",
-            d2_hint: "Why it matters: Analytics capability shows whether you can measure AI's impact — essential for justifying and improving investments.",
-            d2_a: "No formal tools — people compile reports manually when needed",
-            d2_b: "Basic Excel or Google Sheets charts with occasional manual reports",
-            d2_c: "A BI tool (Power BI, Tableau, Looker) used by some teams for reports",
-            d2_d: "BI tools used organization-wide with regularly updated dashboards",
-            d2_e: "Advanced analytics with predictive models or live experimentation already in use",
-            d3_text: "How would you describe your technology infrastructure?",
-            d3_hint: "Why it matters: Cloud infrastructure is a prerequisite for most modern AI tools and services.",
-            d3_a: "On-premise servers, legacy systems, minimal cloud adoption",
-            d3_b: "Mostly on-premise with some cloud tools (email, file sharing)",
-            d3_c: "Hybrid — core systems on-premise, growing cloud adoption",
-            d3_d: "Primarily cloud-based with modern SaaS tools across most functions",
-            d3_e: "Cloud-native with integrated systems, APIs connecting tools, strong IT governance",
-            d4_text: "How would you rate the overall quality and reliability of your data?",
-            d4_hint: "Why it matters: AI learns from data. Training on unreliable data produces confidently wrong outputs — sometimes worse than no AI at all.",
-            d4_a: "Often incomplete, inconsistent, or out of date — we don't fully trust it",
-            d4_b: "Quality is inconsistent — some datasets reliable, many are not",
-            d4_c: "Most data is reasonably clean but known gaps and inconsistencies exist",
-            d4_d: "Generally reliable with clean-up processes and basic quality checks in place",
-            d4_e: "High quality with automated validation, clear definitions and active governance",
-            p1_text: "What is the general AI literacy level across your organization?",
-            p1_hint: "Why it matters: Staff who don't understand AI basics will resist adoption or fail to spot errors that need human judgment.",
-            p1_a: "Most staff have never used AI tools and are unfamiliar with what they do",
-            p1_b: "A few individuals use AI tools personally — no shared knowledge or practice",
-            p1_c: "Some teams experiment informally with AI tools — interest is growing",
-            p1_d: "Multiple teams actively use AI tools — basic AI literacy becoming common",
-            p1_e: "Strong AI literacy organization-wide — many staff use AI tools daily",
-            p2_text: "How strong is executive or leadership support for AI adoption?",
-            p2_hint: "Why it matters: Executive sponsorship is the single strongest predictor of whether AI projects succeed or get abandoned.",
-            p2_a: "Leadership hasn't discussed AI or sees it as not relevant to us",
-            p2_b: "Leadership is aware of AI but has no formal position or budget for it",
-            p2_c: "Some leaders are interested but there's no unified strategy or commitment",
-            p2_d: "Leadership is supportive and has discussed AI as a strategic priority",
-            p2_e: "Leadership actively champions AI with dedicated budget and defined strategy",
-            p3_text: "Does your organization have dedicated roles for data, technology, or AI?",
-            p3_hint: "Why it matters: Without dedicated ownership, AI initiatives get deprioritized the moment business pressure increases — which is always.",
-            p3_a: "No dedicated tech or data roles — IT handles everything reactively",
-            p3_b: "One or two IT generalists handle technology, no data-specific roles",
-            p3_c: "IT team in place, some data analysts, but no AI or data science roles",
-            p3_d: "Data analysts and engineers in place — AI roles being considered or hired",
-            p3_e: "Dedicated data science, ML engineering, or AI team already operational",
-            p4_text: "How is your organization approaching AI training and upskilling?",
-            p4_hint: "Why it matters: Organizations that invest in AI literacy adopt tools faster and avoid the costly mistakes that come from misuse.",
-            p4_a: "No training happening — staff learn informally or not at all",
-            p4_b: "Occasional external training when requested — no structured program",
-            p4_c: "Some learning resources available (courses, subscriptions) but unstructured",
-            p4_d: "Training program in place for key teams — AI literacy part of onboarding",
-            p4_e: "Organization-wide AI learning program with regular upskilling and learning paths",
-            g1_text: "How well-documented are your core business processes?",
-            g1_hint: "Why it matters: Undocumented processes produce unpredictable AI behaviour. AI needs structure to improve structure.",
-            g1_a: "Most processes exist only in people's heads — no documentation",
-            g1_b: "Some key processes documented, but often outdated or incomplete",
-            g1_c: "Core processes documented and used for onboarding but not regularly updated",
-            g1_d: "Most processes documented, reviewed regularly, accessible to relevant staff",
-            g1_e: "Processes fully documented, version-controlled and actively used for improvement",
-            g2_text: "Does your organization have data privacy and compliance policies?",
-            g2_hint: "Why it matters: The moment AI touches personal data, GDPR and equivalent laws apply. Policies protect you and build stakeholder trust.",
-            g2_a: "No formal policies — we handle data as needed without clear rules",
-            g2_b: "Basic policies exist but are not actively enforced or regularly reviewed",
-            g2_c: "Standard privacy and security policies in place — staff broadly aware",
-            g2_d: "Clear policies with training, regular audits and designated ownership",
-            g2_e: "Mature compliance framework with GDPR, DPIAs and AI-specific policies in place",
-            g3_text: "How does your organization evaluate and adopt new technology tools?",
-            g3_hint: "Why it matters: Shadow AI — staff using unapproved tools with company data — is the fastest route to security incidents and compliance violations.",
-            g3_a: "Ad hoc — tools adopted when individuals find them, no review process",
-            g3_b: "Informal review — IT or a manager typically approves major tools",
-            g3_c: "A basic checklist exists for security and cost — occasional review",
-            g3_d: "Formal process with security, cost, integration and ROI evaluation criteria",
-            g3_e: "Structured governance with vendor assessment, pilots and exit criteria",
-            intro_text: "This assessment scores your organization across three dimensions — Data & Technology, People & Leadership, and Process & Governance — and gives you a personalized improvement plan with concrete next steps.",
-            dim_strengths: "Strengths",
-            dim_gaps: "Key Gaps",
-            dim_actions: "Improvement Actions",
-            dim_why: "Why:",
-            dim_start: "Start:",
-            plan90_title: "Your 90-Day Improvement Plan",
-            plan90_subtitle: "Prioritized actions from your weakest areas — quick wins first.",
-            v2_heatmap_title: "Question heatmap",
-            v2_heatmap_sub: "Each block is one question — color shows how you scored (cooler = stronger).",
-            v2_action_plan_title: "Prioritized action planner",
-            v2_action_plan_sub: "Sorted by quick wins first, then impact vs. effort (heuristic — not financial advice).",
-            v2_impact: "Impact",
-            v2_effort: "Effort",
-            v2_tier_quick_win: "Quick win",
-            v2_tier_balanced: "Balanced",
-            v2_tier_strategic: "Strategic",
-            v2_tier_heavy_lift: "Heavy lift",
-            v2_horizon: "Horizon",
-            v2_owner: "Owner",
-            v2_kpi: "KPI",
-            v2_dependency: "Dependency",
-            v2_filter_all: "All",
-            v2_show_more_actions: "Show more actions",
-            v2_show_more_blockers: "Show more blockers",
-            v2_left: "left",
-            v2_lowest: "Lowest",
-            v2_planned_actions: "Planned actions",
-            nav_overview: "Overview",
-            nav_priority_plan: "Priority Plan",
-            nav_dimensions: "Dimensions",
-            progress_lbl: "Progress",
-            dimension_breakdown: "Dimension Breakdown",
-            profile_title_fallback: "Profile",
-            copy_title: "AI READINESS ASSESSMENT",
-            copy_generated: "Generated",
-            copy_overall: "OVERALL",
-            pdf_header_kicker: "AI Readiness",
-            pdf_dimension_scores: "Dimension Scores",
-            pdf_confidence: "Confidence",
-            pdf_data_quality: "Data quality",
-            pdf_critical_blockers: "Critical blockers",
-            pdf_strengths_heading: "✓ Strengths",
-            pdf_gaps_heading: "✗ Key gaps",
-            pdf_improvement_actions: "→ Improvement actions",
-            pdf_report_doc_title: "AI Readiness Report",
-            pdf_assessment_title: "AI Readiness Assessment",
-            pdf_band_not_ready: "Not Ready",
-            pdf_band_foundation: "Foundation",
-            pdf_band_emerging: "Emerging",
-            pdf_band_advanced: "Advanced",
-            pdf_horizon: "Horizon",
-            pdf_owner: "Owner",
-            pdf_kpi: "KPI",
-            pdf_dependency: "Dependency",
-            pick_type: "Select Assessment Type",
-            pick_desc: "Choose the assessment that best fits your organization.",
-            start_btn: "Start Assessment",
-            change_type: "Change type",
-        },
-        readiness_content: {
-            overall_summary: {
-                not_ready:  'Significant foundational work is needed before AI can deliver reliable value. Start with data consolidation and leadership education — everything else follows from those two foundations.',
-                foundation: 'Core building blocks are in place. Targeted investments in your weakest dimensions will unlock meaningful AI results within the next 6–12 months.',
-                emerging:   'Solid foundations are in place across your organization. Focused improvements to your key gaps will accelerate your AI journey and build the resilience needed for scaling.',
-                advanced:   'You are well-positioned for sophisticated AI deployment. The focus now is governance depth, AI-specific infrastructure, and sustaining your innovation culture over time.',
-            },
-            dim_labels: {
-                data:    'Data & Technology',
-                people:  'People & Leadership',
-                process: 'Process & Governance',
-            },
-            data: {
-                what_is: 'Data & Technology is the foundation AI runs on. AI systems learn from data, operate through your infrastructure, and are only as reliable as the data they process.',
-                not_ready: {
-                    situation: 'Your data foundation needs significant work before AI can be effective. Without accessible, reliable data, AI tools will either fail or produce misleading outputs that create more problems than they solve.',
-                    strengths: ['Starting fresh means you can build data foundations correctly from the beginning — no legacy debt to undo', 'Early-stage data consolidation is far cheaper and faster than retrofitting a mature organization'],
-                    gaps: ['Data scattered across spreadsheets and personal drives is inaccessible to AI systems', 'No analytics baseline makes it impossible to measure AI\'s business impact', 'Missing or legacy infrastructure creates significant integration barriers for modern AI tools'],
-                    actions: [
-                        { action: 'Audit every data source in your organization', why: 'You can\'t improve what you can\'t see. An audit reveals what data exists, where it lives, and who owns it — the essential first step.', start: 'Ask each department head to list their 3 main data sources in a shared spreadsheet this week' },
-                        { action: 'Move your most-used dataset into a shared, accessible tool', why: 'Even one reliable dataset opens the door to your first AI use case and builds the habit of treating data as a shared organizational asset.', start: 'Pick your highest-volume repeating process and migrate its data to Google Sheets, Airtable, or a simple database' },
-                        { action: 'Define basic data standards across your organization', why: 'Consistent naming, formats, and terminology are prerequisites for any AI tool to work reliably across your data.', start: 'Write a one-page data dictionary defining the 10 most important terms your organization uses for customer or operational data' },
-                    ],
-                },
-                foundation: {
-                    situation: 'You have some data infrastructure in place but it\'s inconsistent. AI tools will work for isolated use cases but will struggle to scale until your data becomes more reliable and better connected.',
-                    strengths: ['Structured data exists in parts of the organization — a foundation to build from', 'Basic reporting capability provides a measurement baseline for evaluating AI impact'],
-                    gaps: ['Data silos between departments limit what AI can see and learn from', 'Inconsistent data quality means AI outputs will vary unpredictably across use cases', 'Technology gaps create integration challenges when connecting AI tools to your systems'],
-                    actions: [
-                        { action: 'Break down your biggest data silo', why: 'Connected data exponentially increases what AI can do. Even linking two previously isolated datasets opens entirely new possibilities.', start: 'Identify which two departments share the most processes but have separate data — set up a weekly sync or shared view' },
-                        { action: 'Implement a basic monthly data quality review', why: 'A simple validation routine prevents AI from learning from bad data, which produces confidently wrong outputs at scale.', start: 'For your most-used dataset, run a monthly check — look for duplicates, blank required fields, and obvious inconsistencies' },
-                        { action: 'Evaluate your cloud readiness', why: 'Most modern AI tools require cloud infrastructure. Moving key workloads to cloud reduces AI integration barriers significantly.', start: 'List your top 5 most-used software tools and check whether cloud or API-accessible versions exist' },
-                    ],
-                },
-                emerging: {
-                    situation: 'Your data and technology foundations are solid. You can successfully deploy AI in focused areas. The priority now is expanding data connectivity and governance to support broader adoption.',
-                    strengths: ['Centralized data platform gives AI tools something reliable and accessible to work with', 'Analytics capability means you can measure AI impact accurately and justify continued investment', 'Cloud infrastructure enables straightforward integration with modern AI services and APIs'],
-                    gaps: ['Data governance gaps may create compliance issues as AI use scales and touches more sensitive data', 'Some data domains may have quality or completeness issues that limit AI effectiveness in those areas', 'API connectivity between systems may need strengthening for advanced multi-step AI workflows'],
-                    actions: [
-                        { action: 'Implement a data governance framework', why: 'As AI uses more of your data, governance defines who can use what data, for what purpose, and with what safeguards — essential for scaling responsibly.', start: 'Assign a data steward for each major data domain and document their responsibilities in a one-page governance charter' },
-                        { action: 'Map your data flows for your top AI use cases', why: 'Understanding exactly how data moves through your organization reveals where AI adds the most value and where risks exist.', start: 'Draw a simple diagram of how your most important data type moves from source to your core systems' },
-                        { action: 'Evaluate your need for dedicated data engineering capacity', why: 'Scaling AI requires people who can build and maintain data pipelines — this is the most common bottleneck at this stage.', start: 'Assess whether you need a dedicated data engineer role or whether an existing developer can be upskilled into the role' },
-                    ],
-                },
-                advanced: {
-                    situation: 'Your data and technology foundation is strong. You are well-positioned to deploy sophisticated AI systems. Focus on optimization, governance depth, and building AI-specific infrastructure.',
-                    strengths: ['High-quality governed data enables reliable, auditable AI outputs at scale', 'Mature analytics provides the measurement framework for demonstrating AI ROI to leadership', 'Cloud-native infrastructure enables rapid AI deployment, scaling, and experimentation'],
-                    gaps: ['AI-specific infrastructure such as vector databases, feature stores, and model registries may not yet exist', 'Real-time data capabilities may be needed for advanced AI applications like personalization or fraud detection', 'Data lineage and explainability tooling needed to satisfy emerging AI governance and regulatory requirements'],
-                    actions: [
-                        { action: 'Evaluate AI-specific data infrastructure for your highest-priority use cases', why: 'General data infrastructure is necessary but not sufficient for advanced AI. Specialized tools unlock semantic search, personalization, and real-time inference capabilities.', start: 'Assess whether vector database or feature store technology fits your most valuable AI use case' },
-                        { action: 'Implement data lineage and observability tooling', why: 'Regulators and auditors will ask how AI decisions were made. Data lineage answers that question with verifiable evidence.', start: 'Select a data observability tool (dbt, Monte Carlo, or similar) and instrument your most business-critical pipeline first' },
-                        { action: 'Define your MLOps model lifecycle practice', why: 'Managing AI models in production requires dedicated tooling and processes — without them, models degrade silently over time without anyone noticing.', start: 'Document your model lifecycle: how models are trained, deployed, monitored for drift, and retired' },
-                    ],
-                },
-            },
-            people: {
-                what_is: 'People & Leadership determines whether your organization can actually adopt and benefit from AI. The best technology fails without people who understand it, champion it, and use it responsibly.',
-                not_ready: {
-                    situation: 'Your organization lacks the human foundation for AI adoption. Without AI literacy, executive commitment, and defined roles, any AI initiative will struggle to get off the ground — let alone sustain momentum.',
-                    strengths: ['Starting from zero means no bad habits or misaligned expectations to undo', 'Every organization at this stage that committed to building AI literacy saw rapid improvement within 6 months'],
-                    gaps: ['No AI literacy means staff will resist or misuse AI tools when introduced', 'Without executive sponsorship, AI initiatives lack the resources and authority they need to succeed', 'No dedicated AI or data roles means no one is accountable for making AI work'],
-                    actions: [
-                        { action: 'Brief your leadership team on AI — what it is and what it is not', why: 'Executive sponsorship is the single biggest predictor of AI project success. Leaders who understand AI basics make better investment decisions and unblock fewer initiatives.', start: 'Schedule a 1-hour AI fundamentals session for leadership using free resources from Google AI Essentials, Microsoft AI Skills, or Coursera' },
-                        { action: 'Identify one AI Champion per department', why: 'Change spreads person to person. Champions understand both the work and the people, making them far more effective AI adoption agents than top-down mandates.', start: 'Ask each department head to nominate one curious, tech-comfortable person to be their AI Champion this month' },
-                        { action: 'Run a 30-day AI tool experiment with one willing team', why: 'Real experience is the most effective form of AI literacy. One successful experiment creates advocates who convince colleagues more effectively than any training program.', start: 'Pick one repetitive writing, research, or summarization task in your most open team and trial a free AI tool for 30 days' },
-                    ],
-                },
-                foundation: {
-                    situation: 'There is growing awareness and isolated AI enthusiasm, but it hasn\'t translated into coordinated organizational capability yet. The gap between early adopters and the rest of the organization will widen without deliberate action.',
-                    strengths: ['Individual AI enthusiasm exists — a pool of potential champions ready to be activated', 'Some leadership awareness means conversations about AI strategy are now possible'],
-                    gaps: ['Inconsistent AI literacy creates uneven adoption and increases the risk of tool misuse', 'Lack of a unified strategy means AI efforts are duplicated, contradictory, or abandoned mid-way', 'No dedicated AI roles means effort is dispersed and accountability for outcomes is unclear'],
-                    actions: [
-                        { action: 'Establish a cross-functional AI working group', why: 'Informal AI adoption needs structure to scale. A working group creates coordination, shared learning, and an internal community of practice.', start: 'Invite your informal AI champions to a monthly meeting — give it a name, a shared agenda, and a communication channel' },
-                        { action: 'Create a shared AI literacy baseline for all staff', why: 'A consistent baseline ensures everyone understands what AI is, what it can\'t do, and how to use it responsibly — regardless of role or seniority.', start: 'Enroll all staff in a free 2-hour AI fundamentals course such as Microsoft AI Skills or Google AI Essentials' },
-                        { action: 'Secure executive sign-off on a formal AI pilot budget', why: 'Even a small formal budget signals organizational commitment, attracts internal talent, and enables real experimentation with clear accountability.', start: 'Prepare a one-page AI pilot proposal: one specific use case, expected outcome, 3-month budget, and a single success metric' },
-                    ],
-                },
-                emerging: {
-                    situation: 'Real AI capability is developing across your organization. The challenge now is scaling it systematically — turning pockets of expertise into organization-wide capability with proper support structures in place.',
-                    strengths: ['Growing AI literacy means adoption is becoming self-reinforcing as teams share learnings', 'Leadership engagement enables resource allocation and sets clear strategic direction', 'Emerging dedicated AI capacity provides a nucleus to build a broader practice from'],
-                    gaps: ['Scaling AI capability requires more structured learning paths than currently exist', 'Middle management buy-in often lags behind both leadership vision and ground-level enthusiasm', 'Competition for AI and data talent is intense — retention strategy needs explicit attention'],
-                    actions: [
-                        { action: 'Develop structured AI career paths and learning programs', why: 'Retaining and growing AI talent requires showing people a future inside your organization — not just a current role that could disappear.', start: 'Map what an AI-fluent version of each major role looks like in your organization — what skills are expected at each level?' },
-                        { action: 'Create an AI Center of Excellence', why: 'A central team that supports, advises, and connects AI initiatives prevents duplication and accelerates adoption across the whole organization.', start: 'Define the mandate of a small AI CoE (3–5 people) and identify who should lead it' },
-                        { action: 'Establish a formal AI use case governance process', why: 'As AI use grows, a consistent way to evaluate, prioritize, and approve new initiatives prevents wasted investment and conflicting approaches.', start: 'Create a simple AI use case intake form: business problem, data needed, expected impact, risks, and approver' },
-                    ],
-                },
-                advanced: {
-                    situation: 'Your people and leadership foundations are strong. The focus now is deepening expertise, institutionalizing AI culture, and developing organizational capability for frontier AI applications.',
-                    strengths: ['Widespread AI literacy enables rapid adoption of new capabilities as they emerge', 'Board and executive-level understanding enables strategic AI investment and risk management', 'Dedicated AI team provides competitive advantage in both execution speed and talent attraction'],
-                    gaps: ['Frontier AI capabilities such as agents, fine-tuning, and custom models require specialists that are genuinely scarce', 'Ethical AI governance requires dedicated roles and formal expertise that most organizations haven\'t yet built', 'Sustaining an innovation culture around AI requires institutional support beyond individual champions'],
-                    actions: [
-                        { action: 'Build a Responsible AI practice', why: 'At your scale of AI adoption, governance, fairness, and explainability are competitive necessities and increasingly legal requirements across most jurisdictions.', start: 'Appoint a Responsible AI lead and draft your organization\'s AI principles, hard boundaries, and escalation paths' },
-                        { action: 'Develop partnerships with AI research institutions', why: 'Access to cutting-edge research and talent is a key differentiator at advanced AI maturity and builds long-term competitive capability.', start: 'Identify 2–3 relevant universities or research labs and explore internship or applied research collaboration programs' },
-                        { action: 'Formalize your AI innovation process', why: 'Sustaining innovation requires structure — a repeatable way to source, evaluate, fund, and scale new AI ideas on a continuous basis.', start: 'Launch an internal AI innovation program with quarterly cycles, a small dedicated budget, and executive sponsorship' },
-                    ],
-                },
-            },
-            process: {
-                what_is: 'Process & Governance determines whether your organization can deploy AI safely, consistently, and in compliance with relevant regulations. It\'s the difference between AI that helps you and AI that creates legal and reputational liability.',
-                not_ready: {
-                    situation: 'Without documented processes and governance frameworks, AI adoption will create chaos rather than value. AI amplifies your existing processes — good and bad. Undocumented processes produce unpredictable, ungovernable AI.',
-                    strengths: ['Building governance from scratch means you can design it correctly for the AI era from the start', 'Regulatory frameworks and free policy templates are now widely available — the path is well-lit'],
-                    gaps: ['Undocumented processes prevent AI from learning the right patterns and behaviour', 'No privacy or compliance policies create legal risk the moment AI touches personal data', 'Ad hoc technology adoption leads to shadow AI use and serious security vulnerabilities'],
-                    actions: [
-                        { action: 'Document your 5 most important business processes', why: 'AI needs to understand your processes before it can improve them. Documentation also forces clarity about how work actually happens versus how you think it does.', start: 'Pick your highest-volume process and write a step-by-step description in one hour — rough bullet points are a valid starting point' },
-                        { action: 'Create a basic data privacy policy', why: 'The moment AI touches personal data, GDPR and equivalent laws apply. A basic policy demonstrates intent and protects you from the most common violations.', start: 'Download a free GDPR policy template and adapt it for your organization — a full legal review can come once you have a working draft' },
-                        { action: 'Write a 5-question technology evaluation checklist', why: 'A simple checklist prevents staff from using unapproved AI tools with company data — the fastest route to a security or compliance incident.', start: 'Ask five questions for any new tool: Does it store our data? Where? Is it GDPR-compliant? What is the data retention policy? Who is accountable?' },
-                    ],
-                },
-                foundation: {
-                    situation: 'Basic policies exist but they aren\'t consistently followed or enforced. This creates gaps that become significant risks as AI adoption accelerates. The foundation is there — it needs reinforcing.',
-                    strengths: ['Some process documentation exists — a base to build from and update', 'Basic compliance awareness is present within the organization'],
-                    gaps: ['Policy enforcement gaps mean real-world AI use may already be outside your documented rules', 'Outdated process documentation creates misalignments between AI behaviour and current operational reality', 'Informal technology evaluation leaves security and compliance gaps across your AI tool landscape'],
-                    actions: [
-                        { action: 'Audit actual versus documented AI tool use', why: 'Staff are almost certainly using AI tools not on your approved list. An honest audit gives you a realistic picture of your actual exposure — not your assumed one.', start: 'Send a short anonymous survey: "Which AI tools do you use at work?" Frame it as information gathering, not a compliance exercise' },
-                        { action: 'Update your top 10 process documents to reflect current reality', why: 'Outdated process docs are worse than none — they create false confidence and cause AI to learn the wrong behaviours from the start.', start: 'Schedule monthly 30-minute process review sessions with process owners as a standing calendar item' },
-                        { action: 'Develop an AI-specific acceptable use policy', why: 'A general IT policy doesn\'t cover AI. AI-specific policies address unique risks: hallucination, data leakage, bias, and attribution of AI-generated outputs.', start: 'Use a free AI policy template (widely available from law firms and government bodies) as your starting point — don\'t start from a blank page' },
-                    ],
-                },
-                emerging: {
-                    situation: 'Your governance foundations are solid. The challenge now is keeping governance ahead of rapidly accelerating AI adoption — policies written for today\'s use cases will quickly become inadequate.',
-                    strengths: ['Documented processes enable AI to learn and improve the right workflows reliably', 'Compliance policies give you a defensible position with regulators, customers, and partners', 'Structured technology evaluation prevents ungoverned AI proliferation across the organization'],
-                    gaps: ['AI governance is evolving faster than most general governance frameworks can keep up with', 'Process documentation rarely covers AI-specific decision points and human oversight escalation paths', 'Vendor AI governance — what your AI suppliers do with your data — is often completely unreviewed'],
-                    actions: [
-                        { action: 'Conduct an AI risk assessment across your current use cases', why: 'Understanding your specific AI risks by use case, data type, and regulatory exposure enables proportionate governance responses rather than blanket rules.', start: 'List your current AI tools and use cases, then rate each on a simple 3×3 risk matrix of impact versus likelihood of harm' },
-                        { action: 'Add AI decision points to your key process documentation', why: 'As AI is embedded in processes, humans need to know where AI makes decisions, where they can override it, and who is accountable when it goes wrong.', start: 'For each process where AI is used, add three fields: AI role, human oversight point, and escalation path' },
-                        { action: 'Review AI vendor contracts for data governance terms', why: 'Many organizations discover their AI vendors have broad rights to use their data for model training. Contract review prevents unwanted data use and regulatory exposure.', start: 'Pull the contracts for your top 3 AI tools and review the data use, retention, and model training clauses specifically' },
-                    ],
-                },
-                advanced: {
-                    situation: 'Your governance and process maturity is strong. You can deploy AI with confidence and defend your practices to regulators, customers, and partners. The focus is staying ahead of evolving AI regulation.',
-                    strengths: ['Mature process documentation enables systematic and auditable AI workflow automation', 'Advanced compliance posture reduces regulatory risk as AI legislation strengthens globally', 'Structured technology governance enables confident AI vendor selection and third-party risk management'],
-                    gaps: ['EU AI Act and equivalent regulations require AI-specific governance beyond current general frameworks', 'AI model explainability and auditability requirements are not yet standard in most governance frameworks', 'Third-party AI risk management is an emerging gap even for the most governance-mature organizations'],
-                    actions: [
-                        { action: 'Map your AI systems to EU AI Act risk tiers', why: 'EU AI Act compliance is mandatory for high-risk systems. Early mapping reveals which systems require conformity assessment, documentation, and mandatory human oversight.', start: 'Categorize each AI use case as minimal, limited, high, or prohibited risk using the EU AI Act summary documentation' },
-                        { action: 'Implement AI model governance covering versioning, monitoring, and retirement', why: 'Models degrade and produce incorrect outputs without active monitoring. Model governance ensures AI decisions remain accurate and explainable over time.', start: 'Define your model lifecycle policy: revalidation frequency, update approval process, and retirement criteria for each model in production' },
-                        { action: 'Develop third-party AI risk management standards', why: 'Your AI risk extends to every vendor and partner. Third-party AI risk management is rapidly becoming a regulatory requirement and enterprise customer expectation.', start: 'Add AI-specific questions to your vendor onboarding questionnaire: training data sources, bias testing methods, data retention, and sub-processor disclosure' },
-                    ],
-                },
-            },
-        },
-        roadmap: {
-            step_org: "Organization",
-            step_strategy: "Strategy",
-            step_plan: "Plan",
-            org_label: "Organization Name",
-            org_ph: "e.g. TechCorp, City Council, General Hospital...",
-            size_label: "Organization Size",
-            size_1: "1–10 employees",
-            size_2: "11–50 employees",
-            size_3: "51–200 employees",
-            size_4: "201–1,000 employees",
-            size_5: "1,000+ employees",
-            industry_label: "Industry",
-            maturity_label: "Current AI Maturity",
-            maturity_none: "None — No AI in use",
-            maturity_exploring: "Exploring — Looking into options",
-            maturity_piloting: "Piloting — Running first experiments",
-            maturity_scaling: "Scaling — Expanding what works",
-            maturity_none_short: "None",
-            maturity_exploring_short: "Exploring",
-            maturity_piloting_short: "Piloting",
-            maturity_scaling_short: "Scaling",
-            goal_label: "Primary Goal",
-            goal_efficiency: "Operational Efficiency",
-            goal_cost: "Cost Reduction",
-            goal_innovation: "Innovation & New Products",
-            goal_competitive: "Competitive Advantage",
-            goal_cx: "Customer Experience",
-            timeline_label: "Target Timeline",
-            timeline_3m: "3 months",
-            timeline_6m: "6 months",
-            timeline_12m: "12 months",
-            timeline_24m: "24 months",
-            budget_label: "Budget Range",
-            budget_small: "Small (< €10k)",
-            budget_medium: "Medium (€10k–€100k)",
-            budget_large: "Large (€100k–€1M)",
-            budget_enterprise: "Enterprise (> €1M)",
-            challenges_label: "Key Challenges or Concerns",
-            challenges_ph: "e.g. Limited technical skills, data quality issues, employee resistance, budget constraints...",
-            generate_btn: "Build Roadmap",
-            generated_toast: "Roadmap built!",
-            empty_title: "Your roadmap will appear here",
-            empty_subtitle: "Fill in your organization details and click Build Roadmap",
-        },
-    },
+
     scratchpad: {
         title: "Scratchpad",
         placeholder: "Paste prompts here to chain them, or take notes...",
@@ -793,8 +295,7 @@ const data = {
         product: 'Product', productivity: 'Productivity', psychology: 'Psychology',
         publichealth: 'Public Health', realestate: 'Real Estate',
         sales: 'Sales', science: 'Science', sustainability: 'Sustainability',
-        writing: 'Writing', macedonian: 'Macedonian', albanian: 'Albanian',
-        bosnian: 'Bosnian', serbian: 'Serbian'
+        writing: 'Writing', macedonian: 'Macedonian', albanian: 'Albanian'
     },
     playbook_categories: {
         all: "All Playbooks",
@@ -980,8 +481,8 @@ const data = {
             pc_pattern_ph: 'e.g. Chronic procrastination, people-pleasing, imposter syndrome, performance anxiety',
             pc_context_l: 'In what context does this pattern appear most?',
             pc_goal_l: 'What does success look like for you?',
-            pc_goal_ph: 'e.g. Delivering work on time without last-minute panic, saying no without guilt',
-        },
+            pc_goal_ph: 'e.g. Delivering work on time without last-minute panic, saying no without guilt'
+        }
     },
     builder: {
         title: "Agent Builder",
@@ -1299,7 +800,7 @@ const data = {
                     'Reduced Motion: We respect system-level preferences for reduced motion.'
                 ]
             }
-        },
+        }
     },
     footer: {
         tagline: 'Prompt Different.',
@@ -1336,7 +837,7 @@ const data = {
             business: 'Business',
             communication: 'Communication',
             career: 'Career',
-            productivity: 'Productivity',
+            productivity: 'Productivity'
         },
         sidebar_topics: 'Advisor Topics',
         sidebar_all_topics: 'All Topics',
@@ -1346,7 +847,7 @@ const data = {
             step2_title: 'Answer Smart Questions',
             step2_desc: 'A few targeted questions shape the output to your exact context.',
             step3_title: 'Copy Your Prompt',
-            step3_desc: 'Quick, Full, or Chain — ready to paste into any AI instantly.',
+            step3_desc: 'Quick, Full, or Chain — ready to paste into any AI instantly.'
         },
         difficult_conversation: {
             title: 'Navigate a Difficult Conversation',
@@ -1374,7 +875,7 @@ const data = {
             template_full: `Act as a senior executive coach specializing in workplace communication and conflict resolution.\n\nI need to navigate a challenging conversation with my {{who}}.\n\nSituation: {{issue}}\nDesired outcome: {{goal}}\nCommunication approach: {{style}}\nRelationship context: {{history}}\n\nCreate a comprehensive conversation framework:\n\n1. **Pre-Conversation Prep** — What to research, reflect on, and prepare emotionally\n2. **Opening Statement** — The exact 2-3 sentences to start\n3. **Core Message Structure** — How to articulate the issue without triggering defensiveness\n4. **Active Listening Moves** — Questions that show respect and surface their perspective\n5. **Resistance Playbook** — 3 likely pushback scenarios with responses\n6. **Agreement Anchors** — Points to land on that move toward resolution\n7. **Closing Statement** — How to end with dignity and a clear next step\n8. **Post-Conversation Actions** — What to document, what to follow up on\n\nTone: professional, empathetic, solution-focused.`,
             chain_1: `I am preparing for a difficult conversation with my {{who}} about: {{issue}}. Our relationship: {{history}}. Before I say a single word, what are the 5 most critical things I must understand? Consider: the emotional state they are likely in, the power dynamics, potential triggers, what they actually need (vs. what they will say), and what could go wrong.`,
             chain_2: `I am about to speak with my {{who}} using a {{style}} approach. My goal: {{goal}}. Our relationship context: {{history}}. Write me the opening 3 sentences for this conversation. They must feel completely natural to say out loud — not corporate-scripted, not confrontational. The goal is to open the door, not close it.`,
-            chain_3: `My {{who}} has just responded defensively to the issue I raised. Using the {{style}} approach and our relationship context ({{history}}) and keeping my goal ({{goal}}) in sight, give me 5 flexible responses I can use to de-escalate the tension without backing down from the core issue. Label each by emotional tone (e.g., Acknowledging, Redirecting, Firm, Curious, Reframing).`,
+            chain_3: `My {{who}} has just responded defensively to the issue I raised. Using the {{style}} approach and our relationship context ({{history}}) and keeping my goal ({{goal}}) in sight, give me 5 flexible responses I can use to de-escalate the tension without backing down from the core issue. Label each by emotional tone (e.g., Acknowledging, Redirecting, Firm, Curious, Reframing).`
         },
         write_proposal: {
             title: 'Write a Winning Proposal',
@@ -1404,7 +905,7 @@ const data = {
             template_full: `Act as a senior business consultant and proposal writer with 15 years of experience winning high-value contracts.\n\nWrite a compelling, complete proposal for: {{client_type}}\n\nProblem being solved: {{problem}}\nProposed solution: {{solution}}\nBudget context: {{budget}}\nDecision timeline: {{decision_timeline}}\nClient relationship: {{relationship}}\n\nStructure the proposal as follows:\n\n1. **Executive Summary** (3-4 sentences, decision-maker focused)\n2. **Problem Statement** — Frame the pain in their language, with quantified impact where possible\n3. **Our Solution** — What exactly you will do, how it works, what makes it different\n4. **Key Deliverables** — Bulleted, specific, measurable outcomes\n5. **Timeline** — Phase-by-phase breakdown with milestones\n6. **Investment** — Present the budget as an ROI story, not a cost\n7. **Why Us** — 3 concrete reasons this team and approach is the right choice\n8. **Next Steps** — A single clear call to action\n\nTone: confident, specific, client-centric. No filler sentences.`,
             chain_1: `I am writing a proposal for a {{client_type}} to solve: {{problem}}. The decision context: {{decision_timeline}}. Our relationship with this client: {{relationship}}. Before I write a single word, help me build the strategic foundation. What are the 3 biggest fears or objections this type of decision-maker typically has? What language and framing will resonate most? What proof or data should I reference?`,
             chain_2: `Help me write the problem statement for this proposal. The client is a {{client_type}}, the issue is: {{problem}}. Write a 150-word problem statement that makes them feel: "Yes, this is exactly what we are dealing with." Use their language, quantify the pain, and end with a transition toward the solution.`,
-            chain_3: `My proposed solution is: {{solution}}, with budget context: {{budget}}. The decision timeline is {{decision_timeline}}. Write a persuasive "Investment" section for my proposal that reframes the cost as an ROI story. Include a simple before/after scenario and a risk-of-inaction paragraph. Keep it under 200 words but make every word count.`,
+            chain_3: `My proposed solution is: {{solution}}, with budget context: {{budget}}. The decision timeline is {{decision_timeline}}. Write a persuasive "Investment" section for my proposal that reframes the cost as an ROI story. Include a simple before/after scenario and a risk-of-inaction paragraph. Keep it under 200 words but make every word count.`
         },
         client_pitch: {
             title: 'Nail a Client Pitch',
@@ -1430,7 +931,7 @@ const data = {
             template_full: `Act as a senior sales strategist and pitch coach with deep expertise in {{prospect}} accounts.\n\nI am pitching: {{service}}\nClient type: {{prospect}}\nCore value proposition: {{main_benefit}}\nAnticipated objection: {{objection}}\nPitch stage: {{pitch_stage}}\n\nCreate a complete pitch playbook:\n\n1. **The Hook** (first 30 seconds) — A provocative question or insight that creates immediate relevance\n2. **Problem Framing** — How to articulate the pain this {{prospect}} specifically feels\n3. **The Solution Story** — Present {{service}} as the natural answer, not a product push\n4. **Proof Point** — A relevant example, stat, or case that builds credibility\n5. **Value Bridge** — Translate features into {{main_benefit}} in their language\n6. **Objection Neutralizer** — Pre-empt and defuse "{{objection}}" before they say it\n7. **The Ask** — A specific, low-friction next step\n8. **Backup Questions** — 3 follow-up questions to keep momentum if they hesitate\n\nTone: confident, peer-to-peer, focused on their world not your product.`,
             chain_1: `I am pitching {{service}} to a {{prospect}}. This is a {{pitch_stage}} interaction. Before I walk in, I need to think like them. What are the top 3 business pressures this type of organization is under right now? What does "success" look like for the person I am pitching to? What would make them look good internally for choosing this?`,
             chain_2: `Write me the opening 45 seconds of my {{pitch_stage}} pitch for {{service}} to a {{prospect}}. It must: start with a problem insight (not "let me tell you about us"), establish credibility quickly, and end with a question that invites them in. Make it conversational, not corporate.`,
-            chain_3: `My prospect (a {{prospect}}) has just said: "{{objection}}". Using the context that I am pitching {{service}} with the value of {{main_benefit}}, write me a calm, confident 3-step response that: acknowledges their concern, reframes it as a sign they will benefit most, and redirects to the value.`,
+            chain_3: `My prospect (a {{prospect}}) has just said: "{{objection}}". Using the context that I am pitching {{service}} with the value of {{main_benefit}}, write me a calm, confident 3-step response that: acknowledges their concern, reframes it as a sign they will benefit most, and redirects to the value.`
         },
         handle_complaint: {
             title: 'Handle a Complaint Professionally',
@@ -1457,7 +958,7 @@ const data = {
             template_full: `Act as a senior customer experience director and conflict resolution specialist.\n\nI need to handle a complaint professionally.\n\nWho: {{complainer}}\nTheir complaint: {{complaint}}\nWhat happened internally: {{what_happened}}\nMy resolution capacity: {{resolution_power}}\nResponse channel: {{channel}}\n\nProvide a complete complaint handling framework:\n\n1. **Emotional First Response** — The opening statement that immediately acknowledges their feeling (not the complaint — the feeling)\n2. **Accountability Language** — How to take responsibility without admitting legal liability\n3. **The Explanation** — How to explain what happened in a way that sounds like transparency, not excuses\n4. **Resolution Offer** — Present what you can offer based on your capacity: {{resolution_power}}\n5. **Recovery Step** — One unexpected extra gesture that turns frustration into loyalty\n6. **Prevention Promise** — How to close by explaining what will be done differently\n7. **Documentation Note** — What to record internally for quality management\n\nTone: warm, accountable, solution-focused. Zero corporate-speak.`,
             chain_1: `A {{complainer}} has a complaint about: {{complaint}}. Before I respond, help me understand their emotional state. What are they actually feeling underneath the complaint? What do they REALLY want beyond the surface ask? What response would make them feel heard vs. dismissed?`,
             chain_2: `I need to write a response to a {{complainer}}'s complaint about {{complaint}}. What actually happened: {{what_happened}}. I will be responding via {{channel}}. Write me the opening 3 sentences of my response. These must: lead with empathy (not apology), validate their experience, and signal that I am taking this seriously. No corporate filler.`,
-            chain_3: `The {{complainer}} complaint is about {{complaint}} and my resolution capacity is: {{resolution_power}}. Help me craft the resolution offer. How do I present {{resolution_power}} resolution in a way that feels generous and caring, not defensive or minimal? Include language for an unexpected extra gesture that could turn this situation around. Format this for {{channel}} delivery.`,
+            chain_3: `The {{complainer}} complaint is about {{complaint}} and my resolution capacity is: {{resolution_power}}. Help me craft the resolution offer. How do I present {{resolution_power}} resolution in a way that feels generous and caring, not defensive or minimal? Include language for an unexpected extra gesture that could turn this situation around. Format this for {{channel}} delivery.`
         },
         job_application: {
             title: 'Apply for a Job Like a Pro',
@@ -1485,7 +986,7 @@ const data = {
             template_full: `Act as a senior career coach and executive recruiter who has reviewed thousands of applications for {{role}}-type positions.\n\nI am applying for: {{role}} at {{company}}\nMy background: {{background}}\nKey emphasis: {{highlight}}\nApplication stage: {{application_stage}}\nBiggest concern: {{concern}}\n\nCreate a complete application strategy:\n\n1. **Application Angle** — The unique narrative that differentiates me for this role at this company\n2. **Cover Letter** — Full 3-paragraph cover letter that hooks the reader immediately\n3. **Resume Headlines** — 5-7 achievement-based bullet points tailored to {{role}} requirements\n4. **Skills Matrix** — How to present my background to highlight {{highlight}}\n5. **Research Checklist** — 5 things to learn about {{company}} before applying or interviewing\n6. **ATS Optimization** — Key terms likely used in the job posting that should appear in my materials\n7. **Weak Spots** — Based on my background, what gaps might the hiring manager see, and how to address them proactively\n8. **First-Week Vision** — A 30-60-90 day plan outline to include in the cover letter or interview\n\nTone: ambitious, specific, confident without being arrogant.`,
             chain_1: `I am applying for {{role}} at {{company}}. My background: {{background}}. I am currently at the {{application_stage}} stage. Before I write anything, help me find my competitive angle. Based on what companies like {{company}} typically look for in {{role}} candidates, what 3 aspects of my background should I lead with? What should I de-emphasize? My biggest concern is: {{concern}}. How should I address or reframe this?`,
             chain_2: `Write a 3-paragraph cover letter for {{role}} at {{company}}. I am at the {{application_stage}} stage. Paragraph 1: Hook — start with the impact I want to have, not "I am applying for...". Paragraph 2: Evidence — use my background ({{background}}) to show I can deliver what they need. Paragraph 3: Close — express genuine interest in {{company}} specifically and ask for the conversation. Keep it under 300 words.`,
-            chain_3: `Focus on the {{application_stage}} stage. I am in the final stage of applying for {{role}} at {{company}}. I want to emphasize {{highlight}}. Help me prepare 5 powerful talking points for the interview that directly address this emphasis. For each: the point, a specific example from my background ({{background}}), and a closing statement that ties it back to what {{company}} needs. My biggest concern about this application is: {{concern}}. Help me address this proactively in my talking points.`,
+            chain_3: `Focus on the {{application_stage}} stage. I am in the final stage of applying for {{role}} at {{company}}. I want to emphasize {{highlight}}. Help me prepare 5 powerful talking points for the interview that directly address this emphasis. For each: the point, a specific example from my background ({{background}}), and a closing statement that ties it back to what {{company}} needs. My biggest concern about this application is: {{concern}}. Help me address this proactively in my talking points.`
         },
         team_conflict: {
             title: 'Resolve a Team Conflict',
@@ -1514,7 +1015,7 @@ const data = {
             template_full: `Act as an organizational psychologist and senior HR mediator with expertise in workplace conflict resolution.\n\nConflict type: {{conflict_type}}\nParties involved: {{parties}}\nCore issue: {{core_issue}}\nMy role: {{your_role}}\nConflict duration: {{conflict_duration}}\n\nProvide a complete conflict resolution playbook:\n\n1. **Root Cause Analysis** — What is likely driving this {{conflict_type}} conflict beneath the surface?\n2. **Individual Prep Sessions** — Key questions to ask each party separately before any joint meeting\n3. **Mediation Meeting Structure** — A step-by-step agenda with timing for a 60-minute resolution session\n4. **Neutral Language Guide** — Phrases that de-escalate and reframe (and phrases to absolutely avoid)\n5. **Common Ground Map** — How to identify shared interests beneath opposing positions\n6. **Agreement Framework** — What a sustainable resolution looks like and how to formalize it\n7. **Monitoring Plan** — How to track whether the resolution is holding over 30 days\n8. **Escalation Criteria** — When to involve more senior leadership or formal HR process\n\nConsider my authority level as {{your_role}} throughout.`,
             chain_1: `There is a {{conflict_type}} conflict between {{parties}} about: {{core_issue}}. This conflict has been going on: {{conflict_duration}}. Before I intervene as {{your_role}}, help me map the conflict. What are the likely underlying needs of each side (not their stated positions)? What dynamics of a {{conflict_type}} conflict should I be aware of? What are my biggest risks as {{your_role}} in this situation?`,
             chain_2: `The conflict has lasted: {{conflict_duration}}. I need to have separate conversations with each party in the {{conflict_type}} conflict before bringing them together. As {{your_role}}, write me 5 questions I should ask each person individually. These must: feel like genuine curiosity not interrogation, surface their real concerns, and help me understand what "resolution" means to them personally.`,
-            chain_3: `I am now facilitating the joint resolution meeting between {{parties}}. The core issue is: {{core_issue}}. Using my role as {{your_role}}, write me the opening statement I will deliver at the start of this meeting. It must: set a neutral safe tone, state the purpose clearly, establish ground rules, and signal that we are here to build forward — not relitigate the past.`,
+            chain_3: `I am now facilitating the joint resolution meeting between {{parties}}. The core issue is: {{core_issue}}. Using my role as {{your_role}}, write me the opening statement I will deliver at the start of this meeting. It must: set a neutral safe tone, state the purpose clearly, establish ground rules, and signal that we are here to build forward — not relitigate the past.`
         },
         negotiation: {
             title: 'Prepare for a Negotiation',
@@ -1544,7 +1045,7 @@ const data = {
             template_full: `Act as a master negotiator and strategic advisor with experience in high-stakes {{neg_type}} negotiations.\n\nNegotiation type: {{neg_type}}\nTarget outcome: {{what_you_want}}\nMy leverage and strengths: {{leverage}}\nMinimum acceptable: {{bottom_line}}\nTheir likely goal: {{their_goal}}\nDeadline / time pressure: {{deadline}}\nRelationship with other party: {{relationship}}\n\nBuild me a complete negotiation strategy:\n\n1. **BATNA Analysis** — My best alternative if this negotiation fails (and theirs)\n2. **Zone of Possible Agreement** — The realistic range based on my target ({{what_you_want}}) and minimum ({{bottom_line}})\n3. **Opening Move** — How to anchor the negotiation in my favor from the first sentence\n4. **Leverage Activation** — How to use {{leverage}} at the right moment without overplaying it\n5. **Concession Strategy** — What to give up, in what order, and what to ask for in return\n6. **Pressure Tactics Defense** — The 3 most common pressure moves in {{neg_type}} negotiations and how to counter them\n7. **Win-Win Frame** — Language that makes them feel they are winning while I achieve {{what_you_want}}\n8. **Closing Sequence** — How to recognize the right moment and seal the agreement\n\nPsychology-informed. Practical. Specific to {{neg_type}}.`,
             chain_1: `I am entering a {{neg_type}} negotiation. My goal: {{what_you_want}}. My relationship with them: {{relationship}}. Before I say a word, help me with intelligence gathering. What information should I know about the other side before this negotiation? What are their likely constraints, pressures, and what would they consider a win? I believe their goal is: {{their_goal}}. Validate or challenge this assumption — what am I likely missing? How does my leverage ({{leverage}}) compare to what they likely have?`,
             chain_2: `My negotiation target is {{what_you_want}} and my minimum is {{bottom_line}}. I have leverage: {{leverage}}. The deadline is: {{deadline}}. Given our relationship ({{relationship}}), write me the exact opening statement for this {{neg_type}} negotiation — the first 2-3 sentences I will say. This must anchor high (or at my target), sound confident not desperate, and invite a collaborative tone not a combative one.`,
-            chain_3: `Given our relationship ({{relationship}}), the other party has countered well below my target of {{what_you_want}}, close to my minimum of {{bottom_line}}. My leverage is {{leverage}}. This is a {{neg_type}} negotiation. Their goal appears to be {{their_goal}} and the deadline is {{deadline}}. Give me a strategic response sequence: 1) How to react in the moment (first words), 2) The counter-offer I should make, 3) The exact language to present it, 4) How to use my leverage now without seeming aggressive.`,
+            chain_3: `Given our relationship ({{relationship}}), the other party has countered well below my target of {{what_you_want}}, close to my minimum of {{bottom_line}}. My leverage is {{leverage}}. This is a {{neg_type}} negotiation. Their goal appears to be {{their_goal}} and the deadline is {{deadline}}. Give me a strategic response sequence: 1) How to react in the moment (first words), 2) The counter-offer I should make, 3) The exact language to present it, 4) How to use my leverage now without seeming aggressive.`
         },
         daily_planning: {
             title: 'Build Your Perfect Day Plan',
@@ -1573,29 +1074,29 @@ const data = {
             template_full: `Act as a world-class executive productivity coach and strategic planner.\n\nHelp me design the optimal execution plan for today.\n\nTop priority goal: {{top_goal}}\nMy role / context: {{role}}\nOther tasks for today: {{tasks}}\nToday's type: {{work_style}}\nTime and energy constraints: {{constraints}}\nKnown blockers: {{blockers}}\nEnergy level: {{energy_level}}\n\nBuild a complete daily operating plan:\n\n1. **Day Architecture** — The optimal structure for a {{work_style}} day, hour by hour\n2. **Priority Protection** — How to ensure {{top_goal}} gets done no matter what (time block, dependency removal, focus ritual)\n3. **Constraint Navigation** — Specific strategies for working within {{constraints}}\n4. **Blocker Removal Plan** — A pre-emptive action for each blocker in {{blockers}}\n5. **Energy Management** — When to do deep work vs. communication vs. admin based on a {{work_style}} day\n6. **Decision Filter** — A simple question to use when interruptions come: "Does this serve {{top_goal}} today?"\n7. **End-of-Day Review** — A 10-minute close-out ritual to capture learnings and prep tomorrow\n8. **Contingency Plan** — If the day goes off the rails, what is the minimum viable win?\n\nMake it specific, actionable, and realistic for someone in {{work_style}} mode.`,
             chain_1: `Today I need to: {{top_goal}}. My day is {{work_style}} with these constraints: {{constraints}}. My role is: {{role}}. My full task list: {{tasks}}. My energy level right now: {{energy_level}}. Before I open a single app or email, help me with a 5-minute mental clarity exercise. What are the 3 most important questions I should answer right now to make sure I am working on the right things in the right order?`,
             chain_2: `I need to protect time for my number one goal: {{top_goal}} in a {{work_style}} day. My constraints: {{constraints}}. Full task list: {{tasks}}. Role: {{role}}. My energy is currently: {{energy_level}}. Design a specific time-blocking system for today. Give me the exact schedule blocks, the transitions between them, and the rule I should follow when something tries to take over my most important block.`,
-            chain_3: `It is now 3pm. My goal was {{top_goal}} and I have blockers: {{blockers}}. The day has not gone as planned. Give me a realistic damage control and recovery plan for the rest of the day. What can I still realistically accomplish? How do I close the day without feeling like a failure, and what is the single most important thing to do in the next 2 hours?`,
-        },
+            chain_3: `It is now 3pm. My goal was {{top_goal}} and I have blockers: {{blockers}}. The day has not gone as planned. Give me a realistic damage control and recovery plan for the rest of the day. What can I still realistically accomplish? How do I close the day without feeling like a failure, and what is the single most important thing to do in the next 2 hours?`
+        }
     },
     assessments: {
         general: {
             name: 'General AI Readiness',
-            description: 'For any organization starting or scaling their AI journey across all sectors',
+            description: 'For any organization starting or scaling their AI journey across all sectors'
         },
         healthcare: {
             name: 'Healthcare & Clinical Services',
-            description: 'For hospitals, clinics, and care providers scaling AI safely in patient-facing and operational workflows',
+            description: 'For hospitals, clinics, and care providers scaling AI safely in patient-facing and operational workflows'
         },
         education: {
             name: 'Education & Learning Institutions',
-            description: 'For schools, universities, and academies adopting AI in teaching, operations, and learner support',
+            description: 'For schools, universities, and academies adopting AI in teaching, operations, and learner support'
         },
         finance: {
             name: 'Financial Services & Fintech',
-            description: 'For banks, insurers, and fintech teams deploying AI in risk, operations, and customer workflows',
+            description: 'For banks, insurers, and fintech teams deploying AI in risk, operations, and customer workflows'
         },
         recruitment: {
             name: 'Recruitment & Talent Acquisition',
-            description: 'For HR and hiring teams adopting AI in sourcing, screening, and candidate operations',
+            description: 'For HR and hiring teams adopting AI in sourcing, screening, and candidate operations'
         },
         municipality: {
             name: 'Municipality & Public Sector',
@@ -1611,7 +1112,7 @@ const data = {
                     opt_25: 'Some digital records exist but are department-by-department with no shared access',
                     opt_50: 'Core registries (citizens, permits, payments) are digital but not well integrated',
                     opt_75: 'Integrated municipal information system with most services tracked digitally',
-                    opt_100: 'Unified digital platform with structured data, APIs, and clear data ownership across all services',
+                    opt_100: 'Unified digital platform with structured data, APIs, and clear data ownership across all services'
                 },
                 cd2: {
                     text: 'What digital services does your municipality currently offer to citizens?',
@@ -1620,7 +1121,7 @@ const data = {
                     opt_25: 'A basic website with information but forms still require physical presence',
                     opt_50: 'Some services available online (forms, payments) but processes still largely manual',
                     opt_75: 'Most common services accessible online with digital workflows and tracking',
-                    opt_100: 'Fully integrated e-government portal — citizens can complete end-to-end services digitally',
+                    opt_100: 'Fully integrated e-government portal — citizens can complete end-to-end services digitally'
                 },
                 cd3: {
                     text: 'How would you describe the IT infrastructure supporting your municipal operations?',
@@ -1629,7 +1130,7 @@ const data = {
                     opt_25: 'Old infrastructure being maintained but no migration or modernization plan in place',
                     opt_50: 'Core systems modernized, some cloud tools adopted for email and file storage',
                     opt_75: 'Primarily cloud-based with modern software and a maintained IT roadmap',
-                    opt_100: 'Cloud-first infrastructure with integrated systems, security controls, and IT governance',
+                    opt_100: 'Cloud-first infrastructure with integrated systems, security controls, and IT governance'
                 },
                 cd4: {
                     text: 'How reliable and complete is your citizen and operational data?',
@@ -1638,78 +1139,78 @@ const data = {
                     opt_25: 'Partial data quality — some registers reliable, others frequently incomplete',
                     opt_50: 'Core registers reasonably up-to-date but quality varies across departments',
                     opt_75: 'Most data is reliable with regular update processes and basic quality checks',
-                    opt_100: 'High data quality with validation processes, clear update responsibilities, and audit trails',
+                    opt_100: 'High data quality with validation processes, clear update responsibilities, and audit trails'
                 },
                 not_ready: {
                     situation: 'Your digital foundation is not yet ready to support AI in citizen services. Paper-based records and disconnected systems mean any AI deployed now will produce unreliable results — damaging citizen trust rather than building it.',
                     strengths: [
                         'Building digital infrastructure now means you can design it AI-ready from the start',
-                        'EU digital government funds and grants are available for municipalities at exactly this stage',
+                        'EU digital government funds and grants are available for municipalities at exactly this stage'
                     ],
                     gaps: [
                         'Paper-based or siloed records cannot be ingested by AI systems reliably',
                         'Without digital service channels, AI has no interface to improve or automate',
-                        'Legacy infrastructure creates security risks and integration barriers for any modern tool',
+                        'Legacy infrastructure creates security risks and integration barriers for any modern tool'
                     ],
                     actions: [
                         { action: 'Map every citizen-facing service and its current data trail', why: 'You cannot digitize or improve what you have not mapped. A service inventory reveals which processes have usable data and which need digitization first.', start: 'Assign one person to list all municipal services, their current channel (in-person/phone/online), and where the resulting data is stored' },
                         { action: 'Prioritize one high-volume service for digitization', why: 'One fully digital service creates a replicable model, demonstrates value to leadership, and produces the structured data AI needs to operate.', start: 'Pick your most requested service (permits, payments, certificates) and digitize the intake form and tracking this quarter' },
-                        { action: 'Audit your citizen register for completeness and accuracy', why: 'AI systems for public services are only as good as the underlying citizen data. A clean register is the prerequisite for every AI use case in local government.', start: 'Run a completeness check on your citizen register — identify the top 5 missing or inconsistent fields and assign owners to fix them' },
-                    ],
+                        { action: 'Audit your citizen register for completeness and accuracy', why: 'AI systems for public services are only as good as the underlying citizen data. A clean register is the prerequisite for every AI use case in local government.', start: 'Run a completeness check on your citizen register — identify the top 5 missing or inconsistent fields and assign owners to fix them' }
+                    ]
                 },
                 foundation: {
                     situation: 'You have the beginning of a digital foundation but it is fragmented. Some AI use cases are possible in isolated areas, but the lack of integration between systems limits scope and scale significantly.',
                     strengths: [
                         'Digital records exist in some departments — a starting point for AI projects',
-                        'Some e-services are in place, creating data trails AI can learn from',
+                        'Some e-services are in place, creating data trails AI can learn from'
                     ],
                     gaps: [
                         'System silos mean AI cannot see across service areas — limiting what cross-departmental insights are possible',
                         'Inconsistent data quality across departments produces uneven AI performance',
-                        'Paper fallbacks in some areas create data gaps that undermine AI reliability',
+                        'Paper fallbacks in some areas create data gaps that undermine AI reliability'
                     ],
                     actions: [
                         { action: 'Create a municipal data integration plan', why: 'Connecting your existing digital systems multiplies the value of AI. Even basic integration between citizen registry and permits system opens new automation possibilities.', start: 'List your top 3 digital systems and identify one shared data point between them — start with a simple data export/import sync' },
                         { action: 'Standardize data formats across your key registers', why: 'AI cannot learn from data it cannot interpret. Consistent formats for names, addresses, and IDs are prerequisite for reliable AI performance across departments.', start: 'Define a municipal data standard for the 10 most-used fields (name, address, ID number, service type) and apply it to your 2 most-used registers' },
-                        { action: 'Deploy one AI-assisted service pilot', why: 'A working pilot proves the value of AI to leadership and citizens, and surfaces practical barriers before a larger rollout.', start: 'Identify one service with consistent digital data — e.g. document status inquiries — and trial an AI chatbot or automated response system for 60 days' },
-                    ],
+                        { action: 'Deploy one AI-assisted service pilot', why: 'A working pilot proves the value of AI to leadership and citizens, and surfaces practical barriers before a larger rollout.', start: 'Identify one service with consistent digital data — e.g. document status inquiries — and trial an AI chatbot or automated response system for 60 days' }
+                    ]
                 },
                 emerging: {
                     situation: 'Your digital infrastructure is solid and AI is starting to deliver real value in targeted areas. The challenge now is expanding AI systematically across services while managing citizen data responsibly.',
                     strengths: [
                         'Integrated digital systems give AI reliable, cross-departmental data to work with',
                         'Existing e-services provide AI deployment channels that citizens are already using',
-                        'Cloud infrastructure reduces technical barriers for deploying modern AI tools',
+                        'Cloud infrastructure reduces technical barriers for deploying modern AI tools'
                     ],
                     gaps: [
                         'Data governance for citizen data — who can use it, for what, with what safeguards — likely needs formalizing',
                         'Some legacy departments or services may still operate with data quality too low for AI',
-                        'Cross-system AI workflows require API connectivity that may not yet exist between all key systems',
+                        'Cross-system AI workflows require API connectivity that may not yet exist between all key systems'
                     ],
                     actions: [
                         { action: 'Establish a citizen data governance policy', why: 'As AI uses more citizen data, you need clear rules on what data can be used for what AI purpose — GDPR requires it and citizens expect it from public institutions.', start: 'Draft a one-page citizen data use policy: what data AI can access, for which services, with which safeguards, and how citizens are informed' },
                         { action: 'Build an AI service roadmap for the next 12 months', why: 'Systematic AI adoption requires planning — which services get AI when, who is responsible, what data each needs, and how success is measured.', start: 'Map your 5 highest-volume citizen services and assess each for AI readiness: data quality, digital channel, staff capacity, and citizen impact' },
-                        { action: 'Measure and publish AI service outcomes', why: 'Citizen trust in AI-assisted public services depends on demonstrated outcomes. Publishing results creates accountability and builds the case for continued investment.', start: 'Define one metric per AI-assisted service (response time, resolution rate, citizen satisfaction) and start tracking it in your next reporting cycle' },
-                    ],
+                        { action: 'Measure and publish AI service outcomes', why: 'Citizen trust in AI-assisted public services depends on demonstrated outcomes. Publishing results creates accountability and builds the case for continued investment.', start: 'Define one metric per AI-assisted service (response time, resolution rate, citizen satisfaction) and start tracking it in your next reporting cycle' }
+                    ]
                 },
                 advanced: {
                     situation: 'Your digital infrastructure and data quality are strong enough to support sophisticated AI applications across multiple service areas. The focus is now on governance depth, citizen trust, and staying ahead of AI regulation in the public sector.',
                     strengths: [
                         'Integrated, high-quality citizen data enables reliable AI across service domains',
                         'Digital service channels provide deployment infrastructure for AI-assisted citizen interactions at scale',
-                        'Cloud-native infrastructure enables rapid piloting and scaling of new AI capabilities',
+                        'Cloud-native infrastructure enables rapid piloting and scaling of new AI capabilities'
                     ],
                     gaps: [
                         'EU AI Act public sector requirements — particularly for high-risk AI — require assessment and documentation your governance may not yet cover',
                         'AI explainability for citizen-facing decisions (benefits, permits, fines) is a legal and reputational necessity not yet addressed by most municipal AI deployments',
-                        'Real-time data integration may be needed for advanced use cases like predictive maintenance or dynamic service routing',
+                        'Real-time data integration may be needed for advanced use cases like predictive maintenance or dynamic service routing'
                     ],
                     actions: [
                         { action: 'Assess your AI systems against EU AI Act public sector obligations', why: 'Municipal AI systems touching benefits, permits, or enforcement may be classified as high-risk under the EU AI Act — triggering mandatory documentation, human oversight, and transparency requirements.', start: 'List every AI tool in use, categorize each by risk level using the EU AI Act guidance, and identify which require conformity documentation' },
                         { action: 'Implement citizen-facing AI transparency notices', why: 'Citizens have the right to know when AI influences decisions about their services. Transparency is both a legal requirement and a trust-building measure for public institutions.', start: 'For each AI-assisted service, draft a plain-language notice explaining what AI does, what data it uses, and how citizens can request human review' },
-                        { action: 'Develop a predictive analytics capability for service demand', why: 'Advanced municipalities use AI to anticipate demand — predicting permit volumes, maintenance needs, or seasonal service spikes — enabling proactive rather than reactive service delivery.', start: 'Identify your most cyclical service (e.g. building permits, park maintenance) and pull 3 years of historical data to build a baseline demand model' },
-                    ],
-                },
+                        { action: 'Develop a predictive analytics capability for service demand', why: 'Advanced municipalities use AI to anticipate demand — predicting permit volumes, maintenance needs, or seasonal service spikes — enabling proactive rather than reactive service delivery.', start: 'Identify your most cyclical service (e.g. building permits, park maintenance) and pull 3 years of historical data to build a baseline demand model' }
+                    ]
+                }
             },
             staff_leadership: {
                 label: 'Staff Capacity & Leadership',
@@ -1722,7 +1223,7 @@ const data = {
                     opt_25: 'Leadership has heard of AI but has no position on it and no budget allocated',
                     opt_50: 'Some leaders are interested but there is no formal strategy or coordination',
                     opt_75: 'Leadership has approved AI exploration with some budget and assigned ownership',
-                    opt_100: 'AI is a formal municipal strategy priority with dedicated budget, a named lead, and council endorsement',
+                    opt_100: 'AI is a formal municipal strategy priority with dedicated budget, a named lead, and council endorsement'
                 },
                 sl2: {
                     text: 'What is the general digital and AI literacy level of your municipal staff?',
@@ -1731,7 +1232,7 @@ const data = {
                     opt_25: 'Basic digital literacy exists but AI tools are unknown or seen as threatening',
                     opt_50: 'Some staff use AI tools informally — awareness varies widely by department',
                     opt_75: 'Growing AI literacy across departments — staff are curious and some are experimenting',
-                    opt_100: 'Strong digital and AI literacy — staff use AI tools as part of their regular workflow',
+                    opt_100: 'Strong digital and AI literacy — staff use AI tools as part of their regular workflow'
                 },
                 sl3: {
                     text: 'Does your municipality have technical staff or dedicated capacity for digital and AI projects?',
@@ -1740,7 +1241,7 @@ const data = {
                     opt_25: 'One or two IT generalists maintain systems but have no capacity for new projects',
                     opt_50: 'An IT team exists but has no specific digital transformation or AI mandate',
                     opt_75: 'IT team with some capacity for new projects and a digital transformation plan',
-                    opt_100: 'Dedicated digital transformation team or a named AI/digital officer with project capacity',
+                    opt_100: 'Dedicated digital transformation team or a named AI/digital officer with project capacity'
                 },
                 sl4: {
                     text: 'How does your municipality approach training and upskilling staff on digital tools?',
@@ -1749,78 +1250,78 @@ const data = {
                     opt_25: 'Occasional training when a specific system is introduced, then nothing',
                     opt_50: 'Some training is available but participation is optional and unstructured',
                     opt_75: 'Training program covers digital tools for relevant roles with regular updates',
-                    opt_100: 'Structured digital and AI literacy program for all staff, integrated into onboarding and annual development',
+                    opt_100: 'Structured digital and AI literacy program for all staff, integrated into onboarding and annual development'
                 },
                 not_ready: {
                     situation: 'Your organization lacks the leadership commitment and staff capacity to adopt AI responsibly. Without a mandate from leadership and baseline digital literacy across staff, AI tools will either sit unused or be misused in ways that damage citizen trust.',
                     strengths: [
                         'Starting without bad AI habits means you can establish good practices from the beginning',
-                        'EU and national digital government programs offer training and capacity-building support for municipalities at this stage',
+                        'EU and national digital government programs offer training and capacity-building support for municipalities at this stage'
                     ],
                     gaps: [
                         'No leadership mandate means no budget, no ownership, and no accountability for outcomes',
                         'Staff digital literacy gaps will cause resistance to and misuse of any AI tool introduced',
-                        'No technical capacity means AI projects will depend entirely on vendors — a costly and risky position',
+                        'No technical capacity means AI projects will depend entirely on vendors — a costly and risky position'
                     ],
                     actions: [
                         { action: 'Run an AI awareness session for the mayor and council', why: 'Leadership cannot support what they do not understand. A 90-minute session on AI basics, public sector use cases, and key risks is the single highest-return investment at this stage.', start: 'Book a 90-minute session with an external AI facilitator or use free government digital literacy resources — brief council before the next budget cycle' },
                         { action: 'Identify one digital champion in each department', why: 'Peer-to-peer digital adoption is faster and more durable than top-down mandates. Champions translate digital tools into the language of their colleagues.', start: 'Ask each department head to nominate one curious, tech-comfortable staff member as their digital champion this month' },
-                        { action: 'Run a 30-day AI tool pilot with one willing team', why: 'Real experience with a safe, low-stakes AI tool builds literacy and confidence far faster than training alone — and produces advocates inside the organization.', start: 'Pick one team with a repetitive writing or data task (reports, correspondence, data entry) and trial a free AI tool for 30 days with a simple before/after comparison' },
-                    ],
+                        { action: 'Run a 30-day AI tool pilot with one willing team', why: 'Real experience with a safe, low-stakes AI tool builds literacy and confidence far faster than training alone — and produces advocates inside the organization.', start: 'Pick one team with a repetitive writing or data task (reports, correspondence, data entry) and trial a free AI tool for 30 days with a simple before/after comparison' }
+                    ]
                 },
                 foundation: {
                     situation: 'There is growing awareness of AI at leadership level and some staff enthusiasm, but it has not translated into organized capability. Without structure, enthusiasm fades and early adopters burn out.',
                     strengths: [
                         'Leadership awareness is sufficient to start the strategy conversation',
-                        'Pockets of staff enthusiasm provide ready champions for structured programs',
+                        'Pockets of staff enthusiasm provide ready champions for structured programs'
                     ],
                     gaps: [
                         'Without a formal AI strategy, enthusiasm is not channeled into results',
                         'Inconsistent literacy creates two-speed adoption — digital champions leave colleagues behind',
-                        'No dedicated technical capacity means AI projects depend on individuals, not systems',
+                        'No dedicated technical capacity means AI projects depend on individuals, not systems'
                     ],
                     actions: [
                         { action: 'Develop a 12-month municipal AI action plan', why: 'An action plan converts leadership awareness into accountable commitments — specific projects, owners, budgets, and success measures for the next year.', start: 'Draft a one-page action plan: 3 AI pilots to test, who leads each, what data each needs, and how success is measured — present to council this quarter' },
                         { action: 'Create a basic AI literacy training program for all staff', why: 'A consistent baseline ensures all staff understand what AI is, what it cannot do, and how to use it responsibly — regardless of department or seniority.', start: 'Select a free 2-hour AI literacy course (Microsoft AI Skills, Google AI Essentials) and require completion for all staff within 3 months' },
-                        { action: 'Hire or designate a municipal digital transformation lead', why: 'AI projects without a named owner do not get completed. A digital lead coordinates across departments, manages vendors, and keeps projects on track.', start: 'Assess whether an existing IT or project management role can be adapted, or prepare a job description for a digital officer role' },
-                    ],
+                        { action: 'Hire or designate a municipal digital transformation lead', why: 'AI projects without a named owner do not get completed. A digital lead coordinates across departments, manages vendors, and keeps projects on track.', start: 'Assess whether an existing IT or project management role can be adapted, or prepare a job description for a digital officer role' }
+                    ]
                 },
                 emerging: {
                     situation: 'Real AI capability is developing — leadership is committed, staff literacy is growing, and some projects are delivering results. The challenge is scaling this from individuals and teams to a municipal-wide capability.',
                     strengths: [
                         'Leadership commitment enables budget allocation and removes organizational blockers',
                         'Growing staff literacy means AI adoption accelerates as teams share learnings and best practices',
-                        'Digital champions network provides a scalable peer-learning infrastructure',
+                        'Digital champions network provides a scalable peer-learning infrastructure'
                     ],
                     gaps: [
                         'Middle management often lags behind both leadership vision and ground-level enthusiasm — buy-in at this level is critical for scaling',
                         'Technical capacity may need expansion as AI project scope grows beyond initial pilots',
-                        'Staff need structured learning pathways to grow beyond basic AI literacy into role-specific AI capability',
+                        'Staff need structured learning pathways to grow beyond basic AI literacy into role-specific AI capability'
                     ],
                     actions: [
                         { action: 'Develop role-specific AI training tracks for key municipal roles', why: 'Generic AI literacy is necessary but not sufficient. Finance officers, urban planners, and social workers need AI training relevant to their specific responsibilities and risks.', start: 'Map the 5 most common municipal roles, identify the AI tools and tasks relevant to each, and create a 2-hour role-specific training module for each' },
                         { action: 'Establish a municipal AI steering committee', why: 'Cross-departmental AI needs cross-departmental coordination. A steering committee ensures projects align with municipal strategy, share resources, and avoid duplication.', start: 'Convene a monthly steering meeting with the digital lead, one representative from each department, and council sign-off on decisions' },
-                        { action: 'Measure and report AI adoption outcomes to council', why: 'Regular reporting creates accountability, sustains council support, and demonstrates value to citizens — building the political will for continued investment.', start: 'Create a simple quarterly AI progress dashboard: projects underway, staff trained, services improved, costs saved — present at every council session' },
-                    ],
+                        { action: 'Measure and report AI adoption outcomes to council', why: 'Regular reporting creates accountability, sustains council support, and demonstrates value to citizens — building the political will for continued investment.', start: 'Create a simple quarterly AI progress dashboard: projects underway, staff trained, services improved, costs saved — present at every council session' }
+                    ]
                 },
                 advanced: {
                     situation: 'Your leadership and staff capacity is strong. AI is embedded in how the municipality operates, not just piloted in isolated projects. The focus now is sustaining this culture, managing the frontier risks, and developing the specialized expertise needed for advanced public sector AI.',
                     strengths: [
                         'Council and executive-level AI understanding enables strategic, risk-aware investment decisions',
                         'Organization-wide digital literacy enables rapid adoption of new AI tools as they emerge',
-                        'Dedicated technical capacity provides the foundation for sophisticated AI projects and responsible vendor management',
+                        'Dedicated technical capacity provides the foundation for sophisticated AI projects and responsible vendor management'
                     ],
                     gaps: [
                         'Specialized public sector AI expertise — for predictive analytics, algorithmic decision-making, and AI governance — is genuinely scarce and hard to hire',
                         'Sustaining an innovation culture in a public sector context requires institutional structures beyond individual champions',
-                        'Ethical AI leadership — ensuring AI decisions are fair, transparent, and contestable — requires dedicated roles and processes that most municipalities have not yet built',
+                        'Ethical AI leadership — ensuring AI decisions are fair, transparent, and contestable — requires dedicated roles and processes that most municipalities have not yet built'
                     ],
                     actions: [
                         { action: 'Establish a municipal Responsible AI function', why: 'At advanced AI maturity, governance, fairness, and explainability are not optional — they are legal requirements under the EU AI Act and ethical obligations to citizens.', start: "Appoint a Responsible AI officer (or expand an existing role) and draft the municipality's AI principles: what AI can and cannot decide, how citizens are informed, and how decisions can be contested" },
                         { action: 'Build partnerships with universities and regional AI programs', why: 'Access to specialized AI expertise and research supports advanced use cases — predictive maintenance, demand forecasting, natural language services — that internal capacity alone cannot deliver.', start: 'Identify 2 universities or regional AI programs with public sector expertise and explore a collaborative research or internship program' },
-                        { action: 'Create a structured municipal AI innovation process', why: "Sustaining AI innovation in the public sector requires a repeatable way to source ideas from staff, evaluate them for impact and risk, fund pilots, and scale what works — without depending on individual champions.", start: 'Launch an annual internal AI innovation call: staff submit ideas, a review panel selects 3 pilots, each gets a small budget and a 6-month window to prove value' },
-                    ],
-                },
+                        { action: 'Create a structured municipal AI innovation process', why: "Sustaining AI innovation in the public sector requires a repeatable way to source ideas from staff, evaluate them for impact and risk, fund pilots, and scale what works — without depending on individual champions.", start: 'Launch an annual internal AI innovation call: staff submit ideas, a review panel selects 3 pilots, each gets a small budget and a 6-month window to prove value' }
+                    ]
+                }
             },
             legal_governance: {
                 label: 'Legal, Procurement & Governance',
@@ -1833,7 +1334,7 @@ const data = {
                     opt_25: 'Some processes documented but inconsistently — quality varies by department and staff member',
                     opt_50: 'Core service processes documented and used for onboarding, though often outdated',
                     opt_75: 'Most processes documented, reviewed annually, and accessible to all relevant staff',
-                    opt_100: 'Processes fully documented, regularly updated, version-controlled, and used for continuous improvement',
+                    opt_100: 'Processes fully documented, regularly updated, version-controlled, and used for continuous improvement'
                 },
                 lg2: {
                     text: "How mature is your municipality's data protection and GDPR compliance?",
@@ -1842,7 +1343,7 @@ const data = {
                     opt_25: 'Basic GDPR awareness exists but policies are not documented or enforced consistently',
                     opt_50: 'Standard GDPR policies in place, a DPO appointed, but AI-specific data rules not yet addressed',
                     opt_75: 'GDPR compliant with documented policies, regular staff training, and a functioning DPO',
-                    opt_100: 'Mature GDPR framework including DPIAs for new AI systems, clear citizen rights processes, and AI-specific data governance rules',
+                    opt_100: 'Mature GDPR framework including DPIAs for new AI systems, clear citizen rights processes, and AI-specific data governance rules'
                 },
                 lg3: {
                     text: 'How does your municipality procure and evaluate new technology solutions?',
@@ -1851,7 +1352,7 @@ const data = {
                     opt_25: 'Basic procurement rules followed for large purchases but AI tools often bypass them',
                     opt_50: 'Procurement process exists and is generally followed, but lacks AI-specific evaluation criteria',
                     opt_75: 'Structured procurement with technical, legal, and cost evaluation — AI tools included in the process',
-                    opt_100: 'Comprehensive procurement governance including AI-specific criteria: data use, GDPR compliance, explainability, vendor lock-in risk, and exit terms',
+                    opt_100: 'Comprehensive procurement governance including AI-specific criteria: data use, GDPR compliance, explainability, vendor lock-in risk, and exit terms'
                 },
                 lg4: {
                     text: 'Does your municipality have policies specifically governing AI use by staff and in citizen services?',
@@ -1860,87 +1361,87 @@ const data = {
                     opt_25: 'AI use is informally restricted but there are no written policies or guidance',
                     opt_50: 'Basic AI acceptable use policy drafted but not communicated to staff or enforced',
                     opt_75: 'AI use policy in place, communicated to staff, covering acceptable tools and data rules',
-                    opt_100: 'Comprehensive AI governance: staff use policy, citizen transparency notices, AI impact assessments for new systems, and a designated AI accountability owner',
+                    opt_100: 'Comprehensive AI governance: staff use policy, citizen transparency notices, AI impact assessments for new systems, and a designated AI accountability owner'
                 },
                 not_ready: {
                     situation: 'Your governance and compliance foundation is not yet ready for AI. Deploying AI without documented processes, GDPR compliance, and basic AI policies creates significant legal risk and, more importantly, risks breaking citizen trust in your municipality.',
                     strengths: [
                         'Building governance from scratch for the AI era means you can design it right — without inheriting legacy frameworks not built for AI',
-                        'Free GDPR templates, EU AI Act guidance, and public sector AI policy frameworks are widely available — you do not need to start from a blank page',
+                        'Free GDPR templates, EU AI Act guidance, and public sector AI policy frameworks are widely available — you do not need to start from a blank page'
                     ],
                     gaps: [
                         'Undocumented service processes make AI behaviour unpredictable and ungovernable',
                         'GDPR non-compliance is a legal liability the moment any AI tool processes citizen data — even for internal use',
-                        'Without AI-specific policies, staff are already using unapproved AI tools with citizen data — creating incidents you are not aware of',
+                        'Without AI-specific policies, staff are already using unapproved AI tools with citizen data — creating incidents you are not aware of'
                     ],
                     actions: [
                         { action: 'Document your 5 most important citizen-facing service processes', why: 'AI cannot improve a process it cannot understand. Documentation also reveals the real steps in service delivery — often different from how leadership thinks they work.', start: 'Pick your highest-volume service (permits, certificates, complaints) and write a step-by-step process description in 2 hours — bullet points are fine for a first draft' },
                         { action: 'Appoint or confirm a Data Protection Officer and document your GDPR baseline', why: 'A DPO is legally required for most municipalities under GDPR. Without one, your AI projects are illegal before they start.', start: 'Confirm your DPO appointment, run a data mapping exercise for your 3 most-used citizen data systems, and register all processing activities in a Record of Processing Activities' },
-                        { action: 'Write a basic AI acceptable use policy for staff', why: "Without a policy, staff are using AI tools you have not approved, with data you have not assessed, for purposes you don't know about — and the municipality is liable.", start: 'Download a public sector AI policy template (available from EU, national government, or law firm sources) and adapt it for your municipality in a half-day workshop with IT and legal' },
-                    ],
+                        { action: 'Write a basic AI acceptable use policy for staff', why: "Without a policy, staff are using AI tools you have not approved, with data you have not assessed, for purposes you don't know about — and the municipality is liable.", start: 'Download a public sector AI policy template (available from EU, national government, or law firm sources) and adapt it for your municipality in a half-day workshop with IT and legal' }
+                    ]
                 },
                 foundation: {
                     situation: 'Basic governance exists but it was not designed with AI in mind. As AI adoption accelerates, the gaps between your current policies and what AI requires will widen into significant risks.',
                     strengths: [
                         'GDPR baseline provides the data protection foundation AI governance builds on',
-                        'Some process documentation exists — a starting point for systematic AI process review',
+                        'Some process documentation exists — a starting point for systematic AI process review'
                     ],
                     gaps: [
                         'Existing policies do not address AI-specific risks: hallucination, automated decisions, data used for AI training, and vendor AI use of municipal data',
                         'Procurement processes lack AI-specific evaluation criteria — making it easy to select the wrong tool for the wrong reasons',
-                        'Staff are likely using AI tools outside approved channels — creating shadow AI exposure the current governance does not cover',
+                        'Staff are likely using AI tools outside approved channels — creating shadow AI exposure the current governance does not cover'
                     ],
                     actions: [
                         { action: 'Conduct an AI shadow use audit', why: 'Staff are almost certainly using AI tools the municipality has not approved. An honest audit gives you the real picture of your exposure — not the assumed one.', start: 'Send a short anonymous survey: "Which AI tools do you use at work?" Emphasize no punishment — you need accurate data to protect the organization' },
                         { action: 'Add AI-specific criteria to your technology procurement checklist', why: 'General procurement criteria do not capture the unique risks of AI: data use by vendors, model training on municipal data, explainability of outputs, and exit terms.', start: 'Add 5 AI questions to every technology evaluation: Does it use our data to train models? Is it GDPR-compliant for public sector? Who is liable for incorrect outputs? What is the data retention policy? What are the exit terms?' },
-                        { action: 'Update your GDPR documentation to cover AI processing activities', why: 'If AI processes citizen data, that processing must be documented in your Record of Processing Activities and assessed for necessity and proportionality under GDPR.', start: 'List every AI tool currently in use, identify what citizen data each processes, and add each to your Record of Processing Activities with a lawful basis documented' },
-                    ],
+                        { action: 'Update your GDPR documentation to cover AI processing activities', why: 'If AI processes citizen data, that processing must be documented in your Record of Processing Activities and assessed for necessity and proportionality under GDPR.', start: 'List every AI tool currently in use, identify what citizen data each processes, and add each to your Record of Processing Activities with a lawful basis documented' }
+                    ]
                 },
                 emerging: {
                     situation: 'Your governance foundations are solid. Documented processes, GDPR compliance, and basic AI policies are in place. The challenge now is keeping governance ahead of rapid AI adoption — policies written for 2023 AI tools will not cover the AI tools of 2025.',
                     strengths: [
                         'Documented processes enable AI to be deployed into well-understood workflows — with predictable, auditable behaviour',
                         'GDPR compliance gives you a defensible position with regulators and citizen trust that AI outputs are handled responsibly',
-                        'Structured procurement prevents vendor lock-in and ensures AI tools are evaluated for fit, not just marketed features',
+                        'Structured procurement prevents vendor lock-in and ensures AI tools are evaluated for fit, not just marketed features'
                     ],
                     gaps: [
                         'AI governance is evolving faster than most public sector frameworks — your policies risk being outdated within 12 months of writing them',
                         'Citizen transparency — informing people when AI influences decisions about them — is not yet standard in most municipal AI deployments',
-                        'Vendor AI governance — what your AI suppliers do with municipal data — is often completely unreviewed even in well-governed municipalities',
+                        'Vendor AI governance — what your AI suppliers do with municipal data — is often completely unreviewed even in well-governed municipalities'
                     ],
                     actions: [
                         { action: 'Implement a DPIA process for every new AI system', why: 'A Data Protection Impact Assessment is legally required under GDPR for high-risk processing — which includes most AI systems that profile or make automated decisions about citizens.', start: 'Create a simple DPIA template for AI systems covering: purpose, data used, necessity, risks, mitigations, and DPO sign-off — require completion before any new AI system goes live' },
                         { action: 'Develop citizen transparency notices for AI-assisted services', why: 'Citizens have the right to know when AI influences decisions about them. Plain-language transparency is both a legal requirement and a trust-building measure for public institutions.', start: 'For each AI-assisted citizen service, draft a 2-sentence transparency notice: what AI does in this service, what data it uses, and who to contact for a human review' },
-                        { action: 'Review AI vendor contracts for data governance terms', why: "Many municipalities discover their AI vendors have rights to use municipal citizen data for model training. Contract review prevents this — and demonstrates to citizens that you protect their data even from your own suppliers.", start: "Pull contracts for your top 3 AI tools and review: data use terms, model training clauses, data residency, retention periods, and what happens to your data if you terminate the contract" },
-                    ],
+                        { action: 'Review AI vendor contracts for data governance terms', why: "Many municipalities discover their AI vendors have rights to use municipal citizen data for model training. Contract review prevents this — and demonstrates to citizens that you protect their data even from your own suppliers.", start: "Pull contracts for your top 3 AI tools and review: data use terms, model training clauses, data residency, retention periods, and what happens to your data if you terminate the contract" }
+                    ]
                 },
                 advanced: {
                     situation: 'Your governance and compliance maturity is strong. You can deploy AI with confidence and defend your practices to citizens, council, auditors, and regulators. The focus is staying ahead of the EU AI Act, developing AI-specific accountability structures, and managing the growing complexity of AI vendor relationships.',
                     strengths: [
                         'Mature process documentation enables systematic, auditable AI deployment across service areas',
                         'Advanced GDPR compliance reduces regulatory risk as AI-specific regulation tightens under the EU AI Act',
-                        'Structured AI procurement governance enables confident vendor selection and protects municipal data from misuse',
+                        'Structured AI procurement governance enables confident vendor selection and protects municipal data from misuse'
                     ],
                     gaps: [
                         'EU AI Act public sector obligations — particularly for high-risk AI systems — require assessment, documentation, and human oversight processes that go beyond current GDPR frameworks',
                         'AI algorithmic accountability — being able to explain to a citizen why an AI system produced a specific output — is not yet standard even in advanced municipal AI deployments',
-                        'Third-party AI risk management is an emerging gap: what your AI vendors do with your data and how their models behave is often opaque even to governance-mature organizations',
+                        'Third-party AI risk management is an emerging gap: what your AI vendors do with your data and how their models behave is often opaque even to governance-mature organizations'
                     ],
                     actions: [
                         { action: 'Complete an EU AI Act risk classification for all municipal AI systems', why: 'Municipal AI systems in areas like benefits, law enforcement support, or critical infrastructure may be classified as high-risk under the EU AI Act — triggering mandatory conformity assessments, human oversight requirements, and registration obligations.', start: 'List every AI tool in use, classify each using the EU AI Act risk tier guidance, and for every high-risk system begin the conformity documentation process' },
                         { action: 'Implement algorithmic accountability for citizen-facing AI decisions', why: "Citizens in democratic societies have the right to understand and contest automated decisions. Building explainability into your AI systems is both a legal requirement and a demonstration of the municipality's commitment to fair governance.", start: 'For each AI system influencing citizen outcomes, define: what factors influence the output, how a citizen can request human review, who reviews contested decisions, and what the appeal process is' },
-                        { action: 'Develop a municipal AI vendor governance standard', why: 'Your AI risk extends to every vendor supplying AI tools. A vendor governance standard ensures suppliers meet your GDPR, security, and ethical AI requirements — and gives you contractual recourse if they do not.', start: 'Draft a municipal AI vendor standard covering: training data sources, model bias testing, data residency, incident reporting obligations, audit rights, and exit terms — require compliance for all new AI procurement' },
-                    ],
-                },
+                        { action: 'Develop a municipal AI vendor governance standard', why: 'Your AI risk extends to every vendor supplying AI tools. A vendor governance standard ensures suppliers meet your GDPR, security, and ethical AI requirements — and gives you contractual recourse if they do not.', start: 'Draft a municipal AI vendor standard covering: training data sources, model bias testing, data residency, incident reporting obligations, audit rights, and exit terms — require compliance for all new AI procurement' }
+                    ]
+                }
             },
             overall_summary: {
                 not_ready: 'Significant groundwork is needed before AI can safely serve your citizens. Prioritize digitizing citizen records, securing leadership commitment, and establishing GDPR compliance — these three foundations unlock everything else.',
                 foundation: 'The building blocks are in place. Targeted investment in your weakest area — whether data quality, staff capacity, or governance — will unlock meaningful AI results in citizen services within 6–12 months.',
                 emerging: 'Solid foundations are established across your municipality. Focused improvements to your key governance and capacity gaps will allow you to scale AI from pilots to systematic service improvement.',
-                advanced: 'Your municipality is well-positioned for sophisticated public sector AI. The focus is now on EU AI Act compliance, algorithmic accountability, and building the specialized expertise needed to lead responsible AI in your region.',
-            },
-        },
-    },
+                advanced: 'Your municipality is well-positioned for sophisticated public sector AI. The focus is now on EU AI Act compliance, algorithmic accountability, and building the specialized expertise needed to lead responsible AI in your region.'
+            }
+        }
+    }
 };
 
 // v0.94: AI services offering, named partners, and cross-platform labels.
@@ -1948,15 +1449,31 @@ Object.assign(data.resources.nav, { services: 'AI Services' });
 Object.assign(data.pages, {
     services: {
         title: 'AI Services',
-        intro: 'AINOW works with organisations across the Balkans to put AI to practical use — without hype, and without handing your data to someone else. Everything below is delivered in Macedonian, Albanian, or English.',
-        training: 'Team Training',
-        training_text: 'Hands-on workshops for teams who need to actually use AI in their daily work. Role-specific, built around your real tasks rather than generic demos.',
-        assessment: 'AI Readiness Assessment',
-        assessment_text: 'A structured review of where AI would genuinely help your organisation, where it would not, and what has to be in place first.',
-        integration: 'Workflow Integration',
-        integration_text: 'Designing and implementing AI into existing processes — documentation, customer communication, reporting, and internal knowledge.',
-        policy: 'AI Policy & Governance',
-        policy_text: 'Practical internal policy on acceptable use, data handling, and disclosure, written to fit how your people actually work.',
+        intro: 'Practical AI work for organisations across the UK, EU and Western Balkans — assessment, training, and delivery. No hype, and no handing your data to someone else.',
+        delivered_by: 'Delivered by our technology partner ',
+        consultancy: 'AI Consultancy',
+        consultancy_tag: 'Start here',
+        consultancy_text: 'Assessment, roadmap and delivery. We work out where AI genuinely helps, where it does not, and what has to be in place before you commit.',
+        training: 'AI Training',
+        training_tag: 'Training that sticks',
+        training_text: 'Work-based sessions built around your own documents and backlog, not generic tool demos. Teams leave able to do their actual job better.',
+        copilot: 'Microsoft 365 & Copilot',
+        copilot_tag: 'Worth the licence',
+        copilot_text: 'Enterprise Microsoft 365 implementation and Copilot training that turns an expensive licence into daily working practice.',
+        readiness: 'AI Readiness & Adoption',
+        readiness_tag: 'Adoption that survives',
+        readiness_text: 'Governance, shadow-AI risk, and human-in-the-loop workflow design, so adoption outlasts the pilot and holds up under review.',
+        agents: 'Agent Orchestration',
+        agents_tag: 'Built around your business',
+        agents_text: 'AI agents designed around how your organisation actually operates, with clear handover points between the automated and the human.',
+        custom: 'Custom App Development',
+        custom_tag: 'Software that fits',
+        custom_text: 'Applications built to match how your team already works, rather than forcing the team to reshape itself around the software.',
+        seo: 'SEO & GEO',
+        seo_tag: 'Found and cited',
+        seo_text: 'Search optimisation for both traditional engines and AI answer systems — found by Google, cited by AI.',
+        governance: 'Governance and compliance',
+        governance_text: 'Every engagement is delivered against the regulatory frameworks that apply to AI use in Europe, so what you build stays defensible.',
         cta: 'Start a conversation',
         cta_text: 'Tell us what you are trying to solve and we will tell you honestly whether AI is the right tool:'
     }

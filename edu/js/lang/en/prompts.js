@@ -1821,6 +1821,93 @@
       prompt: "Role: School psychologist. Context: Student admits or is suspected of misusing AI in a graded task; goal is learning and repair. Task: Outline for a 20-minute conversation: rapport, facts without moral panic, impact on trust, agreed next step, follow-up. Constraints: Trauma-informed; suitable for ages 12–18.",
       tags: ["psychologist", "restorative", "integrity"]
     }
+  ],
+
+  higher_ed: [
+    {
+      subcategory: "lecturer",
+      subject: "Course Design",
+      title: "Constructively aligned course syllabus",
+      prompt: "Act as a university curriculum designer. Design a 14-week undergraduate course syllabus for a second-year module. Ask me for the discipline and cohort size first if I have not given them. Produce: 4-6 measurable intended learning outcomes written at the appropriate level of Bloom's taxonomy for year two; a week-by-week topic sequence showing how each week builds on the last; and an assessment plan where every assessment maps explicitly to at least one learning outcome. For each assessment, state its weighting, its format, and what evidence of learning it actually captures. Flag any outcome that is not assessed and any assessment that does not serve an outcome.",
+      tags: ["syllabus", "constructive alignment", "learning outcomes", "assessment"]
+    },
+    {
+      subcategory: "lecturer",
+      subject: "Assessment",
+      title: "Analytic marking rubric with grade descriptors",
+      prompt: "Create an analytic marking rubric for a 3,000-word undergraduate essay. Ask me for the discipline and the assignment brief before you begin. Build a rubric with 5 criteria appropriate to the discipline, each with 5 performance levels aligned to standard degree classifications (first, upper second, lower second, third, fail). Write each descriptor so it describes observable qualities of the work rather than vague adjectives like 'excellent' or 'poor' — a marker should be able to tell two adjacent levels apart without guessing. Add a short note on the single most common reason students lose marks against each criterion.",
+      tags: ["rubric", "marking", "assessment", "essay"]
+    },
+    {
+      subcategory: "lecturer",
+      subject: "Teaching Practice",
+      title: "Large-lecture active learning redesign",
+      prompt: "I teach a 90-minute lecture to roughly 200 students and attendance and attention are dropping. Redesign the session using active learning techniques that genuinely work at that scale and in a fixed-seat lecture theatre. Give me a minute-by-minute plan that breaks the 90 minutes into segments, with at least three points of student activity. For each activity, specify exactly what I say to set it up, what students physically do, how long it takes, and how I gather the result without collecting anything on paper. Assume no specialist technology beyond students' own phones, and tell me what to do if the technology fails.",
+      tags: ["active learning", "large lectures", "engagement", "teaching"]
+    },
+    {
+      subcategory: "lecturer",
+      subject: "Academic Integrity",
+      title: "AI-resilient assessment redesign",
+      prompt: "Act as an academic developer advising on assessment integrity. I will describe an existing assignment. Analyse honestly which parts of it a general-purpose AI model could now complete to a passing standard, and which parts it could not. Then redesign the assignment so it still assesses the same learning outcomes but rewards work an AI cannot do alone — for example requiring process evidence, local or personal data, in-class defence, or iteration on the student's own earlier draft. Do not simply recommend banning AI. Include a short statement I can put in the brief explaining to students what AI use is permitted and how it must be declared.",
+      tags: ["academic integrity", "AI policy", "assessment design"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Literature Review",
+      title: "Systematic literature search strategy",
+      prompt: "Act as an academic librarian specialising in systematic reviews. Help me build a reproducible search strategy for my research question, which I will give you. Produce: the question decomposed into concepts using the PICO or SPIDER framework, whichever suits it better, and say why you chose it; a list of controlled vocabulary and free-text synonyms for each concept; a full Boolean search string formatted for the specific database I name; and explicit inclusion and exclusion criteria. Then list the three most likely sources of bias in this search strategy and what I should do to reduce each. Do not invent database syntax you are unsure of — say so instead.",
+      tags: ["systematic review", "literature search", "methodology"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Academic Writing",
+      title: "Journal article structure and framing",
+      prompt: "I have results and need to turn them into a journal article. Act as an experienced peer reviewer in my field. Ask me for my target journal, my key finding in one sentence, and my main evidence. Then produce a section-by-section outline following IMRaD, specifying for each section what argument it must make and roughly how many words it should take. Draft three alternative framings of the contribution — what the paper claims to add — and tell me which is strongest and why. Finally, list the three questions a hostile reviewer is most likely to ask, and where in the structure I should pre-empt each.",
+      tags: ["academic writing", "publishing", "IMRaD", "peer review"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Research Funding",
+      title: "Grant proposal impact and methodology section",
+      prompt: "Act as a research development officer who has reviewed hundreds of funding applications. I will describe my project and target funding call. Help me draft the methodology and impact sections. For methodology: set out the design, the sequence of work packages with realistic durations, and the specific risks with mitigations that a reviewer will find credible rather than boilerplate. For impact: distinguish clearly between academic impact and wider societal impact, and for each name who specifically benefits, how they will hear about the work, and what would count as evidence that impact occurred. Challenge any claim I make that the evidence would not support.",
+      tags: ["grant writing", "research funding", "impact", "methodology"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Research Supervision",
+      title: "Doctoral supervision meeting framework",
+      prompt: "Act as an experienced doctoral supervisor. Help me structure supervision for a PhD student who is in their second year and has lost momentum. Produce: an agenda template for a 60-minute supervision meeting that balances progress review with forward planning; a set of open questions that surface whether the problem is conceptual, methodological, or motivational, without putting the student on the defensive; a lightweight written record format that protects both of us if progress is later disputed; and realistic milestones for the next six months. Include guidance on what to do if the student is avoiding meetings, and when the issue should be escalated formally.",
+      tags: ["doctoral supervision", "PhD", "mentoring", "research"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Student Support",
+      title: "First-generation student transition programme",
+      prompt: "Act as a student success specialist. Design a first-semester support programme for students who are the first in their family to attend university. Cover the three points in the semester where this group is most likely to disengage, and what specifically causes it at each point. Produce a programme with concrete touchpoints — what happens, when, who delivers it, and how long it takes — and describe the tone of communication that reaches students who may not identify as needing help. Include the practical, non-academic barriers that are easy to overlook. Suggest how to measure whether the programme worked, beyond simple attendance numbers.",
+      tags: ["student support", "retention", "first-generation", "transition"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Career Guidance",
+      title: "Employability advising for a non-vocational degree",
+      prompt: "Act as a university careers adviser. I am advising a final-year student in a humanities or social science degree who says their subject 'does not lead anywhere'. Build a structured advising conversation: the questions to ask to surface what they actually enjoy and are good at; how to translate their academic work into competencies an employer recognises, with concrete examples of the translation; three realistic sector directions with the typical entry route into each; and the specific next actions for the coming month. Be honest about which routes are competitive and what that requires, rather than reassuring the student that everything will work out.",
+      tags: ["careers", "employability", "advising", "graduate outcomes"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Academic Skills",
+      title: "Academic writing support for multilingual students",
+      prompt: "Act as an academic skills tutor. Design a workshop series for students writing academic work in a language that is not their first. Focus on the difficulties that are genuinely about academic writing conventions rather than general language proficiency — structuring an argument, hedging claims appropriately, integrating and attributing sources, and shifting register. Produce four 90-minute sessions with the objective of each, one activity that uses students' own draft work, and a takeaway resource. Explicitly avoid framing these students as deficient; treat multilingualism as an asset while still being direct about what markers expect.",
+      tags: ["academic writing", "multilingual", "study skills", "workshops"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Wellbeing",
+      title: "Boundaried wellbeing conversation guide",
+      prompt: "Act as a student wellbeing practitioner. Write a guide for university staff who are not counsellors but who students disclose distress to. Cover: how to open the conversation and what to say in the first minute; how to listen without moving straight to solutions; the specific phrases that help and the well-meant ones that shut a student down; how to be clear about the limits of your role without the student feeling rejected; and how to hand over to professional support so it feels like a bridge rather than a dismissal. Include the warning signs that mean escalate immediately, and a short note on staff looking after themselves after a difficult disclosure.",
+      tags: ["wellbeing", "student support", "safeguarding", "staff guidance"]
+    }
   ]
 };
   window._pc = window._pc || {};

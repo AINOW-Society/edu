@@ -327,13 +327,6 @@ const GuideFeatures = ({ t }) => html`
                 <p>${t('help.sections.features.builder.text')}</p>
                 <${Note}>${t('help.sections.features.builder.tip')}<//>
             <//>
-            <${DocSubSection} title=${t('help.sections.features.lab.title')}>
-                <p>${t('help.sections.features.lab.text')}</p>
-                <ul className="list-disc pl-5 space-y-2 mt-2">
-                    <li><strong>${t('help.sections.features.lab.tool_1_title')}</strong> — ${t('help.sections.features.lab.tool_1_text')}</li>
-                    <li><strong>${t('help.sections.features.lab.tool_2_title')}</strong> — ${t('help.sections.features.lab.tool_2_text')}</li>
-                </ul>
-            <//>
         <//>
     </div>
 `;
@@ -507,7 +500,7 @@ const GuideFaq = ({ t }) => html`
     <div className="animate-fade-in">
         <${DocSection} title="FAQ" icon=${HelpCircle}>
             <div className="space-y-4">
-                ${[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(i => html`
+                ${/* q13 covered the Lab tools, removed in v0.94 */ [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(i => html`
                     <${FaqItem} key=${'faq-' + i} i=${i} t=${t} />
                 `)}
             </div>

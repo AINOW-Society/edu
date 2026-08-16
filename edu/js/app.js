@@ -299,6 +299,7 @@ const App = {
             const data = (typeof embeddedPromptsData !== 'undefined') ? embeddedPromptsData : {};
             const teachers = data.teachers || [];
             const admin = data.administration || [];
+            const higherEd = data.higher_ed || [];
             const countSub = (arr, sub) => arr.filter(p => p.subcategory === sub).length;
 
             html = `
@@ -313,6 +314,12 @@ const App = {
                     ${this._sidebarPromptSubLink('psychologist', countSub(admin, 'psychologist'), 'administration')}
                     ${this._sidebarPromptSubLink('secretary',    countSub(admin, 'secretary'), 'administration')}
                     ${this._sidebarPromptSubLink('department_head', countSub(admin, 'department_head'), 'administration')}
+                    ${higherEd.length ? `
+                        <div class="sidebar-section-title">${t('prompts.cat.higher_ed')}</div>
+                        ${this._sidebarPromptSubLink('lecturer',         countSub(higherEd, 'lecturer'), 'higher_ed')}
+                        ${this._sidebarPromptSubLink('researcher',       countSub(higherEd, 'researcher'), 'higher_ed')}
+                        ${this._sidebarPromptSubLink('student_services', countSub(higherEd, 'student_services'), 'higher_ed')}
+                    ` : ''}
                     ${this._renderSidebarAILinks_prompts()}
                     ${this.renderSidebarTip('prompts')}
                 </div>
@@ -771,6 +778,27 @@ const App = {
         `).join('');
     },
 
+    _promptCategories: [
+        {
+            id: 'teachers',
+            icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>'
+        },
+        {
+            id: 'administration',
+            icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>'
+        },
+        {
+            id: 'higher_ed',
+            icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>'
+        },
+    ],
+
+    _promptSubMap: {
+        teachers:       ['all', 'primary_lower', 'primary_upper', 'secondary'],
+        administration: ['all', 'director', 'pedagogue', 'psychologist', 'secretary', 'department_head'],
+        higher_ed:      ['all', 'lecturer', 'researcher', 'student_services'],
+    },
+
     currentPromptCategory: 'teachers',
     currentPromptSubcategory: 'all',
     currentPromptSearch: '',
@@ -1012,40 +1040,22 @@ const App = {
         const cat = this.currentPromptCategory || 'teachers';
         const sub = this.currentPromptSubcategory || 'all';
 
-        const teacherCnt = (d.teachers      || []).length;
-        const adminCnt   = (d.administration|| []).length;
-
         catEl.innerHTML = `
             <div class="prompts-cat-grid">
-                <button class="prompts-cat-btn ${cat === 'teachers' ? 'active' : ''}"
-                        onclick="App.switchPromptCategory('teachers')">
-                    <div class="prompts-cat-btn-head">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-                        </svg>
-                        <span class="prompts-cat-btn-label">${t('prompts.cat.teachers')}</span>
-                        <span class="prompts-cat-btn-count">${teacherCnt}</span>
-                    </div>
-                </button>
-                <button class="prompts-cat-btn ${cat === 'administration' ? 'active' : ''}"
-                        onclick="App.switchPromptCategory('administration')">
-                    <div class="prompts-cat-btn-head">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                            <polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
-                        </svg>
-                        <span class="prompts-cat-btn-label">${t('prompts.cat.administration')}</span>
-                        <span class="prompts-cat-btn-count">${adminCnt}</span>
-                    </div>
-                </button>
+                ${this._promptCategories.filter(c => (d[c.id] || []).length).map(c => `
+                    <button class="prompts-cat-btn ${cat === c.id ? 'active' : ''}"
+                            onclick="App.switchPromptCategory('${c.id}')">
+                        <div class="prompts-cat-btn-head">
+                            ${c.icon}
+                            <span class="prompts-cat-btn-label">${t('prompts.cat.' + c.id)}</span>
+                            <span class="prompts-cat-btn-count">${(d[c.id] || []).length}</span>
+                        </div>
+                    </button>
+                `).join('')}
             </div>
         `;
 
-        const subMap = {
-            teachers:      ['all','primary_lower','primary_upper','secondary'],
-            administration:['all','director','pedagogue','psychologist','secretary','department_head'],
-        };
-        const subs = subMap[cat] || subMap.teachers;
+        const subs = this._promptSubMap[cat] || this._promptSubMap.teachers;
 
         subEl.innerHTML = `
             <div class="prompts-sub-row">
@@ -1156,6 +1166,9 @@ const App = {
         psychologist: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>',
         secretary: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>',
         department_head: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>',
+        lecturer: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+        researcher: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.31"/><path d="M14 9.3V2"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/></svg>',
+        student_services: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>',
     },
 
     _sidebarPromptSubLink(subId, count, category) {

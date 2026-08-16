@@ -640,23 +640,42 @@ const AccessibilityPage = () => {
 
 const ServicesPage = () => {
     const { t } = useLanguage();
-    const services = ['training', 'assessment', 'integration', 'policy'];
+    // Delivered by CTRLab, the technology partner behind AINOW products.
+    const services = [
+        'consultancy', 'training', 'copilot', 'readiness',
+        'agents', 'custom', 'seo'
+    ];
     return html`
     <${PageWrapper} title=${t('pages.services.title')}>
-        <p className="lead text-lg text-slate-600 dark:text-slate-300 mb-12">
+        <p className="lead text-lg text-slate-600 dark:text-slate-300 mb-4">
             ${t('pages.services.intro')}
         </p>
+        <p className="text-sm text-stone dark:text-slate-400 mb-12">
+            ${t('pages.services.delivered_by')}
+            <a href="https://ctrlab.net" target="_blank" rel="noopener" className="font-bold text-coral hover:underline">CTRLab</a>.
+        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 not-prose">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose">
             ${services.map(id => html`
                 <div key=${id} className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
-                    <h3 className="text-xl font-bold mb-2 text-charcoal dark:text-white">${t('pages.services.' + id)}</h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-400">${t('pages.services.' + id + '_text')}</p>
+                    <h3 className="text-lg font-bold mb-1 text-charcoal dark:text-white">${t('pages.services.' + id)}</h3>
+                    <p className="text-xs font-mono uppercase tracking-widest text-coral mb-3">${t('pages.services.' + id + '_tag')}</p>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">${t('pages.services.' + id + '_text')}</p>
                 </div>
             `)}
         </div>
 
-        <div className="mt-16 p-8 bg-coral/10 dark:bg-teal-900/20 rounded-3xl border border-mist dark:border-teal-800 text-center not-prose">
+        <div className="mt-12 p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 not-prose">
+            <h3 className="text-lg font-bold mb-3 text-charcoal dark:text-white">${t('pages.services.governance')}</h3>
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">${t('pages.services.governance_text')}</p>
+            <div className="flex flex-wrap gap-2">
+                ${['EU AI Act', 'GDPR', 'ISO/IEC 42001', 'NIS2'].map(f => html`
+                    <span key=${f} className="text-[11px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-opal-sidebar dark:bg-slate-900 text-stone dark:text-slate-400 border border-mist dark:border-slate-700">${f}</span>
+                `)}
+            </div>
+        </div>
+
+        <div className="mt-12 p-8 bg-coral/10 dark:bg-teal-900/20 rounded-3xl border border-mist dark:border-teal-800 text-center not-prose">
             <h2 className="text-2xl font-bold text-charcoal dark:text-white mb-4">${t('pages.services.cta')}</h2>
             <p className="text-stone-light dark:text-teal-200 mb-6">
                 ${t('pages.services.cta_text')} <a href="mailto:contact@ainow.mk" className="font-bold underline">contact@ainow.mk</a>

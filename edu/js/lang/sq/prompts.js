@@ -2409,6 +2409,93 @@
       prompt: "Roli: Psikolog shkolle. Konteksti: Nxënësi pranon ose dyshohet për keqpërdorim të IA në detyrë të notuar; qëllimi është të nxënit dhe rikuperimi. Detyra: Përmbledhje për 20 minuta: raport, fakte pa panik moral, ndikimi te besimi, hap i radhës i dakordësuar, ndjekje. Kufizimet: Trauma-informuar; mosha 12–18.",
       tags: ["psikologji", "rikuperuese", "integriteti"]
     }
+  ],
+
+  higher_ed: [
+    {
+      subcategory: "lecturer",
+      subject: "Dizajn kursi",
+      title: "Syllabus me rezultate dhe vlerësim të përputhur",
+      prompt: "Vepro si projektues kurrikulash universitare. Harto një syllabus për një lëndë 14-javore të studimeve bachelor, viti i dytë. Fillimisht pyetmë për fushën shkencore dhe numrin e studentëve nëse nuk i kam dhënë. Përgatit: 4–6 rezultate të matshme të të nxënit, të formuluara në nivelin e duhur të taksonomisë së Bloom-it për vitin e dytë; një radhitje javore temash që tregon si secila javë ndërtohet mbi të mëparshmen; dhe një plan vlerësimi ku çdo vlerësim lidhet shprehimisht me të paktën një rezultat. Për secilin vlerësim jep peshën në notë, formatin dhe çfarë mat realisht. Shëno çdo rezultat që nuk vlerësohet dhe çdo vlerësim që nuk i shërben asnjë rezultati.",
+      tags: ["syllabus", "rezultate të nxëni", "vlerësim", "dizajn kursi"]
+    },
+    {
+      subcategory: "lecturer",
+      subject: "Vlerësim",
+      title: "Rubrikë analitike me përshkrues notash",
+      prompt: "Harto një rubrikë analitike vlerësimi për një ese prej 3.000 fjalësh në studimet bachelor. Fillimisht pyetmë për fushën dhe për detyrën. Ndërto një rubrikë me 5 kritere të përshtatshme për fushën, secili me 5 nivele arritjeje të përputhura me shkallën e notimit. Shkruaji përshkruesit ashtu që të përshkruajnë cilësi të vëzhgueshme të punës dhe jo mbiemra të paqartë si 'shkëlqyeshëm' ose 'dobët' — vlerësuesi duhet të dallojë dy nivele fqinje pa hamendësuar. Shto një shënim të shkurtër për arsyen më të shpeshtë pse studentët humbin pikë te secili kriter.",
+      tags: ["rubrikë", "vlerësim", "ese", "kritere"]
+    },
+    {
+      subcategory: "lecturer",
+      subject: "Praktikë mësimore",
+      title: "Të nxënit aktiv në auditor të madh",
+      prompt: "Mbaj një leksion 90-minutësh para rreth 200 studentëve dhe pjesëmarrja e vëmendja po bien. Riprojekto orën me teknika të të nxënit aktiv që funksionojnë vërtet në atë përmasë dhe në një auditor me ndenjëse të fiksuara. Më jep një plan minutë pas minute që i ndan 90 minutat në segmente, me të paktën tri pika aktiviteti studentor. Për secilin aktivitet përcakto saktësisht çfarë them për ta nisur, çfarë bëjnë fizikisht studentët, sa zgjat dhe si e mbledh rezultatin pa mbledhur asgjë në letër. Supozo se nuk ka teknologji të specializuar përveç telefonave të studentëve dhe më thuaj çfarë të bëj nëse teknologjia dështon.",
+      tags: ["të nxënit aktiv", "grupe të mëdha", "angazhim", "mësimdhënie"]
+    },
+    {
+      subcategory: "lecturer",
+      subject: "Integritet akademik",
+      title: "Vlerësim rezistent ndaj inteligjencës artificiale",
+      prompt: "Vepro si këshilltar për integritet akademik. Do të të përshkruaj një detyrë ekzistuese. Analizo sinqerisht cilat pjesë të saj një model i sotëm i IA-së do t'i realizonte në nivel kalues dhe cilat jo. Pastaj riprojekto detyrën ashtu që të vlerësojë ende të njëjtat rezultate të të nxënit, por të shpërblejë punë që IA nuk e bën dot vetë — për shembull kërkesë për dëshmi të procesit, të dhëna lokale ose personale, mbrojtje gojore në klasë, ose përpunim të draftit të mëparshëm të vetë studentit. Mos rekomando thjesht ndalimin e IA-së. Përfshi një deklaratë të shkurtër që mund ta vendos në detyrë, ku u shpjegohet studentëve cila përdorje e IA-së lejohet dhe si duhet deklaruar.",
+      tags: ["integritet akademik", "politikë IA", "dizajn vlerësimi"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Rishikim literature",
+      title: "Strategji kërkimi sistematik",
+      prompt: "Vepro si bibliotekar akademik i specializuar në rishikime sistematike. Ndihmomë të ndërtoj një strategji kërkimi të riprodhueshme për pyetjen time kërkimore, të cilën do të ta jap. Përgatit: pyetjen e zbërthyer në koncepte me kornizën PICO ose SPIDER, cilado i përshtatet më mirë, dhe shpjego pse e zgjodhe; një listë terminologjie të kontrolluar dhe sinonimesh për secilin koncept; një varg të plotë Boolean të formatuar për bazën e të dhënave që do të emërtoj; dhe kritere të qarta përfshirjeje e përjashtimi. Pastaj rendit tri burimet më të mundshme të anshmërisë në këtë strategji dhe çfarë duhet të bëj për ta zvogëluar secilën. Mos shpik sintaksë baze të dhënash për të cilën nuk je i sigurt — thuaje këtë në vend që të hamendësosh.",
+      tags: ["rishikim sistematik", "kërkim literature", "metodologji"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Shkrim akademik",
+      title: "Struktura dhe korniza e një artikulli shkencor",
+      prompt: "Kam rezultate dhe duhet t'i kthej në artikull shkencor. Vepro si recensent me përvojë në fushën time. Pyetmë për revistën e synuar, për gjetjen kryesore në një fjali dhe për dëshmitë kryesore. Pastaj përgatit një strukturë sipas seksioneve në formatin IMRaD, duke përcaktuar për secilin seksion çfarë argumenti duhet të paraqesë dhe përafërsisht sa fjalë të zërë. Propozo tri korniza alternative të kontributit — çfarë pretendon artikulli se shton — dhe më thuaj cila është më e fortë dhe pse. Në fund, rendit tri pyetjet që një recensent i rreptë ka më shumë gjasa t'i bëjë dhe ku në strukturë duhet t'u përgjigjem paraprakisht.",
+      tags: ["shkrim akademik", "botim", "IMRaD", "recension"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Fonde kërkimore",
+      title: "Metodologjia dhe ndikimi në një aplikim projekti",
+      prompt: "Vepro si zyrtar për zhvillim kërkimor që ka shqyrtuar qindra aplikime financimi. Do të të përshkruaj projektin dhe thirrjen. Ndihmomë të hartoj pjesët për metodologjinë dhe ndikimin. Për metodologjinë: parashtro dizajnin, radhën e pakove të punës me kohëzgjatje realiste dhe rreziqet konkrete me masa zbutjeje që recensenti do t'i gjejë të besueshme e jo të shabllonizuara. Për ndikimin: dallo qartë ndikimin akademik nga ai më i gjerë shoqëror, dhe për secilin emërto kush përfiton konkretisht, si do të mësojë për punën dhe çfarë do të ishte dëshmi se ndikimi ndodhi. Kundërshto çdo pretendim timin që dëshmitë nuk e mbështesin.",
+      tags: ["shkrim projektesh", "financim", "ndikim", "metodologji"]
+    },
+    {
+      subcategory: "researcher",
+      subject: "Mentorim",
+      title: "Kornizë takimesh mentorimi për doktorantë",
+      prompt: "Vepro si mentor me përvojë i studimeve të doktoratës. Ndihmomë të strukturoj mentorimin për një student në vitin e dytë që ka humbur vrullin. Përgatit: një rend dite për takim 60-minutësh që balancon shqyrtimin e progresit me planifikimin përpara; pyetje të hapura që zbulojnë nëse problemi është konceptual, metodologjik apo motivues, pa e vënë studentin në mbrojtje; një format të lehtë evidence me shkrim që na mbron të dy nëse më vonë kontestohet progresi; dhe piketa realiste për gjashtë muajt e ardhshëm. Përfshi udhëzime çfarë të bëj nëse studenti i shmang takimet dhe kur çështja duhet përshkallëzuar formalisht.",
+      tags: ["doktoraturë", "mentorim", "kërkim"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Mbështetje studentore",
+      title: "Program për studentë të brezit të parë",
+      prompt: "Vepro si specialist për sukses studentor. Dizajno një program mbështetjeje për semestrin e parë për studentë që janë të parët në familjen e tyre që studiojnë. Mbulo tri momentet e semestrit kur ky grup ka më shumë gjasa të tërhiqet dhe çfarë e shkakton konkretisht në secilin moment. Përgatit një program me pika konkrete kontakti — çfarë ndodh, kur, kush e zbaton dhe sa zgjat — dhe përshkruaj tonin e komunikimit që arrin te studentët të cilët ndoshta nuk e shohin veten si dikë që ka nevojë për ndihmë. Përfshi pengesat praktike, jashtëakademike, që harrohen lehtë. Propozo si të matet nëse programi funksionoi, përtej një numri të thjeshtë pjesëmarrjeje.",
+      tags: ["mbështetje studentore", "mbajtje", "brezi i parë"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Këshillim karriere",
+      title: "Këshillim punësueshmërie për studime të përgjithshme",
+      prompt: "Vepro si këshilltar karriere universitar. Po këshilloj një student të vitit të fundit në shkenca humane ose shoqërore që thotë se dega e tij 'nuk të çon askund'. Ndërto një bisedë këshillimi të strukturuar: pyetjet që zbulojnë interesat dhe pikat e forta të tij të vërteta; si të përkthehet puna e tij akademike në kompetenca që punëdhënësi i njeh, me shembuj konkretë të atij përkthimi; tri drejtime reale sektoriale me rrugën e zakonshme të hyrjes në secilin; dhe hapat e mëtejshëm konkretë për muajin në vijim. Ji i sinqertë se cilat rrugë janë konkurruese dhe çfarë kërkojnë, në vend që ta qetësosh studentin se gjithçka do të rregullohet vetvetiu.",
+      tags: ["karrierë", "punësueshmëri", "këshillim"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Aftësi akademike",
+      title: "Mbështetje shkrimi për studentë shumëgjuhësh",
+      prompt: "Vepro si tutor për aftësi akademike. Dizajno një seri punëtorish për studentë që shkruajnë punime akademike në një gjuhë që nuk është e tyre amtare. Përqendrohu te vështirësitë që lidhen vërtet me konventat akademike e jo me njohjen e përgjithshme të gjuhës — strukturimi i argumentit, zbutja e duhur e pohimeve, përfshirja dhe atribuimi i burimeve, dhe ndryshimi i regjistrit. Përgatit katër seanca 90-minutëshe me objektivin e secilës, një aktivitet që përdor draftet e vetë studentëve dhe një material për të marrë me vete. Shmang paraqitjen e këtyre studentëve si të mangët; trajtoje shumëgjuhësinë si përparësi, por ji i drejtpërdrejtë për atë që presin vlerësuesit.",
+      tags: ["shkrim akademik", "shumëgjuhësi", "punëtori"]
+    },
+    {
+      subcategory: "student_services",
+      subject: "Mirëqenie",
+      title: "Udhëzues bisede për mirëqenien me kufij të qartë",
+      prompt: "Vepro si praktikant i mirëqenies studentore. Shkruaj një udhëzues për punonjësit e universitetit që nuk janë këshillues, por të cilëve studentët u rrëfejnë shqetësime. Mbulo: si të hapet biseda dhe çfarë të thuhet në minutën e parë; si të dëgjohet pa kaluar menjëherë te zgjidhjet; cilat fraza ndihmojnë dhe cilat fraza me qëllim të mirë e mbyllin studentin; si të vendosen qartë kufijtë e rolit tuaj pa e bërë studentin të ndihet i refuzuar; dhe si t'i dorëzohet mbështetjes profesionale ashtu që të duket urë e jo shkarkim. Përfshi shenjat që kërkojnë përshkallëzim të menjëhershëm dhe një shënim të shkurtër për kujdesin e stafit ndaj vetes pas një bisede të vështirë.",
+      tags: ["mirëqenie", "mbështetje studentore", "udhëzime për stafin"]
+    }
   ]
 };
   window._pc = window._pc || {};
