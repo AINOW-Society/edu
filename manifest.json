@@ -1,7 +1,7 @@
 {
   "name": "AINOW",
   "short_name": "AINOW",
-  "description": "AI literacy for educators and AI prompt tools for business",
+  "description": "ВИ писменост за наставници и ВИ промпт алатки за бизнис",
   "start_url": "/",
   "scope": "/",
   "display": "browser",
