@@ -11,7 +11,7 @@
             'nav.tests': 'Тестови',
             'nav.about': 'За нас',
             'header.platform': 'Платформа за ВИ Писменост',
-            'meta.title': 'AINOW Society - Платформа за ВИ Писменост',
+            'meta.title': 'AINOW — Платформа за ВИ писменост за наставници',
             'home.hero.pre': 'Добредојдовте во',
             'home.hero.subtitle': 'Вашиот дигитален асистент за модерно образование',
             'stats.lessons': 'Лекции',
@@ -469,7 +469,7 @@
             'nav.tests': 'Tests',
             'nav.about': 'About',
             'header.platform': 'Platform for AI Literacy',
-            'meta.title': 'AINOW - Platform for AI Literacy',
+            'meta.title': 'AINOW — AI literacy platform for educators',
             'home.hero.pre': 'Welcome to',
             'home.hero.subtitle': 'Your digital assistant for modern education',
             'stats.lessons': 'Lessons',
@@ -920,7 +920,7 @@
             'nav.tests': 'Teste',
             'nav.about': 'Rreth nesh',
             'header.platform': 'Platforma për Alfabetizëm të IA',
-            'meta.title': 'AINOW - Platforma për Alfabetizëm të IA',
+            'meta.title': 'AINOW — Platformë për shkrim-leximin e IA për mësimdhënës',
             'home.hero.pre': 'Mirë se vini në',
             'home.hero.subtitle': 'Asistenti juaj digjital për arsim modern',
             'stats.lessons': 'Mësime',
@@ -1365,6 +1365,7 @@
     },
 
     applyTranslations(root = document) {
+        if (root === document) { document.title = this.t('meta.title'); }
         root.querySelectorAll('[data-i18n]').forEach(el => {
             el.textContent = this.t(el.getAttribute('data-i18n'));
         });

@@ -127,6 +127,7 @@
 (function () {
     var T = {
         mk: {
+            title: 'AINOW — Платформа за ВИ писменост',
             tagline: 'Изберете платформа',
             'edu.title': 'Образование', 'edu.badge': 'Бесплатно', 'edu.cta': 'Отвори',
             'edu.desc': 'Водич за ВИ писменост, промптови, алатки и материјали за наставници.',
@@ -145,6 +146,7 @@
             footer: '© 2026 AINOW Society · GPLv3'
         },
         sq: {
+            title: 'AINOW — Platformë për shkrim-leximin e IA',
             tagline: 'Zgjidhni platformën',
             'edu.title': 'Arsimi', 'edu.badge': 'Falas', 'edu.cta': 'Hap',
             'edu.desc': 'Udhëzues për shkrim-leximin e IA, prompte, mjete dhe materiale për mësimdhënësit.',
@@ -163,6 +165,7 @@
             footer: '© 2026 AINOW Society · GPLv3'
         },
         en: {
+            title: 'AINOW — AI literacy and prompt tools',
             tagline: 'Choose a platform',
             'edu.title': 'Education', 'edu.badge': 'Free', 'edu.cta': 'Open',
             'edu.desc': 'AI literacy guide, prompts, tools and classroom materials for teachers.',
@@ -185,6 +188,7 @@
     function apply(lang) {
         var dict = T[lang] || T.mk;
         document.documentElement.lang = lang;
+        if (dict.title) { document.title = dict.title; }
         document.querySelectorAll('[data-t]').forEach(function (el) {
             var k = el.getAttribute('data-t');
             if (dict[k]) el.textContent = dict[k];
