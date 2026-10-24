@@ -129,7 +129,7 @@ test('Services leads with AINOW in every language and keeps CTRLab in one second
     assert.equal(heroLinks[0].props.href,'https://ainow.mk/contactus');assert.ok(!JSON.stringify(hero).includes('ctrlab'));
     const technical=list.find(x=>x.props.className==='services-technical');
     assert.equal(nodes(technical).filter(x=>x.type==='a').length,1);
-    const commercial=list.filter(x=>x.type==='a'&&x.props.href?.includes('ctrlab.net'));
+    const commercial=list.filter(x=>x.type==='a'&&x.props.href&&['ctrlab.net','www.ctrlab.net'].includes(new URL(x.props.href,'https://ainow.mk/').hostname));
     assert.equal(commercial.length,2); // one partner link and its visible reference
     assert.equal(list.filter(x=>x.type==='img').length,2); // original light/dark wordmarks
     assert.ok(!JSON.stringify(tree).includes('undefined'));
@@ -160,7 +160,7 @@ test('the shared language picker does not close on its own opening click',()=>{
 
 test('Business enables offline caching on loopback and the chooser caches its local images',()=>{
   for(const file of ['biz/index.html','biz/agents.html','biz/builder.html','biz/playbooks.html']){
-    const script=[...read(file).matchAll(/<script>([\s\S]*?)<\/script>/g)].map(x=>x[1]).find(x=>x.includes('serviceWorker'));
+    const script=[...read(file).matchAll(/<script>([\s\S]*?)<\/script>/gi)].map(x=>x[1]).find(x=>x.includes('serviceWorker'));
     const registered=[];vm.runInNewContext(script,{location:{hostname:'127.0.0.1',protocol:'http:'},localStorage:{getItem:()=>null},document:{documentElement:{classList:{toggle(){}}}},navigator:{serviceWorker:{register:path=>{registered.push(path);return Promise.resolve();}}}});
     assert.deepEqual(registered,['./sw.js'],file);
   }

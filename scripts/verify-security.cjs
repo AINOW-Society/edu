@@ -29,10 +29,10 @@ for (const method of ['renderHistoryTimelineInline', 'renderApplicationsInline']
     const html = router[method]({items: [{id: 'health', title, content: '&lt;img src=x onerror="alert(1)"&gt;'}]});
     assert.ok(html.includes('&lt;img src=x onerror=&quot;alert(1)&quot;&gt; &amp; &lt;script&gt;alert(2)&lt;/script&gt;'));
     assert.ok(html.includes('&lt;b&gt;Unsafe heading&lt;/b&gt;'));
-    assert.doesNotMatch(html, /<img\b|<script\b|<b>Unsafe heading/);
+    assert.doesNotMatch(html, /<img\b|<script\b|<b>Unsafe heading/i);
     if (method === 'renderHistoryTimelineInline') {
       assert.ok(html.includes('&lt;svg onload=&quot;alert(1)&quot;&gt; &amp; year'));
-      assert.doesNotMatch(html, /<svg onload=/);
+      assert.doesNotMatch(html, /<svg onload=/i);
     }
   });
 }

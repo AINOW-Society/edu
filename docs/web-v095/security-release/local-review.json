@@ -11,5 +11,14 @@
   "localTests": 114,
   "failedTests": 0,
   "nativeSourceChanged": false,
-  "githubScan": "pending push and remote analysis"
+  "githubScan": "pending push and remote analysis",
+  "followupAlertsReviewed": [
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "originalAlertsClosedByFirstAnalysis": true,
+  "brandSvgBytesPreservedByGitAttributes": true
 }

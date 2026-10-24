@@ -5,7 +5,8 @@ test('every platform menu label is translated and all workspaces use the same ca
   for(const origin of ['https://example.test/sub/','file:///D:/AINOW/']){const p=platform(origin);
     for(const lang of ['en','mk','sq'])for(const item of p.pages){assert.notEqual(p.text(lang,item.id),item.id);assert.ok(p.links(lang,true).includes(p.href(item.id)));}
     assert.equal(p.href('help'),origin+'help.html');assert.equal(p.href('about'),origin+'about.html');assert.equal(p.href('policies'),origin+'about.html#/page/policies');
-    assert.ok(p.footer('en').includes('https://github.com/AINOW-Society/'));assert.equal(p.text('en','about'),'About');assert.equal(p.languages.map(x=>x.code).join(','),'en,mk,sq');assert.equal(p.languages.map(x=>x.label).join(','),'EN,MK,SQ');
+    const destinations=[...p.footer('en').matchAll(/href="([^"]+)"/g)].map(match=>new URL(match[1]));
+    assert.ok(destinations.some(url=>url.origin==='https://github.com'&&url.pathname==='/AINOW-Society/'));assert.equal(p.text('en','about'),'About');assert.equal(p.languages.map(x=>x.code).join(','),'en,mk,sq');assert.equal(p.languages.map(x=>x.label).join(','),'EN,MK,SQ');
   }
 });
 test('all main workspace pages load the common contract and menu styles',()=>{
