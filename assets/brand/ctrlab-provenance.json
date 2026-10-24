@@ -1,0 +1,18 @@
+{
+  "reviewedAt": "2026-10-22",
+  "ownerSuppliedBrand": true,
+  "files": [
+    {
+      "file": "ctrlab-black.svg",
+      "sourceProject": "AINOW Website/public/brand/ctrlab-logo-dark.svg",
+      "sha256": "ec0e5585f8495faa408456f11e564c69f1213e9a00d67473b1e5901258585262",
+      "geometryModified": false
+    },
+    {
+      "file": "ctrlab-white.svg",
+      "sourceProject": "AINOW Website/public/brand/ctrlab-logo.svg",
+      "sha256": "926a5f0fa5be042181f7d9751553fd885026a4ad490eb55af7c9801478aa7feb",
+      "geometryModified": false
+    }
+  ]
+}

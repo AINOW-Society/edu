@@ -1,0 +1,625 @@
+[
+  {
+    "body": {
+      "bottom": 651.200023651123,
+      "clientWidth": 639,
+      "height": 592.4000244140625,
+      "right": 639.2000122070312,
+      "scrollWidth": 639,
+      "width": 639.2000122070312,
+      "x": 0,
+      "y": 58.79999923706055
+    },
+    "buttons": [
+      {
+        "ariaLabel": "Copy",
+        "bottom": 706,
+        "clientWidth": 606,
+        "height": 44,
+        "label": "Copy",
+        "right": 623.2000122070312,
+        "scrollWidth": 606,
+        "width": 607.2000122070312,
+        "x": 16,
+        "y": 662
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in ChatGPT",
+        "bottom": 766.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "ChatGPT",
+        "right": 68,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 16,
+        "y": 714
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Gemini",
+        "bottom": 766.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Gemini",
+        "right": 206.8000030517578,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 154.8000030517578,
+        "y": 714
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Claude",
+        "bottom": 766.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Claude",
+        "right": 345.6000061035156,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 293.6000061035156,
+        "y": 714
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Copilot",
+        "bottom": 766.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Copilot",
+        "right": 484.3999938964844,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 432.3999938964844,
+        "y": 714
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Perplexity",
+        "bottom": 766.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Perplexity",
+        "right": 623.2000122070312,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 571.2000122070312,
+        "y": 714
+      }
+    ],
+    "documentWidth": 639,
+    "footer": {
+      "bottom": 800.0000152587891,
+      "height": 148.8000030517578,
+      "right": 639.2000122070312,
+      "width": 639.2000122070312,
+      "x": 0,
+      "y": 651.2000122070312
+    },
+    "height": 800,
+    "images": [
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      }
+    ],
+    "revision": "http://127.0.0.1:4180/assets/prompt-actions.js?v=95-rc37",
+    "width": 639,
+    "requestedWidth": 639,
+    "requestedHeight": 800,
+    "passed": true
+  },
+  {
+    "body": {
+      "bottom": 701.200023651123,
+      "clientWidth": 640,
+      "height": 642.4000244140625,
+      "right": 640,
+      "scrollWidth": 640,
+      "width": 640,
+      "x": 0,
+      "y": 58.79999923706055
+    },
+    "buttons": [
+      {
+        "ariaLabel": "Copy",
+        "bottom": 760.2000122070312,
+        "clientWidth": 138,
+        "height": 44,
+        "label": "Copy",
+        "right": 156,
+        "scrollWidth": 138,
+        "width": 140,
+        "x": 16,
+        "y": 716.2000122070312
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in ChatGPT",
+        "bottom": 764.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "ChatGPT",
+        "right": 400,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 348,
+        "y": 712
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Gemini",
+        "bottom": 764.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Gemini",
+        "right": 456,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 404,
+        "y": 712
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Claude",
+        "bottom": 764.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Claude",
+        "right": 512,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 460,
+        "y": 712
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Copilot",
+        "bottom": 764.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Copilot",
+        "right": 568,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 516,
+        "y": 712
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Perplexity",
+        "bottom": 764.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Perplexity",
+        "right": 624,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 572,
+        "y": 712
+      }
+    ],
+    "documentWidth": 640,
+    "footer": {
+      "bottom": 800.0000152587891,
+      "height": 98.8000030517578,
+      "right": 640,
+      "width": 640,
+      "x": 0,
+      "y": 701.2000122070312
+    },
+    "height": 800,
+    "images": [
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      }
+    ],
+    "revision": "http://127.0.0.1:4180/assets/prompt-actions.js?v=95-rc37",
+    "width": 640,
+    "requestedWidth": 640,
+    "requestedHeight": 800,
+    "passed": true
+  },
+  {
+    "body": {
+      "bottom": 701.200023651123,
+      "clientWidth": 767,
+      "height": 642.4000244140625,
+      "right": 767.2000122070312,
+      "scrollWidth": 767,
+      "width": 767.2000122070312,
+      "x": 0,
+      "y": 58.79999923706055
+    },
+    "buttons": [
+      {
+        "ariaLabel": "Copy",
+        "bottom": 760.2000122070312,
+        "clientWidth": 138,
+        "height": 44,
+        "label": "Copy",
+        "right": 156,
+        "scrollWidth": 138,
+        "width": 140,
+        "x": 16,
+        "y": 716.2000122070312
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in ChatGPT",
+        "bottom": 764.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "ChatGPT",
+        "right": 527.2000122070312,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 475.2000122070313,
+        "y": 712
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Gemini",
+        "bottom": 764.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Gemini",
+        "right": 583.2000122070312,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 531.2000122070312,
+        "y": 712
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Claude",
+        "bottom": 764.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Claude",
+        "right": 639.2000122070312,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 587.2000122070312,
+        "y": 712
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Copilot",
+        "bottom": 764.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Copilot",
+        "right": 695.2000122070312,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 643.2000122070312,
+        "y": 712
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Perplexity",
+        "bottom": 764.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Perplexity",
+        "right": 751.2000122070312,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 699.2000122070312,
+        "y": 712
+      }
+    ],
+    "documentWidth": 767,
+    "footer": {
+      "bottom": 800.0000152587891,
+      "height": 98.8000030517578,
+      "right": 767.2000122070312,
+      "width": 767.2000122070312,
+      "x": 0,
+      "y": 701.2000122070312
+    },
+    "height": 800,
+    "images": [
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      }
+    ],
+    "revision": "http://127.0.0.1:4180/assets/prompt-actions.js?v=95-rc37",
+    "width": 767,
+    "requestedWidth": 767,
+    "requestedHeight": 800,
+    "passed": true
+  },
+  {
+    "body": {
+      "bottom": 419.2000122070313,
+      "clientWidth": 310,
+      "height": 340.20001220703125,
+      "right": 320,
+      "scrollWidth": 310,
+      "width": 320,
+      "x": 0,
+      "y": 79
+    },
+    "buttons": [
+      {
+        "ariaLabel": "Copy",
+        "bottom": 474,
+        "clientWidth": 286,
+        "height": 44,
+        "label": "Copy",
+        "right": 304,
+        "scrollWidth": 286,
+        "width": 288,
+        "x": 16,
+        "y": 430
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in ChatGPT",
+        "bottom": 534.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "ChatGPT",
+        "right": 68,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 16,
+        "y": 482
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Gemini",
+        "bottom": 534.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Gemini",
+        "right": 127,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 75,
+        "y": 482
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Claude",
+        "bottom": 534.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Claude",
+        "right": 186,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 134,
+        "y": 482
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Copilot",
+        "bottom": 534.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Copilot",
+        "right": 245,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 193,
+        "y": 482
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Perplexity",
+        "bottom": 534.4000015258789,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Perplexity",
+        "right": 304,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 252,
+        "y": 482
+      }
+    ],
+    "documentWidth": 320,
+    "footer": {
+      "bottom": 568.0000152587891,
+      "height": 148.8000030517578,
+      "right": 320,
+      "width": 320,
+      "x": 0,
+      "y": 419.2000122070313
+    },
+    "height": 568,
+    "images": [
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      }
+    ],
+    "revision": "http://127.0.0.1:4180/assets/prompt-actions.js?v=95-rc37",
+    "width": 320,
+    "requestedWidth": 320,
+    "requestedHeight": 568,
+    "passed": true
+  },
+  {
+    "body": {
+      "bottom": 252.46250915527344,
+      "clientWidth": 670,
+      "height": 152.52500915527344,
+      "right": 740,
+      "scrollWidth": 670,
+      "width": 680,
+      "x": 60,
+      "y": 99.9375
+    },
+    "buttons": [
+      {
+        "ariaLabel": "Copy",
+        "bottom": 313.4624938964844,
+        "clientWidth": 138,
+        "height": 44,
+        "label": "Copy",
+        "right": 220,
+        "scrollWidth": 138,
+        "width": 140,
+        "x": 80,
+        "y": 269.4624938964844
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in ChatGPT",
+        "bottom": 317.66251373291016,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "ChatGPT",
+        "right": 496,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 444,
+        "y": 265.26251220703125
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Gemini",
+        "bottom": 317.66251373291016,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Gemini",
+        "right": 552,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 500,
+        "y": 265.26251220703125
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Claude",
+        "bottom": 317.66251373291016,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Claude",
+        "right": 608,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 556,
+        "y": 265.26251220703125
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Copilot",
+        "bottom": 317.66251373291016,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Copilot",
+        "right": 664,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 612,
+        "y": 265.26251220703125
+      },
+      {
+        "ariaLabel": "Copy prompt and continue in Perplexity",
+        "bottom": 317.66251373291016,
+        "clientWidth": 52,
+        "height": 52.400001525878906,
+        "label": "Perplexity",
+        "right": 720,
+        "scrollWidth": 52,
+        "width": 52,
+        "x": 668,
+        "y": 265.26251220703125
+      }
+    ],
+    "documentWidth": 800,
+    "footer": {
+      "bottom": 355.26251220703125,
+      "height": 102.8000030517578,
+      "right": 740,
+      "width": 680,
+      "x": 60,
+      "y": 252.46250915527344
+    },
+    "height": 390,
+    "images": [
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      },
+      {
+        "filter": "none",
+        "loaded": true
+      }
+    ],
+    "revision": "http://127.0.0.1:4180/assets/prompt-actions.js?v=95-rc37",
+    "width": 800,
+    "requestedWidth": 800,
+    "requestedHeight": 390,
+    "passed": true
+  },
+  {
+    "check": "Tab wraps from last provider to close",
+    "passed": true
+  },
+  {
+    "check": "Escape closes reader and restores original opener",
+    "passed": true
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-24",
+  "filesExamined": 78,
+  "removableComments": 0,
+  "requiredNoticesKept": 2,
+  "changedByThisCommentReview": false,
+  "rawBefore": "comments-before.json",
+  "rawAfter": "comments-after.json",
+  "inventoryHelperMetadata": "The reused historical helper embeds its original date/rollback. This run uses the separately verified rc37 rollback recorded in rollback.json."
+}

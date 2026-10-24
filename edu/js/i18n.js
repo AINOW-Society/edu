@@ -1,4 +1,4 @@
-﻿const I18n = {
+const I18n = {
     lang: 'mk',
 
     translations: {
@@ -133,6 +133,7 @@
             'prompts.copy': 'Копирај',
             'prompts.copied': 'Копирано ✓',
             'prompts.close': 'Затвори',
+            'prompts.filters':'Филтри','prompts.view.grid':'Картички','prompts.view.list':'Список','prompts.view.table':'Табела','prompts.copy_failed':'Копирањето не успеа. Изберете го и копирајте го текстот.',
             'prompts.page.of': 'од',
             'tools.cat.all': 'Вовед',
             'tools.cat.text': 'Текст и Содржина',
@@ -585,6 +586,7 @@
             'prompts.copy': 'Copy',
             'prompts.copied': 'Copied ✓',
             'prompts.close': 'Close',
+            'prompts.filters':'Filters','prompts.view.grid':'Grid view','prompts.view.list':'List view','prompts.view.table':'Table view','prompts.copy_failed':'Copy failed. Select and copy the prompt text.',
             'prompts.page.of': 'of',
             'tools.cat.all': 'Introduction',
             'tools.cat.text': 'Text & Content',
@@ -935,7 +937,7 @@
             'card.prompts.desc': 'Prompte reale për mësues dhe personelin administrativ.',
             'card.prompts.cta': 'EKSPLO',
             'card.tools.title': 'Mjete IA',
-            'card.glossary.title': 'Fjalorth',
+            'card.glossary.title': 'Glosar',
             'card.glossary.desc': '60 terma të IA-së dhe arsimit, të shpjeguar thjeshtë.',
             'home.band.learn': 'Mësoni dhe eksploroni',
             'home.band.create': 'Krijoni materiale',
@@ -1036,6 +1038,7 @@
             'prompts.copy': 'Kopjo',
             'prompts.copied': 'Kopjuar ✓',
             'prompts.close': 'Mbyll',
+            'prompts.filters':'Filtra','prompts.view.grid':'Kartela','prompts.view.list':'Listë','prompts.view.table':'Tabelë','prompts.copy_failed':'Kopjimi dështoi. Përzgjidhni dhe kopjoni tekstin.',
             'prompts.page.of': 'nga',
             'tools.cat.all': 'Hyrje',
             'tools.cat.text': 'Tekst dhe Përmbajtje',
@@ -1175,7 +1178,7 @@
             'guide.section.applications': 'Aplikimet e IA',
             'guide.section.prompts': 'Inxhinieria e Prompteve',
             'guide.section.agents': 'Agjentët e IA',
-            'guide.section.glossary': 'Fjalori',
+            'guide.section.glossary': 'Glosar',
             'guide.section.roadmap': 'Udhërrëfyes për IA',
             'guide.section.school-context': 'Shkollat dhe konteksti lokal',
             'guide.section.integrity-feedback': 'Integriteti, provimet dhe përdorimi i ndershëm i IA',
@@ -1345,7 +1348,7 @@
             'ptr.pull': 'Tërhiq për rifreskim',
             'ptr.release': 'Lësho për rifreskim',
             'ptr.refreshing': 'Duke rifreskuar…',
-            'glossary.title': 'Fjalorth',
+            'glossary.title': 'Glosar',
             'glossary.search': 'Kërko termin...',
             'glossary.cat.all': 'Të gjitha',
             'glossary.cat.ai': 'Inteligjencë Artificiale',
@@ -1354,7 +1357,7 @@
             'glossary.cat.prompts': 'Prompte',
             'glossary.count': 'terma',
             'glossary.empty': 'Asnjë term nuk përputhet me kërkimin tuaj',
-            'glossary.btn.title': 'Fjalori',
+            'glossary.btn.title': 'Glosar',
         }
     },
 
@@ -1365,6 +1368,18 @@
     },
 
     applyTranslations(root = document) {
+        const headerCode = document.getElementById("header-language-code");
+        if (headerCode) headerCode.textContent = this.lang.toUpperCase();
+        if (root === document && window.AINOWPlatform) {
+            const footer = document.getElementById('platform-footer');
+            if (footer) footer.innerHTML = AINOWPlatform.footer(this.lang);
+            document.querySelectorAll('[data-platform-header]').forEach(link => {
+                const key = link.dataset.platformHeader;
+                link.setAttribute('aria-label', AINOWPlatform.text(this.lang,key));
+                link.title = AINOWPlatform.text(this.lang,key);
+            });
+        }
+
         if (root === document) { document.title = this.t('meta.title'); }
         root.querySelectorAll('[data-i18n]').forEach(el => {
             el.textContent = this.t(el.getAttribute('data-i18n'));
@@ -1388,15 +1403,12 @@
 
         this.lang = lang;
         this.currentLang = lang;
-        try { localStorage.setItem('ainow_lang', lang); } catch(e) {}
+        try { ['ainow_lang','ainow-lang','language'].forEach(key => localStorage.setItem(key, lang)); } catch(e) {}
         document.documentElement.lang = lang;
 
         await this.loadLangData(lang);
 
         this.applyTranslations();
-        document.querySelectorAll('.lang-option').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.lang === lang);
-        });
 
         const ob = document.getElementById('onboarding-modal');
         if (typeof App !== 'undefined' && ob && ob.classList.contains('open') && typeof App._syncOnboardingStep === 'function') {
@@ -1481,14 +1493,132 @@
 
     async init() {
         try { this.lang = localStorage.getItem('ainow_lang') || 'mk'; } catch(e) { this.lang = 'mk'; }
+        if (!this.translations[this.lang]) this.lang = 'mk';
         this.currentLang = this.lang;
         document.documentElement.lang = this.lang;
 
         await this.loadLangData(this.lang);
 
         this.applyTranslations();
-        document.querySelectorAll('.lang-option').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.lang === this.lang);
-        });
     }
 };
+
+
+Object.assign(I18n.translations.en, {
+  "learning.start.title": "What would you like to do?",
+  "learning.start.note": "Choose a starting point, or browse the sections below.",
+  "learning.start.learn": "Understand AI",
+  "learning.start.lesson": "Prepare a lesson",
+  "learning.start.material": "Make teaching materials",
+  "learning.start.learn.text": "Start with what AI is and where it can make mistakes. Read one section, then try a short understanding check.",
+  "learning.start.lesson.text": "Choose your teaching level, open a prompt and adapt it to your class. Copy it into your AI app, then review the result.",
+  "learning.start.material.text": "Open Homework, choose a topic and select material for your class. Review the content before printing or exporting.",
+  "learning.start.go": "Start here",
+  "learning.nav.label": "Reading navigation",
+  "learning.chapter": "Chapter",
+  "learning.section": "Section",
+  "learning.prev": "Previous",
+  "learning.next.section": "Next section",
+  "learning.next.chapter": "Next chapter",
+  "learning.check.title": "Check your understanding",
+  "learning.check.note": "A short practice check. Answers stay on this page and do not certify mastery.",
+  "learning.correct": "Correct. Explain why this answer fits the chapter.",
+  "learning.retry": "Review this part of the guide. The expected answer is:",
+  "learning.example.title": "A small worked example",
+  "learning.example.task": "Task",
+  "learning.example.task.text": "Draft three discussion questions for a 20-minute lesson.",
+  "learning.example.context": "Context",
+  "learning.example.context.text": "State the topic, learner level and what the class already knows. Use fictional examples rather than student personal data.",
+  "learning.example.check": "Check",
+  "learning.example.check.text": "Check the facts, age suitability and timing. Adapt the questions before using them in class.",
+  "sidebar.tip.text.5": "For a clearer prompt, specify the role, context, task and constraints. Review the result.",
+  "sidebar.tip.prompts.desc": "Practise writing clear instructions with a role, context, task and constraints.",
+  "resources.tip.prompts.desc": "Use these prompt lists to practise giving context, setting a task and checking the result.",
+  "help.prompting.desc": "Make the role, context, task and constraints clear. No framework guarantees a correct answer; review what the AI produces.",
+  "home.hero.subtitle": "AI learning and teaching tools for educators"
+});
+Object.assign(I18n.translations.mk, {
+  "learning.start.title": "Што сакате да направите?",
+  "learning.start.note": "Изберете почетна точка или разгледајте ги деловите подолу.",
+  "learning.start.learn": "Разберете ја ВИ",
+  "learning.start.lesson": "Подгответе час",
+  "learning.start.material": "Направете наставни материјали",
+  "learning.start.learn.text": "Почнете со тоа што е ВИ и каде може да погреши. Прочитајте еден дел, па пробајте кратка проверка.",
+  "learning.start.lesson.text": "Изберете наставно ниво, отворете промпт и прилагодете го за класот. Копирајте го во ВИ апликација, па прегледајте го резултатот.",
+  "learning.start.material.text": "Отворете Домашни задачи, изберете тема и материјал за класот. Прегледајте ја содржината пред печатење или извоз.",
+  "learning.start.go": "Почнете тука",
+  "learning.nav.label": "Навигација при читање",
+  "learning.chapter": "Поглавје",
+  "learning.section": "Дел",
+  "learning.prev": "Претходно",
+  "learning.next.section": "Следен дел",
+  "learning.next.chapter": "Следно поглавје",
+  "learning.check.title": "Проверете го разбирањето",
+  "learning.check.note": "Кратка проверка за вежбање. Одговорите остануваат на оваа страница и не потврдуваат совладаност.",
+  "learning.correct": "Точно. Објаснете зошто одговорот одговара на поглавјето.",
+  "learning.retry": "Прегледајте го овој дел од водичот. Очекуваниот одговор е:",
+  "learning.example.title": "Мал практичен пример",
+  "learning.example.task": "Задача",
+  "learning.example.task.text": "Состави три прашања за дискусија за час од 20 минути.",
+  "learning.example.context": "Контекст",
+  "learning.example.context.text": "Наведете тема, ниво и претходни знаења. Користете измислени примери наместо лични податоци за учениците.",
+  "learning.example.check": "Проверка",
+  "learning.example.check.text": "Проверете факти, соодветност за возраста и времетраење. Прилагодете ги прашањата пред употреба на час.",
+  "sidebar.tip.text.5": "За појасен промпт, наведете улога, контекст, задача и ограничувања. Прегледајте го резултатот.",
+  "sidebar.tip.prompts.desc": "Вежбајте јасни инструкции со улога, контекст, задача и ограничувања.",
+  "resources.tip.prompts.desc": "Користете ги листите за вежбање контекст, задача и проверка на резултатот.",
+  "help.prompting.desc": "Наведете јасна улога, контекст, задача и ограничувања. Ниту една рамка не гарантира точен одговор; прегледајте го резултатот.",
+  "home.hero.subtitle": "Учење за ВИ и наставни алатки за едукатори"
+});
+Object.assign(I18n.translations.sq, {
+  "learning.start.title": "Çfarë dëshironi të bëni?",
+  "learning.start.note": "Zgjidhni një pikë fillimi ose shfletoni pjesët më poshtë.",
+  "learning.start.learn": "Kuptoni IA",
+  "learning.start.lesson": "Përgatitni një mësim",
+  "learning.start.material": "Krijoni materiale mësimore",
+  "learning.start.learn.text": "Nisni me atë se çfarë është IA dhe ku mund të gabojë. Lexoni një pjesë, pastaj provoni një kontroll të shkurtër.",
+  "learning.start.lesson.text": "Zgjidhni nivelin mësimor, hapni një prompt dhe përshtateni për klasën. Kopjojeni në aplikacionin IA, pastaj shqyrtoni rezultatin.",
+  "learning.start.material.text": "Hapni Detyrat e shtëpisë, zgjidhni temën dhe materialin për klasën. Shqyrtoni përmbajtjen para printimit ose eksportimit.",
+  "learning.start.go": "Filloni këtu",
+  "learning.nav.label": "Navigimi i leximit",
+  "learning.chapter": "Kapitulli",
+  "learning.section": "Pjesa",
+  "learning.prev": "E mëparshmja",
+  "learning.next.section": "Pjesa tjetër",
+  "learning.next.chapter": "Kapitulli tjetër",
+  "learning.check.title": "Kontrolloni të kuptuarit",
+  "learning.check.note": "Kontroll i shkurtër për praktikë. Përgjigjet mbeten në këtë faqe dhe nuk certifikojnë zotërimin.",
+  "learning.correct": "Saktë. Shpjegoni pse kjo përgjigje përputhet me kapitullin.",
+  "learning.retry": "Shqyrtoni këtë pjesë të udhëzuesit. Përgjigjja e pritur është:",
+  "learning.example.title": "Një shembull i vogël praktik",
+  "learning.example.task": "Detyra",
+  "learning.example.task.text": "Harto tri pyetje diskutimi për një mësim 20-minutësh.",
+  "learning.example.context": "Konteksti",
+  "learning.example.context.text": "Tregoni temën, nivelin dhe njohuritë paraprake. Përdorni shembuj të trilluar në vend të të dhënave personale të nxënësve.",
+  "learning.example.check": "Verifikimi",
+  "learning.example.check.text": "Kontrolloni faktet, përshtatshmërinë për moshën dhe kohëzgjatjen. Përshtatni pyetjet para përdorimit në klasë.",
+  "sidebar.tip.text.5": "Për prompt më të qartë, tregoni rolin, kontekstin, detyrën dhe kufizimet. Shqyrtoni rezultatin.",
+  "sidebar.tip.prompts.desc": "Praktikoni udhëzime të qarta me rol, kontekst, detyrë dhe kufizime.",
+  "resources.tip.prompts.desc": "Përdorni listat për të praktikuar kontekstin, detyrën dhe verifikimin e rezultatit.",
+  "help.prompting.desc": "Tregoni qartë rolin, kontekstin, detyrën dhe kufizimet. Asnjë kornizë nuk garanton përgjigje të saktë; shqyrtoni rezultatin.",
+  "home.hero.subtitle": "Mësim për IA dhe mjete mësimore për edukatorët"
+});
+
+
+Object.assign(I18n.translations.en, {'learning.start.learn.text':'Start with what AI is and where it can make mistakes. Follow the short sections, then try the optional chapter practice.','learning.check.title':'Practise this chapter'});
+Object.assign(I18n.translations.mk, {'learning.start.learn.text':'Почнете со тоа што е ВИ и каде може да погреши. Следете ги кратките делови, па пробајте ја изборната вежба за поглавјето.','learning.check.title':'Проверете го ова поглавје'});
+Object.assign(I18n.translations.sq, {'learning.start.learn.text':'Nisni me çfarë është IA dhe ku mund të gabojë. Ndiqni pjesët e shkurtra, pastaj provoni ushtrimin opsional të kapitullit.','learning.check.title':'Ushtroni këtë kapitull'});
+
+Object.assign(I18n.translations.en, {"learning.start.choose": "Help me choose"});
+Object.assign(I18n.translations.mk, {"learning.start.choose": "Помогнете ми да изберам"});
+Object.assign(I18n.translations.sq, {"learning.start.choose": "Më ndihmoni të zgjedh"});
+
+Object.assign(I18n.translations.en, {"nav.glossary":"Glossary"});
+Object.assign(I18n.translations.mk, {"nav.glossary":"Речник"});
+Object.assign(I18n.translations.sq, {"nav.glossary":"Glosar"});
+
+Object.assign(I18n.translations.en,{"pagination.previous": "Previous page", "pagination.next": "Next page", "pagination.page": "Page"});
+
+Object.assign(I18n.translations.mk,{"pagination.previous": "Претходна страница", "pagination.next": "Следна страница", "pagination.page": "Страница"});
+
+Object.assign(I18n.translations.sq,{"pagination.previous": "Faqja e mëparshme", "pagination.next": "Faqja tjetër", "pagination.page": "Faqja"});

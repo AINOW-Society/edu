@@ -1,0 +1,252 @@
+[
+  {
+    "appCount": 5,
+    "body": {
+      "bottom": 427.6000061035156,
+      "clientHeight": 349,
+      "clientWidth": 310,
+      "height": 348.6000061035156,
+      "right": 320,
+      "scrollHeight": 397,
+      "scrollWidth": 310,
+      "width": 320,
+      "x": 0,
+      "y": 79
+    },
+    "buttons": [
+      {
+        "background": "rgb(59, 46, 40)",
+        "bottom": 482.3999938964844,
+        "clientWidth": 90,
+        "color": "rgb(239, 172, 145)",
+        "height": 44,
+        "label": "Kopjo",
+        "right": 108,
+        "scrollWidth": 90,
+        "width": 92,
+        "x": 16,
+        "y": 438.3999938964844
+      },
+      {
+        "background": "rgb(36, 36, 34)",
+        "bottom": 482.3999938964844,
+        "clientWidth": 90,
+        "color": "rgb(239, 238, 233)",
+        "height": 44,
+        "label": "ChatGPT",
+        "right": 206,
+        "scrollWidth": 90,
+        "width": 92,
+        "x": 114,
+        "y": 438.3999938964844
+      },
+      {
+        "background": "rgb(36, 36, 34)",
+        "bottom": 482.3999938964844,
+        "clientWidth": 90,
+        "color": "rgb(239, 238, 233)",
+        "height": 44,
+        "label": "Gemini",
+        "right": 304,
+        "scrollWidth": 90,
+        "width": 92,
+        "x": 212,
+        "y": 438.3999938964844
+      },
+      {
+        "background": "rgb(36, 36, 34)",
+        "bottom": 532.3999938964844,
+        "clientWidth": 90,
+        "color": "rgb(239, 238, 233)",
+        "height": 44,
+        "label": "Claude",
+        "right": 108,
+        "scrollWidth": 90,
+        "width": 92,
+        "x": 16,
+        "y": 488.3999938964844
+      },
+      {
+        "background": "rgb(36, 36, 34)",
+        "bottom": 532.3999938964844,
+        "clientWidth": 90,
+        "color": "rgb(239, 238, 233)",
+        "height": 44,
+        "label": "Copilot",
+        "right": 206,
+        "scrollWidth": 90,
+        "width": 92,
+        "x": 114,
+        "y": 488.3999938964844
+      },
+      {
+        "background": "rgb(36, 36, 34)",
+        "bottom": 532.3999938964844,
+        "clientWidth": 90,
+        "color": "rgb(239, 238, 233)",
+        "height": 44,
+        "label": "Perplexity",
+        "right": 304,
+        "scrollWidth": 90,
+        "width": 92,
+        "x": 212,
+        "y": 488.3999938964844
+      }
+    ],
+    "documentWidth": 320,
+    "footer": {
+      "bottom": 568.0000152587891,
+      "height": 140.40000915527344,
+      "right": 320,
+      "width": 320,
+      "x": 0,
+      "y": 427.6000061035156
+    },
+    "height": 568,
+    "lang": "sq",
+    "popovers": 0,
+    "reader": {
+      "bottom": 568,
+      "height": 568,
+      "right": 320,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "theme": "",
+    "width": 320,
+    "kind": "edu",
+    "requestedWidth": 320,
+    "requestedHeight": 568,
+    "passed": true
+  },
+  {
+    "appCount": 5,
+    "body": {
+      "bottom": 260.8625030517578,
+      "clientHeight": 161,
+      "clientWidth": 670,
+      "height": 160.9250030517578,
+      "right": 740,
+      "scrollHeight": 275,
+      "scrollWidth": 670,
+      "width": 680,
+      "x": 60,
+      "y": 99.9375
+    },
+    "buttons": [
+      {
+        "background": "rgb(59, 46, 40)",
+        "bottom": 317.6625061035156,
+        "clientWidth": 100,
+        "color": "rgb(239, 172, 145)",
+        "height": 44,
+        "label": "Kopjo",
+        "right": 181.6624984741211,
+        "scrollWidth": 100,
+        "width": 101.6624984741211,
+        "x": 80,
+        "y": 273.6625061035156
+      },
+      {
+        "background": "rgb(36, 36, 34)",
+        "bottom": 317.6625061035156,
+        "clientWidth": 100,
+        "color": "rgb(239, 238, 233)",
+        "height": 44,
+        "label": "ChatGPT",
+        "right": 289.3250045776367,
+        "scrollWidth": 100,
+        "width": 101.6624984741211,
+        "x": 187.6625061035156,
+        "y": 273.6625061035156
+      },
+      {
+        "background": "rgb(36, 36, 34)",
+        "bottom": 317.6625061035156,
+        "clientWidth": 100,
+        "color": "rgb(239, 238, 233)",
+        "height": 44,
+        "label": "Gemini",
+        "right": 397.00001525878906,
+        "scrollWidth": 100,
+        "width": 101.6750030517578,
+        "x": 295.32501220703125,
+        "y": 273.6625061035156
+      },
+      {
+        "background": "rgb(36, 36, 34)",
+        "bottom": 317.6625061035156,
+        "clientWidth": 100,
+        "color": "rgb(239, 238, 233)",
+        "height": 44,
+        "label": "Claude",
+        "right": 504.6624984741211,
+        "scrollWidth": 100,
+        "width": 101.6624984741211,
+        "x": 403,
+        "y": 273.6625061035156
+      },
+      {
+        "background": "rgb(36, 36, 34)",
+        "bottom": 317.6625061035156,
+        "clientWidth": 100,
+        "color": "rgb(239, 238, 233)",
+        "height": 44,
+        "label": "Copilot",
+        "right": 612.3250045776367,
+        "scrollWidth": 100,
+        "width": 101.6624984741211,
+        "x": 510.6625061035156,
+        "y": 273.6625061035156
+      },
+      {
+        "background": "rgb(36, 36, 34)",
+        "bottom": 317.6625061035156,
+        "clientWidth": 100,
+        "color": "rgb(239, 238, 233)",
+        "height": 44,
+        "label": "Perplexity",
+        "right": 720.0000152587891,
+        "scrollWidth": 100,
+        "width": 101.6750030517578,
+        "x": 618.3250122070312,
+        "y": 273.6625061035156
+      }
+    ],
+    "documentWidth": 800,
+    "footer": {
+      "bottom": 355.2625198364258,
+      "height": 94.4000015258789,
+      "right": 740,
+      "width": 680,
+      "x": 60,
+      "y": 260.8625183105469
+    },
+    "height": 390,
+    "lang": "sq",
+    "popovers": 0,
+    "reader": {
+      "bottom": 355.26250076293945,
+      "height": 320.125,
+      "right": 740,
+      "width": 680,
+      "x": 60,
+      "y": 35.13750076293945
+    },
+    "theme": "",
+    "width": 800,
+    "kind": "edu",
+    "requestedWidth": 800,
+    "requestedHeight": 390,
+    "passed": true
+  },
+  {
+    "check": "Tab wraps from last AI app to close",
+    "passed": true
+  },
+  {
+    "check": "Escape closes Education reader and returns focus to original card title",
+    "passed": true
+  }
+]

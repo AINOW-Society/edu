@@ -5,9 +5,9 @@ const { MessageSquare, FileText, TrendingUp, AlertCircle, Briefcase, Users, Hand
 const { useState, useEffect, useRef, useMemo, useCallback } = React;
 const { createRoot } = ReactDOMClient;
 
-const { Header, Footer, ShortcutsModal, SidebarWrapper, EmptyState, addToHistory, useLanguage, useToast, Toast, useGlobalShortcuts, Scratchpad, SettingsModal, Pagination } = AINOW['src/components'];
+const { Header, Footer, ShortcutsModal, SidebarWrapper, EmptyState, addToHistory, useLanguage, useStorageSync, useToast, Toast, useGlobalShortcuts, Scratchpad, Pagination } = AINOW['src/components'];
 const { playbooksData } = AINOW['data/data-playbooks'];
-const { SITUATIONS, SITUATION_CATEGORIES } = AINOW['data/data-situations'];
+const { SITUATIONS } = AINOW['data/data-situations'];
 const { copyTextToClipboard } = AINOW['src/utils'];
 
 const html = htm.bind(React.createElement);
@@ -2054,15 +2054,15 @@ const ItemCard = ({ item, t, onSelect, isFav, onToggleFav }) => {
                         ${badge}
                     </span>
                     ${isPlaybook && html`
-                        <button onClick=${e => { e.stopPropagation(); onToggleFav(item.id); }}
-                            className=${`transition-all hover:scale-110 min-w-[28px] min-h-[28px] flex items-center justify-center ${isFav ? 'text-coral' : 'text-stone-light hover:text-coral'}`}>
+                        <button aria-label=${isFav?t('release.remove_favorite'):t('common.favorites')} aria-pressed=${isFav} onClick=${e => { e.stopPropagation(); onToggleFav(item.id); }}
+                            className=${`transition-all hover:scale-110 min-w-[44px] min-h-[44px] flex items-center justify-center ${isFav ? 'text-coral' : 'text-stone-light hover:text-coral'}`}>
                             <${Heart} className="w-4 h-4" fill=${isFav ? 'currentColor' : 'none'} />
                         </button>
                     `}
                 </div>
             </div>
             <h3 className="text-base font-black text-charcoal dark:text-white mb-2 relative z-10 leading-tight group-hover:text-coral transition-colors uppercase tracking-tight">
-                ${title}
+                <button type="button" className="text-left" onClick=${e=>{e.stopPropagation();onSelect(item);}}>${title}</button>
             </h3>
             <p className="text-sm text-stone dark:text-slate-400 leading-relaxed mb-6 flex-1 relative z-10 line-clamp-3 font-medium italic">
                 "${desc}"
@@ -2072,9 +2072,7 @@ const ItemCard = ({ item, t, onSelect, isFav, onToggleFav }) => {
                     <${Sparkles} className="w-4 h-4"/>
                     <span>${metaLabel}</span>
                 </div>
-                <span className="flex items-center gap-1 group-hover:text-coral transition-colors font-black uppercase text-[10px] tracking-widest">
-                    ${ctaLabel} <${ArrowRight} className="w-3 h-3" />
-                </span>
+                <button type="button" onClick=${e=>{e.stopPropagation();onSelect(item);}} className="ainow-button is-text">${ctaLabel} <${ArrowRight}/></button>
             </div>
         </div>
     `;
@@ -2082,6 +2080,8 @@ const ItemCard = ({ item, t, onSelect, isFav, onToggleFav }) => {
 
 const QuestionFlow = ({ item, t, onComplete, onBack }) => {
     const [step, setStep] = useState(0);
+    const heading=useRef(null);
+    useEffect(()=>{heading.current?.focus({preventScroll:true});},[step]);
     const [answers, setAnswers] = useState({});
     const isPlaybook = item._type === 'playbook';
     const question   = item.questions[step];
@@ -2125,15 +2125,15 @@ const QuestionFlow = ({ item, t, onComplete, onBack }) => {
     const qPlaceholder = question.placeholderKey ? t(question.placeholderKey) : (_autoPHKey   && t(_autoPHKey)   !== _autoPHKey   ? t(_autoPHKey)   : question._placeholder || '');
 
     return html`
-        <div className="animate-fade-in max-w-2xl mx-auto text-left">
+        <div className="situation-flow max-w-2xl mx-auto text-left">
             <div className="flex items-center gap-3 mb-8">
-                <button onClick=${handleBack} className="p-2 rounded-xl text-stone-light hover:text-coral hover:bg-opal-bg dark:hover:bg-slate-800 transition-all">
+                <button aria-label=${t('situations.back_btn')} onClick=${handleBack} className="ainow-action-control">
                     <${ChevronLeft} className="w-5 h-5" />
                 </button>
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                     <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-stone-light mb-2">
-                        <span className="truncate max-w-[200px]">${title}</span>
-                        <span>${t('situations.step_label')} ${step + 1} ${t('situations.of_label')} ${total}</span>
+                        <span className="truncate max-w-[120px] sm:max-w-[200px]">${title}</span>
+                        <span className="shrink-0">${t('situations.step_label')} ${step + 1} ${t('situations.of_label')} ${total}</span>
                     </div>
                     <div className="w-full h-2 bg-mist dark:bg-slate-700 rounded-full overflow-hidden">
                         <div className="h-full bg-coral rounded-full transition-all duration-500" style=${{ width: pct + '%' }}></div>
@@ -2141,14 +2141,14 @@ const QuestionFlow = ({ item, t, onComplete, onBack }) => {
                 </div>
             </div>
 
-            <div className="bg-opal-surface dark:bg-slate-800 border-2 border-mist dark:border-slate-700 rounded-3xl p-6 sm:p-8 hover:border-coral transition-colors">
+            <div className="situation-question">
                 <div className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-coral/10 text-coral border border-coral/20">
                     <${Icon} className="w-3.5 h-3.5" />
                     ${title}
                 </div>
-                <h2 className="text-xl sm:text-2xl font-black text-charcoal dark:text-white mb-6 uppercase tracking-tight leading-tight">
+                <h1 id="situation-question-title" ref=${heading} tabIndex="-1">
                     ${qLabel}
-                </h2>
+                </h1>
 
                 ${question.type === 'select' && !isPlaybook && html`
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -2156,7 +2156,7 @@ const QuestionFlow = ({ item, t, onComplete, onBack }) => {
                             const label = t(`situations.${item.id}.${question.id}_${optId}`);
                             const isSel = selectedOpt === optId;
                             return html`
-                                <button key=${optId} onClick=${() => handleSelect(optId)}
+                                <button key=${optId} aria-pressed=${isSel} onClick=${() => handleSelect(optId)}
                                     className=${`px-4 py-3 rounded-2xl border-2 text-sm font-bold text-left transition-all duration-150 uppercase tracking-tight ${isSel ? 'bg-coral text-white border-coral shadow-sm' : 'bg-white dark:bg-slate-900 border-mist dark:border-slate-600 text-charcoal dark:text-white hover:border-coral'}`}>
                                     ${label}
                                 </button>
@@ -2171,7 +2171,7 @@ const QuestionFlow = ({ item, t, onComplete, onBack }) => {
                             ${(question.options || []).map(opt => {
                                 const isSel = current === opt;
                                 return html`
-                                    <button key=${opt}
+                                    <button key=${opt} aria-pressed=${isSel}
                                         onClick=${() => setAnswers(prev => ({ ...prev, [question.id]: opt }))}
                                         className=${`px-3.5 py-2 rounded-xl border-2 text-xs font-black uppercase tracking-tight transition-all duration-150 ${isSel ? 'bg-coral text-white border-coral shadow-sm scale-105' : 'bg-opal-bg dark:bg-slate-800 border-mist dark:border-slate-600 text-stone dark:text-slate-300 hover:border-coral hover:text-coral'}`}>
                                         ${opt}
@@ -2181,10 +2181,10 @@ const QuestionFlow = ({ item, t, onComplete, onBack }) => {
                         </div>
                         <div className="relative">
                             <div className="absolute -top-2.5 left-4 px-2 bg-opal-surface dark:bg-slate-800 text-[9px] font-black uppercase tracking-widest text-stone-light">
-                                or describe your own
+                                ${t('release.own_answer')}
                             </div>
-                            <input type="text" value=${current} onInput=${handleInput} onKeyDown=${handleKeyDown}
-                                placeholder="Type anything more specific..."
+                            <input aria-labelledby="situation-question-title" type="text" value=${current} onInput=${handleInput} onKeyDown=${handleKeyDown}
+                                placeholder=${t('release.more_specific')}
                                 className="w-full px-5 py-4 rounded-2xl border-2 border-mist dark:border-slate-600 bg-white dark:bg-slate-900 text-charcoal dark:text-white placeholder-stone-light dark:placeholder-slate-500 focus:outline-none focus:border-coral transition-colors text-sm font-medium shadow-inner"
                                 autoFocus />
                         </div>
@@ -2192,7 +2192,7 @@ const QuestionFlow = ({ item, t, onComplete, onBack }) => {
                 `}
 
                 ${question.type === 'text' && html`
-                    <input type="text" value=${current} onInput=${handleInput} onKeyDown=${handleKeyDown}
+                    <input aria-labelledby="situation-question-title" type="text" value=${current} onInput=${handleInput} onKeyDown=${handleKeyDown}
                         placeholder=${qPlaceholder}
                         className="w-full px-5 py-4 rounded-2xl border-2 border-mist dark:border-slate-600 bg-white dark:bg-slate-900 text-charcoal dark:text-white placeholder-stone-light dark:placeholder-slate-500 focus:outline-none focus:border-coral transition-colors text-sm font-medium shadow-inner"
                         autoFocus />
@@ -2204,7 +2204,7 @@ const QuestionFlow = ({ item, t, onComplete, onBack }) => {
                             ${(question.options || []).map(opt => {
                                 const isSel = current === opt;
                                 return html`
-                                    <button key=${opt}
+                                    <button key=${opt} aria-pressed=${isSel}
                                         onClick=${() => setAnswers(prev => ({ ...prev, [question.id]: opt }))}
                                         className=${`px-3.5 py-2 rounded-xl border-2 text-xs font-black uppercase tracking-tight transition-all duration-150 ${isSel ? 'bg-coral text-white border-coral shadow-sm scale-105' : 'bg-opal-bg dark:bg-slate-800 border-mist dark:border-slate-600 text-stone dark:text-slate-300 hover:border-coral hover:text-coral'}`}>
                                         ${opt}
@@ -2214,9 +2214,9 @@ const QuestionFlow = ({ item, t, onComplete, onBack }) => {
                         </div>
                         <div className="relative">
                             <div className="absolute -top-2.5 left-4 px-2 bg-opal-surface dark:bg-slate-800 text-[9px] font-black uppercase tracking-widest text-stone-light">
-                                or describe your own
+                                ${t('release.own_answer')}
                             </div>
-                            <textarea value=${current} onInput=${handleInput} onKeyDown=${handleKeyDown}
+                            <textarea aria-labelledby="situation-question-title" value=${current} onInput=${handleInput} onKeyDown=${handleKeyDown}
                                 placeholder=${qPlaceholder} rows="4"
                                 className="w-full px-5 py-4 rounded-2xl border-2 border-mist dark:border-slate-600 bg-white dark:bg-slate-900 text-charcoal dark:text-white placeholder-stone-light dark:placeholder-slate-500 focus:outline-none focus:border-coral transition-colors text-sm font-medium shadow-inner resize-none"
                                 autoFocus />
@@ -2225,7 +2225,7 @@ const QuestionFlow = ({ item, t, onComplete, onBack }) => {
                 `}
 
                 ${question.type === 'textarea' && !(isPlaybook && question.options) && html`
-                    <textarea value=${current} onInput=${handleInput} onKeyDown=${handleKeyDown}
+                    <textarea aria-labelledby="situation-question-title" value=${current} onInput=${handleInput} onKeyDown=${handleKeyDown}
                         placeholder=${qPlaceholder}
                         rows="5"
                         className="w-full px-5 py-4 rounded-2xl border-2 border-mist dark:border-slate-600 bg-white dark:bg-slate-900 text-charcoal dark:text-white placeholder-stone-light dark:placeholder-slate-500 focus:outline-none focus:border-coral transition-colors text-sm font-medium shadow-inner resize-none"
@@ -2247,20 +2247,12 @@ const QuestionFlow = ({ item, t, onComplete, onBack }) => {
     `;
 };
 
-const PromptBlock = ({ text, copyLabel, onCopy }) => html`
-    <div className="relative">
-        <pre className="whitespace-pre-wrap text-sm text-stone dark:text-slate-300 bg-opal-surface dark:bg-slate-800 rounded-2xl p-5 border-2 border-mist dark:border-slate-700 font-mono leading-relaxed overflow-auto max-h-96 shadow-inner">
-${text}
-        </pre>
-        <button onClick=${() => onCopy(text)}
-            className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-white dark:bg-slate-700 border border-mist dark:border-slate-600 text-stone dark:text-slate-300 hover:text-coral hover:border-coral transition-all shadow-sm">
-            <${Copy} className="w-3.5 h-3.5" /> ${copyLabel}
-        </button>
-    </div>
-`;
+const PromptBlock = ({ text, copyLabel, onCopy }) => html`<section className="situation-output-source"><button type="button" className="ainow-button is-secondary" onClick=${()=>onCopy(text)}><${Copy}/>${copyLabel}</button><div className="ainow-prompt-content" dangerouslySetInnerHTML=${{__html:AINOWPromptText.render(text)}}></div></section>`;
 
 const OutputPanel = ({ item, answers, t, onRestart, showToast }) => {
     const [activeTab, setActiveTab] = useState('quick');
+    const heading = useRef(null);
+    useEffect(() => { heading.current?.focus(); }, []);
     const Icon   = getIcon(item.icon);
     const title  = item._type === 'playbook' ? item.title : t(item.titleKey);
     const output = useMemo(() => buildOutput(item, answers, t), [item, answers, t]);
@@ -2275,21 +2267,21 @@ const OutputPanel = ({ item, answers, t, onRestart, showToast }) => {
 
     return html`
         <div className="animate-fade-in max-w-3xl mx-auto text-left">
-            <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 rounded-xl bg-coral/10 border-2 border-coral/20 text-coral">
+            <div className="situation-output-heading">
+                <div className="ainow-page-heading-mark" aria-hidden="true">
                     <${Icon} className="w-6 h-6" />
                 </div>
-                <div className="flex-1">
-                    <h2 className="text-xl font-black text-charcoal dark:text-white uppercase tracking-tight">${t('situations.output_title')}</h2>
+                <div className="situation-output-title">
+                    <h1 ref=${heading} tabIndex="-1">${t('situations.output_title')}</h1>
                     <p className="text-xs text-stone-light font-medium uppercase tracking-widest">${title}</p>
                 </div>
                 <button onClick=${onRestart}
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl border border-mist dark:border-slate-600 text-stone-light hover:text-coral hover:border-coral text-[10px] font-black uppercase tracking-widest transition-all">
+                    className="ainow-button is-secondary">
                     <${RotateCcw} className="w-3.5 h-3.5" /> ${t('situations.restart_btn')}
                 </button>
             </div>
 
-            <div className="bg-opal-bg dark:bg-slate-900/50 rounded-2xl border border-mist dark:border-slate-700 p-4 mb-6">
+            <div className="situation-output-context">
                 <p className="text-[10px] font-black text-stone-light uppercase tracking-widest mb-3">${t('situations.your_context')}</p>
                 <div className="flex flex-wrap gap-2">
                     ${Object.entries(answers).map(([key, val]) => html`
@@ -2305,7 +2297,7 @@ const OutputPanel = ({ item, answers, t, onRestart, showToast }) => {
                 ${tabs.map(tab => {
                     const TabIcon = tab.icon;
                     return html`
-                        <button key=${tab.id} onClick=${() => setActiveTab(tab.id)}
+                        <button key=${tab.id} aria-pressed=${activeTab===tab.id} onClick=${() => setActiveTab(tab.id)}
                             className=${`flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === tab.id ? 'bg-white dark:bg-slate-700 text-charcoal dark:text-white shadow-sm' : 'text-stone-light hover:text-charcoal dark:hover:text-white'}`}>
                             <${TabIcon} className="w-3.5 h-3.5" /> ${tab.label}
                         </button>
@@ -2337,23 +2329,30 @@ const OutputPanel = ({ item, answers, t, onRestart, showToast }) => {
 const App = () => {
     const { t, isReady }                    = useLanguage();
     const { toast, showToast }              = useToast();
-    const [currentTheme, setCurrentTheme]   = useState(() => localStorage.getItem('theme') || 'light');
+    const [currentTheme, setCurrentTheme]   = useState(() => { try { return (localStorage.getItem('ainow-theme') || localStorage.getItem('theme'))==='dark'?'dark':'light'; } catch (_) { return 'light'; } });
     const [view, setView]                   = useState('gallery');
     const [activeItem, setActiveItem]       = useState(null);
     const [answers, setAnswers]             = useState({});
     const [selectedFilter, setSelectedFilter] = useState('all');
     const [searchQuery, setSearchQuery]     = useState('');
     const [page, setPage]                   = useState(1);
-    const [favorites, setFavorites]         = useState(() => { try { return JSON.parse(localStorage.getItem('favPlaybooks') || '[]'); } catch { return []; } });
+    const [favorites, setFavorites]         = useState(() => { try { const value=JSON.parse(localStorage.getItem('favPlaybooks') || '[]');return Array.isArray(value)?value:[]; } catch { return []; } });
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [showShortcuts, setShowShortcuts] = useState(false);
     const [isScratchpadOpen, setIsScratchpadOpen] = useState(false);
-    const [isZenMode, setIsZenMode]         = useState(false);
-    const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+    const isZenMode = false;
+    useStorageSync(['favPlaybooks','ainow-theme','theme'],values=>{
+        try {
+            const saved=JSON.parse(values.favPlaybooks||'[]');
+            setFavorites(Array.isArray(saved)?saved:[]);
+            setCurrentTheme((values['ainow-theme']||values.theme)==='dark'?'dark':'light');
+        } catch (_) { showToast(t('release.storage_unavailable')); }
+    });
+
     const searchInputRef = useRef(null);
 
-    useEffect(() => { document.documentElement.classList.toggle('dark', currentTheme === 'dark'); localStorage.setItem('theme', currentTheme); }, [currentTheme]);
-    useEffect(() => { localStorage.setItem('favPlaybooks', JSON.stringify(favorites)); }, [favorites]);
+    useEffect(() => { document.documentElement.classList.toggle('dark', currentTheme === 'dark'); try { localStorage.setItem('theme', currentTheme); localStorage.setItem('ainow-theme', currentTheme); } catch (_) { showToast(t('release.storage_unavailable')); } }, [currentTheme]);
+    useEffect(() => { try { localStorage.setItem('favPlaybooks', JSON.stringify(favorites)); } catch (_) { showToast(t('release.storage_unavailable')); } }, [favorites]);
 
     const ALL_ITEMS = useMemo(() => [
         ...SITUATIONS.map(s => ({ _type: 'situation', ...s,
@@ -2384,19 +2383,20 @@ const App = () => {
             res = res.filter(i => i.category === selectedFilter);
         }
         if (searchQuery.trim()) {
-            const q = searchQuery.toLowerCase();
+            const q = searchQuery.trim().toLocaleLowerCase();
             const pbMatches = new Set(pbFuse.search(searchQuery).map(r => r.item.id));
             res = res.filter(i => {
                 if (i._type === 'playbook') return pbMatches.has(i.id);
-                return i.id.replace(/_/g, ' ').includes(q) || i.category.includes(q);
+                return [i.id.replace(/_/g, ' '), i.category, t(i.titleKey), t(i.descKey)].join(' ').toLocaleLowerCase().includes(q);
             });
         }
         return res;
-    }, [ALL_ITEMS, selectedFilter, searchQuery, pbFuse, favorites]);
+    }, [ALL_ITEMS, selectedFilter, searchQuery, pbFuse, favorites, t]);
 
     const ITEMS_PER_PAGE = 12;
     const paginatedItems = filtered.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
     const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+    useEffect(()=>{setPage(current=>Math.min(current,Math.max(1,totalPages)));},[totalPages]);
 
     const toggleFavorite = useCallback((id) => setFavorites(f => f.includes(id) ? f.filter(x => x !== id) : [...f, id]), []);
 
@@ -2427,7 +2427,6 @@ const App = () => {
         onEscape: () => {
             if (showShortcuts)    { setShowShortcuts(false);    return; }
             if (isScratchpadOpen) { setIsScratchpadOpen(false); return; }
-            if (isSettingsOpen)   { setIsSettingsOpen(false);   return; }
             if (isSidebarOpen)    { setIsSidebarOpen(false);    return; }
             if (view !== 'gallery') handleRestart();
         }
@@ -2495,13 +2494,13 @@ const App = () => {
                 onThemeToggle=${() => setCurrentTheme(prev => prev === 'dark' ? 'light' : 'dark')}
                 onMenuClick=${() => setIsSidebarOpen(true)}
                 onScratchpad=${() => setIsScratchpadOpen(true)}
-                onSettingsClick=${() => setIsSettingsOpen(true)}
+
                 activePage="playbooks"
                 isZenMode=${isZenMode}
                 onToggleZen=${() => setIsZenMode(prev => !prev)}
             />
             <div className="flex-1 max-w-[1600px] mx-auto w-full flex">
-                <${SidebarWrapper} isOpen=${isSidebarOpen} onClose=${() => setIsSidebarOpen(false)} isZenMode=${isZenMode}>
+                <${SidebarWrapper} onNotes=${()=>setIsScratchpadOpen(true)} isOpen=${isSidebarOpen} onClose=${() => setIsSidebarOpen(false)} isZenMode=${isZenMode}>
                     ${sidebarContent}
                 <//>
                 <main className="flex-1 p-4 md:p-8 min-w-0">
@@ -2522,14 +2521,14 @@ const App = () => {
                                 </p>
                             </div>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 max-w-3xl">
+                            <div className="situations-start-steps">
                                 ${[
                                     { step: '1', icon: Target,   titleKey: 'situations.guide.step1_title', descKey: 'situations.guide.step1_desc' },
                                     { step: '2', icon: MessageSquare, titleKey: 'situations.guide.step2_title', descKey: 'situations.guide.step2_desc' },
                                     { step: '3', icon: Copy,     titleKey: 'situations.guide.step3_title', descKey: 'situations.guide.step3_desc' },
                                 ].map(({ step, icon: StepIcon, titleKey, descKey }) => html`
-                                    <div key=${step} className="flex gap-3 items-start bg-opal-surface dark:bg-slate-800 border border-mist dark:border-slate-700 rounded-2xl p-4">
-                                        <div className="w-8 h-8 rounded-xl bg-coral text-white flex items-center justify-center text-xs font-black flex-shrink-0">${step}</div>
+                                    <div key=${step} className="situations-start-step">
+                                        <div className="situations-step-number">${step}</div>
                                         <div>
                                             <p className="text-xs font-black text-charcoal dark:text-white uppercase tracking-tight mb-0.5">${t(titleKey)}</p>
                                             <p className="text-xs text-stone-light dark:text-slate-400 font-medium leading-relaxed">${t(descKey)}</p>
@@ -2542,7 +2541,9 @@ const App = () => {
                                 <${Search} className="absolute left-5 top-1/2 -translate-y-1/2 text-stone-light w-5 h-5 pointer-events-none" />
                                 <input
                                     ref=${searchInputRef}
-                                    type="text"
+                                    id="situation-search"
+                                    type="search"
+                                    aria-label=${t('playbooks.list.search')}
                                     value=${searchQuery}
                                     onChange=${e => { setSearchQuery(e.target.value); setPage(1); }}
                                     placeholder=${t('playbooks.list.search')}
@@ -2604,7 +2605,7 @@ const App = () => {
             </div>
             <${Toast} toast=${toast} />
             <${Scratchpad} isOpen=${isScratchpadOpen} onClose=${() => setIsScratchpadOpen(false)} />
-            <${SettingsModal} isOpen=${isSettingsOpen} onClose=${() => setIsSettingsOpen(false)} />
+
             <${ShortcutsModal} isOpen=${showShortcuts} onClose=${() => setShowShortcuts(false)} />
             <${Footer} isZenMode=${isZenMode} />
         </div>

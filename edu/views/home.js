@@ -11,6 +11,8 @@ window.VIEWS.home = `
         <p id="home-stat-bar" class="home-hero-stats"></p>
     </div>
 
+    <div id="home-task-start"></div>
+
     <section class="home-band">
         <h2 class="home-band-title" data-i18n="home.band.learn">Учете и истражувајте</h2>
         <div class="home-grid" id="home-grid-learn"></div>

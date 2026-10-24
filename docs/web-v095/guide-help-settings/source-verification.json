@@ -1,0 +1,10 @@
+{
+  "version": "0.95-rc34",
+  "date": "2026-10-24",
+  "portableTests": 94,
+  "failed": 0,
+  "evidence": "source-tests.tap",
+  "testedExtraction": "dist/source-verify-rc34",
+  "contentReferenceRequired": false,
+  "finalRuntimeAndTestsMatchTestedExtraction": true
+}

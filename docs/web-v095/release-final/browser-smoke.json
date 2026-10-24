@@ -1,0 +1,123 @@
+[
+  {
+    "errorUi": false,
+    "heading": "AINOW Society",
+    "retiredConfigLoaded": false,
+    "revision": "http://127.0.0.1:4180/assets/platform.js?v=95",
+    "textLength": 663,
+    "title": "AINOW — AI literacy and prompt tools",
+    "url": "http://127.0.0.1:4180/index.html",
+    "page": "chooser",
+    "passed": true
+  },
+  {
+    "errorUi": false,
+    "heading": "Prompts",
+    "retiredConfigLoaded": false,
+    "revision": "http://127.0.0.1:4180/assets/platform.js?v=95",
+    "textLength": 7859,
+    "title": "AINOW — AI literacy platform for educators",
+    "url": "http://127.0.0.1:4180/edu/index.html?view=prompts",
+    "page": "Education prompts",
+    "passed": true
+  },
+  {
+    "errorUi": false,
+    "heading": "Work smarter with AINOW BIZ",
+    "retiredConfigLoaded": false,
+    "revision": "http://127.0.0.1:4180/assets/platform.js?v=95",
+    "textLength": 763,
+    "title": "AINOW Business — AI for everyday work",
+    "url": "http://127.0.0.1:4180/biz/index.html",
+    "page": "Business overview",
+    "passed": true
+  },
+  {
+    "errorUi": false,
+    "heading": "All Agents",
+    "retiredConfigLoaded": false,
+    "revision": "http://127.0.0.1:4180/assets/platform.js?v=95",
+    "textLength": 2039,
+    "title": "AI agents · AINOW Business",
+    "url": "http://127.0.0.1:4180/biz/agents.html",
+    "page": "Business agents",
+    "passed": true
+  },
+  {
+    "errorUi": false,
+    "heading": "Agent Builder",
+    "retiredConfigLoaded": false,
+    "revision": "http://127.0.0.1:4180/assets/platform.js?v=95",
+    "textLength": 731,
+    "title": "Agent Builder · AINOW Business",
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "page": "Business Builder",
+    "passed": true
+  },
+  {
+    "errorUi": false,
+    "heading": "What's Your Situation?",
+    "retiredConfigLoaded": false,
+    "revision": "http://127.0.0.1:4180/assets/platform.js?v=95",
+    "textLength": 2155,
+    "title": "Situations · AINOW Business",
+    "url": "http://127.0.0.1:4180/biz/playbooks.html",
+    "page": "Business situations",
+    "passed": true
+  },
+  {
+    "errorUi": false,
+    "heading": "Build with AINOW DEV",
+    "retiredConfigLoaded": false,
+    "revision": "http://127.0.0.1:4180/assets/platform.js?v=95",
+    "textLength": 1099,
+    "title": "AINOW DEV — Guided AI learning",
+    "url": "http://127.0.0.1:4180/dev/index.html#/home",
+    "page": "DEV overview",
+    "passed": true
+  },
+  {
+    "errorUi": false,
+    "heading": "Help",
+    "retiredConfigLoaded": false,
+    "revision": "http://127.0.0.1:4180/assets/platform.js?v=95",
+    "textLength": 2727,
+    "title": "Help · AINOW",
+    "url": "http://127.0.0.1:4180/help.html",
+    "page": "Shared Help",
+    "passed": true
+  },
+  {
+    "errorUi": false,
+    "heading": "Programme",
+    "retiredConfigLoaded": false,
+    "revision": "http://127.0.0.1:4180/assets/platform.js?v=95",
+    "textLength": 3401,
+    "title": "About · AINOW",
+    "url": "http://127.0.0.1:4180/about.html#/page/programme",
+    "page": "Shared About",
+    "passed": true
+  },
+  {
+    "errorUi": false,
+    "heading": "Settings",
+    "retiredConfigLoaded": false,
+    "revision": "http://127.0.0.1:4180/assets/platform.js?v=95",
+    "textLength": 1094,
+    "title": "Settings · AINOW",
+    "url": "http://127.0.0.1:4180/settings.html",
+    "page": "Shared Settings",
+    "passed": true
+  },
+  {
+    "errorUi": false,
+    "heading": "About",
+    "retiredConfigLoaded": false,
+    "revision": "http://127.0.0.1:4180/assets/platform.js?v=95",
+    "textLength": 4169,
+    "title": "About · AINOW",
+    "url": "http://127.0.0.1:4180/about.html",
+    "page": "Legacy Education About redirect",
+    "passed": true
+  }
+]

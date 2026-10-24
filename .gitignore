@@ -5,10 +5,16 @@ node_modules/
 .cursor/
 .claude/
 .gemini/
-# Maintainer-only helpers (run locally; not part of published repo)
-scripts/
+# Keep reproducible public-web verification and packaging helpers.
+scripts/*
+!scripts/verify-*.cjs
+!scripts/serve-web.py
+!scripts/package-web.py
 dist/
 build/
+# Separate local projects are not part of the web repository or release.
+/android/
+/mobile-prototype/
 # Internal build plans and specs: contain local absolute paths
 docs/superpowers/
 

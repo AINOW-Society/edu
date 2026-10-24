@@ -1,8 +1,8 @@
 # AINOW Platform for AI Literacy
 
 <div align="center">
-  <h3>Two Open-Source AI Products, One Platform</h3>
-  <img src="assets/screenshots/platform.png" alt="AINOW platform chooser: Education and Business" width="100%">
+  <h3>Three Open-Source AI Workspaces, One Platform</h3>
+  <img src="assets/screenshots/platform.png" alt="AINOW v0.95 platform chooser: Education, Business and Development" width="100%">
   <p>Available at <a href="https://edu.ainow.mk">edu.ainow.mk</a></p>
 </div>
 
@@ -10,12 +10,13 @@
 
 ## About The Project
 
-As Artificial Intelligence reshapes work and study, **AINOW** exists to ensure the people it affects aren't left behind. The site root is a chooser between two products that share one design system, one type system, and the same privacy guarantee:
+As Artificial Intelligence reshapes work and study, **AINOW** exists to ensure the people it affects aren't left behind. The site root is a chooser between three workspaces that share one design system, one type system, and the same privacy guarantee:
 
 - **Education (`/edu/`)** — an offline-first PWA giving teachers, principals, and school administrators the skills and tools to use AI in their daily work. Free, and staying free.
 - **Business (`/biz/`)** — the AINOW Prompt Library: prompts, agents, situations, playbooks, and an agent builder for professional use.
+- **DEV (`/dev/`)** — guided AI learning for developers, with guide chapters, tool profiles, skills, MCP, workflows, practical examples, and a token/context calculator.
 
-Both run with **no build step and no server**. Open `index.html` by double-click from a USB stick and everything works. Currently deployed for schools across the Balkans, the platform is **100% open-source, zero-dependency, and strictly privacy-first**. No data ever leaves the device.
+All three run with **no build step and no server**. Download the complete folder and open `index.html` in your browser. Created by AINOW Society in North Macedonia, the platform is **open-source and privacy-first**. Saved work stays in your browser; external AI apps and source websites use their own services.
 
 <div align="center">
   <img src="assets/screenshots/education.png" alt="The Education app" width="49%">
@@ -30,20 +31,23 @@ Both run with **no build step and no server**. Open `index.html` by double-click
 - **Homework Sheets:** Chapter-aligned student tasks in Resources—print or PDF, with an optional teacher-only guidance block (per response field) in all three languages.
 - **Massive Prompt Bank:** 1,106 educator-tested prompts across the three languages, organized by grade level, administrative role, and higher-education function — from Flipped Classroom lesson plans to difficult parent conferences. The Business library adds 3,270 more across 33 professional areas.
 - **AI Agents & Playbooks (Business):** 2,190 ready agent definitions, 8 guided situations, and step-by-step playbooks, plus a builder for composing your own agent without writing code.
+- **DEV Learning Workspace:** 13 ordered guide chapters, 7 tool profiles, 1,000 skills, 1,000 MCP records, and 200 workflows. Imported catalogue entries retain their original language, attribution, and licences.
+- **Practice & Context (DEV):** Interactive examples, 6 practice checks, original skill-file readers, and a provider-neutral token/context calculator.
+- **Shared Platform Experience:** Consistent headers, sidebars, menus, prompt readers, and controls across Education, Business, and DEV, with one Help, About, and Settings. Business and DEV share Scratchpad and backup controls while keeping saved work separate.
 - **AI Tool Directory:** A curated list of 57 AI tools for classrooms, categorized by use-case (Planning, Multimedia, Assessment, etc.) with clear pricing badges.
 - **AI Literacy Glossary:** 60-term glossary covering essential AI and education vocabulary, filterable by category, with live search — in all three languages.
-- **Lightning Fast & Offline-Ready:** Built with vanilla HTML/CSS/JS. The built-in Service Worker ensures the platform works perfectly even when a school loses internet access.
-- **Tri-Lingual:** Seamless, real-time language switching across English, Macedonian, and Albanian. The interface, guide, glossary, quizzes, and homework are fully translated; the prompt bank is independently authored per language, so the three sets differ in size and content.
+- **Offline-Ready:** Learning content, fonts, icons, and libraries are bundled locally, with separate service-worker caches for Education, Business, and DEV. External AI apps and publisher websites require an internet connection.
+- **Tri-Lingual:** Seamless, real-time language switching across English, Macedonian, and Albanian. The interface, guide, glossary, quizzes, and homework are fully translated; the prompt bank is independently authored per language, so the three sets differ in size and content. Imported DEV catalogue text stays in its original source language.
 
 ---
 
 ## Built for Developers & Contributors
 
-We intentionally designed the platform without heavy frameworks (React, Vue, etc.) or build steps (Webpack, Vite) so that **anyone with basic web skills can contribute**. 
+The platform runs without a build step or package installation, so **anyone with basic web skills can contribute**. Education uses vanilla HTML/CSS/JS; Business and DEV use locally bundled React and htm. Fonts and libraries ship with the app.
 
 ### How to Run the App
 
-This app is built to be as simple as possible for educators to use. You do not need to install any development tools, and you do not need an internet connection after downloading.
+You do not need to install development tools. Bundled learning content works offline after downloading; external AI apps and source websites require a connection.
 
 1. Download or clone this repository to your computer.
 2. Double-click the `index.html` file to open it in your browser.
@@ -58,9 +62,23 @@ We have prepared a comprehensive **[Contribution Guide](CONTRIBUTING.md)** that 
 1. Adding new Prompts to the Database
 2. Adding new Educational AI Tools
 3. Updating the AI Literacy Guide
-4. Localization and Translation requirements
+4. Contributing DEV guides, skills, MCP entries, and workflows
+5. Localization and Translation requirements
 
 ## Changelog
+
+### v0.95
+
+- **DEV workspace:** A third workspace joins Education and Business, with 13 ordered guide chapters, 7 tool profiles, 1,000 skills, 1,000 MCP records, and 200 workflows. Authored learning content supports MK/EN/SQ; imported records retain their source language and attribution.
+- **DEV practice tools:** Interactive learning examples, 6 practice checks, original skill-file readers, saved items and drafts, and a provider-neutral token/context calculator.
+- **Unified interface:** Shared locally hosted Manrope, original AINOW wordmarks, header controls, sidebars, menus, buttons, and references across all three workspaces. Mobile layouts, dark mode, and translated labels follow the same design system.
+- **Platform-wide pages:** One Help and one About cover Education, Business, and DEV. Help explains tasks with worked examples and one-open FAQs; Programme presents the Society's work and projects, while Services leads with AINOW training and learning support.
+- **Settings & saved work:** Shared Settings for starting language, appearance, and separate Business/DEV backups. Business and DEV use the same plain Scratchpad drawer while preserving their own notes, existing backup formats, and saved data.
+- **Prompt libraries:** Education and Business share prompt cards, search/view controls, whole-card opening, readable formatting, editing, and a full-screen mobile reader. Copy and labelled AI-app icons stay visible in the footer.
+- **Agent Builder:** Interactive step cards, current/viewed states, keyboard navigation, clearer next-step actions, and readable light/dark previews. Existing fields and drafts are preserved.
+- **Reliability & cleanup:** Improved search, pagination, history navigation, cross-tab state refresh, backup validation, and restore rollback. Removed obsolete renderers, configuration, unused styles, and decorative button glows; keyboard focus outlines and required licence notices remain.
+- **Security:** Escaped Education timeline/application text and headings before HTML rendering, and removed the Business console-warning filter behind GitHub's URL-substring alert.
+- **Offline/version sync:** Root, Education, Business, and DEV service-worker caches and asset revisions are aligned to v0.95. Original source IDs, catalogue licences, and legacy saves are preserved.
 
 ### v0.94 (August 16, 2026)
 - **Two products, one platform:** The site root is now a chooser between **Education** and **Business**. The education app moves to `/edu/` and keeps every feature, its offline behavior, and its free licence unchanged.

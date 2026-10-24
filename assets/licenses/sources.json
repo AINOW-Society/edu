@@ -1,0 +1,33 @@
+[
+  {
+    "file": "gpl-3.0.txt",
+    "source": "https://raw.githubusercontent.com/gcc-mirror/gcc/master/COPYING3",
+    "canonical": "https://www.gnu.org/licenses/gpl-3.0.html",
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "bytes": 35147
+  },
+  {
+    "file": "htm-LICENSE.txt",
+    "source": "https://raw.githubusercontent.com/developit/htm/master/LICENSE",
+    "sha256": "740725f7252e750af735d0028cc534970772f513331e9f68150fede8fb3ce00f",
+    "bytes": 11341
+  },
+  {
+    "file": "tailwindcss-LICENSE.txt",
+    "source": "https://raw.githubusercontent.com/tailwindlabs/tailwindcss/v3.4.17/LICENSE",
+    "sha256": "60e0b68c0f35c078eef3a5d29419d0b03ff84ec1df9c3f9d6e39a519a5ae7985",
+    "bytes": 1071
+  },
+  {
+    "file": "react-LICENSE.txt",
+    "source": "https://raw.githubusercontent.com/facebook/react/main/LICENSE",
+    "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+    "bytes": 1088
+  },
+  {
+    "file": "fuse-LICENSE.txt",
+    "source": "https://raw.githubusercontent.com/krisk/Fuse/v7.0.0/LICENSE",
+    "sha256": "cc807e3caa26cdee316bab2ff6fdb508a2f619b74959fe59e513ef6e61635ebe",
+    "bytes": 11343
+  }
+]

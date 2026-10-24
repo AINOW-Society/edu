@@ -1,0 +1,45 @@
+{
+  "reviewed": "2026-10-23",
+  "browser": "ChatGPT in-app browser",
+  "browserId": "2",
+  "qaTabId": "1",
+  "ownership": "returned to root",
+  "responsiveMatrix": "responsive-matrix.json",
+  "responsiveChecks": 78,
+  "representativeRoutes": 39,
+  "widths": [320, 390],
+  "documentOverflow": 0,
+  "blankHeadings": 0,
+  "limitedRawKeyMatches": 0,
+  "screenshots": {
+    "total": 53,
+    "accepted": 47,
+    "rejectedNumbers": [19, 20, 47, 48, 49, 50],
+    "finalFixEvidence": [37, 38, 39, 40, 41],
+    "notes": "Before-fix screenshots are accepted audit evidence, not final acceptance images. Full index and rejection reasons are in design-review.md."
+  },
+  "confirmedInteractions": [
+    "Education and Business prompt readers opened at320 and390",
+    "Business agent reader opened full-screen at320",
+    "Business fictional situation completed through five questions to formatted output",
+    "Builder task and Review & use rendered on rc33 after mixed-cache fix",
+    "Shared Help FAQ has exactly one details element open after switching question",
+    "EDU Escape closes drawer and restores Open menu focus",
+    "EDU/BIZ/DEV shared drawers inspected at320 with Settings and About visible",
+    "EDU767 mobile and768 desktop navigation boundary measured",
+    "DEV767 mobile and768 desktop navigation boundary measured",
+    "Resource Tests All selects8; None clears8 and preview"
+  ],
+  "cssChanges": [
+    "assets/design-system.css: .ainow-brand min-height44px",
+    "edu/css/styles.css: guide mobile categories auto-fit110px and ordinary word wrapping"
+  ],
+  "unverifiedByThisAgent": [
+    "Physical devices, screen readers, zoom, contrast and full accessibility compliance",
+    "MK/SQ and dark-mode visual pass",
+    "Every table/list toggle, search error/empty state and playbook output variant",
+    "Actual PDF export and print output; browser tool action was interrupted",
+    "Backup restore/reset, cross-tab behavior and origin-unavailable smoke owned by root",
+    "Deployment or hosted environment"
+  ]
+}

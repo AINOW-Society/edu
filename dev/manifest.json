@@ -1,0 +1,7 @@
+{
+  "id":"./", "name":"AINOW DEV", "short_name":"AINOW DEV",
+  "description":"Guided AI learning, skills, MCP and building workflows",
+  "start_url":"./index.html", "scope":"./", "display":"standalone",
+  "background_color":"#faf9f7", "theme_color":"#554a9e", "lang":"mk",
+  "icons":[{"src":"../edu/assets/logo.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]
+}

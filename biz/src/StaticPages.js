@@ -3,7 +3,7 @@ window.AINOW = window.AINOW || {};
 var __exports = AINOW['src/StaticPages'] = AINOW['src/StaticPages'] || {};
 const { useEffect } = React;
 
-const { Settings2, Search, Play, Copy, Terminal, Code, CheckCircle, Heart, Share2, ExternalLink, Shield, Users, Lock, Eye, Scale, BrainCircuit, AlertTriangle, Book, Github, Hand, User, Sparkles, Ban, GitMerge, Globe, Activity, Keyboard, Cpu, Palette, Box, ArrowRight } = lucide;
+const { Code, CheckCircle, ExternalLink, Users, Lock, Eye, Scale, BrainCircuit, AlertTriangle, Book, Github, Hand } = lucide;
 const { useLanguage } = AINOW['src/components'];
 
 const html = htm.bind(React.createElement);
@@ -23,31 +23,19 @@ const PageWrapper = ({ title, children }) => {
     `;
 };
 
-const ContentCard = ({ title, desc, labels = [], icon: Icon }) => html`
-    <div className="p-6 rounded-2xl bg-opal-surface dark:bg-slate-800 border border-mist dark:border-slate-700 hover:border-coral transition-all group flex flex-col h-full shadow-sm hover:shadow-md">
-        ${Icon && html`<div className="mb-4 text-stone group-hover:text-coral transition-colors"><${Icon} className="w-5 h-5" /></div>`}
-        <h3 className="font-black text-charcoal dark:text-slate-100 mb-2 uppercase tracking-tight text-sm">${title}</h3>
-        <p className="text-stone dark:text-slate-400 text-[11px] leading-relaxed mb-4 flex-1">${desc}</p>
-        <div className="flex flex-wrap gap-1.5">
-            ${labels.map(label => html`
-                <span key=${label} className="px-2 py-0.5 rounded-md bg-opal-bg dark:bg-slate-700 text-stone-dark dark:text-slate-300 text-[9px] font-black uppercase tracking-widest border border-mist dark:border-slate-600">
-                    ${label}
-                </span>
-            `)}
-        </div>
-    </div>
-`;
-
 const AboutPage = () => {
-    const { t } = useLanguage();
+    const { t, lang } = useLanguage();
+    const society=AINOW_ABOUT_CONTENT[lang],sources=AINOW_ABOUT_CONTENT.sources;
     const teamMembers = ['sead', 'bojan', 'biljana', 'aleksandra', 'maja'];
     return html`
-    <${PageWrapper} title=${t('pages.about.title')}>
+    <${PageWrapper} title=${AINOWPlatform.text(lang,'about')}>
+        <p className="platform-about-intro">${AINOWPlatform.text(lang,'aboutIntro')}</p>
+        <p className="platform-about-scope">${AINOWPlatform.text(lang,'scope')}</p>
 
         <div className="mb-12">
             <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">${t('pages.about.story_title')}</h2>
             <p className="lead text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                ${t('pages.about.story_text')}
+                ${society.societyIntro}
             </p>
         </div>
 
@@ -117,22 +105,20 @@ const AboutPage = () => {
         </div>
 
         <div className="flex justify-center mb-16 not-prose">
-            <a href="https://www.ainow.mk" target="_blank" className="group inline-flex items-center gap-3 px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-bold transition-all hover:scale-105 shadow-xl hover:shadow-2xl">
-                ${t('pages.about.visit')} <${ExternalLink} className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <a href=${sources.about} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-bold transition-all hover:scale-105 shadow-xl hover:shadow-2xl">
+                ${society.aboutSource} <${ExternalLink} className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
         </div>
 
         <section className="not-prose border-t border-slate-200 dark:border-slate-800 pt-12">
-            <h2 className="text-2xl font-bold tracking-tight text-charcoal dark:text-white mb-4">${t('pages.about.beyond_title')}</h2>
-            <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">${t('pages.about.beyond_free')}</p>
-            <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">${t('pages.about.beyond_work')}</p>
-            <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">${t('pages.about.beyond_close')}</p>
+            <h2 className="text-2xl font-bold tracking-tight text-charcoal dark:text-white mb-4">${society.communityTitle}</h2>
+            <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">${society.communityText}</p>
             <div className="flex flex-wrap items-center gap-3">
-                <a href="#/page/services" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-coral/10 text-coral font-bold text-sm hover:bg-coral/15 transition-colors">
-                    ${t('pages.about.beyond_services')}
+                <a href=${sources.join} target="_blank" rel="noopener noreferrer" className="platform-source-link">
+                    ${society.joinLabel}
                 </a>
-                <a href="https://ctrlab.net" target="_blank" rel="noopener" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold text-sm hover:border-coral hover:text-coral transition-colors">
-                    ctrlab.net <${ExternalLink} className="w-3.5 h-3.5" />
+                <a href=${AINOWPlatform.href('about.html#/page/programme')} className="platform-source-link">
+                    ${AINOWPlatform.text(lang,'programme')}
                 </a>
             </div>
         </section>
@@ -142,7 +128,7 @@ const AboutPage = () => {
 };
 
 const PoliciesPage = () => {
-    const { t } = useLanguage();
+    const { t, lang } = useLanguage();
     return html`
     <${PageWrapper} title=${t('pages.legal.title')}>
 
@@ -209,12 +195,12 @@ const PoliciesPage = () => {
                 <div className="space-y-6 text-sm text-slate-600 dark:text-slate-400">
                     <div>
                         <h3 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-2">${t('pages.legal.license_software')}</h3>
-                        <p>The underlying source code of this web application is licensed under the MIT License.</p>
+                        <p>${AINOWPlatform.text(lang,'licenseSource')} <a href=${AINOWPlatform.href('LICENSE')}>GPLv3</a></p>
                     </div>
 
                     <div>
                         <h3 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-2">${t('pages.legal.license_content')}</h3>
-                        <p>The prompt library content and agent configurations are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license.</p>
+                        <p>${AINOWPlatform.text(lang,'contentLicense')}</p>
                     </div>
 
                     <div>
@@ -374,9 +360,10 @@ const DocumentsPage = () => {
 };
 
 const PartnersPage = () => {
-    const { t } = useLanguage();
+    const { t, lang } = useLanguage();
     return html`
     <${PageWrapper} title=${t('pages.partners.title')}>
+        <section className="platform-education-partner"><h2>${AINOWPlatform.text(lang,'educationPartner')}</h2><a href="https://www.mcgo.org.mk" target="_blank" rel="noopener">MCEC · Macedonian Civic Education Center</a></section>
         <p className="lead text-lg text-slate-600 dark:text-slate-300 mb-12">
             ${t('pages.partners.intro')}
         </p>
@@ -385,7 +372,7 @@ const PartnersPage = () => {
         <div className="mb-16 not-prose">
             <a href="https://ctrlab.net" target="_blank" rel="noopener"
                className="block max-w-xl bg-white dark:bg-slate-800 p-6 rounded-2xl border-2 border-mist dark:border-slate-700 hover:border-coral transition-colors">
-                <h3 className="text-xl font-bold mb-1 text-charcoal dark:text-white">CTRLab</h3>
+                <${CtrlabLogo}/>
                 <p className="text-xs font-mono uppercase tracking-widest text-coral mb-3">ctrlab.net</p>
                 <p className="text-sm text-slate-600 dark:text-slate-400">${t('pages.partners.ctrlab_text')}</p>
             </a>
@@ -444,59 +431,25 @@ const AccessibilityPage = () => {
     `;
 };
 
+const CtrlabLogo = () => html`<span className="ctrlab-wordmark"><img className="ctrlab-for-light" src=${AINOWPlatform.href('assets/brand/ctrlab-black.svg')} alt="CTRLab" width="172" height="40"/><img className="ctrlab-for-dark" src=${AINOWPlatform.href('assets/brand/ctrlab-white.svg')} alt="CTRLab" width="172" height="40"/></span>`;
+
 const ServicesPage = () => {
-    const { t } = useLanguage();
-
-    const services = [
-        'consultancy', 'training', 'copilot', 'readiness',
-        'agents', 'custom', 'seo'
-    ];
-    return html`
-    <${PageWrapper} title=${t('pages.services.title')}>
-        <p className="lead text-lg text-slate-600 dark:text-slate-300 mb-4">
-            ${t('pages.services.intro')}
-        </p>
-        <p className="text-sm text-stone dark:text-slate-400 mb-12">
-            ${t('pages.services.delivered_by')}
-            <a href="https://ctrlab.net" target="_blank" rel="noopener" className="font-bold text-coral hover:underline">CTRLab</a>.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose">
-            ${services.map(id => html`
-                <div key=${id} className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
-                    <h3 className="text-lg font-bold mb-1 text-charcoal dark:text-white">${t('pages.services.' + id)}</h3>
-                    <p className="text-xs font-mono uppercase tracking-widest text-coral mb-3">${t('pages.services.' + id + '_tag')}</p>
-                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">${t('pages.services.' + id + '_text')}</p>
-                </div>
-            `)}
+    const {lang}=useLanguage(), data=AINOW_SERVICES.content[lang]||AINOW_SERVICES.content.en, urls=AINOW_SERVICES.urls;
+    return html`<div className="services-page">
+      <header className="services-heading">
+        <div><h1>${data.title}</h1><p className="services-lead">${data.intro}</p><div className="services-actions"><a className="ainow-button" href=${urls.ainowContact} target="_blank" rel="noopener noreferrer">${data.trainingCta}</a><a className="ainow-button is-secondary" href=${urls.programme} target="_blank" rel="noopener noreferrer">${data.societyCta}</a></div></div>
+      </header>
+      <section className="services-training" aria-labelledby="services-training-title">
+        <header><h2 id="services-training-title">${data.trainingTitle}</h2><p>${data.trainingIntro}</p></header>
+        <div className="services-training-layout"><ol className="services-training-list">${data.training.map(([title,text],index)=>html`<li key=${title}><span className="services-number" aria-hidden="true">${String(index+1).padStart(2,'0')}</span><div><h3>${title}</h3><p>${text}</p></div></li>`)}</ol>
+          <aside className="services-delivery"><h3>${data.deliveryTitle}</h3><p>${data.delivery}</p></aside>
         </div>
-
-        <div className="mt-12 p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 not-prose">
-            <h3 className="text-lg font-bold mb-3 text-charcoal dark:text-white">${t('pages.services.governance')}</h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">${t('pages.services.governance_text')}</p>
-            <div className="flex flex-wrap gap-2">
-                ${['EU AI Act', 'GDPR', 'ISO/IEC 42001', 'NIS2'].map(f => html`
-                    <span key=${f} className="text-[11px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-opal-sidebar dark:bg-slate-900 text-stone dark:text-slate-400 border border-mist dark:border-slate-700">${f}</span>
-                `)}
-            </div>
-        </div>
-
-        <div className="mt-12 p-8 bg-coral/10 dark:bg-teal-900/20 rounded-3xl border border-mist dark:border-teal-800 text-center not-prose">
-            <h2 className="text-2xl font-bold text-charcoal dark:text-white mb-3">${t('pages.services.cta')}</h2>
-            <p className="text-stone-light dark:text-teal-200 mb-6 max-w-xl mx-auto">${t('pages.services.cta_text')}</p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="https://www.ctrlab.net/contact/" target="_blank" rel="noopener"
-                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-coral text-white font-bold text-sm transition-all hover:brightness-110 active:scale-[0.98]">
-                    ${t('pages.services.cta_primary')} <${ArrowRight} className="w-4 h-4" />
-                </a>
-                <a href="mailto:contact@ctrlab.net"
-                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-mist dark:border-slate-700 text-stone dark:text-slate-300 font-bold text-sm transition-all hover:border-coral hover:text-coral active:scale-[0.98]">
-                    contact@ctrlab.net
-                </a>
-            </div>
-        </div>
-    <//>
-    `;
+      </section>
+      <section className="services-society" aria-labelledby="services-society-title"><header><h2 id="services-society-title">${data.ainowTitle}</h2><p>${data.ainowIntro}</p></header><div className="services-society-list">${data.ainow.map(([title,text])=>html`<div key=${title}><h3>${title}</h3><p>${text}</p></div>`)}</div><div className="services-actions"><a className="ainow-button is-secondary" href=${urls.ainowContact} target="_blank" rel="noopener noreferrer">${data.ainowCta}</a><a className="ainow-button is-text" href=${urls.community} target="_blank" rel="noopener noreferrer">${data.join}<${ExternalLink} aria-hidden="true"/></a></div></section>
+      <section className="services-technical" aria-labelledby="services-technical-title"><div><h2 id="services-technical-title">${data.servicesTitle}</h2><p>${data.servicesIntro}</p><ul>${data.services.map(([id,title])=>html`<li key=${id}>${title}</li>`)}</ul></div><a className="services-provider" href="https://www.ctrlab.net/" target="_blank" rel="noopener noreferrer"><span>${data.provider}</span><${CtrlabLogo}/></a></section>
+      <section className="services-next"><h2>${data.nextTitle}</h2><p>${data.nextText}</p><div className="services-actions"><a className="ainow-button is-secondary" href=${urls.ainowContact} target="_blank" rel="noopener noreferrer">${data.ainowCta}</a></div></section>
+      <section className="services-references"><div><h2>${data.sources}</h2><p>${data.reviewed}</p></div><nav aria-label=${data.sources}><a className="platform-source-link" href="https://www.ctrlab.net/services/" target="_blank" rel="noopener noreferrer">${data.sourceCtrlab}</a><a className="platform-source-link" href=${urls.programme} target="_blank" rel="noopener noreferrer">${data.sourceAinow}</a><a className="platform-source-link" href=${urls.community} target="_blank" rel="noopener noreferrer">${data.sourceCommunity}</a></nav></section>
+    </div>`;
 };
 
 const pages = {

@@ -4,23 +4,49 @@ var __exports = AINOW['src/index'] = AINOW['src/index'] || {};
 const { useState, useMemo, useEffect, useRef, useCallback } = React;
 const { createRoot } = ReactDOMClient;
 
-const { Search, LayoutGrid, List, TableProperties, Loader2, Wand2, Settings2, Edit, X, Hash, ArrowUpDown, ArrowUp, ArrowDown, Heart, Copy, Share2, ExternalLink, Calendar } = lucide;
+const { Search, LayoutGrid, List, TableProperties, Loader2, Wand2, Settings2, Edit, X, ArrowUpDown, ArrowUp, ArrowDown, Heart, Copy, Share2, ExternalLink, Calendar, FileText, Briefcase, Cpu, ChevronRight } = lucide;
 const { embeddedPromptsData } = AINOW['data/data'];
 const { promptCounts } = AINOW['data/data-counts'];
-const { Header, Footer, ShortcutsModal, SidebarWrapper, EmptyState, addToHistory, useLanguage, ActionButtons, useToast, Toast, useGlobalShortcuts, Scratchpad, SettingsModal, Pagination } = AINOW['src/components'];
+const { Header, Footer, ShortcutsModal, SidebarWrapper, addToHistory, useLanguage, useStorageSync, ActionButtons, PromptAiActions, useToast, Toast, useGlobalShortcuts, Scratchpad, Pagination } = AINOW['src/components'];
 const { CATEGORY_CONFIG } = AINOW['src/config'];
-const { useDebounce, copyTextToClipboard } = AINOW['src/utils'];
+const { useDebounce, copyTextToClipboard, promptKey, promptHref, isPromptFavorite, togglePromptFavorite, findPromptForHash } = AINOW['src/utils'];
 
 const html = htm.bind(React.createElement);
 
+const BusinessHome = ({t,onEmail,onPlan}) => html`
+  <div className="biz-home-page">
+    <section className="biz-home-hero">
+      <span className="biz-home-mark"><${Briefcase}/></span>
+      <h1>${t('smooth.home_title')}${' '}<em>AINOW BIZ</em></h1>
+      <p>${t('smooth.home_subtitle')}</p>
+      <a className="biz-home-primary" href="#/prompts"><${Search}/>${t('smooth.browse_prompts')}<${ChevronRight}/></a>
+    </section>
+    <details className="task-start task-start--compact">
+      <summary>${t('smooth.choose_help')}</summary>
+      <div className="task-start-body"><p>${t('smooth.start_title')}</p><div className="task-start-choices">
+        <button type="button" onClick=${onEmail}><${FileText}/>${t('smooth.write')}</button>
+        <button type="button" onClick=${onPlan}><${Calendar}/>${t('smooth.plan')}</button>
+        <a href="builder.html"><${Settings2}/>${t('smooth.build')}</a>
+      </div></div>
+    </details>
+    <section className="biz-home-explore"><h2>${t('smooth.work_options')}</h2><div className="biz-home-grid">
+      ${[
+        ['agents.html',Cpu,'assistant_templates','assistant_templates_text'],
+        ['playbooks.html',FileText,'work_situations','work_situations_text'],
+        ['builder.html',Settings2,'your_assistant','your_assistant_text']
+      ].map(([url,Icon,title,description])=>html`<a key=${url} className="biz-home-link" href=${url}><${Icon}/><span><h3>${t('smooth.'+title)}</h3><p>${t('smooth.'+description)}</p></span><${ChevronRight}/></a>`)}
+    </div></section>
+    <p className="biz-home-note">${t('smooth.library_help')}${' '}<a href="help.html">${t('smooth.how_it_works')}</a></p>
+  </div>`;
+
 const PromptItem = React.memo(({ prompt, viewMode, onSelect, showToast, favorites, toggleFavorite, t, onTagClick, selectedTag, index, currentPage, itemsPerPage }) => {
-    const isFavorite = favorites.has(prompt.id);
+    const isFavorite = isPromptFavorite(prompt,favorites);
     const isCustomizable = /\[.*?\]/.test(prompt.prompt || '');
     const globalIndex = ((currentPage - 1) * itemsPerPage) + index + 1;
 
     const handleShare = async (e) => {
         e?.stopPropagation();
-        const url = window.location.href.split('#')[0] + '#/prompt/' + prompt.id;
+        const url = window.location.href.split('#')[0] + promptHref(prompt);
         if (navigator.share) { try { await navigator.share({ title: 'AINOW: ' + prompt.title, url }); return; } catch (err) { } }
         if (await copyTextToClipboard(url)) showToast(t('common.copied_success'));
     };
@@ -53,20 +79,20 @@ const PromptItem = React.memo(({ prompt, viewMode, onSelect, showToast, favorite
         <div className="w-6 sm:w-8 shrink-0 text-[10px] font-bold text-stone-light dark:text-slate-600 tabular-nums text-left">
             ${globalIndex}
         </div>
-        <div className="w-6 shrink-0 flex justify-center" onClick=${e => e.stopPropagation()}>
+        <div className="w-11 shrink-0 flex justify-center" onClick=${e => e.stopPropagation()}>
            <button
-             onClick=${() => toggleFavorite(prompt.id)}
-             title=${isFavorite ? "Remove from Favorites" : "Add to Favorites"}
-             className=${`transition-all hover:scale-110 min-w-[32px] min-h-[32px] flex items-center justify-center ${isFavorite ? 'text-coral' : 'text-stone-light dark:text-slate-700 hover:text-coral'}`}
+             onClick=${() => toggleFavorite(prompt)}
+             title=${isFavorite?t('release.remove_favorite'):t('common.favorites')}
+             className=${`transition-all hover:scale-110 min-w-[44px] min-h-[44px] flex items-center justify-center ${isFavorite ? 'text-coral' : 'text-stone-light dark:text-slate-700 hover:text-coral'}`}
            >
              <${Heart} className="w-4 h-4" fill=${isFavorite ? 'currentColor' : 'none'} />
            </button>
         </div>
         <div className="flex-1 min-w-0 flex items-center gap-2">
-          <span className="font-black text-xs text-charcoal dark:text-slate-200 truncate group-hover:text-coral transition-colors text-left uppercase tracking-tight">
+          <button type="button" onClick=${e=>{e.stopPropagation();onSelect(prompt);}} className="font-black text-xs text-charcoal dark:text-slate-200 truncate group-hover:text-coral transition-colors text-left uppercase tracking-tight">
             ${prompt.title}
-          </span>
-          ${isCustomizable && html`<div title="Editable Template" className="text-coral dark:text-teal-400 shrink-0"><${Wand2} className="w-3.5 h-3.5" /></div>`}
+          </button>
+          ${isCustomizable && html`<div title=${t('release.editable')} className="text-coral dark:text-teal-400 shrink-0"><${Wand2} className="w-3.5 h-3.5" /></div>`}
         </div>
         <div className="hidden lg:flex w-32 shrink-0 items-center">
             <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest truncate">${prompt.category}</span>
@@ -75,10 +101,10 @@ const PromptItem = React.memo(({ prompt, viewMode, onSelect, showToast, favorite
         <div className="hidden xl:flex w-24 shrink-0 text-[10px] text-slate-400 tabular-nums">
             ${new Date(prompt.created).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
         </div>
-        <div className="w-10 sm:w-24 shrink-0 flex items-center justify-end gap-0.5 sm:opacity-0 group-hover:opacity-100 transition-all font-bold" onClick=${e => e.stopPropagation()}>
-            <button onClick=${handleQuickCopy} className="p-2 text-stone-light hover:text-coral transition-colors" title="Quick Copy Text"><${Copy} className="w-4 h-4" /></button>
-            <button onClick=${handleShare} className="hidden sm:block p-2 text-stone-light hover:text-coral transition-colors" title="Share Link"><${Share2} className="w-4 h-4" /></button>
-            <button onClick=${() => onSelect(prompt)} className="hidden sm:block p-2 text-stone-light hover:text-coral transition-colors" title="Open and Customize"><${ExternalLink} className="w-4 h-4" /></button>
+        <div className="w-11 sm:w-36 shrink-0 flex items-center justify-end gap-0.5 sm:opacity-0 group-hover:opacity-100 transition-all font-bold" onClick=${e => e.stopPropagation()}>
+            <button onClick=${handleQuickCopy} className="min-w-[44px] min-h-[44px] p-2 text-stone-light hover:text-coral transition-colors" title=${t('release.copy_text')}><${Copy} className="w-4 h-4" /></button>
+            <button onClick=${handleShare} className="hidden sm:block min-w-[44px] min-h-[44px] p-2 text-stone-light hover:text-coral transition-colors" title=${t('release.share_link')}><${Share2} className="w-4 h-4" /></button>
+            <button onClick=${() => onSelect(prompt)} className="hidden sm:block min-w-[44px] min-h-[44px] p-2 text-stone-light hover:text-coral transition-colors" title=${t('release.open_template')}><${ExternalLink} className="w-4 h-4" /></button>
         </div>
       </div>
     `;
@@ -89,32 +115,32 @@ const PromptItem = React.memo(({ prompt, viewMode, onSelect, showToast, favorite
       <div onClick=${() => onSelect(prompt)} className="group flex flex-col md:flex-row md:items-center gap-3 sm:gap-4 bg-opal-surface dark:bg-slate-800 border-b border-mist dark:border-slate-700 p-4 cursor-pointer hover:bg-opal-bg dark:hover:bg-slate-700/50 transition-all">
         <div className="flex-1 min-w-0 text-left">
           <div className="flex items-center gap-2 mb-1">
-            <span className="font-black text-xs text-charcoal dark:text-slate-200 uppercase tracking-tight">${prompt.title}</span>
+            <button type="button" onClick=${e=>{e.stopPropagation();onSelect(prompt);}} className="font-black text-xs text-charcoal dark:text-slate-200 uppercase tracking-tight text-left">${prompt.title}</button>
             <div className="hidden sm:flex gap-1">${tagsList.slice(0, 2)}</div>
           </div>
           <div className="text-stone-light text-xs truncate italic font-medium leading-tight">"${preview}"</div>
         </div>
         <div className="flex items-center gap-2 justify-between md:justify-end" onClick=${e => e.stopPropagation()}>
             ${isCustomizable && html`<button onClick=${() => onSelect(prompt)} className="px-3 py-1.5 bg-opal-bg dark:bg-slate-700/50 text-coral dark:text-slate-400 text-[10px] font-black rounded-xl hover:bg-coral hover:text-white transition-all mr-1 sm:mr-2 uppercase tracking-widest border border-mist shadow-sm">${t('common.customize')}</button>`}
-            <${ActionButtons} text=${prompt.prompt} title=${prompt.title} itemId=${prompt.id} isFavorite=${isFavorite} onToggleFavorite=${() => toggleFavorite(prompt.id)} onShare=${handleShare} showToast=${showToast} size=${3.5} />
+            <${ActionButtons} text=${prompt.prompt} title=${prompt.title} itemId=${prompt.id} isFavorite=${isFavorite} onToggleFavorite=${() => toggleFavorite(prompt)} onShare=${handleShare} showToast=${showToast} size=${3.5} />
         </div>
       </div>
     `;
     }
 
     return html`
-    <div onClick=${() => onSelect(prompt)} className="group bg-opal-surface dark:bg-slate-800 border border-mist dark:border-slate-700 rounded-2xl p-7 transition-all duration-300 shadow-level-1 hover:shadow-level-2 cursor-pointer flex flex-col h-full transform hover:-translate-y-1">
-      <div className="flex justify-between items-start mb-4" onClick=${e => e.stopPropagation()}>
+    <div onClick=${() => onSelect(prompt)} className="ainow-template-card cursor-pointer">
+      <div className="ainow-card-header flex justify-between items-start mb-4" onClick=${e => e.stopPropagation()}>
           <div className="flex flex-col gap-1">
-              <span className="px-2 py-1.5 bg-coral-light/30 text-coral dark:text-coral text-[11px] font-bold rounded-md w-fit uppercase tracking-wider">${prompt.category}</span>
+              <span className="ainow-template-badge">${prompt.category}</span>
           </div>
-          <${ActionButtons} text=${prompt.prompt} title=${prompt.title} itemId=${prompt.id} isFavorite=${isFavorite} onToggleFavorite=${() => toggleFavorite(prompt.id)} onShare=${handleShare} showToast=${showToast} size=${3.5} />
+          <${ActionButtons} text=${prompt.prompt} title=${prompt.title} itemId=${prompt.id} isFavorite=${isFavorite} onToggleFavorite=${() => toggleFavorite(prompt)} onShare=${handleShare} showToast=${showToast} size=${3.5} />
       </div>
-      <h3 className="text-lg font-bold mb-3 text-charcoal group-hover:text-coral transition-colors dark:text-white leading-tight text-left">${prompt.title}</h3>
-      <div className="text-sm leading-relaxed text-stone dark:text-slate-400 mb-6 line-clamp-3 text-left">"${preview}"</div>
-      <div className="mt-auto flex items-center justify-between pt-4 border-t border-mist dark:border-slate-700/50">
-        <div className="flex flex-wrap gap-1.5">${tagsList}</div>
-        ${isCustomizable && html`<button className="p-2 text-stone-light hover:text-coral hover:bg-opal-bg dark:hover:bg-slate-700 rounded-lg transition-colors min-w-[36px] min-h-[36px] flex items-center justify-center"><${Edit} className="w-4 h-4" /></button>`}
+      <h3 className="ainow-template-title"><button type="button" className="text-left" onClick=${e=>{e.stopPropagation();onSelect(prompt);}}>${prompt.title}</button></h3>
+      <div className="ainow-template-preview">"${preview}"</div>
+      <div className="ainow-template-footer">
+        <div className="ainow-template-tags">${tagsList}</div>
+        ${isCustomizable && html`<button aria-label=${t('common.customize')+' '+prompt.title} className="p-2 text-stone-light hover:text-coral hover:bg-opal-bg dark:hover:bg-slate-700 rounded-lg transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"><${Edit} className="w-4 h-4" /></button>`}
       </div>
     </div>
   `;
@@ -122,14 +148,33 @@ const PromptItem = React.memo(({ prompt, viewMode, onSelect, showToast, favorite
 
 const PromptModal = ({ prompt, onClose, showToast, favorites, toggleFavorite, t }) => {
     const [vals, setVals] = useState({});
+    const [editedText,setEditedText] = useState(null);
+    const [isEditing,setIsEditing]=useState(false);
+    const {lang}=useLanguage(), promptUi=AINOWPromptText.ui(lang),readerUi=AINOWPromptActions.ui(lang);
+    const editorRef = useRef(null);
+    useEffect(()=>{if(isEditing)editorRef.current?.focus();},[isEditing]);
     const firstInputRef = useRef(null);
+    const dialogRef = useRef(null);
 
     useEffect(() => {
+        const opener = document.activeElement;
+        const previousOverflow = document.body.style.overflow;
         document.body.style.overflow = 'hidden';
-        return () => document.body.style.overflow = '';
+        (firstInputRef.current || dialogRef.current)?.focus();
+        return () => {
+            document.body.style.overflow = previousOverflow;
+            if (opener?.isConnected) opener.focus();
+        };
     }, []);
 
-    useEffect(() => { setTimeout(() => firstInputRef.current?.focus(), 300); }, []);
+    const keepFocus = e => {
+        if (e.key !== 'Tab') return;
+        const controls = [...dialogRef.current.querySelectorAll('button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex="0"]')].filter(el => el.getClientRects().length);
+        const first = controls[0], last = controls.at(-1);
+        if (!first) { e.preventDefault(); dialogRef.current.focus(); }
+        else if (e.shiftKey && (document.activeElement === first || document.activeElement === dialogRef.current)) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && (document.activeElement === last || document.activeElement === dialogRef.current)) { e.preventDefault(); first.focus(); }
+    };
 
     const placeholders = useMemo(() => {
         const matches = (prompt.prompt || '').match(/\[(.*?)\]/g) || [];
@@ -137,14 +182,16 @@ const PromptModal = ({ prompt, onClose, showToast, favorites, toggleFavorite, t 
     }, [prompt.prompt]);
 
     const getFinalText = useCallback(() => {
+        if(editedText!==null)return editedText;
         let text = prompt.prompt || '';
         placeholders.forEach(p => { if (vals[p]) text = text.replaceAll(p, vals[p]); });
         return text;
-    }, [prompt.prompt, placeholders, vals]);
+    }, [prompt.prompt, placeholders, vals, editedText]);
 
-    const handleCopy = async () => { if (await copyTextToClipboard(getFinalText())) showToast(t('common.copied_success')); };
+    const handleCopy = async () => showToast(await copyTextToClipboard(getFinalText())?t('common.copied_success'):readerUi.copyFailed);
+    const handleAI=tool=>{handleCopy();window.open(tool.url,'_blank','noopener');};
 
-    const isFavorite = favorites.has(prompt.id);
+    const isFavorite = isPromptFavorite(prompt,favorites);
 
     const inputs = placeholders.map((p, i) => {
         const rawContent = p.replace(/[\[\]]/g, '');
@@ -155,52 +202,39 @@ const PromptModal = ({ prompt, onClose, showToast, favorites, toggleFavorite, t 
 
         return html`
             <div key=${p} className="space-y-1">
-                <label className="text-[10px] font-bold uppercase text-slate-400 tracking-wider text-left block">${label}</label>
+                <label htmlFor=${'prompt-variable-'+i} className="text-xs font-semibold text-stone dark:text-slate-300 text-left block">${label}</label>
                 ${options ? html`
-                    <select ref=${i === 0 ? firstInputRef : null} value=${vals[p] || ''} onChange=${e => setVals({ ...vals, [p]: e.target.value })} className=${`w-full bg-opal-bg dark:bg-slate-900 border ${isEmpty ? 'border-mist dark:border-slate-700' : 'border-coral'} rounded-lg p-3 text-sm outline-none focus:ring-2 focus:ring-coral transition-all dark:text-white cursor-pointer appearance-none`}>
-                        <option value="" disabled>Select ${label}...</option>
+                    <select id=${'prompt-variable-'+i} ref=${i === 0 ? firstInputRef : null} value=${vals[p] || ''} onChange=${e => setVals({ ...vals, [p]: e.target.value })} className=${`w-full bg-opal-bg dark:bg-slate-900 border ${isEmpty ? 'border-mist dark:border-slate-700' : 'border-coral'} rounded-lg p-3 text-sm outline-none focus:ring-2 focus:ring-coral transition-all dark:text-white cursor-pointer appearance-none`}>
+                        <option value="" disabled>${t('smooth.choose_value')} ${label}</option>
                         ${options.map(opt => html`<option key=${opt} value=${opt}>${opt}</option>`)}
                     </select>
                 ` : html`
-                    <input ref=${i === 0 ? firstInputRef : null} type="text" value=${vals[p] || ''} onChange=${e => setVals({ ...vals, [p]: e.target.value })} placeholder=${'Enter ' + label.toLowerCase() + '...'} className=${`w-full bg-opal-bg dark:bg-slate-900 border ${isEmpty ? 'border-mist dark:border-slate-700' : 'border-coral'} rounded-xl p-3 text-sm outline-none focus:ring-2 focus:ring-coral transition-all dark:text-white`} />
+                    <input id=${'prompt-variable-'+i} ref=${i === 0 ? firstInputRef : null} type="text" value=${vals[p] || ''} onChange=${e => setVals({ ...vals, [p]: e.target.value })} placeholder=${t('smooth.enter_value')+' '+label} className=${`w-full bg-opal-bg dark:bg-slate-900 border ${isEmpty ? 'border-mist dark:border-slate-700' : 'border-coral'} rounded-xl p-3 text-sm outline-none focus:ring-2 focus:ring-coral transition-all dark:text-white`} />
                 `}
             </div>
         `;
     });
 
-    const previewParts = useMemo(() => {
-        const text = prompt.prompt || '';
-        const parts = text.split(/(\[.*?\])/g);
-        return parts.map((part, i) => {
-            if (part.startsWith('[') && part.endsWith(']')) return html`<span key=${i} className="text-teal-600 dark:text-teal-400 font-bold bg-teal-50 dark:bg-teal-900/40 px-1 rounded">${vals[part] || part}</span>`;
-            return part;
-        });
-    }, [prompt.prompt, vals]);
+
 
     return html`
-        <div className="fixed inset-0 bg-black/60 z-[100] flex items-center justify-center p-4 animate-fade-in no-print" onClick=${onClose}>
-            <div className="bg-white dark:bg-slate-800 rounded-2xl w-full max-w-2xl shadow-xl max-h-[90vh] flex flex-col animate-modal-in" onClick=${e => e.stopPropagation()}>
-                <header className="p-4 sm:p-6 border-b dark:border-slate-700 flex justify-between items-center">
-                    <div className="text-left">
-                        <h2 className="text-base sm:text-lg font-bold dark:text-white leading-none">${prompt.title}</h2>
-                        <p className="text-[10px] text-slate-400 uppercase font-bold mt-1 tracking-widest">${placeholders.length > 0 ? t('common.customize') : 'Static'}</p>
-                    </div>
-                    <div className="flex gap-1 sm:gap-2">
-                        <${ActionButtons} text=${getFinalText()} title=${prompt.title} itemId=${prompt.id} isFavorite=${isFavorite} onToggleFavorite=${() => toggleFavorite(prompt.id)} showToast=${showToast} showCopy=${true} showShare=${true} showPlay=${true} showFavorite=${true} />
-                        <button onClick=${onClose} className="p-2 text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg min-w-[40px] min-h-[40px] flex items-center justify-center"><${X} className="w-5 h-5"/></button>
-                    </div>
+        <div className="prompt-dialog-overlay no-print" onClick=${onClose}>
+            <div ref=${dialogRef} role="dialog" aria-modal="true" aria-labelledby="prompt-dialog-title" tabIndex="-1" onKeyDown=${keepFocus} className="prompt-dialog-reader" onClick=${e => e.stopPropagation()}>
+                <header className="prompt-dialog-header">
+                    <div><span className="prompt-dialog-kicker">${placeholders.length > 0 ? t('common.customize') : t('smooth.static_template')}</span><h2 id="prompt-dialog-title">${prompt.title}</h2></div>
+                    <button type="button" aria-label=${t('smooth.close')} onClick=${onClose} className="prompt-dialog-close"><${X}/></button>
                 </header>
-                <div className="p-4 sm:p-6 overflow-y-auto space-y-6 no-scrollbar text-left">
-                    <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-4 sm:p-6 text-sm italic leading-relaxed dark:text-slate-300 border border-slate-100 dark:border-slate-800">"${previewParts}"</div>
-                    ${placeholders.length > 0 && html`<div className="space-y-4"><h3 className="text-[10px] font-black uppercase text-slate-400 tracking-widest border-b pb-2 dark:border-slate-700">Inputs</h3><div className="grid grid-cols-1 gap-4">${inputs}</div></div>`}
+                <div className="prompt-dialog-body">
+                    <div className="ainow-prompt-tools"><span>${isEditing?promptUi.editing:promptUi.instructions}</span><div><button type="button" className="ainow-action-control prompt-reader-favorite" aria-label=${t(isFavorite?'smooth.saved_template':'smooth.save_template')} title=${t(isFavorite?'smooth.saved_template':'smooth.save_template')} aria-pressed=${isFavorite} onClick=${()=>toggleFavorite(prompt)}><${Heart} fill=${isFavorite?'currentColor':'none'}/></button>${editedText!==null&&html`<button type="button" onClick=${()=>{setEditedText(null);setIsEditing(false);}}>${promptUi.reset}</button>`}<button type="button" onClick=${()=>{if(isEditing)setIsEditing(false);else{if(editedText===null)setEditedText(AINOWPromptText.editable(getFinalText()));setIsEditing(true);}}}><${Edit}/>${isEditing?promptUi.preview:promptUi.edit}</button></div></div>
+                    ${isEditing?html`<label className="ainow-prompt-editor"><span className="sr-only">${promptUi.instructions}</span><textarea ref=${editorRef} value=${editedText} maxLength="100000" onChange=${e=>setEditedText(e.target.value)}/></label>`:html`<div className="prompt-dialog-source ainow-prompt-content" dangerouslySetInnerHTML=${{__html:AINOWPromptText.render(editedText===null?prompt.prompt:editedText,editedText===null?vals:null)}}></div>`}
+                    ${editedText===null&&placeholders.length>0&&html`<section className="prompt-dialog-inputs"><h3>${t('smooth.modal_inputs')}</h3><div>${inputs}</div></section>`}
                 </div>
-                <footer className="p-4 sm:p-6 border-t dark:border-slate-700 flex justify-end items-center gap-3">
-                    <button onClick=${onClose} className="px-4 py-2 text-sm font-bold text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition-all mr-auto">${t('common.cancel')}</button>
-                    <button onClick=${handleCopy} className="px-5 sm:px-6 py-2.5 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-bold shadow-lg shadow-teal-200 dark:shadow-none transition-all flex items-center justify-center gap-2">${t('common.copy_prompt')}</button>
+                <footer className="prompt-dialog-footer">
+                    <div className="prompt-dialog-actions"><button type="button" onClick=${handleCopy} className="ainow-button prompt-dialog-copy" aria-label=${readerUi.copy} title=${readerUi.copy}><${Copy}/><span className="prompt-dialog-action-label">${readerUi.copy}</span></button><${PromptAiActions} lang=${lang} onChoose=${handleAI}/></div>
+                    <p role="status">${isFavorite?readerUi.saved:readerUi.hint}</p>
                 </footer>
             </div>
-        </div>
-    `;
+        </div>`;
 };
 
 const SidebarNav = React.memo(({ all, selectedCat, favoritesCount, liveCounts, t, onSurpriseMe, onCategorySelect }) => html`
@@ -227,18 +261,38 @@ const App = () => {
     const [query, setQuery] = useState('');
     const [selPrompt, setSelPrompt] = useState(null);
     const [page, setPage] = useState(1);
-    const [view, setView] = useState(() => localStorage.getItem('viewMode') || 'grid');
+    const [view, setView] = useState(() => { try { const value=localStorage.getItem('viewMode');return ['grid','compact','table'].includes(value)?value:'grid'; } catch (_) { return 'grid'; } });
     const [sortConfig, setSortConfig] = useState({ key: 'title', direction: 'asc' });
     const [isLoading, setIsLoading] = useState(true);
-    const [favorites, setFavorites] = useState(() => { try { return JSON.parse(localStorage.getItem('favPrompts') || '[]'); } catch { return []; } });
+    const [collectionReady, setCollectionReady] = useState(false);
+    const [route,setRoute] = useState(()=>window.location.hash);
+    const isHome = !route || route==='#/home';
+    useEffect(()=>{const change=()=>{setRoute(window.location.hash);setIsSidebarOpen(false);setSelPrompt(null);if(!window.location.hash.startsWith('#/prompt/'))readerFromLibrary.current=false;};window.addEventListener('hashchange',change);return()=>window.removeEventListener('hashchange',change);},[]);
+    useEffect(()=>{const heading=document.querySelector('main h1');if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true});}window.scrollTo({top:0,behavior:'auto'});},[route]);
+    const [favorites, setFavorites] = useState(() => { try { const value=JSON.parse(localStorage.getItem('favPrompts') || '[]');return Array.isArray(value)?value:[]; } catch { return []; } });
     const favoritesSet = useMemo(() => new Set(favorites), [favorites]);
-    const toggleFavorite = useCallback((id) => setFavorites(f => f.includes(id) ? f.filter(x => x !== id) : [...f, id]), []);
+    const toggleFavorite = useCallback((prompt) => setFavorites(saved => togglePromptFavorite(saved,prompt)), []);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isScratchpadOpen, setIsScratchpadOpen] = useState(false);
-    const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-    const [isZenMode, setIsZenMode] = useState(false);
+    const readerFromLibrary = useRef(false);
+    const closePrompt = useCallback(()=>{
+        setSelPrompt(null);
+        if(!window.location.hash.startsWith('#/prompt/'))return;
+        if(readerFromLibrary.current){readerFromLibrary.current=false;window.history.back();}
+        else {window.history.replaceState(null,'','#/prompts');setRoute('#/prompts');}
+    },[]);
+
+    const isZenMode = false;
     const [showShortcuts, setShowShortcuts] = useState(false);
-    const [currentTheme, setCurrentTheme] = useState(() => localStorage.getItem('theme') || 'light');
+    const [currentTheme, setCurrentTheme] = useState(() => { try { return (localStorage.getItem('ainow-theme') || localStorage.getItem('theme'))==='dark'?'dark':'light'; } catch (_) { return 'light'; } });
+    useStorageSync(['favPrompts','viewMode','ainow-theme','theme'],values=>{
+        try {
+            const saved=JSON.parse(values.favPrompts||'[]'),mode=values.viewMode;
+            setFavorites(Array.isArray(saved)?saved:[]);
+            setView(['grid','compact','table'].includes(mode)?mode:'grid');
+            setCurrentTheme((values['ainow-theme']||values.theme)==='dark'?'dark':'light');
+        } catch (_) { showToast(t('release.storage_unavailable')); }
+    });
     const searchInputRef = useRef(null);
     const debouncedQuery = useDebounce(query, 200);
 
@@ -263,6 +317,7 @@ const App = () => {
                     setAll([...remainingData]);
                     fuse.setCollection(remainingData);
                 }
+                setCollectionReady(true);
             };
             if ('requestIdleCallback' in window) requestIdleCallback(() => loadRemaining()); else setTimeout(loadRemaining, 1000);
         };
@@ -270,19 +325,22 @@ const App = () => {
     }, [fuse]);
 
     useGlobalShortcuts({
-        onSearch: () => searchInputRef.current?.focus(),
+        onSearch: () => {if(isHome)window.location.hash='/prompts';else searchInputRef.current?.focus();},
         onThemeToggle: () => setCurrentTheme(prev => prev === 'dark' ? 'light' : 'dark'),
         onSidebarToggle: () => setIsSidebarOpen(prev => !prev),
         onScratchpad: () => setIsScratchpadOpen(prev => !prev),
         onHelp: () => setShowShortcuts(prev => !prev),
-        onEscape: () => { setSelPrompt(null); setIsSidebarOpen(false); setIsScratchpadOpen(false); setIsSettingsOpen(false); setShowShortcuts(false); }
+        onEscape: () => { closePrompt(); setIsSidebarOpen(false); setIsScratchpadOpen(false); setShowShortcuts(false); }
     });
 
-    useEffect(() => { document.documentElement.classList.toggle('dark', currentTheme === 'dark'); localStorage.setItem('theme', currentTheme); }, [currentTheme]);
+    useEffect(() => { document.documentElement.classList.toggle('dark', currentTheme === 'dark'); try { localStorage.setItem('theme', currentTheme); localStorage.setItem('ainow-theme', currentTheme); } catch (_) { showToast(t('release.storage_unavailable')); } }, [currentTheme]);
+    useEffect(() => { try { localStorage.setItem('favPrompts', JSON.stringify(favorites)); } catch (_) { showToast(t('release.storage_unavailable')); } }, [favorites]);
+    useEffect(() => { try { localStorage.setItem('viewMode', view); } catch (_) { showToast(t('release.storage_unavailable')); } }, [view]);
+    useEffect(() => { setPage(1); }, [view]);
 
     useEffect(() => {
         let res = debouncedQuery ? fuse.search(debouncedQuery).map(r => r.item) : all;
-        if (selectedCat !== 'all') { if (selectedCat === 'favorites') res = res.filter(p => favoritesSet.has(p.id)); else res = res.filter(p => p.category === selectedCat); }
+        if (selectedCat !== 'all') { if (selectedCat === 'favorites') res = res.filter(p => isPromptFavorite(p,favoritesSet)); else res = res.filter(p => p.category === selectedCat); }
         if (selectedTag) res = res.filter(p => p.tags && p.tags.includes(selectedTag));
         res = [...res].sort((a, b) => {
             const valA = String(a[sortConfig.key]).toLowerCase();
@@ -296,22 +354,21 @@ const App = () => {
     }, [debouncedQuery, all, selectedCat, favoritesSet, selectedTag, sortConfig]);
 
     const handlePromptSelection = useCallback((prompt) => {
-        setSelPrompt(prompt);
-        if (prompt) {
-            addToHistory({ id: prompt.id, title: prompt.title, type: 'prompt', url: 'index.html#/prompt/' + prompt.id });
-        }
+        if(!prompt)return;
+        readerFromLibrary.current=true;
+        window.location.hash=promptHref(prompt);
     }, []);
 
     const deepLinkHandled = useRef(false);
+    useEffect(()=>{deepLinkHandled.current=false;},[route]);
     useEffect(() => {
         if (deepLinkHandled.current || all.length === 0) return;
-        deepLinkHandled.current = true;
-        const match = window.location.hash.match(/^#\/prompt\/(.+)$/);
-        if (match) {
-            const prompt = all.find(p => String(p.id) === match[1]);
-            if (prompt) handlePromptSelection(prompt);
-        }
-    }, [all, handlePromptSelection]);
+        if (window.location.hash.startsWith('#/prompt/')) {
+            const prompt = findPromptForHash(all,window.location.hash);
+            if (prompt) { deepLinkHandled.current = true; setSelPrompt(prompt);addToHistory({ id: prompt.id, title: prompt.title, type: 'prompt', url: 'index.html' + promptHref(prompt) }); }
+            else if (collectionReady) deepLinkHandled.current = true;
+        } else deepLinkHandled.current = true;
+    }, [all, collectionReady, handlePromptSelection, route]);
 
     const liveCounts = useMemo(() => {
         if (all.length === 0) return promptCounts;
@@ -350,15 +407,16 @@ const App = () => {
 
     return html`
         <div className="min-h-screen bg-opal-bg dark:bg-slate-900 flex flex-col font-sans">
-            <${Header} currentTheme=${currentTheme} onThemeToggle=${() => setCurrentTheme(t => t === 'dark' ? 'light' : 'dark')} onMenuClick=${() => setIsSidebarOpen(true)} onScratchpad=${() => setIsScratchpadOpen(true)} onSettingsClick=${() => setIsSettingsOpen(true)} activePage="prompts" isZenMode=${isZenMode} onToggleZen=${() => setIsZenMode(!isZenMode)} />
+            <${Header} currentTheme=${currentTheme} onThemeToggle=${() => setCurrentTheme(t => t === 'dark' ? 'light' : 'dark')} onMenuClick=${() => setIsSidebarOpen(true)} onScratchpad=${() => setIsScratchpadOpen(true)} activePage=${isHome?'home':'prompts'} isZenMode=${isZenMode} />
             <div className="flex-1 max-w-[1600px] mx-auto w-full flex">
-                <${SidebarWrapper} isOpen=${isSidebarOpen} onClose=${() => setIsSidebarOpen(false)} isZenMode=${isZenMode}>
-                    <${SidebarNav} all=${all} selectedCat=${selectedCat} favoritesCount=${favorites.length} liveCounts=${liveCounts} t=${t} onSurpriseMe=${handleSurpriseMe} onCategorySelect=${handleCategorySelect} />
+                <${SidebarWrapper} onNotes=${()=>setIsScratchpadOpen(true)} isOpen=${isSidebarOpen} onClose=${() => setIsSidebarOpen(false)} isZenMode=${isZenMode} showOnDesktop=${true}>
+                    ${!isHome&&html`<${SidebarNav} all=${all} selectedCat=${selectedCat} favoritesCount=${favorites.length} liveCounts=${liveCounts} t=${t} onSurpriseMe=${handleSurpriseMe} onCategorySelect=${handleCategorySelect} />`}
                 <//>
                 <main className="flex-1 p-4 md:p-8 min-w-0">
-                    <div className="mb-8 relative max-w-2xl text-left shadow-sm rounded-2xl transition-all focus-within:shadow-level-2 focus-within:ring-2 focus-within:ring-coral/20">
-                        <${Search} className="absolute left-5 top-1/2 -translate-y-1/2 text-stone-light w-5 h-5 pointer-events-none" />
-                        <input ref=${searchInputRef} type="text" value=${query} onChange=${e => setQuery(e.target.value)} placeholder=${t('common.search_prompts')} className="w-full pl-14 pr-6 py-4 rounded-2xl border-2 border-mist dark:border-slate-700 dark:bg-slate-800 dark:text-white outline-none focus:border-coral transition-colors text-charcoal placeholder:text-stone-light text-base" />
+                    ${isHome?html`<${BusinessHome} t=${t} onEmail=${()=>{setSelectedTag('email');setSelectedCat('all');setQuery('');setPage(1);window.location.hash='/prompts';}} onPlan=${()=>{setQuery('');handleCategorySelect('productivity');window.location.hash='/prompts';}}/>`:html`
+                    <div className="ainow-search-field ainow-library-search">
+                        <${Search} className="pointer-events-none" />
+                        <label className="sr-only" htmlFor="prompt-search">${t('common.search_prompts')}</label><input id="prompt-search" ref=${searchInputRef} type="search" value=${query} onChange=${e => setQuery(e.target.value)} placeholder=${t('common.search_prompts')} className="" />
                     </div>
                     ${selectedTag && html`
                         <div className="flex items-center gap-2 mb-4">
@@ -369,35 +427,36 @@ const App = () => {
                             </button>
                         </div>
                     `}
-                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 gap-6">
+                    <div className="ainow-library-heading">
                         <div className="text-left w-full sm:w-auto">
                             <h1 className="text-3xl sm:text-4xl font-[600] tracking-tight text-charcoal dark:text-white truncate text-left tabular-nums mb-2">${t(CATEGORY_CONFIG.find(c => c.id === selectedCat)?.nameKey) || "Prompts"}</h1>
-                            <p className="text-stone-light dark:text-slate-400 text-[11px] sm:text-[13px] font-medium uppercase tracking-[0.08em]">${filtered.length} PROMPT TEMPLATES</p>
+                            <p className="text-stone dark:text-slate-300 text-[13px] font-medium">${filtered.length} ${t('common.prompts')==='common.prompts'?t('nav.prompts'):t('common.prompts')}</p><p role="status" className="text-xs text-stone dark:text-slate-300">${!collectionReady?t('smooth.loading_library'):''}</p>
                         </div>
-                        <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
-                            <div className="flex bg-opal-sidebar dark:bg-slate-800 p-1.5 rounded-xl border border-mist dark:border-slate-700">
-                                <button onClick=${() => setView('grid')} className=${'p-2 rounded-lg transition-all ' + (view === 'grid' ? 'bg-coral/10 text-coral shadow-sm' : 'text-stone-light hover:text-stone hover:bg-white')} title=${t('common.view_grid')}><${LayoutGrid} className="w-4 h-4" /></button>
-                                <button onClick=${() => setView('compact')} className=${'p-2 rounded-lg transition-all ' + (view === 'compact' ? 'bg-coral/10 text-coral shadow-sm' : 'text-stone-light hover:text-stone hover:bg-white')} title=${t('common.view_list')}><${List} className="w-4 h-4" /></button>
-                                <button onClick=${() => setView('table')} className=${'p-2 rounded-lg transition-all ' + (view === 'table' ? 'bg-coral/10 text-coral shadow-sm' : 'text-stone-light hover:text-stone hover:bg-white')} title="Table View"><${TableProperties} className="w-4 h-4" /></button>
+                        <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end"><button type="button" className="biz-filter-button" aria-expanded=${isSidebarOpen} onClick=${()=>setIsSidebarOpen(true)}><${Settings2} className="w-4 h-4"/>${t('smooth.filters')}</button>${(query||selectedCat!=='all'||selectedTag)&&html`<button type="button" className="biz-clear-button" onClick=${()=>{setQuery('');setSelectedTag(null);handleCategorySelect('all');}}>${t('smooth.clear_filters')}</button>`}
+                            <div className="ainow-view-controls">
+                                <button onClick=${() => setView('grid')} aria-pressed=${view==='grid'} className=${'p-2 rounded-lg transition-all ' + (view === 'grid' ? 'bg-coral/10 text-coral' : 'text-stone-light hover:text-stone hover:bg-white')} title=${t('common.view_grid')}><${LayoutGrid} className="w-4 h-4" /></button>
+                                <button onClick=${() => setView('compact')} aria-pressed=${view==='compact'} className=${'p-2 rounded-lg transition-all ' + (view === 'compact' ? 'bg-coral/10 text-coral' : 'text-stone-light hover:text-stone hover:bg-white')} title=${t('common.view_list')}><${List} className="w-4 h-4" /></button>
+                                <button onClick=${() => setView('table')} aria-pressed=${view==='table'} className=${'p-2 rounded-lg transition-all ' + (view === 'table' ? 'bg-coral/10 text-coral' : 'text-stone-light hover:text-stone hover:bg-white')} title=${t('release.table_view')}><${TableProperties} className="w-4 h-4" /></button>
                             </div>
                         </div>
                     </div>
-                    ${isLoading ? html`<div className="py-20 text-center"><${Loader2} className="animate-spin mx-auto mb-4" /> Loading...</div>` : html`
+                    ${isLoading ? html`<div className="py-20 text-center" role="status"><${Loader2} className="animate-spin mx-auto mb-4" /> ${t('smooth.loading_library')}</div>` : html`
                         <${React.Fragment}>
-                            <div className=${view === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6' : 'flex flex-col'}>
-                                ${view === 'table' && html`<div className="sticky top-16 z-20 flex items-center gap-3 sm:gap-4 bg-slate-100 dark:bg-slate-900 px-3 sm:px-4 py-3 text-[10px] font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 dark:border-slate-800"><div className="w-6 sm:w-8 shrink-0 text-left">#</div><div className="w-6 shrink-0 flex justify-center" title=${t('common.table_favorite')}><${Heart} className="w-3.5 h-3.5" /></div><button onClick=${() => handleSort('title')} className="flex-1 text-left flex items-center gap-1 hover:text-teal-500 transition-colors uppercase">${t('common.table_title')} <${SortIcon} colKey="title" /></button><button onClick=${() => handleSort('category')} className="hidden lg:flex w-32 shrink-0 items-center gap-1 hover:text-teal-500 transition-colors uppercase">${t('common.table_category')} <${SortIcon} colKey="category" /></button><div className="hidden md:flex w-40 shrink-0 uppercase">${t('common.table_tags')}</div><div className="w-10 sm:w-24 shrink-0 text-right sm:pr-4 uppercase">${t('common.table_actions')}</div></div>`}
-                                ${paginated.map((p, i) => html`<${PromptItem} key=${p.id} prompt=${p} viewMode=${view} onSelect=${handlePromptSelection} showToast=${showToast} favorites=${favoritesSet} toggleFavorite=${toggleFavorite} t=${t} onTagClick=${(tag) => setSelectedTag(prev => prev === tag ? null : tag)} selectedTag=${selectedTag} index=${i} currentPage=${page} itemsPerPage=${itemsPerPage} />`)}
+                            <div className=${view === 'grid' ? 'ainow-template-grid' : 'flex flex-col'}>
+                                ${view === 'table' && html`<div className="sticky top-16 z-20 flex items-center gap-3 sm:gap-4 bg-slate-100 dark:bg-slate-900 px-3 sm:px-4 py-3 text-[10px] font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 dark:border-slate-800"><div className="w-6 sm:w-8 shrink-0 text-left">#</div><div className="w-11 shrink-0 flex justify-center" title=${t('common.table_favorite')}><${Heart} className="w-3.5 h-3.5" /></div><button onClick=${() => handleSort('title')} className="flex-1 text-left flex items-center gap-1 hover:text-teal-500 transition-colors uppercase">${t('common.table_title')} <${SortIcon} colKey="title" /></button><button onClick=${() => handleSort('category')} className="hidden lg:flex w-32 shrink-0 items-center gap-1 hover:text-teal-500 transition-colors uppercase">${t('common.table_category')} <${SortIcon} colKey="category" /></button><div className="hidden md:flex w-40 shrink-0 uppercase">${t('common.table_tags')}</div><div className="w-11 sm:w-36 shrink-0 text-right sm:pr-4 uppercase">${t('common.table_actions')}</div></div>`}
+                                ${paginated.map((p, i) => html`<${PromptItem} key=${promptKey(p)} prompt=${p} viewMode=${view} onSelect=${handlePromptSelection} showToast=${showToast} favorites=${favoritesSet} toggleFavorite=${toggleFavorite} t=${t} onTagClick=${(tag) => setSelectedTag(prev => prev === tag ? null : tag)} selectedTag=${selectedTag} index=${i} currentPage=${page} itemsPerPage=${itemsPerPage} />`)}
                             </div>
                             <${Pagination} currentPage=${page} totalPages=${Math.ceil(filtered.length / itemsPerPage)} onPageChange=${setPage} totalItems=${filtered.length} itemsPerPage=${itemsPerPage} t=${t} />
                         <//>
+                    `}
                     `}
                 </main>
             </div>
             <${Toast} toast=${toast} />
             <${Scratchpad} isOpen=${isScratchpadOpen} onClose=${() => setIsScratchpadOpen(false)} />
-            <${SettingsModal} isOpen=${isSettingsOpen} onClose=${() => setIsSettingsOpen(false)} />
+
             <${ShortcutsModal} isOpen=${showShortcuts} onClose=${() => setShowShortcuts(false)} />
-            ${selPrompt && html`<${PromptModal} prompt=${selPrompt} onClose=${() => setSelPrompt(null)} showToast=${showToast} favorites=${favoritesSet} toggleFavorite=${toggleFavorite} t=${t} />`}
+            ${selPrompt && html`<${PromptModal} prompt=${selPrompt} onClose=${closePrompt} showToast=${showToast} favorites=${favoritesSet} toggleFavorite=${toggleFavorite} t=${t} />`}
             <${Footer} isZenMode=${isZenMode} />
         </div>
     `;

@@ -1,4 +1,4 @@
-const APP_VERSION = 'v0.94';
+const APP_VERSION = 'v0.95';
 
 function escapeHtml(str) {
     return String(str)
@@ -35,7 +35,6 @@ function icon(name, size = 20) {
 const App = {
     currentView: 'home',
     theme: 'light',
-    currentTipIndex: Math.floor(Math.random() * 10) + 1,
 
     _deferredInstallPrompt: null,
     _onboardingSeenKey: 'ainow-onboarding-v3',
@@ -56,38 +55,50 @@ const App = {
             console.error('[AINOW Unhandled Promise]', event.reason);
         };
 
+        document.querySelectorAll("[data-platform-icon]").forEach(el => { el.innerHTML = AINOWPlatform.icon(el.dataset.platformIcon); });
+        document.querySelectorAll("[data-platform-logo]").forEach(el => { el.innerHTML = AINOWPlatform.logo(); });
         this.loadTheme();
+        const syncPreferences = () => {
+            try {
+                const language = localStorage.getItem('ainow_lang') || localStorage.getItem('ainow-lang') || localStorage.getItem('language');
+                if (['en','mk','sq'].includes(language) && language !== I18n.lang) I18n.setLang(language);
+                const theme = (localStorage.getItem('ainow-theme') || localStorage.getItem('theme')) === 'dark' ? 'dark' : 'light';
+                if (theme !== this.theme) this.setTheme(theme);
+            } catch (_) {}
+        };
+        ['storage','pageshow','focus'].forEach(type => window.addEventListener(type, syncPreferences));
         this._initOfflineIndicator();
         this._initInstallPrompt();
         this._initPullToRefresh();
         this._initOutsideClickHandlers();
+        const menuMedia = window.matchMedia('(max-width:767.98px)');
+        const syncMenu = () => {
+            const sidebar = document.querySelector('.app-sidebar');
+            if (!menuMedia.matches && sidebar?.classList.contains('open')) this.toggleMobileMenu();
+            this._syncMenuVisibility();
+        };
+        menuMedia.addEventListener('change', syncMenu);
+        syncMenu();
 
-        document.querySelectorAll('.lang-option').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.lang === I18n.lang);
-        });
-
-        document.querySelectorAll('.nav-tab').forEach(tab => {
-            tab.addEventListener('click', (e) => {
-                const view = e.currentTarget.dataset.view;
-                this.switchView(view);
-            });
-        });
 
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
+                this.closeLangMenu(true);
                 this.closeOnboardingModal();
                 this.closePrivacyModal();
                 this.closePromptDetail();
                 const sidebar = document.querySelector('.app-sidebar');
                 const overlay = document.getElementById('sidebar-overlay');
-                if (sidebar) sidebar.classList.remove('open');
-                if (overlay) overlay.classList.remove('open');
+                if (sidebar?.classList.contains('open')) this.toggleMobileMenu();
             }
         });
 
         if (window.Engine) Engine.init();
 
-        this.switchView('home');
+        const params = new URLSearchParams(location.search);
+        await this.restoreLocation('replace');
+        window.addEventListener('popstate', () => this.restoreLocation());
+        if (params.get('intro') === '1') this.openOnboardingModal(true);
         document.body.style.opacity = '1';
         this._maybeShowOnboarding();
 
@@ -117,8 +128,32 @@ const App = {
         loadNext(others);
     },
 
-    async switchView(viewId) {
+    async restoreLocation(historyMode = 'none') {
+        const params = new URLSearchParams(location.search);
+        const legacy = location.hash.match(/^#\/?(help|about)$/)?.[1];
+        const view = legacy || params.get('view') || 'home';
+        const navigation = this.switchView(view, { historyMode });
+        const request = this._viewRequest;
+        await navigation;
+        if (request !== this._viewRequest) return;
+        const widget = params.get('widget');
+        if (this.currentView === 'resources' && widget && window.ResourceManager) ResourceManager.switchWidget(widget);
+    },
+
+    async switchView(viewId, { historyMode = 'push' } = {}) {
+        if (viewId === 'help' || viewId === 'about') { location.href = AINOWPlatform.href(viewId); return; }
+        if (!['home','guide','prompts','tools','resources','glossary'].includes(viewId)) viewId = 'home';
+        if (historyMode !== 'none') {
+            const url = new URL(location.href);
+            if (viewId === 'home') url.searchParams.delete('view');
+            else url.searchParams.set('view', viewId);
+            if (historyMode === 'push' && viewId !== this.currentView) { url.searchParams.delete('widget'); url.searchParams.delete('intro'); }
+            if (url.href !== location.href) window.history[historyMode === 'replace' ? 'replaceState' : 'pushState'](null, '', url.href);
+        }
+        const request = this._viewRequest = (this._viewRequest || 0) + 1;
         this.closeLangMenu();
+        this.closePromptDetail();
+        if (document.querySelector('.app-sidebar')?.classList.contains('open')) this.toggleMobileMenu();
 
         const mainContent = document.getElementById('main-content');
         if (mainContent && this.currentView && this.currentView !== viewId) {
@@ -127,11 +162,9 @@ const App = {
 
         this.currentView = viewId;
 
-        document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
-        const activeBtn = document.querySelector(`.nav-tab[data-view="${viewId}"]`);
-        if (activeBtn) activeBtn.classList.add('active');
 
         await this.loadView(viewId);
+        if (request !== this._viewRequest) return;
 
         document.querySelectorAll('.view-section').forEach(el => el.classList.add('hidden'));
         const activeSection = document.getElementById(`view-${viewId}`);
@@ -172,8 +205,7 @@ const App = {
             if (window.ResourceManager) window.ResourceManager.init();
         } else if (viewId === 'prompts') {
             this.currentPromptSearch = '';
-            this.renderPromptCatTabs();
-            this.renderPrompts(this.currentPromptCategory || 'primary', this.currentPromptSubcategory || 'all');
+                this.renderPrompts(this.currentPromptCategory || 'primary', this.currentPromptSubcategory || 'all');
         }
     },
 
@@ -215,39 +247,7 @@ const App = {
 
         let html = '';
 
-        if (viewId === 'home' || viewId === 'help' || viewId === 'resources') {
-            const t = (k) => I18n.t(k);
-
-            html = `
-                <div class="sidebar-ctx-wrap">
-                    <div class="sidebar-section-title sidebar-section-header">${viewId === 'resources' ? 'AINOW Society' : t('sidebar.quicklinks')}</div>
-
-                    ${viewId === 'resources' ? `
-                        ${this._renderSidebarSocials()}
-                    ` : `
-                        <div class="sidebar-quick-link" onclick="App.switchView('guide')">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-                            <span>${t('sidebar.guide.link')}</span>
-                        </div>
-                        <div class="sidebar-quick-link" onclick="App.switchView('prompts')">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                            <span>${t('sidebar.prompts.link')}</span>
-                        </div>
-                        <div class="sidebar-quick-link" onclick="App.switchView('tools')">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-                            <span>${t('sidebar.tools.link')}</span>
-                        </div>
-                        <div class="sidebar-quick-link" onclick="App.openResourcesWidget('homework')">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                            <span>${t('sidebar.homework.link')}</span>
-                        </div>
-                    `}
-
-                    ${this._renderSidebarAILinks()}
-                    ${this.renderSidebarTip(viewId)}
-                </div>
-            `;
-        } else if (viewId === 'guide') {
+        if (viewId === 'guide') {
             const cat = this.currentGuideCategory || 'foundations';
             const t = (k) => I18n.t(k);
 
@@ -337,7 +337,6 @@ const App = {
                 <div class="sidebar-ctx-wrap">
                     <div class="sb-section-label">${I18n.t('nav.tools')}</div>
                     <div class="sb-flat">${rows}</div>
-                    ${this._renderSidebarAILinks_tools()}
                 </div>
             `;
 
@@ -355,7 +354,7 @@ const App = {
 
                 const subs = (this._promptSubMap[c.id] || []).filter(s => s !== 'all');
                 const links = subs.map(s => {
-                    const n = pool.filter(p => p.subcategory === s).length;
+                    const n = this._promptsForSubcategory(c.id, s, pool).length;
                     return n ? this._sidebarPromptSubLink(s, n, c.id) : '';
                 }).join('');
 
@@ -392,31 +391,6 @@ const App = {
                     ${groups}
                 </div>
             `;
-        } else if (viewId === 'about') {
-            const t = (k) => I18n.t(k);
-            html = `
-                <div class="sidebar-ctx-wrap">
-                    <div class="sidebar-section-title sidebar-section-header">AINOW Society</div>
-                    <div class="sidebar-quick-link" onclick="App.switchAboutWidget('team'); document.getElementById('about-widget-team').scrollIntoView({behavior:'smooth'})">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                        <span>${t('about.sidebar.team')}</span>
-                    </div>
-                    <div class="sidebar-quick-link" onclick="App.switchAboutWidget('program'); document.getElementById('about-widget-program').scrollIntoView({behavior:'smooth'})">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-                        <span>${t('about.sidebar.program')}</span>
-                    </div>
-                    <div class="sidebar-quick-link" onclick="App.switchAboutWidget('partners'); document.getElementById('about-widget-partners').scrollIntoView({behavior:'smooth'})">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
-                        <span>${t('about.sidebar.partners')}</span>
-                    </div>
-
-                    <div class="sidebar-society-sep">
-                        <div class="sidebar-section-title sidebar-section-header">AINOW Society</div>
-                        ${this._renderSidebarSocials()}
-                    </div>
-                    ${this.renderSidebarTip(viewId)}
-                </div>
-            `;
         } else if (viewId === 'glossary') {
             const t = (k) => I18n.t(k);
             const cats = [
@@ -449,158 +423,11 @@ const App = {
                     <div class="sb-flat">${rows}</div>
                 </div>
             `;
-        } else {
-            html = `
-                <div class="sidebar-ctx-wrap">
-                    <div class="sidebar-section-title sidebar-section-header">AINOW Society</div>
-                    ${this._renderSidebarSocials()}
-                </div>
-            `;
         }
 
-        sidebar.innerHTML = html;
-    },
-
-    _renderSidebarSettings() {
-        const lang = I18n.currentLang || 'mk';
-        return `
-            <div class="sidebar-mobile-settings">
-                <div class="sidebar-mobile-settings-label">${I18n.t('sidebar.settings.label')}</div>
-                <div class="sidebar-mobile-settings-row">
-                    <button class="sidebar-lang-pill${lang==='mk'?' active':''}" data-lang="mk" onclick="I18n.setLang('mk'); App.toggleMobileMenu()">🇲🇰 MK</button>
-                    <button class="sidebar-lang-pill${lang==='sq'?' active':''}" data-lang="sq" onclick="I18n.setLang('sq'); App.toggleMobileMenu()">🇦🇱 SQ</button>
-                    <button class="sidebar-lang-pill${lang==='en'?' active':''}" data-lang="en" onclick="I18n.setLang('en'); App.toggleMobileMenu()">🇬🇧 EN</button>
-                    <button class="sidebar-icon-btn" onclick="App.toggleTheme()" title="Смени тема" aria-label="Смени тема">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                    </button>
-                    <button class="sidebar-icon-btn" onclick="App.switchView('help'); App.toggleMobileMenu()" title="Помош" aria-label="Помош">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                    </button>
-                    <button class="sidebar-icon-btn" onclick="App.openOnboardingModal(true); App.toggleMobileMenu()" title="Вовед" aria-label="Вовед">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><line x1="8" y1="8" x2="16" y2="8"></line><line x1="8" y1="12" x2="16" y2="12"></line><line x1="8" y1="16" x2="13" y2="16"></line></svg>
-                    </button>
-                </div>
-            </div>
-        `;
-    },
-
-    _renderSidebarSocials() {
-        return `
-            <a href="https://www.ainow.mk" target="_blank" rel="noopener" class="sidebar-quick-link">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                <span>ainow.mk</span>
-            </a>
-            <a href="https://github.com/AINOW-Society" target="_blank" rel="noopener" class="sidebar-quick-link">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.63-.33 2.47-.33.84 0 1.68.11 2.47.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-                <span>GitHub</span>
-            </a>
-            <a href="https://www.linkedin.com/company/ainowmk" target="_blank" rel="noopener" class="sidebar-quick-link">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5V13.2a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 1 0 0 3.37m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-                <span>LinkedIn</span>
-            </a>
-        `;
-    },
-
-    _renderSidebarAILinks() {
-        return `
-            <div class="sidebar-ai-tools">
-                <div class="sidebar-section-title">${I18n.t('sidebar.ai.label')}</div>
-                <a href="https://chat.openai.com" target="_blank" rel="noopener" class="sidebar-quick-link">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    <span>ChatGPT</span>
-                </a>
-                <a href="https://gemini.google.com" target="_blank" rel="noopener" class="sidebar-quick-link">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    <span>Gemini</span>
-                </a>
-                <a href="https://claude.ai" target="_blank" rel="noopener" class="sidebar-quick-link">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
-                    <span>Claude</span>
-                </a>
-            </div>
-        `;
-    },
-
-    _renderSidebarAILinks_guide() {
-        return `
-            <div class="sidebar-ai-tools">
-                <div class="sidebar-section-title">${I18n.t('sidebar.ai.learning')}</div>
-                <a href="https://claude.ai" target="_blank" rel="noopener" class="sidebar-quick-link">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
-                    <span>Claude</span>
-                </a>
-                <a href="https://chat.openai.com" target="_blank" rel="noopener" class="sidebar-quick-link">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    <span>ChatGPT</span>
-                </a>
-            </div>
-        `;
-    },
-
-    _renderSidebarAILinks_prompts() {
-        return `
-            <div class="sidebar-ai-tools">
-                <div class="sidebar-section-title">${I18n.t('sidebar.ai.test')}</div>
-                <a href="https://chat.openai.com" target="_blank" rel="noopener" class="sidebar-quick-link">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    <span>ChatGPT</span>
-                </a>
-                <a href="https://claude.ai" target="_blank" rel="noopener" class="sidebar-quick-link">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
-                    <span>Claude</span>
-                </a>
-            </div>
-        `;
-    },
-
-    _renderSidebarAILinks_tools() {
-        return `
-            <div class="sidebar-ai-tools">
-                <div class="sidebar-section-title">${I18n.t('sidebar.ai.popular')}</div>
-                <a href="https://chat.openai.com" target="_blank" rel="noopener" class="sidebar-quick-link">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    <span>ChatGPT</span>
-                </a>
-                <a href="https://claude.ai" target="_blank" rel="noopener" class="sidebar-quick-link">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
-                    <span>Claude</span>
-                </a>
-            </div>
-        `;
-    },
-
-    renderSidebarTip(viewId) {
-        const t = (k) => I18n.t(k);
-        let titleKey = 'sidebar.tip.label';
-        let descKey = 'sidebar.tip.text.' + this.currentTipIndex;
-
-        if (viewId === 'guide') {
-            titleKey = 'sidebar.tip.guide.title';
-            descKey = 'sidebar.tip.guide.desc';
-        } else if (viewId === 'prompts') {
-            titleKey = 'sidebar.tip.prompts.title';
-            descKey = 'sidebar.tip.prompts.desc';
-        } else if (viewId === 'tools') {
-            titleKey = 'sidebar.tip.tools.title';
-            descKey = 'sidebar.tip.tools.desc';
-        } else if (viewId === 'glossary') {
-            titleKey = 'sidebar.tip.guide.title';
-            descKey = 'sidebar.tip.guide.desc';
-        } else if (viewId === 'resources') {
-            titleKey = 'resources.pedagogy.label';
-            const rnd = (Math.floor(Math.random() * 3) + 1);
-            descKey = 'resources.pedagogy.tip.' + rnd;
-        }
-
-        return `
-            <div class="sidebar-tip-box">
-                <div class="sidebar-tip-header">
-                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" class="sidebar-tip-icon"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                    <div class="sidebar-tip-label">${t(titleKey)}</div>
-                </div>
-                <p class="sidebar-tip-text">${t(descKey)}</p>
-            </div>
-        `;
+        const menu=AINOWNavigation;
+        sidebar.innerHTML='<div class="ainow-sidebar-scroll"><div class="ainow-drawer-heading"><span>'+menu.text(I18n.lang,'navigation')+'</span><button class="edu-menu-close" type="button" onclick="App.toggleMobileMenu()" aria-label="'+AINOWPlatform.text(I18n.lang,'close')+'">'+AINOWPlatform.icon('X')+'</button></div>'+menu.render('edu',I18n.lang,{active:viewId})+'<div class="ainow-sidebar-context">'+html+'</div></div>'+menu.render('edu',I18n.lang,{group:'common'});
+        sidebar.onclick=event=>{const link=event.target.closest('[data-nav-id]');if(!link||!sidebar.contains(link)||!menu.primary.edu.some(item=>item.id===link.dataset.navId))return;event.preventDefault();this.switchView(link.dataset.navId);};
     },
 
     currentToolCategory: 'all',
@@ -762,7 +589,31 @@ const App = {
         ],
     },
 
+    _homeGoal: null,
+    _homeStartOpen: false,
+    _selectHomeGoal(goal) {
+        this._homeGoal = this._homeGoal === goal ? null : goal;
+        this._homeStartOpen = true;
+        this._renderTaskStart();
+        document.getElementById('edu-goal-' + goal)?.focus({preventScroll: true});
+    },
+    async _openHomeGoal(goal) {
+        if (goal === 'learn') { await this.switchView('guide'); Router.renderContent('definition'); }
+        else if (goal === 'lesson') { await this.switchView('prompts'); }
+        else if (goal === 'material') { await this.openResourcesWidget('homework'); }
+        const heading = document.querySelector('#main-content .guide-title') || document.querySelector('#main-content h1');
+        if (heading) { heading.tabIndex = -1; heading.focus({preventScroll: true}); heading.scrollIntoView({block: 'start', behavior: 'auto'}); }
+    },
+    _renderTaskStart() {
+        const el = document.getElementById('home-task-start');
+        if (!el) return;
+        const t = key => escapeHtml(I18n.t('learning.start.' + key));
+        const paths = [['learn', 'guide'], ['lesson', 'prompts'], ['material', 'homework']];
+        el.innerHTML = `<details class="task-start task-start--edu" ${this._homeStartOpen ? 'open' : ''} ontoggle="App._homeStartOpen=this.open"><summary id="edu-start-title">${t('choose')}</summary><div class="task-start-body"><p>${t('title')}</p><div class="task-start-choices">${paths.map(([goal, mark]) => `<button type="button" id="edu-goal-${goal}" aria-pressed="${this._homeGoal === goal}" onclick="App._selectHomeGoal('${goal}')">${icon(mark)}${t(goal)}</button>`).join('')}</div>${this._homeGoal ? `<div class="task-start-result"><p role="status">${t(this._homeGoal + '.text')}</p><div class="task-start-actions"><button type="button" onclick="App._openHomeGoal('${this._homeGoal}')">${t('go')}</button></div></div>` : ''}</div></details>`;
+    },
+
     _renderHomeCards() {
+        this._renderTaskStart();
         const t = (k) => I18n.t(k);
         const build = (list, compact) => list.map(c => `
             <div class="home-feature-card ${compact ? 'home-feature-card--compact' : ''}"
@@ -827,29 +678,15 @@ const App = {
         const total = data.length;
 
         header.innerHTML = `
-            <div class="page-hero-card">
-                <div class="page-hero-card-icon page-hero-card-icon--secondary">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                    </svg>
-                </div>
-                <div>
-                    <h1 class="page-hero-title">${t('glossary.title')}</h1>
-                    <p class="page-hero-sub" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-                        <span>${total} ${t('glossary.count')}</span>
-                        <span class="glossary-search-wrap" style="max-width:300px;">
-                            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="color:var(--text-tertiary);flex-shrink:0;">
-                                <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            </svg>
-                            <input id="glossary-search" type="text" placeholder="${t('glossary.search')}"
-                                autocomplete="off" oninput="App.filterGlossary()"
-                                value="${this.currentGlossarySearch}">
-                        </span>
-                    </p>
-                </div>
-            </div>
+            <header class="ainow-page-heading">
+                <span class="ainow-page-mark">${AINOWPlatform.icon('BookOpen')}</span>
+                <div><h1 class="ainow-page-title">${escapeHtml(t('glossary.title'))}</h1><p class="ainow-page-meta">${total} ${escapeHtml(t('glossary.count'))}</p></div>
+            </header>
+            <label class="ainow-search-field">
+                <span class="ainow-visually-hidden">${escapeHtml(t('glossary.search'))}</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                <input id="glossary-search" type="search" placeholder="${escapeHtml(t('glossary.search'))}" autocomplete="off" oninput="App.filterGlossary()" value="${escapeHtml(this.currentGlossarySearch)}">
+            </label>
         `;
         this._renderGlossaryCards();
     },
@@ -936,9 +773,15 @@ const App = {
         return out;
     },
 
+    _promptsForSubcategory(category, subcategory, pool = this._promptsForCategory(category)) {
+        const teaching = (this._teachingSubs[category] || []).includes(subcategory);
+        return pool.filter(p => subcategory === 'all' || p.subcategory === subcategory || (teaching && p.subcategory === 'all'));
+    },
+
     currentPromptCategory: 'primary',
     currentPromptSubcategory: 'all',
     currentPromptSearch: '',
+    currentPromptView: 'grid',
     currentPromptPage: 1,
     promptsPerPage: 12,
 
@@ -949,7 +792,6 @@ const App = {
         this.currentPromptPage = 1;
 
         this._openPromptLevel = cat;
-        this.renderPromptCatTabs();
         this.renderPrompts(cat, 'all');
         this.renderSidebarCtx('prompts');
         const searchInput = document.getElementById('prompts-search-input');
@@ -963,7 +805,6 @@ const App = {
         this.currentPromptPage = 1;
 
         this._openPromptLevel = this.currentPromptCategory;
-        this.renderPromptCatTabs();
         this.renderPrompts(this.currentPromptCategory, sub);
         this.renderSidebarCtx('prompts');
         const searchInput = document.getElementById('prompts-search-input');
@@ -976,6 +817,22 @@ const App = {
         this.renderPrompts(this.currentPromptCategory, this.currentPromptSubcategory);
     },
 
+    setPromptView(view) {
+        if (!['grid', 'list', 'table'].includes(view)) return;
+        this.currentPromptView = view;
+        this.renderPrompts(this.currentPromptCategory, this.currentPromptSubcategory);
+    },
+
+    openPromptCard(event, index) {
+        if (event.target.closest('button, a, input, select, textarea')) return;
+        this.openPromptDetail(index);
+    },
+
+    copyPromptCard(index, button) {
+        const prompt = this._pagePrompts[index];
+        if (prompt) this._copyPromptText(prompt.prompt, button);
+    },
+
     renderPrompts(category, subcategory) {
         const list = document.getElementById('prompts-list');
         const pagContainer = document.getElementById('prompts-pagination');
@@ -984,12 +841,7 @@ const App = {
 
         const allPrompts = this._promptsForCategory(category);
 
-        const isTeachingSub = (this._teachingSubs[category] || []).includes(subcategory);
-        let filtered = allPrompts.filter(p =>
-            subcategory === 'all'
-            || p.subcategory === subcategory
-            || (isTeachingSub && p.subcategory === 'all')
-        );
+        let filtered = this._promptsForSubcategory(category, subcategory, allPrompts);
 
         const query = this.currentPromptSearch;
         if (query) {
@@ -1002,8 +854,7 @@ const App = {
         const titleText = subcategory === 'all' ? I18n.t('prompts.sub.all') : I18n.t('prompts.sub.' + subcategory);
         if (header) {
             header.innerHTML = `
-                <div class="pc-topbar-title">${titleText}</div>
-                <div class="pc-topbar-meta">${filtered.length} <span data-i18n="prompts.count.suffix">${I18n.t('prompts.count.suffix')}</span></div>
+                ${escapeHtml(I18n.t('prompts.cat.' + category))}${subcategory === 'all' ? '' : ' · ' + escapeHtml(titleText)} · ${filtered.length} ${escapeHtml(I18n.t('prompts.count.suffix'))}
             `;
         }
 
@@ -1022,23 +873,21 @@ const App = {
 
         this._pagePrompts = pageItems;
 
-        let html = '';
-        pageItems.forEach((p, i) => {
-            const subjectSpan = p.subject ? `<span class="pcm-tag">${escapeHtml(p.subject)}</span>` : '';
-            const gradeSpan = p.grade ? `<span class="pcm-tag">${escapeHtml(p.grade)}</span>` : '';
-
-            html += `
-                <div class="pcm-card pcm-card--clickable" role="button" tabindex="0"
-                     onclick="App.openPromptDetail(${i})"
-                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
-                    <h3 class="pcm-title">${escapeHtml(p.title)}</h3>
-                    <div class="pcm-footer">
-                        ${subjectSpan}
-                        ${gradeSpan}
-                    </div>
-                </div>
-            `;
-        });
+        list.className = 'ainow-template-grid' + (this.currentPromptView === 'grid' ? '' : ' is-' + this.currentPromptView);
+        const controls = document.getElementById('prompts-view-controls');
+        if (controls) controls.innerHTML = ['grid','list','table'].map((view,i) => {
+            const label = escapeHtml(I18n.t('prompts.view.' + view));
+            const icons = ['<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>','<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>','<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18M3 15h18"/>'];
+            return `<button type="button" class="ainow-action-control" aria-label="${label}" title="${label}" aria-pressed="${this.currentPromptView===view}" onclick="App.setPromptView('${view}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">${icons[i]}</svg></button>`;
+        }).join('');
+        const html = pageItems.map((p,i) => `
+            <article class="ainow-template-card" onclick="App.openPromptCard(event,${i})">
+                <div class="ainow-card-header"><span class="ainow-template-badge">${escapeHtml(p.subject || I18n.t('prompts.cat.'+category))}</span>
+                <button type="button" class="ainow-action-control" aria-label="${escapeHtml(I18n.t('prompts.copy')+' · '+p.title)}" title="${escapeHtml(I18n.t('prompts.copy'))}" onclick="App.copyPromptCard(${i},this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+                <h3 class="ainow-template-title"><button type="button" onclick="App.openPromptDetail(${i})">${escapeHtml(p.title)}</button></h3>
+                <p class="ainow-template-preview">${escapeHtml(p.prompt)}</p>
+                <div class="ainow-template-tags">${[p.grade,...(p.tags||[]).slice(0,3)].filter(Boolean).map(tag=>`<span>${escapeHtml(tag)}</span>`).join('')}</div>
+            </article>`).join('');
 
         list.innerHTML = html || `
             <div class="pc-empty-state">
@@ -1053,7 +902,7 @@ const App = {
                 let pagHtml = '<div class="pc-pagination">';
 
                 const prevDisabled = this.currentPromptPage === 1 ? 'disabled' : '';
-                pagHtml += `<button class="pag-btn" ${prevDisabled} onclick="App.goToPromptPage(${this.currentPromptPage - 1})"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>`;
+                pagHtml += `<button class="pag-btn" aria-label="${escapeHtml(I18n.t('pagination.previous'))}" ${prevDisabled} onclick="App.goToPromptPage(${this.currentPromptPage - 1})"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>`;
 
                 this._paginationWindow(this.currentPromptPage, totalPages).forEach(item => {
                     if (item === '…') {
@@ -1062,11 +911,11 @@ const App = {
                     }
                     const activeClass = item === this.currentPromptPage ? 'active' : '';
                     const current = item === this.currentPromptPage ? ' aria-current="page"' : '';
-                    pagHtml += `<button class="pag-num ${activeClass}"${current} onclick="App.goToPromptPage(${item})">${item}</button>`;
+                    pagHtml += `<button class="pag-num ${activeClass}" aria-label="${escapeHtml(I18n.t('pagination.page'))} ${item}"${current} onclick="App.goToPromptPage(${item})">${item}</button>`;
                 });
 
                 const nextDisabled = this.currentPromptPage === totalPages ? 'disabled' : '';
-                pagHtml += `<button class="pag-btn" ${nextDisabled} onclick="App.goToPromptPage(${this.currentPromptPage + 1})"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>`;
+                pagHtml += `<button class="pag-btn" aria-label="${escapeHtml(I18n.t('pagination.next'))}" ${nextDisabled} onclick="App.goToPromptPage(${this.currentPromptPage + 1})"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>`;
 
                 pagHtml += '</div>';
                 pagContainer.innerHTML = pagHtml;
@@ -1102,8 +951,7 @@ const App = {
         this.currentPromptPage = page;
         this.renderPrompts(this.currentPromptCategory, this.currentPromptSubcategory);
 
-        const scrollArea = document.querySelector('.pc-cards-scroll')
-            || document.getElementById('main-content');
+        const scrollArea = document.getElementById('main-content');
         if (scrollArea) scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
     },
 
@@ -1128,23 +976,23 @@ const App = {
             if (p.subcategory) bits.push(I18n.t('prompts.sub.' + p.subcategory));
             if (p.subject) bits.push(p.subject);
             if (p.grade) bits.push(p.grade);
-            meta.innerHTML = bits.map(b => `<span class="pcm-tag">${escapeHtml(b)}</span>`).join('')
-                + (p.tags || []).map(t => `<span class="pcm-tag pcm-tag--soft">${escapeHtml(t)}</span>`).join('');
+            const seen=new Set();
+            meta.innerHTML=[...bits,...(p.tags||[])].filter(value=>{const key=String(value).trim().toLocaleLowerCase();if(!key||seen.has(key))return false;seen.add(key);return true;}).map(value=>`<span>${escapeHtml(value)}</span>`).join('');
         }
 
-        body.textContent = p.prompt;
+        this._detailText=null; this._detailEditing=false; this._renderPromptDetail();
 
         this._detailReturnFocus = document.activeElement;
         modal.classList.add('open');
         modal.setAttribute('aria-hidden', 'false');
         this._updateBodyScrollState();
 
-        const first = modal.querySelector('.pd-copy-btn');
+        const first = modal.querySelector('.prompt-dialog-reader');
         if (first) setTimeout(() => first.focus(), 0);
 
         this._detailTrapHandler = (e) => {
             if (e.key !== 'Tab') return;
-            const f = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            const f = [...modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')].filter(el=>el.getClientRects().length);
             if (!f.length) return;
             const a = f[0], z = f[f.length - 1];
             if (e.shiftKey && document.activeElement === a) { z.focus(); e.preventDefault(); }
@@ -1153,9 +1001,34 @@ const App = {
         modal.addEventListener('keydown', this._detailTrapHandler);
     },
 
+    _renderPromptDetail() {
+        if (!this._detailPrompt) return;
+        const ui=AINOWPromptText.ui(I18n.lang), body=document.getElementById('prompt-detail-body'), editor=document.getElementById('prompt-detail-editor'), input=document.getElementById('prompt-detail-input');
+        const value=this._detailText===null?this._detailPrompt.prompt:this._detailText;
+        body.hidden=!!this._detailEditing; editor.hidden=!this._detailEditing;
+        body.innerHTML=AINOWPromptText.render(value); input.value=value;
+        editor.querySelector('span').textContent=ui.instructions;
+        document.getElementById('prompt-detail-hint').textContent=AINOWPromptActions.ui(I18n.lang).hint;
+        const actions=document.getElementById('prompt-detail-ai');
+        actions.innerHTML=AINOWPromptActions.render(I18n.lang);
+        if(!this._detailAiDispose)this._detailAiDispose=AINOWPromptActions.bind(actions,tool=>this.openDetailWithAI(tool.url));
+        document.getElementById('prompt-detail-tools').innerHTML=`<span>${escapeHtml(this._detailEditing?ui.editing:ui.instructions)}</span><div>${this._detailText!==null?`<button type="button" onclick="App.resetPromptCopy()">${escapeHtml(ui.reset)}</button>`:''}<button type="button" onclick="App.editPromptCopy()">${escapeHtml(this._detailEditing?ui.preview:ui.edit)}</button></div>`;
+    },
+
+    editPromptCopy() {
+        if (!this._detailPrompt) return;
+        this._detailEditing=!this._detailEditing;
+        if(this._detailEditing&&this._detailText===null)this._detailText=AINOWPromptText.editable(this._detailPrompt.prompt);
+        this._renderPromptDetail();
+        if(this._detailEditing)document.getElementById('prompt-detail-input').focus();
+    },
+
+    resetPromptCopy() { this._detailText=null;this._detailEditing=false;this._renderPromptDetail(); },
+
     closePromptDetail() {
         const modal = document.getElementById('prompt-detail-modal');
         if (!modal || !modal.classList.contains('open')) return;
+        this._detailAiDispose?.();this._detailAiDispose=null;
         this._moveFocusOutOfModal(modal, this._detailReturnFocus);
         modal.classList.remove('open');
         modal.setAttribute('aria-hidden', 'true');
@@ -1169,21 +1042,33 @@ const App = {
     },
 
     copyDetailPrompt(btn) {
-        const p = this._detailPrompt;
-        if (!p) return;
+        if (this._detailPrompt) this._copyPromptText(this._detailText===null?this._detailPrompt.prompt:this._detailText, btn);
+    },
+
+    _copyPromptText(text, btn) {
         const done = () => {
             this.showToast(I18n.t('prompts.copied'));
             if (!btn) return;
             const original = btn.innerHTML;
-            btn.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg><span>${escapeHtml(I18n.t('prompts.copied'))}</span>`;
+            btn.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="prompt-dialog-action-label">${escapeHtml(I18n.t('prompts.copied'))}</span>`;
             setTimeout(() => { btn.innerHTML = original; }, 2000);
         };
-        navigator.clipboard.writeText(p.prompt).then(done).catch(done);
+        const copy = async () => {
+            try { await navigator.clipboard.writeText(text); }
+            catch (_) {
+                const field = document.createElement('textarea');
+                field.value = text; field.style.position = 'fixed'; field.style.opacity = '0';
+                document.body.append(field); field.select();
+                const copied = document.execCommand('copy'); field.remove(); btn?.focus();
+                if (!copied) throw new Error('Copy unavailable');
+            }
+        };
+        copy().then(done).catch(() => this.showToast(I18n.t('prompts.copy_failed')));
     },
 
     openDetailWithAI(url) {
         const p = this._detailPrompt;
-        if (p) navigator.clipboard.writeText(p.prompt).catch(() => {});
+        if (p) this._copyPromptText(this._detailText===null?p.prompt:this._detailText);
         window.open(url, '_blank', 'noopener');
     },
 
@@ -1211,47 +1096,6 @@ const App = {
         if (window.ResourceManager) {
             window.ResourceManager.switchWidget(widget);
         }
-    },
-
-    renderPromptCatTabs() {
-        const catEl = document.getElementById('prompts-cat-tabs');
-        const subEl = document.getElementById('prompts-sub-tabs');
-        if (!catEl || !subEl) return;
-
-        const t  = (k) => I18n.t(k);
-        const cat = this.currentPromptCategory || 'primary';
-        const sub = this.currentPromptSubcategory || 'all';
-
-        catEl.innerHTML = `
-            <div class="prompts-cat-grid">
-                ${this._promptCategories
-                    .map(c => ({ ...c, count: this._promptsForCategory(c.id).length }))
-                    .filter(c => c.count)
-                    .map(c => `
-                    <button class="prompts-cat-btn ${cat === c.id ? 'active' : ''}"
-                            onclick="App.switchPromptCategory('${c.id}')">
-                        <div class="prompts-cat-btn-head">
-                            ${c.icon}
-                            <span class="prompts-cat-btn-label">${t('prompts.cat.' + c.id)}</span>
-                            <span class="prompts-cat-btn-count">${c.count}</span>
-                        </div>
-                    </button>
-                `).join('')}
-            </div>
-        `;
-
-        const subs = this._promptSubMap[cat] || this._promptSubMap.teachers;
-
-        subEl.innerHTML = `
-            <div class="prompts-sub-row">
-                ${subs.map(s => `
-                    <button class="prompts-sub-pill ${sub === s ? 'active' : ''}"
-                            onclick="App.switchPromptSubcategory('${s}')">
-                        ${t('prompts.sub.' + s)}
-                    </button>
-                `).join('')}
-            </div>
-        `;
     },
 
     currentGuideCategory: 'foundations',
@@ -1669,45 +1513,16 @@ const App = {
     setTheme(theme) {
         this.theme = theme;
         document.body.setAttribute('data-theme', theme);
-        try { localStorage.setItem('ainow-theme', theme); } catch(e) {}
+        try { localStorage.setItem('ainow-theme', theme); localStorage.setItem('theme', theme); } catch(e) {}
 
         const icon = document.getElementById('theme-icon');
-        if (icon) {
-            icon.innerHTML = theme === 'light'
-                ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>'
-                : '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
-        }
+        if (icon) icon.innerHTML = AINOWPlatform.icon(theme === 'light' ? 'Moon' : 'Sun');
 
         document.body.style.opacity = '1';
     },
 
     openPrivacyModal() {
-        const modal = document.getElementById('privacy-modal');
-        if (!modal) return;
-
-        this._modalReturnFocus = document.activeElement;
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-        this._updateBodyScrollState();
-
-        const firstBtn = modal.querySelector('button');
-        if (firstBtn) setTimeout(() => firstBtn.focus(), 0);
-
-        this._modalTrapHandler = (e) => {
-            if (e.key !== 'Tab') return;
-            const focusables = modal.querySelectorAll(
-                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-            );
-            if (!focusables.length) return;
-            const first = focusables[0];
-            const last  = focusables[focusables.length - 1];
-            if (e.shiftKey && document.activeElement === first) {
-                last.focus(); e.preventDefault();
-            } else if (!e.shiftKey && document.activeElement === last) {
-                first.focus(); e.preventDefault();
-            }
-        };
-        modal.addEventListener('keydown', this._modalTrapHandler);
+        location.href = AINOWPlatform.href('policies');
     },
 
     closePrivacyModal() {
@@ -1725,25 +1540,14 @@ const App = {
         this._modalReturnFocus = null;
     },
 
-    switchAboutWidget(widget) {
-        ['team', 'program', 'partners'].forEach(w => {
-            const content = document.getElementById('about-widget-' + w);
-            const btn = document.getElementById('about-widget-btn-' + w);
-            if (content) content.style.display = w === widget ? '' : 'none';
-            if (btn) {
-                if (w === widget) {
-                    btn.style.border = '2px solid var(--primary)';
-                    btn.style.background = 'var(--primary-light)';
-                    btn.querySelector('svg').style.color = 'var(--primary)';
-                    btn.querySelector('span').style.color = 'var(--primary)';
-                } else {
-                    btn.style.border = '1px solid var(--border-light)';
-                    btn.style.background = 'var(--bg-card)';
-                    btn.querySelector('svg').style.color = 'var(--text-primary)';
-                    btn.querySelector('span').style.color = 'var(--text-primary)';
-                }
-            }
-        });
+    _syncMenuVisibility() {
+        const sidebar = document.querySelector('.app-sidebar');
+        const hidden = window.matchMedia('(max-width:767.98px)').matches && !sidebar?.classList.contains('open');
+        if (sidebar) {
+            sidebar.inert = hidden;
+            if (hidden) sidebar.setAttribute('aria-hidden','true');
+            else sidebar.removeAttribute('aria-hidden');
+        }
     },
 
     toggleMobileMenu() {
@@ -1751,20 +1555,48 @@ const App = {
         const overlay = document.getElementById('sidebar-overlay');
         if (sidebar) sidebar.classList.toggle('open');
         if (overlay) overlay.classList.toggle('open');
-        const currentLang = I18n.currentLang || 'mk';
-        document.querySelectorAll('.sidebar-lang-pill').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.lang === currentLang);
-        });
+        const open = sidebar?.classList.contains('open');
+        this._syncMenuVisibility();
+        document.querySelectorAll('.mobile-menu-toggle,.edu-library-filter').forEach(button=>button.setAttribute('aria-expanded',String(!!open)));
+        if (open) {
+            this._menuPreviousFocus = document.activeElement;
+            this._menuBodyOverflow = document.body.style.overflow;
+            document.body.style.overflow = 'hidden';
+            sidebar.querySelector('button,a[href]')?.focus();
+            this._menuTrap = event => {
+                if (event.key !== 'Tab') return;
+                const nodes = [...sidebar.querySelectorAll('button,a[href],input,select')].filter(el=>el.offsetParent!==null);
+                const first=nodes[0],last=nodes[nodes.length-1];
+                if (event.shiftKey&&document.activeElement===first) {event.preventDefault();last?.focus();}
+                else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus();}
+            };
+            document.addEventListener('keydown',this._menuTrap);
+        } else {
+            document.body.style.overflow = this._menuBodyOverflow || '';
+            if(this._menuTrap)document.removeEventListener('keydown',this._menuTrap);
+            this._menuPreviousFocus?.focus?.();
+        }
     },
 
     toggleLangMenu() {
         const dropdown = document.getElementById('lang-dropdown');
-        if (dropdown) dropdown.classList.toggle('open');
+        const trigger = document.querySelector('[data-header-control="language"]');
+        if (!dropdown || !trigger) return;
+        const open = dropdown.hidden;
+        if (open) dropdown.innerHTML = AINOWPlatform.languages.map(item => '<button type="button" aria-pressed="'+(item.code===I18n.lang)+'" onclick="I18n.setLang(\''+item.code+'\'); App.closeLangMenu(true)"><span>'+item.name+'</span>'+(item.code===I18n.lang?AINOWPlatform.icon('Check'):'')+'</button>').join('');
+        dropdown.hidden = !open;
+        trigger.setAttribute('aria-expanded', String(open));
     },
 
-    closeLangMenu() {
+    closeLangMenu(restoreFocus = false) {
         const dropdown = document.getElementById('lang-dropdown');
-        if (dropdown) dropdown.classList.remove('open');
+        const trigger = document.querySelector('[data-header-control="language"]');
+        const wasOpen = dropdown && !dropdown.hidden;
+        if (dropdown) dropdown.hidden = true;
+        trigger?.setAttribute('aria-expanded', 'false');
+        if (restoreFocus && wasOpen) trigger?.focus();
+        const code = document.getElementById('header-language-code');
+        if (code) code.textContent = I18n.lang.toUpperCase();
     },
 
     _initPullToRefresh() {
@@ -1898,24 +1730,12 @@ const App = {
 
             if (sidebar && overlay && !sidebar.contains(e.target) && !overlay.contains(e.target)) {
                 const menuToggle = document.querySelector('.mobile-menu-toggle');
-                if (!menuToggle || !menuToggle.contains(e.target)) {
-                    sidebar.classList.remove('open');
-                    overlay.classList.remove('open');
+                if ((!menuToggle || !menuToggle.contains(e.target)) && !e.target.closest('.edu-library-filter')) {
+                    if (sidebar.classList.contains('open')) this.toggleMobileMenu();
                 }
             }
         });
 
-        if (window.matchMedia('(max-width: 768px)').matches) {
-            document.addEventListener('touchstart', (e) => {
-                const dropdown = document.getElementById('lang-dropdown');
-                const btn = document.querySelector('.lang-switcher-btn');
-                if (dropdown && dropdown.classList.contains('open')) {
-                    if (!dropdown.contains(e.target) && !btn.contains(e.target)) {
-                        this.closeLangMenu();
-                    }
-                }
-            }, { passive: true });
-        }
     },
 
     _updateBodyScrollState() {

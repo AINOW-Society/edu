@@ -1,0 +1,12 @@
+[
+  {
+    "action": "questions",
+    "target": "help-faq-title",
+    "top": 172,
+    "url": "http://127.0.0.1:4180/help.html#/dev"
+  },
+  {
+    "action": "faq",
+    "expanded": 1
+  }
+]

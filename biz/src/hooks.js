@@ -6,8 +6,10 @@ const { loadLocale, getCachedLocale } = AINOW['locales/locales'];
 
 const useLanguage = () => {
     const getStoredLangCode = () => {
-        const stored = localStorage.getItem('language');
-        return (stored && ['en', 'mk', 'sq', 'bs', 'sr'].includes(stored)) ? stored : 'en';
+        try {
+            const stored = localStorage.getItem('ainow_lang') || localStorage.getItem('language');
+            return (stored && ['en', 'mk', 'sq'].includes(stored)) ? stored : 'en';
+        } catch (e) { return 'en'; }
     };
 
     const [lang, setLangState] = useState(getStoredLangCode);
@@ -37,19 +39,26 @@ const useLanguage = () => {
 
         window.addEventListener('languageChange', handleEvent);
         window.addEventListener('storage', handleEvent);
+        window.addEventListener('pageshow', handleEvent);
+        window.addEventListener('focus', handleEvent);
 
         return () => {
             mounted = false;
             window.removeEventListener('languageChange', handleEvent);
             window.removeEventListener('storage', handleEvent);
+            window.removeEventListener('pageshow', handleEvent);
+            window.removeEventListener('focus', handleEvent);
         };
     }, [lang]);
 
     const setLang = (newLang) => {
-        localStorage.setItem('language', newLang);
+        if (!['en','mk','sq'].includes(newLang)) return false;
         setLangState(newLang);
         setIsReady(false);
+        try { ['language','ainow_lang','ainow-lang'].forEach(key => localStorage.setItem(key, newLang)); }
+        catch (_) { return false; }
         window.dispatchEvent(new Event('languageChange'));
+        return true;
     };
 
     const t = (key, options) => {
@@ -98,6 +107,62 @@ const useToast = () => {
     return { toast, showToast };
 };
 
+const useStorageSync = (keys, onChange) => {
+    const callback = useRef(onChange);
+    callback.current = onChange;
+    const signature = keys.join('\u0000');
+    useEffect(() => {
+        if (!signature) return;
+        const watched = signature.split('\u0000');
+        const read = () => Object.fromEntries(watched.map(key => [key, localStorage.getItem(key)]));
+        let previous;
+        try { previous = read(); } catch (_) { return; }
+        const sync = event => {
+            if (event.type === 'storage' && event.key !== null && !watched.includes(event.key)) return;
+            try {
+                const next = read();
+                if (watched.every(key => next[key] === previous[key])) return;
+                previous = next;
+                callback.current(next);
+            } catch (_) {}
+        };
+        window.addEventListener('storage', sync);
+        window.addEventListener('pageshow', sync);
+        window.addEventListener('focus', sync);
+        return () => {
+            window.removeEventListener('storage', sync);
+            window.removeEventListener('pageshow', sync);
+            window.removeEventListener('focus', sync);
+        };
+    }, [signature]);
+};
+
+
+const dialogPanels = [];
+const useDialog = (isOpen, onClose, panel) => {
+    const close = useRef(onClose);
+    close.current = onClose;
+    useEffect(() => {
+        if (!isOpen) return;
+        dialogPanels.push(panel);
+        const previous = document.activeElement, overflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        const controls = () => [...panel.current.querySelectorAll('button, a[href], input, textarea, select, [tabindex="0"]')].filter(node => !node.disabled && node.offsetParent !== null);
+        (panel.current.querySelector('[data-dialog-focus]') || controls()[0] || panel.current).focus();
+        const keydown = event => {
+            if (dialogPanels.at(-1) !== panel) return;
+            if (event.key === 'Escape') { event.preventDefault(); event.stopImmediatePropagation(); close.current(); }
+            if (event.key !== 'Tab') return;
+            const nodes = controls(), first = nodes[0], last = nodes[nodes.length - 1];
+            if (!first) { event.preventDefault(); panel.current.focus(); }
+            else if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+            else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+        };
+        document.addEventListener('keydown', keydown, true);
+        return () => { dialogPanels.splice(dialogPanels.indexOf(panel),1); document.body.style.overflow = overflow; document.removeEventListener('keydown', keydown, true); if (previous?.isConnected) previous.focus(); };
+    }, [isOpen]);
+};
+
 const useGlobalShortcuts = ({ onSearch, onThemeToggle, onSidebarToggle, onHelp, onEscape, onScratchpad }) => {
     useEffect(() => {
         const handleKeyDown = (e) => {
@@ -143,4 +208,6 @@ const useGlobalShortcuts = ({ onSearch, onThemeToggle, onSidebarToggle, onHelp, 
   __exports.useLanguage = useLanguage;
   __exports.useToast = useToast;
   __exports.useGlobalShortcuts = useGlobalShortcuts;
+  __exports.useDialog = useDialog;
+  __exports.useStorageSync = useStorageSync;
 })();

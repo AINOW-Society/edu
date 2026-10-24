@@ -1,0 +1,29 @@
+[
+  {
+    "activePage": "2",
+    "focusOutlineSource": "2px solid var(--primary); outline retained, decorative focus shadow removed",
+    "page": "Education prompts",
+    "shadow": "none",
+    "theme": "light"
+  },
+  {
+    "activePage": "2",
+    "documentWidth": 320,
+    "page": "Education prompts",
+    "shadow": "none",
+    "theme": "dark",
+    "width": 320,
+    "requestedWidth": 320,
+    "passed": true
+  },
+  {
+    "activePage": "2",
+    "documentWidth": 390,
+    "page": "Education prompts",
+    "shadow": "none",
+    "theme": "dark",
+    "width": 390,
+    "requestedWidth": 390,
+    "passed": true
+  }
+]

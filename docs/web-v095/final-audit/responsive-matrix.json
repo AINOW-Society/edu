@@ -1,0 +1,648 @@
+[
+  {
+    "name": "edu-home",
+    "route": "edu/index.html",
+    "h1": "\n            Welcome to AINOW\n        ",
+    "rawKeys": [],
+    "sw": 320,
+    "w": 320
+  },
+  {
+    "name": "edu-home",
+    "route": "edu/index.html",
+    "h1": "\n            Welcome to AINOW\n        ",
+    "rawKeys": [],
+    "sw": 390,
+    "w": 390
+  },
+  {
+    "name": "edu-tools",
+    "route": "edu/index.html?view=tools",
+    "h1": "Curated AI Tools for Education",
+    "rawKeys": [],
+    "sw": 320,
+    "w": 320
+  },
+  {
+    "name": "edu-tools",
+    "route": "edu/index.html?view=tools",
+    "h1": "Curated AI Tools for Education",
+    "rawKeys": [],
+    "sw": 390,
+    "w": 390
+  },
+  {
+    "name": "dev-guides",
+    "route": "dev/index.html#/dev-guides",
+    "h1": "Getting started",
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "dev-guides",
+    "route": "dev/index.html#/dev-guides",
+    "h1": "Getting started",
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "dev-tools",
+    "route": "dev/index.html#/dev-tools",
+    "h1": "AI tools",
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "dev-tools",
+    "route": "dev/index.html#/dev-tools",
+    "h1": "AI tools",
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "dev-mcp",
+    "route": "dev/index.html#/dev-connectors",
+    "h1": "Connectors & MCP",
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "dev-mcp",
+    "route": "dev/index.html#/dev-connectors",
+    "h1": "Connectors & MCP",
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "dev-workflows",
+    "route": "dev/index.html#/dev-workflows",
+    "h1": "Building workflows",
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "dev-workflows",
+    "route": "dev/index.html#/dev-workflows",
+    "h1": "Building workflows",
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "dev-tool-reader",
+    "route": "dev/index.html#/entry/chatgpt",
+    "h1": "ChatGPT · Chat & Work",
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "dev-tool-reader",
+    "route": "dev/index.html#/entry/chatgpt",
+    "h1": "ChatGPT · Chat & Work",
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "chooser",
+    "route": "index.html",
+    "h1": "AINOW Society",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "chooser",
+    "route": "index.html",
+    "h1": "AINOW Society",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "about",
+    "route": "about.html",
+    "h1": "About",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "about",
+    "route": "about.html",
+    "h1": "About",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "policies",
+    "route": "about.html#/page/policies",
+    "h1": "Legal & Privacy",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "policies",
+    "route": "about.html#/page/policies",
+    "h1": "Legal & Privacy",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "accessibility",
+    "route": "about.html#/page/accessibility",
+    "h1": "Accessibility",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "accessibility",
+    "route": "about.html#/page/accessibility",
+    "h1": "Accessibility",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "help-edu",
+    "route": "help.html#/edu",
+    "h1": "Using Education",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "help-edu",
+    "route": "help.html#/edu",
+    "h1": "Using Education",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "help-biz",
+    "route": "help.html#/biz/intro",
+    "h1": "Using Business",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "help-biz",
+    "route": "help.html#/biz/intro",
+    "h1": "Using Business",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "help-dev",
+    "route": "help.html#/dev",
+    "h1": "Using DEV",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "help-dev",
+    "route": "help.html#/dev",
+    "h1": "Using DEV",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "settings-edu",
+    "route": "settings.html?workspace=edu",
+    "h1": "Settings",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "settings-edu",
+    "route": "settings.html?workspace=edu",
+    "h1": "Settings",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "settings-dev",
+    "route": "settings.html?workspace=dev",
+    "h1": "Settings",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "settings-dev",
+    "route": "settings.html?workspace=dev",
+    "h1": "Settings",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "edu-prompts",
+    "route": "edu/index.html?view=prompts",
+    "choices": 0,
+    "h1": "Prompts",
+    "rawKeys": [],
+    "sw": 320,
+    "w": 320
+  },
+  {
+    "name": "edu-prompts",
+    "route": "edu/index.html?view=prompts",
+    "choices": 0,
+    "h1": "Prompts",
+    "rawKeys": [],
+    "sw": 390,
+    "w": 390
+  },
+  {
+    "name": "edu-guide",
+    "route": "edu/index.html?view=guide",
+    "choices": 0,
+    "h1": "Guide",
+    "rawKeys": [],
+    "sw": 320,
+    "w": 320
+  },
+  {
+    "name": "edu-guide",
+    "route": "edu/index.html?view=guide",
+    "choices": 0,
+    "h1": "Guide",
+    "rawKeys": [],
+    "sw": 390,
+    "w": 390
+  },
+  {
+    "name": "edu-glossary",
+    "route": "edu/index.html?view=glossary",
+    "choices": 0,
+    "h1": "Glossary",
+    "rawKeys": [],
+    "sw": 320,
+    "w": 320
+  },
+  {
+    "name": "edu-glossary",
+    "route": "edu/index.html?view=glossary",
+    "choices": 0,
+    "h1": "Glossary",
+    "rawKeys": [],
+    "sw": 390,
+    "w": 390
+  },
+  {
+    "name": "edu-resource-guide",
+    "route": "edu/index.html?view=resources&widget=guide",
+    "choices": 19,
+    "h1": "Resource Builder",
+    "rawKeys": [],
+    "resourceSelection": "Select content to export:",
+    "sw": 320,
+    "w": 320
+  },
+  {
+    "name": "edu-resource-guide",
+    "route": "edu/index.html?view=resources&widget=guide",
+    "choices": 19,
+    "h1": "Resource Builder",
+    "rawKeys": [],
+    "resourceSelection": "Select content to export:",
+    "sw": 390,
+    "w": 390
+  },
+  {
+    "name": "edu-resource-prompts",
+    "route": "edu/index.html?view=resources&widget=prompts",
+    "choices": 8,
+    "h1": "Resource Builder",
+    "rawKeys": [],
+    "resourceSelection": "Select content to export:",
+    "sw": 320,
+    "w": 320
+  },
+  {
+    "name": "edu-resource-prompts",
+    "route": "edu/index.html?view=resources&widget=prompts",
+    "choices": 8,
+    "h1": "Resource Builder",
+    "rawKeys": [],
+    "resourceSelection": "Select content to export:",
+    "sw": 390,
+    "w": 390
+  },
+  {
+    "name": "edu-resource-tests",
+    "route": "edu/index.html?view=resources&widget=tests",
+    "choices": 8,
+    "h1": "Resource Builder",
+    "rawKeys": [],
+    "resourceSelection": "Select questions for the test:",
+    "sw": 320,
+    "w": 320
+  },
+  {
+    "name": "edu-resource-tests",
+    "route": "edu/index.html?view=resources&widget=tests",
+    "choices": 8,
+    "h1": "Resource Builder",
+    "rawKeys": [],
+    "resourceSelection": "Select questions for the test:",
+    "sw": 390,
+    "w": 390
+  },
+  {
+    "name": "edu-resource-homework",
+    "route": "edu/index.html?view=resources&widget=homework",
+    "choices": 1,
+    "h1": "Resource Builder",
+    "rawKeys": [],
+    "resourceSelection": "Select content to export:",
+    "sw": 320,
+    "w": 320
+  },
+  {
+    "name": "edu-resource-homework",
+    "route": "edu/index.html?view=resources&widget=homework",
+    "choices": 1,
+    "h1": "Resource Builder",
+    "rawKeys": [],
+    "resourceSelection": "Select content to export:",
+    "sw": 390,
+    "w": 390
+  },
+  {
+    "name": "biz-overview",
+    "route": "biz/index.html",
+    "choices": 0,
+    "h1": "Work smarter with AINOW BIZ",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "biz-overview",
+    "route": "biz/index.html",
+    "choices": 0,
+    "h1": "Work smarter with AINOW BIZ",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "biz-prompts",
+    "route": "biz/index.html#/prompts",
+    "choices": 0,
+    "h1": "All Prompts",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "biz-prompts",
+    "route": "biz/index.html#/prompts",
+    "choices": 0,
+    "h1": "All Prompts",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "biz-agents",
+    "route": "biz/agents.html",
+    "choices": 0,
+    "h1": "All Agents",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "biz-agents",
+    "route": "biz/agents.html",
+    "choices": 0,
+    "h1": "All Agents",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "biz-situations",
+    "route": "biz/playbooks.html",
+    "choices": 0,
+    "h1": "What's Your Situation?",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "biz-situations",
+    "route": "biz/playbooks.html",
+    "choices": 0,
+    "h1": "What's Your Situation?",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "biz-builder",
+    "route": "biz/builder.html",
+    "choices": 0,
+    "h1": "Agent Builder",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "biz-builder",
+    "route": "biz/builder.html",
+    "choices": 0,
+    "h1": "Agent Builder",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "dev-home",
+    "route": "dev/index.html#/home",
+    "h1": "Build with AINOW DEV",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "dev-home",
+    "route": "dev/index.html#/home",
+    "h1": "Build with AINOW DEV",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "dev-skills",
+    "route": "dev/index.html#/dev-skills",
+    "h1": "Skills",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "dev-skills",
+    "route": "dev/index.html#/dev-skills",
+    "h1": "Skills",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "dev-imported-reader",
+    "route": "dev/index.html#/entry/catalog-skill%3Acode-documentation-doc-generate",
+    "h1": "Code Documentation Doc Generate",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "dev-imported-reader",
+    "route": "dev/index.html#/entry/catalog-skill%3Acode-documentation-doc-generate",
+    "h1": "Code Documentation Doc Generate",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "dev-authored-reader",
+    "route": "dev/index.html#/entry/design-to-code",
+    "h1": "Design before code: intent, flows and interface quality",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "dev-authored-reader",
+    "route": "dev/index.html#/entry/design-to-code",
+    "h1": "Design before code: intent, flows and interface quality",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "dev-workflow-reader",
+    "route": "dev/index.html#/entry/workflow-debug",
+    "h1": "From bug report to verified fix",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "dev-workflow-reader",
+    "route": "dev/index.html#/entry/workflow-debug",
+    "h1": "From bug report to verified fix",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "dev-practice",
+    "route": "dev/index.html#/practice",
+    "h1": "Practice checks",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "dev-practice",
+    "route": "dev/index.html#/practice",
+    "h1": "Practice checks",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "dev-check",
+    "route": "dev/index.html#/check/dev-understand",
+    "h1": "Understand how the AI stack works",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "dev-check",
+    "route": "dev/index.html#/check/dev-understand",
+    "h1": "Understand how the AI stack works",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "dev-tokens",
+    "route": "dev/index.html#/tokens",
+    "h1": "Token calculator",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "dev-tokens",
+    "route": "dev/index.html#/tokens",
+    "h1": "Token calculator",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "programme",
+    "route": "about.html#/page/programme",
+    "h1": "Programme",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "programme",
+    "route": "about.html#/page/programme",
+    "h1": "Programme",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "services",
+    "route": "about.html#/page/services",
+    "h1": "Training & services",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "services",
+    "route": "about.html#/page/services",
+    "h1": "Training & services",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  },
+  {
+    "name": "help",
+    "route": "help.html",
+    "h1": "Help",
+    "rawKeys": [],
+    "sw": 305,
+    "w": 320
+  },
+  {
+    "name": "help",
+    "route": "help.html",
+    "h1": "Help",
+    "rawKeys": [],
+    "sw": 375,
+    "w": 390
+  }
+]

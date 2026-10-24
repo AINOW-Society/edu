@@ -1,7 +1,7 @@
 {
   "name": "AINOW",
   "short_name": "AINOW",
-  "description": "ВИ писменост за наставници и ВИ промпт алатки за бизнис",
+  "description": "ВИ писменост и практични алатки за образование, бизнис и развој",
   "start_url": "/",
   "scope": "/",
   "display": "browser",

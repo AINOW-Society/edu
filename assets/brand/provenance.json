@@ -1,0 +1,19 @@
+{
+  "providedAt": "2026-10-22",
+  "source": "Owner-supplied AINOW wordmarks",
+  "originals": [
+    {
+      "file": "ainow-black.svg",
+      "suppliedName": "AINOW-Black text.svg",
+      "sha256": "d1445792bc0f7dcd592beb1745c3e9cc37e2267907db3693d5cd7d152910d17e",
+      "viewBox": "0 0 16251.37 2943.83"
+    },
+    {
+      "file": "ainow-white.svg",
+      "suppliedName": "AINOW-White text.svg",
+      "sha256": "daef80c226fedaac4da2da959f6bfb82f52677e272cb3c86aceb89af178e342a",
+      "viewBox": "0 0 16251.37 2943.83"
+    }
+  ],
+  "rendering": "Inline path geometry and viewBox exactly match both original SVGs. Only the symbol fill follows the workspace accent. Wordmark text uses the original #373435 light and #FEFEFE dark fills. Workspace labels are separate HTML, never part of the logo."
+}

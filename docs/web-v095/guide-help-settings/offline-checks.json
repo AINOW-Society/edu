@@ -1,0 +1,18 @@
+{
+  "originConfirmedUnavailable": true,
+  "checks": [
+    {
+      "controls": 3,
+      "revision": "http://127.0.0.1:4180/assets/platform-settings.js?v=95-rc34",
+      "title": "Settings",
+      "url": "http://127.0.0.1:4180/settings.html?workspace=biz"
+    },
+    {
+      "jumps": 2,
+      "revision": "http://127.0.0.1:4180/assets/platform-pages.js?v=95-rc34",
+      "title": "Using DEV",
+      "url": "http://127.0.0.1:4180/help.html#/dev"
+    }
+  ],
+  "physicalDevice": false
+}

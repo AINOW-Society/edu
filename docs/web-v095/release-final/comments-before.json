@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-23",
+  "node": "v22.22.3",
+  "parser": "Node bundled Acorn 8.16.0",
+  "mode": "inventory",
+  "rollback": {
+    "file": "dist/AINOW-Literacy-web-v0.95-rc32-source.zip",
+    "sha256": "a2a19b62da312891d99c820551e7dada8db2ee6e541008f96b0e89fd6f49856f"
+  },
+  "exclusions": [
+    "third-party libraries and icons",
+    "source datasets and translations",
+    "imported skill files",
+    "original SVGs",
+    "required licence notices"
+  ],
+  "files": [
+    {
+      "file": "assets/fonts/fonts.css",
+      "beforeSha256": "da2c5711ff615210d95b9f16639567cd2199e2290fc70e400f9b32da1f1213f0",
+      "comments": 1,
+      "keptNotices": 1,
+      "deferred": false,
+      "removed": 0,
+      "spans": []
+    },
+    {
+      "file": "assets/platform.js",
+      "beforeSha256": "7ac5174d4a78154e202bb4ccaf8ac28f8ce8454f711ee866d3521a2816568007",
+      "comments": 1,
+      "keptNotices": 1,
+      "deferred": false,
+      "removed": 0,
+      "spans": []
+    }
+  ],
+  "removedComments": 0,
+  "filesExamined": 79
+}

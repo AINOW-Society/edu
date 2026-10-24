@@ -1,0 +1,42 @@
+{
+  "version": "0.95",
+  "entryAssetRevisions": {
+    "index.html": [
+      "95"
+    ],
+    "help.html": [
+      "95"
+    ],
+    "about.html": [
+      "95"
+    ],
+    "settings.html": [
+      "95"
+    ],
+    "edu/index.html": [
+      "95"
+    ],
+    "dev/index.html": [
+      "95"
+    ],
+    "biz/index.html": [
+      "95"
+    ],
+    "biz/agents.html": [
+      "95"
+    ],
+    "biz/builder.html": [
+      "95"
+    ],
+    "biz/playbooks.html": [
+      "95"
+    ]
+  },
+  "serviceWorkerCaches": {
+    "service-worker.js": "ainow-platform-v0.95",
+    "edu/service-worker.js": "ai-edu-v0.95",
+    "biz/sw.js": "ainow-biz-v0.95",
+    "dev/sw.js": "ainow-dev-v0.95"
+  },
+  "published": false
+}

@@ -1,0 +1,153 @@
+# Changelog
+
+Changes are listed by version. Earlier entries describe their release at that time.
+
+## v0.95 — 24 October 2026
+
+GitHub release: [v0.95](https://github.com/AINOW-Society/edu/releases/tag/v0.95). Hosting deployment is separate from this release.
+
+### Added
+
+- DEV workspace with 13 guide chapters, seven tool profiles, 1,000 skills, 1,000 MCP records and 200 workflows. Imported records retain their language, attribution, licences and pinned revisions.
+- Interactive learning examples, six practice checks, original skill-file readers and a provider-neutral context calculator.
+- Platform-wide Help, About and Settings. Help explains practical tasks with worked examples and one-open FAQs. Settings manages language, appearance and separate Business/DEV backups.
+- Programme overview with the original AINOW wordmark, all eight Society priorities and the AI Balkans project. Services leads with AINOW training and learning support.
+- Reproducible static-web and corresponding-source ZIPs, checksums, GPLv3 text and third-party notices.
+
+### Changed
+
+- One shared Manrope design system, original wordmarks, header controls, workspace navigation, sidebars, buttons, references and footer. Workspace labels remain separate from the logo and disappear on mobile.
+- Education and Business prompt libraries share cards, search/view controls, whole-card opening, prose formatting, editing and a full-screen mobile reader. Copy and a strip of labelled AI-app marks remain visible.
+- Builder uses interactive step cards, current/viewed states, keyboard navigation, named next-step actions and readable light/dark previews. Existing drafts and fields are preserved.
+- Business and DEV use the same plain Scratchpad drawer with separate notes stores. Shared backup controls retain separate legacy formats and workspace isolation.
+- Guide screenshots have rounded corners and their original proportions. Decorative callout rails and coloured button/pagination glows are removed; keyboard focus outlines remain.
+
+### Fixed
+
+- GitHub code-scanning findings: escaped Education timeline/application text before rendering it as HTML, including headings and translated timeline labels; removed the Business warning filter that used an incomplete URL substring check.
+- Business favorite/view persistence, localized situation/topic search, pagination and reader Back/close navigation. Category-qualified prompt links distinguish repeated source IDs while retaining legacy saves.
+- Education URL/history wiring, stale asynchronous navigation, filter counts, glossary/search layout and resource deep links.
+- Cross-tab saved-state refresh, corrupt-state protection, malformed/oversized backup rejection, restore rollback and Builder draft preservation during preference changes.
+- Missing interface labels, inconsistent Help/About destinations, clipped wordmarks, narrow header controls and inconsistent modal focus/scroll behavior.
+- Loopback service-worker registration, shared offline dependencies and stale resource fallback between workspaces.
+
+### Maintenance and validation
+
+- Retired duplicate pages, navigation/configuration, unreachable About rendering and obsolete styles are removed from runtime/cache paths. Original content, state formats, vendor files, artwork and required notices are preserved.
+- Final local verification and archive evidence are in [the release review](docs/web-v095/release-final/README.md). Full physical-phone, screen-reader and final-hosting/cache-update sign-off remain pending.
+
+---
+
+### v0.94 (August 16, 2026)
+- **Two products, one platform:** The site root is now a chooser between **Education** and **Business**. The education app moves to `/edu/` and keeps every feature, its offline behavior, and its free licence unchanged.
+- **Business (`/biz/`):** The AINOW Prompt Library joins the platform with Prompts, Agents, Situations, Playbooks and Builder, in MK/EN/SQ, in its own teal accent (`#0F766E`). Each app's header links to the other, so users can move between the two without returning to the chooser.
+- **Agents language note (Business):** A collapsible explainer on the Agents page, in all three languages, covering why agent instructions are kept in English — models follow English instructions more reliably, especially long structured ones — and making clear that users can still write to the agents in their own language.
+- **Business runs with no build step.** It was a React + Vite app; Vite is gone and its ES modules are converted to classic scripts, so `biz/index.html` opens by double-click from a USB stick with no server and no internet — the same promise the education app has always made. React and htm are unchanged; only module resolution differs.
+- **Higher Education (Education):** New third prompt category beside Teachers and Administration, covering lecturers, researchers, doctoral supervision, student services, quality and leadership — 60 prompts per language in MK/EN/SQ across six evenly weighted subcategories, fully translated. Prompt totals are now 384 MK / 319 EN / 403 SQ.
+- **Help page cleanup (Business):** The help still documented features that no longer ship. Removed the Lab tools section and its FAQ entry, the Readiness Assessment content, the orphaned "Getting Started" page, the unreachable "Transparency & Data Flow" page — whose claim that the app loads libraries from CDNs stopped being true once dependencies were vendored locally — the "AI Landscape" models page, a creator quote duplicated across two pages, and Bosnian/Serbian labels. Roughly 220 KB of dead translation removed.
+- **Albanian completeness:** Added the 27 `builder.*` keys Albanian never had, so the Agent Builder no longer falls back to English. All three languages now resolve every one of the 288 translation keys the code references.
+- **AI Services (Business):** New page listing the services delivered by technology partner CTRLab: AI consultancy, training, Microsoft 365 & Copilot, readiness & adoption, agent orchestration, custom development, and SEO/GEO — with the governance frameworks each engagement is delivered against.
+- **Partners (Business):** Named-partner section listing CTRLab (ctrlab.net), the technology partner behind AINOW products.
+- **Business trimmed for scope:** dropped the Lab and its 6 tools (including the Readiness Assessment), Bosnian and Serbian, external Google Fonts, and 898 lines of orphaned PDF-export code.
+- **PWA migration:** `start_url` and `scope` retargeted to `/edu/`; the service worker precache list rewritten from root-absolute to relative paths. A root-scope cleanup worker evicts stale `ai-edu-v0.93` caches from already-installed devices, then unregisters itself. The landing page redirects to `/edu/` when launched in standalone mode, so existing home-screen icons still open the app.
+- **Path-aware 404:** Unmatched URLs under `/edu/` now return to the education app instead of the chooser.
+- **Social preview fix:** `og:image` and `twitter:image` pointed at `/assets/ainow.png`, which the relocation invalidated; both now resolve.
+- **Version tooling:** Restored `scripts/bump-version.ps1` (maintainer-local, gitignored by project convention), which the README documented but which was missing. `APP_VERSION`, `CACHE_NAME`, and all `?v=` query strings now move in one command.
+- **Service Worker:** Cache bumped to `ai-edu-v0.94`.
+- **Team page (Business):** About now names the full founding team and regional partner — five members beside the founder — in all three languages, replacing the single-creator section.
+- **Typography fix:** Onest ships only 400 and 600 weights, so `font-black` was synthesising a fake 900. Both 700 and 900 are now aliased to the real 600 cut. An earlier attempt overrode `.font-black` to 400, which made the app's emphasis weight *lighter* than its body text across all 98 usages.
+- **Landing page on phones:** Mobile styles had shrunk badges to 8px and stat labels to 8.5px to fit the chooser on one screen. Height now comes out of padding and leading instead; text stays at or near its desktop size.
+- **Dead translation removed:** The Readiness Assessment was dropped in v0.94 but its translation tree survived — 888 keys in MK, 887 in SQ, 157 in EN, referenced by no code. Removing it takes `locales-mk.js` from 380 KB to 137 KB and `locales-sq.js` from 264 KB to 91 KB.
+- **Three-way locale parity:** MK and SQ were missing all 40 `playbooks.ql.*` form placeholders, MK two FAQ entries, SQ two playbook strings — all rendering in English. Now translated. EN, MK and SQ resolve exactly 901 keys each, with zero missing and zero orphaned.
+- **Stale copy corrected:** The landing page claimed 3,370 prompts across 34 areas; the real figures are 3,270 across 33. Help copy in all three languages still advertised "1,000+ prompts", an Education prompt category that lives in the education app rather than in Business, and the Lab tools removed earlier in v0.94.
+- **Chapter count fix (Education):** The home stat bar read 20 chapters against the landing page's 19. `DOCS_DATA` gains a synthetic `about` entry with empty content at runtime, and the counter was including it. Both surfaces now report 19.
+- **README accuracy:** The hero image pointed at `assets/ainow.png`, a path the `/edu/` relocation invalidated — the banner had been broken since v0.94 began. Replaced with fresh platform screenshots. The feature list still claimed a 17-chapter curriculum and "over 950" prompts; the real figures are 19 and 1,106.
+- **Code comments removed:** Every tracked JS, CSS and HTML file, inline `<script>` and `<style>` blocks included. Stripping used a tokenizer rather than a regex, because prompt data carries `//` and `/*` inside strings; each data and locale file was loaded in a sandbox and its exports hashed before and after to prove nothing was altered. The `<!-- -->` markers inside `edu/js/lang/*/docs.js` remain — they are lesson content, not code.
+- **Internal plans untracked:** `docs/superpowers/` held three build plans carrying 59 hardcoded local paths and `rm -rf` commands in a public repo. Removed from Git and gitignored; the files stay on the maintainer's disk.
+
+### v0.93 (April 27, 2026)
+- **Onboarding refresh:** Reworked the welcome tour into a clearer 6-step onboarding flow with improved content coverage for navigation, resources, privacy, and responsible AI use.
+- **Mobile-first modal UX:** Polished onboarding modal layout on phones (tighter spacing, improved typography, cleaner controls, and compact next/back/done navigation behavior).
+- **Discoverability:** Added a dedicated onboarding reopen icon in header actions (next to Help) so users can relaunch the tour anytime.
+- **Localization parity:** Updated onboarding and related help copy in **MK, EN, and SQ**, including title/subtitle and updated step guidance.
+- **Release/cache sync:** Shipped with aligned version identifiers (`APP_VERSION v0.93`, `ai-edu-v0.93`, and `?v=93` assets) to avoid stale PWA cache issues.
+
+### v0.92 (April 27, 2026)
+- **Homework (Resources):** Ready-made student sheets per guide chapter in **MK, EN, and SQ**—print or PDF from Resource Builder. Optional **Насоки / Guidance / Udhëzime** checkbox adds per-field teacher marking notes (same idea as the test answer key: off by default).
+- **Discoverability:** New **Homework** card on the **home** dashboard and **Help** (?), plus a **Homework** quick link in the sidebar on Home / Help / Resources.
+- **Guide — Chapter parity:** The `prompts` guide module is in the Practice tab (`App._guideCategoryMap`), so all 17 `DOCS_DATA` sections are reachable from the UI.
+- **Quizzes — Full topic coverage:** Assessment items for `prompt-advanced`, `memory-rag`, `performance-design`, and `safety-limits` in all three languages where Tests exposes those topics.
+- **Prompt loading:** Language packs use `window.__embeddedPromptsByLang`; `I18n.loadLangData` assigns `embeddedPromptsData` after load for stable cross-language behaviour.
+- **Housekeeping:** EN quiz/prompt cleanups as in prior notes; **version sync:** `v0.92` footer, `ai-edu-v0.92` service worker cache, `?v=92` on assets (`scripts/bump-version.ps1 -NewVersion 0.92`).
+
+### v0.91 (April 26, 2026)
+- **Prompt Bank — Administration Coverage:** Exposed the `department_head` subcategory in the Prompts UI and sidebar, restoring access to prompt sets that were already shipped in MK, EN, and SQ datasets.
+- **Resources Shortcuts:** Replaced the home page `setTimeout(..., 10)` handoff to Resources with an async `App.openResourcesWidget(...)` flow, eliminating cold-load races when opening Tests, Guide handouts, and Prompt lists.
+- **Service Worker Safety:** Tightened non-navigation fetch fallback behavior so failed JS/CSS/image/data requests no longer resolve to `index.html`. Cached assets still work offline, but broken asset requests now fail correctly instead of poisoning app boot with HTML.
+- **Language Loading Robustness:** `I18n.loadLangData()` now clears `DOCS_DATA`, `embeddedPromptsData`, and `QUIZ_DATA` before loading the next language pack, preventing stale mixed-language state if a language file fails to load.
+- **Header UX & Accessibility:** Fixed mobile menu click bubbling so opening the hamburger menu no longer triggers unintended navigation to Home. Added runtime translation support for `title` and `aria-label` attributes across header controls, keeping MK / EN / SQ labels synchronized after language switching.
+- **Resources — Test Topic Integrity:** Switching quiz topics in Resources now clears hidden previous selections, preventing cross-topic export mistakes.
+- **Version Sync:** Bumped release identifiers to `v0.91` / `ai-edu-v0.91` and updated all `?v=91` cache-busting query strings in `index.html`.
+
+### v0.90 (April 17, 2026)
+- **Accessibility — Keyboard & Screen Reader:** Added a "Skip to main content" link (shows on first Tab), translated to MK/EN/SQ. Focus-visible rings on all interactive controls (sub-pills, category tabs, guide tabs, feature cards, modal close button). Added `aria-label` to privacy modal close button.
+- **Privacy Modal:** Full focus trap and auto-focus on open; focus returns to the trigger on close. Footer "Privacy First" trigger is now a real `<button>` instead of a clickable `<span>`.
+- **Copy Feedback:** Copying a prompt now shows a short translated "Copied ✓" toast (bottom of screen), in addition to the existing checkmark on the button — makes the action discoverable on mobile.
+- **Empty States:** Prompts and glossary searches that return nothing now show an icon + friendly title + "Try a different search term" sub-line instead of a bare one-liner.
+- **Mobile UX — Prompts Page:** Main category buttons (Teachers / Administration) now sit side-by-side as a 50/50 grid on phones instead of a horizontal-scroll strip. Guide chapter tabs (Foundations / Practice / Reference) use a 3-column equivalent. Sub-filter pills have a 38px touch target.
+- **Dark Mode Fixes:** Glossary category badges (AI / Tech / Edu / Prompts) now resolve correctly in dark mode (selector was `.dark-theme`, app uses `[data-theme="dark"]`). Print button in Resources uses `--bg-card` instead of hard-coded white. Privacy modal body uses the correct `--text-primary` token.
+- **Motion & Print:** Added `prefers-reduced-motion` support — all animations/transitions collapse for users with motion sensitivity. Added a full `@media print` stylesheet so teachers printing materials don't get UI chrome on the page.
+- **Performance & Loading:** All external `<script>` tags use `defer`. Install banner image has `decoding="async"`. `<noscript>` fallback message in MK/EN/SQ for users without JavaScript.
+- **Service Worker Robustness:** Install now uses `Promise.allSettled` per URL instead of `cache.addAll`, so one 404 won't break the whole install. Fetch handler is a three-tier strategy (exact cache → network → `ignoreSearch` fallback) — fixes offline use when URLs have cache-busting `?v=` query strings.
+- **XSS Hardening:** `escapeHtml()` applied to all dynamic content injected into prompt cards, glossary cards, guide tabs, token counter widget, and PDF/print export (quiz questions, options, answer key, guide titles, prompt tags).
+- **SEO:** Removed duplicate `<meta name="description">`. Added `#glossary`, `#about`, `#help` routes to `sitemap.xml`.
+- **Version Sync Tooling:** Added `scripts/bump-version.ps1` that updates `APP_VERSION`, `CACHE_NAME`, and all `?v=` query strings in one shot to prevent drift.
+- **Service Worker:** Cache bumped to `ai-edu-v0.90`.
+
+### v0.86 (April 12, 2026)
+- **Glossary Page:** New full-page AI/Education glossary accessible via the book icon in the header (top-right, next to the language switcher). Styled card grid with category sidebar filtering (AI, Tech, Education, Prompts) and live search. Works across all three languages.
+- **60-Term Glossary:** Covers the core AI literacy vocabulary — AI/AGI/ANI/ASI, LLM, GPT, RAG, Fine-tuning, Foundation Model, Transformer, Attention, Multimodal AI, AI Agent, Chain of Thought, Deepfakes, Guardrails, Training Data, RLHF, Parameters, Temperature, Embedding, Reinforcement Learning, Supervised/Unsupervised Learning, Responsible AI, Digital Literacy, Data Privacy, and more. All 60 terms in MK, EN, and SQ.
+- **Dynamic Home Stats:** The hero stat line on the home page now reads live counts from the actual data (`embeddedPromptsData`, `DOCS_DATA`, `App._toolsData`). Displays correct numbers automatically as content is added — no more hardcoded "200+ Prompts".
+- **Data Alignment:** Audited and fixed Cyrillic/Latin script corruptions in `js/lang/mk/docs.js` (5 instances) and `js/lang/mk/prompts.js` (T-007, T-036, T-113). New quiz datasets added for EN, MK, SQ; new prompts (T-177+) added for MK — all verified aligned across languages.
+- **Service Worker:** Cache bumped to force fresh delivery of updated JS and CSS assets.
+
+### v0.85 (April 12, 2026)
+- **Code Audit & Cleanup:** Full codebase review — no dead code, no broken references, no TODO/FIXME comments found. Clean bill of health.
+- **Version Sync:** Aligned `APP_VERSION` (`app.js`) with `CACHE_NAME` (`service-worker.js`), which were 2 versions out of sync.
+- **Removed Artifact:** Deleted `extglob` file from repo root (UTF-8 BOM artifact, 3 bytes, no content).
+- **Tracked Libraries:** Added `js/lib/html2canvas.min.js` and `js/lib/jspdf.min.js` to git — they were untracked, causing PDF export to break on fresh clones.
+- **Removed All Comments:** Stripped all `//` and `/* */` comments from source JS files (`app.js`, `views/resources.js`, `service-worker.js`).
+- **Inline Styles → CSS:** Moved all inline `style=""` attributes from JS-generated HTML into proper CSS classes in `styles.css`. New classes: `.sidebar-ctx-wrap`, `.sidebar-section-header`, `.sidebar-tip-header`, `.sidebar-tip-icon`, `.sidebar-ai-tools`, `.sidebar-chapter-item`, `.sidebar-chapter-num`, `.sidebar-chapter-label`, `.sidebar-society-sep`, `.tools-cat-header`, `.tools-cat-icon`, `.tools-cat-title`, `.tools-cat-count`, `.page-hero-card-icon--secondary`, `.pcm-ai-dot--chatgpt/gemini/claude/perplexity`.
+- **Sidebar Deduplication:** Extracted repeated AINOW Society social links (ainow.mk / GitHub / LinkedIn) into a single `_renderSidebarSocials()` method. Was duplicated 3× across `renderSidebarCtx`. All four `_renderSidebarAILinks*` methods also cleaned of inline styles.
+- **Lazy Language Loading:** Removed hardcoded MK language scripts (`lang/mk/docs.js`, `prompts.js`, `quizzes.js`) from `index.html`. All language data now loads dynamically via `I18n.loadLangData()` based on the user's saved preference — no wasted bandwidth for EN/SQ users loading MK files.
+- **Service Worker:** Cache bumped to `ai-edu-v0.85` to force eviction of old cached JS.
+
+### v0.82 (April 11, 2026)
+- **PDF Export — Two Buttons:** Resources view now has a "Save as PDF" button and a separate "Print" button. Both open a hidden iframe with the formatted document and trigger the browser print dialog — works offline, handles all scripts (Macedonian Cyrillic, Albanian, English), and works on mobile and desktop.
+- **Export Fix:** Removed dead `#print-container` guard that silently blocked all exports. Export now works correctly on every click.
+- **PWA Cleanup:** Removed dead `#pwa-install-btn` references (`_showInstallBtn`, `_hideInstallBtn`) from `app.js`.
+- **Performance:** Fixed `innerHTML +=` in a loop in tools rendering — now builds the full string first and sets `innerHTML` once, eliminating N DOM reflows per tool card.
+- **Null-Safety:** Added optional chaining on `.closest().querySelector()` chains in `copyPrompt`, `toggleAIMenu`, `openWithAI`. Added null check on widget button label in Resources. Added `|| val` fallback for quiz question preview.
+- **i18n:** Added `resources.print_btn` translation key in MK, EN, SQ.
+- **Service Worker:** Cache bumped to `ai-edu-v0.82`.
+
+### v0.81 (April 11, 2026)
+- **PWA Install — Fixed End-to-End:** Rewrote the entire PWA install flow with a single source of truth. Install button now shows only when the browser is actually ready to install (via `beforeinstallprompt`). iOS Safari shows a step-by-step bottom-sheet guide instead of a plain alert.
+- **One-Time Install Banner:** A prominent install banner slides up from the bottom on first mobile visit, 2.5 seconds after load. Stored in `localStorage` so it only ever shows once per device.
+- **Service Worker Overhaul:** Switched to network-first for navigation requests — fixes the blank page after PWA install. Cache bumped to `ai-edu-v0.81`.
+- **Manifest Fixed:** Replaced broken `data:` URI icons with real SVG/PNG files. Changed `start_url` from absolute URL to `"/"` so the manifest is valid on both localhost and production — this was the root cause of `beforeinstallprompt` never firing.
+- **Real Logo Assets:** Favicon and PWA icons now use `/assets/logo.svg` and `/assets/logo.png` (4000×4000). Maskable icon uses orange background for Android adaptive icons.
+- **Mobile UI:** Hamburger menu hidden (footer nav handles all navigation). Custom styled checkboxes in Resources view. Pull-to-refresh indicator uses brand orange instead of green.
+- **Nav Icons:** Reduced stroke-width from 2 to 1.5 for a lighter, more refined look.
+- **iOS Install Guide:** Beautiful animated bottom-sheet with 3 numbered steps replaces the old `alert()`.
+- **i18n:** Added `ptr.*` and `pwa.*` translation keys across all three languages (MK, EN, SQ).
+
+### v77 (April 11, 2026)
+- **Mobile UX Improvements:** Added pull-to-refresh gesture support with loading indicators, improved language dropdown interaction on mobile devices
+- **Language Switching:** Fixed language switching behavior, ensuring test topics and content properly reset when changing languages
+- **Code Cleanup:** Removed all unnecessary comments for a cleaner codebase
+- **Bug Fixes:** Various stability improvements and edge case handling
+
+### v76 (Previous Release)
+- Footer PWA install improvements
+- Initial platform release

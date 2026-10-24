@@ -1,0 +1,10 @@
+{
+  "version": "0.95",
+  "date": "2026-10-24",
+  "portableTests": 99,
+  "failed": 0,
+  "evidence": "source-tests.tap",
+  "testedExtraction": "dist/source-verify-v095",
+  "finalRuntimeAndTestsMatchTestedExtraction": true,
+  "packagingScriptOnlyUpdatedToIncludeFinalReviewReports": true
+}

@@ -1,0 +1,35 @@
+{
+  "reviewed": "2026-10-23",
+  "scope": "Public web functional code review, independent of the visual review",
+  "regressionSuite": "scripts/verify-final-qa.cjs",
+  "result": { "tests": 21, "passed": 21, "failed": 0 },
+  "fixed": [
+    { "id": "QA-01", "issue": "Business prompt favorites and selected library view were never persisted", "files": ["biz/src/index.js"], "validation": "Toggle a qualified favorite, change view, remount the actual App and verify both values" },
+    { "id": "QA-02", "issue": "Changing library page size or deleting the final favorite on a later page could leave an empty page", "files": ["biz/src/index.js", "biz/src/agents.js", "biz/src/playbooks.js"], "validation": "Change from page 8 to table view; remove the thirteenth favorite while on page 2" },
+    { "id": "QA-03", "issue": "Business situations searched English IDs but excluded visible translated titles and descriptions", "files": ["biz/src/playbooks.js"], "validation": "Real EN/MK/SQ dictionaries, title and description queries, surrounding whitespace and unmatched query" },
+    { "id": "QA-04", "issue": "Business library startup and persistence could throw when browser storage was denied or full", "files": ["biz/src/index.js", "biz/src/agents.js", "biz/src/playbooks.js"], "validation": "Render all three actual App bodies with storage reads and writes throwing" },
+    { "id": "QA-05", "issue": "Open Business prompt and agent readers did not follow hash Back navigation or canonical close destinations", "files": ["biz/src/index.js", "biz/src/agents.js"], "validation": "Select a card, return to library by hash history, close a card reader and close a direct-link reader" },
+    { "id": "QA-06", "issue": "Business backups accepted malformed draft JSON, invalid saved lists and unsupported preferences", "files": ["biz/src/utils.js"], "validation": "Reject malformed fields before restoring and preserve valid legacy IDs, unknown draft properties and recent records" },
+    { "id": "QA-07", "issue": "Legacy language/theme backups could be overridden by existing modern preference aliases", "files": ["biz/src/utils.js"], "validation": "Restore legacy aliases over conflicting modern aliases; inject a partial storage failure and verify rollback plus DEV isolation" },
+    { "id": "QA-08", "issue": "Business favorites could remain stale after another tab restored or reset saved work", "files": ["biz/src/hooks.js", "biz/src/index.js", "biz/src/agents.js", "biz/src/playbooks.js"], "validation": "Use the real shared storage hook with focus/pageshow reset and restore events" },
+    { "id": "QA-09", "issue": "Agent and situation search controls lacked explicit accessible names", "files": ["biz/src/agents.js", "biz/src/playbooks.js"], "validation": "Stable search input IDs, type search and real translated accessible labels" }
+  ],
+  "sourceIntegrity": {
+    "stringsChecked": 8346,
+    "content": "All bundled Education and Business prompt, instruction and example fields",
+    "method": "Compare original and formatted block text after normalizing whitespace and structural list/heading markers",
+    "wordOrValueMismatches": 0
+  },
+  "independentReview": [
+    "Reviewed the shared storage hook and DEV latest-state commit/corrupt-data protection",
+    "Reported Builder unsaved-text replacement on theme-only synchronization; root agent fixed and added regression coverage",
+    "Reported cancelled Education resource navigation restoring a stale widget; root agent fixed request guard",
+    "Reported Business export accepting data rejected by restore; root agent added export validation"
+  ],
+  "boundaries": [
+    "This report records code and deterministic interaction tests; browser screenshots and viewport checks are recorded by the separate design review",
+    "No Android, mobile-prototype or AI Balkans source writes",
+    "No commit, push, tag or deployment",
+    "No physical-device verification claimed"
+  ]
+}

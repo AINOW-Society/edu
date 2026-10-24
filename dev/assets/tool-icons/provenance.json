@@ -1,0 +1,120 @@
+{
+  "library": "Lobe Icons",
+  "sourceRepository": "https://github.com/lobehub/lobe-icons",
+  "licenseSource": "https://github.com/lobehub/lobe-icons/blob/master/LICENSE",
+  "license": "MIT; brand marks remain their owners trademarks",
+  "assets": [
+    {
+      "id": "chatgpt",
+      "format": "svg",
+      "source": "https://unpkg.com/@lobehub/icons-static-svg@1.95.1/icons/openai.svg",
+      "bytes": 1687,
+      "sha256": "a595df6b423920c67a7f8f73c063e4bfb72d415948097b6cac063a2366bb5186",
+      "file": "android\\design\\tool-icons\\chatgpt.svg"
+    },
+    {
+      "id": "chatgpt",
+      "format": "png",
+      "source": "https://unpkg.com/@lobehub/icons-static-png@1.97.1/light/openai.png",
+      "bytes": 11297,
+      "sha256": "8a33312f6bb17c1edddf8f9d7fbac09ce1d1d697d6601f37227afa879e94c52e",
+      "file": "android\\design\\tool-icons\\chatgpt.png"
+    },
+    {
+      "id": "claude",
+      "format": "svg",
+      "source": "https://unpkg.com/@lobehub/icons-static-svg@1.95.1/icons/claude-color.svg",
+      "bytes": 1696,
+      "sha256": "a3101f3047a119aa11825ad9369510f0c472428c8c52d420e31bc62db44a8364",
+      "file": "android\\design\\tool-icons\\claude.svg"
+    },
+    {
+      "id": "claude",
+      "format": "png",
+      "source": "https://unpkg.com/@lobehub/icons-static-png@1.97.1/light/claude-color.png",
+      "bytes": 9337,
+      "sha256": "97b53fb85b3bf401ffeb8ee7c5ebad734ce9f6edc3038f242021c53bcc18e23d",
+      "file": "android\\design\\tool-icons\\claude.png"
+    },
+    {
+      "id": "codex",
+      "format": "svg",
+      "source": "https://unpkg.com/@lobehub/icons-static-svg@1.95.1/icons/codex-color.svg",
+      "bytes": 1769,
+      "sha256": "4a2f43ce46b5b6e3722c95088f88d26ef91e6a8c2e598e70642a1c54367386e4",
+      "file": "android\\design\\tool-icons\\codex.svg"
+    },
+    {
+      "id": "codex",
+      "format": "png",
+      "source": "https://unpkg.com/@lobehub/icons-static-png@1.97.1/light/codex-color.png",
+      "bytes": 7578,
+      "sha256": "fcea9ddbaafdca236a8380cef2ecd3342ecd9914a7b080873873cf45f415686d",
+      "file": "android\\design\\tool-icons\\codex.png"
+    },
+    {
+      "id": "claude-code",
+      "format": "svg",
+      "source": "https://unpkg.com/@lobehub/icons-static-svg@1.95.1/icons/claudecode-color.svg",
+      "bytes": 424,
+      "sha256": "670b3d8d749d0815ad8f7e62a59d51cb5e2053cb19403f3541a8aed7036a877f",
+      "file": "android\\design\\tool-icons\\claude-code.svg"
+    },
+    {
+      "id": "claude-code",
+      "format": "png",
+      "source": "https://unpkg.com/@lobehub/icons-static-png@1.97.1/light/claudecode-color.png",
+      "bytes": 1467,
+      "sha256": "9ef1d98492f68c5c7766162af827dd4e0c9cb0d76b78fce22798985a792fca63",
+      "file": "android\\design\\tool-icons\\claude-code.png"
+    },
+    {
+      "id": "cursor",
+      "format": "svg",
+      "source": "https://unpkg.com/@lobehub/icons-static-svg@1.95.1/icons/cursor.svg",
+      "bytes": 547,
+      "sha256": "0cb51bddf264ae108926fd554c063ef40fc1aac3c5c921ddb39ad184e4e5d0ef",
+      "file": "android\\design\\tool-icons\\cursor.svg"
+    },
+    {
+      "id": "cursor",
+      "format": "png",
+      "source": "https://unpkg.com/@lobehub/icons-static-png@1.97.1/light/cursor.png",
+      "bytes": 4422,
+      "sha256": "783ac5ded2079c86a2741af24f1d168ea1b7d12846feea4bac54d79ffb061062",
+      "file": "android\\design\\tool-icons\\cursor.png"
+    },
+    {
+      "id": "github-copilot",
+      "format": "svg",
+      "source": "https://unpkg.com/@lobehub/icons-static-svg@1.95.1/icons/githubcopilot.svg",
+      "bytes": 2019,
+      "sha256": "bbc7fddc13448236e5edea8c399d2072dc40aa5da5bca07f7a2f412405c500a3",
+      "file": "android\\design\\tool-icons\\github-copilot.svg"
+    },
+    {
+      "id": "github-copilot",
+      "format": "png",
+      "source": "https://unpkg.com/@lobehub/icons-static-png@1.97.1/light/githubcopilot.png",
+      "bytes": 7260,
+      "sha256": "984fc3fb2708c83fcc870eabfb2a9a4cd4a2a059ac18f78200119dc37f95ce8c",
+      "file": "android\\design\\tool-icons\\github-copilot.png"
+    },
+    {
+      "id": "gemini",
+      "format": "svg",
+      "source": "https://unpkg.com/@lobehub/icons-static-svg@1.95.1/icons/gemini-color.svg",
+      "bytes": 2836,
+      "sha256": "8ab0a9bafec11f7e69bcb9fc4ffd8f1bc927d1ddcbbb6ff36dee5ae8b5a9d602",
+      "file": "android\\design\\tool-icons\\gemini.svg"
+    },
+    {
+      "id": "gemini",
+      "format": "png",
+      "source": "https://unpkg.com/@lobehub/icons-static-png@1.97.1/light/gemini-color.png",
+      "bytes": 19333,
+      "sha256": "10c628f55d22a9725b9f9fccce7cf062b9fb68da5f7736e87010e0594d7ba6db",
+      "file": "android\\design\\tool-icons\\gemini.png"
+    }
+  ]
+}

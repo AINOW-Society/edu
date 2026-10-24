@@ -1,0 +1,28 @@
+{
+  "comparedWith": "rc33",
+  "changedFiles": [
+    "about.html",
+    "assets/backup-controls.js",
+    "assets/platform-help.js",
+    "assets/platform-pages.js",
+    "assets/platform-settings.css",
+    "assets/platform-settings.js",
+    "assets/platform.css",
+    "biz/agents.html",
+    "biz/builder.html",
+    "biz/index.html",
+    "biz/playbooks.html",
+    "biz/src/components/layout/Sidebar.js",
+    "biz/sw.js",
+    "dev/guide-media.css",
+    "dev/index.html",
+    "dev/sw.js",
+    "dev/theme.css",
+    "edu/index.html",
+    "edu/service-worker.js",
+    "help.html",
+    "index.html",
+    "service-worker.js",
+    "settings.html"
+  ]
+}

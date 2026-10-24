@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>AINOW — Платформа за ВИ писменост</title>
-<meta name="description" content="AINOW: ВИ писменост за наставници и ВИ промпт алатки за бизнис. Работи офлајн, без сметка и без следење. Отворен код.">
+<meta name="description" content="AINOW: ВИ писменост за образование, бизнис и развој. Работи офлајн, без сметка и без следење. Отворен код.">
 <meta name="author" content="Suad Seferi">
 <meta name="theme-color" content="#d97757">
 <link rel="canonical" href="https://edu.ainow.mk/">
 <link rel="icon" type="image/svg+xml" href="edu/assets/logo.svg">
 <link rel="icon" type="image/png" href="edu/assets/logo.png">
-<link rel="stylesheet" href="assets/fonts/fonts.css">
-<link rel="stylesheet" href="landing.css">
+<link rel="stylesheet" href="assets/fonts/fonts.css?v=95">
+<link rel="stylesheet" href="landing.css?v=95">
 <link rel="manifest" href="manifest.json">
 
 <meta property="og:title" content="AINOW — ВИ писменост и промпт алатки">
@@ -42,6 +42,9 @@
     } catch (e) {}
 })();
 </script>
+<script src="assets/platform.js?v=95"></script><script src="assets/platform-navigation.js?v=95"></script>
+<link rel="stylesheet" href="assets/platform.css?v=95">
+<link rel="stylesheet" href="assets/design-system.css?v=95">
 </head>
 <body>
 
@@ -51,25 +54,24 @@
         <button class="lang-btn" data-lang="sq" type="button">SQ</button>
         <button class="lang-btn" data-lang="en" type="button">EN</button>
     </div>
+    <div class="topbar-actions">
     <button id="theme-btn" class="icon-btn" type="button" data-t-aria="theme" aria-label="Theme">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
     </button>
+    <a class="platform-header-link" data-platform-chooser="about" href="about.html" aria-label="About"></a>
+    </div>
 </header>
 
 <main class="wrap">
 
     <div class="intro">
-        <div class="intro-mark">
-            <svg viewBox="0 0 233.52 233.52" width="44" height="44" fill="currentColor" aria-hidden="true">
-                <path fill-rule="nonzero" d="M0 116.95c0 64.15 52.06 116.58 116.58 116.58 64.52 0 116.95-52.43 116.95-116.58 0-64.52 -52.42 -116.95 -116.95 -116.95 -64.52 0 -116.58 52.42 -116.58 116.95zm23.46 0c0-51.69 41.79-93.48 93.12-93.48 51.69 0 93.12 41.79 93.12 93.48 0 26.03 -10.63 49.49 -27.86 66.35l0 -66.72c0-35.93 -29.33 -64.89 -65.26 -64.89 -35.93 0 -65.26 28.96 -65.26 64.89 0 36.29 29.33 65.25 65.26 65.26l0 -25.3c-21.99 0 -39.59 -17.96 -39.59 -39.96 0-21.63 17.6 -39.59 39.59 -39.59 22 0 39.59 17.96 39.59 39.59l0 52.06 0 32.63c-11.73 5.5 -25.3 8.8 -39.59 8.8 -51.32 0 -93.12 -41.79 -93.12 -93.12z" />
-            </svg>
-        </div>
-        <h1>AINOW Society</h1>
+        <div class="intro-mark" data-platform-logo></div>
+        <h1 class="ainow-visually-hidden">AINOW Society</h1>
         <p class="tag" data-t="tagline">Изберете платформа</p>
-        <p class="note" data-t="note">Двете работат офлајн, без сметка и без следење. Отворен код.</p>
+        <p class="note" data-t="note">Три простори за учење. Офлајн, без сметка и без следење. Отворен код.</p>
     </div>
 
     <div class="cards">
@@ -107,21 +109,26 @@
                 <ul class="card-stats">
                     <li><b>3.270</b> <span data-t="biz.f1">промптови</span></li>
                     <li><b>2.190</b> <span data-t="biz.f2">агенти</span></li>
-                    <li><b>8</b> <span data-t="biz.f3">сценарија</span></li>
+                    <li><b>453</b> <span data-t="biz.f3">сценарија</span></li>
                     <li><b>33</b> <span data-t="biz.f4">области</span></li>
                 </ul>
                 <span class="card-go"><span data-t="biz.cta">Отвори</span> <i aria-hidden="true">&rarr;</i></span>
             </div>
         </a>
 
+        <a class="card card--dev" href="./dev/index.html">
+            <div class="card-core">
+                <div class="card-head"><span class="card-icon" aria-hidden="true"><img src="dev/assets/workspace.svg" width="22" height="22" alt=""></span><h2 data-t="dev.title">Развој</h2><span class="badge badge--dev" data-t="edu.badge">Бесплатно</span></div>
+                <p class="card-desc" data-t="dev.desc">Научете ВИ алатки, вештини, конектори и практични текови за развој.</p>
+                <ul class="card-stats"><li><b>13</b><span data-t="edu.f2">поглавја</span></li><li><b>1.000</b><span data-t="dev.skills">вештини</span></li><li><b>1.000</b><span>MCP</span></li><li><b>200</b><span data-t="dev.workflows">текови</span></li></ul>
+                <span class="card-go"><span data-t="edu.cta">Отвори</span><i aria-hidden="true">&rarr;</i></span>
+            </div>
+        </a>
     </div>
 
 </main>
 
-<footer>
-    <span data-t="footer">© 2026 AINOW Society · GPLv3</span> ·
-    <a href="https://www.ainow.mk" target="_blank" rel="noopener">ainow.mk</a>
-</footer>
+<footer class="platform-footer" id="platform-footer"></footer>
 
 <script>
 (function () {
@@ -129,6 +136,7 @@
         mk: {
             title: 'AINOW — Платформа за ВИ писменост',
             tagline: 'Изберете платформа',
+            'dev.title': 'Развој', 'dev.desc': 'Научете ВИ алатки, вештини, конектори и практични текови за развој.', 'dev.skills': 'вештини', 'dev.workflows': 'текови',
             'edu.title': 'Образование', 'edu.badge': 'Бесплатно', 'edu.cta': 'Отвори',
             'edu.desc': 'Водич за ВИ писменост, промптови, алатки и материјали за наставници.',
             'edu.f1': 'промптови',
@@ -141,13 +149,14 @@
             'biz.f2': 'агенти',
             'biz.f3': 'сценарија',
             'biz.f4': 'области',
-            note: 'Двете работат офлајн, без сметка и без следење. Отворен код.',
+            note: 'Три простори за учење. Офлајн, без сметка и без следење. Отворен код.',
             theme: 'Смени тема',
             footer: '© 2026 AINOW Society · GPLv3'
         },
         sq: {
             title: 'AINOW — Platformë për shkrim-leximin e IA',
             tagline: 'Zgjidhni platformën',
+            'dev.title': 'Zhvillimi', 'dev.desc': 'Mësoni mjetet IA, aftësitë, lidhësit dhe rrjedhat praktike të ndërtimit.', 'dev.skills': 'aftësi', 'dev.workflows': 'rrjedha',
             'edu.title': 'Arsimi', 'edu.badge': 'Falas', 'edu.cta': 'Hap',
             'edu.desc': 'Udhëzues për shkrim-leximin e IA, prompte, mjete dhe materiale për mësimdhënësit.',
             'edu.f1': 'prompte',
@@ -160,13 +169,14 @@
             'biz.f2': 'agjentë',
             'biz.f3': 'skenarë',
             'biz.f4': 'fusha',
-            note: 'Të dyja punojnë offline, pa llogari dhe pa gjurmim. Kod i hapur.',
+            note: 'Tri hapësira mësimi. Offline, pa llogari dhe pa gjurmim. Kod i hapur.',
             theme: 'Ndrysho temën',
             footer: '© 2026 AINOW Society · GPLv3'
         },
         en: {
             title: 'AINOW — AI literacy and prompt tools',
             tagline: 'Choose a platform',
+            'dev.title': 'Development', 'dev.desc': 'Learn AI tools, skills, connectors and practical building workflows.', 'dev.skills': 'skills', 'dev.workflows': 'workflows',
             'edu.title': 'Education', 'edu.badge': 'Free', 'edu.cta': 'Open',
             'edu.desc': 'AI literacy guide, prompts, tools and classroom materials for teachers.',
             'edu.f1': 'prompts',
@@ -179,15 +189,23 @@
             'biz.f2': 'agents',
             'biz.f3': 'situations',
             'biz.f4': 'fields',
-            note: 'Both work offline, with no account and no tracking. Open source.',
+            note: 'Three learning workspaces. Offline, with no account and no tracking. Open source.',
             theme: 'Toggle theme',
             footer: '© 2026 AINOW Society · GPLv3'
         }
     };
 
+    function syncThemeIcon() {
+        document.getElementById('theme-btn').innerHTML=AINOWPlatform.icon(document.documentElement.getAttribute('data-theme')==='dark'?'Sun':'Moon');
+    }
+
     function apply(lang) {
         var dict = T[lang] || T.mk;
+        syncThemeIcon();
+        document.querySelectorAll("[data-platform-logo]").forEach(el=>{el.innerHTML=AINOWPlatform.logo();});
         document.documentElement.lang = lang;
+        document.getElementById('platform-footer').innerHTML=AINOWPlatform.footer(lang);
+        document.querySelectorAll('[data-platform-chooser]').forEach(link=>{const key=link.dataset.platformChooser;link.innerHTML=AINOWPlatform.icon(key==='help'?'CircleHelp':'Info');link.setAttribute('aria-label',AINOWPlatform.text(lang,key));link.title=AINOWPlatform.text(lang,key);});
         if (dict.title) { document.title = dict.title; }
         document.querySelectorAll('[data-t]').forEach(function (el) {
             var k = el.getAttribute('data-t');
@@ -225,24 +243,25 @@
         var dark = document.documentElement.getAttribute('data-theme') === 'dark';
         if (dark) { document.documentElement.removeAttribute('data-theme'); }
         else { document.documentElement.setAttribute('data-theme', 'dark'); }
-        try { localStorage.setItem('ainow-theme', dark ? 'light' : 'dark'); } catch (e) {}
+        syncThemeIcon();
+        try { localStorage.setItem('ainow-theme', dark ? 'light' : 'dark'); localStorage.setItem('theme', dark ? 'light' : 'dark'); } catch (e) {}
     });
 
     apply(saved);
+    function syncPreferences() {
+        try {
+            var language = localStorage.getItem('ainow-lang') || localStorage.getItem('ainow_lang') || localStorage.getItem('language');
+            if (T[language] && document.documentElement.lang !== language) apply(language);
+            var theme = (localStorage.getItem('ainow-theme') || localStorage.getItem('theme')) === 'dark' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+            syncThemeIcon();
+        } catch (_) {}
+    }
+    ['storage','pageshow','focus'].forEach(function(type) { window.addEventListener(type, syncPreferences); });
 })();
 </script>
 
-<script>
-(function () {
-    if (window.location.protocol === 'file:' || !('serviceWorker' in navigator)) { return; }
 
-    try {
-        if (localStorage.getItem('ainow-sw-cleaned') === '1') { return; }
-        localStorage.setItem('ainow-sw-cleaned', '1');
-    } catch (e) {}
-    navigator.serviceWorker.register('./service-worker.js');
-})();
-</script>
 
 </body>
 </html>

@@ -1,0 +1,66 @@
+[
+  {
+    "focus": "help-faq-title",
+    "test": "mobile-help-jump",
+    "top": 172,
+    "width": 320
+  },
+  {
+    "open": 1,
+    "question": "Cili është dallimi mes një aftësie, një lidhësi dhe MCP?",
+    "test": "mobile-faq"
+  },
+  {
+    "fileInputCleared": true,
+    "resetClosed": true,
+    "status": [
+      "Saved in this browser.",
+      "This backup could not be restored. Check that it belongs to this workspace and is under 2 MB."
+    ],
+    "test": "invalid-backup-rejected"
+  },
+  {
+    "menu": "flex",
+    "sidebar": "matrix(1, 0, 0, 1, -320, 0)",
+    "test": "767-navigation"
+  },
+  {
+    "menu": "none",
+    "sidebar": "none",
+    "test": "768-navigation"
+  },
+  {
+    "noteBorder": "0.8px",
+    "overflow": false,
+    "preview": {
+      "bottom": 2705.1499557495117,
+      "height": 111.95000457763672,
+      "left": 18.80000114440918,
+      "right": 286.00001335144043,
+      "top": 2593.199951171875,
+      "width": 267.20001220703125,
+      "x": 18.80000114440918,
+      "y": 2593.199951171875
+    },
+    "radius": "10px",
+    "test": "guide-image-mobile",
+    "width": 320
+  },
+  {
+    "noteBorder": "0.8px",
+    "overflow": false,
+    "preview": {
+      "bottom": 2315.750106811523,
+      "height": 137.40000915527344,
+      "left": 18.80000114440918,
+      "right": 356.4000072479248,
+      "top": 2178.35009765625,
+      "width": 337.6000061035156,
+      "x": 18.80000114440918,
+      "y": 2178.35009765625
+    },
+    "radius": "10px",
+    "test": "guide-image-mobile",
+    "width": 390
+  }
+]

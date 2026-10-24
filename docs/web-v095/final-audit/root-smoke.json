@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-23",
+  "candidate": "0.95-rc33",
+  "crossTabSettings": {
+    "tested": {
+      "language": "sq",
+      "appearance": "dark",
+      "openWorkspaceHeading": "Ndërtoni me AINOW DEV"
+    },
+    "restored": {
+      "heading": "Build with AINOW DEV",
+      "lang": "en",
+      "theme": "light"
+    }
+  },
+  "translatedMobileSettings": [
+    {
+      "lang": "mk",
+      "width": 320,
+      "scrollWidth": 305
+    },
+    {
+      "lang": "sq",
+      "theme": "dark",
+      "width": 320,
+      "scrollWidth": 305
+    }
+  ],
+  "education": {
+    "views": [
+      "grid",
+      "list",
+      "table"
+    ],
+    "resourcesUrlUpdated": true,
+    "backRestoredPrompts": true,
+    "pdfDownload": "classroom-export.json"
+  },
+  "business": {
+    "views": [
+      "grid",
+      "list",
+      "table"
+    ],
+    "qualifiedReaderUrl": "#/prompt/business/b-97",
+    "backClosedReader": true
+  },
+  "offline": {
+    "originConfirmedUnavailable": true,
+    "pages": [
+      {
+        "body": true,
+        "heading": "Settings",
+        "scripts": 22,
+        "url": "http://127.0.0.1:4180/settings.html?workspace=dev"
+      },
+      {
+        "body": true,
+        "heading": "Resource Builder",
+        "scripts": 14,
+        "url": "http://127.0.0.1:4180/edu/index.html?view=resources&widget=tests"
+      },
+      {
+        "body": true,
+        "heading": "All Prompts",
+        "scripts": 24,
+        "url": "http://127.0.0.1:4180/biz/index.html#/prompts"
+      },
+      {
+        "body": true,
+        "heading": "Skills",
+        "scripts": 27,
+        "url": "http://127.0.0.1:4180/dev/index.html#/dev-skills"
+      }
+    ],
+    "previewRestarted": true
+  }
+}

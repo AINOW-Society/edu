@@ -1,6 +1,11 @@
-const CACHE_NAME = 'ai-edu-v0.94';
+importScripts('../assets/platform-files.js');
+const CACHE_NAME = 'ai-edu-v0.95';
 const urlsToCache = [
     './',
+    '../assets/workspaces.css',
+    '../assets/fonts/fonts.css',
+    '../assets/fonts/manrope-variable.ttf',
+    '../assets/fonts/Manrope-OFL.txt',
     './index.html',
     './css/styles.css',
     './js/i18n.js',
@@ -10,11 +15,9 @@ const urlsToCache = [
     './js/glossary-data.js',
     './manifest.json',
     './views/home.js',
-    './views/help.js',
     './views/guide.js',
     './views/prompts.js',
     './views/tools.js',
-    './views/about.js',
     './views/resources.js',
     './views/glossary.js',
     './js/lang/mk/docs.js',
@@ -32,14 +35,15 @@ const urlsToCache = [
     './js/lib/html2canvas.min.js',
     './js/lib/jspdf.min.js',
     './assets/logo.svg',
-    './assets/icon-maskable.svg'
+    './assets/icon-maskable.svg',
+    ...(self.AINOW_PLATFORM_FILES || []).map(path => '../'+path)
 ];
 
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME).then(cache =>
 
-            Promise.allSettled(urlsToCache.map(url => cache.add(url)))
+            Promise.allSettled(urlsToCache.map(url => cache.add(new Request(url, {cache: 'reload'}))))
         )
     );
     self.skipWaiting();
@@ -50,7 +54,7 @@ self.addEventListener('activate', event => {
         caches.keys().then(cacheNames =>
             Promise.all(
                 cacheNames
-                    .filter(name => name !== CACHE_NAME)
+                    .filter(name => name.startsWith('ai-edu-') && name !== CACHE_NAME)
                     .map(name => caches.delete(name))
             )
         )
@@ -59,41 +63,22 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-    const url = new URL(event.request.url);
-    if (url.origin !== self.location.origin) return;
+    if (event.request.method !== 'GET' || new URL(event.request.url).origin !== self.location.origin) return;
+    event.respondWith((async () => {
 
-    if (event.request.mode === 'navigate') {
-        event.respondWith(
-            fetch(event.request)
-                .then(response => {
-                    const clone = response.clone();
-                    caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
-                    return response;
-                })
-                .catch(() =>
-                    caches.match(event.request, { ignoreSearch: true })
-                        .then(cached => cached || caches.match('./index.html'))
-                )
-        );
-        return;
-    }
-
-    event.respondWith(
-
-        caches.match(event.request).then(exact => {
-            if (exact) return exact;
-
-            return fetch(event.request).then(response => {
-                if (response && response.status === 200 && response.type === 'basic') {
-                    const clone = response.clone();
-                    caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
-                }
-                return response;
-            }).catch(() =>
-
-                caches.match(event.request, { ignoreSearch: true })
-                    .then(cached => cached || Response.error())
-            );
-        })
-    );
+        const cache = await caches.open(CACHE_NAME);
+        const exact = await cache.match(event.request);
+        const cached = exact || await cache.match(event.request, {ignoreSearch: true});
+        try {
+            const response = await fetch(event.request);
+            if (response.ok && response.type === 'basic') {
+                try { await cache.put(event.request, response.clone()); } catch (_) {   }
+            }
+            return response;
+        } catch (error) {
+            if (cached) return cached;
+            if (event.request.mode === 'navigate') return await cache.match('./index.html') || Response.error();
+            return Response.error();
+        }
+    })());
 });

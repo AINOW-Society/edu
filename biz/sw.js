@@ -1,14 +1,21 @@
-const CACHE_NAME = 'ainow-biz-v0.94';
+importScripts('../assets/platform-files.js');
+const CACHE_NAME = 'ainow-biz-v0.95';
 
 const ASSETS = [
   './',
+  '../assets/workspaces.css',
+  '../assets/fonts/fonts.css',
+    '../assets/fonts/manrope-variable.ttf',
+    '../assets/fonts/Manrope-OFL.txt',
   './about.html',
   './agents.html',
   './assets/logo-placeholder.png',
   './assets/preview.png',
   './assets/style.css',
+  './assets/builder.css',
+  './assets/home.css',
+  './assets/prompt-reader.css',
   './builder.html',
-  './config.js',
   './data/data-agents.js',
   './data/data-agriculture.js',
   './data/data-aiengineering.js',
@@ -61,14 +68,13 @@ const ASSETS = [
   './playbooks.html',
   './src/ErrorBoundary.js',
   './src/StaticPages.js',
-  './src/about.js',
   './src/agents.js',
   './src/builder.js',
+  './src/builder-core.js',
   './src/components.js',
   './src/components/layout/Footer.js',
   './src/components/layout/Header.js',
   './src/components/layout/Sidebar.js',
-  './src/components/ui/Logo.js',
   './src/config.js',
   './src/help.js',
   './src/hooks.js',
@@ -76,13 +82,14 @@ const ASSETS = [
   './src/playbooks.js',
   './src/runtime.js',
   './src/utils.js',
+    ...(self.AINOW_PLATFORM_FILES || []).map(path => '../'+path)
 ];
 
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache =>
 
-      Promise.allSettled(ASSETS.map(url => cache.add(url)))
+      Promise.allSettled(ASSETS.map(url => cache.add(new Request(url, {cache: 'reload'}))))
     )
   );
   self.skipWaiting();
@@ -99,15 +106,17 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-  const url = new URL(event.request.url);
-  if (url.origin !== self.location.origin) return;
-  event.respondWith(
-    caches.match(event.request).then(hit => hit || fetch(event.request).then(res => {
-      if (res && res.status === 200 && res.type === 'basic') {
-        const clone = res.clone();
-        caches.open(CACHE_NAME).then(c => c.put(event.request, clone));
+  if (event.request.method !== 'GET' || new URL(event.request.url).origin !== self.location.origin) return;
+  event.respondWith((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    const exact = await cache.match(event.request);
+        const cached = exact || await cache.match(event.request, {ignoreSearch: true});
+    try {
+      const response = await fetch(event.request);
+      if (response.ok && response.type === 'basic') {
+        try { await cache.put(event.request, response.clone()); } catch (_) {   }
       }
-      return res;
-    }).catch(() => caches.match(event.request, { ignoreSearch: true })))
-  );
+      return response;
+    } catch (error) { return cached || Response.error(); }
+  })());
 });

@@ -1,0 +1,37 @@
+{
+  "comparedWith": "rc36",
+  "changedRuntimeFiles": [
+    "THIRD_PARTY_NOTICES.md",
+    "about.html",
+    "assets/platform-files.js",
+    "assets/prompt-actions.js",
+    "biz/agents.html",
+    "biz/assets/prompt-reader.css",
+    "biz/builder.html",
+    "biz/index.html",
+    "biz/playbooks.html",
+    "biz/sw.js",
+    "dev/index.html",
+    "dev/offline-files.js",
+    "dev/sw.js",
+    "edu/index.html",
+    "edu/service-worker.js",
+    "help.html",
+    "index.html",
+    "service-worker.js",
+    "settings.html"
+  ],
+  "newRuntimeFiles": [
+    "assets/ai-apps/chatgpt.svg",
+    "assets/ai-apps/claude.svg",
+    "assets/ai-apps/copilot.svg",
+    "assets/ai-apps/gemini.svg",
+    "assets/ai-apps/LICENSE.txt",
+    "assets/ai-apps/perplexity.svg",
+    "assets/ai-apps/provenance.json"
+  ],
+  "protectedFilesUnchanged": 1089,
+  "protectedFailures": [],
+  "newBrandAssetHashesVerified": 5,
+  "nativeWritesIssued": false
+}

@@ -1,0 +1,11 @@
+{
+  "version": "0.95-rc36",
+  "date": "2026-10-24",
+  "portableTests": 99,
+  "failed": 0,
+  "evidence": "source-tests.tap",
+  "testedExtraction": "dist/source-verify-rc36",
+  "contentReferenceRequired": false,
+  "finalRuntimeAndTestsMatchTestedExtraction": true,
+  "packagingScriptOnlyUpdatedToIncludeFinalReviewReports": true
+}

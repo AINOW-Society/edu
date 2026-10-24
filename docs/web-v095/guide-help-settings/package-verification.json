@@ -1,0 +1,10 @@
+{
+  "version": "0.95-rc34",
+  "date": "2026-10-24",
+  "archives": 2,
+  "crcPassed": true,
+  "allEntriesMatchCurrentSource": true,
+  "reproducedTwice": true,
+  "checksums": "dist/AINOW-Literacy-web-v0.95-rc34-checksums.json",
+  "deployed": false
+}

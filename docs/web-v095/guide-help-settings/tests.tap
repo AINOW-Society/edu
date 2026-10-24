@@ -1,0 +1,646 @@
+TAP version 13
+# Subtest: every advertised collection has real unique entries and searchable last records
+ok 1 - every advertised collection has real unique entries and searchable last records
+  ---
+  duration_ms: 13.4474
+  type: 'test'
+  ...
+# Subtest: concepts precede setup and practice; every related and quiz reference resolves
+ok 2 - concepts precede setup and practice; every related and quiz reference resolves
+  ---
+  duration_ms: 11.4391
+  type: 'test'
+  ...
+# Subtest: authored learning material and help have all three languages
+ok 3 - authored learning material and help have all three languages
+  ---
+  duration_ms: 2.8653
+  type: 'test'
+  ...
+# Subtest: every original SKILL.md file is complete and matches its source SHA256
+ok 4 - every original SKILL.md file is complete and matches its source SHA256
+  ---
+  duration_ms: 1161.2963
+  type: 'test'
+  ...
+# Subtest: skill views preserve delimiters, line endings, BOM and incomplete frontmatter
+ok 5 - skill views preserve delimiters, line endings, BOM and incomplete frontmatter
+  ---
+  duration_ms: 0.4811
+  type: 'test'
+  ...
+# Subtest: topic, query and per-language read filters combine without changing totals
+ok 6 - topic, query and per-language read filters combine without changing totals
+  ---
+  duration_ms: 4.8955
+  type: 'test'
+  ...
+# Subtest: backup restores actual work, rejects wrong IDs/results and strips foreign keys
+ok 7 - backup restores actual work, rejects wrong IDs/results and strips foreign keys
+  ---
+  duration_ms: 9.3331
+  type: 'test'
+  ...
+# Subtest: provider-neutral budget handles Unicode, manual counts and overflow
+ok 8 - provider-neutral budget handles Unicode, manual counts and overflow
+  ---
+  duration_ms: 1.0849
+  type: 'test'
+  ...
+# Subtest: offline manifest resolves only web assets and includes font, shell, icons and all skills
+ok 9 - offline manifest resolves only web assets and includes font, shell, icons and all skills
+  ---
+  duration_ms: 39.2536
+  type: 'test'
+  ...
+# Subtest: service-worker activation removes only old DEV caches
+ok 10 - service-worker activation removes only old DEV caches
+  ---
+  duration_ms: 3.526
+  type: 'test'
+  ...
+# Subtest: guide screenshots have local verified assets, relevant placements and three-language captions
+ok 11 - guide screenshots have local verified assets, relevant placements and three-language captions
+  ---
+  duration_ms: 39.0521
+  type: 'test'
+  ...
+# Subtest: offline fetch returns cached skill and never replaces a missing asset with HTML
+ok 12 - offline fetch returns cached skill and never replaces a missing asset with HTML
+  ---
+  duration_ms: 3.5787
+  type: 'test'
+  ...
+# Subtest: public entry documents resolve local scripts, styles and CSS assets without a build
+ok 13 - public entry documents resolve local scripts, styles and CSS assets without a build
+  ---
+  duration_ms: 329.9404
+  type: 'test'
+  ...
+# Subtest: shared header renders translated, labelled controls and one icon source in EN/MK/SQ
+ok 14 - shared header renders translated, labelled controls and one icon source in EN/MK/SQ
+  ---
+  duration_ms: 15.3655
+  type: 'test'
+  ...
+# Subtest: compact references preserve imported attribution, revision text and every source URL
+ok 15 - compact references preserve imported attribution, revision text and every source URL
+  ---
+  duration_ms: 185.6187
+  type: 'test'
+  ...
+# Subtest: the supplied black and white logo geometry is preserved and workspace text stays outside it
+ok 16 - the supplied black and white logo geometry is preserved and workspace text stays outside it
+  ---
+  duration_ms: 20.4857
+  type: 'test'
+  ...
+# Subtest: Business prompt favorites and view survive remount, including qualified IDs
+ok 17 - Business prompt favorites and view survive remount, including qualified IDs
+  ---
+  duration_ms: 46.5907
+  type: 'test'
+  ...
+# Subtest: biz/src/index.js resets pagination when view page size changes
+ok 18 - biz/src/index.js resets pagination when view page size changes
+  ---
+  duration_ms: 19.3872
+  type: 'test'
+  ...
+# Subtest: biz/src/agents.js resets pagination when view page size changes
+ok 19 - biz/src/agents.js resets pagination when view page size changes
+  ---
+  duration_ms: 13.8037
+  type: 'test'
+  ...
+# Subtest: Work situations search finds localized title and description in en
+ok 20 - Work situations search finds localized title and description in en
+  ---
+  duration_ms: 56.7525
+  type: 'test'
+  ...
+# Subtest: Work situations search finds localized title and description in mk
+ok 21 - Work situations search finds localized title and description in mk
+  ---
+  duration_ms: 13.6677
+  type: 'test'
+  ...
+# Subtest: Work situations search finds localized title and description in sq
+ok 22 - Work situations search finds localized title and description in sq
+  ---
+  duration_ms: 16.4712
+  type: 'test'
+  ...
+# Subtest: biz/src/index.js remains usable when browser storage is blocked
+ok 23 - biz/src/index.js remains usable when browser storage is blocked
+  ---
+  duration_ms: 9.9002
+  type: 'test'
+  ...
+# Subtest: biz/src/agents.js remains usable when browser storage is blocked
+ok 24 - biz/src/agents.js remains usable when browser storage is blocked
+  ---
+  duration_ms: 12.6507
+  type: 'test'
+  ...
+# Subtest: biz/src/playbooks.js remains usable when browser storage is blocked
+ok 25 - biz/src/playbooks.js remains usable when browser storage is blocked
+  ---
+  duration_ms: 8.7474
+  type: 'test'
+  ...
+# Subtest: biz/src/index.js adopts reset and restore in another tab without reviving old favorites
+ok 26 - biz/src/index.js adopts reset and restore in another tab without reviving old favorites
+  ---
+  duration_ms: 21.0305
+  type: 'test'
+  ...
+# Subtest: biz/src/agents.js adopts reset and restore in another tab without reviving old favorites
+ok 27 - biz/src/agents.js adopts reset and restore in another tab without reviving old favorites
+  ---
+  duration_ms: 8.8515
+  type: 'test'
+  ...
+# Subtest: biz/src/playbooks.js adopts reset and restore in another tab without reviving old favorites
+ok 28 - biz/src/playbooks.js adopts reset and restore in another tab without reviving old favorites
+  ---
+  duration_ms: 16.9808
+  type: 'test'
+  ...
+# Subtest: Business restore rejects malformed saved data before replacing valid work
+ok 29 - Business restore rejects malformed saved data before replacing valid work
+  ---
+  duration_ms: 5.619
+  type: 'test'
+  ...
+# Subtest: biz/src/index.js searches the complete loaded collection and clears back to all results
+ok 30 - biz/src/index.js searches the complete loaded collection and clears back to all results
+  ---
+  duration_ms: 57.7339
+  type: 'test'
+  ...
+# Subtest: biz/src/agents.js searches the complete loaded collection and clears back to all results
+ok 31 - biz/src/agents.js searches the complete loaded collection and clears back to all results
+  ---
+  duration_ms: 70.863
+  type: 'test'
+  ...
+# Subtest: agents deleting the last favorite on a later page returns to an existing page
+ok 32 - agents deleting the last favorite on a later page returns to an existing page
+  ---
+  duration_ms: 11.3275
+  type: 'test'
+  ...
+# Subtest: biz/src/index.js reader follows card, Back and close navigation
+ok 33 - biz/src/index.js reader follows card, Back and close navigation
+  ---
+  duration_ms: 13.5332
+  type: 'test'
+  ...
+# Subtest: biz/src/agents.js reader follows card, Back and close navigation
+ok 34 - biz/src/agents.js reader follows card, Back and close navigation
+  ---
+  duration_ms: 14.9032
+  type: 'test'
+  ...
+# Subtest: shared formatting preserves all bundled Education and Business prompt wording and values
+ok 35 - shared formatting preserves all bundled Education and Business prompt wording and values
+  ---
+  duration_ms: 794.2579
+  type: 'test'
+  ...
+# Subtest: legacy Business restore synchronizes all preference aliases and rolls back a partial failure
+ok 36 - legacy Business restore synchronizes all preference aliases and rolls back a partial failure
+  ---
+  duration_ms: 2.3151
+  type: 'test'
+  ...
+# Subtest: playbooks deleting the last favorite on a later page returns to an existing page
+ok 37 - playbooks deleting the last favorite on a later page returns to an existing page
+  ---
+  duration_ms: 6.6793
+  type: 'test'
+  ...
+# Subtest: every platform menu label is translated and all workspaces use the same canonical pages
+ok 38 - every platform menu label is translated and all workspaces use the same canonical pages
+  ---
+  duration_ms: 12.2053
+  type: 'test'
+  ...
+# Subtest: all main workspace pages load the common contract and menu styles
+ok 39 - all main workspace pages load the common contract and menu styles
+  ---
+  duration_ms: 10.4371
+  type: 'test'
+  ...
+# Subtest: older Business help and about links preserve useful destinations
+ok 40 - older Business help and about links preserve useful destinations
+  ---
+  duration_ms: 5.7706
+  type: 'test'
+  ...
+# Subtest: the shared DEV help retains every authored question and translation
+ok 41 - the shared DEV help retains every authored question and translation
+  ---
+  duration_ms: 157.5121
+  type: 'test'
+  ...
+# Subtest: Society programme and optional community information have reviewed sources and complete translations
+ok 42 - Society programme and optional community information have reviewed sources and complete translations
+  ---
+  duration_ms: 2.9681
+  type: 'test'
+  ...
+# Subtest: Help explains each workspace with steps and an example, and FAQ answers stay on the page
+ok 43 - Help explains each workspace with steps and an example, and FAQ answers stay on the page
+  ---
+  duration_ms: 10.5882
+  type: 'test'
+  ...
+# Subtest: shared offline files contain all page dependencies and stay inside the public web
+ok 44 - shared offline files contain all page dependencies and stay inside the public web
+  ---
+  duration_ms: 13.4984
+  type: 'test'
+  ...
+# Subtest: the platform worker uses its own cache and preserves workspace caches during migration
+ok 45 - the platform worker uses its own cache and preserves workspace caches during migration
+  ---
+  duration_ms: 14.5909
+  type: 'test'
+  ...
+# Subtest: one workspace menu model supplies translated internal links, shared utilities and active state
+ok 46 - one workspace menu model supplies translated internal links, shared utilities and active state
+  ---
+  duration_ms: 117.5638
+  type: 'test'
+  ...
+# Subtest: Education Resources uses the same menu and keeps unrelated sidebar lists retired
+ok 47 - Education Resources uses the same menu and keeps unrelated sidebar lists retired
+  ---
+  duration_ms: 7.2589
+  type: 'test'
+  ...
+# Subtest: Settings reports preference saves and failures in the Preferences section
+ok 48 - Settings reports preference saves and failures in the Preferences section
+  ---
+  duration_ms: 17.7575
+  type: 'test'
+  ...
+# Subtest: Settings workspace selection preserves the URL and isolates the reset adapter
+ok 49 - Settings workspace selection preserves the URL and isolates the reset adapter
+  ---
+  duration_ms: 5.2047
+  type: 'test'
+  ...
+# Subtest: restored settings refresh language and theme while keeping success beside the data controls
+ok 50 - restored settings refresh language and theme while keeping success beside the data controls
+  ---
+  duration_ms: 4.4761
+  type: 'test'
+  ...
+# Subtest: Help shortcuts focus and scroll to their headings without changing the route in every language
+ok 51 - Help shortcuts focus and scroll to their headings without changing the route in every language
+  ---
+  duration_ms: 9.1609
+  type: 'test'
+  ...
+# Subtest: all public JavaScript parses, including lazy-loaded catalogue files
+ok 52 - all public JavaScript parses, including lazy-loaded catalogue files
+  ---
+  duration_ms: 772.8685
+  type: 'test'
+  ...
+# Subtest: every literal Business translation key has real EN/MK/SQ text
+ok 53 - every literal Business translation key has real EN/MK/SQ text
+  ---
+  duration_ms: 4.1755
+  type: 'test'
+  ...
+# Subtest: every literal Education translation key exists in all three languages
+ok 54 - every literal Education translation key exists in all three languages
+  ---
+  duration_ms: 10.6734
+  type: 'test'
+  ...
+# Subtest: Business backups retain legacy saves and reject invalid lists and foreign workspace keys
+ok 55 - Business backups retain legacy saves and reject invalid lists and foreign workspace keys
+  ---
+  duration_ms: 0.974
+  type: 'test'
+  ...
+# Subtest: a failed Business restore rolls back keys and never touches Education or DEV
+ok 56 - a failed Business restore rolls back keys and never touches Education or DEV
+  ---
+  duration_ms: 0.4491
+  type: 'test'
+  ...
+# Subtest: Business recovery offers translated actions without exposing an exception or stack
+ok 57 - Business recovery offers translated actions without exposing an exception or stack
+  ---
+  duration_ms: 3.2815
+  type: 'test'
+  ...
+# Subtest: the complete shared Business component module executes without missing exports
+ok 58 - the complete shared Business component module executes without missing exports
+  ---
+  duration_ms: 1.3938
+  type: 'test'
+  ...
+# Subtest: Business dialogs trap focus, close only the top dialog and restore scrolling and focus
+ok 59 - Business dialogs trap focus, close only the top dialog and restore scrolling and focus
+  ---
+  duration_ms: 1.9651
+  type: 'test'
+  ...
+# Subtest: shared backup controls reject invalid files and require confirmation before restoring
+ok 60 - shared backup controls reject invalid files and require confirmation before restoring
+  ---
+  duration_ms: 2.7746
+  type: 'test'
+  ...
+# Subtest: Services leads with AINOW in every language and keeps CTRLab in one secondary section
+ok 61 - Services leads with AINOW in every language and keeps CTRLab in one secondary section
+  ---
+  duration_ms: 17.8755
+  type: 'test'
+  ...
+# Subtest: the shared language picker does not close on its own opening click
+ok 62 - the shared language picker does not close on its own opening click
+  ---
+  duration_ms: 3.4143
+  type: 'test'
+  ...
+# Subtest: Business enables offline caching on loopback and the chooser caches its local images
+ok 63 - Business enables offline caching on loopback and the chooser caches its local images
+  ---
+  duration_ms: 5.4982
+  type: 'test'
+  ...
+# Subtest: Education offline cache includes every local stylesheet used by its entry page
+ok 64 - Education offline cache includes every local stylesheet used by its entry page
+  ---
+  duration_ms: 2.4365
+  type: 'test'
+  ...
+# Subtest: Settings retains both legacy backup formats and isolates each workspace reset
+ok 65 - Settings retains both legacy backup formats and isolates each workspace reset
+  ---
+  duration_ms: 138.3348
+  type: 'test'
+  ...
+# Subtest: Settings reset rolls back a partial storage failure
+ok 66 - Settings reset rolls back a partial storage failure
+  ---
+  duration_ms: 1.6317
+  type: 'test'
+  ...
+# Subtest: Settings labels are complete and its footer link works from every workspace and local files
+ok 67 - Settings labels are complete and its footer link works from every workspace and local files
+  ---
+  duration_ms: 6.9432
+  type: 'test'
+  ...
+# Subtest: the shared Scratchpad delegates DEV notes without reading or writing Business storage
+ok 68 - the shared Scratchpad delegates DEV notes without reading or writing Business storage
+  ---
+  duration_ms: 3.4685
+  type: 'test'
+  ...
+# Subtest: storage synchronization refreshes only changed watched keys and removes its listeners
+ok 69 - storage synchronization refreshes only changed watched keys and removes its listeners
+  ---
+  duration_ms: 6.1457
+  type: 'test'
+  ...
+# Subtest: managed notes can disable external storage access and denied storage never crashes synchronization
+ok 70 - managed notes can disable external storage access and denied storage never crashes synchronization
+  ---
+  duration_ms: 4.0257
+  type: 'test'
+  ...
+# Subtest: Education navigation updates deep links and restores Back/Forward without duplicate history
+ok 71 - Education navigation updates deep links and restores Back/Forward without duplicate history
+  ---
+  duration_ms: 6.8076
+  type: 'test'
+  ...
+# Subtest: a slower Education view cannot replace a later navigation
+ok 72 - a slower Education view cannot replace a later navigation
+  ---
+  duration_ms: 3.0173
+  type: 'test'
+  ...
+# Subtest: Education resource deep links survive initial navigation and the latest widget wins
+ok 73 - Education resource deep links survive initial navigation and the latest widget wins
+  ---
+  duration_ms: 5.566
+  type: 'test'
+  ...
+# Subtest: DEV refuses to replace unreadable saved work when a user makes a new change
+ok 74 - DEV refuses to replace unreadable saved work when a user makes a new change
+  ---
+  duration_ms: 8.3366
+  type: 'test'
+  ...
+# Subtest: DEV commits preserve restored fields and synchronize reset from another page
+ok 75 - DEV commits preserve restored fields and synchronize reset from another page
+  ---
+  duration_ms: 5.4828
+  type: 'test'
+  ...
+# Subtest: DEV topic searches use the translated label as well as the original source fields
+ok 76 - DEV topic searches use the translated label as well as the original source fields
+  ---
+  duration_ms: 3.1123
+  type: 'test'
+  ...
+# Subtest: Business exports validate existing work and never download an unrestorable backup
+ok 77 - Business exports validate existing work and never download an unrestorable backup
+  ---
+  duration_ms: 4.4039
+  type: 'test'
+  ...
+# Subtest: a theme change preserves an unsaved Builder draft after storage quota failure
+ok 78 - a theme change preserves an unsaved Builder draft after storage quota failure
+  ---
+  duration_ms: 14.8811
+  type: 'test'
+  ...
+# Subtest: backup export checks UTF-8 file size against the same limit as restore
+ok 79 - backup export checks UTF-8 file size against the same limit as restore
+  ---
+  duration_ms: 15.9682
+  type: 'test'
+  ...
+# Subtest: legacy builder drafts retain fields, preferences, Unicode and unknown properties
+ok 80 - legacy builder drafts retain fields, preferences, Unicode and unknown properties
+  ---
+  duration_ms: 5.249
+  type: 'test'
+  ...
+# Subtest: builder tolerates malformed values without sharing mutable defaults
+ok 81 - builder tolerates malformed values without sharing mutable defaults
+  ---
+  duration_ms: 0.496
+  type: 'test'
+  ...
+# Subtest: task, output and examples reach the actual generated instructions in every approach
+ok 82 - task, output and examples reach the actual generated instructions in every approach
+  ---
+  duration_ms: 2.1534
+  type: 'test'
+  ...
+# Subtest: all BIZ task and builder interface keys have real EN/MK/SQ translations
+ok 83 - all BIZ task and builder interface keys have real EN/MK/SQ translations
+  ---
+  duration_ms: 28.8261
+  type: 'test'
+  ...
+# Subtest: EDU navigation visits every section once and reverses through all 19 chapters in each language
+ok 84 - EDU navigation visits every section once and reverses through all 19 chapters in each language
+  ---
+  duration_ms: 48.3324
+  type: 'test'
+  ...
+# Subtest: EDU optional practice uses valid existing questions and gives distinct real feedback
+ok 85 - EDU optional practice uses valid existing questions and gives distinct real feedback
+  ---
+  duration_ms: 36.993
+  type: 'test'
+  ...
+# Subtest: EDU guidance labels cover every language without exposing translation keys
+ok 86 - EDU guidance labels cover every language without exposing translation keys
+  ---
+  duration_ms: 29.0003
+  type: 'test'
+  ...
+# Subtest: new builder assets are present in its independent offline manifest
+ok 87 - new builder assets are present in its independent offline manifest
+  ---
+  duration_ms: 0.7458
+  type: 'test'
+  ...
+# Subtest: edu/service-worker.js never serves stale shared CSS from another workspace
+ok 88 - edu/service-worker.js never serves stale shared CSS from another workspace
+  ---
+  duration_ms: 56.066
+  type: 'test'
+  ...
+# Subtest: biz/sw.js never serves stale shared CSS from another workspace
+ok 89 - biz/sw.js never serves stale shared CSS from another workspace
+  ---
+  duration_ms: 2.5381
+  type: 'test'
+  ...
+# Subtest: edu/service-worker.js refreshes an online script even when an exact older copy is cached
+ok 90 - edu/service-worker.js refreshes an online script even when an exact older copy is cached
+  ---
+  duration_ms: 2.5867
+  type: 'test'
+  ...
+# Subtest: biz/sw.js refreshes an online script even when an exact older copy is cached
+ok 91 - biz/sw.js refreshes an online script even when an exact older copy is cached
+  ---
+  duration_ms: 1.5218
+  type: 'test'
+  ...
+# Subtest: every practice check works one question at a time in en
+ok 92 - every practice check works one question at a time in en
+  ---
+  duration_ms: 39.8054
+  type: 'test'
+  ...
+# Subtest: every practice check works one question at a time in mk
+ok 93 - every practice check works one question at a time in mk
+  ---
+  duration_ms: 30.7482
+  type: 'test'
+  ...
+# Subtest: every practice check works one question at a time in sq
+ok 94 - every practice check works one question at a time in sq
+  ---
+  duration_ms: 26.1731
+  type: 'test'
+  ...
+# Subtest: saved results open in review and retry preserves the previous saved result until completion
+ok 95 - saved results open in review and retry preserves the previous saved result until completion
+  ---
+  duration_ms: 2.3489
+  type: 'test'
+  ...
+# Subtest: unavailable storage does not prevent showing a local practice result
+ok 96 - unavailable storage does not prevent showing a local practice result
+  ---
+  duration_ms: 5.0049
+  type: 'test'
+  ...
+# Subtest: every BIZ icon import used in the changed screens exists in the actual vendor bundle
+ok 97 - every BIZ icon import used in the changed screens exists in the actual vendor bundle
+  ---
+  duration_ms: 35.4415
+  type: 'test'
+  ...
+# Subtest: new reader and practice styles are included for offline use
+ok 98 - new reader and practice styles are included for offline use
+  ---
+  duration_ms: 3.1724
+  type: 'test'
+  ...
+# Subtest: the prompt reader copies filled variables and edited text without rewriting its source
+ok 99 - the prompt reader copies filled variables and edited text without rewriting its source
+  ---
+  duration_ms: 8.1774
+  type: 'test'
+  ...
+# Subtest: shared source IDs open the intended category while older prompt links still resolve
+ok 100 - shared source IDs open the intended category while older prompt links still resolve
+  ---
+  duration_ms: 1.1417
+  type: 'test'
+  ...
+# Subtest: favorites distinguish shared IDs and retain legacy saved items without rewriting source IDs
+ok 101 - favorites distinguish shared IDs and retain legacy saved items without rewriting source IDs
+  ---
+  duration_ms: 1.5506
+  type: 'test'
+  ...
+# Subtest: Education prompt views preserve filtering, page records and safe markup
+ok 102 - Education prompt views preserve filtering, page records and safe markup
+  ---
+  duration_ms: 6.4958
+  type: 'test'
+  ...
+# Subtest: shared prompt formatting separates the CFO requirements without changing its words or numbers
+ok 103 - shared prompt formatting separates the CFO requirements without changing its words or numbers
+  ---
+  duration_ms: 8.7832
+  type: 'test'
+  ...
+# Subtest: shared prompt rendering escapes source and placeholder values while retaining code
+ok 104 - shared prompt rendering escapes source and placeholder values while retaining code
+  ---
+  duration_ms: 2.5447
+  type: 'test'
+  ...
+# Subtest: Education copies the current edited text and reset restores only the open source copy
+ok 105 - Education copies the current edited text and reset restores only the open source copy
+  ---
+  duration_ms: 2.6656
+  type: 'test'
+  ...
+# Subtest: mixed instruction sections retain their heading, requirements and original wording
+ok 106 - mixed instruction sections retain their heading, requirements and original wording
+  ---
+  duration_ms: 2.9685
+  type: 'test'
+  ...
+1..106
+# tests 106
+# suites 0
+# pass 106
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1750.3787

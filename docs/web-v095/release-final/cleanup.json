@@ -1,0 +1,282 @@
+{
+  "date": "2026-10-24",
+  "rollback": "rollback.json",
+  "changes": [
+    {
+      "file": "edu/js/router.js",
+      "reason": "Remove unreachable About branch and obsolete inline renderer; no language dataset contains this guide ID",
+      "beforeSha256": "9b386d54dec99caa830a202e96d3e53cebb49db7c0053761fab0f182fe67d9ee",
+      "afterSha256": "a20bdb7f6ef0b9d47090d8bdfd956c98900a3fedd1b5398c32a7b7109e506196",
+      "bytesRemoved": 8020
+    },
+    {
+      "file": "edu/js/app.js",
+      "reason": "Remove uncalled retired About widget switcher and obsolete prompt scroll-container lookup",
+      "beforeSha256": "cb0c134f259d8da0979f1bd8bebb8d9d24c25ff4017471c85273bbf08894569f",
+      "afterSha256": "15d7ca7c97c72f8301a00129338b7823ec9a3fc945f60bbda94d633d9ebc7bc5",
+      "bytesRemoved": 2862
+    },
+    {
+      "file": "biz/src/config.js",
+      "reason": "Remove unused local navigation model, version export, redundant icon export and now-unused Hammer import",
+      "beforeSha256": "6631c6dd3cb5d44191ce9585c20b4955fe2a405bf8e982685556c33c2043ea35",
+      "afterSha256": "3d866ebaff3096553b0ca7334b4d060b30885f2ec3653f39fb9fc6e153ee9cbe",
+      "bytesRemoved": 677
+    },
+    {
+      "file": "index.html",
+      "reason": "Remove unused environment script/decorative glow token; root chooser also drops unused prompt action dependency",
+      "beforeSha256": "dc9d92972e23f7e5a990a646ce45f407e20d3dd91cf35c1a7edef5c0a9afe87c",
+      "afterSha256": "3f01ec96503be53b1072a4f23f86dba8de9b9265576a3f60f3dbb6ddf192396d",
+      "bytesRemoved": 325
+    },
+    {
+      "file": "help.html",
+      "reason": "Remove unused environment script/decorative glow token; root chooser also drops unused prompt action dependency",
+      "beforeSha256": "37db1bf30be5e6a49aaecf76ecf98f41818e79d091cc3160de50904738489051",
+      "afterSha256": "e6abdce87483513771d30d1b53e50f587c2e392a639ab4cdc43b5276a75508d5",
+      "bytesRemoved": 52
+    },
+    {
+      "file": "about.html",
+      "reason": "Remove unused environment script/decorative glow token; root chooser also drops unused prompt action dependency",
+      "beforeSha256": "120cc85c15b3881f8aa909be2d62959b4a41ac82bee7af085146845dc83f764c",
+      "afterSha256": "b7d09a2676ff6f636629c4273c719432d9d1c5a2230a7d4d99c14c34cedbfab6",
+      "bytesRemoved": 52
+    },
+    {
+      "file": "settings.html",
+      "reason": "Remove unused environment script/decorative glow token; root chooser also drops unused prompt action dependency",
+      "beforeSha256": "0aefa112cc3ca045a729be2963dd77fd781b623b837017568f7ebfdc261ac4e5",
+      "afterSha256": "a22fba5ff59b85643f832d4c078e8ed651602954e7887b2a1cf6ee2770fc2899",
+      "bytesRemoved": 52
+    },
+    {
+      "file": "edu/index.html",
+      "reason": "Remove unused environment script/decorative glow token; root chooser also drops unused prompt action dependency",
+      "beforeSha256": "73d7e697e6a38cb6dd5ce8d33c6d592c4cc2425d10714a6e7f5afd351dc06464",
+      "afterSha256": "467912abc734a1c75eb5dd0fba9c836585ed54db0187ac67ba2dcf64fc19e5ac",
+      "bytesRemoved": 385
+    },
+    {
+      "file": "dev/index.html",
+      "reason": "Remove unused environment script/decorative glow token; root chooser also drops unused prompt action dependency",
+      "beforeSha256": "82506b3a4b25d1a70fbd596021cff4bcb743c93b0b75ccdafe0a59989efa6472",
+      "afterSha256": "38ed10f7f51c4b440aefa9428ec356eb09c65ad5c69eb2aa659896b9c911a044",
+      "bytesRemoved": 108
+    },
+    {
+      "file": "biz/index.html",
+      "reason": "Remove unused environment script/decorative glow token; root chooser also drops unused prompt action dependency",
+      "beforeSha256": "cab8f795b06548938251c3bac27b5392e83835d963997187e15e62626213c8ce",
+      "afterSha256": "3f661d18d66033af3ef6c4632704ef8892b00214eef6a0b152ef93d333a0860a",
+      "bytesRemoved": 265
+    },
+    {
+      "file": "biz/agents.html",
+      "reason": "Remove unused environment script/decorative glow token; root chooser also drops unused prompt action dependency",
+      "beforeSha256": "c2265e48d9a65fd657e3c5a30c980a9285a4188dca929d42c29ebaf91f35497c",
+      "afterSha256": "96fbb6500ca36265c0a9a8503f9a93d8a8c0a1bf6b828e327f00caf4e2a31f4e",
+      "bytesRemoved": 251
+    },
+    {
+      "file": "biz/builder.html",
+      "reason": "Remove unused environment script/decorative glow token; root chooser also drops unused prompt action dependency",
+      "beforeSha256": "d696015def9dadff0b9fd2e37b3c835bc0837a2a285b1ffcd1d78ac09eebfa72",
+      "afterSha256": "ed72e59c0eebc3c9e8966979bd6707336416609bda07fd0323e5e112fb587167",
+      "bytesRemoved": 251
+    },
+    {
+      "file": "biz/playbooks.html",
+      "reason": "Remove unused environment script/decorative glow token; root chooser also drops unused prompt action dependency",
+      "beforeSha256": "8508241ec68c6adfbf5578381f2088c71d06d301886a9a4907ae245625e49249",
+      "afterSha256": "4330a4b5988ee2c15ea4a3421034d891d3a167157be8d0980be90ffe6352daaf",
+      "bytesRemoved": 251
+    },
+    {
+      "file": "biz/config.js",
+      "reason": "Unused global version/environment script including empty API_KEY; retained in verified rc37 rollback archive",
+      "beforeSha256": "a0144f89b6a2493b28105ecdcbbbddf680a1795e41fc8925358e7e83a7a2251f",
+      "removed": true,
+      "bytesRemoved": 151
+    },
+    {
+      "file": "biz/src/components.js",
+      "reason": "Remove decorative clear-button glow",
+      "beforeSha256": "a0879e0f5315bb031b92f79077639ce10aa9325b8d4108e88321458416062f4f",
+      "afterSha256": "9adcabf9ac0235fb97511d3260823df0513230ceb4815a5a91e531f91c8b2d57",
+      "bytesRemoved": 361
+    },
+    {
+      "file": "biz/src/index.js",
+      "reason": "Keep active view buttons flat",
+      "beforeSha256": "c960af51ba26f594364161af7d4a9d9bde717b53a2e73460eadb7399b3f3e535",
+      "afterSha256": "a025b9b869d7ed4ebc412d1abdefb2e6cd05175a0f1478bccd38188110fe6bcc",
+      "bytesRemoved": 499
+    },
+    {
+      "file": "biz/src/agents.js",
+      "reason": "Keep active view buttons flat",
+      "beforeSha256": "820c9ee61d218897ca719c00c8c3c62d6c381153dfb6843fa2a14525736f9a12",
+      "afterSha256": "3bfa5fca1f4672aa5f046d2529ad1041dc52822e0afc8df66629be5e97b1e529",
+      "bytesRemoved": 386
+    },
+    {
+      "file": "biz/src/playbooks.js",
+      "reason": "Keep active view buttons flat",
+      "beforeSha256": "45c75023eca975379199c401856c6d4a4a2ea1141d262256728fc54db4ff8c1b",
+      "afterSha256": "d5d4035b6eee8a499b695e6228199c41d8da4876c83a83b8ec0b3dba97053281",
+      "bytesRemoved": 2617
+    },
+    {
+      "file": "biz/sw.js",
+      "reason": "Remove retired environment script from cache manifest",
+      "beforeSha256": "929532c9014146eca24ac302856b1771b45f783c947c5df7bdc3f4d387061796",
+      "afterSha256": "d96f624962615b5ee77b041d13d2d46de6b35a82393389d8914df7d0c6aa597b",
+      "bytesRemoved": 140
+    },
+    {
+      "file": "assets/platform-files.js",
+      "reason": "Remove retired environment script from shared offline manifest",
+      "beforeSha256": "8f968982b4abdea1ae65c4ba68abc766eef216750865d43d60aabb5ca93d08e7",
+      "afterSha256": "ac041a080e7f0f854bd6eea5b6d0fbd08d0e1c9ca104e5b278c5df98e5e872fe",
+      "bytesRemoved": 17
+    },
+    {
+      "file": "dev/offline-files.js",
+      "reason": "Remove retired environment script from shared offline manifest",
+      "beforeSha256": "562297dbee10217c79c5b2a6bed289782f94d6c52644a11a056072119fb56095",
+      "afterSha256": "2ccf38e30c8619ab346c46ecd196e39cea3d5c90754ffe3e8b6cc4d9e8177f74",
+      "bytesRemoved": 20
+    },
+    {
+      "file": "edu/css/styles.css",
+      "reason": "Remove verified obsolete selector families and decorative colour glows; preserve focus outlines and neutral dialog/card depth",
+      "beforeSha256": "a80bb7ec2e46bdf045b313447824e4b4d250fda9ed92ea2a368fe25e755af615",
+      "afterSha256": "b525c535c1bc1a3bf22caaec5db9d946bc61a7ee5de71add03dfa99b538b6b29",
+      "bytesRemoved": 14006
+    }
+  ],
+  "deadCssClasses": [
+    "about-creator-bio",
+    "about-creator-card",
+    "about-creator-content",
+    "about-creator-name",
+    "about-creator-quote",
+    "about-creator-role",
+    "about-creator-section",
+    "about-creator-socials",
+    "about-hero",
+    "about-hero-logo",
+    "about-hero-sub",
+    "about-hero-title",
+    "about-page",
+    "about-pillar",
+    "about-pillar-icon-wrap",
+    "about-pillar-icon-wrap--indigo",
+    "about-pillar-icon-wrap--orange",
+    "about-pillar-icon-wrap--sky",
+    "about-pillar-text",
+    "about-pillar-title",
+    "about-pillars",
+    "about-pillars-grid",
+    "about-pillars-section",
+    "about-quote-accent",
+    "about-quote-mark",
+    "about-quote-text",
+    "about-social-link",
+    "about-stat",
+    "about-stat-divider",
+    "about-stat-label",
+    "about-stat-num",
+    "about-stats",
+    "about-widget-btn",
+    "about-widget-grid",
+    "btn-scratchpad",
+    "pc-card",
+    "pc-cards-scroll",
+    "pcm-tag"
+  ],
+  "removedSelectors": [
+    ".btn-scratchpad",
+    ".btn-scratchpad:hover",
+    ".pc-cards-scroll",
+    ".pcm-tag",
+    ".pc-cards-scroll",
+    ".pc-cards-scroll",
+    ".pc-card",
+    ".pc-card:hover",
+    "[data-theme=\"dark\"] .pc-card:hover",
+    ".pc-card::after",
+    ".btn-scratchpad",
+    ".btn-scratchpad:hover",
+    ".about-social-link",
+    ".about-social-link:hover",
+    ".about-page",
+    ".about-hero",
+    ".about-hero-logo",
+    ".about-hero-title",
+    ".about-hero-sub",
+    ".about-stats",
+    ".about-stat",
+    ".about-stat-num",
+    ".about-stat-label",
+    ".about-stat-divider",
+    ".about-pillars-section",
+    ".about-pillars",
+    ".about-pillar",
+    ".about-pillar:hover",
+    ".about-pillar-icon-wrap",
+    ".about-pillar-icon-wrap--orange",
+    ".about-pillar-icon-wrap--indigo",
+    ".about-pillar-icon-wrap--sky",
+    ".about-pillar-title",
+    ".about-pillar-text",
+    ".about-creator-section",
+    ".about-creator-card",
+    ".about-creator-card:hover",
+    ".about-creator-content",
+    ".about-creator-socials",
+    ".about-creator-name",
+    ".about-creator-role",
+    ".about-creator-bio",
+    ".about-creator-quote",
+    ".about-quote-mark",
+    ".about-quote-text",
+    ".about-quote-accent",
+    ".about-hero",
+    ".about-hero-title",
+    ".about-hero-sub",
+    ".about-stats",
+    ".about-stat",
+    ".about-stat-divider",
+    ".about-pillars-section",
+    ".about-pillars",
+    ".about-pillar",
+    ".about-creator-section",
+    ".about-creator-card",
+    ".about-social-link",
+    ".about-creator-name",
+    ".pc-card",
+    ".pc-card:hover",
+    ".btn-scratchpad",
+    ".btn-scratchpad:hover",
+    ".about-creator-card",
+    ".about-pillar",
+    ".about-pillar:hover",
+    "#view-about .about-widget-btn",
+    "#view-about .about-widget-btn span",
+    "#view-about .about-widget-btn svg",
+    ".about-pillars-grid",
+    ".about-widget-grid",
+    ".about-widget-grid button > div"
+  ],
+  "removedSelectorBranches": 72,
+  "bytesRemoved": 31748,
+  "additionalMaintainerChange": {
+    "file": "dev/tools/sync-content.py",
+    "reason": "Remove retired config.js from the manifest generator; check-only content verification passes",
+    "retiredText": "retired-source/sync-content-before.py",
+    "retiredTextMethod": "Reconstructed from the exact one-line replacement; no native content was written"
+  }
+}

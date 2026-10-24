@@ -1,0 +1,33 @@
+{
+  "library": "Lobe Icons",
+  "sourceRepository": "https://github.com/lobehub/lobe-icons",
+  "license": "MIT; brand marks remain their owners trademarks",
+  "version": "1.95.1",
+  "assets": [
+    {
+      "file": "chatgpt.svg",
+      "source": "https://unpkg.com/@lobehub/icons-static-svg@1.95.1/icons/openai.svg",
+      "sha256": "a595df6b423920c67a7f8f73c063e4bfb72d415948097b6cac063a2366bb5186"
+    },
+    {
+      "file": "gemini.svg",
+      "source": "https://unpkg.com/@lobehub/icons-static-svg@1.95.1/icons/gemini-color.svg",
+      "sha256": "8ab0a9bafec11f7e69bcb9fc4ffd8f1bc927d1ddcbbb6ff36dee5ae8b5a9d602"
+    },
+    {
+      "file": "claude.svg",
+      "source": "https://unpkg.com/@lobehub/icons-static-svg@1.95.1/icons/claude-color.svg",
+      "sha256": "a3101f3047a119aa11825ad9369510f0c472428c8c52d420e31bc62db44a8364"
+    },
+    {
+      "file": "copilot.svg",
+      "source": "https://unpkg.com/@lobehub/icons-static-svg@1.95.1/icons/copilot-color.svg",
+      "sha256": "04f15d0556fbac10a4e0f82d1560610db8b33cd04780a4f24ad3b91c4abd278d"
+    },
+    {
+      "file": "perplexity.svg",
+      "source": "https://unpkg.com/@lobehub/icons-static-svg@1.95.1/icons/perplexity.svg",
+      "sha256": "c66c64e9e3c273ef6c235f743808d67ffa7d482e8cbe4a79496a42b60333e1fe"
+    }
+  ]
+}

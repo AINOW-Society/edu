@@ -2,6 +2,86 @@
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['locales/locales-en'] = AINOW['locales/locales-en'] || {};
 const data = {
+    smooth: {
+        "loading_library": "Preparing the full collection…",
+        "clear_filters": "Clear filters",
+        "choose_value": "Choose",
+        "enter_value": "Enter",
+        "local_draft": "Draft stays in this browser",
+
+        "copy_manual": "Could not copy. Select the draft and copy it manually.",
+        "knowledge": "Relevant knowledge",
+
+        "start_title": "What would you like to do?",
+        "start_note": "Choose a starting point, or browse the library below.",
+        "write": "Write an email",
+        "plan": "Plan my work",
+        "build": "Set up an assistant",
+        "library_help": "Open a template, adapt it, then copy it into your AI app. Review the answer before using it.",
+        "filters": "Filters",
+        "builder_intro": "Create reusable instructions for your AI assistant. Start with one task; you can refine the details later.",
+        "builder_limit": "This creates an instruction draft. Copy it into your AI app and test it there. Tools and connections are configured in that app.",
+        "step_current": "Current",
+        "step_viewed": "Viewed",
+        "step_open": "Open step",
+        "step_task": "Task",
+        "step_behaviour": "Behaviour",
+        "step_examples": "Examples",
+        "step_review": "Review & use",
+        "nav_label": "Build your instructions",
+        "task_title": "What should your assistant help with?",
+        "task_hint": "Describe one real task. Include the audience and what a useful answer should contain.",
+        "task_placeholder": "For example: help me turn meeting notes into a short summary with decisions and next actions.",
+        "output": "How should the answer look?",
+        "output_hint": "Optional: a short email, a checklist, a table or another format.",
+        "identity_optional": "Name and role · optional",
+        "advanced": "More settings · optional",
+        "behaviour_hint": "Choose how it should respond. You do not need to change every setting.",
+        "method": "Working approach",
+        "preferences": "Response preferences",
+        "framework": "Response approach",
+        "standard": "Direct answer",
+        "standard_hint": "A clear response to the task.",
+        "cot": "Explain the result",
+        "cot_hint": "Include key assumptions and checks.",
+        "fewshot": "Follow my examples",
+        "fewshot_hint": "Add examples in the next step.",
+        "socratic": "Guide with questions",
+        "socratic_hint": "Ask focused questions and offer hints.",
+        "examples_hint": "Show a typical input and the answer you would like. Examples are optional and work with any response approach.",
+        "examples_placeholder": "Input: notes from a weekly meeting\nExpected answer: decisions, who is responsible, and next actions.",
+        "context": "Background and rules",
+        "input": "What information will you provide?",
+        "capabilities": "Other tasks it should help with",
+        "capabilities_hint": "Describe requested work. This does not install skills, tools or integrations.",
+        "preview": "Instruction draft",
+        "copy": "Copy instructions",
+        "export": "Download settings",
+        "next": "Continue",
+        "back": "Back",
+        "review_title": "Try it in your AI app",
+        "review_1": "Copy the instructions into your AI app’s instruction field, or the start of a new conversation.",
+        "review_2": "Give it a small, typical task and inspect the actual answer.",
+        "review_3": "Check the format, facts and missing information. Adjust these instructions when needed.",
+        "check_title": "Before you use it",
+        "check_task": "A task is described",
+        "check_task_missing": "Add a specific task in step 1",
+        "check_input": "Example input is included",
+        "check_input_missing": "Add sample input if it helps",
+        "check_note": "These checks describe your draft, not the quality of an AI answer.",
+        "saved": "Saved in this browser",
+        "unsaved": "Changes are not saved. Download your settings to keep a copy.",
+        "storage_unreadable": "The saved draft could not be read. It has not been replaced. Download a copy before saving new changes.",
+        "privacy": "Your draft stays in this browser. No account is needed.",
+        "optional": "Optional",
+        "concise": "Keep it concise",
+        "no_emoji": "No emojis",
+        "no_lectures": "Keep advice relevant to the task",
+        "no_dashes": "Avoid em dashes",
+        "plain_text": "Plain text",
+        "balanced": "Separate facts from opinions",
+        "answer_first": "Start with the answer"
+},
     platform: {
         education: 'AINOW Education — free AI literacy for teachers',
         business: 'AINOW Business',
@@ -209,7 +289,7 @@ const data = {
                 },
                 playbooks: {
                     title: "Playbooks",
-                    text_1: "20 expert-guided workflows for complex professional tasks — Code Refactor, UX Audit, Sales Strategy, Legal Draft, HR Recruiting, Finance Plan, and more.",
+                    text_1: "Guided workflows for professional tasks such as code review, research, writing and planning.",
                     text_2: "Answer 3 targeted questions and receive three prompt formats:",
                     step_1: "Quick Prompt — one powerful prompt for fast results.",
                     step_2: "Full Brief — a comprehensive expert briefing.",
@@ -576,9 +656,9 @@ const data = {
                     bio: 'With over 20 years of experience in sales, communication, journalism, and event organization, Aleksandra excels in working with people and fostering meaningful connections. Outside of her professional work, Aleksandra is passionate about writing children\'s books, believing that both books and children are the two greatest things that ever happened to her.'
                 },
                 maja: {
-                    name: 'Maja Mirkovic',
+                    name: 'Maja Mirković',
                     role: 'Regional Expert & Partner',
-                    bio: 'Maja Mirkovic is a highly organized and multilingual legal professional, with extensive experience in the judicial sector of Bosnia and Herzegovina. She is a holder of three LL.M. Degrees from the Faculty of Law of University of Sarajevo. Currently pursuing a Master\'s degree in Digital Law, AI and Blockchain at EBIS Business TechSchool.'
+                    bio: 'Maja Mirković is a highly organized and multilingual legal professional, with extensive experience in the judicial sector of Bosnia and Herzegovina. She is a holder of three LL.M. Degrees from the Faculty of Law of University of Sarajevo. Currently pursuing a Master\'s degree in Digital Law, AI and Blockchain at EBIS Business TechSchool.'
                 }
             },
             contact_title: 'Contact Us',
@@ -1017,5 +1097,27 @@ Object.assign(data.pages.about, {
     beyond_close: 'If the library answers your question, take what you need and go. If it raises one, that is worth a conversation.',
     beyond_services: 'What we do for organisations'
 });
+Object.assign(data.language_note, {"title": "Why are source agent instructions in English?", "body": "The library preserves the original English instructions and their source context. This does not guarantee better results for every model or task.", "tip": "You can ask your AI app to answer in Macedonian or Albanian. Test the instructions with your own task and review the result."});
+Object.assign(data.smooth, {storage_unreadable: "The saved draft could not be read and has not been replaced. New edits will not be saved until you reset it."});
+Object.assign(data.help.agents, {"title": "Reusable assistant instructions", "desc": "An assistant configuration is a reusable set of instructions you use in an AI app.", "persona_text": "A role explains the perspective and type of help you want. It guides the answer; it does not give the AI professional qualifications or new knowledge.", "constraints_text": "Add relevant rules, sources and limits. They help guide the response, but important facts and decisions still need review."});
+Object.assign(data.help.guide, {"desc": "Choose a template, adapt it to your task and try it in your AI app. Review the response before using it.", "customize_title": "Adapt and try", "customize_text": "Replace the bracketed fields with your context, copy the instructions and paste them into your AI app. Avoid including confidential information unless your organisation permits it."});
+Object.assign(data.help.sections.features.builder, {"text": "Create reusable instructions in four short steps: describe the task and result, choose the behaviour, add examples, then review and copy.", "tip": "Drafts stay in this browser. Copy the instructions into your AI app and try one realistic task. This builder does not install tools or run an agent."});
+Object.assign(data.smooth, {"modal_inputs": "Your details", "static_template": "Ready-to-use template", "close": "Close template"});
+Object.assign(data.smooth, {"choose_help": "Help me choose"});
+Object.assign(data.smooth, {"home_title": "Work smarter with", "home_subtitle": "Find a useful template, adapt it to your work, then try it in your AI app.", "browse_prompts": "Explore the prompt library", "work_options": "More ways to get started", "assistant_templates": "Ready-made assistants", "assistant_templates_text": "Start with instructions for a particular role or type of work.", "work_situations": "Everyday work situations", "work_situations_text": "Follow a practical workflow for the task in front of you.", "your_assistant": "Build your own assistant", "your_assistant_text": "Describe one task and create reusable instructions around it.", "how_it_works": "How it works", "overview": "Overview"});
+Object.assign(data.smooth, {"workspace_menu": "AINOW BIZ"});
+Object.assign(data.smooth, {"instruction_text": "Instructions", "editing_copy": "Editing your copy", "edit_text": "Edit text", "save_template": "Save", "saved_template": "Saved", "saved_where": "Saved to Favorites in this browser.", "copy_use_hint": "Copy this text, then paste it into your AI app."});
+Object.assign(data.smooth, {"save_template": "Favorite", "saved_template": "Favorited"});
+data.release = {"close": "Close", "copy_all": "Copy all notes", "add_notes": "Add to Scratchpad", "storage_unavailable": "Browser storage is unavailable. Keep or copy your work before leaving this page.", "invalid_backup": "This backup could not be restored. Choose a Business JSON backup under 2 MB.", "restore_confirm": "Restore this Business backup? Matching Business data and preferences will be replaced. Education and DEV work will stay unchanged.", "page": "Page", "total": "Total", "previous_page": "Previous page", "next_page": "Next page", "shortcuts": "Keyboard shortcuts", "toggle_shortcuts": "Open keyboard shortcuts", "toggle_theme": "Toggle theme", "toggle_navigation": "Open navigation", "help": "Help", "then": "then"};
+Object.assign(data.settings, {"title": "Business settings & data", "export_text": "Download Business favorites, builder draft, notes and preferences as a JSON backup.", "import_text": "Restore matching Business data from a backup. Education and DEV work stay unchanged.", "reset_title": "Reset Business data", "reset_text": "Remove Business favorites, builder draft, notes and recent history from this browser. Education and DEV stay unchanged.", "reset_btn": "Reset Business data", "reset_confirm": "Remove all Business saved work from this browser? Export a backup first. Education and DEV will stay unchanged."});
+Object.assign(data.release, {"recovery_title": "This page could not be opened", "recovery_text": "Reload the page to try again, or return to the workspace chooser. Reloading does not clear your saved work.", "reload": "Reload page"});
+Object.assign(data.common, {"copy_failed": "Copy was unavailable. Select the text and copy it manually.", "prompts": "prompts"});
+data.builder.expertise = "Expertise or knowledge";
+Object.assign(data.release, {"editable": "Editable template", "open_template": "Open template", "copy_text": "Copy text", "share_link": "Share link", "table_view": "Table view", "remove_favorite": "Remove from Favorites", "agent_types": "Agent types", "agents_count": "agents", "select_field": "Select", "enter_field": "Enter"});
+data.release.more_specific = "Add more detail about your task…";
+data.situations.page_subtitle = "Choose a work situation, add your context and copy the instructions into your AI app.";
+data.release.own_answer = "Or write your own answer";
+data.resources.nav.services = "Services";
+Object.assign(data.pages.accessibility,{"intro": "AINOW includes keyboard navigation, labelled controls, semantic page structure and light and dark themes. Downloaded learning resources can be used offline. Some features require JavaScript.", "commitment": {"title": "Accessibility and ongoing review", "text": "We aim to make the platform easier to use with keyboards, assistive technology and different screen sizes. Local automated checks and viewport reviews are not a full accessibility certification.", "items": ["Use Tab and Shift+Tab to move between controls, and Escape to close dialogs.", "Use the theme control to choose a light or dark display.", "Report a barrier with the page address, device and assistive technology you use."]}});
   __exports.data = data;
 })();

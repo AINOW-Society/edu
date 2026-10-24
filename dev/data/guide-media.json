@@ -1,0 +1,762 @@
+{
+  "images": {
+    "windows-plugins-settings": {
+      "id": "windows-plugins-settings",
+      "file": "windows-plugins-settings.png",
+      "src": "assets/guide-screenshots/windows-plugins-settings.png",
+      "width": 1919,
+      "height": 1020,
+      "tool": "ChatGPT / Codex desktop · Windows",
+      "credit": "AINOW · Windows",
+      "sourceKind": "owner-capture",
+      "platform": "Windows",
+      "suppliedAt": "2026-10-20",
+      "title": {
+        "en": "Open desktop Plugins",
+        "mk": "Отворете Plugins на компјутер",
+        "sq": "Hapni Plugins në desktop"
+      },
+      "caption": {
+        "en": "Settings → Plugins groups plugins, apps, MCP servers and skills. The counts here belong to this example account, not to the AINOW catalogue.",
+        "mk": "Settings → Plugins ги групира додатоците, апликациите, MCP серверите и вештините. Бројките се од пример-сметката, а не од каталогот на AINOW.",
+        "sq": "Settings → Plugins grupon shtojcat, aplikacionet, serverët MCP dhe aftësitë. Numrat i përkasin llogarisë së shembullit, jo katalogut AINOW."
+      },
+      "version": {
+        "en": "Windows · supplied 20 October 2026",
+        "mk": "Windows · доставено 20 октомври 2026",
+        "sq": "Windows · dërguar më 20 tetor 2026"
+      },
+      "callouts": [
+        {
+          "rect": [
+            678,
+            263,
+            345,
+            45
+          ],
+          "label": {
+            "en": "Choose the relevant tab.",
+            "mk": "Изберете го соодветното јазиче.",
+            "sq": "Zgjidhni skedën përkatëse."
+          }
+        }
+      ],
+      "privacyEdited": false
+    },
+    "windows-skills-settings": {
+      "id": "windows-skills-settings",
+      "file": "windows-skills-settings.png",
+      "src": "assets/guide-screenshots/windows-skills-settings.png",
+      "width": 1919,
+      "height": 1019,
+      "tool": "ChatGPT / Codex desktop · Windows",
+      "credit": "AINOW · Windows",
+      "sourceKind": "owner-capture",
+      "platform": "Windows",
+      "suppliedAt": "2026-10-20",
+      "title": {
+        "en": "Review installed skills",
+        "mk": "Прегледајте ги вештините",
+        "sq": "Shqyrtoni aftësitë e instaluara"
+      },
+      "caption": {
+        "en": "The Skills tab lists installed skills and their enable switches. Review the skill instructions before using it on your own material.",
+        "mk": "Јазичето Skills ги наведува инсталираните вештини и прекинувачите. Прегледајте ги инструкциите пред да користите сопствен материјал.",
+        "sq": "Skeda Skills rendit aftësitë e instaluara dhe çelësat e tyre. Shqyrtoni udhëzimet para se të përdorni materialin tuaj."
+      },
+      "version": {
+        "en": "Windows · supplied 20 October 2026",
+        "mk": "Windows · доставено 20 октомври 2026",
+        "sq": "Windows · dërguar më 20 tetor 2026"
+      },
+      "callouts": [
+        {
+          "rect": [
+            946,
+            267,
+            85,
+            44
+          ],
+          "label": {
+            "en": "Open Skills.",
+            "mk": "Отворете Skills.",
+            "sq": "Hapni Skills."
+          }
+        },
+        {
+          "rect": [
+            1534,
+            375,
+            49,
+            38
+          ],
+          "label": {
+            "en": "Check the enable switch.",
+            "mk": "Проверете го прекинувачот.",
+            "sq": "Kontrolloni çelësin e aktivizimit."
+          }
+        }
+      ],
+      "privacyEdited": false
+    },
+    "windows-skills-add": {
+      "id": "windows-skills-add",
+      "file": "windows-skills-add.png",
+      "src": "assets/guide-screenshots/windows-skills-add.png",
+      "width": 1918,
+      "height": 1014,
+      "tool": "ChatGPT / Codex desktop · Windows",
+      "credit": "AINOW · Windows",
+      "sourceKind": "owner-capture",
+      "platform": "Windows",
+      "suppliedAt": "2026-10-20",
+      "title": {
+        "en": "Inspect the desktop Add menu",
+        "mk": "Прегледајте го менито Add",
+        "sq": "Shqyrtoni menunë Add"
+      },
+      "caption": {
+        "en": "This Settings menu offers plugin creation, a marketplace and an MCP server. Choose the action that matches your goal; adding a marketplace and adding a server are separate steps.",
+        "mk": "Ова Settings мени нуди создавање додаток, каталог и MCP сервер. Изберете според целта; додавањето каталог и додавањето сервер се одделни постапки.",
+        "sq": "Kjo menu Settings ofron krijim shtojce, katalog dhe server MCP. Zgjidhni sipas qëllimit; shtimi i katalogut dhe serverit janë hapa të veçantë."
+      },
+      "version": {
+        "en": "Windows · supplied 20 October 2026",
+        "mk": "Windows · доставено 20 октомври 2026",
+        "sq": "Windows · dërguar më 20 tetor 2026"
+      },
+      "callouts": [
+        {
+          "rect": [
+            1392,
+            209,
+            197,
+            118
+          ],
+          "label": {
+            "en": "Choose the intended action.",
+            "mk": "Изберете го потребното дејство.",
+            "sq": "Zgjidhni veprimin e synuar."
+          }
+        }
+      ],
+      "privacyEdited": false
+    },
+    "windows-plugins-directory": {
+      "id": "windows-plugins-directory",
+      "file": "windows-plugins-directory.png",
+      "src": "assets/guide-screenshots/windows-plugins-directory.png",
+      "width": 1919,
+      "height": 1017,
+      "tool": "ChatGPT / Codex desktop · Windows",
+      "credit": "AINOW · Windows",
+      "sourceKind": "owner-capture",
+      "platform": "Windows",
+      "suppliedAt": "2026-10-20",
+      "title": {
+        "en": "Browse the plugin directory",
+        "mk": "Пребарајте го директориумот",
+        "sq": "Shfletoni direktorinë e shtojcave"
+      },
+      "caption": {
+        "en": "Customize → Plugins shows public, organization and personal collections. Browse a plugin and review its details before installing; a listed service may still need account authorization.",
+        "mk": "Customize → Plugins прикажува јавни, организациски и лични збирки. Прегледајте ги деталите пред инсталација; наведена услуга може да бара овластување на сметката.",
+        "sq": "Customize → Plugins tregon koleksione publike, të organizatës dhe personale. Shqyrtoni detajet para instalimit; shërbimi mund të kërkojë ende autorizimin e llogarisë."
+      },
+      "version": {
+        "en": "Windows · supplied 20 October 2026",
+        "mk": "Windows · доставено 20 октомври 2026",
+        "sq": "Windows · dërguar më 20 tetor 2026"
+      },
+      "callouts": [
+        {
+          "rect": [
+            570,
+            193,
+            368,
+            51
+          ],
+          "label": {
+            "en": "Choose the collection.",
+            "mk": "Изберете збирка.",
+            "sq": "Zgjidhni koleksionin."
+          }
+        }
+      ],
+      "privacyEdited": false
+    },
+    "windows-plugins-add": {
+      "id": "windows-plugins-add",
+      "file": "windows-plugins-add.png",
+      "src": "assets/guide-screenshots/windows-plugins-add.png",
+      "width": 1919,
+      "height": 1017,
+      "tool": "ChatGPT / Codex desktop · Windows",
+      "credit": "AINOW · Windows",
+      "sourceKind": "owner-capture",
+      "platform": "Windows",
+      "suppliedAt": "2026-10-20",
+      "title": {
+        "en": "Add a marketplace or plugin",
+        "mk": "Додајте каталог или додаток",
+        "sq": "Shtoni katalog ose shtojcë"
+      },
+      "caption": {
+        "en": "The directory Add menu includes Add a marketplace, Upload plugin archive and Add custom MCP server. Use a marketplace repository for discovery or the publisher’s MCP endpoint for a server.",
+        "mk": "Менито Add нуди Add a marketplace, Upload plugin archive и Add custom MCP server. За каталог користете репозиториум, а за сервер MCP адреса од издавачот.",
+        "sq": "Menuja Add përfshin Add a marketplace, Upload plugin archive dhe Add custom MCP server. Përdorni depo katalogu për zbulim ose endpoint-in MCP të botuesit për server."
+      },
+      "version": {
+        "en": "Windows · supplied 20 October 2026",
+        "mk": "Windows · доставено 20 октомври 2026",
+        "sq": "Windows · dërguar më 20 tetor 2026"
+      },
+      "callouts": [
+        {
+          "rect": [
+            1463,
+            114,
+            236,
+            155
+          ],
+          "label": {
+            "en": "Select the matching import type.",
+            "mk": "Изберете соодветен вид на внес.",
+            "sq": "Zgjidhni llojin përkatës të importit."
+          }
+        }
+      ],
+      "privacyEdited": false
+    },
+    "windows-mcp-remote": {
+      "id": "windows-mcp-remote",
+      "file": "windows-mcp-remote.png",
+      "src": "assets/guide-screenshots/windows-mcp-remote.png",
+      "width": 1919,
+      "height": 1026,
+      "tool": "ChatGPT / Codex desktop · Windows",
+      "credit": "AINOW · Windows",
+      "sourceKind": "owner-capture",
+      "platform": "Windows",
+      "suppliedAt": "2026-10-20",
+      "title": {
+        "en": "Fill a remote MCP example",
+        "mk": "Пополнете далечински MCP пример",
+        "sq": "Plotësoni shembullin MCP në distancë"
+      },
+      "caption": {
+        "en": "Cloudflare Docs uses the public HTTPS endpoint shown here. Select Streamable HTTP and enter the publisher’s URL. The optional token and header fields remain empty in this example.",
+        "mk": "Cloudflare Docs ја користи прикажаната јавна HTTPS адреса. Изберете Streamable HTTP и внесете ја адресата од издавачот. Опционалните полиња за токен и заглавија се празни во примерот.",
+        "sq": "Cloudflare Docs përdor endpoint-in publik HTTPS të treguar. Zgjidhni Streamable HTTP dhe URL-në e botuesit. Fushat opsionale të tokenit dhe headers mbeten bosh në këtë shembull."
+      },
+      "version": {
+        "en": "Windows · supplied 20 October 2026",
+        "mk": "Windows · доставено 20 октомври 2026",
+        "sq": "Windows · dërguar më 20 tetor 2026"
+      },
+      "callouts": [
+        {
+          "rect": [
+            1421,
+            372,
+            152,
+            39
+          ],
+          "label": {
+            "en": "Choose Streamable HTTP.",
+            "mk": "Изберете Streamable HTTP.",
+            "sq": "Zgjidhni Streamable HTTP."
+          }
+        },
+        {
+          "rect": [
+            692,
+            477,
+            883,
+            48
+          ],
+          "label": {
+            "en": "Enter the published endpoint.",
+            "mk": "Внесете ја објавената адреса.",
+            "sq": "Vendosni endpoint-in e publikuar."
+          }
+        },
+        {
+          "rect": [
+            1531,
+            954,
+            59,
+            40
+          ],
+          "label": {
+            "en": "Save the configuration.",
+            "mk": "Зачувајте ја конфигурацијата.",
+            "sq": "Ruani konfigurimin."
+          }
+        }
+      ],
+      "privacyEdited": false
+    },
+    "windows-mcp-enabled": {
+      "id": "windows-mcp-enabled",
+      "file": "windows-mcp-enabled.png",
+      "src": "assets/guide-screenshots/windows-mcp-enabled.png",
+      "width": 1919,
+      "height": 1020,
+      "tool": "ChatGPT / Codex desktop · Windows",
+      "credit": "AINOW · Windows",
+      "sourceKind": "owner-capture",
+      "platform": "Windows",
+      "suppliedAt": "2026-10-20",
+      "title": {
+        "en": "Find the configured server",
+        "mk": "Најдете го поставениот сервер",
+        "sq": "Gjeni serverin e konfiguruar"
+      },
+      "caption": {
+        "en": "cloudflare_docs appears in MCPs with its toggle on. This confirms the saved configuration, not successful tool use in a conversation. Check tool availability in the intended surface and session.",
+        "mk": "cloudflare_docs е во MCPs со вклучен прекинувач. Ова потврдува зачувана конфигурација, а не успешен повик во разговор. Проверете достапни алатки во соодветната средина и сесија.",
+        "sq": "cloudflare_docs shfaqet te MCPs me çelësin aktiv. Kjo konfirmon konfigurimin e ruajtur, jo përdorimin e suksesshëm në bisedë. Kontrolloni mjetet në mjedisin dhe seancën e duhur."
+      },
+      "version": {
+        "en": "Windows · supplied 20 October 2026",
+        "mk": "Windows · доставено 20 октомври 2026",
+        "sq": "Windows · dërguar më 20 tetor 2026"
+      },
+      "callouts": [
+        {
+          "rect": [
+            678,
+            413,
+            910,
+            67
+          ],
+          "label": {
+            "en": "Check the configured server row.",
+            "mk": "Проверете го редот со серверот.",
+            "sq": "Kontrolloni rreshtin e serverit."
+          }
+        }
+      ],
+      "privacyEdited": false
+    },
+    "windows-claude-skills": {
+      "id": "windows-claude-skills",
+      "file": "windows-claude-skills.png",
+      "src": "assets/guide-screenshots/windows-claude-skills.png",
+      "width": 1919,
+      "height": 975,
+      "tool": "Claude desktop · Windows",
+      "credit": "AINOW · Windows",
+      "sourceKind": "owner-capture",
+      "platform": "Windows",
+      "suppliedAt": "2026-10-20",
+      "title": {
+        "en": "Discover Claude skills",
+        "mk": "Откријте Claude вештини",
+        "sq": "Zbuloni aftësitë Claude"
+      },
+      "caption": {
+        "en": "Customize → Skills → Discover shows available skills. Yours contains your own collection. The catalogue and installed state depend on the account and workspace.",
+        "mk": "Customize → Skills → Discover прикажува достапни вештини. Yours е вашата збирка. Каталогот и инсталираните ставки зависат од сметката и организацијата.",
+        "sq": "Customize → Skills → Discover tregon aftësitë e disponueshme. Yours përmban koleksionin tuaj. Katalogu dhe instalimet varen nga llogaria dhe hapësira."
+      },
+      "version": {
+        "en": "Windows · supplied 20 October 2026",
+        "mk": "Windows · доставено 20 октомври 2026",
+        "sq": "Windows · dërguar më 20 tetor 2026"
+      },
+      "callouts": [
+        {
+          "rect": [
+            353,
+            183,
+            74,
+            43
+          ],
+          "label": {
+            "en": "Open Skills.",
+            "mk": "Отворете Skills.",
+            "sq": "Hapni Skills."
+          }
+        },
+        {
+          "rect": [
+            685,
+            183,
+            182,
+            43
+          ],
+          "label": {
+            "en": "Switch between Yours and Discover.",
+            "mk": "Изберете Yours или Discover.",
+            "sq": "Kaloni mes Yours dhe Discover."
+          }
+        }
+      ],
+      "privacyEdited": false
+    },
+    "windows-claude-skill-add": {
+      "id": "windows-claude-skill-add",
+      "file": "windows-claude-skill-add.png",
+      "src": "assets/guide-screenshots/windows-claude-skill-add.png",
+      "width": 1919,
+      "height": 971,
+      "tool": "Claude desktop · Windows",
+      "credit": "AINOW · Windows",
+      "sourceKind": "owner-capture",
+      "platform": "Windows",
+      "suppliedAt": "2026-10-20",
+      "title": {
+        "en": "Choose Upload skill",
+        "mk": "Изберете Upload skill",
+        "sq": "Zgjidhni Upload skill"
+      },
+      "caption": {
+        "en": "Open Add to upload a reviewed skill, create one or work with Claude to create one. The screenshot shows the actual Windows menu; no command-line installation is required for this upload route.",
+        "mk": "Отворете Add за прикачување проверена вештина, создавање или работа со Claude. Прикажано е вистинското Windows мени; за ова прикачување не е потребна командна линија.",
+        "sq": "Hapni Add për të ngarkuar aftësi të kontrolluar, krijuar një ose punuar me Claude. Pamja tregon menunë Windows; kjo mënyrë ngarkimi nuk kërkon instalim nga terminali."
+      },
+      "version": {
+        "en": "Windows · supplied 20 October 2026",
+        "mk": "Windows · доставено 20 октомври 2026",
+        "sq": "Windows · dërguar më 20 tetor 2026"
+      },
+      "callouts": [
+        {
+          "rect": [
+            1326,
+            235,
+            224,
+            43
+          ],
+          "label": {
+            "en": "Select Upload skill.",
+            "mk": "Изберете Upload skill.",
+            "sq": "Zgjidhni Upload skill."
+          }
+        }
+      ],
+      "privacyEdited": false
+    },
+    "windows-claude-skill-upload": {
+      "id": "windows-claude-skill-upload",
+      "file": "windows-claude-skill-upload.png",
+      "src": "assets/guide-screenshots/windows-claude-skill-upload.png",
+      "width": 1919,
+      "height": 977,
+      "tool": "Claude desktop · Windows",
+      "credit": "AINOW · Windows",
+      "sourceKind": "owner-capture",
+      "platform": "Windows",
+      "suppliedAt": "2026-10-20",
+      "title": {
+        "en": "Choose the skill file",
+        "mk": "Изберете датотека со вештина",
+        "sq": "Zgjidhni skedarin e aftësisë"
+      },
+      "caption": {
+        "en": "Browse or drop the file in the upload area. The visible instructions accept .md with YAML name/description, or .zip/.skill containing SKILL.md. Upload becomes available after selecting a file.",
+        "mk": "Пребарајте или повлечете датотека во полето. Упатствата прифаќаат .md со YAML име/опис или .zip/.skill што содржи SKILL.md. Upload станува достапно по избор на датотека.",
+        "sq": "Shfletoni ose tërhiqni skedarin te zona e ngarkimit. Udhëzimet pranojnë .md me emër/përshkrim YAML, ose .zip/.skill me SKILL.md. Upload aktivizohet pasi zgjidhni skedarin."
+      },
+      "version": {
+        "en": "Windows · supplied 20 October 2026",
+        "mk": "Windows · доставено 20 октомври 2026",
+        "sq": "Windows · dërguar më 20 tetor 2026"
+      },
+      "callouts": [
+        {
+          "rect": [
+            354,
+            325,
+            1200,
+            148
+          ],
+          "label": {
+            "en": "Browse or drop the file here.",
+            "mk": "Изберете или повлечете датотека тука.",
+            "sq": "Zgjidhni ose tërhiqni skedarin këtu."
+          }
+        },
+        {
+          "rect": [
+            354,
+            480,
+            990,
+            43
+          ],
+          "label": {
+            "en": "Check the supported package format.",
+            "mk": "Проверете го форматот на пакетот.",
+            "sq": "Kontrolloni formatin e paketës."
+          }
+        }
+      ],
+      "privacyEdited": false
+    },
+    "windows-claude-skill-picker": {
+      "id": "windows-claude-skill-picker",
+      "file": "windows-claude-skill-picker.png",
+      "src": "assets/guide-screenshots/windows-claude-skill-picker.png",
+      "width": 1719,
+      "height": 915,
+      "tool": "Claude desktop · Windows",
+      "credit": "AINOW · Windows",
+      "sourceKind": "owner-capture",
+      "platform": "Windows",
+      "suppliedAt": "2026-10-20",
+      "title": {
+        "en": "Select the package in Windows",
+        "mk": "Изберете го пакетот во Windows",
+        "sq": "Zgjidhni paketën në Windows"
+      },
+      "caption": {
+        "en": "Select your reviewed package, such as skill.zip, then Open to return to the upload page. Folder and account labels were privacy-blurred; this edited image illustrates file selection, not a completed upload.",
+        "mk": "Изберете проверен пакет, како skill.zip, па Open за враќање на страницата. Имињата на папка и сметка се заматени за приватност; сликата прикажува избор на датотека, а не завршено прикачување.",
+        "sq": "Zgjidhni paketën e kontrolluar, si skill.zip, pastaj Open për t’u kthyer te ngarkimi. Emrat e dosjes dhe llogarisë janë turbulluar për privatësi; pamja ilustron zgjedhjen, jo ngarkim të përfunduar."
+      },
+      "version": {
+        "en": "Windows · supplied 20 October 2026",
+        "mk": "Windows · доставено 20 октомври 2026",
+        "sq": "Windows · dërguar më 20 tetor 2026"
+      },
+      "callouts": [
+        {
+          "rect": [
+            1030,
+            379,
+            605,
+            33
+          ],
+          "label": {
+            "en": "Select your skill package.",
+            "mk": "Изберете го пакетот со вештина.",
+            "sq": "Zgjidhni paketën e aftësisë."
+          }
+        },
+        {
+          "rect": [
+            1432,
+            668,
+            100,
+            33
+          ],
+          "label": {
+            "en": "Choose Open.",
+            "mk": "Изберете Open.",
+            "sq": "Zgjidhni Open."
+          }
+        }
+      ],
+      "privacyEdited": true
+    },
+    "windows-claude-connectors": {
+      "id": "windows-claude-connectors",
+      "file": "windows-claude-connectors.png",
+      "src": "assets/guide-screenshots/windows-claude-connectors.png",
+      "width": 1919,
+      "height": 1004,
+      "tool": "Claude desktop · Windows",
+      "credit": "AINOW · Windows",
+      "sourceKind": "owner-capture",
+      "platform": "Windows",
+      "suppliedAt": "2026-10-20",
+      "title": {
+        "en": "Browse Claude connectors",
+        "mk": "Прегледајте Claude конектори",
+        "sq": "Shfletoni lidhësit Claude"
+      },
+      "caption": {
+        "en": "Customize → Connectors → Discover lists services. Select the service you need and review its access flow. Added labels describe this account’s state; they do not demonstrate a completed operation.",
+        "mk": "Customize → Connectors → Discover ги наведува услугите. Изберете ја потребната услуга и прегледајте го пристапот. Added го опишува статусот на оваа сметка, а не завршена операција.",
+        "sq": "Customize → Connectors → Discover rendit shërbimet. Zgjidhni shërbimin e nevojshëm dhe shqyrtoni qasjen. Added përshkruan gjendjen e kësaj llogarie, jo një veprim të përfunduar."
+      },
+      "version": {
+        "en": "Windows · supplied 20 October 2026",
+        "mk": "Windows · доставено 20 октомври 2026",
+        "sq": "Windows · dërguar më 20 tetor 2026"
+      },
+      "callouts": [
+        {
+          "rect": [
+            428,
+            184,
+            125,
+            43
+          ],
+          "label": {
+            "en": "Open Connectors.",
+            "mk": "Отворете Connectors.",
+            "sq": "Hapni Connectors."
+          }
+        },
+        {
+          "rect": [
+            763,
+            184,
+            104,
+            43
+          ],
+          "label": {
+            "en": "Browse Discover.",
+            "mk": "Прегледајте Discover.",
+            "sq": "Shfletoni Discover."
+          }
+        }
+      ],
+      "privacyEdited": false
+    },
+    "windows-claude-marketplace": {
+      "id": "windows-claude-marketplace",
+      "file": "windows-claude-marketplace.png",
+      "src": "assets/guide-screenshots/windows-claude-marketplace.png",
+      "width": 1919,
+      "height": 1008,
+      "tool": "Claude desktop · Windows",
+      "credit": "AINOW · Windows",
+      "sourceKind": "owner-capture",
+      "platform": "Windows",
+      "suppliedAt": "2026-10-20",
+      "title": {
+        "en": "Add a plugin marketplace",
+        "mk": "Додајте каталог на додатоци",
+        "sq": "Shtoni katalog shtojcash"
+      },
+      "caption": {
+        "en": "In Plugins, Add marketplace accepts a GitHub owner/repo or Git repository URL. Review the source before Sync, then browse its plugins. This is a marketplace import, separate from configuring an MCP server.",
+        "mk": "Во Plugins, Add marketplace прифаќа GitHub owner/repo или Git URL. Прегледајте го изворот пред Sync, па прегледајте ги додатоците. Ова е внес на каталог, одделно од поставување MCP сервер.",
+        "sq": "Te Plugins, Add marketplace pranon GitHub owner/repo ose URL Git. Kontrolloni burimin para Sync, pastaj shfletoni shtojcat. Ky është import katalogu, veç konfigurimit të serverit MCP."
+      },
+      "version": {
+        "en": "Windows · supplied 20 October 2026",
+        "mk": "Windows · доставено 20 октомври 2026",
+        "sq": "Windows · dërguar më 20 tetor 2026"
+      },
+      "callouts": [
+        {
+          "rect": [
+            539,
+            515,
+            843,
+            96
+          ],
+          "label": {
+            "en": "Enter or choose the marketplace repository.",
+            "mk": "Внесете или изберете репозиториум.",
+            "sq": "Vendosni ose zgjidhni depon e katalogut."
+          }
+        },
+        {
+          "rect": [
+            1308,
+            651,
+            73,
+            44
+          ],
+          "label": {
+            "en": "Sync after reviewing the source.",
+            "mk": "Изберете Sync по проверка на изворот.",
+            "sq": "Zgjidhni Sync pasi kontrolloni burimin."
+          }
+        }
+      ],
+      "privacyEdited": false
+    },
+    "windows-claude-artifacts": {
+      "id": "windows-claude-artifacts",
+      "file": "windows-claude-artifacts.png",
+      "src": "assets/guide-screenshots/windows-claude-artifacts.png",
+      "width": 1919,
+      "height": 694,
+      "tool": "Claude desktop · Windows",
+      "credit": "AINOW · Windows",
+      "sourceKind": "owner-capture",
+      "platform": "Windows",
+      "suppliedAt": "2026-10-20",
+      "title": {
+        "en": "Choose an artifact type",
+        "mk": "Изберете вид артефакт",
+        "sq": "Zgjidhni llojin e artefaktit"
+      },
+      "caption": {
+        "en": "The Artifacts page offers Docs, Slides, Design, Dashboard and Motion. Dashboard and Motion carry Beta labels in this capture. Pick the output that fits the work, then review editing and sharing controls.",
+        "mk": "Artifacts нуди Docs, Slides, Design, Dashboard и Motion. Dashboard и Motion се означени Beta на оваа слика. Изберете според задачата, па прегледајте ги контролите за уредување и споделување.",
+        "sq": "Artifacts ofron Docs, Slides, Design, Dashboard dhe Motion. Dashboard dhe Motion kanë shenjën Beta në këtë pamje. Zgjidhni sipas punës, pastaj kontrolloni redaktimin dhe ndarjen."
+      },
+      "version": {
+        "en": "Windows · supplied 20 October 2026",
+        "mk": "Windows · доставено 20 октомври 2026",
+        "sq": "Windows · dërguar më 20 tetor 2026"
+      },
+      "callouts": [
+        {
+          "rect": [
+            354,
+            184,
+            300,
+            42
+          ],
+          "label": {
+            "en": "Find your work or shared work.",
+            "mk": "Најдете сопствена или споделена работа.",
+            "sq": "Gjeni punën tuaj ose të ndarë."
+          }
+        },
+        {
+          "rect": [
+            354,
+            499,
+            913,
+            153
+          ],
+          "label": {
+            "en": "Choose the output type.",
+            "mk": "Изберете вид резултат.",
+            "sq": "Zgjidhni llojin e rezultatit."
+          }
+        }
+      ],
+      "privacyEdited": false
+    }
+  },
+  "placements": {
+    "skills-explained": {
+      "2. Codex: add the folder and invoke it": [
+        "windows-skills-settings"
+      ],
+      "4. Claude chat: upload and enable a skill": [
+        "windows-claude-skills",
+        "windows-claude-skill-add",
+        "windows-claude-skill-upload",
+        "windows-claude-skill-picker"
+      ],
+      "5. ChatGPT: create or select a reusable skill": [
+        "windows-plugins-settings",
+        "windows-skills-add"
+      ],
+      "7. Add a plugin marketplace in a desktop app": [
+        "windows-claude-marketplace",
+        "windows-plugins-add"
+      ]
+    },
+    "mcp-remote": {
+      "Claude chat: connect and enable the service": [
+        "windows-claude-connectors"
+      ],
+      "ChatGPT: install a connector through Plugins": [
+        "windows-plugins-directory"
+      ],
+      "ChatGPT desktop: add MCP on the Codex surface": [
+        "windows-plugins-add",
+        "windows-mcp-remote",
+        "windows-mcp-enabled"
+      ]
+    },
+    "design-to-code": {
+      "Artifacts and documents: choose the right output": [
+        "windows-claude-artifacts"
+      ]
+    }
+  }
+}

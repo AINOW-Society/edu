@@ -12,6 +12,8 @@
     --edu-light: #fbf1ed;
     --biz: #0f766e;
     --biz-light: #eaf7f4;
+    --dev: #554a9e;
+    --dev-light: #f0eef9;
     --ease: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
@@ -26,6 +28,7 @@
     --border-light: #34312d;
     --edu-light: rgba(217, 119, 87, 0.14);
     --biz-light: rgba(15, 118, 110, 0.18);
+    --dev-light: rgba(130, 115, 195, 0.18);
 }
 
 * { box-sizing: border-box; }
@@ -67,6 +70,19 @@ body::before {
     padding: 3px;
     background: var(--bg-shell);
     border-radius: 999px;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.topbar-actions .icon-btn,
+.topbar-actions .platform-header-link {
+    width: 40px;
+    height: 40px;
 }
 
 .lang-btn {
@@ -115,7 +131,7 @@ body::before {
     position: relative;
     flex: 1;
     width: 100%;
-    max-width: 900px;
+    max-width: 1240px;
     margin: 0 auto;
     padding: 16px 30px 52px;
     display: flex;
@@ -179,7 +195,7 @@ body::before {
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
     width: 100%;
     align-items: stretch;
@@ -199,10 +215,12 @@ body::before {
 
 .card:nth-of-type(1) { animation-delay: 0.26s; }
 .card:nth-of-type(2) { animation-delay: 0.34s; }
+.card:nth-of-type(3) { animation-delay: 0.42s; }
 
 .card:hover { transform: translateY(-4px); }
 .card--edu:hover { background: var(--edu-light); }
 .card--biz:hover { background: var(--biz-light); }
+.card--dev:hover { background: var(--dev-light); }
 .card:active { transform: translateY(-1px) scale(0.995); }
 .card:focus-visible { outline: 2px solid var(--edu); outline-offset: 3px; }
 
@@ -238,6 +256,8 @@ body::before {
 
 .card--edu .card-icon { background: var(--edu-light); color: var(--edu); }
 .card--biz .card-icon { background: var(--biz-light); color: var(--biz); }
+.card--dev .card-icon { background: var(--dev-light); color: var(--dev); }
+.card-icon img { display: block; }
 
 .card-head h2 {
     flex: 1;
@@ -259,6 +279,7 @@ body::before {
 }
 
 .badge--biz { background: var(--biz-light); color: var(--biz); }
+.badge--dev { background: var(--dev-light); color: var(--dev); }
 
 .card-desc {
     margin: 0 0 18px;
@@ -315,6 +336,7 @@ body::before {
 
 .card--edu .card-go { color: var(--edu); }
 .card--biz .card-go { color: var(--biz); }
+.card--dev .card-go { color: var(--dev); }
 
 .card-go i {
     display: flex;

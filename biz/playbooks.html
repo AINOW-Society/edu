@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Workflow Playbooks | AINOW OS</title>
+  <title>Situations · AINOW Business</title>
   <link rel="icon" href="assets/logo-placeholder.png" type="image/png">
 
   <link rel="canonical" href="https://edu.ainow.mk/biz/playbooks.html">
@@ -45,8 +45,7 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/logo-placeholder.png">
 
-  <script>(function(){var w=console.warn;console.warn=function(){if(arguments[0]&&String(arguments[0]).includes("cdn.tailwindcss"))return;w.apply(console,arguments)};})();</script>
-  <script src="libs/tailwindcss.js"></script>
+  <script src="libs/tailwindcss.js?v=95"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -80,14 +79,13 @@
             }
           },
           fontFamily: {
-            sans: ['Onest', 'system-ui', 'sans-serif'],
-            display: ['Onest', 'system-ui', 'sans-serif'],
+            sans: ['Manrope', 'system-ui', 'sans-serif'],
+            display: ['Manrope', 'system-ui', 'sans-serif'],
           },
           boxShadow: {
             'level-1': '0 1px 3px rgba(0,0,0,0.03)',
             'level-2': '0 4px 20px rgba(0,0,0,0.08)',
             'level-3': '0 12px 48px rgba(0,0,0,0.12)',
-            'coral-glow': '0 2px 8px rgba(15, 118, 110, 0.15)',
           },
           backgroundImage: {
             'gradient-gold-amber': 'linear-gradient(135deg, #FFD700 0%, #FFB347 100%)',
@@ -96,48 +94,49 @@
       }
     }
 </script>
-  <link rel="stylesheet" href="../assets/fonts/fonts.css">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="../assets/fonts/fonts.css?v=95">
+  <link rel="stylesheet" href="assets/style.css?v=95">
+<link rel="stylesheet" href="../assets/workspaces.css?v=95">
+<script src="../assets/platform.js?v=95"></script><script src="../assets/prompt-actions.js?v=95"></script><script src="../assets/platform-navigation.js?v=95"></script>
+    <script src="../assets/prompt-text.js?v=95"></script>
+
+<link rel="stylesheet" href="../assets/platform.css?v=95">
+<link rel="stylesheet" href="../assets/design-system.css?v=95">
 </head>
 
-<body class="">
+<body class="biz-workspace ">
   <div id="root"></div>
   <script>
       (function () {
-        const theme = localStorage.getItem('theme');
-        if (theme === 'dark') {
-          document.documentElement.classList.add('dark');
-        }
-        if ('serviceWorker' in navigator) {
-          const isLocalDev = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-          if (isLocalDev) {
-            navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(reg => reg.unregister()));
-          } else {
-            navigator.serviceWorker.register('./sw.js');
-          }
+        try {
+          const theme = localStorage.getItem('ainow-theme') || localStorage.getItem('theme');
+          document.documentElement.classList.toggle('dark', theme === 'dark');
+        } catch (_) {   }
+        if (location.protocol !== 'file:' && 'serviceWorker' in navigator) {
+          navigator.serviceWorker.register('./sw.js').catch(() => {});
         }
       })();
 </script>
-  <script src="libs/vendor.js"></script>
-  <script src="libs/htm.js"></script>
-  <script src="libs/fuse.js"></script>
-  <script src="src/runtime.js"></script>
-  <script src="config.js"></script>
-  <script src="data/data-playbooks.js"></script>
-  <script src="data/data-situations.js"></script>
-  <script src="locales/locales-en.js"></script>
-  <script src="locales/locales-mk.js"></script>
-  <script src="locales/locales-sq.js"></script>
-  <script src="locales/locales.js"></script>
-  <script src="src/config.js"></script>
-  <script src="src/hooks.js"></script>
-  <script src="src/components/layout/Footer.js"></script>
-  <script src="src/components/ui/Logo.js"></script>
-  <script src="src/components/layout/Header.js"></script>
-  <script src="src/components/layout/Sidebar.js"></script>
-  <script src="src/utils.js"></script>
-  <script src="src/components.js"></script>
-  <script src="src/playbooks.js"></script>
+  <script src="libs/vendor.js?v=95"></script>
+  <script src="libs/htm.js?v=95"></script>
+  <script src="libs/fuse.js?v=95"></script>
+  <script src="src/runtime.js?v=95"></script>
+
+  <script src="data/data-playbooks.js?v=95"></script>
+  <script src="data/data-situations.js?v=95"></script>
+  <script src="locales/locales-en.js?v=95"></script>
+  <script src="locales/locales-mk.js?v=95"></script>
+  <script src="locales/locales-sq.js?v=95"></script>
+  <script src="locales/locales.js?v=95"></script>
+  <script src="src/config.js?v=95"></script>
+  <script src="src/hooks.js?v=95"></script>
+  <script src="src/components/layout/Footer.js?v=95"></script>
+
+  <script src="src/components/layout/Header.js?v=95"></script>
+  <script src="src/components/layout/Sidebar.js?v=95"></script>
+  <script src="src/utils.js?v=95"></script>
+  <script src="src/components.js?v=95"></script>
+  <script src="src/playbooks.js?v=95"></script>
 </body>
 
 </html>

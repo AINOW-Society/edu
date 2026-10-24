@@ -2,6 +2,86 @@
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['locales/locales-sq'] = AINOW['locales/locales-sq'] || {};
 const data = {
+    smooth: {
+        "loading_library": "Po përgatitet koleksioni i plotë…",
+        "clear_filters": "Pastro filtrat",
+        "choose_value": "Zgjidhni",
+        "enter_value": "Shkruani",
+        "local_draft": "Drafti mbetet në këtë shfletues",
+
+        "copy_manual": "Kopjimi dështoi. Përzgjidhni draftin dhe kopjojeni manualisht.",
+        "knowledge": "Njohuri përkatëse",
+
+        "start_title": "Çfarë dëshironi të bëni?",
+        "start_note": "Zgjidhni një pikë fillimi ose shfletoni bibliotekën më poshtë.",
+        "write": "Shkruani një email",
+        "plan": "Planifikoni punën",
+        "build": "Përgatitni një asistent",
+        "library_help": "Hapni modelin, përshtateni dhe kopjojeni në aplikacionin tuaj IA. Shqyrtoni përgjigjen para përdorimit.",
+        "filters": "Filtrat",
+        "builder_intro": "Krijoni udhëzime të ripërdorshme për asistentin tuaj IA. Nisni me një detyrë; hollësitë mund t’i përpunoni më vonë.",
+        "builder_limit": "Kjo krijon një draft udhëzimesh. Kopjojeni në aplikacionin tuaj IA dhe provojeni atje. Mjetet dhe lidhjet konfigurohen në atë aplikacion.",
+        "step_current": "Aktual",
+        "step_viewed": "I parë",
+        "step_open": "Hap këtë hap",
+        "step_task": "Detyra",
+        "step_behaviour": "Sjellja",
+        "step_examples": "Shembujt",
+        "step_review": "Shqyrtoni dhe përdorni",
+        "nav_label": "Përgatitni udhëzimet",
+        "task_title": "Për çfarë duhet t’ju ndihmojë asistenti?",
+        "task_hint": "Përshkruani një detyrë reale. Tregoni audiencën dhe çfarë duhet të përmbajë një përgjigje e dobishme.",
+        "task_placeholder": "Për shembull: më ndihmo t’i kthej shënimet e takimit në një përmbledhje të shkurtër me vendime dhe veprime pasuese.",
+        "output": "Si duhet të duket përgjigjja?",
+        "output_hint": "Opsionale: email i shkurtër, listë kontrolli, tabelë ose format tjetër.",
+        "identity_optional": "Emri dhe roli · opsionale",
+        "advanced": "Më shumë cilësime · opsionale",
+        "behaviour_hint": "Zgjidhni si duhet të përgjigjet. Nuk keni nevojë të ndryshoni çdo cilësim.",
+        "method": "Mënyra e punës",
+        "preferences": "Preferencat e përgjigjes",
+        "framework": "Qasja e përgjigjes",
+        "standard": "Përgjigje e drejtpërdrejtë",
+        "standard_hint": "Përgjigje e qartë për detyrën.",
+        "cot": "Shpjego rezultatin",
+        "cot_hint": "Përfshi supozimet dhe verifikimet kryesore.",
+        "fewshot": "Ndiq shembujt e mi",
+        "fewshot_hint": "Shtoni shembuj në hapin tjetër.",
+        "socratic": "Udhëhiq me pyetje",
+        "socratic_hint": "Bëj pyetje të përqendruara dhe ofro udhëzime.",
+        "examples_hint": "Tregoni një hyrje tipike dhe përgjigjen që dëshironi. Shembujt janë opsionalë dhe vlejnë për çdo qasje.",
+        "examples_placeholder": "Hyrja: shënime nga takimi javor\nPërgjigjja e pritur: vendimet, përgjegjësit dhe veprimet pasuese.",
+        "context": "Konteksti dhe rregullat",
+        "input": "Çfarë informacioni do të jepni?",
+        "capabilities": "Detyra të tjera për të cilat duhet të ndihmojë",
+        "capabilities_hint": "Përshkruani punën e kërkuar. Kjo nuk instalon aftësi, mjete ose integrime.",
+        "preview": "Drafti i udhëzimeve",
+        "copy": "Kopjo udhëzimet",
+        "export": "Shkarko cilësimet",
+        "next": "Vazhdo",
+        "back": "Prapa",
+        "review_title": "Provojeni në aplikacionin tuaj IA",
+        "review_1": "Kopjoni udhëzimet te fusha përkatëse ose në fillim të një bisede të re.",
+        "review_2": "Jepini një detyrë të vogël tipike dhe shqyrtoni përgjigjen reale.",
+        "review_3": "Kontrolloni formatin, faktet dhe informacionin që mungon. Përshtatni udhëzimet sipas nevojës.",
+        "check_title": "Para përdorimit",
+        "check_task": "Detyra është përshkruar",
+        "check_task_missing": "Shtoni një detyrë konkrete në hapin 1",
+        "check_input": "Është përfshirë një shembull hyrjeje",
+        "check_input_missing": "Shtoni hyrje shembull nëse ndihmon",
+        "check_note": "Këto kontrolle përshkruajnë draftin, jo cilësinë e përgjigjes IA.",
+        "saved": "Ruajtur në këtë shfletues",
+        "unsaved": "Ndryshimet nuk janë ruajtur. Shkarkoni cilësimet për të mbajtur një kopje.",
+        "storage_unreadable": "Drafti i ruajtur nuk mund të lexohet dhe nuk është zëvendësuar. Ruani një kopje para ndryshimeve të reja.",
+        "privacy": "Drafti mbetet në këtë shfletues. Nuk nevojitet llogari.",
+        "optional": "Opsionale",
+        "concise": "Mbaje të shkurtër",
+        "no_emoji": "Pa emoji",
+        "no_lectures": "Mbaji këshillat të lidhura me detyrën",
+        "no_dashes": "Shmang vizat e gjata",
+        "plain_text": "Tekst i thjeshtë",
+        "balanced": "Ndaj faktet nga mendimet",
+        "answer_first": "Nis me përgjigjen"
+},
     "platform": {
         "education": "AINOW Arsim — shkrim-lexim i IA falas për mësimdhënës",
         "business": "AINOW Biznes",
@@ -209,7 +289,7 @@ const data = {
                 },
                 "playbooks": {
                     "title": "Udhëzuesit",
-                    "text_1": "20 flukse pune të udhëhequra — Ristrukturim Kodi, Auditim UX, Strategji Shitjesh, Draft Ligjor, Rekrutim HR dhe më shumë.",
+                    "text_1": "Rrjedha të udhëzuara për detyra profesionale si rishikimi i kodit, kërkimi, shkrimi dhe planifikimi.",
                     "text_2": "Përgjigjuni 3 pyetjeve dhe merrni tre formate promptesh:",
                     "step_1": "Prompt i Shpejtë — një prompt i fuqishëm për rezultate të shpejta.",
                     "step_2": "Brief i Plotë — një informim gjithëpërfshirës ekspertësh.",
@@ -595,9 +675,9 @@ const data = {
                     "bio": "Me mbi 20 vjet përvojë në shitje, komunikim, gazetari dhe organizim eventesh, Aleksandra shquhet në punën me njerëz dhe krijimin e lidhjeve kuptimplota. Jashtë punës profesionale, Aleksandra është e apasionuar pas shkrimit të librave për fëmijë, duke besuar se librat dhe fëmijët janë dy gjërat më të mëdha që i kanë ndodhur."
                 },
                 "maja": {
-                    "name": "Maja Mirkovic",
+                    "name": "Maja Mirković",
                     "role": "Eksperte Rajonale & Partnere",
-                    "bio": "Maja Mirkovic është profesioniste juridike shumëgjuhëshe dhe e organizuar mirë, me përvojë të gjerë në sektorin gjyqësor të Bosnjës dhe Hercegovinës. Ajo mban tri diploma Master në Drejtësi nga Fakulteti Juridik i Universitetit të Sarajevës. Aktualisht po ndjek studimet master në E Drejtë Dixhitale, IA dhe Blockchain në EBIS Business TechSchool."
+                    "bio": "Maja Mirković është profesioniste juridike shumëgjuhëshe dhe e organizuar mirë, me përvojë të gjerë në sektorin gjyqësor të Bosnjës dhe Hercegovinës. Ajo mban tri diploma Master në Drejtësi nga Fakulteti Juridik i Universitetit të Sarajevës. Aktualisht po ndjek studimet master në E Drejtë Dixhitale, IA dhe Blockchain në EBIS Business TechSchool."
                 }
             },
             "contact_title": "Na Kontaktoni",
@@ -1128,5 +1208,27 @@ Object.assign(data.pages.about, {
     beyond_close: 'Nëse biblioteka ju përgjigjet pyetjes, merrni atë që ju duhet. Nëse ju hap një pyetje të re, ia vlen një bisedë.',
     beyond_services: 'Çfarë bëjmë për organizatat'
 });
+Object.assign(data.language_note, {"title": "Pse udhëzimet burimore janë në anglisht?", "body": "Biblioteka ruan udhëzimet origjinale në anglisht dhe kontekstin e tyre. Kjo nuk garanton rezultate më të mira për çdo model ose detyrë.", "tip": "Mund t’i kërkoni aplikacionit IA të përgjigjet në shqip ose maqedonisht. Provoni udhëzimet me detyrën tuaj dhe shqyrtoni rezultatin."});
+Object.assign(data.smooth, {storage_unreadable: "Drafti i ruajtur nuk lexohet dhe nuk është zëvendësuar. Ndryshimet e reja nuk do të ruhen derisa ta rivendosni."});
+Object.assign(data.help.agents, {"title": "Udhëzime të ripërdorshme për asistentin", "desc": "Konfigurimi i një asistenti është një grup udhëzimesh që mund t’i përdorni përsëri në një aplikacion AI.", "persona_text": "Roli shpjegon këndvështrimin dhe llojin e ndihmës që kërkoni. Ai orienton përgjigjen, por nuk i jep AI-së kualifikime profesionale ose njohuri të reja.", "constraints_text": "Shtoni rregulla, burime dhe kufizime përkatëse. Ato ndihmojnë në orientimin e përgjigjes, por faktet dhe vendimet e rëndësishme duhen kontrolluar."});
+Object.assign(data.help.guide, {"desc": "Zgjidhni një model, përshtateni me detyrën tuaj dhe provojeni në aplikacionin tuaj AI. Kontrolloni përgjigjen para përdorimit.", "customize_title": "Përshtateni dhe provojeni", "customize_text": "Zëvendësoni fushat në kllapa me kontekstin tuaj, kopjoni udhëzimet dhe ngjitini në aplikacionin AI. Mos përfshini të dhëna konfidenciale pa lejen e organizatës suaj."});
+Object.assign(data.help.sections.features.builder, {"text": "Krijoni udhëzime të ripërdorshme në katër hapa: përshkruani detyrën dhe rezultatin, zgjidhni sjelljen, shtoni shembuj, pastaj kontrolloni dhe kopjoni.", "tip": "Draftet ruhen në këtë shfletues. Kopjoni udhëzimet në aplikacionin AI dhe provoni një detyrë reale. Ky krijues nuk instalon mjete dhe nuk ekzekuton agjentë."});
+Object.assign(data.smooth, {"modal_inputs": "Detajet tuaja", "static_template": "Model i gatshëm për përdorim", "close": "Mbyll modelin"});
+Object.assign(data.smooth, {"choose_help": "Më ndihmoni të zgjedh"});
+Object.assign(data.smooth, {"home_title": "Punoni më zgjuar me", "home_subtitle": "Gjeni një model të dobishëm, përshtateni me punën tuaj dhe provojeni në aplikacionin tuaj IA.", "browse_prompts": "Eksploroni bibliotekën e prompteve", "work_options": "Mënyra të tjera për të filluar", "assistant_templates": "Asistentë të gatshëm", "assistant_templates_text": "Nisni me udhëzime për një rol ose lloj pune të caktuar.", "work_situations": "Situata të përditshme pune", "work_situations_text": "Ndiqni një rrjedhë praktike për detyrën që keni përpara.", "your_assistant": "Ndërtoni asistentin tuaj", "your_assistant_text": "Përshkruani një detyrë dhe krijoni udhëzime të ripërdorshme.", "how_it_works": "Si funksionon", "overview": "Përmbledhje"});
+Object.assign(data.smooth, {"workspace_menu": "AINOW BIZ"});
+Object.assign(data.smooth, {"instruction_text": "Udhëzime", "editing_copy": "Po redaktoni kopjen tuaj", "edit_text": "Redakto tekstin", "save_template": "Ruaj", "saved_template": "U ruajt", "saved_where": "U ruajt te Të preferuarat në këtë shfletues.", "copy_use_hint": "Kopjojeni tekstin, pastaj ngjiteni në aplikacionin tuaj IA."});
+Object.assign(data.smooth, {"save_template": "Preferuar", "saved_template": "Preferuar"});
+data.release = {"close": "Mbyll", "copy_all": "Kopjo të gjitha shënimet", "add_notes": "Shto te shënimet", "storage_unavailable": "Ruajtja në shfletues nuk është e disponueshme. Ruani ose kopjoni punën përpara se të largoheni nga faqja.", "invalid_backup": "Kopja nuk mund të rikthehet. Zgjidhni një kopje Business JSON më të vogël se 2 MB.", "restore_confirm": "Të rikthehet kjo kopje Business? Të dhënat dhe cilësimet përkatëse të Business do të zëvendësohen. Puna në Arsim dhe DEV nuk do të ndryshojë.", "page": "Faqja", "total": "Gjithsej", "previous_page": "Faqja e mëparshme", "next_page": "Faqja tjetër", "shortcuts": "Shkurtoret e tastierës", "toggle_shortcuts": "Hap shkurtoret e tastierës", "toggle_theme": "Ndrysho temën", "toggle_navigation": "Hap navigimin", "help": "Ndihmë", "then": "pastaj"};
+Object.assign(data.settings, {"title": "Cilësimet dhe të dhënat e Business", "export_text": "Shkarkoni të preferuarat, draftin e ndërtuesit, shënimet dhe cilësimet e Business si kopje JSON.", "import_text": "Riktheni të dhënat përkatëse të Business nga një kopje. Puna në Arsim dhe DEV mbetet e pandryshuar.", "reset_title": "Rivendos të dhënat e Business", "reset_text": "Hiqni të preferuarat, draftin e ndërtuesit, shënimet dhe historikun e Business nga ky shfletues. Arsimi dhe DEV mbeten të pandryshuara.", "reset_btn": "Rivendos të dhënat e Business", "reset_confirm": "Të hiqet puna e ruajtur e Business nga ky shfletues? Eksportoni një kopje fillimisht. Arsimi dhe DEV mbeten të pandryshuara."});
+Object.assign(data.release, {"recovery_title": "Faqja nuk mund të hapej", "recovery_text": "Ringarkoni faqen për të provuar përsëri ose kthehuni te zgjedhja e hapësirës. Ringarkimi nuk e fshin punën e ruajtur.", "reload": "Ringarko faqen"});
+Object.assign(data.common, {"copy_failed": "Kopjimi nuk ishte i disponueshëm. Përzgjidhni tekstin dhe kopjojeni manualisht.", "prompts": "prompte"});
+data.builder.expertise = "Ekspertiza ose njohuritë";
+Object.assign(data.release, {"editable": "Shabllon i redaktueshëm", "open_template": "Hap shabllonin", "copy_text": "Kopjo tekstin", "share_link": "Ndaj lidhjen", "table_view": "Pamje tabele", "remove_favorite": "Hiq nga të preferuarat", "agent_types": "Llojet e agjentëve", "agents_count": "agjentë", "select_field": "Zgjidhni", "enter_field": "Shkruani"});
+data.release.more_specific = "Shtoni më shumë hollësi për detyrën…";
+data.situations.page_subtitle = "Zgjidhni një situatë pune, shtoni kontekstin dhe kopjoni udhëzimet në aplikacionin tuaj të IA-së.";
+data.release.own_answer = "Ose shkruani përgjigjen tuaj";
+data.resources.nav.services = "Shërbime";
+Object.assign(data.pages.accessibility,{"intro": "AINOW përfshin navigim me tastierë, kontrolle të emërtuara, strukturë semantike dhe temë të çelët e të errët. Materialet e shkarkuara mund të përdoren offline. Disa funksione kërkojnë JavaScript.", "commitment": {"title": "Qasshmëria dhe rishikimi i vazhdueshëm", "text": "Synojmë që platforma të jetë më e lehtë për t’u përdorur me tastierë, teknologji ndihmëse dhe ekrane të ndryshme. Kontrollet lokale automatike dhe pamjet e ekranit nuk janë certifikim i plotë i qasshmërisë.", "items": ["Përdorni Tab dhe Shift+Tab për të lëvizur mes kontrolleve dhe Escape për të mbyllur dialogët.", "Zgjidhni temën e çelët ose të errët me kontrollin në krye.", "Raportoni një pengesë me adresën e faqes, pajisjen dhe teknologjinë ndihmëse që përdorni."]}});
   __exports.data = data;
 })();

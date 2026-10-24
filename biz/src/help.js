@@ -1,12 +1,8 @@
 (function () {
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['src/help'] = AINOW['src/help'] || {};
-const { useState, useEffect } = React;
-const { createRoot } = ReactDOMClient;
 
-const { BookOpen, Command, Zap, Layers, MessageSquare, Play, Copy, ArrowRight, CheckCircle, HelpCircle, Keyboard, Shield, Terminal, Share2, Globe, ExternalLink, Info, Users, ShieldCheck, Sparkles, ChevronRight, Loader2, Hash, Briefcase } = lucide;
-const { Header, Footer, ShortcutsModal, useLanguage, Scratchpad, SettingsModal, Toast, useToast, useGlobalShortcuts, SidebarWrapper } = AINOW['src/components'];
-const { StaticPage } = AINOW['src/StaticPages'];
+const { Layers, Keyboard, Globe, ExternalLink } = lucide;
 
 const html = htm.bind(React.createElement);
 
@@ -171,23 +167,15 @@ const TOOLS_DATA = [
     }
 ];
 
-const GUIDE_NAV = [
-    { id: 'intro',           labelKey: 'help.toc.intro',           icon: BookOpen },
-    { id: 'getting-started', labelKey: 'help.toc.getting_started', icon: Zap },
-    { id: 'features',        labelKey: 'help.toc.features',        icon: Layers },
-    { id: 'shortcuts',       labelKey: 'help.toc.shortcuts',       icon: Keyboard },
-    { id: 'tools',           labelKey: 'help.toc.tools',           icon: Globe },
-    { id: 'faq',             labelKey: 'help.toc.faq',             icon: HelpCircle },
-];
-
 const DocSection = ({ title, icon: Icon, children }) => html`
     <section className="mb-16 animate-fade-in group text-left">
-        <div className="flex items-center gap-4 mb-8 pb-4 border-b border-mist dark:border-slate-800">
+        ${title && html`<div className="flex items-center gap-4 mb-8 pb-4 border-b border-mist dark:border-slate-800">
             ${Icon ? html`<div className="p-2.5 bg-opal-sidebar dark:bg-teal-900/30 text-coral dark:text-coral rounded-xl border border-mist dark:border-teal-800 shadow-sm"><${Icon} className="w-5 h-5" /></div>` : ''}
             <h2 className="text-xl font-black text-charcoal dark:text-white uppercase tracking-tight group-hover:text-coral transition-all">
                 ${title}
             </h2>
         </div>
+        `}
         <div className="text-stone dark:text-slate-300 leading-relaxed space-y-6 font-medium">
             ${children}
         </div>
@@ -212,70 +200,9 @@ const Note = ({ type = 'info', children }) => {
     return html`<div className=${`p-4 rounded-xl border ${styles[type]} my-6 text-sm`}>${children}</div>`;
 };
 
-const FaqItem = ({ i, t }) => html`
-    <details open=${i === 1} className="group bg-opal-surface dark:bg-slate-800/50 rounded-2xl border border-mist dark:border-slate-700 transition-all overflow-hidden">
-        <summary className="flex items-center justify-between p-5 cursor-pointer font-black text-charcoal dark:text-slate-200 uppercase tracking-tight text-sm select-none hover:bg-opal-bg transition-colors">
-            ${t(`help.faq.q${i}.question`)}
-            <${ArrowRight} className="w-4 h-4 text-coral transition-transform group-open:rotate-90 shrink-0" />
-        </summary>
-        <div className="px-5 pb-5 text-stone dark:text-slate-400 text-[13px] leading-relaxed border-t border-mist dark:border-slate-700 pt-5 font-medium">
-            ${i === 1 ? html`
-                <${React.Fragment}>
-                    <p dangerouslySetInnerHTML=${{ __html: t('help.faq.q1.answer_1') }}></p>
-                    <p className="mt-2" dangerouslySetInnerHTML=${{ __html: t('help.faq.q1.answer_2') }}></p>
-                <//>
-            ` : html`<div dangerouslySetInnerHTML=${{ __html: t(`help.faq.q${i}.answer`) }}></div>`}
-        </div>
-    </details>
-`;
-
-const GuideIntro = ({ t }) => html`
-    <div className="animate-fade-in text-left">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-opal-surface dark:bg-slate-800 text-stone-light dark:text-slate-400 text-[10px] font-black uppercase tracking-widest mb-6 border border-mist dark:border-slate-700">
-            <span>${t('help.intro.badge')}</span>
-            <span className="w-1 h-1 rounded-full bg-mist"></span>
-            <span>${t('help.intro.version')}</span>
-        </div>
-        <h1 className="text-3xl sm:text-4xl font-[600] tracking-tight text-charcoal dark:text-white text-left tabular-nums mb-4 uppercase">
-            ${t('help.intro.title_prefix')} <span className="text-coral">${t('help.intro.title_suffix')}</span>
-        </h1>
-        <p className="text-xl text-stone dark:text-slate-300 leading-relaxed font-medium mb-12">
-            ${t('help.intro.subtitle')}
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 not-prose">
-            ${GUIDE_NAV.slice(1).map(item => html`
-                <a key=${item.id} href=${`#/guide/${item.id}`}
-                   className="flex items-center gap-4 p-4 rounded-2xl border border-mist dark:border-slate-700 bg-opal-surface dark:bg-slate-800/50 hover:border-coral dark:hover:border-coral transition-all group">
-                    <div className="p-2.5 rounded-xl bg-opal-bg dark:bg-slate-900 border border-mist dark:border-slate-700 text-stone group-hover:text-coral group-hover:border-coral transition-all">
-                        <${item.icon} className="w-4 h-4" />
-                    </div>
-                    <span className="font-black text-charcoal dark:text-slate-200 text-xs uppercase tracking-widest group-hover:text-coral transition-colors">${t(item.labelKey)}</span>
-                    <${ChevronRight} className="w-3 h-3 text-mist group-hover:text-coral ml-auto transition-colors" />
-                </a>
-            `)}
-        </div>
-    </div>
-`;
-
-const GuideGettingStarted = ({ t }) => html`
+const GuideFeatures = ({ t, embedded = false }) => html`
     <div className="animate-fade-in">
-        <${DocSection} title=${t('help.sections.getting_started.title')} icon=${Zap}>
-            <p dangerouslySetInnerHTML=${{ __html: t('help.sections.getting_started.text') }}></p>
-            <${Note} type="tip">
-                <strong>${t('help.sections.getting_started.note_bold')}</strong> ${t('help.sections.getting_started.note_text')}
-            <//>
-            <${DocSubSection} title=${t('help.sections.getting_started.fill_in_title')}>
-                <p dangerouslySetInnerHTML=${{ __html: t('help.sections.getting_started.fill_in_text_1') }}></p>
-                <p>${t('help.sections.getting_started.fill_in_text_2')}</p>
-            <//>
-        <//>
-    </div>
-`;
-
-const GuideFeatures = ({ t }) => html`
-    <div className="animate-fade-in">
-        <${DocSection} title=${t('help.sections.features.title')} icon=${Layers}>
+        <${DocSection} title=${embedded ? null : t('help.sections.features.title')} icon=${Layers}>
             <${DocSubSection} title=${t('help.sections.features.library.title')}>
                 <p dangerouslySetInnerHTML=${{ __html: t('help.sections.features.library.text') }}></p>
             <//>
@@ -315,7 +242,7 @@ const GuideFeatures = ({ t }) => html`
     </div>
 `;
 
-const GuideShortcuts = ({ t }) => html`
+const GuideShortcuts = ({ t, embedded = false }) => html`
     <div className="animate-fade-in">
         <${DocSection} title=${t('help.toc.shortcuts')} icon=${Keyboard}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -404,9 +331,9 @@ const GuideShortcuts = ({ t }) => html`
     </div>
 `;
 
-const GuideTools = ({ t }) => html`
+const GuideTools = ({ t, embedded = false }) => html`
     <div className="animate-fade-in">
-        <${DocSection} title=${t('help.sections.tools.title')} icon=${Globe}>
+        <${DocSection} title=${embedded ? null : t('help.sections.tools.title')} icon=${Globe}>
             <p className="mb-6">${t('help.sections.tools.desc')}</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 ${TOOLS_DATA.map((group, idx) => html`
@@ -434,171 +361,11 @@ const GuideTools = ({ t }) => html`
     </div>
 `;
 
-const GuideFaq = ({ t }) => html`
-    <div className="animate-fade-in">
-        <${DocSection} title="FAQ" icon=${HelpCircle}>
-            <div className="space-y-4">
-                ${ [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(i => html`
-                    <${FaqItem} key=${'faq-' + i} i=${i} t=${t} />
-                `)}
-            </div>
-        <//>
-    </div>
-`;
-
 const GUIDE_PAGES = {
-    'intro':           GuideIntro,
-    'getting-started': GuideGettingStarted,
     'features':        GuideFeatures,
     'shortcuts':       GuideShortcuts,
     'tools':           GuideTools,
-    'faq':             GuideFaq,
 };
 
-const ABOUT_OWNED_PAGES = ['about', 'services', 'partners', 'documents', 'policies', 'accessibility'];
-
-const PageNav = ({ currentHash, t, onClose }) => {
-    const isGuideActive = (id) => currentHash === `#/guide/${id}`;
-    const isPageActive  = (id) => currentHash === `#/page/${id}`;
-
-    const navItem = (key, href, active, icon, label) => html`
-        <a key=${key} href=${href} onClick=${onClose}
-           className=${`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all ${
-               active
-                   ? 'bg-coral/10 dark:bg-teal-900/30 text-coral font-semibold shadow-sm'
-                   : 'text-stone dark:text-slate-400 hover:bg-opal-bg dark:hover:bg-slate-800 hover:text-charcoal dark:hover:text-slate-200'
-           }`}>
-            <${icon} className="w-4 h-4 shrink-0" />
-            <span className="flex-1">${label}</span>
-            ${active ? html`<${ChevronRight} className="w-3 h-3 text-coral shrink-0" />` : null}
-        </a>
-    `;
-
-    return html`
-        <div>
-            <p className="text-[10px] font-black text-stone-light uppercase tracking-widest mb-3 px-3">${t('resources.sidebar.guide_section')}</p>
-            <nav className="space-y-0.5 mb-6">
-                ${GUIDE_NAV.map(item => navItem(
-                    `guide-${item.id}`,
-                    `#/guide/${item.id}`,
-                    isGuideActive(item.id),
-                    item.icon,
-                    t(item.labelKey)
-                ))}
-            </nav>
-        </div>
-    `;
-};
-
-const HelpApp = () => {
-    const { t, isReady } = useLanguage();
-    const { toast } = useToast();
-    const [currentTheme, setCurrentTheme] = useState(() => localStorage.getItem('theme') || 'light');
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const [showShortcuts, setShowShortcuts] = useState(false);
-    const [isScratchpadOpen, setIsScratchpadOpen] = useState(false);
-    const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-    const [isZenMode, setIsZenMode] = useState(false);
-    const [hash, setHash] = useState(() => window.location.hash || '#/guide/intro');
-
-    useGlobalShortcuts({
-        onThemeToggle: () => setCurrentTheme(prev => prev === 'dark' ? 'light' : 'dark'),
-        onSidebarToggle: () => setIsSidebarOpen(prev => !prev),
-        onHelp: () => setShowShortcuts(prev => !prev),
-        onScratchpad: () => setIsScratchpadOpen(prev => !prev),
-        onEscape: () => {
-            setIsSidebarOpen(false);
-            setShowShortcuts(false);
-            setIsScratchpadOpen(false);
-            setIsSettingsOpen(false);
-        }
-    });
-
-    useEffect(() => {
-        document.documentElement.classList.toggle('dark', currentTheme === 'dark');
-        localStorage.setItem('theme', currentTheme);
-    }, [currentTheme]);
-
-    useEffect(() => {
-        const forward = () => {
-            const h = window.location.hash || '';
-            const m = h.match(/^#\/page\/(.+)$/);
-            if (m && ABOUT_OWNED_PAGES.includes(m[1])) {
-                window.location.replace('about.html#/page/' + m[1]);
-                return true;
-            }
-            return false;
-        };
-        if (forward()) return;
-
-        const onHash = () => { if (!forward()) setHash(window.location.hash || '#/guide/intro'); };
-        window.addEventListener('hashchange', onHash);
-        if (!window.location.hash) window.location.hash = '#/guide/intro';
-        return () => window.removeEventListener('hashchange', onHash);
-    }, []);
-
-    if (!isReady) return html`
-        <div className="fixed inset-0 bg-opal-bg dark:bg-slate-900 flex items-center justify-center">
-            <${Loader2} className="w-12 h-12 animate-spin text-coral" />
-        </div>
-    `;
-
-    const isGuide = hash.startsWith('#/guide/');
-    const pageId  = hash.split('/').pop() || 'intro';
-
-    let Content;
-    if (isGuide) {
-        const GuideComp = GUIDE_PAGES[pageId] || GuideIntro;
-        Content = html`<${GuideComp} t=${t} />`;
-    } else {
-        Content = html`<${StaticPage} page=${pageId} />`;
-    }
-
-    return html`
-        <div className="min-h-screen bg-opal-bg dark:bg-slate-900 flex flex-col font-sans transition-colors duration-200">
-            <${Header}
-                currentTheme=${currentTheme}
-                onThemeToggle=${() => setCurrentTheme(t => t === 'dark' ? 'light' : 'dark')}
-                onMenuClick=${() => setIsSidebarOpen(true)}
-                onScratchpad=${() => setIsScratchpadOpen(true)}
-                onSettingsClick=${() => setIsSettingsOpen(true)}
-                activePage="help"
-                isZenMode=${isZenMode}
-                onToggleZen=${() => setIsZenMode(!isZenMode)}
-            />
-
-            <div className="flex-1 max-w-[1600px] mx-auto w-full flex">
-
-                <${SidebarWrapper} isOpen=${isSidebarOpen} onClose=${() => setIsSidebarOpen(false)} showOnDesktop=${false} isZenMode=${isZenMode}>
-                    <${PageNav} currentHash=${hash} t=${t} onClose=${() => setIsSidebarOpen(false)} />
-                <//>
-
-                ${!isZenMode && html`
-                    <div className="hidden lg:flex flex-col w-60 shrink-0 pt-12 px-4 border-r border-mist dark:border-slate-800 no-scrollbar overflow-y-auto">
-                        <${PageNav} currentHash=${hash} t=${t} onClose=${() => {}} />
-                        <div className="mt-auto pb-10 pt-8">
-                            <a href="https://www.ainow.mk" target="_blank"
-                               className="w-full flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest text-stone dark:text-slate-400 border border-mist dark:border-slate-700 hover:border-coral hover:text-coral transition-all">
-                                <${Globe} className="w-3 h-3" /> ainow.mk
-                            </a>
-                        </div>
-                    </div>
-                `}
-
-                <main className="flex-1 min-w-0 px-6 lg:px-16 py-12 overflow-y-auto no-scrollbar">
-                    ${Content}
-                </main>
-            </div>
-
-            <${Toast} toast=${toast} />
-            <${Scratchpad} isOpen=${isScratchpadOpen} onClose=${() => setIsScratchpadOpen(false)} />
-            <${SettingsModal} isOpen=${isSettingsOpen} onClose=${() => setIsSettingsOpen(false)} />
-            <${ShortcutsModal} isOpen=${showShortcuts} onClose=${() => setShowShortcuts(false)} />
-            <${Footer} isZenMode=${isZenMode} />
-        </div>
-    `;
-};
-
-const root = createRoot(document.getElementById('root'));
-root.render(html`<${HelpApp} />`);
+__exports.GUIDE_PAGES = GUIDE_PAGES;
 })();

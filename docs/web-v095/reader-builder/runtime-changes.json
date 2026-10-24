@@ -1,0 +1,40 @@
+{
+  "comparedWith": "rc35",
+  "changedRuntimeFiles": [
+    "about.html",
+    "assets/design-system.css",
+    "assets/platform-files.js",
+    "assets/platform.js",
+    "biz/agents.html",
+    "biz/assets/builder.css",
+    "biz/assets/prompt-reader.css",
+    "biz/builder.html",
+    "biz/index.html",
+    "biz/locales/locales-en.js",
+    "biz/locales/locales-mk.js",
+    "biz/locales/locales-sq.js",
+    "biz/playbooks.html",
+    "biz/src/agents.js",
+    "biz/src/builder.js",
+    "biz/src/components.js",
+    "biz/src/config.js",
+    "biz/src/index.js",
+    "biz/sw.js",
+    "dev/index.html",
+    "dev/offline-files.js",
+    "dev/sw.js",
+    "edu/css/styles.css",
+    "edu/index.html",
+    "edu/js/app.js",
+    "edu/service-worker.js",
+    "help.html",
+    "index.html",
+    "service-worker.js",
+    "settings.html"
+  ],
+  "addedRuntimeFiles": [
+    "assets/prompt-actions.js"
+  ],
+  "protectedFilesUnchanged": 1058,
+  "protectedFailures": []
+}

@@ -1,0 +1,143 @@
+{
+  "reviewedAt": "2026-10-20",
+  "entries": [
+    {
+      "id": "ai-stack",
+      "insertAfter": {
+        "Procedure and access": {
+          "title": {
+            "en": "Plugins and marketplaces",
+            "mk": "Додатоци и каталози (marketplaces)",
+            "sq": "Shtojcat dhe katalogët (marketplaces)"
+          },
+          "text": {
+            "en": "A plugin bundles capabilities such as skills and connected tools. A marketplace is a catalogue used to discover and distribute plugins. Adding a marketplace does not install every plugin or connect your accounts. Choose the plugin you need, then check its instructions and any required service access.",
+            "mk": "Додаток обединува можности како вештини и поврзани алатки. Marketplace е каталог за откривање и дистрибуција на додатоци. Додавањето каталог не ги инсталира сите додатоци и не ги поврзува вашите сметки. Изберете го потребниот додаток, па проверете ги инструкциите и потребниот пристап до услуги.",
+            "sq": "Një shtojcë bashkon aftësi si udhëzimet dhe mjetet e lidhura. Marketplace është katalog për zbulimin dhe shpërndarjen e shtojcave. Shtimi i katalogut nuk instalon çdo shtojcë dhe nuk lidh llogaritë tuaja. Zgjidhni shtojcën e nevojshme, pastaj kontrolloni udhëzimet dhe qasjen e kërkuar te shërbimet."
+          }
+        }
+      },
+      "sources": [
+        {
+          "label": "Claude · Plugins and marketplaces",
+          "url": "https://support.claude.com/en/articles/13837440-use-plugins-in-claude"
+        },
+        {
+          "label": "ChatGPT & Codex · Plugins",
+          "url": "https://learn.chatgpt.com/docs/plugins"
+        }
+      ]
+    },
+    {
+      "id": "skills-explained",
+      "replace": {
+        "4. Claude chat: upload and enable a skill": {
+          "text": {
+            "en": "In the Windows desktop layout shown below, open Customize → Skills → Add → Upload skill. The upload page accepts a .md file with a YAML name and description, or a .zip/.skill package containing SKILL.md. Select the reviewed file and choose Upload. Check the skill in Yours and its enabled state. Name it in a small task and review the result. Available controls depend on your plan and workspace policy.",
+            "mk": "Во прикажаниот Windows изглед отворете Customize → Skills → Add → Upload skill. Страницата прифаќа .md датотека со YAML име и опис или .zip/.skill пакет што содржи SKILL.md. Изберете ја проверената датотека и Upload. Проверете ја вештината во Yours и дали е вклучена. Наведете ја во мала задача и прегледајте го резултатот. Контролите зависат од планот и организациските правила.",
+            "sq": "Në pamjen Windows më poshtë hapni Customize → Skills → Add → Upload skill. Faqja pranon skedar .md me emër dhe përshkrim YAML, ose paketë .zip/.skill me SKILL.md. Zgjidhni skedarin e kontrolluar dhe Upload. Kontrolloni aftësinë te Yours dhe nëse është aktive. Emërtojeni në një detyrë të vogël dhe shqyrtoni rezultatin. Kontrollet varen nga plani dhe politika e hapësirës."
+          }
+        },
+        "5. ChatGPT: create or select a reusable skill": {
+          "text": {
+            "en": "In the supplied Windows desktop layout, Settings → Plugins → Skills lists installed skills and their toggles. Customize → Plugins → Add offers plugin creation, marketplaces and archive upload. ChatGPT and Codex share the plugin directory; the active surface still determines which tools are available. In ChatGPT Work, where offered, use @skill-creator with your reviewed instructions and resources, then review and enable the result. Select a saved skill with @ in a new task.",
+            "mk": "Во доставениот Windows изглед Settings → Plugins → Skills ги прикажува инсталираните вештини и прекинувачите. Customize → Plugins → Add нуди создавање додаток, каталози и прикачување архива. ChatGPT и Codex делат директориум на додатоци; активната средина сепак одредува кои алатки се достапни. Во ChatGPT Work, каде што е понудено, користете @skill-creator со проверени инструкции и ресурси, па прегледајте и вклучете го резултатот. Во нова задача изберете зачувана вештина со @.",
+            "sq": "Në pamjen Windows të dërguar, Settings → Plugins → Skills rendit aftësitë dhe çelësat e tyre. Customize → Plugins → Add ofron krijimin e shtojcave, katalogët dhe ngarkimin e arkivave. ChatGPT dhe Codex ndajnë direktorinë e shtojcave; mjedisi aktiv përcakton ende mjetet e disponueshme. Në ChatGPT Work, kur ofrohet, përdorni @skill-creator me udhëzimet dhe burimet e kontrolluara, pastaj shqyrtoni dhe aktivizoni rezultatin. Në detyrë të re zgjidhni aftësinë e ruajtur me @."
+          }
+        }
+      },
+      "append": [
+        {
+          "title": {
+            "en": "7. Add a plugin marketplace in a desktop app",
+            "mk": "7. Додајте каталог на додатоци во десктоп апликација",
+            "sq": "7. Shtoni një katalog shtojcash në aplikacionin desktop"
+          },
+          "text": {
+            "en": "Claude: open Customize → Plugins → Add → Add marketplace. The supplied dialog accepts a GitHub owner/repo or Git repository URL; choose Sync after checking the source. Browse the imported catalogue and install the plugin you need. ChatGPT desktop also exposes Add a marketplace in its Plugins menu. Each product has its own marketplace controls and supported sources. A marketplace repository URL and an MCP server endpoint have different roles.",
+            "mk": "Claude: отворете Customize → Plugins → Add → Add marketplace. Доставениот дијалог прифаќа GitHub owner/repo или Git URL на репозиториум; изберете Sync по проверка на изворот. Прегледајте го внесениот каталог и инсталирајте го потребниот додаток. ChatGPT за компјутер исто нуди Add a marketplace во Plugins. Секој производ има свои контроли и поддржани извори. URL на каталог и адреса на MCP сервер имаат различни улоги.",
+            "sq": "Claude: hapni Customize → Plugins → Add → Add marketplace. Dialogu i dërguar pranon GitHub owner/repo ose URL të një depoje Git; zgjidhni Sync pasi të kontrolloni burimin. Shfletoni katalogun e importuar dhe instaloni shtojcën e nevojshme. ChatGPT desktop ofron gjithashtu Add a marketplace te Plugins. Çdo produkt ka kontrollet dhe burimet e veta të mbështetura. URL-ja e katalogut dhe endpoint-i i serverit MCP kanë role të ndryshme."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "Claude · Plugins and marketplaces",
+          "url": "https://support.claude.com/en/articles/13837440-use-plugins-in-claude"
+        },
+        {
+          "label": "ChatGPT & Codex · Plugins",
+          "url": "https://learn.chatgpt.com/docs/plugins"
+        }
+      ]
+    },
+    {
+      "id": "mcp-remote",
+      "replace": {
+        "Codex and Claude Code: use the connected tools": {
+          "title": {
+            "en": "Desktop: check the active surface and available tools",
+            "mk": "Десктоп: проверете ја активната средина и алатките",
+            "sq": "Desktop: kontrolloni mjedisin aktiv dhe mjetet"
+          },
+          "text": {
+            "en": "In the supplied Windows app, Settings → Plugins → MCPs lists configured servers and their toggles. ChatGPT and Codex can share a directory while exposing different tools in a conversation. Check the surface and session where you intend to work. A saved server or enabled toggle confirms configuration only. Use one small read-only request when its tools are actually available; inspect the returned tool result and source.",
+            "mk": "Во доставената Windows апликација Settings → Plugins → MCPs ги прикажува поставените сервери и прекинувачите. ChatGPT и Codex може да делат директориум, а да прикажуваат различни алатки во разговор. Проверете ја средината и сесијата каде што ќе работите. Зачуван сервер или вклучен прекинувач потврдува само конфигурација. Кога алатките се достапни, користете мало барање само за читање и проверете ги резултатот и изворот.",
+            "sq": "Në aplikacionin Windows të dërguar, Settings → Plugins → MCPs rendit serverët dhe çelësat e tyre. ChatGPT dhe Codex mund të ndajnë një direktori, por të shfaqin mjete të ndryshme në bisedë. Kontrolloni mjedisin dhe seancën ku do të punoni. Serveri i ruajtur ose çelësi aktiv konfirmon vetëm konfigurimin. Kur mjetet janë të disponueshme, përdorni një kërkesë të vogël vetëm për lexim dhe kontrolloni rezultatin dhe burimin."
+          },
+          "code": "Use the configured documentation connector to find the official overview for its service. Summarize it in two sentences and link the returned source. If its tools are unavailable in this session, report that clearly.",
+          "filename": "Example read-only documentation request"
+        },
+        "ChatGPT: add a custom MCP endpoint": {
+          "title": {
+            "en": "ChatGPT desktop: add MCP on the Codex surface",
+            "mk": "ChatGPT десктоп: додајте MCP во Codex",
+            "sq": "ChatGPT desktop: shtoni MCP në mjedisin Codex"
+          },
+          "text": {
+            "en": "The supplied Windows form is reached from Settings → Plugins → Add → Add MCP server, or the custom MCP option in Customize → Plugins → Add. Enter a descriptive name, choose Streamable HTTP and use the publisher’s HTTPS MCP URL. The example is Cloudflare Docs at https://docs.mcp.cloudflare.com/mcp. Fill optional authentication fields only when the publisher requires them, then Save. The next capture shows the configuration enabled; it does not establish that a tool call succeeded in a chat. Controls and availability depend on the active desktop surface and workspace.",
+            "mk": "Доставената Windows форма се отвора од Settings → Plugins → Add → Add MCP server или од сопствената MCP опција во Customize → Plugins → Add. Внесете јасно име, изберете Streamable HTTP и HTTPS MCP URL од издавачот. Примерот е Cloudflare Docs на https://docs.mcp.cloudflare.com/mcp. Пополнете ги опционалните полиња за најава само ако издавачот ги бара, па Save. Следната слика покажува вклучена конфигурација; таа не потврдува успешен повик во разговор. Контролите и достапноста зависат од активната средина и организацијата.",
+            "sq": "Formulari Windows i dërguar hapet nga Settings → Plugins → Add → Add MCP server, ose opsioni MCP i personalizuar te Customize → Plugins → Add. Jepni emër të qartë, zgjidhni Streamable HTTP dhe URL-në HTTPS MCP të botuesit. Shembulli është Cloudflare Docs te https://docs.mcp.cloudflare.com/mcp. Plotësoni fushat opsionale të autentikimit vetëm kur i kërkon botuesi, pastaj Save. Pamja pasuese tregon konfigurimin aktiv; ajo nuk provon thirrje të suksesshme në bisedë. Kontrollet dhe qasja varen nga mjedisi aktiv dhe hapësira."
+          }
+        }
+      },
+      "sources": [
+        {
+          "label": "Cloudflare · Connect an MCP client",
+          "url": "https://developers.cloudflare.com/agents/model-context-protocol/guides/connect-mcp-client/"
+        }
+      ]
+    },
+    {
+      "id": "design-to-code",
+      "append": [
+        {
+          "title": {
+            "en": "Artifacts and documents: choose the right output",
+            "mk": "Артефакти и документи: изберете соодветен резултат",
+            "sq": "Artefaktet dhe dokumentet: zgjidhni rezultatin e duhur"
+          },
+          "text": {
+            "en": "An artifact is a piece of work you can reopen and refine alongside a conversation. In the supplied Claude desktop screen, Artifacts offers Docs, Slides and Design, plus Dashboard and Motion marked Beta. Start with a doc for written material or Design for an interface prototype. Describe the audience, source material and what you want to review; then edit the result. ChatGPT supports editable Pages in Space, where enabled, and generated documents with desktop file previews. A shared page, a downloadable file and an interactive prototype have different editing and sharing controls. Check the output and its access before sharing.",
+            "mk": "Артефакт е изработен материјал што може повторно да го отворите и доработите покрај разговорот. На доставената Claude десктоп слика Artifacts нуди Docs, Slides и Design, како и Dashboard и Motion означени Beta. Почнете со документ за текст или Design за прототип на интерфејс. Наведете публика, изворен материјал и што ќе прегледате, па уредете го резултатот. ChatGPT поддржува страници Pages во Space, каде што е вклучено, и создадени документи со десктоп преглед. Споделена страница, датотека за преземање и интерактивен прототип имаат различни контроли за уредување и споделување. Проверете го резултатот и пристапот пред споделување.",
+            "sq": "Një artefakt është punë që mund ta rihapni dhe përmirësoni krahas bisedës. Në pamjen Claude desktop të dërguar, Artifacts ofron Docs, Slides dhe Design, si dhe Dashboard e Motion me shenjën Beta. Nisni me dokument për tekstin ose Design për prototip ndërfaqeje. Përshkruani audiencën, burimet dhe çfarë do të shqyrtoni, pastaj redaktoni rezultatin. ChatGPT mbështet Pages të redaktueshme në Space, kur aktivizohet, dhe dokumente të krijuara me pamje paraprake në desktop. Faqja e përbashkët, skedari i shkarkueshëm dhe prototipi ndërveprues kanë kontrolle të ndryshme redaktimi dhe ndarjeje. Kontrolloni rezultatin dhe qasjen para ndarjes."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "Claude · Artifacts",
+          "url": "https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them"
+        },
+        {
+          "label": "ChatGPT · Pages",
+          "url": "https://learn.chatgpt.com/docs/space/pages"
+        },
+        {
+          "label": "ChatGPT · File previews",
+          "url": "https://learn.chatgpt.com/docs/artifacts-viewer?surface=app"
+        }
+      ]
+    }
+  ]
+}

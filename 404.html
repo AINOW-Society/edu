@@ -1,22 +1,16 @@
 <!DOCTYPE html>
-<html lang="mk">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AINOW — Платформа за ВИ писменост</title>
-    <script>
-        (function () {
-            var path = window.location.pathname;
-            sessionStorage.setItem('spa-redirect', window.location.href);
-            if (path.indexOf('/edu/') === 0) {
-                window.location.replace('/edu/');
-            } else if (path.indexOf('/biz/') === 0) {
-                window.location.replace('/biz/');
-            } else {
-                window.location.replace('/');
-            }
-        })();
-</script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page not found · AINOW</title>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<style>body{margin:0;background:#fdfcfa;color:#292724;font-family:Manrope,system-ui,sans-serif}main{max-width:620px;margin:12vh auto;padding:24px}h1{font-size:32px;font-weight:500;letter-spacing:-.03em}p{line-height:1.9;color:#625d57}nav{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}a{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box;padding:10px 16px;border:1px solid #e8e5df;border-radius:10px;text-decoration:none;color:#a3482e;background:white;font-size:14px}a:focus-visible{outline:2px solid #a3482e;outline-offset:3px}</style>
 </head>
-<body></body>
-</html>
+<body><main><p>AINOW</p><h1 id="title">This page could not be found</h1><p id="message">The link may be out of date. Choose a workspace or open Help to find your way. Your saved work stays in this browser.</p><nav><a id="home" href="/">Choose workspace</a><a id="help" href="/help.html">Help</a></nav></main>
+<script>
+(function(){
+var lang='en';try{lang=localStorage.getItem('ainow-lang')||localStorage.getItem('ainow_lang')||localStorage.getItem('language')||'en';}catch(_){}
+var text={mk:['Страницата не е пронајдена','Врската можеби е застарена. Изберете простор или отворете Помош. Зачуваната работа останува во овој прелистувач.','Изберете простор','Помош'],sq:['Faqja nuk u gjet','Lidhja mund të jetë e vjetruar. Zgjidhni një hapësirë ose hapni Ndihmën. Puna e ruajtur mbetet në këtë shfletues.','Zgjidhni hapësirën','Ndihmë']}[lang];
+if(text){document.documentElement.lang=lang;['title','message','home','help'].forEach(function(id,i){document.getElementById(id).textContent=text[i];});document.title=text[0]+' · AINOW';}
+})();
+</script></body></html>

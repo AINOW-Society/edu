@@ -1,0 +1,37 @@
+{
+  "version": "0.95-rc36",
+  "originUnavailable": true,
+  "confirmation": "Known preview sessions stopped; Python urllib and loopback socket connection failed.",
+  "checks": [
+    {
+      "page": "Education reader",
+      "apps": 5,
+      "popovers": 0,
+      "revision": "rc36",
+      "passed": true
+    },
+    {
+      "page": "Business reader",
+      "title": "3-Statement Model for SaaS Series A",
+      "apps": 5,
+      "revision": "rc36",
+      "passed": true
+    },
+    {
+      "page": "Business agent reader",
+      "apps": 5,
+      "revision": "rc36",
+      "passed": true
+    },
+    {
+      "page": "Builder",
+      "steps": 4,
+      "revision": "rc36",
+      "passed": true
+    }
+  ],
+  "businessFollowUp": "A focused cached reload waited for the actual reader before measuring; five app controls were present.",
+  "inconclusive": "The initial DEV navigation exceeded the browser timeout. It is not counted as an offline pass in this follow-up.",
+  "externalApps": "Not opened; connectivity is required.",
+  "previewRestored": true
+}

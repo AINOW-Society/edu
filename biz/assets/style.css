@@ -1,5 +1,5 @@
 body {
-    font-family: 'Onest', system-ui, sans-serif;
+    font-family: 'Manrope', system-ui, sans-serif;
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -189,3 +189,16 @@ nav a {
         height: auto;
     }
 }
+
+.font-black,.font-bold{font-weight:650}
+.biz-filter-button{display:none}.biz-clear-button{min-height:44px;padding:10px 12px;border:1px solid #e8e5df;border-radius:10px;background:#fff;font-size:13px;color:#0f766e}.dark .biz-clear-button{border-color:#475569;background:#1e293b;color:#86d4c5}
+@media(max-width:767.98px){.biz-filter-button{display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:10px 12px;border:1px solid #e8e5df;border-radius:10px;background:#fff;color:#0f766e;font-size:13px}.dark .biz-filter-button{border-color:#475569;background:#1e293b;color:#86d4c5}}
+
+main h1[tabindex="-1"]:focus{outline:none}
+
+.situations-start-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:768px;margin:0 0 30px}.situations-start-step{display:flex;align-items:flex-start;gap:12px}.situations-step-number{flex-shrink:0;font-size:12px;font-weight:600;color:var(--ui-accent);line-height:22px}.situations-start-step p{font-size:13px;line-height:1.7;text-transform:none;letter-spacing:0}.situations-start-step p+p{margin-top:3px}@media(max-width:767.98px){.situations-start-steps{grid-template-columns:1fr;gap:14px}.situations-start-step p+p{display:none}}
+
+.situation-question{padding:8px 0 24px}.situation-question h1{font-size:var(--ui-text-title);line-height:1.4;letter-spacing:-.025em;font-weight:500;margin:0 0 26px}.situation-question input,.situation-question textarea{font-size:16px}.situation-question button{min-height:44px;text-transform:none;font-weight:500;font-size:14px;letter-spacing:0}.situation-output-source{padding:20px 0;border-top:1px solid var(--ui-line)}.situation-output-source pre{font:400 15px/1.9 var(--ui-font);white-space:pre-wrap;overflow-wrap:anywhere;margin:22px 0;color:var(--ui-ink)}
+
+.situation-output-heading{display:grid;grid-template-columns:52px minmax(0,1fr) auto;align-items:start;gap:18px;margin-bottom:28px}.situation-output-title{min-width:0}.situation-output-title h1{font-size:var(--ui-text-title);font-weight:500;line-height:1.35;letter-spacing:-.025em;margin:0 0 10px}.situation-output-context{padding:0 0 24px;margin-bottom:24px;border-bottom:1px solid var(--ui-line)}
+@media(max-width:767.98px){.situation-output-heading{grid-template-columns:44px minmax(0,1fr);gap:14px}.situation-output-heading>.ainow-button{grid-column:1/-1;justify-self:start}}

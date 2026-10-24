@@ -2,23 +2,16 @@ window.VIEWS = window.VIEWS || {};
 
 window.VIEWS['resources'] = `
 <div class="resources-container" style="padding: 32px; max-width: 1100px; margin: 0 auto; box-sizing: border-box;">
-    <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 24px 32px; margin-bottom: 32px; display: flex; gap: 20px; align-items: center; box-shadow: var(--shadow-sm);">
-        <div style="width: 48px; height: 48px; border-radius: 14px; background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+    <header class="ainow-page-heading"><span class="ainow-page-mark"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
                 <line x1="16" y1="13" x2="8" y2="13"></line>
                 <line x1="16" y1="17" x2="8" y2="17"></line>
                 <polyline points="10 9 9 9 8 9"></polyline>
-            </svg>
-        </div>
-        <div>
-            <h1 data-i18n="resources.hero.title" style="font-family: 'Georgia', 'Charter', serif; font-size: 24px; font-weight: 400; color: var(--text-primary); margin-bottom: 6px; letter-spacing: -0.3px;">Resource Builder</h1>
-            <p data-i18n="resources.hero.subtitle" style="font-size: 15px; color: var(--text-secondary); max-width: 700px; line-height: 1.5; margin: 0;">Select content to export as a formatted handout.</p>
-        </div>
-    </div>
+            </svg></span><div><h1 data-i18n="resources.hero.title" class="ainow-page-title">Resource Builder</h1></div></header>
+    <p class="ainow-page-intro" data-i18n="resources.hero.subtitle">Select content to export as a formatted handout.</p>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
+    <div class="resource-tabs" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
         <button id="widget-btn-guide" onclick="ResourceManager.switchWidget('guide')"
                 style="padding: 16px; border: 2px solid var(--primary); background: var(--primary-light); border-radius: 12px; cursor: pointer; display: flex; flex-direction: column; gap: 8px; transition: all 0.2s;">
             <div style="display: flex; align-items: center; gap: 10px;">

@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-23",
+  "baselineFilesChecked": 4103,
+  "nativeDifferencePaths": [
+    "android/app/src/main/AndroidManifest.xml",
+    "android/app/src/main/java/mk/ainow/literacy/AgentBuilderForm.kt",
+    "android/app/src/main/java/mk/ainow/literacy/AppData.kt",
+    "android/app/src/main/java/mk/ainow/literacy/AppUI.kt",
+    "android/app/src/main/java/mk/ainow/literacy/BusinessScreens.kt",
+    "android/app/src/main/java/mk/ainow/literacy/CoreScreens.kt",
+    "android/app/src/main/java/mk/ainow/literacy/DevScreens.kt",
+    "android/app/src/main/java/mk/ainow/literacy/EducationScreens.kt",
+    "android/app/src/main/java/mk/ainow/literacy/MainActivity.kt",
+    "android/app/src/main/java/mk/ainow/literacy/ResourceScreen.kt",
+    "android/app/src/main/java/mk/ainow/literacy/SectionPicker.kt",
+    "android/app/src/main/java/mk/ainow/literacy/SmartGuidance.kt",
+    "android/app/src/main/java/mk/ainow/literacy/TokenCalculator.kt",
+    "android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+  ],
+  "sameNativeDifferencePaths": true,
+  "prototypeAndDatasetsUnchanged": true,
+  "unexpectedDifferences": [],
+  "nativeWritesIssued": false
+}

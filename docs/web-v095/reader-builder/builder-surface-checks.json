@@ -1,0 +1,188 @@
+[
+  {
+    "background": "rgb(250, 249, 247)",
+    "documentWidth": 375,
+    "steps": [
+      {
+        "height": 78,
+        "label": "01 · CurrentTask",
+        "width": 165.60000610351562
+      },
+      {
+        "height": 78,
+        "label": "02 · Open stepBehaviour",
+        "width": 165.60000610351562
+      },
+      {
+        "height": 78,
+        "label": "03 · Open stepExamples",
+        "width": 165.60000610351562
+      },
+      {
+        "height": 78,
+        "label": "04 · Open stepReview & use",
+        "width": 165.60000610351562
+      }
+    ],
+    "token": "#faf9f7",
+    "width": 390,
+    "lang": "en",
+    "theme": "light",
+    "passed": true
+  },
+  {
+    "background": "rgb(25, 25, 24)",
+    "documentWidth": 375,
+    "steps": [
+      {
+        "height": 78,
+        "label": "01 · CurrentTask",
+        "width": 165.60000610351562
+      },
+      {
+        "height": 78,
+        "label": "02 · Open stepBehaviour",
+        "width": 165.60000610351562
+      },
+      {
+        "height": 78,
+        "label": "03 · Open stepExamples",
+        "width": 165.60000610351562
+      },
+      {
+        "height": 78,
+        "label": "04 · Open stepReview & use",
+        "width": 165.60000610351562
+      }
+    ],
+    "token": "#191918",
+    "width": 390,
+    "lang": "en",
+    "theme": "dark",
+    "passed": true
+  },
+  {
+    "background": "rgb(250, 249, 247)",
+    "documentWidth": 375,
+    "steps": [
+      {
+        "height": 78,
+        "label": "01 · ТековенЗадача",
+        "width": 165.60000610351562
+      },
+      {
+        "height": 78,
+        "label": "02 · Отвори чекорОднесување",
+        "width": 165.60000610351562
+      },
+      {
+        "height": 78,
+        "label": "03 · Отвори чекорПримери",
+        "width": 165.60000610351562
+      },
+      {
+        "height": 78,
+        "label": "04 · Отвори чекорПреглед и употреба",
+        "width": 165.60000610351562
+      }
+    ],
+    "token": "#faf9f7",
+    "width": 390,
+    "lang": "mk",
+    "theme": "light",
+    "passed": true
+  },
+  {
+    "background": "rgb(25, 25, 24)",
+    "documentWidth": 375,
+    "steps": [
+      {
+        "height": 78,
+        "label": "01 · ТековенЗадача",
+        "width": 165.60000610351562
+      },
+      {
+        "height": 78,
+        "label": "02 · Отвори чекорОднесување",
+        "width": 165.60000610351562
+      },
+      {
+        "height": 78,
+        "label": "03 · Отвори чекорПримери",
+        "width": 165.60000610351562
+      },
+      {
+        "height": 78,
+        "label": "04 · Отвори чекорПреглед и употреба",
+        "width": 165.60000610351562
+      }
+    ],
+    "token": "#191918",
+    "width": 390,
+    "lang": "mk",
+    "theme": "dark",
+    "passed": true
+  },
+  {
+    "background": "rgb(250, 249, 247)",
+    "documentWidth": 375,
+    "steps": [
+      {
+        "height": 78,
+        "label": "01 · AktualDetyra",
+        "width": 165.60000610351562
+      },
+      {
+        "height": 78,
+        "label": "02 · Hap këtë hapSjellja",
+        "width": 165.60000610351562
+      },
+      {
+        "height": 78,
+        "label": "03 · Hap këtë hapShembujt",
+        "width": 165.60000610351562
+      },
+      {
+        "height": 78,
+        "label": "04 · Hap këtë hapShqyrtoni dhe përdorni",
+        "width": 165.60000610351562
+      }
+    ],
+    "token": "#faf9f7",
+    "width": 390,
+    "lang": "sq",
+    "theme": "light",
+    "passed": true
+  },
+  {
+    "background": "rgb(25, 25, 24)",
+    "documentWidth": 375,
+    "steps": [
+      {
+        "height": 78,
+        "label": "01 · AktualDetyra",
+        "width": 165.60000610351562
+      },
+      {
+        "height": 78,
+        "label": "02 · Hap këtë hapSjellja",
+        "width": 165.60000610351562
+      },
+      {
+        "height": 78,
+        "label": "03 · Hap këtë hapShembujt",
+        "width": 165.60000610351562
+      },
+      {
+        "height": 78,
+        "label": "04 · Hap këtë hapShqyrtoni dhe përdorni",
+        "width": 165.60000610351562
+      }
+    ],
+    "token": "#191918",
+    "width": 390,
+    "lang": "sq",
+    "theme": "dark",
+    "passed": true
+  }
+]

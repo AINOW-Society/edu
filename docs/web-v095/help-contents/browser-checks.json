@@ -1,0 +1,1124 @@
+[
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 123.07500457763672,
+        "text": "Guides",
+        "top": 365.3999938964844
+      },
+      {
+        "height": 44,
+        "right": 254.8375015258789,
+        "text": "Questions",
+        "top": 365.3999938964844
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 115.4375,
+        "text": "Steps",
+        "top": 365.3999938964844
+      },
+      {
+        "height": 44,
+        "right": 247.20000457763672,
+        "text": "Questions",
+        "top": 365.3999938964844
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/edu",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 115.4375,
+        "text": "Steps",
+        "top": 392.7000122070313
+      },
+      {
+        "height": 44,
+        "right": 247.20000457763672,
+        "text": "Questions",
+        "top": 392.7000122070313
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/biz/intro",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 115.4375,
+        "text": "Steps",
+        "top": 392.7000122070313
+      },
+      {
+        "height": 44,
+        "right": 247.20000457763672,
+        "text": "Questions",
+        "top": 392.7000122070313
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/dev",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 123.07500457763672,
+        "text": "Guides",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 254.8375015258789,
+        "text": "Questions",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 115.4375,
+        "text": "Steps",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 247.20000457763672,
+        "text": "Questions",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/edu",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 115.4375,
+        "text": "Steps",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 247.20000457763672,
+        "text": "Questions",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/biz/intro",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 115.4375,
+        "text": "Steps",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 247.20000457763672,
+        "text": "Questions",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/dev",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 123.07500457763672,
+        "text": "Guides",
+        "top": 365.3999938964844
+      },
+      {
+        "height": 44,
+        "right": 254.8375015258789,
+        "text": "Questions",
+        "top": 365.3999938964844
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 115.4375,
+        "text": "Steps",
+        "top": 365.3999938964844
+      },
+      {
+        "height": 44,
+        "right": 247.20000457763672,
+        "text": "Questions",
+        "top": 365.3999938964844
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html#/edu",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 115.4375,
+        "text": "Steps",
+        "top": 392.7000122070313
+      },
+      {
+        "height": 44,
+        "right": 247.20000457763672,
+        "text": "Questions",
+        "top": 392.7000122070313
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html#/biz/intro",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 115.4375,
+        "text": "Steps",
+        "top": 392.7000122070313
+      },
+      {
+        "height": 44,
+        "right": 247.20000457763672,
+        "text": "Questions",
+        "top": 392.7000122070313
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html#/dev",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 123.07500457763672,
+        "text": "Guides",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 254.8375015258789,
+        "text": "Questions",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 115.4375,
+        "text": "Steps",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 247.20000457763672,
+        "text": "Questions",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html#/edu",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 115.4375,
+        "text": "Steps",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 247.20000457763672,
+        "text": "Questions",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html#/biz/intro",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 115.4375,
+        "text": "Steps",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 247.20000457763672,
+        "text": "Questions",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html#/dev",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 142.2375030517578,
+        "text": "Простори",
+        "top": 365.3999938964844
+      },
+      {
+        "height": 44,
+        "right": 270.0750045776367,
+        "text": "Прашања",
+        "top": 365.3999938964844
+      }
+    ],
+    "label": "На оваа страница",
+    "lang": "mk",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 126.2750015258789,
+        "text": "Чекори",
+        "top": 401.8000183105469
+      },
+      {
+        "height": 44,
+        "right": 254.11251068115232,
+        "text": "Прашања",
+        "top": 401.8000183105469
+      }
+    ],
+    "label": "На оваа страница",
+    "lang": "mk",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/edu",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 126.2750015258789,
+        "text": "Чекори",
+        "top": 401.8000183105469
+      },
+      {
+        "height": 44,
+        "right": 254.11251068115232,
+        "text": "Прашања",
+        "top": 401.8000183105469
+      }
+    ],
+    "label": "На оваа страница",
+    "lang": "mk",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/biz/intro",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 126.2750015258789,
+        "text": "Чекори",
+        "top": 401.8000183105469
+      },
+      {
+        "height": 44,
+        "right": 254.11251068115232,
+        "text": "Прашања",
+        "top": 401.8000183105469
+      }
+    ],
+    "label": "На оваа страница",
+    "lang": "mk",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/dev",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 142.2375030517578,
+        "text": "Простори",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 270.0750045776367,
+        "text": "Прашања",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "На оваа страница",
+    "lang": "mk",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 126.2750015258789,
+        "text": "Чекори",
+        "top": 347.20001220703125
+      },
+      {
+        "height": 44,
+        "right": 254.11251068115232,
+        "text": "Прашања",
+        "top": 347.20001220703125
+      }
+    ],
+    "label": "На оваа страница",
+    "lang": "mk",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/edu",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 126.2750015258789,
+        "text": "Чекори",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 254.11251068115232,
+        "text": "Прашања",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "На оваа страница",
+    "lang": "mk",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/biz/intro",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 126.2750015258789,
+        "text": "Чекори",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 254.11251068115232,
+        "text": "Прашања",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "На оваа страница",
+    "lang": "mk",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/dev",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 142.2375030517578,
+        "text": "Простори",
+        "top": 365.3999938964844
+      },
+      {
+        "height": 44,
+        "right": 270.0750045776367,
+        "text": "Прашања",
+        "top": 365.3999938964844
+      }
+    ],
+    "label": "На оваа страница",
+    "lang": "mk",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 126.2750015258789,
+        "text": "Чекори",
+        "top": 401.8000183105469
+      },
+      {
+        "height": 44,
+        "right": 254.11251068115232,
+        "text": "Прашања",
+        "top": 401.8000183105469
+      }
+    ],
+    "label": "На оваа страница",
+    "lang": "mk",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html#/edu",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 126.2750015258789,
+        "text": "Чекори",
+        "top": 401.8000183105469
+      },
+      {
+        "height": 44,
+        "right": 254.11251068115232,
+        "text": "Прашања",
+        "top": 401.8000183105469
+      }
+    ],
+    "label": "На оваа страница",
+    "lang": "mk",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html#/biz/intro",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 126.2750015258789,
+        "text": "Чекори",
+        "top": 401.8000183105469
+      },
+      {
+        "height": 44,
+        "right": 254.11251068115232,
+        "text": "Прашања",
+        "top": 401.8000183105469
+      }
+    ],
+    "label": "На оваа страница",
+    "lang": "mk",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html#/dev",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 142.2375030517578,
+        "text": "Простори",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 270.0750045776367,
+        "text": "Прашања",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "На оваа страница",
+    "lang": "mk",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 126.2750015258789,
+        "text": "Чекори",
+        "top": 347.20001220703125
+      },
+      {
+        "height": 44,
+        "right": 254.11251068115232,
+        "text": "Прашања",
+        "top": 347.20001220703125
+      }
+    ],
+    "label": "На оваа страница",
+    "lang": "mk",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html#/edu",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 126.2750015258789,
+        "text": "Чекори",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 254.11251068115232,
+        "text": "Прашања",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "На оваа страница",
+    "lang": "mk",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html#/biz/intro",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 126.2750015258789,
+        "text": "Чекори",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 254.11251068115232,
+        "text": "Прашања",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "На оваа страница",
+    "lang": "mk",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html#/dev",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 140.0250015258789,
+        "text": "Hapësirat",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 247.23751068115232,
+        "text": "Pyetje",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "Në këtë faqe",
+    "lang": "sq",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 117.0374984741211,
+        "text": "Hapat",
+        "top": 374.5
+      },
+      {
+        "height": 44,
+        "right": 224.25,
+        "text": "Pyetje",
+        "top": 374.5
+      }
+    ],
+    "label": "Në këtë faqe",
+    "lang": "sq",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/edu",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 117.0374984741211,
+        "text": "Hapat",
+        "top": 401.8000183105469
+      },
+      {
+        "height": 44,
+        "right": 224.25,
+        "text": "Pyetje",
+        "top": 401.8000183105469
+      }
+    ],
+    "label": "Në këtë faqe",
+    "lang": "sq",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/biz/intro",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 117.0374984741211,
+        "text": "Hapat",
+        "top": 392.7000122070313
+      },
+      {
+        "height": 44,
+        "right": 224.25,
+        "text": "Pyetje",
+        "top": 392.7000122070313
+      }
+    ],
+    "label": "Në këtë faqe",
+    "lang": "sq",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/dev",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 140.0250015258789,
+        "text": "Hapësirat",
+        "top": 310.8000183105469
+      },
+      {
+        "height": 44,
+        "right": 247.23751068115232,
+        "text": "Pyetje",
+        "top": 310.8000183105469
+      }
+    ],
+    "label": "Në këtë faqe",
+    "lang": "sq",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 117.0374984741211,
+        "text": "Hapat",
+        "top": 310.8000183105469
+      },
+      {
+        "height": 44,
+        "right": 224.25,
+        "text": "Pyetje",
+        "top": 310.8000183105469
+      }
+    ],
+    "label": "Në këtë faqe",
+    "lang": "sq",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/edu",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 117.0374984741211,
+        "text": "Hapat",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 224.25,
+        "text": "Pyetje",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "Në këtë faqe",
+    "lang": "sq",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/biz/intro",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 117.0374984741211,
+        "text": "Hapat",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 224.25,
+        "text": "Pyetje",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "Në këtë faqe",
+    "lang": "sq",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/dev",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 140.0250015258789,
+        "text": "Hapësirat",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 247.23751068115232,
+        "text": "Pyetje",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "Në këtë faqe",
+    "lang": "sq",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 117.0374984741211,
+        "text": "Hapat",
+        "top": 374.5
+      },
+      {
+        "height": 44,
+        "right": 224.25,
+        "text": "Pyetje",
+        "top": 374.5
+      }
+    ],
+    "label": "Në këtë faqe",
+    "lang": "sq",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html#/edu",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 117.0374984741211,
+        "text": "Hapat",
+        "top": 401.8000183105469
+      },
+      {
+        "height": 44,
+        "right": 224.25,
+        "text": "Pyetje",
+        "top": 401.8000183105469
+      }
+    ],
+    "label": "Në këtë faqe",
+    "lang": "sq",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html#/biz/intro",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 117.0374984741211,
+        "text": "Hapat",
+        "top": 392.7000122070313
+      },
+      {
+        "height": 44,
+        "right": 224.25,
+        "text": "Pyetje",
+        "top": 392.7000122070313
+      }
+    ],
+    "label": "Në këtë faqe",
+    "lang": "sq",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html#/dev",
+    "width": 320
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 140.0250015258789,
+        "text": "Hapësirat",
+        "top": 310.8000183105469
+      },
+      {
+        "height": 44,
+        "right": 247.23751068115232,
+        "text": "Pyetje",
+        "top": 310.8000183105469
+      }
+    ],
+    "label": "Në këtë faqe",
+    "lang": "sq",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 117.0374984741211,
+        "text": "Hapat",
+        "top": 310.8000183105469
+      },
+      {
+        "height": 44,
+        "right": 224.25,
+        "text": "Pyetje",
+        "top": 310.8000183105469
+      }
+    ],
+    "label": "Në këtë faqe",
+    "lang": "sq",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html#/edu",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 117.0374984741211,
+        "text": "Hapat",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 224.25,
+        "text": "Pyetje",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "Në këtë faqe",
+    "lang": "sq",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html#/biz/intro",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 117.0374984741211,
+        "text": "Hapat",
+        "top": 338.1000061035156
+      },
+      {
+        "height": 44,
+        "right": 224.25,
+        "text": "Pyetje",
+        "top": 338.1000061035156
+      }
+    ],
+    "label": "Në këtë faqe",
+    "lang": "sq",
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:4180/help.html#/dev",
+    "width": 390
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 115.4375,
+        "text": "Steps",
+        "top": 283.5
+      },
+      {
+        "height": 44,
+        "right": 247.20000457763672,
+        "text": "Questions",
+        "top": 283.5
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/dev",
+    "width": 767
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 366.1499938964844,
+        "text": "Steps",
+        "top": 330.8000183105469
+      },
+      {
+        "height": 44,
+        "right": 497.9124984741211,
+        "text": "Questions",
+        "top": 330.8000183105469
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/dev",
+    "width": 768
+  },
+  {
+    "buttons": [
+      {
+        "height": 44,
+        "right": 386.6375122070313,
+        "text": "Steps",
+        "top": 313.8999938964844
+      },
+      {
+        "height": 44,
+        "right": 518.400016784668,
+        "text": "Questions",
+        "top": 313.8999938964844
+      }
+    ],
+    "label": "On this page",
+    "lang": "en",
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:4180/help.html#/dev",
+    "width": 1280
+  }
+]

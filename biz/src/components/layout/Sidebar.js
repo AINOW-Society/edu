@@ -1,96 +1,58 @@
 (function () {
 window.AINOW = window.AINOW || {};
 var __exports = AINOW['src/components/layout/Sidebar'] = AINOW['src/components/layout/Sidebar'] || {};
-const { useState, useEffect } = React;
+const { useState, useEffect, useRef } = React;
 
-const { X, History } = lucide;
-const { NAV_CONFIG } = AINOW['src/config'];
+const { X } = lucide;
 const { useLanguage } = AINOW['src/hooks'];
 
 const html = htm.bind(React.createElement);
 
-const RecentlyViewed = () => {
-    const [items, setItems] = useState([]);
-
+const SidebarWrapper = ({ isOpen, onClose, children, showOnDesktop = true, isZenMode, showNavigation = true, platformLinks = true, onNotes, workspace = 'biz', active, counts = {} }) => {
+    const { lang } = useLanguage();
+    const panel = useRef(null);
+    const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width:767.98px)').matches);
     useEffect(() => {
-        const load = () => {
-            try {
-                setItems(JSON.parse(localStorage.getItem('ainow_recent_items') || '[]'));
-            } catch (e) { }
-        };
-        load();
-        window.addEventListener('historyUpdated', load);
-        return () => window.removeEventListener('historyUpdated', load);
+        const media = window.matchMedia('(max-width:767.98px)');
+        const update = () => setIsMobile(media.matches);
+        media.addEventListener('change', update);
+        return () => media.removeEventListener('change', update);
     }, []);
-
-    const clearHistory = (e) => {
-        e.stopPropagation();
-        try {
-            localStorage.removeItem('ainow_recent_items');
-            setItems([]);
-            window.dispatchEvent(new Event('historyUpdated'));
-        } catch (e) { console.error(e); }
-    };
-
-    if (items.length === 0) return null;
-
-    return html`
-        <div className="mt-8 pt-6 border-t border-mist dark:border-slate-800 no-print text-left">
-            <div className="flex items-center justify-between px-3 mb-3">
-                <h3 className="text-[10px] font-black text-stone-light uppercase tracking-widest flex items-center gap-2">
-                    <${History} className="w-3 h-3" /> Recently Viewed
-                </h3>
-                <button onClick=${clearHistory} className="text-[10px] font-black text-stone-light hover:text-coral transition-colors uppercase tracking-widest" title="Clear History">
-                    Clear
-                </button>
-            </div>
-            <div className="space-y-1">
-                ${items.map(item => {
-        const dotColor = item.type === 'agent' ? 'bg-emerald-500' : (item.type === 'playbook' ? 'bg-amber-500' : 'bg-teal-500');
-        return html`
-                        <a key=${item.id} href=${item.url} className="flex items-center gap-2 px-3 py-2 text-[11px] text-stone dark:text-slate-400 hover:bg-opal-bg dark:hover:bg-slate-800 rounded-xl group truncate block transition-all font-bold">
-                            <span className=${`w-1.5 h-1.5 rounded-full flex-shrink-0 ${dotColor} group-hover:scale-125 transition-transform`}></span>
-                            <span className="truncate uppercase tracking-tight">${item.title}</span>
-                        </a>
-                    `;
-    })}
-            </div>
-        </div>
-    `;
-};
-
-const SidebarWrapper = ({ isOpen, onClose, children, showOnDesktop = true, isZenMode }) => {
-    const { t } = useLanguage();
-    const path = window.location.pathname;
-    const activeId = NAV_CONFIG.find(l => path.includes(l.href))?.id || (path.endsWith('/') || path.includes('index') ? 'prompts' : '');
-
+    useEffect(() => {
+        if (!isOpen) return;
+        const previous = document.activeElement;
+        const oldOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        panel.current?.querySelector('button, a[href]')?.focus();
+        const keydown = event => {
+            if (event.key === 'Escape') onClose();
+            if (event.key !== 'Tab') return;
+            const nodes = [...panel.current.querySelectorAll('button, a[href], input, select')].filter(node => node.offsetParent !== null);
+            const first = nodes[0], last = nodes[nodes.length - 1];
+            if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+            else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+        };
+        document.addEventListener('keydown', keydown);
+        return () => { document.body.style.overflow = oldOverflow; document.removeEventListener('keydown', keydown); previous?.focus?.(); };
+    }, [isOpen]);
+    const path=location.pathname,hash=location.hash;
+    const activeId=active||(path.endsWith('/agents.html')?'agents':path.endsWith('/builder.html')?'builder':path.endsWith('/playbooks.html')?'playbooks':hash.startsWith('#/prompts')||hash.startsWith('#/prompt/')?'prompts':'home');
+    const menu=AINOWNavigation;
+    const menuClick=event=>{const action=event.target.closest('[data-nav-action]');if(action?.dataset.navAction==='notes'&&onNotes){event.preventDefault();onClose();onNotes();}};
     const shouldShow = showOnDesktop && !isZenMode;
 
     return html`
     <${React.Fragment}>
         <div className=${`fixed inset-0 bg-black/50 z-[60] transition-opacity no-print ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'} ${shouldShow ? ' md:hidden' : ''}`} onClick=${onClose}></div>
-        <aside className=${`fixed top-0 bottom-0 right-0 z-[70] w-[80%] max-w-[320px] bg-opal-sidebar dark:bg-slate-900 transition-transform border-l border-mist dark:border-slate-800 flex flex-col no-print ${isOpen ? 'translate-x-0 shadow-level-3' : 'translate-x-full'} ${shouldShow ? ' md:sticky md:top-16 md:bottom-auto md:h-[calc(100vh-4rem)] md:translate-x-0 md:shadow-none md:z-30 md:left-0 md:right-auto md:border-l-0 md:border-r' : ' shadow-level-3'}`}>
-            <div className="p-4 flex-1 overflow-y-auto custom-scrollbar">
-                <div className="flex justify-between items-center md:hidden mb-6">
-                    <h2 className="font-bold dark:text-white text-lg">AINOW Platform</h2>
-                    <button onClick=${onClose} className="p-2"><${X} className="w-6 h-6 dark:text-white" /></button>
+        <aside ref=${panel} inert=${(isMobile||!shouldShow) && !isOpen ? true : undefined} aria-hidden=${(isMobile||!shouldShow) && !isOpen ? true : undefined} className=${`ainow-sidebar ${shouldShow?'ainow-sidebar-desktop':'ainow-sidebar-drawer'} fixed top-0 bottom-0 left-0 z-[70] transition-transform border-l flex flex-col no-print ${isOpen ? 'ainow-drawer-open shadow-level-3' : ''} ${shouldShow ? ' md:w-[240px] md:max-w-[240px] md:sticky md:top-[64px] md:bottom-auto md:h-[calc(100vh-64px)] md:translate-x-0 md:shadow-none md:z-30 md:left-0 md:right-auto md:border-l-0 md:border-r' : ' shadow-level-3'}`}>
+            <div className="ainow-sidebar-content">
+                <div className="ainow-sidebar-scroll custom-scrollbar"><div className="ainow-drawer-heading"><span>${menu.text(lang,'navigation')}</span><button type="button" onClick=${onClose} aria-label=${AINOWPlatform.text(lang,'close')}><${X}/></button></div>
+                ${showNavigation&&html`<div dangerouslySetInnerHTML=${{__html:menu.render(workspace,lang,{active:activeId,counts})}}/>`}
+                ${showNavigation&&html`<div onClick=${menuClick} dangerouslySetInnerHTML=${{__html:menu.render(workspace,lang,{group:'utilities',active:activeId,counts})}}/>`}
+                <div className="ainow-sidebar-context">${children}</div>
                 </div>
+                ${platformLinks&&html`<div dangerouslySetInnerHTML=${{__html:menu.render(workspace,lang,{group:'common',active:activeId})}}/>`}
 
-                <div className="md:hidden flex flex-col gap-1 mb-4 pb-4 border-b border-mist dark:border-slate-800">
-                    <p className="text-[10px] font-black text-stone-light uppercase tracking-widest px-3 mb-2">Main Navigation</p>
-                    ${NAV_CONFIG.map(link => {
-        const isActive = link.id === activeId;
-        return html`
-                            <a key=${link.id} href=${link.href} className=${`flex items-center gap-3 px-3 py-3 rounded-xl text-xs transition-all uppercase tracking-widest font-black ${isActive ? 'bg-opal-bg border-l-4 border-coral shadow-sm text-coral' : 'text-stone hover:bg-opal-bg dark:text-slate-400 dark:hover:bg-slate-800'}`}>
-                                <${link.icon} className="w-4 h-4" /> ${t(link.labelKey)}
-                            </a>
-                        `;
-    })}
-                </div>
-
-                ${children}
-
-                <${RecentlyViewed} />
             </div>
         </aside>
     <//>

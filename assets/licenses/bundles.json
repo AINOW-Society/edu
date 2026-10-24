@@ -1,0 +1,18 @@
+[
+  {
+    "file": "biz/libs/vendor.js",
+    "sha256": "71b9341a1f8d46bcf44d078fdeecf39ef249f5bd54b31d258bf621bdd6c0de8c"
+  },
+  {
+    "file": "biz/libs/htm.js",
+    "sha256": "2cf038d80407d2de712a5b581ef5e23ba0cda0cef7c7ac316a7d982daeec3b25"
+  },
+  {
+    "file": "biz/libs/fuse.js",
+    "sha256": "45e63f251ede6cc94ad590ab6f61db10ea80359ea0e08c0149ded6d596b54a00"
+  },
+  {
+    "file": "biz/libs/tailwindcss.js",
+    "sha256": "3ee28d4add2e6c80b0bab7bc8ac692f979b61c14ca4add011d5724a260a042bd"
+  }
+]

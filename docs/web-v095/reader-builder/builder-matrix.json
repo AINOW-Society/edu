@@ -1,0 +1,2222 @@
+[
+  {
+    "fields": 5,
+    "focus": "",
+    "heading": "What should your assistant help with?",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": "step",
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · CurrentTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · Open stepBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "03 · Open stepExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "04 · Open stepReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "Behaviour",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · CurrentBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "03 · Open stepExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "04 · Open stepReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 3,
+    "focus": "builder-step-heading",
+    "heading": "Examples",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · ViewedBehaviour"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "03 · CurrentExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "04 · Open stepReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 0,
+    "focus": "builder-step-heading",
+    "heading": "Review & use",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · ViewedBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "03 · ViewedExamples"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "04 · CurrentReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "What should your assistant help with?",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": "step",
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · CurrentTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · ViewedBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · ViewedExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · ViewedReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "Behaviour",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · CurrentBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · ViewedExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · ViewedReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 3,
+    "focus": "builder-step-heading",
+    "heading": "Examples",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · ViewedBehaviour"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · CurrentExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · ViewedReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 0,
+    "focus": "builder-step-heading",
+    "heading": "Review & use",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · ViewedBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · ViewedExamples"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · CurrentReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 5,
+    "focus": "",
+    "heading": "What should your assistant help with?",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": "step",
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · CurrentTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · Open stepBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "03 · Open stepExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "04 · Open stepReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "Behaviour",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · CurrentBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "03 · Open stepExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "04 · Open stepReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 3,
+    "focus": "builder-step-heading",
+    "heading": "Examples",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · ViewedBehaviour"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "03 · CurrentExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "04 · Open stepReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 0,
+    "focus": "builder-step-heading",
+    "heading": "Review & use",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · ViewedBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "03 · ViewedExamples"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "04 · CurrentReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "What should your assistant help with?",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": "step",
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · CurrentTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · ViewedBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · ViewedExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · ViewedReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "Behaviour",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · CurrentBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · ViewedExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · ViewedReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 3,
+    "focus": "builder-step-heading",
+    "heading": "Examples",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · ViewedBehaviour"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · CurrentExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · ViewedReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 0,
+    "focus": "builder-step-heading",
+    "heading": "Review & use",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · ViewedBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · ViewedExamples"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · CurrentReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 5,
+    "focus": "",
+    "heading": "За што треба да ви помогне асистентот?",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": "step",
+        "height": 92.8000030517578,
+        "right": 148.40000915527344,
+        "text": "01 · ТековенЗадача"
+      },
+      {
+        "current": null,
+        "height": 92.8000030517578,
+        "right": 286.8000183105469,
+        "text": "02 · Отвори чекорОднесување"
+      },
+      {
+        "current": null,
+        "height": 92.8000030517578,
+        "right": 148.40000915527344,
+        "text": "03 · Отвори чекорПримери"
+      },
+      {
+        "current": null,
+        "height": 92.8000030517578,
+        "right": 286.8000183105469,
+        "text": "04 · Отвори чекорПреглед и употреба"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "Однесување",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · ПрегледанЗадача"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · ТековенОднесување"
+      },
+      {
+        "current": null,
+        "height": 92.8000030517578,
+        "right": 148.40000915527344,
+        "text": "03 · Отвори чекорПримери"
+      },
+      {
+        "current": null,
+        "height": 92.8000030517578,
+        "right": 286.8000183105469,
+        "text": "04 · Отвори чекорПреглед и употреба"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 3,
+    "focus": "builder-step-heading",
+    "heading": "Примери",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · ПрегледанЗадача"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · ПрегледанОднесување"
+      },
+      {
+        "current": "step",
+        "height": 92.8000030517578,
+        "right": 148.40000915527344,
+        "text": "03 · ТековенПримери"
+      },
+      {
+        "current": null,
+        "height": 92.8000030517578,
+        "right": 286.8000183105469,
+        "text": "04 · Отвори чекорПреглед и употреба"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 0,
+    "focus": "builder-step-heading",
+    "heading": "Преглед и употреба",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · ПрегледанЗадача"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · ПрегледанОднесување"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "03 · ПрегледанПримери"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "04 · ТековенПреглед и употреба"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "За што треба да ви помогне асистентот?",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": "step",
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · ТековенЗадача"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · ПрегледанОднесување"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · ПрегледанПримери"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · ПрегледанПреглед и употреба"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "Однесување",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · ПрегледанЗадача"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · ТековенОднесување"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · ПрегледанПримери"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · ПрегледанПреглед и употреба"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 3,
+    "focus": "builder-step-heading",
+    "heading": "Примери",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · ПрегледанЗадача"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · ПрегледанОднесување"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · ТековенПримери"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · ПрегледанПреглед и употреба"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 0,
+    "focus": "builder-step-heading",
+    "heading": "Преглед и употреба",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · ПрегледанЗадача"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · ПрегледанОднесување"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · ПрегледанПримери"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · ТековенПреглед и употреба"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 5,
+    "focus": "",
+    "heading": "За што треба да ви помогне асистентот?",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": "step",
+        "height": 92.8000030517578,
+        "right": 148.40000915527344,
+        "text": "01 · ТековенЗадача"
+      },
+      {
+        "current": null,
+        "height": 92.8000030517578,
+        "right": 286.8000183105469,
+        "text": "02 · Отвори чекорОднесување"
+      },
+      {
+        "current": null,
+        "height": 92.8000030517578,
+        "right": 148.40000915527344,
+        "text": "03 · Отвори чекорПримери"
+      },
+      {
+        "current": null,
+        "height": 92.8000030517578,
+        "right": 286.8000183105469,
+        "text": "04 · Отвори чекорПреглед и употреба"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "Однесување",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · ПрегледанЗадача"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · ТековенОднесување"
+      },
+      {
+        "current": null,
+        "height": 92.8000030517578,
+        "right": 148.40000915527344,
+        "text": "03 · Отвори чекорПримери"
+      },
+      {
+        "current": null,
+        "height": 92.8000030517578,
+        "right": 286.8000183105469,
+        "text": "04 · Отвори чекорПреглед и употреба"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 3,
+    "focus": "builder-step-heading",
+    "heading": "Примери",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · ПрегледанЗадача"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · ПрегледанОднесување"
+      },
+      {
+        "current": "step",
+        "height": 92.8000030517578,
+        "right": 148.40000915527344,
+        "text": "03 · ТековенПримери"
+      },
+      {
+        "current": null,
+        "height": 92.8000030517578,
+        "right": 286.8000183105469,
+        "text": "04 · Отвори чекорПреглед и употреба"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 0,
+    "focus": "builder-step-heading",
+    "heading": "Преглед и употреба",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · ПрегледанЗадача"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · ПрегледанОднесување"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "03 · ПрегледанПримери"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "04 · ТековенПреглед и употреба"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "За што треба да ви помогне асистентот?",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": "step",
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · ТековенЗадача"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · ПрегледанОднесување"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · ПрегледанПримери"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · ПрегледанПреглед и употреба"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "Однесување",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · ПрегледанЗадача"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · ТековенОднесување"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · ПрегледанПримери"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · ПрегледанПреглед и употреба"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 3,
+    "focus": "builder-step-heading",
+    "heading": "Примери",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · ПрегледанЗадача"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · ПрегледанОднесување"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · ТековенПримери"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · ПрегледанПреглед и употреба"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 0,
+    "focus": "builder-step-heading",
+    "heading": "Преглед и употреба",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · ПрегледанЗадача"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · ПрегледанОднесување"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · ПрегледанПримери"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · ТековенПреглед и употреба"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 5,
+    "focus": "",
+    "heading": "Për çfarë duhet t’ju ndihmojë asistenti?",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": "step",
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · AktualDetyra"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · Hap këtë hapSjellja"
+      },
+      {
+        "current": null,
+        "height": 111.4000015258789,
+        "right": 148.40000915527344,
+        "text": "03 · Hap këtë hapShembujt"
+      },
+      {
+        "current": null,
+        "height": 111.4000015258789,
+        "right": 286.8000183105469,
+        "text": "04 · Hap këtë hapShqyrtoni dhe përdorni"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "Sjellja",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · I parëDetyra"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · AktualSjellja"
+      },
+      {
+        "current": null,
+        "height": 111.4000015258789,
+        "right": 148.40000915527344,
+        "text": "03 · Hap këtë hapShembujt"
+      },
+      {
+        "current": null,
+        "height": 111.4000015258789,
+        "right": 286.8000183105469,
+        "text": "04 · Hap këtë hapShqyrtoni dhe përdorni"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 3,
+    "focus": "builder-step-heading",
+    "heading": "Shembujt",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · I parëDetyra"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · I parëSjellja"
+      },
+      {
+        "current": "step",
+        "height": 111.4000015258789,
+        "right": 148.40000915527344,
+        "text": "03 · AktualShembujt"
+      },
+      {
+        "current": null,
+        "height": 111.4000015258789,
+        "right": 286.8000183105469,
+        "text": "04 · Hap këtë hapShqyrtoni dhe përdorni"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 0,
+    "focus": "builder-step-heading",
+    "heading": "Shqyrtoni dhe përdorni",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · I parëDetyra"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · I parëSjellja"
+      },
+      {
+        "current": null,
+        "height": 96.4000015258789,
+        "right": 148.40000915527344,
+        "text": "03 · I parëShembujt"
+      },
+      {
+        "current": "step",
+        "height": 96.4000015258789,
+        "right": 286.8000183105469,
+        "text": "04 · AktualShqyrtoni dhe përdorni"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "Për çfarë duhet t’ju ndihmojë asistenti?",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": "step",
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · AktualDetyra"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · I parëSjellja"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · I parëShembujt"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · I parëShqyrtoni dhe përdorni"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "Sjellja",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · I parëDetyra"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · AktualSjellja"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · I parëShembujt"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · I parëShqyrtoni dhe përdorni"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 3,
+    "focus": "builder-step-heading",
+    "heading": "Shembujt",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · I parëDetyra"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · I parëSjellja"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · AktualShembujt"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · I parëShqyrtoni dhe përdorni"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 0,
+    "focus": "builder-step-heading",
+    "heading": "Shqyrtoni dhe përdorni",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · I parëDetyra"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · I parëSjellja"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · I parëShembujt"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · AktualShqyrtoni dhe përdorni"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 5,
+    "focus": "",
+    "heading": "Për çfarë duhet t’ju ndihmojë asistenti?",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": "step",
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · AktualDetyra"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · Hap këtë hapSjellja"
+      },
+      {
+        "current": null,
+        "height": 111.4000015258789,
+        "right": 148.40000915527344,
+        "text": "03 · Hap këtë hapShembujt"
+      },
+      {
+        "current": null,
+        "height": 111.4000015258789,
+        "right": 286.8000183105469,
+        "text": "04 · Hap këtë hapShqyrtoni dhe përdorni"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "Sjellja",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · I parëDetyra"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · AktualSjellja"
+      },
+      {
+        "current": null,
+        "height": 111.4000015258789,
+        "right": 148.40000915527344,
+        "text": "03 · Hap këtë hapShembujt"
+      },
+      {
+        "current": null,
+        "height": 111.4000015258789,
+        "right": 286.8000183105469,
+        "text": "04 · Hap këtë hapShqyrtoni dhe përdorni"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 3,
+    "focus": "builder-step-heading",
+    "heading": "Shembujt",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · I parëDetyra"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · I parëSjellja"
+      },
+      {
+        "current": "step",
+        "height": 111.4000015258789,
+        "right": 148.40000915527344,
+        "text": "03 · AktualShembujt"
+      },
+      {
+        "current": null,
+        "height": 111.4000015258789,
+        "right": 286.8000183105469,
+        "text": "04 · Hap këtë hapShqyrtoni dhe përdorni"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 0,
+    "focus": "builder-step-heading",
+    "heading": "Shqyrtoni dhe përdorni",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 148.40000915527344,
+        "text": "01 · I parëDetyra"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 286.8000183105469,
+        "text": "02 · I parëSjellja"
+      },
+      {
+        "current": null,
+        "height": 96.4000015258789,
+        "right": 148.40000915527344,
+        "text": "03 · I parëShembujt"
+      },
+      {
+        "current": "step",
+        "height": 96.4000015258789,
+        "right": 286.8000183105469,
+        "text": "04 · AktualShqyrtoni dhe përdorni"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 320,
+    "requestedWidth": 320
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "Për çfarë duhet t’ju ndihmojë asistenti?",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": "step",
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · AktualDetyra"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · I parëSjellja"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · I parëShembujt"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · I parëShqyrtoni dhe përdorni"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "Sjellja",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · I parëDetyra"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · AktualSjellja"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · I parëShembujt"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · I parëShqyrtoni dhe përdorni"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 3,
+    "focus": "builder-step-heading",
+    "heading": "Shembujt",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · I parëDetyra"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · I parëSjellja"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · AktualShembujt"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · I parëShqyrtoni dhe përdorni"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 0,
+    "focus": "builder-step-heading",
+    "heading": "Shqyrtoni dhe përdorni",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "01 · I parëDetyra"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "02 · I parëSjellja"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 183.6000061035156,
+        "text": "03 · I parëShembujt"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 357.20001220703125,
+        "text": "04 · AktualShqyrtoni dhe përdorni"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 390,
+    "requestedWidth": 390
+  },
+  {
+    "fields": 5,
+    "focus": "",
+    "heading": "What should your assistant help with?",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": "step",
+        "height": 78,
+        "right": 372,
+        "text": "01 · CurrentTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 734,
+        "text": "02 · Open stepBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 372,
+        "text": "03 · Open stepExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 734,
+        "text": "04 · Open stepReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 767,
+    "requestedWidth": 767
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "Behaviour",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 372,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 734,
+        "text": "02 · CurrentBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 372,
+        "text": "03 · Open stepExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 734,
+        "text": "04 · Open stepReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 767,
+    "requestedWidth": 767
+  },
+  {
+    "fields": 3,
+    "focus": "builder-step-heading",
+    "heading": "Examples",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 372,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 734,
+        "text": "02 · ViewedBehaviour"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 372,
+        "text": "03 · CurrentExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 734,
+        "text": "04 · Open stepReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 767,
+    "requestedWidth": 767
+  },
+  {
+    "fields": 0,
+    "focus": "builder-step-heading",
+    "heading": "Review & use",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 372,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 734,
+        "text": "02 · ViewedBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 372,
+        "text": "03 · ViewedExamples"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 734,
+        "text": "04 · CurrentReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 767,
+    "requestedWidth": 767
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "What should your assistant help with?",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": "step",
+        "height": 78,
+        "right": 491.40000915527344,
+        "text": "01 · CurrentTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 726.8000030517578,
+        "text": "02 · ViewedBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 491.40000915527344,
+        "text": "03 · ViewedExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 726.8000030517578,
+        "text": "04 · ViewedReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 768,
+    "requestedWidth": 768
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "Behaviour",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 491.40000915527344,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 726.8000030517578,
+        "text": "02 · CurrentBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 491.40000915527344,
+        "text": "03 · ViewedExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 726.8000030517578,
+        "text": "04 · ViewedReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 768,
+    "requestedWidth": 768
+  },
+  {
+    "fields": 3,
+    "focus": "builder-step-heading",
+    "heading": "Examples",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 491.40000915527344,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 726.8000030517578,
+        "text": "02 · ViewedBehaviour"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 491.40000915527344,
+        "text": "03 · CurrentExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 726.8000030517578,
+        "text": "04 · ViewedReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 768,
+    "requestedWidth": 768
+  },
+  {
+    "fields": 0,
+    "focus": "builder-step-heading",
+    "heading": "Review & use",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 491.40000915527344,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 726.8000030517578,
+        "text": "02 · ViewedBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 491.40000915527344,
+        "text": "03 · ViewedExamples"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 726.8000030517578,
+        "text": "04 · CurrentReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 768,
+    "requestedWidth": 768
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "What should your assistant help with?",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": "step",
+        "height": 78,
+        "right": 504.6999969482422,
+        "text": "01 · CurrentTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 747.4000091552734,
+        "text": "02 · ViewedBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 990.1000213623048,
+        "text": "03 · ViewedExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 1232.800033569336,
+        "text": "04 · ViewedReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 1280,
+    "requestedWidth": 1280
+  },
+  {
+    "fields": 5,
+    "focus": "builder-step-heading",
+    "heading": "Behaviour",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 504.6999969482422,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 747.4000091552734,
+        "text": "02 · CurrentBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 990.1000213623048,
+        "text": "03 · ViewedExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 1232.800033569336,
+        "text": "04 · ViewedReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 1280,
+    "requestedWidth": 1280
+  },
+  {
+    "fields": 3,
+    "focus": "builder-step-heading",
+    "heading": "Examples",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 504.6999969482422,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 747.4000091552734,
+        "text": "02 · ViewedBehaviour"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 990.1000213623048,
+        "text": "03 · CurrentExamples"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 1232.800033569336,
+        "text": "04 · ViewedReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 1280,
+    "requestedWidth": 1280
+  },
+  {
+    "fields": 0,
+    "focus": "builder-step-heading",
+    "heading": "Review & use",
+    "lang": "en",
+    "overflow": false,
+    "rawKeys": false,
+    "steps": [
+      {
+        "current": null,
+        "height": 78,
+        "right": 504.6999969482422,
+        "text": "01 · ViewedTask"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 747.4000091552734,
+        "text": "02 · ViewedBehaviour"
+      },
+      {
+        "current": null,
+        "height": 78,
+        "right": 990.1000213623048,
+        "text": "03 · ViewedExamples"
+      },
+      {
+        "current": "step",
+        "height": 78,
+        "right": 1232.800033569336,
+        "text": "04 · CurrentReview & use"
+      }
+    ],
+    "url": "http://127.0.0.1:4180/biz/builder.html",
+    "width": 1280,
+    "requestedWidth": 1280
+  }
+]
