@@ -22,6 +22,8 @@ AINOW now brings Education, Business and DEV into one shared web interface. The 
 
 Existing source IDs and local-state formats are preserved. Keep a workspace backup before moving to a different site address/browser or clearing browser data. This web release excludes native/prototype projects.
 
+For hosting, extract `AINOW-Literacy-web-v0.95.zip` into the site's web root. It excludes repository-only screenshots, QA reports, tools, native/prototype projects and rollback files. Keep its `assets/`, `edu/`, `biz/` and `dev/` folders together with the root HTML/PWA files. Required licence and attribution files remain included. The complete repository ZIP is for source review and contribution.
+
 ## Verification and release gates
 
 Local evidence covers 114 automated checks, including three security regressions, desktop/mobile walkthroughs, translated search and controls, history navigation, storage failures, backup isolation, content/source integrity and origin-unavailable browsing. Cleanup removes retired renderers, dead navigation/configuration, obsolete styles and decorative button glows while retaining original content and licence notices. Archives are CRC checked and source matched. Checksums accompany the release downloads. The final GitHub CodeQL result is verified on the release commit before publication.

@@ -26,6 +26,7 @@ def public_files():
     for folder in PUBLIC_ROOTS:
         paths.extend(p for p in (ROOT / folder).rglob('*') if p.is_file()
                      and not any(x.startswith('.') or x in SKIP for x in p.relative_to(ROOT).parts)
+                     and not p.is_relative_to(ROOT / 'assets/screenshots')
                      and p.suffix.lower() not in {'.zip', '.pyc', '.bak'})
     return sorted(set(paths))
 
@@ -80,6 +81,7 @@ if __name__ == '__main__':
     source += [ROOT / 'docs/web-v095/prompt-launcher' / name for name in ('README.md', 'browser-checks.json', 'interaction-checks.json', 'runtime-changes.json', 'static-checks.json', 'tests.tap', 'source-tests.tap', 'source-verification.json', 'package-verification.json', '03-edu-sq-dark-390.jpg', '05-edu-default-preview.jpg')]
     source += [ROOT / 'docs/web-v095/release-final' / name for name in ('README.md', 'rollback.json', 'cleanup.json', 'isolation.json', 'version-checks.json', 'static-checks.json', 'tests.tap', 'source-tests.tap', 'source-verification.json', 'package-verification.json', 'comments-review.json', 'comments-before.json', 'comments-after.json', 'unused-bindings-before.json', 'unused-bindings-after.json', 'browser-smoke.json', 'guide-check.json', 'glow-checks.json', '01-pagination-flat.jpg')]
     source += list((ROOT / 'scripts').glob('verify-*.cjs'))
+    source += list((ROOT / 'assets/screenshots').glob('*.png'))
     source += [ROOT / 'docs/web-v095/security-release' / name for name in ('README.md', 'local-review.json', 'tests.tap')]
     source += [ROOT / 'scripts/serve-web.py', ROOT / 'scripts/package-web.py', ROOT / 'dev/tools/sync-content.py']
     report = {'version': '0.95', 'date': '2026-10-24', 'deployed': False,

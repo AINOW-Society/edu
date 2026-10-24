@@ -17,8 +17,10 @@
     7,
     8,
     9,
-    10
+    10,
+    11
   ],
   "originalAlertsClosedByFirstAnalysis": true,
-  "brandSvgBytesPreservedByGitAttributes": true
+  "brandSvgBytesPreservedByGitAttributes": true,
+  "hostingPackageExcludesRepositoryScreenshots": true
 }
