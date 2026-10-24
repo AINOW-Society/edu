@@ -71,7 +71,7 @@ Then check the actual browser UI: desktop sidebar, 320px and 390px mobile layout
 2. Advance matching entry-document asset revisions and affected service-worker cache names. Shared changes affect root, EDU, BIZ and DEV workers. Update matching verification fixtures. The old EDU-only bump helper does not cover the platform.
 3. Maintain `assets/platform-files.js` and the generated `dev/offline-files.js` when shared assets change. Preserve source notices in `THIRD_PARTY_NOTICES.md`.
 4. Run the applicable checks and inspect the UI. Check cached content with the origin unavailable; record the setup and limitations. Real-device and final-hosting checks are separate.
-5. Run `python -X utf8 scripts/package-web.py`. Verify the web/source archives, checksums and portable tests from the extracted source archive.
+5. Run `python -X utf8 scripts/package-web.py`. It creates one app ZIP, `dist/AINOW-Literacy-v0.95.zip`. Verify its checksum and contents; extract it and open `index.html`. Publish that ZIP under the release titled exactly `v0.95`. Source remains available in GitHub; do not add separate hosting/source downloads.
 6. Review the exact Git diff and file list before staging. Local native/prototype folders, raw incoming media, personal paths, generated archives and private tooling are outside the web release. Never stage the whole maintainer workspace blindly.
 7. Publish or deploy only after owner authorization and the remaining release checks. Do not attach stale candidate ZIPs to a newer source revision.
 

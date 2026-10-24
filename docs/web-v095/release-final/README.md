@@ -1,5 +1,7 @@
 # v0.95 release handoff — 24 October 2026
 
+Current distribution: one release titled [v0.95](https://github.com/AINOW-Society/edu/releases/tag/v0.95), with one `AINOW-Literacy-v0.95.zip` app download. Extract the complete folder and open `index.html`. The local preparation and QA history below predates publication.
+
 **The web code and UI are prepared locally as v0.95.** Publication, deployment, Git commit/tag/push and native rebuilds have not been performed. Physical-phone, screen-reader and final-hosting sign-off remain pending.
 
 ## Final cleanup
@@ -30,12 +32,10 @@ The preceding reviews remain supporting evidence: [final audit](../final-audit/R
 
 The browser tool exceeded its execution deadline while navigating to DEV during the startup walkthrough. Already completed observations were saved individually; the remaining DEV and shared-page checks were resumed and verified. No timeout was counted as a pass.
 
-## Prepared artifacts
+## Release download
 
-- `dist/AINOW-Literacy-web-v0.95.zip`: ordinary static hosting/local-folder package.
-- `dist/AINOW-Literacy-web-v0.95-source.zip`: matching web source, notices, maintainer instructions and portable checks.
-- `dist/AINOW-Literacy-web-v0.95-checksums.json`: file counts, archive SHA256 values and verification status.
+- `dist/AINOW-Literacy-v0.95.zip`: the complete downloadable app. Extract it and open `index.html`.
 
-Rebuild with `python -X utf8 scripts/package-web.py`. The runtime ZIP excludes native/prototype projects, maintainer tools, review history and rollback archives. The source ZIP includes the relevant review reports and current content-sync helper; that helper requires the full checkout's read-only canonical reference, while the portable tests and runtime do not. GPLv3 and original third-party terms remain in place.
+Rebuild with `python -X utf8 scripts/package-web.py`. This creates one app ZIP and a local verification report. The app excludes native/prototype projects, maintainer tools, review history and rollback archives. Source and review reports remain in the repository. GPLv3 and original third-party terms remain in place.
 
 Before publication, complete real-phone touch/keyboard/large-text review, screen-reader review and the final hosted cache-update check. The inherited local Tailwind browser bundle still emits its upstream production warning; its bytes/notices are preserved and it makes no CDN request. No external AI tool was opened and no real saved-work reset/restore was performed during this final review.

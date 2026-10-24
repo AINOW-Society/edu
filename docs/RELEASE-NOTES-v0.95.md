@@ -18,11 +18,11 @@ AINOW now brings Education, Business and DEV into one shared web interface. The 
 
 ## Distribution and compatibility
 
-`AINOW-Literacy-v0.95.zip` contains the complete tagged web repository, following the v0.94 release format. `AINOW-Literacy-web-v0.95.zip` contains only the static website for hosting or complete-folder local use. The source includes portable checks and maintainer instructions. SHA-256 checksums accompany the downloads. Service workers use distinct root/EDU/BIZ/DEV caches. External tools and publisher websites require connectivity.
+There is one release, **v0.95**, with one app download: `AINOW-Literacy-v0.95.zip`. Extract the complete folder and open `index.html`. No installation, server or account is required. Keep `assets/`, `edu/`, `biz/`, `dev/` and the root files together. The release description includes the ZIP's SHA-256 checksum; source is available from the repository. External AI apps and publisher websites require connectivity.
 
 Existing source IDs and local-state formats are preserved. Keep a workspace backup before moving to a different site address/browser or clearing browser data. This web release excludes native/prototype projects.
 
-For hosting, extract `AINOW-Literacy-web-v0.95.zip` into the site's web root. It excludes repository-only screenshots, QA reports, tools, native/prototype projects and rollback files. Keep its `assets/`, `edu/`, `biz/` and `dev/` folders together with the root HTML/PWA files. Required licence and attribution files remain included. The complete repository ZIP is for source review and contribution.
+The app ZIP excludes repository-only screenshots, QA reports, maintainer tools, native/prototype projects and rollback files. Required licence and attribution files remain included. Android remains an internal project.
 
 ## Verification and release gates
 

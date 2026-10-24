@@ -36,3 +36,5 @@ On 2026-10-20 the owner explicitly switched this task to the web project and con
 - Business and DEV use the actual shared Scratchpad component in biz/src/components.js. DEV passes its notes through its own commit adapter; do not read/write Business notes from DEV. Legacy #/notes links open the drawer. Keep the editor plain, with no green frame, and preserve copy, focus, Escape and autosave behavior.
 
 - Keep buttons and pagination flat: no decorative coloured shadow/glow. Preserve visible keyboard focus outlines and the existing neutral dialog depth.
+
+- The owner clarified distribution on 2026-10-24: one release titled exactly `v0.95`, with one uploaded app ZIP named `AINOW-Literacy-v0.95.zip`. Users extract the complete folder and open `index.html`. Do not split the release into hosting/web/source packages or add a promotional subtitle. Android remains internal and excluded.

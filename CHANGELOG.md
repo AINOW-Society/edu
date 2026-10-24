@@ -4,7 +4,7 @@ Changes are listed by version. Earlier entries describe their release at that ti
 
 ## v0.95 — 24 October 2026
 
-GitHub release: [v0.95](https://github.com/AINOW-Society/edu/releases/tag/v0.95). Hosting deployment is separate from this release.
+GitHub release: [v0.95](https://github.com/AINOW-Society/edu/releases/tag/v0.95). Download the app ZIP, extract the complete folder and open `index.html`.
 
 ### Added
 
@@ -12,7 +12,7 @@ GitHub release: [v0.95](https://github.com/AINOW-Society/edu/releases/tag/v0.95)
 - Interactive learning examples, six practice checks, original skill-file readers and a provider-neutral context calculator.
 - Platform-wide Help, About and Settings. Help explains practical tasks with worked examples and one-open FAQs. Settings manages language, appearance and separate Business/DEV backups.
 - Programme overview with the original AINOW wordmark, all eight Society priorities and the AI Balkans project. Services leads with AINOW training and learning support.
-- Reproducible static-web and corresponding-source ZIPs, checksums, GPLv3 text and third-party notices.
+- One reproducible downloadable app ZIP with an integrity manifest, GPLv3 text and third-party notices. The release description includes its SHA-256 checksum.
 
 ### Changed
 

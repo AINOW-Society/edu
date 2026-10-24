@@ -61,7 +61,7 @@ node --test dev/tools/verify-web.cjs scripts/verify-smooth-start.cjs scripts/ver
 python -X utf8 scripts/package-web.py
 ```
 
-The packager creates a public static ZIP, a corresponding-source ZIP and a checksum report in `dist/`. Every entry is CRC checked and SHA256 matched against current source. It excludes Android, the prototype, Git/local tooling state, tests/tools from the runtime folder, old review screenshots and backup archives. The source archive adds the web instructions and portable checks. The full historical review folder is maintainer-only and is not shipped; screenshots linked by this review remain in the checkout. The candidate keeps GPL and original vendor/catalogue/brand provenance files.
+The current packager creates one `AINOW-Literacy-v0.95.zip` app download and a local checksum report in `dist/`. Extract the complete folder and open `index.html`. Every entry is CRC checked and SHA256 matched against source. The app excludes Android, the prototype, Git/local tooling state, tests/tools, old review screenshots and backup archives. Source and portable checks remain in the repository. The historical review below records local preparation; it is not a second release or another downloadable app. GPL and original vendor/catalogue/brand provenance files remain included.
 
 ## Remaining review limits
 
