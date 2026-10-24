@@ -160,7 +160,7 @@ test('the shared language picker does not close on its own opening click',()=>{
 
 test('Business enables offline caching on loopback and the chooser caches its local images',()=>{
   for(const file of ['biz/index.html','biz/agents.html','biz/builder.html','biz/playbooks.html']){
-    const script=[...read(file).matchAll(/<script>([\s\S]*?)<\/script\s*>/gi)].map(x=>x[1]).find(x=>x.includes('serviceWorker'));
+    const script=[...read(file).matchAll(/<script>([\s\S]*?)<\/script\b[^>]*>/gi)].map(x=>x[1]).find(x=>x.includes('serviceWorker'));
     const registered=[];vm.runInNewContext(script,{location:{hostname:'127.0.0.1',protocol:'http:'},localStorage:{getItem:()=>null},document:{documentElement:{classList:{toggle(){}}}},navigator:{serviceWorker:{register:path=>{registered.push(path);return Promise.resolve();}}}});
     assert.deepEqual(registered,['./sw.js'],file);
   }

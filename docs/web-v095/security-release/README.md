@@ -11,6 +11,6 @@ The owner requested a review of GitHub's three open high-severity CodeQL alerts 
 
 The GitHub scan must analyse the pushed commit before the release is published. The release page records that final remote result. Alerts are fixed in source rather than dismissed or suppressed.
 
-The first post-push analysis closed the original three alerts and identified checks in the newly published test helpers. URL checks now compare parsed destinations, and HTML script checks handle upper-case tags and whitespace in closing tags. Git attributes preserve original brand SVG bytes so the extracted repository retains the recorded artwork hashes. Portable checks are rerun on the extracted final Git archive before publication.
+The first post-push analysis closed the original three alerts and identified checks in the newly published test helpers. URL checks now compare parsed destinations, and HTML script checks handle upper-case tags, whitespace and extra closing-tag attributes accepted by browsers. Git attributes preserve original brand SVG bytes so the extracted repository retains the recorded artwork hashes. Portable checks are rerun on the extracted final Git archive before publication.
 
 This security follow-up does not replace the earlier viewport, offline and interaction reviews. Physical-phone, screen-reader and final-hosting cache-update sign-off remain separate checks.

@@ -27,7 +27,7 @@ test('public entry documents resolve local scripts, styles and CSS assets withou
       if (dependency?.endsWith('.js')) scripts.add(dependency);
       if (dependency?.endsWith('.css')) styles.add(dependency);
     }
-    for(const match of source.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi)) {
+    for(const match of source.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\b[^>]*>/gi)) {
       if (/\bsrc=/.test(match[1]) || !match[2].trim()) continue;
       if (match[1].includes('application/ld+json')) {JSON.parse(match[2]);stats.parsedJsonLd++;}
       else {new vm.Script(match[2],{filename:file+':inline'});stats.parsedInlineScripts++;}
